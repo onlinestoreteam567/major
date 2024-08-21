@@ -1,3 +1,4 @@
+import AppRouter from './router/AppRouter'
 import cl from './styles/app.module.css'
 
 function App() {
@@ -5,7 +6,7 @@ function App() {
   return (
     <>
       <div className={cl.test}>
-       app
+       <AppRouter />
       </div>
     </>
   )
