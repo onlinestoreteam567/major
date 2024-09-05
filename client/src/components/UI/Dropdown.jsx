@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Dropdown =  () => {
-    const DropdownItems = ["Карл", "У", "Клари", "Вкрав", "Корали"];
+    const DropdownItems = ['Home', 'About', 'Main', 'Story'];
     const [open, setOpen] = useState(false);
     return( 
         <div className="dropdownMenu">
