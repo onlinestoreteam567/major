@@ -1,0 +1,7 @@
+.testScss {
+    background-color: rgb(181, 203, 212);
+    height: 80px;
+    &:hover {
+        background-color: rgb(37, 158, 206);
+    }
+}

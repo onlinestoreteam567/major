@@ -1,5 +1,5 @@
 import AppRouter from './router/AppRouter'
-import cl from './styles/app.module.css'
+import cl from './styles/app.module.scss'
 
 function App() {
 
