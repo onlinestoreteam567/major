@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
 import ProfilePage from '../pages/ProfilePage';
+import Redux from './test-components/redux';
 
 // lazy loading
 const Home = lazy(() => import('../pages/HomePage'));
@@ -21,6 +22,10 @@ const AppRouter = () => {
                     <Route element={<MainLayout />}>
                         <Route path="/" element={<Home />} />
                         <Route path="/profile" element={<ProfilePage />} />
+                        
+                        {/* Test Routes for developing */}
+                        <Route path="/redux" element={<Redux />} />
+                        {/* Auth Routes */}
                     </Route>
 
                     {/* Auth Routes */}
