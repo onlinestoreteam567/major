@@ -8,6 +8,7 @@ const MainBanner = () => {
   let sliderRef = useRef(null);
 
   const settings = {
+    fade: true,
     accessibility: true,
     dots: true,
     infinite: true,

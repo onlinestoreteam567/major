@@ -1,0 +1,41 @@
+.card {
+  width: 80%;
+}
+
+.arrow {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.starsImageSection {
+  display: flex;
+  gap: 4px;
+
+  span {
+    font-family: inter;
+    line-height: 19.2px;
+    font-size: 16px;
+    color: #c0c0c0;
+  }
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    color: #22211f;
+    font-weight: 700;
+    font-synthesis: weight;
+    font-family: Oswald;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.hryvniaSymbol {
+  display: inline !important;
+}
