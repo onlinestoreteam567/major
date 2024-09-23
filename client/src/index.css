@@ -31,6 +31,10 @@ h1 {
   line-height: 1.1;
 }
 
+li {
+  list-style: none;
+}
+
 /* Banner Styles */
 
 /* For dots */
