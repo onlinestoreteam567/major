@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import styles from "./index.module.scss";
 
+// Some change
+
 // Array of products example
 const products = [
   { id: 1, name: "Laptop" },
