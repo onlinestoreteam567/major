@@ -1,14 +1,15 @@
-import AppRouter from './router/AppRouter'
+import AppRouter from "./router/AppRouter";
+
+// Some test changes for new branch
 
 function App() {
-
   return (
     <>
       <div>
-       <AppRouter />
+        <AppRouter />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
