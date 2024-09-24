@@ -1,38 +1,49 @@
+// Import styles
+@import './styles/variables.scss';
+@import './styles/mixins.scss';
+
+// Global styles
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  /* color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
-
+  font-family: $font-family-base;
+  line-height: $line-height-base;
+  font-weight: $font-weight-base;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: $font-smoothing;
+  -moz-osx-font-smoothing: $moz-font-smoothing;
 }
 
+// Anchor tags
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  font-weight: $font-weight-bold;
+  color: $primary-link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-link-hover-color;
+  }
 }
 
+// Body styles
 body {
   margin: 0;
+  padding: 0; 
+  background-color: $background-color-light; 
+  color: $text-color-light;
 }
 
+// Headings
 h1 {
-  font-size: 3.2em;
+  font-size: $font-size-large;
   line-height: 1.1;
+  margin: 0; 
 }
 
+// Lists
 li {
   list-style: none;
+  padding: 0;
+  margin: 0; 
 }
 
 /* Banner Styles */

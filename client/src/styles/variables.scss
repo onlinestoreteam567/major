@@ -1,0 +1,27 @@
+// Color Variables
+$primary-color: #3498db; // Primary theme color
+$secondary-color: #2ecc71; // Secondary theme color
+$primary-link-color: #646cff; // Link color
+$primary-link-hover-color: #535bf2; // Link hover color
+$background-color-light: #ffffff; // Light background color
+$background-color-dark: #242424; // Dark background color
+$text-color-light: rgba(255, 255, 255, 0.87); // Light text color
+
+// Font Variables
+$font-main: 'Roboto', sans-serif; // Main font for the application
+$font-family-base: $font-main, system-ui, Avenir, Helvetica, Arial, sans-serif; // Base font family
+$font-size-base: 16px; // Base font size
+$font-size-large: 3.2em; // Large font size for headings
+
+// Typography
+$line-height-base: 1.5; // Base line height
+$font-weight-base: 400; // Base font weight
+$font-weight-bold: 500; // Bold font weight
+
+// Spacing & Dimensions
+$border-radius: 4px; // Base border radius for elements
+$box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1); // Light box shadow for elements
+
+// Miscellaneous
+$font-smoothing: antialiased; // Font smoothing for better rendering
+$moz-font-smoothing: grayscale; // Font smoothing for Firefox
