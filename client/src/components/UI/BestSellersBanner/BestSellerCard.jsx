@@ -2,6 +2,8 @@ import styles from "./index.module.scss";
 import stars from "../../../assets/svg/banners/stars.svg";
 import hryvniaSymbol from "../../../assets/svg/hryvnia.svg";
 
+// Change..
+
 const BestSellerCard = ({ cardData }) => {
   return (
     <div className={styles.card}>
