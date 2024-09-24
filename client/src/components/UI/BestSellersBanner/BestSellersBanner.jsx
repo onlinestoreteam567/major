@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import { useRef } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "./index.module.scss";
+import cl from "./index.module.scss";
 import leftArrow from "../../../assets/svg/banners/arrowLeft.svg";
 import rightArrow from "../../../assets/svg/banners/arrowRight.svg";
 import BestSellerCard from "./BestSellerCard";
@@ -62,10 +62,10 @@ const BestSellersBanner = () => {
   return (
     <div className="slider-container">
       <div style={{ textAlign: "end" }}>
-        <button className={`button ${styles.arrow}`} onClick={previous}>
+        <button className={`button ${cl.arrow}`} onClick={previous}>
           <img src={leftArrow} alt="Button for previous slide" />
         </button>
-        <button className={`button ${styles.arrow}`} onClick={next}>
+        <button className={`button ${cl.arrow}`} onClick={next}>
           <img src={rightArrow} alt="Button for next slide" />
         </button>
       </div>

@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import { useRef } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "./index.module.scss";
+import cl from "./index.module.scss";
 
 const MainBanner = () => {
   let sliderRef = useRef(null);
@@ -26,9 +26,9 @@ const MainBanner = () => {
         }}
         {...settings}
       >
-        <div className={`${styles.slide} ${styles.firstSlide}`}></div>
-        <div className={`${styles.slide} ${styles.secondSlide}`}></div>
-        <div className={`${styles.slide} ${styles.thirdSlide}`}></div>
+        <div className={`${cl.slide} ${cl.firstSlide}`}></div>
+        <div className={`${cl.slide} ${cl.secondSlide}`}></div>
+        <div className={`${cl.slide} ${cl.thirdSlide}`}></div>
       </Slider>
     </div>
   );
