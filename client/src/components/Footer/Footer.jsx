@@ -1,9 +1,99 @@
-import cl from './index.module.scss'
+import styles from "./index.module.scss";
+import logoIcon from "../../assets/svg/footerLogo.svg";
+import telegramIcon from "../../assets/svg/telegram.svg";
+import instagramIcon from "../../assets/svg/instagram.svg";
+import gmailIcon from "../../assets/svg/gmail.svg";
+import calendarIcon from "./../../assets/svg/calendar.svg";
+import phoneCallIcon from "./../../assets/svg/phoneCall.svg";
 
 const Footer = () => {
   return (
-      <div className={cl.testScss}>Footer</div>
-  )
-}
+    <footer>
+      <section className={styles.topSection}>
+        <section className={styles.logoAndSocialsSection}>
+          <img src={logoIcon} alt="Site logo" />
+          <section>
+            <p>Ми у соціальних мережах:</p>
+            <ul>
+              <li>
+                <a href="">
+                  <img src={telegramIcon} alt="Our telegram" />
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src={instagramIcon} alt="Our instagram" />
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <img src={gmailIcon} alt="Our gmail" />
+                </a>
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <ul className={styles.ulNavigation}>
+            <li>
+              <a href="">Головна</a>
+            </li>
+            <li>
+              <a href="">Каталог</a>
+            </li>
+            <li>
+              <a href="">Про нас</a>
+            </li>
+            <li>
+              <a href="">Блог</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <ul className={styles.ulNavigation}>
+            <li>
+              <a href="">Співпраця</a>
+            </li>
+            <li>
+              <a href="">Обмін та повернення</a>
+            </li>
+            <li>
+              <a href="">Оплата та доставка</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <p className={styles.titleFooterWithCalendarIcon}>
+              <img src={calendarIcon} alt="Calendar icon" />{" "}
+              <span>Режим роботи</span>
+            </p>
+            <ul className={styles.ulFooter}>
+              <li>Пн - Пт: 8:00 - 20:00</li>
+              <li>Сб - Нд: 10:00 - 15:00</li>
+            </ul>
+          </section>
+          <section>
+            <ul className={styles.ulFooter}>
+              <li className={styles.phoneCallLi}>
+                <img
+                  className={styles.phoneCallIcon}
+                  src={phoneCallIcon}
+                  alt="Phone call icon"
+                />
+                <span>+38 (096) 327 77 34</span>
+              </li>
+              <li>+38 (050) 123 84 99</li>
+            </ul>
+          </section>
+        </section>
+      </section>
+      <section className={styles.bottomSection}>
+        <hr />
+        <p>© Major.com.ua, 2024-2025,Інтернет-магазин. Всі права захищені.</p>
+      </section>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

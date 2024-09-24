@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-import logoIcon from "../../assets/svg/logo.svg";
+import logoIcon from "../../assets/svg/headerLogo.svg";
 import searchIcon from "../../assets/svg/search.svg";
 import uaIcon from "../../assets/svg/ua.svg";
 import bagIcon from "../../assets/svg/bag.svg";
