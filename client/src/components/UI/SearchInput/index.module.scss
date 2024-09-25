@@ -1,10 +1,12 @@
+@import "../../../styles/variables.scss";
+
 // Some styles in future
 
 .searchInput {
   border: 1px solid #ccc;
   padding: 8px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: $font-size-base;
   width: 200px;
   height: 5px;
   max-width: 400px;
