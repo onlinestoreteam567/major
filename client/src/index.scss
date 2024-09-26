@@ -1,6 +1,6 @@
 // Import styles
-@import './styles/variables.scss';
-@import './styles/mixins.scss';
+@import "./styles/variables.scss";
+@import "./styles/mixins.scss";
 
 // Global styles
 :root {
@@ -16,19 +16,19 @@
 // Anchor tags
 a {
   font-weight: $font-weight-bold;
-  color: $primary-link-color;
+  // color: $primary-link-color;
   text-decoration: none;
 
-  &:hover {
-    color: $primary-link-hover-color;
-  }
+  // &:hover {
+  // color: $primary-link-hover-color;
+  // }
 }
 
 // Body styles
 body {
   margin: 0;
-  padding: 0; 
-  background-color: $background-color-light; 
+  padding: 0;
+  background-color: $background-color-light;
   color: $text-color-light;
 }
 
@@ -36,14 +36,14 @@ body {
 h1 {
   font-size: $font-size-large;
   line-height: 1.1;
-  margin: 0; 
+  margin: 0;
 }
 
 // Lists
 li {
   list-style: none;
   padding: 0;
-  margin: 0; 
+  margin: 0;
 }
 
 /* Banner Styles */

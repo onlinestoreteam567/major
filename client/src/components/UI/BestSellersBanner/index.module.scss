@@ -1,3 +1,5 @@
+@import "../../../styles/variables.scss";
+
 .card {
   width: 80%;
 }
@@ -15,7 +17,7 @@
   span {
     font-family: inter;
     line-height: 19.2px;
-    font-size: 16px;
+    font-size: $font-size-base;
     color: #c0c0c0;
   }
 }
@@ -27,9 +29,9 @@
 
   h3 {
     color: #22211f;
-    font-weight: 700;
+    font-weight: $font-weight-bold;
     font-synthesis: weight;
-    font-family: Oswald;
+    font-family: $font-main;
     display: flex;
     align-items: center;
     gap: 8px;
