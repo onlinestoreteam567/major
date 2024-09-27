@@ -39,6 +39,12 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 18px;
+
+    li {
+      a {
+        color: white;
+      }
+    }
   }
 
   .ulFooter {
