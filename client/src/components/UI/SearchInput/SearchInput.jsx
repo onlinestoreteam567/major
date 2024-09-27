@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import PropTypes from "prop-types";
 import styles from "./index.module.scss";
 
 // Some change
@@ -50,19 +51,21 @@ function SearchInput({ setIsShowInput }) {
         value={inputValue}
       />
 
-      <ul>
-        {inputValue && filteredProducts.length > 0 ? (
-          <ul>
-            {filteredProducts.map((product) => (
-              <li key={product.id}>{product.name}</li>
-            ))}
-          </ul>
-        ) : (
-          inputValue && <p>No products found</p>
-        )}
-      </ul>
+      {inputValue && filteredProducts.length > 0 ? (
+        <ul>
+          {filteredProducts.map((product) => (
+            <li key={product.id}>{product.name}</li>
+          ))}
+        </ul>
+      ) : (
+        inputValue && <p>No products found</p>
+      )}
     </>
   );
 }
+
+SearchInput.propTypes = {
+  setIsShowInput: PropTypes.func.isRequired,
+};
 
 export default SearchInput;

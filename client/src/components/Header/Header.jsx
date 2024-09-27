@@ -29,20 +29,17 @@ const Header = () => {
           </ul>
         </nav>
         <section className={cl.rightSection}>
-          <section className={cl.inputSection}>
-            {isShowInput && <SearchInput setIsShowInput={setIsShowInput} />}
-          </section>
-          <section className={cl.iconSection}>
-            {!isShowInput && (
-              <img
-                src={searchIcon}
-                alt="Search bar icon"
-                onClick={handleShowInput}
-              />
-            )}
-            <img src={uaIcon} alt="Change language icon" />
-            <img src={bagIcon} alt="Bag icon" />
-          </section>
+          {isShowInput ? (
+            <SearchInput setIsShowInput={setIsShowInput} />
+          ) : (
+            <img
+              src={searchIcon}
+              alt="Search bar icon"
+              onClick={handleShowInput}
+            />
+          )}
+          <img src={uaIcon} alt="Change language icon" />
+          <img src={bagIcon} alt="Bag icon" />
         </section>
       </div>
     </header>

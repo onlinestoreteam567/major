@@ -45,20 +45,11 @@ nav {
 
 .rightSection {
   width: 100%;
-  @include flex(row, space-between);
+  @include flex(row, end);
+  gap: 24px;
   justify-self: end;
 
-  .inputSection {
-    @include flex;
-  }
-
-  .iconSection {
-    @include flex(row, end, null);
-    width: 118px;
-    gap: 24px;
-
-    img {
-      cursor: pointer;
-    }
+  img {
+    cursor: pointer;
   }
 }
