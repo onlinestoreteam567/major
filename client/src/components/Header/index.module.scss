@@ -9,18 +9,21 @@ header {
 }
 
 .mainWrapper {
-  @include flex(row, space-between, null);
-  padding: 31px 5% 0 5%;
+  display: grid;
+  grid-template-columns: 1fr 5.2fr 3fr;
+  padding: 31px 4% 0 5%;
 }
 
 .logoIcon {
   cursor: pointer;
 }
 
-.navigation {
+nav {
+  padding-left: 190px;
+
   ul {
     display: flex;
-    gap: 48px;
+    gap: 40px;
 
     li {
       cursor: pointer;
@@ -40,8 +43,22 @@ header {
   }
 }
 
-.rightIconsSection {
-  width: 128px;
+.rightSection {
+  width: 100%;
   @include flex(row, space-between);
-  cursor: pointer;
+  justify-self: end;
+
+  .inputSection {
+    @include flex;
+  }
+
+  .iconSection {
+    @include flex(row, end, null);
+    width: 118px;
+    gap: 24px;
+
+    img {
+      cursor: pointer;
+    }
+  }
 }

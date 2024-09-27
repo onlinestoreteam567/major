@@ -10,6 +10,7 @@ $font-main: "Oswald", sans-serif; // Main font for the application
 $font-family-base: $font-main, system-ui, Avenir, Helvetica, Arial, sans-serif; // Base font family
 
 // Font Sizes
+$font-size-small: 14px; // Base font size
 $font-size-base: 16px; // Base font size
 $font-size-medium: 18px; // Base font size
 //? Why we need $font-size-large: 3.2em;, if our header font-size is 18px?

@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import cl from "./index.module.scss";
+import styles from "./index.module.scss";
 
 // Some change
 
@@ -17,8 +17,14 @@ const products = [
   { id: 10, name: "Water Bottle" },
 ];
 
-function SearchInput() {
+function SearchInput({ setIsShowInput }) {
   const [inputValue, setInputValue] = useState("");
+
+  const handleCloseInput = () => {
+    setIsShowInput(false);
+    console.log(123);
+  };
+
   const handleInput = (e) => {
     setInputValue(e.target.value);
   };
@@ -36,9 +42,11 @@ function SearchInput() {
   return (
     <>
       <input
-        className={cl.searchInput}
+        className={styles.searchInput}
         type="text"
+        placeholder="Я шукаю..."
         onChange={handleInput}
+        onBlur={handleCloseInput}
         value={inputValue}
       />
 
