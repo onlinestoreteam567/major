@@ -25,7 +25,6 @@ const AppRouter = () => {
                         
                         {/* Test Routes for developing */}
                         <Route path="/redux" element={<Redux />} />
-                        {/* Auth Routes */}
                     </Route>
 
                     {/* Auth Routes */}
