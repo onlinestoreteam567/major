@@ -1,16 +1,16 @@
-import styles from "./index.module.scss";
-import logoIcon from "../../assets/svg/logo.svg";
-import searchIcon from "../../assets/svg/search.svg";
-import uaIcon from "../../assets/svg/ua.svg";
-import bagIcon from "../../assets/svg/bag.svg";
+import cl from "./index.module.scss";
+import logoIcon from "../../assets/svg/header/headerLogo.svg";
+import searchIcon from "../../assets/svg/header/search.svg";
+import uaIcon from "../../assets/svg/header/ua.svg";
+import bagIcon from "../../assets/svg/header/bag.svg";
 const Header = () => {
   return (
     <header>
-      <div className={styles.mainWrapper}>
+      <div className={cl.mainWrapper}>
         <section>
-          <img src={logoIcon} alt="Site logo" className={styles.logoIcon} />
+          <img src={logoIcon} alt="Site logo" className={cl.logoIcon} />
         </section>
-        <nav className={styles.navigation}>
+        <nav className={cl.navigation}>
           <ul>
             <li>КАТАЛОГ</li>
             <li>ПРО НАС</li>
@@ -19,7 +19,7 @@ const Header = () => {
             <li>КОНТАКТИ</li>
           </ul>
         </nav>
-        <section className={styles.rightIconsSection}>
+        <section className={cl.rightIconsSection}>
           <img src={searchIcon} alt="Search bar icon" />
           <img src={uaIcon} alt="Change language icon" />
           <img src={bagIcon} alt="Bag icon" />

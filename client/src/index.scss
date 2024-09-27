@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: $moz-font-smoothing;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 // Anchor tags
 a {
   font-weight: $font-weight-bold;
@@ -26,10 +30,22 @@ a {
 
 // Body styles
 body {
+  font-weight: 500;
+  color: white;
+  text-decoration: inherit;
+}
+
+body,
+p,
+ul {
   margin: 0;
   padding: 0;
   background-color: $background-color-light;
   color: $text-color-light;
+}
+
+ul {
+  padding: 0;
 }
 
 // Headings

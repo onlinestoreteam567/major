@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import styles from "./index.module.scss";
+import cl from "./index.module.scss";
 
 // Some change
 
@@ -36,7 +36,7 @@ function SearchInput() {
   return (
     <>
       <input
-        className={styles.searchInput}
+        className={cl.searchInput}
         type="text"
         onChange={handleInput}
         value={inputValue}

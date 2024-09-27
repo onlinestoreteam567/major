@@ -1,7 +1,85 @@
-.testScss {
-    background-color: rgb(181, 203, 212);
-    height: 80px;
-    &:hover {
-        background-color: rgb(37, 158, 206);
+footer {
+  box-sizing: border-box;
+  padding-top: 48px;
+  height: 312px;
+  max-height: 312px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  font-family: Oswald;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24.48px;
+  letter-spacing: 0.08em;
+}
+
+.topSection {
+  height: 254px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  .logoAndSocialsSection {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 234px;
+    gap: 30px;
+
+    ul {
+      display: flex;
+      gap: 24px;
+      margin-top: 16px;
     }
+  }
+
+  .ulNavigation {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .ulFooter {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .titleFooterWithCalendarIcon {
+    display: flex;
+    gap: 16px;
+    margin-left: -34px;
+  }
+
+  .phoneCallLi {
+    display: flex;
+    gap: 6px;
+    margin-left: -35px;
+  }
+
+  .phoneCallIcon {
+    user-select: none;
+    margin-right: 5px;
+  }
+}
+
+.bottomSection {
+  height: 57px;
+  width: 100%;
+
+  hr {
+    height: 1px;
+    color: #a2a2a2;
+    width: 97%;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+  }
 }
