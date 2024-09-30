@@ -1,24 +1,43 @@
 import cl from "./index.module.scss";
-import logoIcon from "../../assets/svg/header/logo.svg";
-import searchIcon from "../../assets/svg/header/search.svg";
-import uaIcon from "../../assets/svg/header/ua.svg";
-import bagIcon from "../../assets/svg/header/bag.svg";
+import LogoIcon from "../../assets/svg/header/LogoIcon";
+import SearchIcon from "../../assets/svg/header/SearchIcon";
+import UaIcon from "../../assets/svg/header/UaIcon";
+import BagIcon from "../../assets/svg/header/BagIcon";
 import SearchInput from "../UI/SearchInput/SearchInput";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import EnIcon from "../../assets/svg/header/EnIcon";
 
 const Header = () => {
   const [isShowInput, setIsShowInput] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isLanguageDefault, setIsLanguageDefault] = useState(true);
 
   const handleShowInput = () => {
     setIsShowInput(true);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY > 1;
+
+      if (scrollY !== isScrolled) {
+        setIsScrolled(scrollY);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isScrolled]);
+
   return (
-    <header>
+    <header className={isScrolled ? cl.headerScrolled : ""}>
       <div className={cl.mainWrapper}>
-        <section>
-          <img src={logoIcon} alt="Site logo" className={cl.logoIcon} />
-        </section>
+        <i>
+          <LogoIcon fillColor={isScrolled ? "white" : "black"} />
+        </i>
         <nav>
           <ul>
             <li>КАТАЛОГ</li>
@@ -32,14 +51,26 @@ const Header = () => {
           {isShowInput ? (
             <SearchInput setIsShowInput={setIsShowInput} />
           ) : (
-            <img
-              src={searchIcon}
-              alt="Search bar icon"
-              onClick={handleShowInput}
-            />
+            <i onClick={handleShowInput}>
+              <SearchIcon fillColor={isScrolled ? "#FFFFFF" : "#292D32"} />
+            </i>
           )}
-          <img src={uaIcon} alt="Change language icon" />
-          <img src={bagIcon} alt="Bag icon" />
+          <i>
+            {isLanguageDefault ? (
+              <UaIcon
+                fillColor={isScrolled ? "#FFFFFF" : "#1C1C1C"}
+                setIsLanguageDefault={setIsLanguageDefault}
+              />
+            ) : (
+              <EnIcon
+                fillColor={isScrolled ? "#FFFFFF" : "#1C1C1C"}
+                setIsLanguageDefault={setIsLanguageDefault}
+              />
+            )}
+          </i>
+          <i>
+            <BagIcon fillColor={isScrolled ? "#FFFFFF" : "#292D32"} />
+          </i>
         </section>
       </div>
     </header>

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import PropTypes from "prop-types";
-import styles from "./index.module.scss";
+import cl from "./index.module.scss";
 
 // Some change
 
@@ -23,7 +23,6 @@ function SearchInput({ setIsShowInput }) {
 
   const handleCloseInput = () => {
     setIsShowInput(false);
-    console.log(123);
   };
 
   const handleInput = (e) => {
@@ -43,7 +42,7 @@ function SearchInput({ setIsShowInput }) {
   return (
     <>
       <input
-        className={styles.searchInput}
+        className={cl.searchInput}
         type="text"
         placeholder="Я шукаю..."
         onChange={handleInput}

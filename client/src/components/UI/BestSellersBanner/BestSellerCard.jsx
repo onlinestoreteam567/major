@@ -60,5 +60,4 @@ BestSellerCard.propTypes = {
     feedbackAmount: PropTypes.string,
   }).isRequired,
 };
-
 export default BestSellerCard;
