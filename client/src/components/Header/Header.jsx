@@ -11,6 +11,7 @@ const Header = () => {
   const [isShowInput, setIsShowInput] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
+  const [inputValue, setInputValue] = useState("");
 
   const handleShowInput = () => {
     setIsShowInput(true);
@@ -49,7 +50,11 @@ const Header = () => {
         </nav>
         <section className={cl.rightSection}>
           {isShowInput ? (
-            <SearchInput setIsShowInput={setIsShowInput} />
+            <SearchInput
+              setIsShowInput={setIsShowInput}
+              inputValue={inputValue}
+              setInputValue={setInputValue}
+            />
           ) : (
             <i onClick={handleShowInput}>
               <SearchIcon fillColor={isScrolled ? "#FFFFFF" : "#292D32"} />

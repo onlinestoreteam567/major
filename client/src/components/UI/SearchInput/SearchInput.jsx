@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import PropTypes from "prop-types";
 import cl from "./index.module.scss";
 import hryvniaSymbol from "/src/assets/svg/hryvnia.svg";
@@ -44,13 +44,15 @@ const products = [
   },
 ];
 
-function SearchInput({ setIsShowInput }) {
-  //TODO: remove search by Space keyboard button
-
-  const [inputValue, setInputValue] = useState("");
+function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
+  // TODO: remove search by Space keyboard button
+  // TODO: change behavior: avoid close input on click to search result
 
   const handleCloseInput = () => {
-    setIsShowInput(false);
+    clearTimeout();
+    setTimeout(() => {
+      setIsShowInput(false);
+    }, 500);
   };
 
   const handleInput = (e) => {
@@ -68,13 +70,15 @@ function SearchInput({ setIsShowInput }) {
   );
 
   return (
-    <search className={inputValue && cl.activeSearch}>
+    <search
+      className={inputValue && cl.activeSearch}
+      onMouseLeave={handleCloseInput}
+    >
       <input
         className={`${cl.searchInput} ${inputValue && cl.activeSearchInput}`}
         type="text"
         placeholder="Я шукаю..."
         onChange={handleInput}
-        onBlur={handleCloseInput}
         value={inputValue}
       />
 
@@ -110,6 +114,8 @@ function SearchInput({ setIsShowInput }) {
 
 SearchInput.propTypes = {
   setIsShowInput: PropTypes.func.isRequired,
+  inputValue: PropTypes.string.isRequired,
+  setInputValue: PropTypes.func.isRequired,
 };
 
 export default SearchInput;
