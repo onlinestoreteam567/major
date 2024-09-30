@@ -51,7 +51,7 @@ function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
   const handleCloseInput = () => {
     clearTimeout();
     setTimeout(() => {
-      setIsShowInput(false);
+      setIsShowInput(true);
     }, 500);
   };
 

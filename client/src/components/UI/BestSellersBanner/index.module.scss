@@ -1,4 +1,5 @@
 @import "../../../styles/variables.scss";
+@import "/src/styles/mixins.scss";
 
 .card {
   width: 80%;
@@ -11,30 +12,22 @@
 }
 
 .starsImageSection {
-  display: flex;
-  gap: 4px;
+  @include flexRowGap(4px);
 
   span {
-    font-family: inter;
-    line-height: 19.2px;
-    font-size: $font-size-base;
-    color: #c0c0c0;
+    @include text(inter, $font-size-base, null, 19.2px, null, #c0c0c0);
   }
 }
 
 .cardFooter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(row, space-between, center, null);
 
   h3 {
-    color: #22211f;
-    font-weight: $font-weight-bold;
+    @include text($font-main, null, $font-weight-bold, null, null, #22211f);
+
     font-synthesis: weight;
-    font-family: $font-main;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+
+    @include flex(row, null, center, 8px);
   }
 }
 

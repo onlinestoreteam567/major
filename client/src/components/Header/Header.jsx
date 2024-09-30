@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import EnIcon from "../../assets/svg/header/EnIcon";
 
 const Header = () => {
+  // TODO Create cart design when cart button is clicked
+
   const [isShowInput, setIsShowInput] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);

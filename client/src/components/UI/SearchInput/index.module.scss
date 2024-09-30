@@ -1,24 +1,26 @@
-@import "../../../styles/variables.scss";
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
 
 search {
   background-color: #ffffff;
 
   &.activeSearch {
-    position: absolute;
-    left: 28px;
-    top: 10px;
+    @include absolute(10px, 28px);
   }
 
   .searchInput {
-    width: 300px;
-    height: 40px;
+    @include HeightWidth(40px, 300px);
     max-width: 300px;
     max-height: 40px;
-    font-family: $font-main;
-    font-weight: $font-weight-base;
-    font-size: $font-size-small;
-    line-height: 16.24px;
-    letter-spacing: 0.04em;
+
+    @include text(
+      $font-main,
+      $font-size-small,
+      $font-weight-base,
+      $line-height-small,
+      $letter-spacing-small,
+      null
+    );
     background-image: url("../../../assets/svg/header/searchInSearchBar.svg");
     background-repeat: no-repeat;
     background-position: 12px center;
@@ -42,12 +44,15 @@ search {
 
   .searchResultsSection {
     padding: 0 12px;
-    color: black;
-    font-family: $font-main;
-    font-weight: $font-weight-base;
-    font-size: $font-size-small;
-    line-height: $line-height-small;
-    letter-spacing: $letter-spacing-small;
+
+    @include text(
+      $font-main,
+      $font-size-small,
+      $font-weight-base,
+      $line-height-small,
+      $letter-spacing-small,
+      black
+    );
 
     hr {
       color: #c0c0c0;
@@ -69,8 +74,7 @@ search {
         }
 
         .hryvniaSymbol {
-          width: 8px;
-          height: 12px;
+          @include HeightWidth(12px, 8px);
         }
       }
     }

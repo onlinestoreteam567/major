@@ -2,8 +2,7 @@
 @import "../../styles/mixins.scss";
 
 header {
-  width: 100%;
-  height: 112px;
+  @include HeightWidth(112px, 100%);
   position: fixed;
   z-index: 10;
 
@@ -20,17 +19,18 @@ header {
       padding-left: 190px;
 
       ul {
-        display: flex;
-        gap: 40px;
+        @include flexRowGap(40px);
 
         li {
           cursor: pointer;
-          font-weight: $font-weight-medium;
-          font-size: $font-size-medium;
-          line-height: $line-height-base;
-          font-family: $font-main;
-          letter-spacing: $letter-spacing-base;
-          color: $header-link-color;
+          @include text(
+            $font-main,
+            $font-size-medium,
+            $font-weight-medium,
+            $line-height-base,
+            $letter-spacing-base,
+            $header-link-color
+          );
           transition: 0.6s;
 
           &:hover {
@@ -43,9 +43,7 @@ header {
 
     .rightSection {
       width: 100%;
-      @include flex(row, end);
-      gap: 24px;
-      justify-self: end;
+      @include flex(row, end, center, 24px);
       position: relative;
 
       img {
