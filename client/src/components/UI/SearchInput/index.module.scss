@@ -1,5 +1,4 @@
-@import "/src/styles/variables.scss";
-@import "/src/styles/mixins.scss";
+@import "../../../styles/mixins.scss";
 
 search {
   background-color: #ffffff;
@@ -12,15 +11,12 @@ search {
     @include HeightWidth(40px, 300px);
     max-width: 300px;
     max-height: 40px;
+    font-family: $font-main;
+    font-size: $font-size-small;
+    font-weight: $font-weight-base;
+    line-height: $line-height-small;
+    letter-spacing: $letter-spacing-small;
 
-    @include text(
-      $font-main,
-      $font-size-small,
-      $font-weight-base,
-      $line-height-small,
-      $letter-spacing-small,
-      null
-    );
     background-image: url("../../../assets/svg/header/searchInSearchBar.svg");
     background-repeat: no-repeat;
     background-position: 12px center;
@@ -44,15 +40,12 @@ search {
 
   .searchResultsSection {
     padding: 0 12px;
-
-    @include text(
-      $font-main,
-      $font-size-small,
-      $font-weight-base,
-      $line-height-small,
-      $letter-spacing-small,
-      black
-    );
+    font-family: $font-main;
+    font-size: $font-size-small;
+    font-weight: $font-weight-base;
+    line-height: $line-height-small;
+    letter-spacing: $letter-spacing-small;
+    color: black;
 
     hr {
       color: #c0c0c0;

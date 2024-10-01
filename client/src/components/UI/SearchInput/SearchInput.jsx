@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import PropTypes from "prop-types";
 import cl from "./index.module.scss";
-import hryvniaSymbol from "/src/assets/svg/hryvnia.svg";
+import hryvniaSymbol from "../../../assets/svg/hryvnia.svg";
 
 // Array of products example
 const products = [
@@ -51,7 +51,7 @@ function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
   const handleCloseInput = () => {
     clearTimeout();
     setTimeout(() => {
-      setIsShowInput(true);
+      setIsShowInput(false);
     }, 500);
   };
 

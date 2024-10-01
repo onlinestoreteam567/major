@@ -1,18 +1,15 @@
-@import "/src/styles/variables.scss";
-@import "/src/styles/mixins.scss";
+@import "../../styles/mixins.scss";
 
 // TODO Add user-select: none to Calendar icon
 
 footer {
-  @include flex(column, null, center, null);
+  @include flex(column, null, center);
 
-  @include text(
-    $font-main,
-    $font-size-medium,
-    $font-weight-medium,
-    $line-height-base,
-    $letter-spacing-base
-  );
+  font-family: $font-main;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing-base;
 
   box-sizing: border-box;
   padding-top: 48px;
@@ -23,10 +20,11 @@ footer {
 
 .topSection {
   @include HeightWidth(254px, 100%);
-  @include flex(null, space-around, null, null);
+  @include flex(null, space-around);
 
   .logoAndSocialsSection {
-    @include flex(column, null, start, 30px);
+    @include flex(column, null, start);
+    gap: 30px;
     width: 234px;
 
     ul {
@@ -75,7 +73,11 @@ footer {
   }
 
   p {
-    @include text(Oswald, 15px, $font-weight-base, 18px, null, null);
+    @include text;
+    // font-family: $font-main;
+    font-size: 15px;
+    font-weight: $font-weight-base;
+    line-height: 18px;
 
     text-align: center;
   }

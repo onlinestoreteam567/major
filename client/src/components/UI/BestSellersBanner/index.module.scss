@@ -1,5 +1,4 @@
-@import "../../../styles/variables.scss";
-@import "/src/styles/mixins.scss";
+@import "../../../styles/mixins.scss";
 
 .card {
   width: 80%;
@@ -15,19 +14,25 @@
   @include flexRowGap(4px);
 
   span {
-    @include text(inter, $font-size-base, null, 19.2px, null, #c0c0c0);
+    font-family: inter;
+    font-size: $font-size-base;
+    line-height: 19.2px;
+    color: #c0c0c0;
   }
 }
 
 .cardFooter {
-  @include flex(row, space-between, center, null);
+  @include flex(row, space-between, center);
 
   h3 {
-    @include text($font-main, null, $font-weight-bold, null, null, #22211f);
+    font-family: $font-main;
+    font-weight: $font-weight-bold;
+    color: #22211f;
 
     font-synthesis: weight;
 
-    @include flex(row, null, center, 8px);
+    @include flex(row, null, center);
+    gap: 24px;
   }
 }
 
