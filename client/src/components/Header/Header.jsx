@@ -6,17 +6,25 @@ import BagIcon from "../../assets/svg/header/BagIcon";
 import SearchInput from "../UI/SearchInput/SearchInput";
 import { useState, useEffect } from "react";
 import EnIcon from "../../assets/svg/header/EnIcon";
+import Basket from "../UI/Basket/Basket";
+
+// TODO: add router;
+// TODO: add basket design and implement products add to busket;
+// TODO: implement language switcher;
+// TODO: add design for search input, when there is so many products on the results;
 
 const Header = () => {
-  // TODO Create cart design when cart button is clicked
-
   const [isShowInput, setIsShowInput] = useState(false);
+  const [isShowBasket, setIsShowBasket] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
   const [inputValue, setInputValue] = useState("");
 
   const handleShowInput = () => {
     setIsShowInput(true);
+  };
+  const handleShowBasket = () => {
+    setIsShowBasket(true);
   };
 
   useEffect(() => {
@@ -75,11 +83,13 @@ const Header = () => {
               />
             )}
           </i>
-          <i>
+          <i onClick={handleShowBasket}>
             <BagIcon fillColor={isScrolled ? "#FFFFFF" : "#292D32"} />
           </i>
         </section>
       </div>
+
+      {isShowBasket && <Basket setIsShowBasket={setIsShowBasket} />}
     </header>
   );
 };

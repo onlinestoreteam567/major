@@ -55,7 +55,7 @@ header {
 
 .headerScrolled {
   // Option 1 of animation when header is scrolled
-  background-color: #22211f;
+  background-color: $text-color-black;
   height: 104px;
   transition: 0.6s;
   nav {

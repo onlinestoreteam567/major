@@ -37,6 +37,9 @@ h1 {
   line-height: 1.1;
   margin: 0;
 }
+h2 {
+  margin: 0;
+}
 
 // Unordered Lists
 ul {
@@ -64,7 +67,7 @@ p {
 }
 
 .slick-dots li button::before {
-  color: #22211f !important;
+  color: $text-color-black !important;
   opacity: unset !important;
   font-size: 9.6px !important;
 }
@@ -72,6 +75,11 @@ p {
 .slick-dots li.slick-active button::before {
   opacity: unset !important;
   font-size: 19px !important;
+}
+
+// Remove arrows from inside page, avoid creating x scroll bar
+.slick-arrow {
+  display: none !important;
 }
 
 /* button {

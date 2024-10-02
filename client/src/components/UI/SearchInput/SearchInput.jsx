@@ -42,12 +42,87 @@ const products = [
     urlImg: "/src/assets/png/searchInput/2.png",
     price: "299",
   },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
+  {
+    id: 6,
+    name: "Крем-сироватка для тонкого волосся",
+    urlImg: "/src/assets/png/searchInput/2.png",
+    price: "299",
+  },
 ];
 
 function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
-  // TODO: remove search by Space keyboard button
-  // TODO: change behavior: avoid close input on click to search result
-
   const handleCloseInput = () => {
     clearTimeout();
     setTimeout(() => {
@@ -62,7 +137,7 @@ function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
   const filteredProducts = useMemo(
     () =>
       products.filter((product) => {
-        if (inputValue !== "") {
+        if (inputValue !== "" && inputValue.charAt(0) !== " ") {
           return product.name.toLowerCase().includes(inputValue.toLowerCase());
         }
       }),
@@ -106,7 +181,11 @@ function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
           </ul>
         </section>
       ) : (
-        inputValue && <p>No products found</p>
+        inputValue && (
+          <section className={cl.searchNotFound}>
+            <p>Товарів не знайдено</p>
+          </section>
+        )
       )}
     </search>
   );
