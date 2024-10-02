@@ -5,7 +5,6 @@ import instagramIcon from "../../assets/svg/footer/instagram.svg";
 import gmailIcon from "../../assets/svg/footer/gmail.svg";
 import calendarIcon from "./../../assets/svg/footer/calendar.svg";
 import phoneCallIcon from "./../../assets/svg/footer/phoneCall.svg";
-
 const Footer = () => {
   return (
     <footer>
