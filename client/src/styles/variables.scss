@@ -3,10 +3,13 @@ $primary-color: #3498db; // Primary theme color
 $header-link-color: #22211f; // Header link color
 $header-link-hover-color: #000000; // Header link hover color
 $background-color-light: #ffffff; // Light background color
-$text-color-light: rgba(255, 255, 255, 0.87); // Light text color
+$background-color-black: #000000; // Black background color
+$text-color-light: #ffffff; // Light text color
+$text-color-black: #22211f; // Black text color
 
 // Font Variables
 $font-main: "Oswald", sans-serif; // Main font for the application
+$font-second: "Lora", sans-serif; // Second font for the application
 $font-family-base: $font-main, system-ui, Avenir, Helvetica, Arial, sans-serif; // Base font family
 
 // Font Sizes
