@@ -77,6 +77,11 @@ p {
   font-size: 19px !important;
 }
 
+// Remove arrows from inside page, avoid creating x scroll bar
+.slick-arrow {
+  display: none !important;
+}
+
 /* button {
   border-radius: 8px;
   border: 1px solid transparent;

@@ -8,6 +8,11 @@ import { useState, useEffect } from "react";
 import EnIcon from "../../assets/svg/header/EnIcon";
 import Basket from "../UI/Basket/Basket";
 
+// TODO: add router;
+// TODO: add basket design and implement products add to busket;
+// TODO: implement language switcher;
+// TODO: add design for search input, when there is so many products on the results;
+
 const Header = () => {
   const [isShowInput, setIsShowInput] = useState(false);
   const [isShowBasket, setIsShowBasket] = useState(false);

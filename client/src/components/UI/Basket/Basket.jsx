@@ -4,10 +4,10 @@ import crossIcon from "../../../assets/svg/basket/crossIcon.svg";
 import { useState } from "react";
 
 const Basket = ({ setIsShowBasket }) => {
-  const [state, setState] = useState(false);
+  const [hiddenBasket, setHiddenBasket] = useState(false);
 
   const handleCloseBasket = () => {
-    setState(true);
+    setHiddenBasket(true);
     clearTimeout();
     setTimeout(() => {
       setIsShowBasket(false);
@@ -15,7 +15,7 @@ const Basket = ({ setIsShowBasket }) => {
   };
 
   return (
-    <div className={`${cl.basketWrapper} ${state && cl.closeBasket}`}>
+    <div className={`${cl.basketWrapper} ${hiddenBasket && cl.closeBasket}`}>
       <section className={cl.basketHeaderSection}>
         <h2>Кошик</h2>
         <img onClick={handleCloseBasket} src={crossIcon} alt="Закрити" />
