@@ -11,7 +11,10 @@ const WhyChooseUs = () => {
       <section className={cl.figuresWrapper}>
         <section>
           <figure>
-            <img src={discountIcon} alt="" />
+            <img
+              src={discountIcon}
+              alt="Іконка знижки для постійних клієнтів"
+            />
             <figcaption>
               <h3>Знижки для постійних клієнтів</h3>
               <p>
@@ -21,7 +24,7 @@ const WhyChooseUs = () => {
             </figcaption>
           </figure>
           <figure>
-            <img src={fastDeliveryIcon} alt="" />
+            <img src={fastDeliveryIcon} alt="Іконка швидкої відправки" />
             <figcaption>
               <h3>Швидка відправка</h3>
               <p>
@@ -33,7 +36,7 @@ const WhyChooseUs = () => {
         </section>
         <section>
           <figure>
-            <img src={qualityIcon} alt="" />
+            <img src={qualityIcon} alt="Іконка сертифіката якості" />
             <figcaption>
               <h3>Сертифікат якості</h3>
               <p>
@@ -44,7 +47,7 @@ const WhyChooseUs = () => {
             </figcaption>
           </figure>
           <figure>
-            <img src={thumbUpIcon} alt="" />
+            <img src={thumbUpIcon} alt="Іконка лайку" />
             <figcaption>
               <h3>Результат з першого використання</h3>
               <p>

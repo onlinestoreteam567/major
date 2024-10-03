@@ -10,7 +10,10 @@ const MajorInfo = () => {
       </h2>
 
       <figure>
-        <img src={photo} alt="" />
+        <img
+          src={photo}
+          alt="Фото продукції українського виробника професійної косметики Major"
+        />
 
         <figcaption>
           <p>
