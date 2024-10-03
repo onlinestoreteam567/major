@@ -4,10 +4,12 @@ const InformationAboutPartner = ({
   setShowInformationAboutPartner,
   informationAboutPartner,
   setCloseAnimation,
+  setActivePartner,
 }) => {
   const handleCloseInput = () => {
     clearTimeout();
     setCloseAnimation(true);
+    setActivePartner(null);
     setTimeout(() => {
       setShowInformationAboutPartner(false);
     }, 500);
@@ -38,8 +40,8 @@ const InformationAboutPartner = ({
 
 InformationAboutPartner.propTypes = {
   setShowInformationAboutPartner: PropTypes.func.isRequired,
-  setHiddenInformationAboutPartner: PropTypes.func.isRequired,
-  hiddenInformationAboutPartner: PropTypes.bool.isRequired,
+  setCloseAnimation: PropTypes.func.isRequired,
+  setActivePartner: PropTypes.func.isRequired,
   informationAboutPartner: PropTypes.shape({
     title: PropTypes.string.isRequired,
     workSchedule: PropTypes.string.isRequired,

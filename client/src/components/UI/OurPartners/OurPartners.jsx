@@ -10,6 +10,7 @@ const OurPartners = () => {
     useState(false);
   const [closeAnimation, setCloseAnimation] = useState(true);
   const [clickLocked, setClickLocked] = useState(false);
+  const [activePartner, setActivePartner] = useState(null);
   const [informationAboutPartner, setInformationAboutPartner] = useState({
     title: "",
     workSchedule: "",
@@ -19,21 +20,24 @@ const OurPartners = () => {
   });
 
   const handlePointClick = (className) => {
-    // Prevent multiple click on the point, avoid animation bug.
-    if (clickLocked) return;
+    if (clickLocked) return; // Prevent multiple clicks
     setClickLocked(true);
 
     const partner = partnerData.find((p) => p.className === className);
-    if (partner) {
-      setCloseAnimation(!closeAnimation);
-      setInformationAboutPartner(partner);
 
-      if (showInformationAboutPartner === true) {
+    if (partner) {
+      clearTimeout();
+      if (className === activePartner) {
+        setCloseAnimation(true);
         setTimeout(() => {
           setShowInformationAboutPartner(false);
+          setActivePartner(null);
           setClickLocked(false);
         }, 500);
       } else {
+        setCloseAnimation(false);
+        setInformationAboutPartner(partner);
+        setActivePartner(className);
         setShowInformationAboutPartner(true);
         setTimeout(() => {
           setClickLocked(false);
@@ -41,6 +45,7 @@ const OurPartners = () => {
       }
     }
   };
+
   return (
     <section
       className={`${cl.ourPartnersWrapper} ${
@@ -66,10 +71,12 @@ const OurPartners = () => {
           setShowInformationAboutPartner={setShowInformationAboutPartner}
           informationAboutPartner={informationAboutPartner}
           setCloseAnimation={setCloseAnimation}
+          setActivePartner={setActivePartner}
         />
       )}
       <button>Стати партнером</button>
     </section>
   );
 };
+
 export default OurPartners;
