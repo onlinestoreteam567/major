@@ -8,6 +8,8 @@ import partnerData from "./partnerData";
 const OurPartners = () => {
   const [showInformationAboutPartner, setShowInformationAboutPartner] =
     useState(false);
+  const [closeAnimation, setCloseAnimation] = useState(true);
+  const [clickLocked, setClickLocked] = useState(false);
   const [informationAboutPartner, setInformationAboutPartner] = useState({
     title: "",
     workSchedule: "",
@@ -17,16 +19,34 @@ const OurPartners = () => {
   });
 
   const handlePointClick = (className) => {
+    // Prevent multiple click on the point, avoid animation bug.
+    if (clickLocked) return;
+    setClickLocked(true);
+
     const partner = partnerData.find((p) => p.className === className);
     if (partner) {
-      clearTimeout();
-
+      setCloseAnimation(!closeAnimation);
       setInformationAboutPartner(partner);
-      setShowInformationAboutPartner(!showInformationAboutPartner);
+
+      if (showInformationAboutPartner === true) {
+        setTimeout(() => {
+          setShowInformationAboutPartner(false);
+          setClickLocked(false);
+        }, 500);
+      } else {
+        setShowInformationAboutPartner(true);
+        setTimeout(() => {
+          setClickLocked(false);
+        }, 500);
+      }
     }
   };
   return (
-    <section className={cl.ourPartnersWrapper}>
+    <section
+      className={`${cl.ourPartnersWrapper} ${
+        closeAnimation ? cl.closeAnimation : ""
+      }`}
+    >
       <figure>
         <h2>Наші партнери</h2>
         <img src={map} alt="" />
@@ -45,6 +65,7 @@ const OurPartners = () => {
         <InformationAboutPartner
           setShowInformationAboutPartner={setShowInformationAboutPartner}
           informationAboutPartner={informationAboutPartner}
+          setCloseAnimation={setCloseAnimation}
         />
       )}
       <button>Стати партнером</button>

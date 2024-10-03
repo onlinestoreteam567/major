@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 const InformationAboutPartner = ({
   setShowInformationAboutPartner,
   informationAboutPartner,
+  setCloseAnimation,
 }) => {
   const handleCloseInput = () => {
     clearTimeout();
-
+    setCloseAnimation(true);
     setTimeout(() => {
       setShowInformationAboutPartner(false);
     }, 500);

@@ -138,12 +138,7 @@
   margin-bottom: 10px;
 }
 
-.closeInformationAboutPartner {
-  animation: closeInformationAboutPartners 0.6s !important;
-  position: absolute;
-}
-
-.closeInformationAboutPartner > aside {
+.closeAnimation > aside {
   animation: closeInformationAboutPartners 0.6s !important;
 }
 
