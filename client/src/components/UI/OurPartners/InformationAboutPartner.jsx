@@ -1,27 +1,19 @@
 import PropTypes from "prop-types";
-import cl from "./index.module.scss";
 
 const InformationAboutPartner = ({
   setShowInformationAboutPartner,
   informationAboutPartner,
-  hiddenInformationAboutPartner,
-  setHiddenInformationAboutPartner,
 }) => {
   const handleCloseInput = () => {
     clearTimeout();
-    setHiddenInformationAboutPartner(true);
+
     setTimeout(() => {
       setShowInformationAboutPartner(false);
     }, 500);
   };
 
   return (
-    <aside
-      onMouseLeave={handleCloseInput}
-      className={
-        hiddenInformationAboutPartner ? cl.closeInformationAboutPartner : ""
-      }
-    >
+    <aside onMouseLeave={handleCloseInput}>
       <h3>{informationAboutPartner.title}</h3>
       <section>
         <h4>Графік роботи:</h4>

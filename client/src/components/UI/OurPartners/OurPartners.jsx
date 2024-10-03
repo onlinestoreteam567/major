@@ -8,8 +8,6 @@ import partnerData from "./partnerData";
 const OurPartners = () => {
   const [showInformationAboutPartner, setShowInformationAboutPartner] =
     useState(false);
-  const [hiddenInformationAboutPartner, setHiddenInformationAboutPartner] =
-    useState(true);
   const [informationAboutPartner, setInformationAboutPartner] = useState({
     title: "",
     workSchedule: "",
@@ -22,11 +20,9 @@ const OurPartners = () => {
     const partner = partnerData.find((p) => p.className === className);
     if (partner) {
       clearTimeout();
-      setHiddenInformationAboutPartner(!hiddenInformationAboutPartner);
-      setTimeout(() => {
-        setInformationAboutPartner(partner);
-        setShowInformationAboutPartner(!showInformationAboutPartner);
-      }, 500);
+
+      setInformationAboutPartner(partner);
+      setShowInformationAboutPartner(!showInformationAboutPartner);
     }
   };
   return (
@@ -49,8 +45,6 @@ const OurPartners = () => {
         <InformationAboutPartner
           setShowInformationAboutPartner={setShowInformationAboutPartner}
           informationAboutPartner={informationAboutPartner}
-          hiddenInformationAboutPartner={hiddenInformationAboutPartner}
-          setHiddenInformationAboutPartner={setHiddenInformationAboutPartner}
         />
       )}
       <button>Стати партнером</button>
