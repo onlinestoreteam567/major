@@ -14,7 +14,7 @@
 
 // Anchor tags
 a {
-  // color: $primary-link-color;
+  color: unset;
   text-decoration: none;
 
   // &:hover {
@@ -36,7 +36,9 @@ h1 {
   line-height: 1.1;
   margin: 0;
 }
-h2 {
+h2,
+h3,
+h4 {
   margin: 0;
 }
 
