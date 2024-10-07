@@ -1,14 +1,88 @@
-@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
-// Some styles in future
-
-.searchInput {
-  border: 1px solid #ccc;
-  padding: 8px;
+search {
+  background-color: #ffffff;
   border-radius: 4px;
-  font-size: $font-size-base;
-  width: 200px;
-  height: 5px;
-  max-width: 400px;
-  margin-bottom: 20px;
+
+  &.activeSearch {
+    @include absolute(10px, 29px);
+  }
+
+  .searchInput {
+    @include HeightWidth(40px, 300px);
+    max-width: 300px;
+    max-height: 40px;
+    font-family: $font-main;
+    font-size: $font-size-small;
+    font-weight: $font-weight-base;
+    line-height: $line-height-small;
+    letter-spacing: $letter-spacing-small;
+
+    background-image: url("../../../assets/svg/header/searchInSearchBar.svg");
+    background-repeat: no-repeat;
+    background-position: 12px center;
+    padding-left: 38px;
+    border: 1px solid #bcbcbc;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: #676767;
+    }
+
+    &.activeSearchInput {
+      border: none;
+      padding-left: 12px;
+      color: #676767;
+      background-image: none;
+    }
+  }
+
+  .searchResultsSection {
+    padding: 0 12px;
+    font-family: $font-main;
+    font-size: $font-size-small;
+    font-weight: $font-weight-base;
+    line-height: $line-height-small;
+    letter-spacing: $letter-spacing-small;
+    color: black;
+    overflow-y: scroll;
+
+    hr {
+      color: #c0c0c0;
+    }
+
+    .searchResultItem {
+      display: flex;
+      height: 64px;
+
+      .searchResultInfo {
+        margin-left: 10px;
+
+        p {
+          display: inline-block;
+        }
+
+        .searchResultPrice {
+          margin-top: 10px;
+        }
+
+        .hryvniaSymbol {
+          @include HeightWidth(12px, 8px);
+        }
+      }
+    }
+  }
+  .searchNotFound {
+    font-family: $font-main;
+    font-size: $font-size-small;
+    font-weight: 300;
+    line-height: 16.24px;
+    $letter-spacing-small: 0.04em;
+    color: $text-color-black;
+    padding: 0 12px;
+    height: 25px;
+    border-radius: 4px;
+  }
 }

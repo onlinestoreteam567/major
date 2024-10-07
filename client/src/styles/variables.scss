@@ -3,20 +3,26 @@ $primary-color: #3498db; // Primary theme color
 $header-link-color: #22211f; // Header link color
 $header-link-hover-color: #000000; // Header link hover color
 $background-color-light: #ffffff; // Light background color
-$text-color-light: rgba(255, 255, 255, 0.87); // Light text color
+$background-color-black: #000000; // Black background color
+$second-background-color-black: #22211f; // Second background color black
+$text-color-light: #ffffff; // Light text color
+$text-color-black: #22211f; // Black text color
 
 // Font Variables
 $font-main: "Oswald", sans-serif; // Main font for the application
+$font-second: "Lora", sans-serif; // Second font for the application
 $font-family-base: $font-main, system-ui, Avenir, Helvetica, Arial, sans-serif; // Base font family
 
 // Font Sizes
+$font-size-large-heading: 3.2em; // Large font size for headings
+$font-size-large: 36px; // Large font size
+$font-size-medium: 18px; // Medium font size
 $font-size-base: 16px; // Base font size
-$font-size-medium: 18px; // Base font size
-//? Why we need $font-size-large: 3.2em;, if our header font-size is 18px?
-$font-size-large: 3.2em; // Large font size for headings
+$font-size-small: 14px; // Small font size
 
 // Line height
 $line-height-base: 24.48px; // Base line height
+$line-height-small: 16.24px; // Small line height
 
 // Font weight
 $font-weight-base: 400; // Base font weight
@@ -25,6 +31,7 @@ $font-weight-bold: 700; // Bold font weight
 
 // Letter spacing
 $letter-spacing-base: 0.08em; // Base letter spacing
+$letter-spacing-small: 0.04em; // Small letter spacing
 
 // Spacing & Dimensions
 $border-radius: 4px; // Base border radius for elements

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import cl from "./index.module.scss";
 import stars from "../../../assets/svg/banners/stars.svg";
-import hryvniaSymbol from "../../../assets/svg/banners/hryvnia.svg";
+import hryvniaSymbol from "../../../assets/svg/hryvnia.svg";
 
 //* cardData example:
 //* cardData={{
@@ -60,5 +60,4 @@ BestSellerCard.propTypes = {
     feedbackAmount: PropTypes.string,
   }).isRequired,
 };
-
 export default BestSellerCard;

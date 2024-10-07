@@ -1,12 +1,39 @@
+@import "./variables.scss";
+
 @mixin flex($direction: row, $justify: center, $align: center) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
 }
 
+@mixin text {
+  font-family: $font-main;
+}
 
-// example 
+@mixin flexRowGap($gap) {
+  display: flex;
+  gap: $gap;
+}
+
+@mixin flexColumnGap($gap) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin absolute($top: 0px, $left: 0px) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin HeightWidth($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+// example
 // @import '~/mixins.scss'
 // .modal {
 //     @include flex(column, center, center);
