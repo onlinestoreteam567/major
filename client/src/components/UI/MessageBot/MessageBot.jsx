@@ -12,6 +12,7 @@ const MessageBot = () => {
   const handleShowAnotherIcons = () => {
     setShowAnotherIcons(!showAnotherIcons);
   };
+
   const handleShowMesssagePopUp = () => {
     setShowMessagePopUp(true);
   };
@@ -19,15 +20,23 @@ const MessageBot = () => {
   return (
     <>
       <div className={cl.mainMessageBotWrapper}>
-        <img onClick={handleShowAnotherIcons} src={messageBotIcon} alt="" />
+        <img
+          onClick={handleShowAnotherIcons}
+          src={messageBotIcon}
+          alt="Message bot icon"
+        />
 
         {showAnotherIcons && (
           <div className={cl.daughterIcons}>
             <section className={cl.telegramIconSection}>
-              <img src={telegramIcon} alt="" />
+              <img src={telegramIcon} alt="Telegram icon" />
             </section>
             <section className={cl.messageIconSection}>
-              <img src={messageIcon} alt="" onClick={handleShowMesssagePopUp} />
+              <img
+                src={messageIcon}
+                alt="Open message pop-up"
+                onClick={handleShowMesssagePopUp}
+              />
             </section>
           </div>
         )}

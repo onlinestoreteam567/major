@@ -4,6 +4,8 @@ import crossIcon from "../../../assets/svg/crossIcon.svg";
 import { useState } from "react";
 
 const MessagePopUp = ({ setShowMessagePopUp }) => {
+  // TODO: add validation
+
   const [inputsValue, setInputsValue] = useState({
     name: "",
     phone: "",
@@ -46,7 +48,11 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
       <div className={cl.overlay} onClick={handleCloseMessagePopUp}></div>
 
       <div className={cl.messagePopUp}>
-        <img src={crossIcon} alt="" onClick={handleCloseMessagePopUp} />
+        <img
+          src={crossIcon}
+          alt="Close popup"
+          onClick={handleCloseMessagePopUp}
+        />
         <h2>Маєте питання?</h2>
         <h3>
           Залиште Ваш номер телефону і ми <br /> Вам зателефонуємо!
