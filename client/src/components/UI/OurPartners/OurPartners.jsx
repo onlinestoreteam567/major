@@ -21,7 +21,7 @@ const OurPartners = () => {
   });
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       const container = document.querySelector(`.${cl.imageContainer}`);
 
       if (container) {
@@ -32,6 +32,8 @@ const OurPartners = () => {
         container.scrollLeft = s;
       }
     }, 500);
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   const handlePointClick = (className) => {
