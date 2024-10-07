@@ -4,8 +4,6 @@ import crossIcon from "../../../assets/svg/crossIcon.svg";
 import { useState } from "react";
 
 const MessagePopUp = ({ setShowMessagePopUp }) => {
-  // TODO: add validation
-
   const [inputsValue, setInputsValue] = useState({
     name: "",
     phone: "",
@@ -18,6 +16,24 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
 
   const handleChange = (e) => {
     setInputsValue({ ...inputsValue, [e.target.id]: e.target.value });
+  };
+
+  const handleInputNameChange = (e) => {
+    const nameValue = e.target.value;
+    // Check if nameValue is starting with a space and does not contain numbers
+    const isValidName = nameValue !== " " && !/\d/.test(nameValue);
+    if (isValidName) {
+      setInputsValue({ ...inputsValue, name: nameValue });
+    }
+  };
+
+  const handleInputPhoneNumberChange = (e) => {
+    const phoneNumberValue = e.target.value;
+    // Allow only digits, parentheses, spaces, and the plus sign
+    const isValidNumber = /^[\d ()+]*$/.test(phoneNumberValue);
+    if (isValidNumber) {
+      setInputsValue({ ...inputsValue, phone: phoneNumberValue });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -66,7 +82,7 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
             placeholder="Ім’я та прізвище"
             value={inputsValue.name}
             required
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => handleInputNameChange(e)}
             autoComplete="name"
           />
 
@@ -77,7 +93,7 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
             placeholder="+38 (0__) __ __ ___"
             value={inputsValue.phone}
             required
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => handleInputPhoneNumberChange(e)}
             onFocus={(e) => handleNumberFocus(e)}
             autoComplete="tel"
           />
