@@ -1,124 +1,124 @@
-import { useMemo } from "react";
-import PropTypes from "prop-types";
-import cl from "./index.module.scss";
-import hryvniaSymbol from "../../../assets/svg/hryvnia.svg";
+import { useMemo } from 'react';
+import PropTypes from 'prop-types';
+import cl from './index.module.scss';
+import hryvniaSymbol from '../../../assets/svg/hryvnia.svg';
 
 // Array of products example
 const products = [
   {
     id: 1,
-    name: "Флюїд-шовк для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/1.png",
-    price: "299",
+    name: 'Флюїд-шовк для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/1.png',
+    price: '299',
   },
 
   {
     id: 2,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 3,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 4,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 5,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
   {
     id: 6,
-    name: "Крем-сироватка для тонкого волосся",
-    urlImg: "/src/assets/png/searchInput/2.png",
-    price: "299",
+    name: 'Крем-сироватка для тонкого волосся',
+    urlImg: '/src/assets/png/searchInput/2.png',
+    price: '299',
   },
 ];
 
@@ -137,7 +137,7 @@ function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
   const filteredProducts = useMemo(
     () =>
       products.filter((product) => {
-        if (inputValue !== "" && inputValue.charAt(0) !== " ") {
+        if (inputValue !== '' && inputValue.charAt(0) !== ' ') {
           return product.name.toLowerCase().includes(inputValue.toLowerCase());
         }
       }),
@@ -145,10 +145,7 @@ function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
   );
 
   return (
-    <search
-      className={inputValue && cl.activeSearch}
-      onMouseLeave={handleCloseInput}
-    >
+    <search className={inputValue && cl.activeSearch} onMouseLeave={handleCloseInput}>
       <input
         className={`${cl.searchInput} ${inputValue && cl.activeSearchInput}`}
         type="text"
@@ -168,12 +165,7 @@ function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
                   <p>{product.name}</p>
                   <br />
                   <p className={cl.searchResultPrice}>
-                    {product.price}{" "}
-                    <img
-                      src={hryvniaSymbol}
-                      alt="Hryvnia symbol"
-                      className={cl.hryvniaSymbol}
-                    />
+                    {product.price} <img src={hryvniaSymbol} alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
                   </p>
                 </section>
               </li>

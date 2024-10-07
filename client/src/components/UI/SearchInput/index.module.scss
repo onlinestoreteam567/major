@@ -1,4 +1,4 @@
-@import "../../../styles/mixins.scss";
+@import '../../../styles/mixins.scss';
 
 search {
   background-color: #ffffff;
@@ -18,7 +18,7 @@ search {
     line-height: $line-height-small;
     letter-spacing: $letter-spacing-small;
 
-    background-image: url("../../../assets/svg/header/searchInSearchBar.svg");
+    background-image: url('../../../assets/svg/header/searchInSearchBar.svg');
     background-repeat: no-repeat;
     background-position: 12px center;
     padding-left: 38px;

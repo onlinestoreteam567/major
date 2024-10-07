@@ -1,10 +1,10 @@
-import cl from "./index.module.scss";
-import logoIcon from "../../assets/svg/footer/footerLogo.svg";
-import telegramIcon from "../../assets/svg/footer/telegram.svg";
-import instagramIcon from "../../assets/svg/footer/instagram.svg";
-import gmailIcon from "../../assets/svg/footer/gmail.svg";
-import calendarIcon from "./../../assets/svg/footer/calendar.svg";
-import phoneCallIcon from "./../../assets/svg/footer/phoneCall.svg";
+import cl from './index.module.scss';
+import logoIcon from '../../assets/svg/footer/footerLogo.svg';
+import telegramIcon from '../../assets/svg/footer/telegram.svg';
+import instagramIcon from '../../assets/svg/footer/instagram.svg';
+import gmailIcon from '../../assets/svg/footer/gmail.svg';
+import calendarIcon from './../../assets/svg/footer/calendar.svg';
+import phoneCallIcon from './../../assets/svg/footer/phoneCall.svg';
 const Footer = () => {
   return (
     <footer>
@@ -64,8 +64,7 @@ const Footer = () => {
         <section>
           <section>
             <p className={cl.titleFooterWithCalendarIcon}>
-              <img src={calendarIcon} alt="Calendar icon" />{" "}
-              <span>Режим роботи</span>
+              <img src={calendarIcon} alt="Calendar icon" /> <span>Режим роботи</span>
             </p>
             <ul className={cl.ulFooter}>
               <li>Пн - Пт: 8:00 - 20:00</li>
@@ -75,11 +74,7 @@ const Footer = () => {
           <section>
             <ul className={cl.ulFooter}>
               <li className={cl.phoneCallLi}>
-                <img
-                  className={cl.phoneCallIcon}
-                  src={phoneCallIcon}
-                  alt="Phone call icon"
-                />
+                <img className={cl.phoneCallIcon} src={phoneCallIcon} alt="Phone call icon" />
                 <span>+38 (096) 327 77 34</span>
               </li>
               <li>+38 (050) 123 84 99</li>

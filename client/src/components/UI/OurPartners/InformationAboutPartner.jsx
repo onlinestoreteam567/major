@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const InformationAboutPartner = ({
   setShowInformationAboutPartner,
@@ -30,9 +30,7 @@ const InformationAboutPartner = ({
         <p>{informationAboutPartner.address}</p>
       </section>
       <button>
-        <a href={informationAboutPartner.googleMapAddress}>
-          Відкрити Google Map
-        </a>
+        <a href={informationAboutPartner.googleMapAddress}>Відкрити Google Map</a>
       </button>
     </aside>
   );

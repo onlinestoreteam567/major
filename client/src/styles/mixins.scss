@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import './variables.scss';
 
 @mixin flex($direction: row, $justify: center, $align: center) {
   display: flex;

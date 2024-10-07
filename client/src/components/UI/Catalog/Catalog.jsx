@@ -1,10 +1,10 @@
-import cl from "./index.module.scss";
-import png1 from "../../../assets/png/catalog/1.png";
-import png2 from "../../../assets/png/catalog/2.png";
-import png3 from "../../../assets/png/catalog/3.png";
-import png4 from "../../../assets/png/catalog/4.png";
-import png5 from "../../../assets/png/catalog/5.png";
-import png6 from "../../../assets/png/catalog/6.png";
+import cl from './index.module.scss';
+import png1 from '../../../assets/png/catalog/1.png';
+import png2 from '../../../assets/png/catalog/2.png';
+import png3 from '../../../assets/png/catalog/3.png';
+import png4 from '../../../assets/png/catalog/4.png';
+import png5 from '../../../assets/png/catalog/5.png';
+import png6 from '../../../assets/png/catalog/6.png';
 
 const Catalog = () => {
   return (
