@@ -12,7 +12,6 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
 
   const handleCloseMessagePopUp = () => {
     setShowMessagePopUp(false);
-    console.log(inputsValue);
   };
 
   const handleChange = (e) => {
@@ -21,7 +20,9 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputsValue);
+
+    // Show message values while submit
+    // console.log(inputsValue);
 
     setInputsValue({
       name: "",
@@ -40,47 +41,52 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
   };
 
   return (
-    <div className={cl.messagePopUp}>
-      <img src={crossIcon} alt="" onClick={handleCloseMessagePopUp} />
-      <h2>Маєте питання?</h2>
-      <h3>
-        Залиште Ваш номер телефону і ми <br /> Вам зателефонуємо!
-      </h3>
+    <>
+      {/* Overlay */}
+      <div className={cl.overlay} onClick={handleCloseMessagePopUp}></div>
 
-      <form action="">
-        <label htmlFor="name">Ім’я та прізвище</label>
-        <input
-          id="name"
-          type="text"
-          placeholder="Ім’я та прізвище"
-          value={inputsValue.name}
-          required
-          onChange={(e) => handleChange(e)}
-        />
+      <div className={cl.messagePopUp}>
+        <img src={crossIcon} alt="" onClick={handleCloseMessagePopUp} />
+        <h2>Маєте питання?</h2>
+        <h3>
+          Залиште Ваш номер телефону і ми <br /> Вам зателефонуємо!
+        </h3>
 
-        <label htmlFor="phone">Номер телефону</label>
-        <input
-          id="phone"
-          type="text"
-          placeholder="+38 (0__) __ __ ___"
-          value={inputsValue.phone}
-          required
-          onChange={(e) => handleChange(e)}
-          onFocus={(e) => handleNumberFocus(e)} // Pass the event object
-        />
+        <form action="">
+          <label htmlFor="name">Ім’я та прізвище</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Ім’я та прізвище"
+            value={inputsValue.name}
+            required
+            onChange={(e) => handleChange(e)}
+          />
 
-        <label htmlFor="message">Питання</label>
-        <textarea
-          id="message"
-          placeholder="Напишіть нам Ваше питання"
-          value={inputsValue.message}
-          required
-          onChange={(e) => handleChange(e)}
-        />
+          <label htmlFor="phone">Номер телефону</label>
+          <input
+            id="phone"
+            type="text"
+            placeholder="+38 (0__) __ __ ___"
+            value={inputsValue.phone}
+            required
+            onChange={(e) => handleChange(e)}
+            onFocus={(e) => handleNumberFocus(e)} // Pass the event object
+          />
 
-        <button onClick={handleSubmit}>Відправити повідомлення</button>
-      </form>
-    </div>
+          <label htmlFor="message">Питання</label>
+          <textarea
+            id="message"
+            placeholder="Напишіть нам Ваше питання"
+            value={inputsValue.message}
+            required
+            onChange={(e) => handleChange(e)}
+          />
+
+          <button onClick={handleSubmit}>Відправити повідомлення</button>
+        </form>
+      </div>
+    </>
   );
 };
 
