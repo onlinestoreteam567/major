@@ -1,11 +1,12 @@
 import cl from "./index.module.scss";
 import map from "../../../assets/png/ourPartners/map.png";
 import point from "../../../assets/svg/ourPartners/point.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InformationAboutPartner from "./InformationAboutPartner";
 import partnerData from "./partnerData";
 
 const OurPartners = () => {
+  // TODO Create responsive design
   const [showInformationAboutPartner, setShowInformationAboutPartner] =
     useState(false);
   const [closeAnimation, setCloseAnimation] = useState(true);
@@ -18,6 +19,22 @@ const OurPartners = () => {
     adress: "",
     googleMapAdress: "",
   });
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      const container = document.querySelector(`.${cl.imageContainer}`);
+
+      if (container) {
+        const scrollToY =
+          container.scrollHeight / 2.47 - container.clientHeight / 2;
+        container.scrollTop = scrollToY;
+        const s = container.scrollWidth / 2 - container.clientWidth / 2;
+        container.scrollLeft = s;
+      }
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   const handlePointClick = (className) => {
     if (clickLocked) return; // Prevent multiple clicks
@@ -52,8 +69,8 @@ const OurPartners = () => {
         closeAnimation ? cl.closeAnimation : ""
       }`}
     >
-      <figure>
-        <h2>Наші партнери</h2>
+      <h2>Наші партнери</h2>
+      <figure className={cl.imageContainer}>
         <img src={map} alt="" />
 
         {partnerData.map((partner) => (
