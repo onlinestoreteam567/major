@@ -58,7 +58,7 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
           Залиште Ваш номер телефону і ми <br /> Вам зателефонуємо!
         </h3>
 
-        <form action="">
+        <form>
           <label htmlFor="name">Ім’я та прізвище</label>
           <input
             id="name"
@@ -67,6 +67,7 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
             value={inputsValue.name}
             required
             onChange={(e) => handleChange(e)}
+            autoComplete="name"
           />
 
           <label htmlFor="phone">Номер телефону</label>
@@ -77,7 +78,8 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
             value={inputsValue.phone}
             required
             onChange={(e) => handleChange(e)}
-            onFocus={(e) => handleNumberFocus(e)} // Pass the event object
+            onFocus={(e) => handleNumberFocus(e)}
+            autoComplete="tel"
           />
 
           <label htmlFor="message">Питання</label>
@@ -87,6 +89,7 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
             value={inputsValue.message}
             required
             onChange={(e) => handleChange(e)}
+            autoComplete="off"
           />
 
           <button onClick={handleSubmit}>Відправити повідомлення</button>
