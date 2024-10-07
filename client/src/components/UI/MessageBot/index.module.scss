@@ -1,0 +1,146 @@
+@import "../../../styles/mixins.scss";
+
+.mainMessageBotWrapper {
+  position: fixed;
+  top: 618px;
+  right: 48px;
+  z-index: 10;
+
+  img {
+    cursor: pointer;
+  }
+
+  .daughterIcons {
+    .telegramIconSection > {
+      position: relative;
+
+      img {
+        position: absolute;
+        bottom: 50%;
+        right: 95%;
+      }
+    }
+
+    .messageIconSection {
+      position: absolute;
+      bottom: 88%;
+      right: 13%;
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+}
+
+.messagePopUp {
+  @include HeightWidth(702px, 507px);
+  @include flex(column, null, center);
+  position: fixed;
+  top: 7%;
+  left: 33%;
+  background-color: $background-color-light;
+  color: #000000;
+  font-family: $font-main;
+  z-index: 100;
+  padding: 44px 40px 90px 37px;
+  box-sizing: border-box;
+  border-radius: 2px;
+
+  img {
+    cursor: pointer;
+    align-self: end;
+  }
+
+  h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: $font-weight-bold;
+    line-height: 28.8px;
+    letter-spacing: $letter-spacing-base;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-base;
+    text-align: center;
+  }
+
+  form {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    label {
+      font-size: $font-size-medium;
+      font-weight: $font-weight-medium;
+      line-height: 23.04px;
+      display: block;
+      user-select: none;
+    }
+
+    input {
+      @include HeightWidth(40px, 401px);
+      outline: none;
+      border-radius: 4px;
+      border: 1px solid #676767;
+      box-sizing: border-box;
+      padding-left: 10px;
+      font-family: $font-main;
+
+      font-size: $font-size-small;
+      font-weight: $font-weight-base;
+      line-height: $line-height-small;
+      letter-spacing: $letter-spacing-small;
+
+      &::placeholder {
+        color: #676767;
+      }
+    }
+
+    textarea {
+      @include HeightWidth(131px, 401px);
+      border-radius: 4px;
+      border: 1px solid #676767;
+      resize: none;
+      padding: 12px;
+      box-sizing: border-box;
+      font-family: $font-main;
+      letter-spacing: $letter-spacing-small;
+      line-height: $line-height-small;
+      outline: none;
+
+      &::placeholder {
+        font-size: $font-size-small;
+        font-weight: $font-weight-base;
+        color: #676767;
+      }
+    }
+
+    button {
+      @include HeightWidth(63px, 381px);
+      border-radius: 2px;
+      border: 2px solid #000000;
+      font-family: $font-main;
+      font-size: $font-size-medium;
+      font-weight: $font-weight-medium;
+      line-height: 23.04px;
+      cursor: pointer;
+      align-self: center;
+
+      &:hover {
+        background-color: $second-background-color-black;
+        color: $text-color-light;
+      }
+    }
+  }
+}
