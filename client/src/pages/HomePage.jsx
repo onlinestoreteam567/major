@@ -4,10 +4,12 @@ import MainBanner from "../components/UI/MainBanner/MainBanner";
 import OurPartners from "../components/UI/OurPartners/OurPartners";
 import MajorInfo from "../components/UI/MajorInfo/MajorInfo";
 import WhyChooseUs from "../components/UI/WhyChooseUs/WhyChooseUs";
+import MessageBot from "../components/UI/MessageBot/MessageBot";
 const HomePage = () => {
   return (
     <div>
       <MainBanner />
+      <MessageBot />
       <BestSellersBanner />
       <Catalog />
       <MajorInfo />
