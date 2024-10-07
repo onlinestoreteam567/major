@@ -40,21 +40,17 @@
 }
 
 .messagePopUp {
+  @include HeightWidth(702px, 507px);
+  @include flex(column, null, center);
   position: fixed;
+  top: 7%;
+  left: 33%;
   background-color: $background-color-light;
   color: #000000;
   font-family: $font-main;
-  top: 7%;
-  left: 33%;
   z-index: 100;
-  display: flex;
-  flex-direction: column;
   padding: 44px 40px 90px 37px;
   box-sizing: border-box;
-  align-items: center;
-
-  width: 507px;
-  height: 702px;
   border-radius: 2px;
 
   img {
@@ -93,9 +89,8 @@
     }
 
     input {
+      @include HeightWidth(40px, 401px);
       outline: none;
-      width: 401px;
-      height: 40px;
       border-radius: 4px;
       border: 1px solid #676767;
       box-sizing: border-box;
@@ -113,8 +108,7 @@
     }
 
     textarea {
-      width: 401px;
-      height: 131px;
+      @include HeightWidth(131px, 401px);
       border-radius: 4px;
       border: 1px solid #676767;
       resize: none;
@@ -133,8 +127,7 @@
     }
 
     button {
-      width: 381px;
-      height: 63px;
+      @include HeightWidth(63px, 381px);
       border-radius: 2px;
       border: 2px solid #000000;
       font-family: $font-main;
