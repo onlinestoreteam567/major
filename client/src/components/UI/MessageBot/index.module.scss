@@ -1,0 +1,143 @@
+@import "../../../styles/mixins.scss";
+
+.mainMessageBotWrapper {
+  position: fixed;
+  top: 618px;
+  right: 48px;
+  z-index: 10;
+
+  img {
+    cursor: pointer;
+  }
+
+  .daughterIcons {
+    .telegramIconSection > {
+      position: relative;
+
+      img {
+        position: absolute;
+        bottom: 50%;
+        right: 95%;
+      }
+    }
+
+    .messageIconSection {
+      position: absolute;
+      bottom: 88%;
+      right: 13%;
+    }
+  }
+}
+
+.messagePopUp {
+  position: absolute;
+  background-color: $background-color-light;
+  color: #000000;
+  font-family: $font-main;
+  top: 7%;
+  left: 33%;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 44px 40px 90px 37px;
+  box-sizing: border-box;
+  align-items: center;
+
+  width: 507px;
+  height: 702px;
+  border-radius: 2px;
+
+  img {
+    cursor: pointer;
+    align-self: end;
+  }
+
+  h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: $font-weight-bold;
+    line-height: 28.8px;
+    letter-spacing: $letter-spacing-base;
+  }
+
+  h3 {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-base;
+    text-align: center;
+  }
+
+  form {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    label {
+      font-size: $font-size-medium;
+      font-weight: $font-weight-medium;
+      line-height: 23.04px;
+      display: block;
+      user-select: none;
+    }
+
+    input {
+      outline: none;
+      width: 401px;
+      height: 40px;
+      border-radius: 4px;
+      border: 1px solid #676767;
+      box-sizing: border-box;
+      padding-left: 10px;
+      font-family: $font-main;
+
+      font-size: $font-size-small;
+      font-weight: $font-weight-base;
+      line-height: $line-height-small;
+      letter-spacing: $letter-spacing-small;
+
+      &::placeholder {
+        color: #676767;
+      }
+    }
+
+    textarea {
+      width: 401px;
+      height: 131px;
+      border-radius: 4px;
+      border: 1px solid #676767;
+      resize: none;
+      padding: 12px;
+      box-sizing: border-box;
+      font-family: $font-main;
+      letter-spacing: $letter-spacing-small;
+      outline: none;
+
+      &::placeholder {
+        font-size: $font-size-small;
+        font-weight: $font-weight-base;
+        line-height: $line-height-small;
+        color: #676767;
+      }
+    }
+
+    button {
+      width: 381px;
+      height: 63px;
+      border-radius: 2px;
+      border: 2px solid #000000;
+      font-family: $font-main;
+      font-size: $font-size-medium;
+      font-weight: $font-weight-medium;
+      line-height: 23.04px;
+      cursor: pointer;
+      align-self: center;
+
+      &:hover {
+        background-color: $second-background-color-black;
+        color: $text-color-light;
+      }
+    }
+  }
+}
