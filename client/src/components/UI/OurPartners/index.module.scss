@@ -1,4 +1,4 @@
-@import "../../../styles/mixins.scss";
+@import '../../../styles/mixins.scss';
 
 .ourPartnersWrapper {
   @include flex(column, center, center);
@@ -131,7 +131,9 @@
     font-weight: $font-weight-medium;
     line-height: $line-height-base;
     border: none;
-    transition: color 0.5s, background-color 0.5s;
+    transition:
+      color 0.5s,
+      background-color 0.5s;
     cursor: pointer;
 
     &:hover {

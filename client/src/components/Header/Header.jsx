@@ -1,12 +1,12 @@
-import cl from "./index.module.scss";
-import LogoIcon from "../../assets/svg/header/LogoIcon";
-import SearchIcon from "../../assets/svg/header/SearchIcon";
-import UaIcon from "../../assets/svg/header/UaIcon";
-import BagIcon from "../../assets/svg/header/BagIcon";
-import SearchInput from "../UI/SearchInput/SearchInput";
-import { useState, useEffect } from "react";
-import EnIcon from "../../assets/svg/header/EnIcon";
-import Basket from "../UI/Basket/Basket";
+import cl from './index.module.scss';
+import LogoIcon from '../../assets/svg/header/LogoIcon';
+import SearchIcon from '../../assets/svg/header/SearchIcon';
+import UaIcon from '../../assets/svg/header/UaIcon';
+import BagIcon from '../../assets/svg/header/BagIcon';
+import SearchInput from '../UI/SearchInput/SearchInput';
+import { useState, useEffect } from 'react';
+import EnIcon from '../../assets/svg/header/EnIcon';
+import Basket from '../UI/Basket/Basket';
 
 // TODO: add router;
 // TODO: add basket design and implement products add to busket;
@@ -18,7 +18,7 @@ const Header = () => {
   const [isShowBasket, setIsShowBasket] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
 
   const handleShowInput = () => {
     setIsShowInput(true);
@@ -36,18 +36,18 @@ const Header = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [isScrolled]);
 
   return (
-    <header className={isScrolled ? cl.headerScrolled : ""}>
+    <header className={isScrolled ? cl.headerScrolled : ''}>
       <div className={cl.mainWrapper}>
         <i>
-          <LogoIcon fillColor={isScrolled ? "white" : "black"} />
+          <LogoIcon fillColor={isScrolled ? 'white' : 'black'} />
         </i>
         <nav>
           <ul>
@@ -60,31 +60,21 @@ const Header = () => {
         </nav>
         <section className={cl.rightSection}>
           {isShowInput ? (
-            <SearchInput
-              setIsShowInput={setIsShowInput}
-              inputValue={inputValue}
-              setInputValue={setInputValue}
-            />
+            <SearchInput setIsShowInput={setIsShowInput} inputValue={inputValue} setInputValue={setInputValue} />
           ) : (
             <i onClick={handleShowInput}>
-              <SearchIcon fillColor={isScrolled ? "#FFFFFF" : "#292D32"} />
+              <SearchIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
             </i>
           )}
           <i>
             {isLanguageDefault ? (
-              <UaIcon
-                fillColor={isScrolled ? "#FFFFFF" : "#1C1C1C"}
-                setIsLanguageDefault={setIsLanguageDefault}
-              />
+              <UaIcon fillColor={isScrolled ? '#FFFFFF' : '#1C1C1C'} setIsLanguageDefault={setIsLanguageDefault} />
             ) : (
-              <EnIcon
-                fillColor={isScrolled ? "#FFFFFF" : "#1C1C1C"}
-                setIsLanguageDefault={setIsLanguageDefault}
-              />
+              <EnIcon fillColor={isScrolled ? '#FFFFFF' : '#1C1C1C'} setIsLanguageDefault={setIsLanguageDefault} />
             )}
           </i>
           <i onClick={handleShowBasket}>
-            <BagIcon fillColor={isScrolled ? "#FFFFFF" : "#292D32"} />
+            <BagIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
           </i>
         </section>
       </div>

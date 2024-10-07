@@ -1,4 +1,4 @@
-@import "../../../styles/mixins.scss";
+@import '../../../styles/mixins.scss';
 
 .basketWrapper {
   @include HeightWidth(744px, 487px);
@@ -8,7 +8,7 @@
   top: 0;
   border-radius: 2px;
   background-color: $background-color-light;
-  background-image: url("../../../assets/png/basket/basketBackground.png");
+  background-image: url('../../../assets/png/basket/basketBackground.png');
   background-repeat: no-repeat;
   background-position: center;
   color: black;

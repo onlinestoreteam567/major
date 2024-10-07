@@ -1,8 +1,8 @@
-import cl from "./index.module.scss";
-import discountIcon from "../../../assets/png/whyChooseUs/discount.png";
-import fastDeliveryIcon from "../../../assets/png/whyChooseUs/fastDelivery.png";
-import qualityIcon from "../../../assets/png/whyChooseUs/quality.png";
-import thumbUpIcon from "../../../assets/png/whyChooseUs/thumbUp.png";
+import cl from './index.module.scss';
+import discountIcon from '../../../assets/png/whyChooseUs/discount.png';
+import fastDeliveryIcon from '../../../assets/png/whyChooseUs/fastDelivery.png';
+import qualityIcon from '../../../assets/png/whyChooseUs/quality.png';
+import thumbUpIcon from '../../../assets/png/whyChooseUs/thumbUp.png';
 
 const WhyChooseUs = () => {
   return (
@@ -11,15 +11,12 @@ const WhyChooseUs = () => {
       <section className={cl.figuresWrapper}>
         <section>
           <figure>
-            <img
-              src={discountIcon}
-              alt="Іконка знижки для постійних клієнтів"
-            />
+            <img src={discountIcon} alt="Іконка знижки для постійних клієнтів" />
             <figcaption>
               <h3>Знижки для постійних клієнтів</h3>
               <p>
-                Як наш постійний клієнт, ви маєте змогу скористатися
-                спеціальними знижками та ексклюзивними пропозиціями.
+                Як наш постійний клієнт, ви маєте змогу скористатися спеціальними знижками та ексклюзивними
+                пропозиціями.
               </p>
             </figcaption>
           </figure>
@@ -28,8 +25,8 @@ const WhyChooseUs = () => {
             <figcaption>
               <h3>Швидка відправка</h3>
               <p>
-                Ми розуміємо, як важливо отримувати замовлення вчасно, тому
-                пропонуємо вам послугу швидкої та безпечної відправки.
+                Ми розуміємо, як важливо отримувати замовлення вчасно, тому пропонуємо вам послугу швидкої та безпечної
+                відправки.
               </p>
             </figcaption>
           </figure>
@@ -40,9 +37,8 @@ const WhyChooseUs = () => {
             <figcaption>
               <h3>Сертифікат якості</h3>
               <p>
-                Цей документ є підтвердженням нашої відданості високим
-                стандартам і забезпечує вам впевненість у ефективності продуктів
-                та послуг.
+                Цей документ є підтвердженням нашої відданості високим стандартам і забезпечує вам впевненість у
+                ефективності продуктів та послуг.
               </p>
             </figcaption>
           </figure>
@@ -51,8 +47,8 @@ const WhyChooseUs = () => {
             <figcaption>
               <h3>Результат з першого використання</h3>
               <p>
-                Завдяки інноваційним формулам і високоякісним інгредієнтам, ви
-                побачите та відчуєте ефект вже після першого використання.
+                Завдяки інноваційним формулам і високоякісним інгредієнтам, ви побачите та відчуєте ефект вже після
+                першого використання.
               </p>
             </figcaption>
           </figure>
