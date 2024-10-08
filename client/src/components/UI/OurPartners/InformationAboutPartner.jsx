@@ -1,17 +1,11 @@
 import PropTypes from 'prop-types';
 
-const InformationAboutPartner = ({
-  setShowInformationAboutPartner,
-  informationAboutPartner,
-  setCloseAnimation,
-  setActivePartner,
-}) => {
+const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractionState }) => {
   const handleCloseInput = () => {
     clearTimeout();
-    setCloseAnimation(true);
-    setActivePartner(null);
+    setPartnerInteractionState((prev) => ({ ...prev, closeAnimation: true, activePartner: null }));
     setTimeout(() => {
-      setShowInformationAboutPartner(false);
+      setPartnerInteractionState((prev) => ({ ...prev, showInformationAboutPartner: false }));
     }, 500);
   };
 
@@ -38,8 +32,7 @@ const InformationAboutPartner = ({
 
 InformationAboutPartner.propTypes = {
   setShowInformationAboutPartner: PropTypes.func.isRequired,
-  setCloseAnimation: PropTypes.func.isRequired,
-  setActivePartner: PropTypes.func.isRequired,
+  setPartnerInteractionState: PropTypes.func.isRequired,
   informationAboutPartner: PropTypes.shape({
     title: PropTypes.string.isRequired,
     workSchedule: PropTypes.string.isRequired,

@@ -7,10 +7,13 @@ import partnerData from './partnerData';
 
 const OurPartners = () => {
   // TODO Create responsive design
-  const [showInformationAboutPartner, setShowInformationAboutPartner] = useState(false);
-  const [closeAnimation, setCloseAnimation] = useState(true);
-  const [clickLocked, setClickLocked] = useState(false);
-  const [activePartner, setActivePartner] = useState(null);
+  const [partnerInteractionState, setPartnerInteractionState] = useState({
+    showInformationAboutPartner: false,
+    closeAnimation: true,
+    clickLocked: false,
+    activePartner: null,
+  });
+
   const [informationAboutPartner, setInformationAboutPartner] = useState({
     title: '',
     workSchedule: '',
@@ -27,8 +30,8 @@ const OurPartners = () => {
         const container = imageContainerRef.current;
         const scrollToY = container.scrollHeight / 2.47 - container.clientHeight / 2;
         container.scrollTop = scrollToY;
-        const s = container.scrollWidth / 2 - container.clientWidth / 2;
-        container.scrollLeft = s;
+        const scrollToX = container.scrollWidth / 2 - container.clientWidth / 2;
+        container.scrollLeft = scrollToX;
       }
     }, 500);
 
@@ -36,34 +39,35 @@ const OurPartners = () => {
   }, []);
 
   const handlePointClick = (className) => {
-    if (clickLocked) return; // Prevent multiple clicks
-    setClickLocked(true);
-
+    if (partnerInteractionState.clickLocked) return; // Prevent multiple clicks
+    setPartnerInteractionState((prevState) => ({ ...prevState, clickLocked: true }));
     const partner = partnerData.find((p) => p.className === className);
 
     if (partner) {
       clearTimeout();
-      if (className === activePartner) {
-        setCloseAnimation(true);
+      if (className === partnerInteractionState.activePartner) {
+        setPartnerInteractionState((prevState) => ({ ...prevState, closeAnimation: true }));
         setTimeout(() => {
-          setShowInformationAboutPartner(false);
-          setActivePartner(null);
-          setClickLocked(false);
+          setPartnerInteractionState((prevState) => ({
+            ...prevState,
+            showInformationAboutPartner: false,
+            clickLocked: false,
+            activePartner: null,
+          }));
         }, 500);
       } else {
-        setCloseAnimation(false);
+        setPartnerInteractionState((prevState) => ({ ...prevState, closeAnimation: false, activePartner: className }));
         setInformationAboutPartner(partner);
-        setActivePartner(className);
-        setShowInformationAboutPartner(true);
+        setPartnerInteractionState((prevState) => ({ ...prevState, showInformationAboutPartner: true }));
         setTimeout(() => {
-          setClickLocked(false);
+          setPartnerInteractionState((prevState) => ({ ...prevState, clickLocked: false }));
         }, 500);
       }
     }
   };
 
   return (
-    <section className={`${cl.ourPartnersWrapper} ${closeAnimation ? cl.closeAnimation : ''}`}>
+    <section className={`${cl.ourPartnersWrapper} ${partnerInteractionState.closeAnimation ? cl.closeAnimation : ''}`}>
       <h2>Наші партнери</h2>
       <figure className={cl.imageContainer} ref={imageContainerRef}>
         <img src={map} alt="" />
@@ -78,12 +82,10 @@ const OurPartners = () => {
           />
         ))}
       </figure>
-      {showInformationAboutPartner && (
+      {partnerInteractionState.showInformationAboutPartner && (
         <InformationAboutPartner
-          setShowInformationAboutPartner={setShowInformationAboutPartner}
+          setPartnerInteractionState={setPartnerInteractionState}
           informationAboutPartner={informationAboutPartner}
-          setCloseAnimation={setCloseAnimation}
-          setActivePartner={setActivePartner}
         />
       )}
       <button>Стати партнером</button>
