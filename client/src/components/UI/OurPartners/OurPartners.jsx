@@ -69,7 +69,7 @@ const OurPartners = () => {
   return (
     <section className={`${cl.ourPartnersWrapper} ${partnerInteractionState.closeAnimation ? cl.closeAnimation : ''}`}>
       <h2>Наші партнери</h2>
-      <figure className={cl.imageContainer} ref={imageContainerRef}>
+      <figure ref={imageContainerRef}>
         <img src={map} alt="" />
 
         {partnerData.map((partner) => (

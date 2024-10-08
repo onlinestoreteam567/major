@@ -17,13 +17,12 @@
     color: $text-color-black;
   }
 
-  .imageContainer {
+  figure {
     margin-top: 100px;
-    scrollbar-color: black gray;
-    scrollbar-width: thin;
     height: 68vh;
     overflow: auto;
     position: relative;
+    touch-action: pan-y;
 
     img:first-of-type {
       width: 110%;
@@ -131,9 +130,7 @@
     font-weight: $font-weight-medium;
     line-height: $line-height-base;
     border: none;
-    transition:
-      color 0.5s,
-      background-color 0.5s;
+    transition: color 0.5s, background-color 0.5s;
     cursor: pointer;
 
     &:hover {
