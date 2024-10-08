@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import cl from './index.module.scss';
-import crossIcon from '../../../assets/svg/basket/crossIcon.svg';
+import crossIcon from '../../../assets/svg/crossIcon.svg';
 import { useState } from 'react';
-
 
 const Basket = ({ setIsShowBasket }) => {
   const [hiddenBasket, setHiddenBasket] = useState(false);
