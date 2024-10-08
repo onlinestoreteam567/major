@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 import map from '../../../assets/png/ourPartners/map.png';
 import point from '../../../assets/svg/ourPartners/point.svg';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import InformationAboutPartner from './InformationAboutPartner';
 import partnerData from './partnerData';
 
@@ -19,11 +19,12 @@ const OurPartners = () => {
     googleMapAdress: '',
   });
 
+  const imageContainerRef = useRef(null);
+
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      const container = document.querySelector(`.${cl.imageContainer}`);
-
-      if (container) {
+      if (imageContainerRef.current) {
+        const container = imageContainerRef.current;
         const scrollToY = container.scrollHeight / 2.47 - container.clientHeight / 2;
         container.scrollTop = scrollToY;
         const s = container.scrollWidth / 2 - container.clientWidth / 2;
@@ -64,7 +65,7 @@ const OurPartners = () => {
   return (
     <section className={`${cl.ourPartnersWrapper} ${closeAnimation ? cl.closeAnimation : ''}`}>
       <h2>Наші партнери</h2>
-      <figure className={cl.imageContainer}>
+      <figure className={cl.imageContainer} ref={imageContainerRef}>
         <img src={map} alt="" />
 
         {partnerData.map((partner) => (
