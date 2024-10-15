@@ -4,17 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
   const input = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
-
-  useEffect(() => {
-    if (isFocused) {
-      const firstUnderscoreIndex = input.current.value.indexOf('_');
-      if (firstUnderscoreIndex !== -1) {
-        // Set the cursor position to one character after the first underscore
-        input.current.setSelectionRange(firstUnderscoreIndex + 1, firstUnderscoreIndex + 1);
-      }
-    }
-  }, [isFocused, inputsValue.phone]);
-
   const handleInputChange = (e) => {
     const phoneNumberValue = e.target.value;
 
@@ -68,14 +57,23 @@ const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
     e.preventDefault(); // Prevent cursor positioning with mouse if already focused
   };
 
+  // Prevent cursor movement using arrow keys or other non-character keys
+  const forbiddenKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'];
   const handleKeyDown = (e) => {
-    // Prevent cursor movement using arrow keys or other non-character keys
-    const forbiddenKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'];
-
     if (forbiddenKeys.includes(e.key)) {
       e.preventDefault();
     }
   };
+
+  useEffect(() => {
+    if (isFocused) {
+      const firstUnderscoreIndex = input.current.value.indexOf('_');
+      if (firstUnderscoreIndex !== -1) {
+        // Set the cursor position to one character after the first underscore
+        input.current.setSelectionRange(firstUnderscoreIndex + 1, firstUnderscoreIndex + 1);
+      }
+    }
+  }, [isFocused, inputsValue.phone]);
 
   return (
     <input
@@ -99,8 +97,3 @@ const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
 };
 
 export default PhoneNumberInput;
-
-PhoneNumberInput.propTypes = {
-  inputsValue: PropTypes.objectOf(PropTypes.string).isRequired,
-  setInputsValue: PropTypes.func.isRequired,
-};
