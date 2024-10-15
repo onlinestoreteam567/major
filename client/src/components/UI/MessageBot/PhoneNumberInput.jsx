@@ -2,21 +2,29 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 
 const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
-  const Ref = useRef(null);
+  const input = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
     if (isFocused) {
-      const firstUnderscoreIndex = Ref.current.value.indexOf('_');
+      const firstUnderscoreIndex = input.current.value.indexOf('_');
       if (firstUnderscoreIndex !== -1) {
         // Set the cursor position to one character after the first underscore
-        Ref.current.setSelectionRange(firstUnderscoreIndex + 1, firstUnderscoreIndex + 1);
+        input.current.setSelectionRange(firstUnderscoreIndex + 1, firstUnderscoreIndex + 1);
       }
     }
   }, [isFocused, inputsValue.phone]);
 
-  const handleInputPhoneNumberChange = (e) => {
+  const handleInputChange = (e) => {
     const phoneNumberValue = e.target.value;
+
+    // Remove all non-digit characters (excluding underscores) to count only the digits
+    const digitsOnly = phoneNumberValue.replace(/[^\d]/g, '');
+    // Limit the number of digits
+    if (digitsOnly.length > 12) {
+      return;
+    }
+
     const cleanedPhoneNumber = phoneNumberValue.replace('_', '');
 
     // Allow only digits, parentheses, spaces, the plus sign, and underscores
@@ -27,15 +35,15 @@ const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
     }
   };
 
-  const handleNumberFocus = () => {
+  const handleInputFocus = () => {
     setIsFocused(true);
   };
 
-  const handleNumberBlur = () => {
+  const handleInputBlur = () => {
     setIsFocused(false);
   };
 
-  const handleInputPhoneNumberClick = (e) => {
+  const handleInputDelete = (e) => {
     const keyboardButton = e.key;
 
     // Replace last digit with underscore
@@ -52,9 +60,9 @@ const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
     }
   };
 
-  const handleMouseDown = (e) => {
+  const handleInputCursorPosition = (e) => {
     if (document.activeElement !== e.target) {
-      // If the input is not already focused, allow the focus to happen
+      // If the input is not already focused, allow the focus
       return;
     }
     e.preventDefault(); // Prevent cursor positioning with mouse if already focused
@@ -75,17 +83,17 @@ const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
       type="text"
       placeholder="+38 (0__) __ __ ___"
       value={inputsValue.phone}
-      required
-      onChange={handleInputPhoneNumberChange}
-      onFocus={handleNumberFocus}
-      onBlur={handleNumberBlur}
+      autoComplete="tel"
+      ref={input}
+      onChange={handleInputChange}
+      onFocus={handleInputFocus}
+      onBlur={handleInputBlur}
       onKeyDown={(e) => {
-        handleInputPhoneNumberClick(e);
+        handleInputDelete(e);
         handleKeyDown(e);
       }}
-      autoComplete="tel"
-      ref={Ref}
-      onMouseDown={handleMouseDown}
+      onMouseDown={handleInputCursorPosition}
+      required
     />
   );
 };

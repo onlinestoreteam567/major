@@ -15,7 +15,7 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
     setShowMessagePopUp(false);
   };
 
-  const handleChange = (e) => {
+  const handleTextAreaChange = (e) => {
     setInputsValue({ ...inputsValue, [e.target.id]: e.target.value });
   };
 
@@ -73,8 +73,8 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
             id="message"
             placeholder="Напишіть нам Ваше питання"
             value={inputsValue.message}
+            onChange={handleTextAreaChange}
             required
-            onChange={handleChange}
           />
 
           <button onClick={handleSubmit}>Відправити повідомлення</button>
