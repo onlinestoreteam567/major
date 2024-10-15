@@ -2,14 +2,14 @@ import cl from './index.module.scss';
 import PropTypes from 'prop-types';
 import crossIcon from '../../../assets/svg/crossIcon.svg';
 import { useState } from 'react';
+import PhoneNumberInput from './PhoneNumberInput';
 
 const MessagePopUp = ({ setShowMessagePopUp }) => {
   const [inputsValue, setInputsValue] = useState({
     name: '',
-    phone: '',
+    phone: '+38 (0__)  __ __ ___',
     message: '',
   });
-  const [counter, setCounter] = useState(0);
 
   const handleCloseMessagePopUp = () => {
     setShowMessagePopUp(false);
@@ -41,47 +41,6 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
     });
   };
 
-  const handleInputPhoneNumberChange = (e) => {
-    const phoneNumberValue = e.target.value;
-    const cleanedPhoneNumber = phoneNumberValue.replace('_', '');
-
-    // Allow only digits, parentheses, spaces, the plus sign, and underscores
-    const isValidNumber = /^[\d ()+_]*$/.test(phoneNumberValue);
-
-    if (isValidNumber) {
-      setInputsValue({ ...inputsValue, phone: cleanedPhoneNumber });
-      setCounter(counter + 1);
-      setTimeout(() => {
-        switch (true) {
-          case counter === 1:
-            e.target.setSelectionRange(11, 11);
-            break;
-
-          case counter === 3:
-            e.target.setSelectionRange(14, 14);
-            break;
-
-          case counter === 5:
-            e.target.setSelectionRange(17, 17);
-            break;
-
-          default: {
-            const cursorPosition = phoneNumberValue.indexOf('_') + 1;
-            e.target.setSelectionRange(cursorPosition, cursorPosition);
-          }
-        }
-      }, 0);
-    }
-  };
-
-  const handleNumberFocus = (e) => {
-    setInputsValue({ ...inputsValue, phone: '+38 (0__)  __ __ ___' });
-    setTimeout(() => {
-      e.target.setSelectionRange(6, 6);
-    }, 0);
-    setCounter(0);
-  };
-
   return (
     <>
       {/* Overlay */}
@@ -102,21 +61,12 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
             placeholder="Ім’я та прізвище"
             value={inputsValue.name}
             required
-            onChange={(e) => handleInputNameChange(e)}
+            onChange={handleInputNameChange}
             autoComplete="name"
           />
 
           <label htmlFor="phone">Номер телефону</label>
-          <input
-            id="phone"
-            type="text"
-            placeholder="+38 (0__) __ __ ___"
-            value={inputsValue.phone}
-            required
-            onChange={(e) => handleInputPhoneNumberChange(e)}
-            onFocus={(e) => handleNumberFocus(e)}
-            autoComplete="tel"
-          />
+          <PhoneNumberInput inputsValue={inputsValue} setInputsValue={setInputsValue} />
 
           <label htmlFor="message">Питання</label>
           <textarea
@@ -124,8 +74,7 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
             placeholder="Напишіть нам Ваше питання"
             value={inputsValue.message}
             required
-            onChange={(e) => handleChange(e)}
-            autoComplete="off"
+            onChange={handleChange}
           />
 
           <button onClick={handleSubmit}>Відправити повідомлення</button>
