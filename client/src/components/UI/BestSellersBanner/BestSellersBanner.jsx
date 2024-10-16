@@ -90,7 +90,7 @@ const BestSellersBanner = () => {
           cardData={{
             img: {
               src: secondSlideImage,
-              alt: 'First best seller image',
+              alt: 'Second best seller image',
             },
             title: 'title',
             price: '123',
@@ -102,7 +102,7 @@ const BestSellersBanner = () => {
           cardData={{
             img: {
               src: thirdSlideImage,
-              alt: 'First best seller image',
+              alt: 'Third best seller image',
             },
             title: 'title',
             price: '123',
@@ -114,7 +114,7 @@ const BestSellersBanner = () => {
           cardData={{
             img: {
               src: fourthSlideImage,
-              alt: 'First best seller image',
+              alt: 'Fourth best seller image',
             },
             title: 'title',
             price: '123',
@@ -122,6 +122,202 @@ const BestSellersBanner = () => {
             feedbackAmount: '5',
           }}
         ></BestSellerCard>
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Fiveth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Sixth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Seventh best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Eighth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Nineth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Tenth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Eleventh best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Twelfth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Thirteenth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Fourteenth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Fiveteenth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Sixteenth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Seventinth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Eighteenth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+        
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Nineteenth best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
+         
+
         {/* next 16 cards here */}
       </Slider>
     </div>
