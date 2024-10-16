@@ -1,7 +1,5 @@
 @import '../../styles/mixins.scss';
 
-// TODO Add user-select: none to Calendar icon
-
 footer {
   @include flex(column, null, center);
 
