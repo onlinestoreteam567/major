@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import crossIcon from '../../../assets/svg/crossIcon.svg';
 import { useState } from 'react';
 import PhoneNumberInput from './PhoneNumberInput';
+import Overlay from '../Overlay/Overlay';
 
 const MessagePopUp = ({ setShowMessagePopUp }) => {
   const [inputsValue, setInputsValue] = useState({
@@ -43,8 +44,7 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
 
   return (
     <>
-      {/* Overlay */}
-      <div className={cl.overlay} onClick={handleCloseMessagePopUp}></div>
+      <Overlay handleClose={handleCloseMessagePopUp} />
 
       <div className={cl.messagePopUp}>
         <img src={crossIcon} alt="Close popup" onClick={handleCloseMessagePopUp} />
