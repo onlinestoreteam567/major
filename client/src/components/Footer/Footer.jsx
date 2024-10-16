@@ -32,18 +32,18 @@ const Footer = () => {
             </ul>
           </section>
         </section>
-        <section>
+        <section className={cl.firstNavigationSection}>
           <ul className={cl.ulNavigation}>
-            <li>
+            <li className={cl.textToRight}>
               <a href="">Головна</a>
             </li>
-            <li>
+            <li className={cl.textToRight}>
               <a href="">Каталог</a>
             </li>
-            <li>
+            <li className={cl.textToRight}>
               <a href="">Про нас</a>
             </li>
-            <li>
+            <li className={cl.textToRight}>
               <a href="">Блог</a>
             </li>
           </ul>
