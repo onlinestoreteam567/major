@@ -1,9 +1,9 @@
 .dropdownMenu {
   height: fit-content;
 }
-.dropdownMenu{
+.dropdownMenu {
   ul {
-  position: absolute;
+    position: absolute;
     padding: 0 15px 0 15px;
     border: 1px solid white;
     border-radius: 20px;
@@ -12,8 +12,8 @@
     height: max-content;
     transition: 1s;
   }
-  
-  ul::before { 
+
+  ul::before {
     content: '';
     position: fixed;
     top: 3.019rem;
@@ -24,7 +24,6 @@
     transform: rotate(135.2deg);
     border-left: 1px solid white;
     border-bottom: 1px solid white;
-   
   }
   ul li {
     transition: 0.3s;

@@ -1,13 +1,10 @@
-import Slider from "react-slick";
-import { useRef } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import styles from "./index.module.scss";
+import Slider from 'react-slick';
+import { useRef } from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import cl from './index.module.scss';
 
-const MainBanner = () => {
-  let sliderRef = useRef(null);
-
-  const settings = {
+const settings = {
     fade: true,
     accessibility: true,
     dots: true,
@@ -16,22 +13,20 @@ const MainBanner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     lazyLoad: true,
-  };
+};
 
-  return (
-    <div className="slider-container">
-      <Slider
-        ref={(slider) => {
-          sliderRef = slider;
-        }}
-        {...settings}
-      >
-        <div className={`${styles.slide} ${styles.firstSlide}`}></div>
-        <div className={`${styles.slide} ${styles.secondSlide}`}></div>
-        <div className={`${styles.slide} ${styles.thirdSlide}`}></div>
-      </Slider>
-    </div>
-  );
+const MainBanner = () => {
+    let sliderRef = useRef(null);
+
+    return (
+        <div className="slider-container">
+            <Slider ref={sliderRef} {...settings}>
+                <div className={`${cl.slide} ${cl.firstSlide}`}></div>
+                <div className={`${cl.slide} ${cl.secondSlide}`}></div>
+                <div className={`${cl.slide} ${cl.thirdSlide}`}></div>
+            </Slider>
+        </div>
+    );
 };
 
 export default MainBanner;

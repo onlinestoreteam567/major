@@ -1,6 +1,4 @@
-import AppRouter from "./router/AppRouter";
-
-// Some test changes for new branch
+import AppRouter from './router/AppRouter'
 
 function App() {
   return (

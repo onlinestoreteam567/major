@@ -1,5 +1,4 @@
 // Import styles
-@import './styles/variables.scss';
 @import './styles/mixins.scss';
 
 // Global styles
@@ -15,20 +14,21 @@
 
 // Anchor tags
 a {
-  font-weight: $font-weight-bold;
-  color: $primary-link-color;
+  color: unset;
   text-decoration: none;
 
-  &:hover {
-    color: $primary-link-hover-color;
-  }
+  // &:hover {
+  // color: $primary-link-hover-color;
+  // }
 }
 
 // Body styles
 body {
   margin: 0;
-  padding: 0; 
-  background-color: $background-color-light; 
+  padding: 0;
+  box-sizing: border-box;
+
+  background-color: $background-color-light;
   color: $text-color-light;
 }
 
@@ -36,14 +36,35 @@ body {
 h1 {
   font-size: $font-size-large;
   line-height: 1.1;
-  margin: 0; 
+  margin: 0;
+}
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+// Unordered Lists
+ul {
+  padding: 0;
+  margin: 0;
 }
 
 // Lists
 li {
   list-style: none;
   padding: 0;
-  margin: 0; 
+  margin: 0;
+}
+
+// Paragraphs
+p {
+  margin: 0;
+}
+
+// figure
+figure {
+  margin: 0;
 }
 
 /* Banner Styles */
@@ -55,7 +76,7 @@ li {
 }
 
 .slick-dots li button::before {
-  color: #22211f !important;
+  color: $text-color-black !important;
   opacity: unset !important;
   font-size: 9.6px !important;
 }
@@ -63,6 +84,11 @@ li {
 .slick-dots li.slick-active button::before {
   opacity: unset !important;
   font-size: 19px !important;
+}
+
+// Remove arrows from inside page, avoid creating x scroll bar
+.slick-arrow {
+  display: none !important;
 }
 
 /* button {

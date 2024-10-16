@@ -11,35 +11,34 @@ const Home = lazy(() => import('../pages/HomePage'));
 
 // example for future features
 // const Login = lazy(() => import('../pages/Login'));
-// const Register = lazy(() => import('../pages/Register')); 
+// const Register = lazy(() => import('../pages/Register'));
 
 const AppRouter = () => {
-    return (
-        <Router>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Routes>
-                    {/* Public Routes */}
-                    <Route element={<MainLayout />}>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/profile" element={<ProfilePage />} />
-                        
-                        {/* Test Routes for developing */}
-                        <Route path="/redux" element={<Redux />} />
-                        {/* Auth Routes */}
-                    </Route>
+  return (
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          {/* Public Routes */}
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<ProfilePage />} />
 
-                    {/* Auth Routes */}
-                    <Route element={<AuthLayout />}>
-                        {/* <Route path="/login" element={<Login />} />
+            {/* Test Routes for developing */}
+            <Route path="/redux" element={<Redux />} />
+          </Route>
+
+          {/* Auth Routes */}
+          <Route element={<AuthLayout />}>
+            {/* <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} /> */}
-                    </Route>
+          </Route>
 
-                    {/* Route for 404 */}
-                    <Route path="*" element={<div>404 Not Found</div>} />
-                </Routes>
-            </Suspense>
-        </Router>
-    );
+          {/* Route for 404 */}
+          <Route path="*" element={<div>404 Not Found</div>} />
+        </Routes>
+      </Suspense>
+    </Router>
+  );
 };
 
 export default AppRouter;

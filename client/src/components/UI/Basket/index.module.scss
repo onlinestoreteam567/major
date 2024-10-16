@@ -1,0 +1,91 @@
+@import '../../../styles/mixins.scss';
+
+.basketWrapper {
+  @include HeightWidth(744px, 487px);
+  @include flex(column, null, center);
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 2px;
+  background-color: $background-color-light;
+  background-image: url('../../../assets/png/basket/basketBackground.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  color: black;
+  padding: 40px 32px 90px 32px;
+  box-sizing: border-box;
+  animation: showBacket 0.5s;
+  z-index: 100;
+
+  .basketHeaderSection {
+    @include flex(row, space-between, center);
+    width: 100%;
+
+    h2 {
+      font-size: $font-main;
+      font-size: 36px;
+      font-weight: $font-weight-bold;
+      line-height: 44.64px;
+    }
+
+    img {
+      cursor: pointer;
+    }
+  }
+
+  div {
+    width: 100%;
+    border-bottom: 1px solid #cacaca;
+    margin-top: 10px;
+  }
+
+  .emptyBasketText {
+    font-family: $font-second;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22.32px;
+    margin-top: 382px;
+
+    color: #8f8f8f;
+  }
+
+  button {
+    @include HeightWidth(60px, 367px);
+    border-radius: 2px;
+    border: 2px solid #000000;
+    font-family: Inter;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    line-height: 20.48px;
+    margin-top: auto;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $background-color-black;
+      color: $text-color-light;
+    }
+  }
+}
+
+.closeBasket {
+  animation: closeBacket 0.5s;
+}
+
+@keyframes showBacket {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeBacket {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
