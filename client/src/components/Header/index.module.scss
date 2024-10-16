@@ -16,6 +16,7 @@ header {
 
     nav {
       padding-left: 190px;
+      @include flex(row, null, center);
 
       ul {
         @include flexRowGap(40px);
