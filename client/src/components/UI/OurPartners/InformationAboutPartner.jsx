@@ -5,7 +5,7 @@ const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractio
     clearTimeout();
     setPartnerInteractionState((prev) => ({ ...prev, closeAnimation: true, activePartner: null }));
     setTimeout(() => {
-      setPartnerInteractionState((prev) => ({ ...prev, showInformationAboutPartner: false }));
+      setPartnerInteractionState((prev) => ({ ...prev, showInformationAboutPartner: true }));
     }, 500);
   };
 

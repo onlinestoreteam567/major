@@ -1,6 +1,7 @@
 @import '../../../styles/mixins.scss';
 
 .ourPartnersWrapper {
+  user-select: none;
   @include flex(column, center, center);
   margin-top: 200px;
   position: relative;
@@ -18,11 +19,15 @@
   }
 
   figure {
-    margin-top: 100px;
+    margin-top: 75px;
     height: 68vh;
-    overflow: auto;
     position: relative;
-    touch-action: pan-y;
+    overflow: hidden;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
 
     img:first-of-type {
       width: 110%;
@@ -62,7 +67,7 @@
   }
 
   aside {
-    @include HeightWidth(590px, 388px);
+    @include HeightWidth(553px, 388px);
     @include flex(column, null, start);
     box-sizing: border-box;
     padding: 107px 0 0 40px;
@@ -71,8 +76,8 @@
     font-family: $font-main;
     color: $text-color-light;
     position: absolute;
-    top: 12%;
-    right: 14%;
+    top: 15.5%;
+    right: 4%;
     animation: showInformationAboutPartners 0.5s;
 
     h3 {
