@@ -1,41 +1,68 @@
 @import '../../../styles/mixins.scss';
 
 search {
-  background-color: #ffffff;
   border-radius: 4px;
+  padding-left: 6.5%;
+  z-index: 100;
+  position: relative;
+  display: flex;
+  justify-content: center;
 
-  &.activeSearch {
-    @include absolute(10px, 29px);
-  }
-
-  .searchInput {
-    @include HeightWidth(40px, 300px);
-    max-width: 300px;
-    max-height: 40px;
-    font-family: $font-main;
-    font-size: $font-size-small;
-    font-weight: $font-weight-base;
-    line-height: $line-height-small;
-    letter-spacing: $letter-spacing-small;
-
-    background-image: url('../../../assets/svg/header/searchInSearchBar.svg');
-    background-repeat: no-repeat;
-    background-position: 12px center;
-    padding-left: 38px;
-    border: 1px solid #bcbcbc;
-    border-radius: 4px;
-    outline: none;
+  div {
+    width: 100%;
+    height: auto;
+    max-width: 990px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     box-sizing: border-box;
+    .searchInput {
+      width: 100%;
+      height: 40px;
 
-    &::placeholder {
-      color: #676767;
+      font-family: $font-second;
+      font-size: $font-size-base;
+      font-weight: $font-weight-base;
+      line-height: 23.04px;
+      color: $text-color-black;
+
+      background-image: url('../../../assets/svg/header/searchInSearchBar.svg');
+      background-repeat: no-repeat;
+      background-position: 12px center;
+      padding-left: 35px;
+      border: 1px solid #676767;
+      border-radius: 4px;
+      outline: none;
+      box-sizing: border-box;
+
+      &::placeholder {
+        color: #676767;
+        font-family: $font-main;
+      }
+
+      &.activeSearchInput {
+        border: none;
+        padding-left: 12px;
+        background-image: none;
+      }
     }
 
-    &.activeSearchInput {
-      border: none;
+    .inputFocus {
       padding-left: 12px;
-      color: #676767;
       background-image: none;
+
+      &::placeholder {
+        color: transparent;
+      }
+    }
+
+    &.activeSearch {
+      position: absolute;
+      top: 15%;
+      right: 1.5%;
+      background-color: white;
+      border: 1px solid #676767;
+      border-radius: 4px;
     }
   }
 
@@ -46,31 +73,66 @@ search {
     font-weight: $font-weight-base;
     line-height: $line-height-small;
     letter-spacing: $letter-spacing-small;
-    color: black;
-    overflow-y: scroll;
+    color: $text-color-black;
+    box-sizing: border-box;
 
     hr {
       color: #c0c0c0;
+      border-top: 1px;
     }
 
-    .searchResultItem {
-      display: flex;
-      height: 64px;
+    ul {
+      margin-top: 27px;
+      box-sizing: border-box;
+      padding-left: 7px;
+      li {
+        display: flex;
+        height: 64px;
+        margin-bottom: 25px;
 
-      .searchResultInfo {
-        margin-left: 10px;
+        .searchResultInfo {
+          margin-left: 10px;
 
-        p {
-          display: inline-block;
+          .productName {
+            font-family: $font-second;
+            font-weight: $font-weight-base;
+            font-size: $font-size-base;
+            line-height: 23.04px;
+          }
+
+          p {
+            display: inline-block;
+          }
+
+          .productPrice {
+            margin-top: 10px;
+            font-family: $font-main;
+            font-size: $font-size-base;
+            font-weight: 300;
+            line-height: 20.48px;
+          }
+
+          .hryvniaSymbol {
+            @include HeightWidth(12px, 8px);
+          }
         }
+      }
+    }
 
-        .searchResultPrice {
-          margin-top: 10px;
-        }
+    .showAll {
+      text-align: center;
+      display: block;
+      font-family: $font-second;
+      font-weight: $font-weight-base;
+      font-size: $font-size-base;
+      line-height: 23.04px;
+      color: #a2a2a2;
+      transition: 0.6s;
+      padding-bottom: 25px;
+      cursor: pointer;
 
-        .hryvniaSymbol {
-          @include HeightWidth(12px, 8px);
-        }
+      &:hover {
+        color: $text-color-black;
       }
     }
   }

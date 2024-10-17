@@ -52,6 +52,10 @@ header {
       }
     }
   }
+
+  .showInput {
+    grid-template-columns: 1fr 8.2fr 0.5fr;
+  }
 }
 
 .headerScrolled {

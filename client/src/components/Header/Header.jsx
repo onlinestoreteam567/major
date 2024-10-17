@@ -7,6 +7,7 @@ import SearchInput from '../UI/SearchInput/SearchInput';
 import { useState, useEffect } from 'react';
 import EnIcon from '../../assets/svg/header/EnIcon';
 import Basket from '../UI/Basket/Basket';
+import Overlay from '../UI/Overlay/Overlay';
 
 // TODO: add router;
 // TODO: add basket design and implement products add to busket;
@@ -22,6 +23,10 @@ const Header = () => {
 
   const handleShowInput = () => {
     setIsShowInput(true);
+  };
+
+  const handleCloseInput = () => {
+    setIsShowInput(false);
   };
   const handleShowBasket = () => {
     setIsShowBasket(true);
@@ -45,27 +50,35 @@ const Header = () => {
 
   return (
     <header className={isScrolled ? cl.headerScrolled : ''}>
-      <div className={cl.mainWrapper}>
+      <div className={`${cl.mainWrapper} ${isShowInput && cl.showInput}`}>
         <i>
           <LogoIcon fillColor={isScrolled ? 'white' : 'black'} />
         </i>
-        <nav>
-          <ul>
-            <li>КАТАЛОГ</li>
-            <li>ПРО НАС</li>
-            <li>БЛОГ</li>
-            <li>СПІВПРАЦЯ</li>
-            <li>КОНТАКТИ</li>
-          </ul>
-        </nav>
-        <section className={cl.rightSection}>
-          {isShowInput ? (
+
+        {isShowInput ? (
+          <>
+            <Overlay handleClose={handleCloseInput} />
             <SearchInput setIsShowInput={setIsShowInput} inputValue={inputValue} setInputValue={setInputValue} />
-          ) : (
+          </>
+        ) : (
+          <nav>
+            <ul>
+              <li>КАТАЛОГ</li>
+              <li>ПРО НАС</li>
+              <li>БЛОГ</li>
+              <li>СПІВПРАЦЯ</li>
+              <li>КОНТАКТИ</li>
+            </ul>
+          </nav>
+        )}
+
+        <section className={cl.rightSection}>
+          {!isShowInput && (
             <i onClick={handleShowInput}>
               <SearchIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
             </i>
           )}
+
           <i>
             {isLanguageDefault ? (
               <UaIcon fillColor={isScrolled ? '#FFFFFF' : '#1C1C1C'} setIsLanguageDefault={setIsLanguageDefault} />
