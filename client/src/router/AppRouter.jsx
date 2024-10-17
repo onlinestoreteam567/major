@@ -5,7 +5,9 @@ import MainLayout from './layouts/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
 import ProfilePage from '../pages/ProfilePage';
 import Redux from './test-components/redux';
-// import ErrorBoundary from './components/ErrorBoundary'; // A component to handle errors
+
+// Error Boundary
+import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
 
 // Lazy loading
 const Home = lazy(() => import('../pages/HomePage'));
@@ -22,20 +24,22 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
-    // errorElement: <ErrorBoundary />, // Error boundary for MainLayout
+    errorElement: <ErrorBoundary />, // Error boundary for MainLayout
     children: [
       { index: true, element: <Home /> },
       { path: 'profile', element: <ProfilePage /> },
-      { path: 'redux', element: <Redux /> },
       { path: 'about', element: <About /> },
       { path: 'blog', element: <Blog /> },
       { path: 'contact', element: <Contact /> },
       { path: 'cooperation', element: <Cooperation /> },
+
+      // test-components
+      { path: 'redux', element: <Redux /> },
     ],
   },
   {
     element: <AuthLayout />,
-    // errorElement: <ErrorBoundary />, // Error boundary for AuthLayout
+    errorElement: <ErrorBoundary />, // Error boundary for AuthLayout
     children: [
       // Uncomment and add routes as needed
       // { path: 'login', element: <Login /> },
