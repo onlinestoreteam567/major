@@ -21,8 +21,9 @@
   figure {
     margin-top: 75px;
     height: 68vh;
+    width: 100%;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
     cursor: grab;
 
     &:active {
@@ -30,13 +31,14 @@
     }
 
     img:first-of-type {
-      width: 110%;
+      object-fit: cover;
+      width: 1471px;
+      height: 997px;
     }
 
     .point {
       @include HeightWidth(30px, 30px);
       cursor: pointer;
-      transition: 0.5s;
 
       &:hover {
         width: 40px;
@@ -46,23 +48,23 @@
     }
 
     .lvivPoint {
-      @include absolute(52%, 11.6%);
+      @include absolute(300px, 153px);
     }
 
     .lytskPoint {
-      @include absolute(25%, 18.3%);
+      @include absolute(143px, 243px);
     }
 
     .ternopilPoint {
-      @include absolute(57.6%, 22.3%);
+      @include absolute(329px, 298px);
     }
 
     .ivanoFrankivskPoint {
-      @include absolute(77.7%, 16.5%);
+      @include absolute(439px, 223px);
     }
 
     .vinnitsaPoint {
-      @include absolute(71.7%, 40.3%);
+      @include absolute(414px, 538px);
     }
   }
 
