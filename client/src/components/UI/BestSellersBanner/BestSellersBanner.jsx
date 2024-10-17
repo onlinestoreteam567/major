@@ -122,6 +122,7 @@ const BestSellersBanner = () => {
             feedbackAmount: '5',
           }}
         ></BestSellerCard>
+          
         <BestSellerCard
           cardData={{
             img: {
@@ -309,6 +310,7 @@ const BestSellersBanner = () => {
             img: {
               src: fourthSlideImage,
               alt: 'Nineteenth best seller image',
+              alt: 'First best seller image',
             },
             title: 'title',
             price: '123',
@@ -316,8 +318,19 @@ const BestSellersBanner = () => {
             feedbackAmount: '5',
           }}
         ></BestSellerCard>
-         
-
+        <BestSellerCard
+          cardData={{
+            img: {
+              src: fourthSlideImage,
+              alt: 'Twenty best seller image',
+              alt: 'First best seller image',
+            },
+            title: 'title',
+            price: '123',
+            mlQuantity: '555',
+            feedbackAmount: '5',
+          }}
+        ></BestSellerCard>
         {/* next 16 cards here */}
       </Slider>
     </div>
