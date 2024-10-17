@@ -51,7 +51,7 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
     const timeoutId = setTimeout(() => {
       if (imageContainerRef.current) {
         const container = imageContainerRef.current;
-        const scrollToY = container.scrollHeight / 2.47 - container.clientHeight / 2;
+        const scrollToY = container.scrollHeight / 2.7 - container.clientHeight / 2;
         container.scrollTop = scrollToY;
         const scrollToX = container.scrollWidth / 2 - container.clientWidth / 2;
         container.scrollLeft = scrollToX;
