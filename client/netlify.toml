@@ -1,8 +1,0 @@
-[build]
-  base    = "client"
-  command = "npm run build"
-  publish = "client/dist"
-
-[build.environment]
-  NODE_VERSION = "18.17.1"
-  NODE_ENV = "production"
