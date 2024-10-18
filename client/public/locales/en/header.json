@@ -1,6 +1,7 @@
 {
-  "home": "Home",
-  "about": "About Us",
-  "contact": "Contact",
-  "languageSwitch": "Switch Language"
+  "catalog": "CATALOG",
+  "about": "ABOUT US",
+  "blog": "BLOG",
+  "cooperation": "COOPERATION",
+  "contact": "CONTACTS"
 }

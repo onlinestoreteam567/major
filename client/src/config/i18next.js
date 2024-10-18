@@ -6,12 +6,12 @@ i18n
   .use(HttpApi)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en',
-    lng: 'en',
+    fallbackLng: 'ua',
+    lng: 'ua',
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
-    ns: ['common', 'header'],
+    ns: ['common', 'header', 'catalog', 'majorInfo'],
     defaultNS: 'common',
     interpolation: {
       escapeValue: false,

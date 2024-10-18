@@ -1,30 +1,24 @@
 import cl from './index.module.scss';
 import photo from '../../../assets/png/majorInfo/1.png';
+import { useTranslation } from 'react-i18next';
 
 const MajorInfo = () => {
+  const { t } = useTranslation();
+
   return (
     <section className={cl.majorInfoWrapper}>
-      <h2>
-        Major - це український виробник професійної косметики, <br />
-        для догляду за волоссям в домашніх умовах.
-      </h2>
+      <h2>{t('title', { ns: 'majorInfo' })}</h2>
 
       <figure>
-        <img src={photo} alt="Фото продукції українського виробника професійної косметики Major" />
+        <img src={photo} alt={t('imgAlt', { ns: 'majorInfo' })} />
 
         <figcaption>
-          <p>
-            Ми невпинно працюємо над створенням продуктів, які вас захоплюють своєю ефективністю та легкістю
-            використання, а також забезпечать весь необхідний догляд.
-          </p>
-          <p>Ми віримо, що робимо велику справу в житті кожної жінки для досягнення прекрасного.</p>
-          <p>
-            Любимо свою справу і досягаємо переваги у всьому. Щоразу реалізуємо нові цілі, створюємо нові формули та
-            вдосконалюємо існуючі.
-          </p>
+          <p>{t('text1', { ns: 'majorInfo' })}</p>
+          <p>{t('text2', { ns: 'majorInfo' })}</p>
+          <p>{t('text3', { ns: 'majorInfo' })}</p>
 
           <h3>
-            <a href="">Більше про нас</a>
+            <a href="">{t('more', { ns: 'majorInfo' })}</a>
           </h3>
         </figcaption>
       </figure>

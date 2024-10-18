@@ -1,8 +1,10 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import { changeLanguage } from '../../../utils/changeLanguage';
 
 const UaIcon = ({ fillColor, setIsLanguageDefault }) => {
   const handleLanguageChangeOnClick = () => {
     setIsLanguageDefault(false);
+    changeLanguage('en');
   };
 
   return (

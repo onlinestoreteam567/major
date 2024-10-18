@@ -8,8 +8,9 @@ import { useState, useEffect } from 'react';
 import EnIcon from '../../assets/svg/header/EnIcon';
 import Basket from '../UI/Basket/Basket';
 import Overlay from '../UI/Overlay/Overlay';
-
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 // TODO: add router;
 // TODO: add basket design and implement products add to busket;
 // TODO: implement language switcher;
@@ -49,6 +50,7 @@ const Header = () => {
     };
   }, [isScrolled]);
 
+  const { t } = useTranslation();
   return (
     <header className={isScrolled ? cl.headerScrolled : ''}>
       <div className={`${cl.mainWrapper} ${isShowInput && cl.showInput}`}>
@@ -64,18 +66,18 @@ const Header = () => {
         ) : (
           <nav>
             <ul>
-              <li>КАТАЛОГ</li>
+              <li>{t('catalog', { ns: 'header' })}</li>
               <li>
-                <Link to="about">ПРО НАС</Link>
+                <Link to="about">{t('about', { ns: 'header' })}</Link>
               </li>
               <li>
-                <Link to="blog">БЛОГ</Link>
+                <Link to="blog">{t('blog', { ns: 'header' })}</Link>
               </li>
               <li>
-                <Link to="cooperation">СПІВПРАЦЯ</Link>
+                <Link to="cooperation">{t('cooperation', { ns: 'header' })}</Link>
               </li>
               <li>
-                <Link to="contact">КОНТАКТИ</Link>
+                <Link to="contact">{t('contact', { ns: 'header' })}</Link>
               </li>
             </ul>
           </nav>
