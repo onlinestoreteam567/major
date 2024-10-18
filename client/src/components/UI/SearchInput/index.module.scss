@@ -64,6 +64,15 @@ search {
       border: 1px solid #676767;
       border-radius: 4px;
     }
+
+    .crossIcon {
+      height: 14px;
+      width: 14px;
+      cursor: pointer;
+      position: absolute;
+      right: 2.5%;
+      top: 11%;
+    }
   }
 
   .searchResultsSection {
@@ -137,6 +146,8 @@ search {
     }
   }
   .searchNotFound {
+    @include flex(row, center, center);
+
     font-family: $font-main;
     font-size: $font-size-small;
     font-weight: 300;
@@ -144,7 +155,16 @@ search {
     $letter-spacing-small: 0.04em;
     color: $text-color-black;
     padding: 0 12px;
-    height: 25px;
+    height: 87px;
     border-radius: 4px;
+
+    p {
+      color: #a2a2a2;
+      font-family: $font-second;
+      font-size: $font-size-base;
+      font-weight: $font-weight-base;
+      line-height: 23.04px;
+      text-align: center;
+    }
   }
 }

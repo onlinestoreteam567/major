@@ -3,16 +3,10 @@ import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import hryvniaSymbol from '../../../assets/svg/hryvnia.svg';
 import products from './productsExample';
+import crossIcon from '../../../assets/svg/crossIcon.svg';
 
-function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
+function SearchInput({ inputValue, setInputValue }) {
   const [isInputFocus, setIsInputFocus] = useState(false);
-
-  const handleCloseInput = () => {
-    clearTimeout();
-    setTimeout(() => {
-      setIsShowInput(false);
-    }, 500);
-  };
 
   const handleInput = (e) => {
     setInputValue(e.target.value);
@@ -20,6 +14,12 @@ function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
 
   const handleInputFocus = () => {
     setIsInputFocus(true);
+  };
+
+  const inputRef = useRef();
+  const handleClearInputValue = () => {
+    setInputValue('');
+    inputRef.current.focus();
   };
 
   const filteredProducts = useMemo(
@@ -33,7 +33,7 @@ function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
   );
 
   return (
-    <search onMouseLeave={handleCloseInput}>
+    <search>
       <div className={inputValue && cl.activeSearch}>
         <input
           className={`${cl.searchInput} ${inputValue && cl.activeSearchInput} ${isInputFocus && cl.inputFocus}`}
@@ -42,7 +42,12 @@ function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
           onChange={handleInput}
           value={inputValue}
           onFocus={handleInputFocus}
+          ref={inputRef}
         />
+
+        {inputValue && (
+          <img src={crossIcon} alt="Cross icon" className={cl.crossIcon} onClick={handleClearInputValue} />
+        )}
 
         {inputValue && filteredProducts.length > 0 ? (
           <section className={cl.searchResultsSection}>
@@ -85,7 +90,6 @@ function SearchInput({ setIsShowInput, inputValue, setInputValue }) {
 }
 
 SearchInput.propTypes = {
-  setIsShowInput: PropTypes.func.isRequired,
   inputValue: PropTypes.string.isRequired,
   setInputValue: PropTypes.func.isRequired,
 };
