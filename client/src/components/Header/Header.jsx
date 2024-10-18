@@ -66,7 +66,7 @@ const Header = () => {
             <ul>
               <li>КАТАЛОГ</li>
               <li>
-                <Link to="/about">ПРО НАС</Link>
+                <Link to="about">ПРО НАС</Link>
               </li>
               <li>
                 <Link to="blog">БЛОГ</Link>

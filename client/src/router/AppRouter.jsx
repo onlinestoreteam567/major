@@ -4,7 +4,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
 import ProfilePage from '../pages/ProfilePage';
+
+//test-components
 import Redux from './test-components/redux';
+import I18next from './test-components/i18next';
 
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
@@ -32,9 +35,6 @@ const router = createBrowserRouter([
       { path: 'blog', element: <Blog /> },
       { path: 'contact', element: <Contact /> },
       { path: 'cooperation', element: <Cooperation /> },
-
-      // test-components
-      { path: 'redux', element: <Redux /> },
     ],
   },
   {
@@ -44,6 +44,10 @@ const router = createBrowserRouter([
       // Uncomment and add routes as needed
       // { path: 'login', element: <Login /> },
       // { path: 'register', element: <Register /> },
+
+      // test-components
+      { path: 'redux', element: <Redux /> },
+      { path: 'i18next', element: <I18next /> },
     ],
   },
   {
