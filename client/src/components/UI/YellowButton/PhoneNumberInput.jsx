@@ -57,9 +57,10 @@ const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
   };
 
   // Prevent cursor movement using arrow keys or other non-character keys
-  const forbiddenKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'];
+  const notForbiddenKeys = ['Backspace', 'Tab', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+
   const handleKeyDown = (e) => {
-    if (forbiddenKeys.includes(e.key)) {
+    if (!notForbiddenKeys.includes(e.key)) {
       e.preventDefault();
     }
   };
