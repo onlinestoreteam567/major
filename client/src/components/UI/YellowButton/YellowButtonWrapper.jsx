@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import messageBotIcon from '../../../assets/svg/messageBot/messageBot.svg';
-import telegramIcon from '../../../assets/svg/messageBot/telegram.svg';
-import messageIcon from '../../../assets/svg/messageBot/message.svg';
+import yellowCircleIcon from '../../../assets/svg/yellowCircle/yellowCircle.svg';
+import telegramIcon from '../../../assets/svg/yellowCircle/telegram.svg';
+import messageIcon from '../../../assets/svg/yellowCircle/message.svg';
 import cl from './index.module.scss';
 import MessagePopUp from './MessagePopUp';
 
@@ -20,7 +20,7 @@ const YellowButtonWrapper = () => {
   return (
     <>
       <div className={cl.yellowButtonWrapper}>
-        <img onClick={handleShowAnotherIcons} src={messageBotIcon} alt="Message bot icon" />
+        <img onClick={handleShowAnotherIcons} src={yellowCircleIcon} alt="Message bot icon" />
 
         {showAnotherIcons && (
           <div className={cl.daughterIcons}>
