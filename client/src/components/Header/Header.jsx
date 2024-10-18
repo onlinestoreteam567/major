@@ -9,6 +9,7 @@ import EnIcon from '../../assets/svg/header/EnIcon';
 import Basket from '../UI/Basket/Basket';
 import Overlay from '../UI/Overlay/Overlay';
 
+import { Link } from 'react-router-dom';
 // TODO: add router;
 // TODO: add basket design and implement products add to busket;
 // TODO: implement language switcher;
@@ -64,10 +65,18 @@ const Header = () => {
           <nav>
             <ul>
               <li>КАТАЛОГ</li>
-              <li>ПРО НАС</li>
-              <li>БЛОГ</li>
-              <li>СПІВПРАЦЯ</li>
-              <li>КОНТАКТИ</li>
+              <li>
+                <Link to="about">ПРО НАС</Link>
+              </li>
+              <li>
+                <Link to="blog">БЛОГ</Link>
+              </li>
+              <li>
+                <Link to="cooperation">СПІВПРАЦЯ</Link>
+              </li>
+              <li>
+                <Link to="contact">КОНТАКТИ</Link>
+              </li>
             </ul>
           </nav>
         )}

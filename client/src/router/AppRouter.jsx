@@ -1,43 +1,66 @@
 import { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import MainLayout from './layouts/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
 import ProfilePage from '../pages/ProfilePage';
+
+//test-components
 import Redux from './test-components/redux';
+import I18next from './test-components/i18next';
 
-// lazy loading
+// Error Boundary
+import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
+
+// Lazy loading
 const Home = lazy(() => import('../pages/HomePage'));
+const About = lazy(() => import('../pages/AboutPage'));
+const Blog = lazy(() => import('../pages/BlogPage'));
+const Contact = lazy(() => import('../pages/ContactPage'));
+const Cooperation = lazy(() => import('../pages/СooperationPage'));
 
-// example for future features
+// Example for future features
 // const Login = lazy(() => import('../pages/Login'));
 // const Register = lazy(() => import('../pages/Register'));
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainLayout />,
+    errorElement: <ErrorBoundary />, // Error boundary for MainLayout
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'profile', element: <ProfilePage /> },
+      { path: 'about', element: <About /> },
+      { path: 'blog', element: <Blog /> },
+      { path: 'contact', element: <Contact /> },
+      { path: 'cooperation', element: <Cooperation /> },
+    ],
+  },
+  {
+    element: <AuthLayout />,
+    errorElement: <ErrorBoundary />, // Error boundary for AuthLayout
+    children: [
+      // Uncomment and add routes as needed
+      // { path: 'login', element: <Login /> },
+      // { path: 'register', element: <Register /> },
+
+      // test-components
+      { path: 'redux', element: <Redux /> },
+      { path: 'i18next', element: <I18next /> },
+    ],
+  },
+  {
+    path: '*',
+    element: <div style={{ color: 'black' }}>404 Not Found</div>,
+  },
+]);
+
 const AppRouter = () => {
   return (
-    <Router>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          {/* Public Routes */}
-          <Route element={<MainLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/profile" element={<ProfilePage />} />
-
-            {/* Test Routes for developing */}
-            <Route path="/redux" element={<Redux />} />
-          </Route>
-
-          {/* Auth Routes */}
-          <Route element={<AuthLayout />}>
-            {/* <Route path="/login" element={<Login />} />
-                        <Route path="/register" element={<Register />} /> */}
-          </Route>
-
-          {/* Route for 404 */}
-          <Route path="*" element={<div>404 Not Found</div>} />
-        </Routes>
-      </Suspense>
-    </Router>
+    <Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={router} />
+    </Suspense>
   );
 };
 

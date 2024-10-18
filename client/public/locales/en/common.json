@@ -1,0 +1,9 @@
+{
+  "text": "Some text",
+  "welcomeMessage": "Welcome to our website!",
+  "loading": "Loading...",
+  "error": {
+    "generic": "Something went wrong. Please try again later.",
+    "network": "Network error. Check your connection."
+  }
+}
