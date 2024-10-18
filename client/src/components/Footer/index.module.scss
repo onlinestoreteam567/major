@@ -17,7 +17,9 @@ footer {
 }
 
 .topSection {
-  @include HeightWidth(254px, 100%);
+  height: 254px;
+  width: 100%;
+
   // @include flex(null, space-around);
 
   display: grid;
@@ -31,7 +33,7 @@ footer {
     width: 234px;
 
     ul {
-      @include flexRowGap(24px);
+      @include flexGap(24px);
       margin-top: 16px;
     }
   }
@@ -41,11 +43,7 @@ footer {
   }
 
   .ulNavigation {
-    @include flexColumnGap(18px);
-
-    // .textToRight {
-    //   text-align: end;
-    // }
+    @include flexGap(18px, column);
 
     li {
       a {
@@ -55,18 +53,18 @@ footer {
   }
 
   .ulFooter {
-    @include flexColumnGap(8px);
+    @include flexGap(8px, column);
     margin-top: 12px;
   }
 
   .titleFooterWithCalendarIcon {
-    @include flexRowGap(16px);
+    @include flexGap(16px);
     margin-left: -34px;
     user-select: none;
   }
 
   .phoneCallLi {
-    @include flexRowGap(6px);
+    @include flexGap(6px);
     margin-left: -35px;
   }
 
@@ -77,10 +75,12 @@ footer {
 }
 
 .bottomSection {
-  @include HeightWidth(57px, 100%);
+  height: 57px;
+  width: 100%;
 
   hr {
-    @include HeightWidth(1px, 97%);
+    height: 1px;
+    width: 97%;
     color: #a2a2a2;
   }
 

@@ -1,4 +1,4 @@
-@import "../../../styles/mixins.scss";
+@import '../../../styles/mixins.scss';
 
 .mainMessageBotWrapper {
   position: fixed;
@@ -40,7 +40,9 @@
 }
 
 .messagePopUp {
-  @include HeightWidth(702px, 507px);
+  height: 702px;
+  width: 507px;
+
   @include flex(column, null, center);
   position: fixed;
   top: 7%;
@@ -89,7 +91,9 @@
     }
 
     input {
-      @include HeightWidth(40px, 401px);
+      height: 40px;
+      width: 401px;
+
       outline: none;
       border-radius: 4px;
       border: 1px solid #676767;
@@ -108,7 +112,9 @@
     }
 
     textarea {
-      @include HeightWidth(131px, 401px);
+      height: 131px;
+      width: 401px;
+
       border-radius: 4px;
       border: 1px solid #676767;
       resize: none;
@@ -127,7 +133,9 @@
     }
 
     button {
-      @include HeightWidth(63px, 381px);
+      height: 63px;
+      width: 381px;
+
       border-radius: 2px;
       border: 2px solid #000000;
       font-family: $font-main;

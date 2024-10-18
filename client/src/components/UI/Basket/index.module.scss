@@ -1,7 +1,9 @@
 @import '../../../styles/mixins.scss';
 
 .basketWrapper {
-  @include HeightWidth(744px, 487px);
+  height: 744px;
+  width: 487px;
+
   @include flex(column, null, center);
   position: absolute;
   right: 0;
@@ -50,7 +52,8 @@
   }
 
   button {
-    @include HeightWidth(60px, 367px);
+    height: 60px;
+    width: 367px;
     border-radius: 2px;
     border: 2px solid #000000;
     font-family: Inter;
