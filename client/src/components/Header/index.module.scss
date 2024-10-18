@@ -7,7 +7,7 @@ header {
 
   .mainWrapper {
     display: grid;
-    grid-template-columns: 1fr 5.2fr 3fr;
+    grid-template-columns: 0.9fr 10fr 0.3fr;
     padding: 21px 4% 0 5%;
 
     i {
@@ -15,8 +15,7 @@ header {
     }
 
     nav {
-      padding-left: 190px;
-      @include flex(row, null, center);
+      @include flex(row, center, center);
 
       ul {
         @include flexRowGap(40px);
