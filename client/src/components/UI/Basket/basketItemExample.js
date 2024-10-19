@@ -17,6 +17,12 @@ const basketItemsExample = [
     urlImg: 'client/src/assets/png/basket/basketItem.jpg',
     price: '399',
   },
+  {
+    id: 4,
+    name: '4Крем-сироватка для тонкого волосся4',
+    urlImg: 'client/src/assets/png/basket/basketItem.jpg',
+    price: '499',
+  },
 ];
 
 export default basketItemsExample;

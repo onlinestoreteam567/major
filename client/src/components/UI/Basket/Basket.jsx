@@ -2,14 +2,18 @@ import PropTypes from 'prop-types';
 import Overlay from '../Overlay/Overlay';
 import cl from './index.module.scss';
 import crossIcon from '../../../assets/svg/crossIcon.svg';
-import { useState } from 'react';
-import basketItemExample from './basketItemExample';
+import { useState, useEffect } from 'react';
 import BasketItem from './BasketItem';
 import hryvniaIcon from '../../../assets/svg/hryvnia.svg';
+import { useSelector } from 'react-redux';
 
 const Basket = ({ setIsShowBasket }) => {
   const [hiddenBasket, setHiddenBasket] = useState(false);
   const [isEmptyBasket, setIsEmptyBasket] = useState(false);
+
+  const cartItems = useSelector((state) => state.cart.items);
+  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleCloseBasket = () => {
     setHiddenBasket(true);
@@ -18,6 +22,15 @@ const Basket = ({ setIsShowBasket }) => {
       setIsShowBasket(false);
     }, 450);
   };
+
+  // Check if basket is empty
+  useEffect(() => {
+    if (totalQuantity === 0) {
+      setIsEmptyBasket(true);
+    } else {
+      setIsEmptyBasket(false);
+    }
+  }, [totalQuantity]);
 
   return (
     <>
@@ -32,29 +45,33 @@ const Basket = ({ setIsShowBasket }) => {
         {isEmptyBasket ? (
           <>
             <p className={cl.emptyBasketText}>У вашому кошику зараз немає товарів</p>
-            <button className={cl.continueShoppingButton}>Продовжити покупки</button>
+            <button className={cl.continueShoppingButton} onClick={handleCloseBasket}>
+              Продовжити покупки
+            </button>
           </>
         ) : (
           <>
             <ul>
-              {basketItemExample.map((item) => (
+              {cartItems.map((item) => (
                 <BasketItem key={item.id} item={item} />
               ))}
             </ul>
             <section className={cl.totalSection}>
               <p>
                 <span>Кількість товарів</span>
-                <strong>1</strong>
+                <strong>{totalQuantity}</strong>
               </p>
               <h3>
                 <span>Загалом</span>
                 <span>
-                  999 <img src={hryvniaIcon} alt="" className={cl.hryvniaIcon} />
+                  {totalPrice} <img src={hryvniaIcon} alt="" className={cl.hryvniaIcon} />
                 </span>
               </h3>
             </section>
             <section className={cl.buttonsSection}>
-              <button className={cl.continueShoppingButtonSecond}>Продовжити покупки</button>
+              <button className={cl.continueShoppingButtonSecond} onClick={handleCloseBasket}>
+                Продовжити покупки
+              </button>
               <button className={cl.orderButton}>Оформити замовлення</button>
             </section>
           </>
