@@ -12,15 +12,12 @@ const BasketItem = ({ item }) => {
   const handleAddToCart = () => {
     dispatch(addItem(item));
   };
-
   const handleRemoveItem = () => {
     dispatch(removeItem(item.id));
   };
-
   const handleDecrementItem = () => {
     dispatch(decrementItemQuantity(item.id));
   };
-
   const handleQuantityChange = (e) => {
     const newQuantity = parseInt(e.target.value, 10);
     if (!isNaN(newQuantity) && newQuantity >= 1) {
