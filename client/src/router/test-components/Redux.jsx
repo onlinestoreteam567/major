@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addItem, clearCart } from '../../features/cart/cartSlice';
 
 const product = {
-  id: 0,
-  name: 'test',
+  id: 1,
+  name: 'Флюїд-шовк для тонкого волосся',
+  urlImg: '/src/assets/png/searchInput/1.png',
+  price: '299',
   quantity: 1,
 };
 const Redux = () => {
