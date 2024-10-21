@@ -1,7 +1,8 @@
 @import '../../styles/mixins.scss';
 
 header {
-  @include HeightWidth(96px, 100%);
+  height: 96px;
+  width: 100%;
   position: fixed;
   z-index: 10;
 
@@ -18,7 +19,7 @@ header {
       @include flex(row, center, center);
 
       ul {
-        @include flexRowGap(40px);
+        @include flexGap(40px);
 
         li {
           cursor: pointer;

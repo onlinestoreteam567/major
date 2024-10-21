@@ -32,7 +32,8 @@
       }
       figcaption {
         @include flex(row, center, center);
-        @include HeightWidth(44px, 240px);
+        height: 44px;
+        width: 240px;
         position: absolute;
         bottom: 32px;
         right: 0;

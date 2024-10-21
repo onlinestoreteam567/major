@@ -37,7 +37,8 @@
     }
 
     .point {
-      @include HeightWidth(30px, 30px);
+      height: 30px;
+      width: 30px;
       cursor: pointer;
 
       &:hover {
@@ -69,8 +70,9 @@
   }
 
   aside {
-    @include HeightWidth(553px, 388px);
     @include flex(column, null, start);
+    height: 553px;
+    width: 388px;
     box-sizing: border-box;
     padding: 107px 0 0 40px;
     gap: 32px;
