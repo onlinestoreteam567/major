@@ -147,7 +147,7 @@ search {
     }
   }
   .searchNotFound {
-    @include flex(row, center, center);
+    @include flex();
 
     font-family: $font-main;
     font-size: $font-size-small;

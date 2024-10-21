@@ -7,10 +7,6 @@
   align-items: $align;
 }
 
-@mixin text {
-  font-family: $font-main;
-}
-
 @mixin flexGap($gap, $flex-direction: row) {
   display: flex;
   flex-direction: $flex-direction;

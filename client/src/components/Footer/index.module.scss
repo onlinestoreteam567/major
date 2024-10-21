@@ -87,8 +87,7 @@ footer {
   }
 
   p {
-    @include text;
-    // font-family: $font-main;
+    font-family: $font-main;
     font-size: 15px;
     font-weight: $font-weight-base;
     line-height: 18px;

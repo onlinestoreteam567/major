@@ -14,7 +14,7 @@
   }
 
   figure {
-    @include flex(row, center, center);
+    @include flex();
 
     figcaption {
       @include flexGap(24px, column);

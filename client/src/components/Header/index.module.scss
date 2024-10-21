@@ -16,7 +16,7 @@ header {
     }
 
     nav {
-      @include flex(row, center, center);
+      @include flex();
 
       ul {
         @include flexGap(40px);
