@@ -32,9 +32,6 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Show message values while submit
-    // console.log(inputsValue);
-
     setInputsValue({
       name: '',
       phone: '',

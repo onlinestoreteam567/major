@@ -11,7 +11,7 @@
 }
 
 .starsImageSection {
-  @include flexRowGap(4px);
+  @include flexGap(4px);
 
   span {
     font-family: inter;

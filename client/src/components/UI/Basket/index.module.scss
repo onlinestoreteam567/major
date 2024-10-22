@@ -1,8 +1,9 @@
 @import '../../../styles/mixins.scss';
 
 .basketWrapper {
-  @include HeightWidth(725px, 487px);
   @include flex(column, null, center);
+  height: 725px;
+  width: 487px;
   position: absolute;
   right: 0;
   top: 0;
@@ -234,7 +235,8 @@
   }
 
   .continueShoppingButton {
-    @include HeightWidth(60px, 367px);
+    height: 60px;
+    width: 367px;
     border-radius: 2px;
     border: 2px solid #000000;
     font-family: Inter;

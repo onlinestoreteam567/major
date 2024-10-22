@@ -18,7 +18,7 @@
     gap: 25px;
 
     section {
-      @include flex(row, center, center);
+      @include flex();
     }
 
     figure {
@@ -31,8 +31,9 @@
         }
       }
       figcaption {
-        @include flex(row, center, center);
-        @include HeightWidth(44px, 240px);
+        @include flex();
+        height: 44px;
+        width: 240px;
         position: absolute;
         bottom: 32px;
         right: 0;

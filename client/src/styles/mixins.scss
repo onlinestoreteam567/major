@@ -7,18 +7,9 @@
   align-items: $align;
 }
 
-@mixin text {
-  font-family: $font-main;
-}
-
-@mixin flexRowGap($gap) {
+@mixin flexGap($gap, $flex-direction: row) {
   display: flex;
-  gap: $gap;
-}
-
-@mixin flexColumnGap($gap) {
-  display: flex;
-  flex-direction: column;
+  flex-direction: $flex-direction;
   gap: $gap;
 }
 
@@ -26,11 +17,6 @@
   position: absolute;
   top: $top;
   left: $left;
-}
-
-@mixin HeightWidth($height, $width) {
-  height: $height;
-  width: $width;
 }
 
 // example
