@@ -1,21 +1,18 @@
-import { Cookies } from 'react-cookie';
+// src/services/cookieService.js
+import Cookies from 'js-cookie';
 
-const cookies = new Cookies();
+const cookieService = {
+  setCookie: (name, value, options = {}) => {
+    Cookies.set(name, value, { path: '/', ...options });
+  },
 
-const setCookie = (name, value, options = {}) => {
-    cookies.set(name, value, { path: '/', ...options });
+  getCookie: (name) => {
+    return Cookies.get(name);
+  },
+
+  removeCookie: (name, options = {}) => {
+    Cookies.remove(name, { path: '/', ...options });
+  },
 };
 
-const getCookie = (name) => {
-    return cookies.get(name);
-};
-
-const removeCookie = (name) => {
-    cookies.remove(name, { path: '/' });
-};
-
-export default {
-    setCookie,
-    getCookie,
-    removeCookie,
-};
+export default cookieService;

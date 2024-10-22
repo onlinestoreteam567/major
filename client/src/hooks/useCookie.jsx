@@ -1,22 +1,45 @@
-import { useEffect } from 'react';
-import { cookieService } from '../utils/cookie';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import cookieService from '../services/cookieService';
 
-export const useCookie = (name, initialValue) => {
-    const cookieValue = cookieService.getCookie(name) || initialValue;
+// POSIBLE OPTRIONS
+// expires: number | Date
+// path: string
+// domain: string
+// secure: boolean
+// sameSite: 'strict' | 'lax' | 'none'
+// httpOnly: boolean (note: only used on the server-side, not applicable to client-side JavaScript)
+// priority: 'low' | 'medium' | 'high' (for newer browsers)
+// encode: (value: string) => string (custom function for encoding the cookie value)
 
-    const setCookieValue = (value, options) => {
-        cookieService.setCookie(name, value, options);
-    };
+export const useCookie = (cookieName) => {
+  const initialCookieValue = useMemo(() => cookieService.getCookie(cookieName), [cookieName]);
+  const [cookieValue, setCookieValue] = useState(initialCookieValue);
 
-    const removeCookieValue = () => {
-        cookieService.removeCookie(name);
-    };
+  // Set the cookie and update the local state
+  const setCookieValue = useCallback(
+    (value, options = {}) => {
+      cookieService.setCookie(cookieName, value, options);
+      setCookieValue(value);
+    },
+    [cookieName]
+  );
 
-    useEffect(() => {
-        if (!cookieValue) {
-            setCookieValue(initialValue);
-        }
-    }, [initialValue, cookieValue, setCookieValue]);
+  // Remove the cookie and clear the local state
+  const removeCookieValue = useCallback(
+    (options = {}) => {
+      cookieService.removeCookie(cookieName, options);
+      setCookieValue(undefined);
+    },
+    [cookieName]
+  );
 
-    return [cookieValue, setCookieValue, removeCookieValue];
+  // Ensure the hook's state is in sync with the cookie
+  useEffect(() => {
+    const value = cookieService.getCookie(cookieName);
+    if (value !== cookieValue) {
+      setCookieValue(value);
+    }
+  }, [cookieName, cookieValue]);
+
+  return [cookieValue, setCookieValue, removeCookieValue];
 };
