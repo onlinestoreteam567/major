@@ -125,7 +125,8 @@ search {
           }
 
           .hryvniaSymbol {
-            @include HeightWidth(12px, 8px);
+            height: 12px;
+            width: 8px;
           }
         }
       }
@@ -149,11 +150,10 @@ search {
     }
   }
   .searchNotFound {
-    @include flex(column, center, center);
+    @include flex();
     gap: 30px;
     height: auto;
     padding: 0 12px 25px 12px;
-
     font-family: $font-main;
     font-size: $font-size-small;
     font-weight: 300;

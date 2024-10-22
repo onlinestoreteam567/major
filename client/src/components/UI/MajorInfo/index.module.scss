@@ -14,10 +14,10 @@
   }
 
   figure {
-    @include flex(row, center, center);
+    @include flex();
 
     figcaption {
-      @include flexColumnGap(24px);
+      @include flexGap(24px, column);
       box-sizing: border-box;
       padding: 0 4% 0 9%;
 
