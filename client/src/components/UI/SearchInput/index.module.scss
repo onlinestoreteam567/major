@@ -96,6 +96,7 @@ search {
       margin-top: 27px;
       box-sizing: border-box;
       padding-left: 7px;
+
       li {
         display: flex;
         height: 64px;
@@ -112,7 +113,7 @@ search {
           }
 
           p {
-            display: inline-block;
+            display: block;
           }
 
           .productPrice {

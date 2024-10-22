@@ -1,15 +1,16 @@
 import { useMemo, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cl from './index.module.scss';
-import hryvniaSymbol from '../../../assets/svg/hryvnia.svg';
 import products from './productsExample';
 import crossIcon from '../../../assets/svg/crossIcon.svg';
 import Overlay from '../Overlay/Overlay';
-import { Link } from 'react-router-dom';
+import ProductResults from './ProductResults';
+import NotFound from './NotFound';
 
 function SearchInput({ inputValue, setInputValue, setIsShowInput }) {
   const [isInputFocus, setIsInputFocus] = useState(false);
   const [isHiddenInputAnimation, setIsHiddenInputAnimation] = useState(false);
+  const inputRef = useRef();
 
   const handleInput = (e) => {
     setInputValue(e.target.value);
@@ -19,7 +20,6 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput }) {
     setIsInputFocus(true);
   };
 
-  const inputRef = useRef();
   const handleClearInputValue = () => {
     setInputValue('');
     inputRef.current.focus();
@@ -64,41 +64,9 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput }) {
           )}
 
           {inputValue && filteredProducts.length > 0 ? (
-            <section className={cl.searchResultsSection}>
-              <hr />
-              <ul>
-                {filteredProducts.slice(0, 3).map((product) => (
-                  <li key={product.id} className={cl.searchResultItem}>
-                    <a href=" ">
-                      <img src={product.urlImg} alt={product.name} />
-                    </a>
-                    <section className={cl.searchResultInfo}>
-                      <a href="">
-                        <p className={cl.productName}>{product.name}</p>
-                      </a>
-                      <br />
-                      <p className={cl.productPrice}>
-                        {product.price} <img src={hryvniaSymbol} alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
-                      </p>
-                    </section>
-                  </li>
-                ))}
-
-                {filteredProducts.length >= 3 && (
-                  <a className={cl.showAll} href=" ">
-                    Показати всі результати пошуку
-                  </a>
-                )}
-              </ul>
-            </section>
+            <ProductResults products={filteredProducts.slice(0, 3)} />
           ) : (
-            inputValue && (
-              <section className={cl.searchNotFound}>
-                <hr />
-                <p>Товарів не знайдено</p>
-                <Link to="catalog">Перейти до каталогу</Link>
-              </section>
-            )
+            inputValue && <NotFound />
           )}
         </div>
       </search>
