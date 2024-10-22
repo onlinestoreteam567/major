@@ -7,7 +7,9 @@ const Navigation = () => {
   return (
     <nav>
       <ul>
-        <li>{t('catalog', { ns: 'header' })}</li>
+        <li>
+          <Link to="catalog">{t('catalog', { ns: 'header' })}</Link>
+        </li>
         <li>
           <Link to="about">{t('about', { ns: 'header' })}</Link>
         </li>

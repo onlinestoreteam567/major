@@ -6,6 +6,7 @@ import Basket from '../UI/Basket/Basket';
 import Navigation from './Navigation';
 import RightSection from './RightSection';
 
+
 const Header = () => {
   const [isShowInput, setIsShowInput] = useState(false);
   const [isShowBasket, setIsShowBasket] = useState(false);

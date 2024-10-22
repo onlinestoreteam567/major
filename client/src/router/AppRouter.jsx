@@ -14,6 +14,7 @@ import ErrorBoundary from './error/ErrorBoundary'; // A component to handle erro
 
 // Lazy loading
 const Home = lazy(() => import('../pages/HomePage'));
+const Catalog = lazy(() => import('../pages/CatalogPage'));
 const About = lazy(() => import('../pages/AboutPage'));
 const Blog = lazy(() => import('../pages/BlogPage'));
 const Contact = lazy(() => import('../pages/ContactPage'));
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'profile', element: <ProfilePage /> },
       { path: 'about', element: <About /> },
+      { path: 'catalog', element: <Catalog /> },
       { path: 'blog', element: <Blog /> },
       { path: 'contact', element: <Contact /> },
       { path: 'cooperation', element: <Cooperation /> },
