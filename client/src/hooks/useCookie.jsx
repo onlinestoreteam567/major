@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import cookieService from '../utils/cookie';
+import { useCookieConsent } from './useCookieConsent';
 
 // POSIBLE OPTRIONS
 // expires: number | Date
@@ -14,10 +15,13 @@ import cookieService from '../utils/cookie';
 export const useCookie = (cookieName) => {
   const initialCookieValue = useMemo(() => cookieService.getCookie(cookieName), [cookieName]);
   const [cookieValue, setCookieValue] = useState(initialCookieValue);
+  const { isCookieAllowed } = useCookieConsent();
 
   // Set the cookie and update the local state
   const set = useCallback(
     (value, options = {}) => {
+      // break if cookies is not allowed
+      if (!isCookieAllowed) return;
       cookieService.setCookie(cookieName, value, options);
       setCookieValue(value);
     },

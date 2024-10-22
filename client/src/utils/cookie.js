@@ -13,7 +13,7 @@ const cookieService = {
     return Cookies.get('isCookieAllowed') === 'true' ? true : false;
   },
 
-  setCookie: (name, value, options = {}) => {
+  setCookie: function (name, value, options = {}) {
     if (this.getIsCookieAllowed() === 'true') {
       Cookies.set(name, value, { path: '/', ...options });
     } else {
