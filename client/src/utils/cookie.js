@@ -2,22 +2,22 @@ import Cookies from 'js-cookie';
 
 const cookieService = {
   allowCookie: (options = {}) => {
-    Cookies.set('isCookieAllowed', 'true', { path: '/', { ...options, expires: 365 }});
+    Cookies.set('isCookieAllowed', 'true', { path: '/', expires: 365, ...options });
   },
 
   disallowCookie: (options = {}) => {
     Cookies.remove('isCookieAllowed', { path: '/', ...options });
   },
-  
+
   getIsCookieAllowed: () => {
-    return Cookies.get('isCookieAllowed');
+    return Cookies.get('isCookieAllowed') === 'true' ? true : false;
   },
 
   setCookie: (name, value, options = {}) => {
     if (this.getIsCookieAllowed() === 'true') {
       Cookies.set(name, value, { path: '/', ...options });
     } else {
-      console.warn('Cookie is not allowed')
+      console.warn('Cookie is not allowed');
     }
   },
 
