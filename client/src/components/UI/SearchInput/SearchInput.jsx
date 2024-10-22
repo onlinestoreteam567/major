@@ -4,9 +4,12 @@ import cl from './index.module.scss';
 import hryvniaSymbol from '../../../assets/svg/hryvnia.svg';
 import products from './productsExample';
 import crossIcon from '../../../assets/svg/crossIcon.svg';
+import Overlay from '../Overlay/Overlay';
+import { Link } from 'react-router-dom';
 
-function SearchInput({ inputValue, setInputValue }) {
+function SearchInput({ inputValue, setInputValue, setIsShowInput }) {
   const [isInputFocus, setIsInputFocus] = useState(false);
+  const [isHiddenInputAnimation, setIsHiddenInputAnimation] = useState(false);
 
   const handleInput = (e) => {
     setInputValue(e.target.value);
@@ -22,6 +25,14 @@ function SearchInput({ inputValue, setInputValue }) {
     inputRef.current.focus();
   };
 
+  const handleCloseInputAnimation = () => {
+    setIsHiddenInputAnimation(true);
+    clearTimeout();
+    setTimeout(() => {
+      setIsShowInput(false);
+    }, 275);
+  };
+
   const filteredProducts = useMemo(
     () =>
       products.filter((product) => {
@@ -33,59 +44,65 @@ function SearchInput({ inputValue, setInputValue }) {
   );
 
   return (
-    <search>
-      <div className={inputValue && cl.activeSearch}>
-        <input
-          className={`${cl.searchInput} ${inputValue && cl.activeSearchInput} ${isInputFocus && cl.inputFocus}`}
-          type="text"
-          placeholder="Я шукаю..."
-          onChange={handleInput}
-          value={inputValue}
-          onFocus={handleInputFocus}
-          ref={inputRef}
-        />
+    <>
+      <Overlay handleClose={handleCloseInputAnimation} />
 
-        {inputValue && (
-          <img src={crossIcon} alt="Cross icon" className={cl.crossIcon} onClick={handleClearInputValue} />
-        )}
+      <search className={isHiddenInputAnimation && cl.hiddenInput}>
+        <div className={inputValue && cl.activeSearch}>
+          <input
+            className={`${cl.searchInput} ${inputValue && cl.activeSearchInput} ${isInputFocus && cl.inputFocus}`}
+            type="text"
+            placeholder="Я шукаю..."
+            onChange={handleInput}
+            value={inputValue}
+            onFocus={handleInputFocus}
+            ref={inputRef}
+          />
 
-        {inputValue && filteredProducts.length > 0 ? (
-          <section className={cl.searchResultsSection}>
-            <hr />
-            <ul>
-              {filteredProducts.slice(0, 3).map((product) => (
-                <li key={product.id} className={cl.searchResultItem}>
-                  <a href=" ">
-                    <img src={product.urlImg} alt={product.name} />
-                  </a>
-                  <section className={cl.searchResultInfo}>
-                    <a href="">
-                      <p className={cl.productName}>{product.name}</p>
+          {inputValue && (
+            <img src={crossIcon} alt="Cross icon" className={cl.crossIcon} onClick={handleClearInputValue} />
+          )}
+
+          {inputValue && filteredProducts.length > 0 ? (
+            <section className={cl.searchResultsSection}>
+              <hr />
+              <ul>
+                {filteredProducts.slice(0, 3).map((product) => (
+                  <li key={product.id} className={cl.searchResultItem}>
+                    <a href=" ">
+                      <img src={product.urlImg} alt={product.name} />
                     </a>
-                    <br />
-                    <p className={cl.productPrice}>
-                      {product.price} <img src={hryvniaSymbol} alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
-                    </p>
-                  </section>
-                </li>
-              ))}
+                    <section className={cl.searchResultInfo}>
+                      <a href="">
+                        <p className={cl.productName}>{product.name}</p>
+                      </a>
+                      <br />
+                      <p className={cl.productPrice}>
+                        {product.price} <img src={hryvniaSymbol} alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
+                      </p>
+                    </section>
+                  </li>
+                ))}
 
-              {filteredProducts.length >= 3 && (
-                <a className={cl.showAll} href=" ">
-                  Показати всі результати пошуку
-                </a>
-              )}
-            </ul>
-          </section>
-        ) : (
-          inputValue && (
-            <section className={cl.searchNotFound}>
-              <p>Товарів не знайдено</p>
+                {filteredProducts.length >= 3 && (
+                  <a className={cl.showAll} href=" ">
+                    Показати всі результати пошуку
+                  </a>
+                )}
+              </ul>
             </section>
-          )
-        )}
-      </div>
-    </search>
+          ) : (
+            inputValue && (
+              <section className={cl.searchNotFound}>
+                <hr />
+                <p>Товарів не знайдено</p>
+                <Link to="catalog">Перейти до каталогу</Link>
+              </section>
+            )
+          )}
+        </div>
+      </search>
+    </>
   );
 }
 

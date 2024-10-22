@@ -4,9 +4,13 @@ search {
   border-radius: 4px;
   padding-left: 6.5%;
   z-index: 100;
-  position: relative;
   display: flex;
   justify-content: center;
+  animation: showSearchInput 0.3s ease-in;
+  position: absolute;
+  top: 26%;
+  left: 14%;
+  width: 990px;
 
   div {
     width: 100%;
@@ -57,9 +61,6 @@ search {
     }
 
     &.activeSearch {
-      position: absolute;
-      top: 15%;
-      right: 1.5%;
       background-color: white;
       border: 1px solid #676767;
       border-radius: 4px;
@@ -71,8 +72,14 @@ search {
       cursor: pointer;
       position: absolute;
       right: 2.5%;
-      top: 11%;
+      top: 17px;
     }
+  }
+
+  hr {
+    color: #c0c0c0;
+    border-top: 1px;
+    width: 100%;
   }
 
   .searchResultsSection {
@@ -84,11 +91,6 @@ search {
     letter-spacing: $letter-spacing-small;
     color: $text-color-black;
     box-sizing: border-box;
-
-    hr {
-      color: #c0c0c0;
-      border-top: 1px;
-    }
 
     ul {
       margin-top: 27px;
@@ -146,25 +148,60 @@ search {
     }
   }
   .searchNotFound {
-    @include flex(row, center, center);
+    @include flex(column, center, center);
+    gap: 30px;
+    height: auto;
+    padding: 0 12px 25px 12px;
 
     font-family: $font-main;
     font-size: $font-size-small;
     font-weight: 300;
     line-height: 16.24px;
     $letter-spacing-small: 0.04em;
-    color: $text-color-black;
-    padding: 0 12px;
-    height: 87px;
     border-radius: 4px;
+    color: #a2a2a2;
 
     p {
-      color: #a2a2a2;
       font-family: $font-second;
       font-size: $font-size-base;
       font-weight: $font-weight-base;
       line-height: 23.04px;
       text-align: center;
     }
+
+    a {
+      display: block;
+      font-family: $font-second;
+      font-size: $font-size-base;
+      font-weight: $font-weight-base;
+      line-height: 23.04px;
+      text-align: center;
+
+      &:hover {
+        color: $text-color-black;
+      }
+    }
+  }
+}
+
+.hiddenInput {
+  animation: closeSearchInput 0.3s ease-in;
+}
+
+@keyframes showSearchInput {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeSearchInput {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
   }
 }
