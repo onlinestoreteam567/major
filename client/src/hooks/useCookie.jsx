@@ -20,10 +20,10 @@ export const useCookie = (cookieName) => {
   // Set the cookie and update the local state
   const set = useCallback(
     (value, options = {}) => {
-      // break if cookies is not allowed
-      if (!isCookieAllowed) return;
-      cookieService.setCookie(cookieName, value, options);
-      setCookieValue(value);
+      if (isCookieAllowed) {
+        cookieService.setCookie(cookieName, value, options);
+        setCookieValue(value);
+      }
     },
     [cookieName]
   );
@@ -32,7 +32,7 @@ export const useCookie = (cookieName) => {
   const remove = useCallback(
     (options = {}) => {
       cookieService.removeCookie(cookieName, options);
-      setCookieValue(undefined);
+      setCookieValue(null);
     },
     [cookieName]
   );

@@ -22,7 +22,7 @@ const cookieService = {
   },
 
   getCookie: (name) => {
-    return Cookies.get(name);
+    return Cookies.get(name) || null;
   },
 
   removeCookie: (name, options = {}) => {
