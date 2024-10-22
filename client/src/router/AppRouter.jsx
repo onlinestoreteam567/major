@@ -8,6 +8,7 @@ import ProfilePage from '../pages/ProfilePage';
 //test-components
 import Redux from './test-components/redux';
 import I18next from './test-components/i18next';
+import CookieTest from './test-components/cookie';
 
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
@@ -48,6 +49,7 @@ const router = createBrowserRouter([
       // test-components
       { path: 'redux', element: <Redux /> },
       { path: 'i18next', element: <I18next /> },
+      { path: 'cookie', element: <CookieTest /> },
     ],
   },
   {

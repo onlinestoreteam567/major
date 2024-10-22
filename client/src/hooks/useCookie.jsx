@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import cookieService from '../services/cookieService';
+import cookieService from '../utils/cookie';
 
 // POSIBLE OPTRIONS
 // expires: number | Date
@@ -16,7 +16,7 @@ export const useCookie = (cookieName) => {
   const [cookieValue, setCookieValue] = useState(initialCookieValue);
 
   // Set the cookie and update the local state
-  const setCookieValue = useCallback(
+  const set = useCallback(
     (value, options = {}) => {
       cookieService.setCookie(cookieName, value, options);
       setCookieValue(value);
@@ -25,7 +25,7 @@ export const useCookie = (cookieName) => {
   );
 
   // Remove the cookie and clear the local state
-  const removeCookieValue = useCallback(
+  const remove = useCallback(
     (options = {}) => {
       cookieService.removeCookie(cookieName, options);
       setCookieValue(undefined);
@@ -41,5 +41,5 @@ export const useCookie = (cookieName) => {
     }
   }, [cookieName, cookieValue]);
 
-  return [cookieValue, setCookieValue, removeCookieValue];
+  return [cookieValue, set, remove];
 };

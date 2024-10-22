@@ -1,9 +1,24 @@
-// src/services/cookieService.js
 import Cookies from 'js-cookie';
 
 const cookieService = {
+  allowCookie: (options = {}) => {
+    Cookies.set('isCookieAllowed', 'true', { path: '/', { ...options, expires: 365 }});
+  },
+
+  disallowCookie: (options = {}) => {
+    Cookies.remove('isCookieAllowed', { path: '/', ...options });
+  },
+  
+  getIsCookieAllowed: () => {
+    return Cookies.get('isCookieAllowed');
+  },
+
   setCookie: (name, value, options = {}) => {
-    Cookies.set(name, value, { path: '/', ...options });
+    if (this.getIsCookieAllowed() === 'true') {
+      Cookies.set(name, value, { path: '/', ...options });
+    } else {
+      console.warn('Cookie is not allowed')
+    }
   },
 
   getCookie: (name) => {
