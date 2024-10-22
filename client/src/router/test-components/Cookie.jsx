@@ -3,7 +3,7 @@ import { useCookieConsent } from '../../hooks/useCookieConsent';
 
 const CookieTest = () => {
   const [userToken, setUserToken, removeUserToken] = useCookie('userToken');
-  const { allowCookie } = useCookieConsent();
+  const { allowCookie, disallowCookie } = useCookieConsent();
   const handleSetCookie = () => {
     setUserToken('abc123', { expires: 7 }); // Sets a cookie for 7 days
   };
@@ -13,7 +13,11 @@ const CookieTest = () => {
   };
 
   const handleAllowCookie = () => {
-    allowCookie(); // Removes the cookie
+    allowCookie();
+  };
+
+  const handleDisallowCookie = () => {
+    disallowCookie();
   };
 
   return (
@@ -26,6 +30,9 @@ const CookieTest = () => {
       </button>
       <button onClick={handleAllowCookie} style={{ color: 'black' }}>
         Allow Cookie
+      </button>
+      <button onClick={handleDisallowCookie} style={{ color: 'black' }}>
+        Disallow Cookie
       </button>
       <p style={{ color: 'black' }}>Cookie Value: {userToken || 'No Cookie Set'}</p>
     </div>

@@ -15,22 +15,19 @@ import { useCookieConsent } from './useCookieConsent';
 export const useCookie = (cookieName) => {
   const initialCookieValue = useMemo(() => cookieService.getCookie(cookieName), [cookieName]);
   const [cookieValue, setCookieValue] = useState(initialCookieValue);
-  const { isCookieAllowed } = useCookieConsent();
 
   // Set the cookie and update the local state
   const set = useCallback(
-    (value, options = {}) => {
-      if (isCookieAllowed) {
-        cookieService.setCookie(cookieName, value, options);
-        setCookieValue(value);
-      }
+    (value, options) => {
+      cookieService.setCookie(cookieName, value, options);
+      setCookieValue(value);
     },
     [cookieName]
   );
 
   // Remove the cookie and clear the local state
   const remove = useCallback(
-    (options = {}) => {
+    (options) => {
       cookieService.removeCookie(cookieName, options);
       setCookieValue(null);
     },
@@ -43,7 +40,7 @@ export const useCookie = (cookieName) => {
     if (value !== cookieValue) {
       setCookieValue(value);
     }
-  }, [cookieName, cookieValue]);
+  }, [cookieName]);
 
   return [cookieValue, set, remove];
 };

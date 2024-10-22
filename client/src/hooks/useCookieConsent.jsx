@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
-import cookieService from '../utils/cookie';
+import cookieService from '../utils/cookie'; // Adjust the import path as needed
 
 export const useCookieConsent = () => {
+  // BUG: STATE IS NOT UPDATING AS EXPECTED
   const [isCookieAllowed, setIsCookieAllowed] = useState(cookieService.getIsCookieAllowed());
 
   // Allow cookies and update state

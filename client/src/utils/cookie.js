@@ -14,7 +14,7 @@ const cookieService = {
   },
 
   setCookie: function (name, value, options = {}) {
-    if (this.getIsCookieAllowed() === 'true') {
+    if (this.getIsCookieAllowed()) {
       Cookies.set(name, value, { path: '/', ...options });
     } else {
       console.warn('Cookie is not allowed');
