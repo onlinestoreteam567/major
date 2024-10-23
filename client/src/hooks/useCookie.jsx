@@ -19,8 +19,10 @@ export const useCookie = (cookieName) => {
   // Set the cookie and update the local state
   const set = useCallback(
     (value, options) => {
-      cookieService.setCookie(cookieName, value, options);
-      setCookieValue(value);
+      if (cookieService.getIsCookieAllowed()) {
+        cookieService.setCookie(cookieName, value, options);
+        setCookieValue(value);
+      }
     },
     [cookieName]
   );
