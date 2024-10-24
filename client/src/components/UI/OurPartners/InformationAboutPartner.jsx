@@ -2,16 +2,16 @@ import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 
 const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractionState }) => {
-  const handleCloseInput = () => {
+  const handleUnmountComponent = () => {
     clearTimeout();
     setPartnerInteractionState((prev) => ({ ...prev, closeAnimation: true, activePartner: null }));
     setTimeout(() => {
-      setPartnerInteractionState((prev) => ({ ...prev, showInformationAboutPartner: true }));
+      setPartnerInteractionState((prev) => ({ ...prev, showInformationAboutPartner: false }));
     }, 500);
   };
 
   return (
-    <aside onMouseLeave={handleCloseInput}>
+    <aside onMouseLeave={handleUnmountComponent}>
       <h3>{informationAboutPartner.title}</h3>
       <section className={cl.workScheduleSection}>
         <h4>Графік роботи:</h4>
