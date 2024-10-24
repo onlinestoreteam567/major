@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import cl from './index.module.scss';
 import leftArrow from '../../../assets/svg/banners/arrowLeft.svg';
 import rightArrow from '../../../assets/svg/banners/arrowRight.svg';
-import BestSellerCard from './BestSellerCard';
+import CheaperTogetherCard from './CheaperTogetherCard';
 import firstSlideImage from '../../../assets/png/banners/bestSellersBanner/1.png';
 import secondSlideImage from '../../../assets/png/banners/bestSellersBanner/2.png';
 import thirdSlideImage from '../../../assets/png/banners/bestSellersBanner/3.png';
@@ -51,7 +51,7 @@ const settings = {
   ],
 };
 
-const BestSellersBanner = () => {
+const CheaperTogetherBanner = () => {
   let sliderRef = useRef(null);
 
   const next = () => {
@@ -77,7 +77,7 @@ const BestSellersBanner = () => {
   return (
     
     <div className="slider-container">
-      <div style={{textAlign: 'center', marginTop: '150px'}}><h2 style={{fontSize: '50px', color: 'black'}}>Хіти продажу</h2></div>
+      <div style={{textAlign: 'center', marginTop: '150px'}}><h2 style={{fontSize: '50px', color: 'black'}}>Разом дешевше</h2></div>
       <div style={{ textAlign: 'end', marginTop: '70px' }}>
         <button className={`button ${cl.arrow}`} onClick={previous}>
           <img src={leftArrow} alt="Button for previous slide" />
@@ -88,7 +88,7 @@ const BestSellersBanner = () => {
       </div>
       <Slider ref={(slider) => { sliderRef = slider; }} {...settings}>
   {slidesData.map((slide, index) => (
-    <BestSellerCard
+    <CheaperTogetherCard
       key={index}
       cardData={{
         img: { src: slide.imgSrc, alt: slide.imgAlt },
@@ -105,4 +105,4 @@ const BestSellersBanner = () => {
   );
 };
 
-export default BestSellersBanner;
+export default CheaperTogetherBanner;

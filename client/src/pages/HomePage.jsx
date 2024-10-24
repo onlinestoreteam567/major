@@ -1,4 +1,6 @@
 import BestSellersBanner from '../components/UI/BestSellersBanner/BestSellersBanner';
+import CheaperTogetherBanner from '../components/UI/CheaperTogetherBanner/CheaperTogetherBanner';
+import CommentsBanner from '../components/UI/CommentsBanner/CommentsBanner';
 import Catalog from '../components/UI/Catalog/Catalog';
 import MainBanner from '../components/UI/MainBanner/MainBanner';
 import MessageBot from '../components/UI/MessageBot/MessageBot';
@@ -12,9 +14,11 @@ const HomePage = () => {
       <MainBanner />
       <MessageBot />
       <BestSellersBanner />
+      <CheaperTogetherBanner />
       <Catalog />
       <MajorInfo />
       <WhyChooseUs />
+      <CommentsBanner />
       <OurPartners />
     </div>
   );
