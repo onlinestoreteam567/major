@@ -31,7 +31,6 @@ const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractio
 };
 
 InformationAboutPartner.propTypes = {
-  setShowInformationAboutPartner: PropTypes.func.isRequired,
   setPartnerInteractionState: PropTypes.func.isRequired,
   informationAboutPartner: PropTypes.shape({
     title: PropTypes.string.isRequired,

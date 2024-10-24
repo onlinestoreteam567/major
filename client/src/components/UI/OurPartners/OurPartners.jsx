@@ -3,6 +3,7 @@ import cl from './index.module.scss';
 import MapWithPoints from './MapWithPoints';
 import InformationAboutPartner from './InformationAboutPartner';
 import partnerData from './partnerData';
+import handlePointClick from './handlePointClick';
 
 const OurPartners = () => {
   const [partnerInteractionState, setPartnerInteractionState] = useState({
@@ -20,44 +21,21 @@ const OurPartners = () => {
     googleMapAdress: '',
   });
 
-  const handlePointClick = (className) => {
-    if (partnerInteractionState.clickLocked) return;
-    setPartnerInteractionState((prevState) => ({ ...prevState, clickLocked: true }));
-    const partner = partnerData.find((p) => p.className === className);
-
-    if (partner) {
-      if (className === partnerInteractionState.activePartner) {
-        setPartnerInteractionState((prevState) => ({ ...prevState, closeAnimation: true }));
-        setTimeout(() => {
-          setPartnerInteractionState((prevState) => ({
-            ...prevState,
-            showInformationAboutPartner: false,
-            clickLocked: false,
-            activePartner: null,
-          }));
-        }, 500);
-      } else {
-        setPartnerInteractionState((prevState) => ({
-          ...prevState,
-          closeAnimation: false,
-          activePartner: className,
-        }));
-        setInformationAboutPartner(partner);
-        setPartnerInteractionState((prevState) => ({
-          ...prevState,
-          showInformationAboutPartner: true,
-        }));
-        setTimeout(() => {
-          setPartnerInteractionState((prevState) => ({ ...prevState, clickLocked: false }));
-        }, 500);
-      }
-    }
-  };
-
   return (
     <section className={`${cl.ourPartnersWrapper} ${partnerInteractionState.closeAnimation ? cl.closeAnimation : ''}`}>
       <h2>Наші партнери</h2>
-      <MapWithPoints partnerData={partnerData} onPointClick={handlePointClick} />
+      <MapWithPoints
+        partnerData={partnerData}
+        onPointClick={(className) =>
+          handlePointClick(
+            className,
+            partnerInteractionState,
+            setPartnerInteractionState,
+            setInformationAboutPartner,
+            partnerData
+          )
+        }
+      />
       {partnerInteractionState.showInformationAboutPartner && (
         <InformationAboutPartner
           setPartnerInteractionState={setPartnerInteractionState}

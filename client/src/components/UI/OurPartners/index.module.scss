@@ -23,7 +23,7 @@
     height: 68vh;
     width: 100%;
     position: relative;
-    overflow: auto;
+    overflow: hidden;
     cursor: grab;
 
     &:active {
@@ -71,7 +71,8 @@
 
   aside {
     @include flex(column, null, start);
-    height: 553px;
+    min-height: 68vh;
+    max-height: 68vh;
     width: 388px;
     box-sizing: border-box;
     padding: 107px 0 0 40px;
@@ -83,6 +84,7 @@
     top: 15.5%;
     right: 4%;
     animation: showInformationAboutPartners 0.5s;
+    margin-bottom: 10px;
 
     h3 {
       font-size: 32px;
@@ -148,7 +150,6 @@
       border: 2px solid $second-background-color-black;
     }
   }
-  margin-bottom: 10px;
 }
 
 .closeAnimation > aside {
