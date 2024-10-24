@@ -14,7 +14,7 @@
       height: 32px;
       border-radius: 8px 0 0 8px;
       border: none;
-      color: $text-color-light;
+      color: $text-color-black;
       font-family: $font-second;
       font-size: $font-size-small;
       font-weight: $font-weight-bold;
@@ -31,7 +31,7 @@
       font-size: $font-size-small;
       font-weight: $font-weight-base;
       line-height: 17.92px;
-      color: $text-color-light;
+      color: $text-color-black;
 
       background-color: #f9ae1a;
       cursor: pointer;
@@ -51,6 +51,10 @@
         bottom: -24%;
         right: -2.5%;
       }
+    }
+
+    .closeAnimation {
+      animation: closeHelpButton 0.3s ease-out;
     }
   }
 
@@ -202,6 +206,15 @@
   }
   to {
     transform: translateX(0);
+  }
+}
+
+@keyframes closeHelpButton {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
   }
 }
 
