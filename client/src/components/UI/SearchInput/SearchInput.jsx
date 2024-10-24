@@ -1,12 +1,16 @@
 import { useMemo, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cl from './index.module.scss';
-import hryvniaSymbol from '../../../assets/svg/hryvnia.svg';
 import products from './productsExample';
 import crossIcon from '../../../assets/svg/crossIcon.svg';
+import Overlay from '../Overlay/Overlay';
+import ProductResults from './ProductResults';
+import NotFound from './NotFound';
 
-function SearchInput({ inputValue, setInputValue }) {
+function SearchInput({ inputValue, setInputValue, setIsShowInput }) {
   const [isInputFocus, setIsInputFocus] = useState(false);
+  const [isHiddenInputAnimation, setIsHiddenInputAnimation] = useState(false);
+  const inputRef = useRef();
 
   const handleInput = (e) => {
     setInputValue(e.target.value);
@@ -16,10 +20,17 @@ function SearchInput({ inputValue, setInputValue }) {
     setIsInputFocus(true);
   };
 
-  const inputRef = useRef();
   const handleClearInputValue = () => {
     setInputValue('');
     inputRef.current.focus();
+  };
+
+  const handleCloseInputAnimation = () => {
+    setIsHiddenInputAnimation(true);
+    clearTimeout();
+    setTimeout(() => {
+      setIsShowInput(false);
+    }, 275);
   };
 
   const filteredProducts = useMemo(
@@ -33,59 +44,33 @@ function SearchInput({ inputValue, setInputValue }) {
   );
 
   return (
-    <search>
-      <div className={inputValue && cl.activeSearch}>
-        <input
-          className={`${cl.searchInput} ${inputValue && cl.activeSearchInput} ${isInputFocus && cl.inputFocus}`}
-          type="text"
-          placeholder="Я шукаю..."
-          onChange={handleInput}
-          value={inputValue}
-          onFocus={handleInputFocus}
-          ref={inputRef}
-        />
+    <>
+      <Overlay handleClose={handleCloseInputAnimation} />
 
-        {inputValue && (
-          <img src={crossIcon} alt="Cross icon" className={cl.crossIcon} onClick={handleClearInputValue} />
-        )}
+      <search className={isHiddenInputAnimation && cl.hiddenInput}>
+        <div className={inputValue && cl.activeSearch}>
+          <input
+            className={`${cl.searchInput} ${inputValue && cl.activeSearchInput} ${isInputFocus && cl.inputFocus}`}
+            type="text"
+            placeholder="Я шукаю..."
+            onChange={handleInput}
+            value={inputValue}
+            onFocus={handleInputFocus}
+            ref={inputRef}
+          />
 
-        {inputValue && filteredProducts.length > 0 ? (
-          <section className={cl.searchResultsSection}>
-            <hr />
-            <ul>
-              {filteredProducts.slice(0, 3).map((product) => (
-                <li key={product.id} className={cl.searchResultItem}>
-                  <a href=" ">
-                    <img src={product.urlImg} alt={product.name} />
-                  </a>
-                  <section className={cl.searchResultInfo}>
-                    <a href="">
-                      <p className={cl.productName}>{product.name}</p>
-                    </a>
-                    <br />
-                    <p className={cl.productPrice}>
-                      {product.price} <img src={hryvniaSymbol} alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
-                    </p>
-                  </section>
-                </li>
-              ))}
+          {inputValue && (
+            <img src={crossIcon} alt="Cross icon" className={cl.crossIcon} onClick={handleClearInputValue} />
+          )}
 
-              {filteredProducts.length >= 3 && (
-                <a className={cl.showAll} href=" ">
-                  Показати всі результати пошуку
-                </a>
-              )}
-            </ul>
-          </section>
-        ) : (
-          inputValue && (
-            <section className={cl.searchNotFound}>
-              <p>Товарів не знайдено</p>
-            </section>
-          )
-        )}
-      </div>
-    </search>
+          {inputValue && filteredProducts.length > 0 ? (
+            <ProductResults products={filteredProducts.slice(0, 3)} />
+          ) : (
+            inputValue && <NotFound />
+          )}
+        </div>
+      </search>
+    </>
   );
 }
 

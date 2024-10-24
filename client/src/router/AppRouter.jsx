@@ -8,12 +8,14 @@ import ProfilePage from '../pages/ProfilePage';
 //test-components
 import Redux from './test-components/redux';
 import I18next from './test-components/i18next';
+import CookieTest from './test-components/cookie';
 
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
 
 // Lazy loading
 const Home = lazy(() => import('../pages/HomePage'));
+const Catalog = lazy(() => import('../pages/CatalogPage'));
 const About = lazy(() => import('../pages/AboutPage'));
 const Blog = lazy(() => import('../pages/BlogPage'));
 const Contact = lazy(() => import('../pages/ContactPage'));
@@ -32,6 +34,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'profile', element: <ProfilePage /> },
       { path: 'about', element: <About /> },
+      { path: 'catalog', element: <Catalog /> },
       { path: 'blog', element: <Blog /> },
       { path: 'contact', element: <Contact /> },
       { path: 'cooperation', element: <Cooperation /> },
@@ -48,6 +51,7 @@ const router = createBrowserRouter([
       // test-components
       { path: 'redux', element: <Redux /> },
       { path: 'i18next', element: <I18next /> },
+      { path: 'cookie', element: <CookieTest /> },
     ],
   },
   {
