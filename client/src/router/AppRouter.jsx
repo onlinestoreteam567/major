@@ -6,9 +6,9 @@ import AuthLayout from './layouts/AuthLayout';
 import ProfilePage from '../pages/ProfilePage';
 
 //test-components
-import Redux from './test-components/redux';
-import I18next from './test-components/i18next';
-import CookieTest from './test-components/cookie';
+import Redux from './testComponents/redux';
+import I18next from './testComponents/i18next';
+import CookieTest from './testComponents/cookie';
 
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
