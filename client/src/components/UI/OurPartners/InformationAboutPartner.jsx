@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import cl from './index.module.scss';
 
 const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractionState }) => {
   const handleCloseInput = () => {
@@ -12,9 +13,8 @@ const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractio
   return (
     <aside onMouseLeave={handleCloseInput}>
       <h3>{informationAboutPartner.title}</h3>
-      <section>
+      <section className={cl.workScheduleSection}>
         <h4>Графік роботи:</h4>
-        <br />
         <p>{informationAboutPartner.workSchedule}</p>
         <p>{informationAboutPartner.workSchedule1}</p>
       </section>

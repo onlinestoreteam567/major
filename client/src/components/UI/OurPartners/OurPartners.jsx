@@ -42,7 +42,7 @@ const OurPartners = () => {
           informationAboutPartner={informationAboutPartner}
         />
       )}
-      <button>Стати партнером</button>
+      <button className={cl.becomePartnerButton}>Стати партнером</button>
     </section>
   );
 };

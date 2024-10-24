@@ -70,21 +70,23 @@
   }
 
   aside {
-    @include flex(column, null, start);
-    min-height: 68vh;
-    max-height: 68vh;
+    @include flex(column, space-between, start);
+    height: 68vh;
     width: 388px;
     box-sizing: border-box;
-    padding: 107px 0 0 40px;
+    padding: 10vh 50px 10vh 40px;
     gap: 32px;
     background: #000000cc;
     font-family: $font-main;
     color: $text-color-light;
     position: absolute;
-    top: 15.5%;
+    top: 120px;
     right: 4%;
     animation: showInformationAboutPartners 0.5s;
-    margin-bottom: 10px;
+
+    .workScheduleSection {
+      @include flexGap(8px, column);
+    }
 
     h3 {
       font-size: 32px;
@@ -106,13 +108,16 @@
     }
 
     button {
+      min-width: 254px;
       width: 254px;
+      min-height: 56px;
       height: 56px;
       border-radius: 2px;
       border: 2px solid $text-color-light;
       background-color: transparent;
       cursor: pointer;
-      transition: 0.5s;
+      transition: 0.5s ease-out;
+      color: $text-color-light;
 
       &:hover {
         background-color: $background-color-light;
@@ -129,7 +134,7 @@
     }
   }
 
-  button {
+  .becomePartnerButton {
     margin-top: 50px;
     width: 306px;
     height: 56px;
