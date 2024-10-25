@@ -2,8 +2,8 @@
 
 .basketWrapper {
   @include flex(column, null, center);
-  height: 725px;
-  width: 487px;
+  height: 100vh;
+  width: 609px;
   position: absolute;
   right: 0;
   top: 0;
@@ -39,27 +39,31 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 22.32px;
-    margin-top: 382px;
+    margin-top: 53vh;
 
     color: #8f8f8f;
   }
 
   ul {
     margin-top: 32px;
+    margin-bottom: 32px;
     padding-right: 10px;
     box-sizing: border-box;
     overflow-y: auto;
     overflow-x: hidden;
+    width: 100%;
     li {
-      @include flex(row, center, null);
+      @include flex(row, start, null);
+      gap: 10px;
       list-style-type: none;
-
-      margin-bottom: 24px;
+      margin-bottom: 10px;
 
       .basketItemImg {
         cursor: pointer;
         height: 126px;
+        min-height: 126px;
         width: 100px;
+        min-width: 100px;
       }
 
       h3 {
@@ -76,12 +80,13 @@
 
       section:first-of-type {
         @include flex(column, space-between, null);
+        width: 100%;
 
         .basketItemCounterAndDeleteSection {
           @include flex(row, space-between, center);
 
           section {
-            @include flex(row, space-between, center);
+            @include flex(row, start, center);
 
             input {
               height: 32px;
@@ -103,6 +108,7 @@
               /* Firefox */
               &[type='number'] {
                 -moz-appearance: textfield;
+                appearance: textfield;
               }
             }
 
