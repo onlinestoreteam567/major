@@ -1,21 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import cl from './index.module.scss';
+import { useTranslation } from 'react-i18next';
 
-const HelpButtonsSection = ({ handleShowAnotherIcons }) => {
-  const [showNeedHelpButton, setShowNeedHelpButton] = useState(false);
-  const [showHelpButtonCloseAnimation, setShowHelpButtonCloseAnimation] = useState(false);
-
+const HelpButtonsSection = ({
+  handleShowAnotherIcons,
+  closeHelpButtonAnimation,
+  showHelpButtonCloseAnimation,
+  setShowNeedHelpButton,
+  showNeedHelpButton,
+}) => {
   const showNeedHelpButtonFnc = () => {
     setShowNeedHelpButton(true);
-  };
-
-  const closeHelpButtonAnimation = () => {
-    setShowHelpButtonCloseAnimation(true);
-    clearTimeout();
-    setTimeout(() => {
-      setShowHelpButtonCloseAnimation(false);
-      setShowNeedHelpButton(false);
-    }, 275);
   };
 
   // Show "Потрібна допомога?" button after 40-50 seconds after page load and close it after 3 seconds
@@ -30,14 +25,10 @@ const HelpButtonsSection = ({ handleShowAnotherIcons }) => {
     }, randomShowDelay);
     return () => clearTimeout(showTimer);
   }, []);
+  const { t } = useTranslation();
 
   return (
-    <section
-      className={cl.buttonsSection}
-      onMouseLeave={() => {
-        closeHelpButtonAnimation();
-      }}
-    >
+    <section className={cl.buttonsSection}>
       <button className={cl.questionButton} onMouseEnter={showNeedHelpButtonFnc}>
         ?
       </button>
@@ -45,9 +36,12 @@ const HelpButtonsSection = ({ handleShowAnotherIcons }) => {
       {showNeedHelpButton && (
         <button
           className={`${cl.needHelpButton} ${showHelpButtonCloseAnimation ? cl.closeAnimation : ''}`}
-          onClick={handleShowAnotherIcons}
+          onClick={() => {
+            handleShowAnotherIcons(), closeHelpButtonAnimation();
+          }}
+          onMouseLeave={closeHelpButtonAnimation}
         >
-          Потрібна допомога?
+          {t('help', { ns: 'yellowButton' })}
           <div className={cl.triangle}></div>
         </button>
       )}
