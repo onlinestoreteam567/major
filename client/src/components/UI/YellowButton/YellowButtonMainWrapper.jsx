@@ -8,33 +8,56 @@ const YellowButtonMainWrapper = () => {
   const [showAnotherIcons, setShowAnotherIcons] = useState(false);
   const [showMessagePopUp, setShowMessagePopUp] = useState(false);
   const [handleCloseAnimation, setHandleCloseAnimation] = useState(false);
+  const [showHelpButtonCloseAnimation, setShowHelpButtonCloseAnimation] = useState(false);
+  const [showNeedHelpButton, setShowNeedHelpButton] = useState(false);
 
   const handleShowAnotherIcons = () => {
     if (showAnotherIcons === false) {
       setShowAnotherIcons(true);
-    } else {
+    }
+  };
+
+  const handleCloseAnotherIcons = () => {
+    clearTimeout();
+    setTimeout(() => {
       setHandleCloseAnimation(true);
       clearTimeout();
       setTimeout(() => {
         setShowAnotherIcons(false);
         setHandleCloseAnimation(false);
       }, 275);
-    }
+    }, 3000);
   };
 
   const handleShowMesssagePopUp = () => {
     setShowMessagePopUp(true);
   };
 
+  const closeHelpButtonAnimation = () => {
+    setShowHelpButtonCloseAnimation(true);
+    clearTimeout();
+    setTimeout(() => {
+      setShowHelpButtonCloseAnimation(false);
+      setShowNeedHelpButton(false);
+    }, 275);
+  };
+
   return (
     <>
       <div className={cl.yellowButtonWrapper}>
-        <HelpButtonsSection handleShowAnotherIcons={handleShowAnotherIcons} />
+        <HelpButtonsSection
+          handleShowAnotherIcons={handleShowAnotherIcons}
+          closeHelpButtonAnimation={closeHelpButtonAnimation}
+          showHelpButtonCloseAnimation={showHelpButtonCloseAnimation}
+          setShowNeedHelpButton={setShowNeedHelpButton}
+          showNeedHelpButton={showNeedHelpButton}
+        />
 
         {showAnotherIcons && (
           <CommunicationButtons
             handleCloseAnimation={handleCloseAnimation}
             handleShowMesssagePopUp={handleShowMesssagePopUp}
+            handleCloseAnotherIcons={handleCloseAnotherIcons}
           />
         )}
       </div>
