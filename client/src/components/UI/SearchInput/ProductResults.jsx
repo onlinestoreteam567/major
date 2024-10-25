@@ -1,4 +1,3 @@
-import React from 'react';
 import hryvniaSymbol from '../../../assets/svg/hryvnia.svg';
 import cl from './index.module.scss';
 
