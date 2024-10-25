@@ -21,9 +21,10 @@ export default [
     settings: { react: { version: '18.3' } },
     plugins: {
       react,
+      prettier: prettier,
+
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
-      prettier: prettier,
     },
     rules: {
       ...js.configs.recommended.rules,
