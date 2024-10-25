@@ -4,6 +4,7 @@ import crossIcon from '../../../assets/svg/crossIcon.svg';
 import { useState } from 'react';
 import PhoneNumberInput from './PhoneNumberInput';
 import Overlay from '../Overlay/Overlay';
+import { useTranslation } from 'react-i18next';
 
 const MessagePopUp = ({ setShowMessagePopUp }) => {
   const [inputsValue, setInputsValue] = useState({
@@ -38,43 +39,42 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
       message: '',
     });
   };
+  const { t } = useTranslation();
 
   return (
     <>
       <Overlay handleClose={handleCloseMessagePopUp} />
 
       <div className={cl.messagePopUp}>
-        <img src={crossIcon} alt="Close popup" onClick={handleCloseMessagePopUp} />
-        <h2>Маєте питання?</h2>
-        <h3>
-          Залиште Ваш номер телефону і ми <br /> Вам зателефонуємо!
-        </h3>
+        <img src={crossIcon} alt={t('cross alt', { ns: 'yellowButton' })} onClick={handleCloseMessagePopUp} />
+        <h2>{t('has question', { ns: 'yellowButton' })}</h2>
+        <h3>{t('leave you phone', { ns: 'yellowButton' })}</h3>
 
         <form>
-          <label htmlFor="name">Ім’я та прізвище</label>
+          <label htmlFor="name">{t('name and surname', { ns: 'yellowButton' })}</label>
           <input
             id="name"
             type="text"
-            placeholder="Ім’я та прізвище"
+            placeholder={t('name and surname', { ns: 'yellowButton' })}
             value={inputsValue.name}
             required
             onChange={handleInputNameChange}
             autoComplete="name"
           />
 
-          <label htmlFor="phone">Номер телефону</label>
+          <label htmlFor="phone">{t('phone number', { ns: 'yellowButton' })}</label>
           <PhoneNumberInput inputsValue={inputsValue} setInputsValue={setInputsValue} />
 
-          <label htmlFor="message">Питання</label>
+          <label htmlFor="message">{t('question', { ns: 'yellowButton' })}</label>
           <textarea
             id="message"
-            placeholder="Напишіть нам Ваше питання"
+            placeholder={t('write your question placeholder', { ns: 'yellowButton' })}
             value={inputsValue.message}
             onChange={handleTextAreaChange}
             required
           />
 
-          <button onClick={handleSubmit}>Відправити повідомлення</button>
+          <button onClick={handleSubmit}>{t('send', { ns: 'yellowButton' })}</button>
         </form>
       </div>
     </>
