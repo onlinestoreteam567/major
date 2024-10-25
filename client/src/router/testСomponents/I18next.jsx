@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { changeLanguage } from '../../utils/changeLanguage';
 
 const I18next = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <>
       <div style={{ color: 'black' }}>{t('text')}</div>

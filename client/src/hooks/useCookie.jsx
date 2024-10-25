@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import cookieService from '../utils/cookie';
-import { useCookieConsent } from './useCookieConsent';
 
 // POSIBLE OPTRIONS
 // expires: number | Date
@@ -42,7 +41,7 @@ export const useCookie = (cookieName) => {
     if (value !== cookieValue) {
       setCookieValue(value);
     }
-  }, [cookieName]);
+  }, [cookieName, cookieValue]);
 
   return [cookieValue, set, remove];
 };

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import cookieService from '../utils/cookie'; // Adjust the import path as needed
 
 export const useCookieConsent = () => {
