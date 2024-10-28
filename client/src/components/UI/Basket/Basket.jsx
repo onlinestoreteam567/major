@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import Overlay from '../Overlay/Overlay';
 import cl from './index.module.scss';
-import crossIcon from '../../../assets/svg/crossIcon.svg';
+import crossIcon from '@assets/svg/crossIcon.svg';
 import { useState, useEffect } from 'react';
 import BasketItem from './BasketItem';
-import hryvniaIcon from '../../../assets/svg/hryvnia.svg';
+import hryvniaIcon from '@assets/svg/hryvnia.svg';
 import { useSelector } from 'react-redux';
 
 const Basket = ({ setIsShowBasket }) => {

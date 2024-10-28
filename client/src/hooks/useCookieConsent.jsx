@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import cookieService from '../utils/cookie'; // Adjust the import path as needed
+import cookieService from '@utils/cookie'; // Adjust the import path as needed
 
 export const useCookieConsent = () => {
   // Allow cookies and update state

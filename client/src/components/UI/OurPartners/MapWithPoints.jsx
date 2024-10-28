@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import cl from './index.module.scss';
-import mapUa from '../../../assets/png/ourPartners/mapUa.png';
-import mapEn from '../../../assets/png/ourPartners/mapEn.png';
-import point from '../../../assets/svg/ourPartners/point.svg';
+import mapUa from '@assets/png/ourPartners/mapUa.png';
+import mapEn from '@assets/png/ourPartners/mapEn.png';
+import point from '@assets/svg/ourPartners/point.svg';
 import { useTranslation } from 'react-i18next';
 
 const MapWithPoints = ({ partnerData, onPointClick }) => {

@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 import PropTypes from 'prop-types';
-import crossIcon from '../../../assets/svg/crossIcon.svg';
+import crossIcon from '@assets/svg/crossIcon.svg';
 import { useState } from 'react';
 import PhoneNumberInput from './PhoneNumberInput';
 import Overlay from '../Overlay/Overlay';

@@ -1,5 +1,5 @@
-import { useCookie } from '../../hooks/useCookie';
-import { useCookieConsent } from '../../hooks/useCookieConsent';
+import { useCookie } from '@hooks/useCookie';
+import { useCookieConsent } from '@hooks/useCookieConsent';
 
 const CookieTest = () => {
   const [userToken, setUserToken, removeUserToken] = useCookie('userToken');

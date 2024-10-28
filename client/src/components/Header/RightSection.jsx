@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import SearchIcon from '../../assets/svg/header/SearchIcon';
-import UaIcon from '../../assets/svg/header/UaIcon';
-import BagIcon from '../../assets/svg/header/BagIcon';
-import EnIcon from '../../assets/svg/header/EnIcon';
+import SearchIcon from '@assets/svg/header/SearchIcon';
+import UaIcon from '@assets/svg/header/UaIcon';
+import BagIcon from '@assets/svg/header/BagIcon';
+import EnIcon from '@assets/svg/header/EnIcon';
 
 const RightSection = ({ handleShowInput, isScrolled, handleShowBasket }) => {
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
