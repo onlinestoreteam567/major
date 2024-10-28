@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import cartReducer from '../features/cart/cartSlice';
-// import checkoutReducer from '../features/checkout/checkoutSlice';
-// import productReducer from '../features/product/productSlice';
-// import userReducer from '../features/user/userSlice';
-import { loadFromStorage, saveToStorage } from '../utils/localStorage';
+import cartReducer from '@features/cart/cartSlice';
+// import checkoutReducer from '@features/checkout/checkoutSlice';
+// import productReducer from '@features/product/productSlice';
+// import userReducer from '@features/user/userSlice';
+import { loadFromStorage, saveToStorage } from '@utils/localStorage';
 
 const preloadedState = loadFromStorage('state');
 

@@ -1,4 +1,4 @@
-import apiClient from '../config/apiClient';
+import apiClient from '@config/apiClient';
 
 export const createOrder = async (orderData) => {
   try {

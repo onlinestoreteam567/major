@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import MainLayout from './layouts/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
-import ProfilePage from '../pages/ProfilePage';
+import ProfilePage from '@pages/ProfilePage';
 
 //test-components
 import Redux from './testСomponents/Redux';

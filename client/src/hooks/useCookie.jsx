@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import cookieService from '../utils/cookie';
+import cookieService from '@utils/cookie';
 
 // POSIBLE OPTRIONS
 // expires: number | Date

@@ -1,9 +1,9 @@
 import cl from './index.module.scss';
-import logoIcon from '../../assets/svg/footer/footerLogo.svg';
-import telegramIcon from '../../assets/svg/footer/telegram.svg';
-import instagramIcon from '../../assets/svg/footer/instagram.svg';
-import facebookIcon from '../../assets/svg/footer/facebook.svg';
-import gmailIcon from '../../assets/svg/footer/gmail.svg';
+import logoIcon from '@assets/svg/footer/footerLogo.svg';
+import telegramIcon from '@assets/svg/footer/telegram.svg';
+import instagramIcon from '@assets/svg/footer/instagram.svg';
+import facebookIcon from '@assets/svg/footer/facebook.svg';
+import gmailIcon from '@assets/svg/footer/gmail.svg';
 import { useTranslation } from 'react-i18next';
 
 const LeftSection = () => {
