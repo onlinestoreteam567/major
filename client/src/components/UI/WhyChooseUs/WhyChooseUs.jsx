@@ -1,8 +1,8 @@
 import cl from './index.module.scss';
-import discountIcon from '../../../assets/png/whyChooseUs/discount.png';
-import fastDeliveryIcon from '../../../assets/png/whyChooseUs/fastDelivery.png';
-import qualityIcon from '../../../assets/png/whyChooseUs/quality.png';
-import thumbUpIcon from '../../../assets/png/whyChooseUs/thumbUp.png';
+import discountIcon from '@assets/png/whyChooseUs/discount.png';
+import fastDeliveryIcon from '@assets/png/whyChooseUs/fastDelivery.png';
+import qualityIcon from '@assets/png/whyChooseUs/quality.png';
+import thumbUpIcon from '@assets/png/whyChooseUs/thumbUp.png';
 import { useTranslation } from 'react-i18next';
 
 const WhyChooseUs = () => {

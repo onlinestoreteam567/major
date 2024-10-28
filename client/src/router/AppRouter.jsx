@@ -14,16 +14,16 @@ import CookieTest from './testСomponents/Cookie';
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
 
 // Lazy loading
-const Home = lazy(() => import('../pages/HomePage'));
-const Catalog = lazy(() => import('../pages/CatalogPage'));
-const About = lazy(() => import('../pages/AboutPage'));
-const Blog = lazy(() => import('../pages/BlogPage'));
-const Contact = lazy(() => import('../pages/ContactPage'));
-const Cooperation = lazy(() => import('../pages/СooperationPage'));
+const Home = lazy(() => import('@pages/HomePage'));
+const Catalog = lazy(() => import('@pages/CatalogPage'));
+const About = lazy(() => import('@pages/AboutPage'));
+const Blog = lazy(() => import('@pages/BlogPage'));
+const Contact = lazy(() => import('@pages/ContactPage'));
+const Cooperation = lazy(() => import('@pages/СooperationPage'));
 
 // Example for future features
-// const Login = lazy(() => import('../pages/Login'));
-// const Register = lazy(() => import('../pages/Register'));
+// const Login = lazy(() => import('@pages/Login'));
+// const Register = lazy(() => import('@pages/Register'));
 
 const router = createBrowserRouter([
   {

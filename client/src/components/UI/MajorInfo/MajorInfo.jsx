@@ -1,5 +1,5 @@
 import cl from './index.module.scss';
-import photo from '../../../assets/png/majorInfo/1.png';
+import photo from '@assets/png/majorInfo/1.png';
 import { useTranslation } from 'react-i18next';
 
 const MajorInfo = () => {

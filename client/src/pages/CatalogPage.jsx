@@ -1,4 +1,4 @@
-import BreadCrumbs from '../components/UI/BreadCrumbs/BreadCrumbs';
+import BreadCrumbs from '@components/UI/BreadCrumbs/BreadCrumbs';
 
 const Catalog = () => {
   return (

@@ -6,10 +6,10 @@ import cl from './index.module.scss';
 import leftArrow from '@assets/svg/banners/arrowLeft.svg';
 import rightArrow from '@assets/svg/banners/arrowRight.svg';
 import BestSellerCard from './BestSellerCard';
-import firstSlideImage from '../../../assets/png/banners/bestSellersBanner/1.png';
-import secondSlideImage from '../../../assets/png/banners/bestSellersBanner/2.png';
-import thirdSlideImage from '../../../assets/png/banners/bestSellersBanner/3.png';
-import fourthSlideImage from '../../../assets/png/banners/bestSellersBanner/4.png';
+import firstSlideImage from '@assets/png/banners/bestSellersBanner/1.png';
+import secondSlideImage from '@assets/png/banners/bestSellersBanner/2.png';
+import thirdSlideImage from '@assets/png/banners/bestSellersBanner/3.png';
+import fourthSlideImage from '@assets/png/banners/bestSellersBanner/4.png';
 
 //* To avoid a bug, there must always be 20 elements in the Slider.
 

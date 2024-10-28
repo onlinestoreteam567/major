@@ -1,8 +1,8 @@
 import React from 'react';
-import { useBreadcrumbs } from '../../../hooks/useBreadcrumb';
+import { useBreadcrumbs } from '@hooks/useBreadcrumb';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import separator from '../../../assets/svg/breadCrumbs/separator.svg';
+import separator from '@assets/svg/breadCrumbs/separator.svg';
 import cl from './index.module.scss';
 
 const BreadCrumbs = () => {
