@@ -1,9 +1,6 @@
 @import 'src/styles/mixins.scss';
 
 .breadCrumbNav {
-  position: absolute;
-  top: 500px;
-
   ol {
     @include flex(row, null, center);
     margin: 0;
