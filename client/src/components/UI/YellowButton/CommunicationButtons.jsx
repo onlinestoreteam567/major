@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
-import telegramIcon from '../../../assets/svg/yellowCircle/telegram.svg';
-import phoneIcon from '../../../assets/svg/yellowCircle/phone.svg';
+import telegramIcon from '@assets/svg/yellowCircle/telegram.svg';
+import phoneIcon from '@assets/svg/yellowCircle/phone.svg';
 
 const CommunicationButtons = ({ handleCloseAnimation, handleShowMesssagePopUp, handleCloseAnotherIcons }) => {
   return (

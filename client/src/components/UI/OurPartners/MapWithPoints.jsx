@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import cl from './index.module.scss';
 import map from '../../../assets/png/ourPartners/map.png';
-import point from '../../../assets/svg/ourPartners/point.svg';
+import point from '@assets/svg/ourPartners/point.svg';
 
 const MapWithPoints = ({ partnerData, onPointClick }) => {
   const [dragState, setDragState] = useState({

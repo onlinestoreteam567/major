@@ -1,4 +1,4 @@
-import hryvniaSymbol from '../../../assets/svg/hryvnia.svg';
+import hryvniaSymbol from '@assets/svg/hryvnia.svg';
 import cl from './index.module.scss';
 
 const ProductResults = ({ products }) => (

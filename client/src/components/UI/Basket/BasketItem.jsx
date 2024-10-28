@@ -1,8 +1,8 @@
 import BasketItemImg from '../../../assets/png/basket/basketItem.jpg';
 import cl from './index.module.scss';
-import Minus from '../../../assets/svg/basket/Minus';
-import Plus from '../../../assets/svg/basket/Plus.jsx';
-import hryvniaIcon from '../../../assets/svg/hryvnia.svg';
+import Minus from '@assets/svg/basket/Minus';
+import Plus from '@assets/svg/basket/Plus.jsx';
+import hryvniaIcon from '@assets/svg/hryvnia.svg';
 import { useDispatch } from 'react-redux';
 import { addItem, removeItem, decrementItemQuantity, setItemQuantity } from '../../../features/cart/cartSlice.js';
 

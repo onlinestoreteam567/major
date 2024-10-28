@@ -2,7 +2,7 @@ import { useMemo, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import products from './productsExample';
-import crossIcon from '../../../assets/svg/crossIcon.svg';
+import crossIcon from '@assets/svg/crossIcon.svg';
 import Overlay from '../Overlay/Overlay';
 import ProductResults from './ProductResults';
 import NotFound from './NotFound';
