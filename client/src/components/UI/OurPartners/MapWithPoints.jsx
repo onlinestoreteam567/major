@@ -62,7 +62,7 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const mapImage = i18n.language === 'en' ? mapEn : mapUa;
 
   return (
@@ -74,7 +74,7 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
       onMouseMove={handleMouseMove}
       className={cl.mapContainer}
     >
-      <img src={mapImage} alt="Map" onDragStart={(e) => e.preventDefault()} />
+      <img src={mapImage} alt={t('map alt', { ns: 'ourPartners' })} onDragStart={(e) => e.preventDefault()} />
       {partnerData.map((partner) => (
         <img
           key={partner.className}
