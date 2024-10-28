@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import cl from './index.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractionState }) => {
   const handleUnmountComponent = () => {
@@ -10,21 +11,23 @@ const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractio
     }, 500);
   };
 
+  const { t } = useTranslation();
+
   return (
     <aside onMouseLeave={handleUnmountComponent}>
       <h3>{informationAboutPartner.title}</h3>
       <section className={cl.workScheduleSection}>
-        <h4>Графік роботи:</h4>
+        <h4>{t('working hours', { ns: 'ourPartners' })}</h4>
         <p>{informationAboutPartner.workSchedule}</p>
         <p>{informationAboutPartner.workSchedule1}</p>
       </section>
       <section>
-        <h4>Адреса:</h4>
+        <h4>{t('address', { ns: 'ourPartners' })}</h4>
         <br />
         <p>{informationAboutPartner.address}</p>
       </section>
       <button>
-        <a href={informationAboutPartner.googleMapAddress}>Відкрити Google Map</a>
+        <a href={informationAboutPartner.googleMapAddress}>{t('open google map', { ns: 'ourPartners' })}</a>
       </button>
     </aside>
   );

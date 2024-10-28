@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import cl from './index.module.scss';
-import map from '../../../assets/png/ourPartners/map.png';
+import mapUa from '../../../assets/png/ourPartners/mapUa.png';
+import mapEn from '../../../assets/png/ourPartners/mapEn.png';
 import point from '../../../assets/svg/ourPartners/point.svg';
+import { useTranslation } from 'react-i18next';
 
 const MapWithPoints = ({ partnerData, onPointClick }) => {
   const [dragState, setDragState] = useState({
@@ -60,6 +62,9 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
     return () => clearTimeout(timeoutId);
   }, []);
 
+  const { i18n, t } = useTranslation();
+  const mapImage = i18n.language === 'en' ? mapEn : mapUa;
+
   return (
     <figure
       ref={imageContainerRef}
@@ -69,7 +74,7 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
       onMouseMove={handleMouseMove}
       className={cl.mapContainer}
     >
-      <img src={map} alt="Map" onDragStart={(e) => e.preventDefault()} />
+      <img src={mapImage} alt={t('map alt', { ns: 'ourPartners' })} onDragStart={(e) => e.preventDefault()} />
       {partnerData.map((partner) => (
         <img
           key={partner.className}

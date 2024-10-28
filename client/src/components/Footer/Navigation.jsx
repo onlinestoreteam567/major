@@ -29,6 +29,9 @@ const Navigation = () => {
             <Link to="cooperation">{t('cooperation', { ns: 'footer' })}</Link>
           </li>
           <li>
+            <a href="">{t('public offer', { ns: 'footer' })}</a>
+          </li>
+          <li>
             <a href="">{t('exchange and return', { ns: 'footer' })}</a>
           </li>
           <li>
