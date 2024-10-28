@@ -5,13 +5,16 @@ import instagramIcon from '@assets/svg/footer/instagram.svg';
 import facebookIcon from '@assets/svg/footer/facebook.svg';
 import gmailIcon from '@assets/svg/footer/gmail.svg';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const LeftSection = () => {
   const { t } = useTranslation();
 
   return (
     <section className={cl.logoAndSocialsSection}>
-      <img src={logoIcon} alt={t('logo alt', { ns: 'footer' })} />
+      <Link to="/">
+        <img src={logoIcon} alt={t('logo alt', { ns: 'footer' })} />
+      </Link>
       <section>
         <p>{t('socials', { ns: 'footer' })}</p>
         <ul>

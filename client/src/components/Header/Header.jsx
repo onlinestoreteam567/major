@@ -5,12 +5,26 @@ import { useState, useEffect } from 'react';
 import Basket from '@components/UI/Basket/Basket';
 import Navigation from './Navigation';
 import RightSection from './RightSection';
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isShowInput, setIsShowInput] = useState(false);
   const [isShowBasket, setIsShowBasket] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMainPage, setIsMainPage] = useState(true);
   const [inputValue, setInputValue] = useState('');
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      setIsMainPage(false);
+      setIsScrolled(true);
+    } else {
+      setIsMainPage(true);
+      setIsScrolled(false);
+    }
+  }, [location]);
 
   const handleShowInput = () => {
     setIsShowInput(true);
@@ -22,6 +36,9 @@ const Header = () => {
 
   // Check if header is scrolled
   useEffect(() => {
+    if (!isMainPage) {
+      return;
+    }
     const handleScroll = () => {
       const scrollY = window.scrollY > 1;
       if (scrollY !== isScrolled) {
@@ -32,10 +49,10 @@ const Header = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [isScrolled]);
+  }, [isScrolled, isMainPage]);
 
   return (
-    <header className={isScrolled ? cl.headerScrolled : ''}>
+    <header className={`${isScrolled ? cl.headerScrolled : ''} ${!isMainPage ? cl.headerNotMainPage : ''}`}>
       <div className={cl.mainWrapper}>
         <LogoIcon fillColor={isScrolled ? 'white' : 'black'} />
 
