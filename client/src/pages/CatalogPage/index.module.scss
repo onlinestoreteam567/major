@@ -1,0 +1,194 @@
+@import '@styles/mixins.scss';
+
+.catalogWrapper {
+  width: 100%;
+  padding-left: 5%;
+
+  color: $text-color-black;
+
+  .aside {
+    width: 21.25vw;
+    padding-left: 32px;
+    box-sizing: border-box;
+    .switchBox {
+      user-select: none;
+      li {
+        @include flex(row, space-between, center);
+        border-bottom: 1px solid #c0c0c0;
+        padding-bottom: 12px;
+        width: 236px;
+        text-align: left;
+
+        div {
+          width: 32px;
+        }
+        span {
+          font-family: $font-main;
+          font-size: $font-size-medium;
+          font-weight: $font-weight-medium;
+          line-height: 23.04px;
+          text-align: left;
+          display: inline-block;
+          width: 115px;
+        }
+      }
+
+      .switchButton {
+        display: flex;
+        align-items: center;
+        width: 48px;
+        border: 1px solid $text-color-black;
+        border-radius: 15px;
+        label {
+          position: relative;
+          display: inline-block;
+          width: 48px;
+          height: 24px;
+          cursor: pointer; /* Change cursor on hover */
+        }
+
+        input {
+          opacity: 0; /* Hide the checkbox */
+          width: 0;
+          height: 0;
+        }
+
+        .slider {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: transparent;
+          border-radius: 24px; /* Rounded corners */
+          transition: background-color 0.4s ease; /* Smooth background transition */
+
+          img {
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            transition: transform 0.4s ease; /* Smooth movement of the image */
+            left: 2px; /* Starting position of the image */
+            bottom: 4px; /* Align with the bottom */
+          }
+        }
+
+        input:checked + .slider {
+          img {
+            transform: translateX(26px);
+          }
+        }
+      }
+    }
+
+    h4 {
+      font-family: $font-main;
+      font-size: $font-size-medium;
+      font-weight: $font-weight-medium;
+      line-height: 23.04px;
+    }
+  }
+
+  .assignmentBox {
+    user-select: none;
+    @include flex(column, null, start);
+
+    li {
+      label {
+        @include flex();
+        gap: 8px;
+
+        p {
+          font-family: $font-second;
+          font-size: $font-size-base;
+          font-weight: $font-weight-base;
+
+          span {
+            color: #a2a2a2;
+          }
+        }
+      }
+    }
+  }
+}
+
+.doubleSliderBox {
+  background-color: #fff;
+  padding: 20px 40px;
+  border-radius: 10px;
+  max-width: 20rem;
+}
+
+h3.rangeTitle {
+  margin-bottom: 4rem;
+}
+
+.rangeSlider {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  margin: 30px 0;
+  background-color: #8a8a8a;
+}
+
+.sliderTrack {
+  height: 100%;
+  position: absolute;
+  background-color: $background-color-black;
+}
+
+.rangeSlider input {
+  position: absolute;
+  width: 100%;
+  background: none;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+  appearance: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  background: #fff;
+  pointer-events: auto;
+  appearance: none;
+  cursor: pointer;
+  box-shadow: 0 0.125rem 0.5625rem -0.125rem rgba(0, 0, 0, 0.25);
+}
+
+input[type='range']::-moz-range-thumb {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 2px solid $background-color-black;
+  background: #fff;
+  pointer-events: auto;
+  -moz-appearance: none;
+  cursor: pointer;
+  box-shadow: 0 0.125rem 0.5625rem -0.125rem rgba(0, 0, 0, 0.25);
+}
+
+.inputBox {
+  display: flex;
+}
+
+.minBox,
+.maxBox {
+  width: 50%;
+}
+
+.minBox {
+  padding-right: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
