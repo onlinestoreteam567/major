@@ -1,13 +1,13 @@
 import cl from './index.module.scss';
-import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const Bottom = () => {
-  const { t } = useTranslation();
+  const { getTranslation } = useTranslationNamespace('catalogPage');
 
   return (
     <section className={cl.bottom}>
-      <p>{t('showing', { ns: 'catalogPage' })}</p>
-      <button>{t('load more', { ns: 'catalogPage' })}</button>
+      <p>{getTranslation('showing')}</p>
+      <button>{getTranslation('load more')}</button>
     </section>
   );
 };

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import cl from './index.module.scss';
-import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import RangeSlider from './RangeSlider';
 
 const PriceRange = () => {
@@ -32,7 +32,7 @@ const PriceRange = () => {
     }
   };
 
-  const { t } = useTranslation();
+  const { getTranslation } = useTranslationNamespace('catalogPage');
 
   return (
     <div className={cl.rangeWrapper}>
@@ -51,14 +51,14 @@ const PriceRange = () => {
 
       <div className={cl.priceInput}>
         <div className={cl.field}>
-          <span>{t('from', { ns: 'catalogPage' })}</span>
+          <span>{getTranslation('from')}</span>
           <input type="number" value={minPrice} onChange={handleMinInputChange} />
         </div>
         <div className={cl.field}>
-          <span>{t('to', { ns: 'catalogPage' })}</span>
+          <span>{getTranslation('to')}</span>
           <input type="number" value={maxPrice} onChange={handleMaxInputChange} />
         </div>
-        <button>{t('ok', { ns: 'catalogPage' })}</button>
+        <button>{getTranslation('ok')}</button>
       </div>
     </div>
   );

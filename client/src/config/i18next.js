@@ -12,16 +12,21 @@ i18n
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
     ns: [
+      // Global/General namespaces
       'common',
       'header',
-      'catalog',
       'footer',
+
+      // Pages
+      'catalogPage',
+
+      // Components
       'yellowButton',
+
+      // Modules/Sections
       'majorInfo',
       'whyChooseUs',
       'ourPartners',
-      'breadCrumbs',
-      'catalogPage',
     ],
     defaultNS: 'common',
     interpolation: {

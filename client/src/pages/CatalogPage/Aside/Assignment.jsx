@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
 import CheckboxItem from './CheckboxItem';
-import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const checkboxData = [
-  { key: 'normal', label: 'for normal hair' },
-  { key: 'colored', label: 'for colored hair' },
-  { key: 'thin', label: 'for thin hair' },
-  { key: 'damaged', label: 'for damaged hair' },
-  { key: 'growth', label: 'for hair growth' },
-  { key: 'cleansing', label: 'deep cleansing' },
+  { key: 'normal', label: 'normal hair' },
+  { key: 'colored', label: 'colored hair' },
+  { key: 'thin', label: 'thin hair' },
+  { key: 'damaged', label: 'damaged hair' },
+  { key: 'growth', label: 'hair growth' },
+  { key: 'cleansing', label: 'deep conditioning' },
 ];
 
 const Assignment = () => {
@@ -29,11 +29,11 @@ const Assignment = () => {
     }));
   };
 
-  const { t } = useTranslation();
+  const { getTranslation } = useTranslationNamespace('catalogPage');
 
   return (
     <section className={cl.assignmentWrapper}>
-      <h4>{t('assignment title', { ns: 'catalogPage' })}</h4>
+      <h4>{getTranslation('assignment title')}</h4>
       <ul>
         {checkboxData.map((item) => (
           <CheckboxItem

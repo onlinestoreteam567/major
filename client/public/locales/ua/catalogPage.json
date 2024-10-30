@@ -1,5 +1,4 @@
 {
-  "main title": "Каталог",
   "sorting": "Сортування",
   "sort by popularity": "за популярністю",
   "sort by price asc": "спочатку дешевше",
@@ -12,12 +11,6 @@
   "together cheaper": "Разом дешевше",
 
   "assignment title": "Призначення",
-  "for normal hair": "Для нормального волосся",
-  "for colored hair": "Для фарбованого волосся",
-  "for thin hair": "Для тонкого волосся",
-  "for damaged hair": "Для пошкодженого волосся",
-  "for hair growth": "Для росту волосся",
-  "deep cleansing": "Глибоке очищення",
 
   "from": "від",
   "to": "до",

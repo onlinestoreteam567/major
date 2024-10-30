@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
 import CheckboxItem from './CheckboxItem';
-import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const checkboxData = [
   { key: 'shampoo', label: 'shampoo' },
@@ -31,17 +31,17 @@ const Category = () => {
     }));
   };
 
-  const { t } = useTranslation();
+  const { getTranslation } = useTranslationNamespace('catalogPage');
 
   return (
     <section className={cl.assignmentWrapper}>
-      <h4>{t('category', { ns: 'catalogPage' })}</h4>
+      <h4>{getTranslation('category')}</h4>
       <ul>
         {checkboxData.map((item) => (
           <CheckboxItem
             key={item.key}
             checked={categories[item.key]}
-            label={t(item.label, { ns: 'catalogPage' })}
+            label={getTranslation(item.label)}
             onChange={() => handleCategoryChange(item.key)}
           />
         ))}
