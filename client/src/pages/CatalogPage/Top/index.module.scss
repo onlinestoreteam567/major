@@ -1,0 +1,29 @@
+@import '@mixins';
+
+.catalogSection {
+  @include flex(row, space-between, center);
+  margin-bottom: 45px;
+
+  h2 {
+    font-family: $font-main;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    line-height: 44.64px;
+  }
+
+  .sortSection {
+    @include flex(row, space-between, center);
+    width: 371px;
+
+    section {
+      @include flexGap(10px);
+
+      h3 {
+        font-family: $font-main;
+        font-size: $font-size-medium;
+        font-weight: $font-weight-medium;
+        line-height: 23.04px;
+      }
+    }
+  }
+}

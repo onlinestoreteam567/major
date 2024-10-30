@@ -1,0 +1,37 @@
+{
+  "main title": "Каталог",
+  "sorting": "Сортування",
+  "sort by popularity": "за популярністю",
+  "sort by price asc": "спочатку дешевше",
+  "sort by price desc": "спочатку дорожче",
+  "select an option": "за популярністю",
+
+  "new items": "Новинки",
+  "best sellers": "Хіт продажу",
+  "discounts": "Знижки",
+  "together cheaper": "Разом дешевше",
+
+  "assignment title": "Призначення",
+  "for normal hair": "Для нормального волосся",
+  "for colored hair": "Для фарбованого волосся",
+  "for thin hair": "Для тонкого волосся",
+  "for damaged hair": "Для пошкодженого волосся",
+  "for hair growth": "Для росту волосся",
+  "deep cleansing": "Глибоке очищення",
+
+  "from": "від",
+  "to": "до",
+  "ok": "ОК",
+
+  "category": "Категорія",
+  "shampoo": "Шампунь",
+  "conditioner": "Кондиціонер",
+  "balm": "Бальзам",
+  "serum": "Сироватка",
+  "cream": "Крем",
+  "oil": "Олія",
+  "mask": "Маска",
+
+  "showing": "Показано: 6 товарів з 7",
+  "load more": "Завантажити більше"
+}

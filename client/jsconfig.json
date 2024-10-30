@@ -3,7 +3,9 @@
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["src/assets/*"],
+      "@svg/*": ["src/assets/svg/*"],
       "@components/*": ["src/components/*"],
+      "@UI/*": ["src/components/UI/*"],
       "@config/*": ["src/config/*"],
       "@features/*": ["src/features/*"],
       "@hooks/*": ["src/hooks/*"],
@@ -12,6 +14,7 @@
       "@services/*": ["src/services/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
+      "@mixins/*": ["src/styles/mixins/*"],
       "@../*": ["src/*"]
     }
   }
