@@ -32,7 +32,7 @@ const PriceRange = () => {
     }
   };
 
-  const { getTranslation } = useTranslationNamespace('catalogPage');
+  const { getTranslation } = useTranslationNamespace('common');
 
   return (
     <div className={cl.rangeWrapper}>
