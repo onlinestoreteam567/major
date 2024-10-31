@@ -1,0 +1,26 @@
+{
+  "sorting": "Sorting",
+  "sort by popularity": "by popularity",
+  "sort by price asc": "cheaper first",
+  "sort by price desc": "expensive first",
+  "select an option": "by popularity",
+
+  "new items": "New Items",
+  "best sellers": "Best Sellers",
+  "discounts": "Discounts",
+  "together cheaper": "Cheaper Together",
+
+  "assignment title": "Assignment",
+
+  "category": "Category",
+  "shampoo": "Shampoo",
+  "conditioner": "Conditioner",
+  "balm": "Balm",
+  "serum": "Serum",
+  "cream": "Cream",
+  "oil": "Oil",
+  "mask": "Mask",
+
+  "showing": "Showing: 6 items out of 7",
+  "load more": "Load more"
+}

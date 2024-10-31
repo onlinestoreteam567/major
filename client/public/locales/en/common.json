@@ -5,5 +5,20 @@
   "error": {
     "generic": "Something went wrong. Please try again later.",
     "network": "Network error. Check your connection."
-  }
+  },
+
+  "catalog": "Catalog",
+  "normal hair": "For normal hair",
+  "colored hair": "For colored hair",
+  "thin hair": "For thin hair",
+  "damaged hair": "For damaged hair",
+  "deep conditioning": "Deep cleansing",
+  "hair growth": "For hair growth",
+
+  "from": "from",
+  "to": "to",
+  "ok": "OK",
+
+  "home": "Home",
+  "img alt": "Separator"
 }
