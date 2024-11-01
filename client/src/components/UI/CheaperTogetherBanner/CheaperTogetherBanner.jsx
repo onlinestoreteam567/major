@@ -2,7 +2,7 @@ import Slider from 'react-slick';
 import { useRef } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import cl from './index.module.scss';
+import cl from './index.module.scss'
 import leftArrow from '../../../assets/svg/banners/arrowLeft.svg';
 import rightArrow from '../../../assets/svg/banners/arrowRight.svg';
 import CheaperTogetherCard from './CheaperTogetherCard';
@@ -76,7 +76,7 @@ const CheaperTogetherBanner = () => {
   return (
     
     <div className="slider-container">
-      <div style={{textAlign: 'center', marginTop: '150px'}}><h2>Разом дешевше</h2></div>
+      <div style={{textAlign: 'center', marginTop: '150px'}}><h2 style={{fontSize: '50px', color: 'black'}}>Разом дешевше</h2></div>
       <div style={{ textAlign: 'end', marginTop: '70px' }}>
         <button className={`button ${cl.arrow}`} onClick={previous}>
           <img src={leftArrow} alt="Button for previous slide" />
