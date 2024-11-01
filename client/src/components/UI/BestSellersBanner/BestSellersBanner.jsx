@@ -14,7 +14,6 @@ import fivethSlideImage from '../../../assets/png/banners/bestSellersBanner/5.pn
 import sixthSlideImage from '../../../assets/png/banners/bestSellersBanner/6.png';
 import seventhSlideImage from '../../../assets/png/banners/bestSellersBanner/7.png';
 import eighthSlideImage from '../../../assets/png/banners/bestSellersBanner/8.png';
-//* To avoid a bug, there must always be 20 elements in the Slider.
 
 const settings = {
   // Enable keyboard arrow navigation

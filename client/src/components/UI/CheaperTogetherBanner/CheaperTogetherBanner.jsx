@@ -14,7 +14,6 @@ import fivethSlideImage from '../../../assets/png/banners/bestSellersBanner/5.pn
 import sixthSlideImage from '../../../assets/png/banners/bestSellersBanner/6.png';
 import seventhSlideImage from '../../../assets/png/banners/bestSellersBanner/7.png';
 import eighthSlideImage from '../../../assets/png/banners/bestSellersBanner/8.png';
-//* To avoid a bug, there must always be 20 elements in the Slider.
 
 const settings = {
   // Enable keyboard arrow navigation
@@ -77,7 +76,7 @@ const CheaperTogetherBanner = () => {
   return (
     
     <div className="slider-container">
-      <div style={{textAlign: 'center', marginTop: '150px'}}><h2 style={{fontSize: '50px', color: 'black'}}>Разом дешевше</h2></div>
+      <div style={{textAlign: 'center', marginTop: '150px'}}><h2>Разом дешевше</h2></div>
       <div style={{ textAlign: 'end', marginTop: '70px' }}>
         <button className={`button ${cl.arrow}`} onClick={previous}>
           <img src={leftArrow} alt="Button for previous slide" />

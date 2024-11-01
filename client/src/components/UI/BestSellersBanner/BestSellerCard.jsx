@@ -15,7 +15,7 @@ import hryvniaSymbol from '../../../assets/svg/hryvnia.svg';
 // *   feedbackAmount: "1",
 // * }}
 
-// Change..
+
 
 const BestSellerCard = ({ cardData }) => {
   return (

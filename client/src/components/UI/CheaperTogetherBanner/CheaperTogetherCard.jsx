@@ -3,20 +3,6 @@ import cl from './index.module.scss';
 import stars from '../../../assets/svg/banners/stars.svg';
 import hryvniaSymbol from '../../../assets/svg/hryvnia.svg';
 
-// * cardData example:
-// * cardData={{
-// *   img: {
-// *     src: firstSlideImage,
-// *     alt: "First best seller image",
-// *  },
-// *   title: "title",
-// *   price: "123",
-// *   mlQuantity: "555",
-// *   feedbackAmount: "1",
-// * }}
-
-// Change..
-
 const BestSellerCard = ({ cardData }) => {
   return (
     <div className={cl.card}>

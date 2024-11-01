@@ -137,14 +137,14 @@
     border: none;
     transition: color 0.5s, background-color 0.5s;
     cursor: pointer;
-
+    margin-bottom: 10px;
     &:hover {
       background-color: transparent;
       color: $text-color-black;
       border: 2px solid $second-background-color-black;
     }
   }
-  margin-bottom: 10px;
+  
 }
 
 .closeAnimation > aside {

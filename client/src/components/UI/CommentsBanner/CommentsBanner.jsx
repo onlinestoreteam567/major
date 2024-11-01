@@ -7,7 +7,6 @@ import leftArrow from '../../../assets/svg/banners/arrowLeft.svg';
 import rightArrow from '../../../assets/svg/banners/arrowRight.svg';
 import CommentCard from './CommentsCard';
 
-// Slider settings for comments
 const settings = {
   accessibility: true,
   dots: false,
@@ -47,7 +46,7 @@ const CommentsBanner = () => {
     sliderRef.slickPrev();
   };
 
-  // Example array of comments data
+  //  Array of comments data
   const commentsData = [
     {
       productTitle: "Шампунь для тонкого волосся",
@@ -136,7 +135,7 @@ const CommentsBanner = () => {
   return (
     <div className="slider-container">
       <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <h2 style={{ fontSize: '36px', color: 'black', marginTop: '180px', marginBottom: '60px' }}>Відгуки про наші засоби</h2>
+        <h2>Відгуки про наші засоби</h2>
       </div>
       <div style={{ textAlign: 'end', marginTop: '30px' }}>
         <button className={`button ${cl.arrow}`} onClick={previous}>

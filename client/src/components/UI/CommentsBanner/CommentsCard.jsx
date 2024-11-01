@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 
-const CommentBanner = ({ commentData }) => {
+const CommentCard = ({ commentData }) => {
   return (
-    <div className={cl.commentBanner}>
+    <div className={cl.CommentCard}>
       <h3>{commentData.productTitle}</h3>
       
       {/* Rating section */}
@@ -28,7 +28,7 @@ const CommentBanner = ({ commentData }) => {
 };
 
 // Define PropTypes for the comment data
-CommentBanner.propTypes = {
+CommentCard.propTypes = {
   commentData: PropTypes.shape({
     productTitle: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
@@ -39,4 +39,4 @@ CommentBanner.propTypes = {
   }).isRequired,
 };
 
-export default CommentBanner;
+export default CommentCard;
