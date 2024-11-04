@@ -9,6 +9,11 @@ const apiClient = axios.create({
   },
 });
 
+const username = 'admin@gmail.com';
+const password = 'admin';
+
+apiClient.defaults.headers.common['Authorization'] = `Basic ${btoa(`${username}:${password}`)}`;
+
 apiClient.interceptors.request.use(
   (config) => {
     // example for future code

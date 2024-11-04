@@ -1,23 +1,60 @@
-import apiClient from '@config/apiClient';
+import apiClient from '@config/apiClient'; // adjust the path as needed
+import { handleApiError } from '@utils/handleApiError';
 
-export const fetchProducts = async () => {
-  try {
-    const response = await apiClient.get('/products');
-    return response.data;
-  } catch (error) {
-    console.error('Failed to fetch products:', error);
-    throw error;
-  }
+const ProductService = {
+  async getCategory() {
+    try {
+      const { data } = await apiClient.get(`/products/product_purpose_categories/`);
+      return data;
+    } catch (error) {
+      handleApiError(error);
+    }
+  },
+
+  async createCategory(categoryData) {
+    try {
+      const { data } = await apiClient.post(`/products/product_purpose_categories`, categoryData);
+      return data;
+    } catch (error) {
+      handleApiError(error);
+    }
+  },
+
+  async getCategoryById(id) {
+    try {
+      const { data } = await apiClient.get(`/products/product_purpose_categories/${id}`);
+      return data;
+    } catch (error) {
+      handleApiError(error); // logs and rethrows the error
+    }
+  },
+
+  async updateCategoryById(id, categoryData) {
+    try {
+      const { data } = await apiClient.put(`/products/product_purpose_categories/${id}`, categoryData);
+      return data;
+    } catch (error) {
+      handleApiError(error);
+    }
+  },
+
+  async patchCategoryById(id, partialData) {
+    try {
+      const { data } = await apiClient.patch(`/products/product_purpose_categories/${id}`, partialData);
+      return data;
+    } catch (error) {
+      handleApiError(error);
+    }
+  },
+
+  async deleteCategoryById(id) {
+    try {
+      const { data } = await apiClient.delete(`/products/product_purpose_categories/${id}`);
+      return data;
+    } catch (error) {
+      handleApiError(error);
+    }
+  },
 };
 
-export const fetchProductById = async (id) => {
-  try {
-    const response = await apiClient.get(`/products/${id}`);
-    return response.data;
-  } catch (error) {
-    console.error(`Failed to fetch product with ID ${id}:`, error);
-    throw error;
-  }
-};
-
-// Additional functions for creating, updating, and deleting products
+export default ProductService;
