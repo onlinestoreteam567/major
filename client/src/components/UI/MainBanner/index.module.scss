@@ -1,15 +1,105 @@
+@import '@mixins';
+
+@mixin slide() {
+  @include flex(column, center, start);
+  gap: 4vh;
+  padding-left: 5vw;
+}
+
 .slide {
-  height: 656px;
+  height: 85vh;
   background-size: cover;
-  // background-position: center;
+
+  section {
+    div {
+      font-family: $font-main;
+      width: fit-content;
+      font-size: 24px;
+      font-weight: $font-weight-base;
+      line-height: 33.6px;
+      letter-spacing: $letter-spacing-base;
+      height: 62px;
+      padding: 10px 20px 10px 20px;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-family: $font-main;
+      font-size: $font-size-xlarge;
+      font-weight: $font-weight-base;
+      line-height: 60.48px;
+      color: $background-color-black;
+      max-width: 40vw;
+    }
+
+    button {
+      width: 331px;
+      height: 77px;
+      border-radius: 8px;
+      background-color: $second-background-color-black;
+      color: $text-color-light;
+      font-family: $font-main;
+      font-size: 24px;
+      font-weight: $font-weight-bold;
+      line-height: $line-height-base;
+      letter-spacing: $letter-spacing-base;
+      border: none;
+      transition: 300ms ease-out;
+    }
+  }
 }
 
 .firstSlide {
+  @include flex(column, center, start);
   background-image: url('../../../assets/png/banners/mainBanner/MainBannerFirstImage.png');
+
+  section {
+    @include slide();
+
+    div {
+      color: #6d19da;
+      border: 1px solid #6d19da;
+    }
+
+    button:hover {
+      background-color: #1e0045;
+    }
+  }
 }
 .secondSlide {
+  @include flex(column, center, end);
+
   background-image: url('../../../assets/png/banners/mainBanner/MainBannerSecondImage.png');
+
+  section {
+    @include slide();
+    padding-right: 5vw;
+
+    div {
+      color: #0b7729;
+      border: 1px solid #0b7729;
+    }
+
+    button:hover {
+      background-color: #002a0c;
+    }
+  }
 }
 .thirdSlide {
-  background-color: aqua;
+  @include flex(column, center, start);
+  background-image: url('../../../assets/png/banners/mainBanner/3.png');
+
+  section {
+    @include slide();
+
+    div {
+      color: #3a3a3a;
+      border: 1px solid #3a3a3a;
+    }
+
+    button:hover {
+      background-color: #3a3a3a;
+    }
+  }
 }

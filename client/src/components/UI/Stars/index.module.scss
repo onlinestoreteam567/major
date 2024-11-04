@@ -1,0 +1,13 @@
+@import '@mixins';
+
+.starsImageSection {
+  @include flexGap(4px);
+  margin-top: 10px;
+
+  span {
+    font-family: inter;
+    font-size: $font-size-base;
+    line-height: 19.2px;
+    color: #c0c0c0;
+  }
+}

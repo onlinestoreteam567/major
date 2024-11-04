@@ -2,28 +2,22 @@ import Slider from 'react-slick';
 import { useRef } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import cl from './index.module.scss';
-
-const settings = {
-  fade: true,
-  accessibility: true,
-  dots: true,
-  infinite: true,
-  speed: 750,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  lazyLoad: true,
-};
+import settings from './settings';
+import Slide from './Slide';
 
 const MainBanner = () => {
-  let sliderRef = useRef(null);
+  const sliderRef = useRef(null);
 
   return (
     <div className="slider-container">
       <Slider ref={sliderRef} {...settings}>
-        <div className={`${cl.slide} ${cl.firstSlide}`}></div>
-        <div className={`${cl.slide} ${cl.secondSlide}`}></div>
-        <div className={`${cl.slide} ${cl.thirdSlide}`}></div>
+        <Slide labelText={'НОВИНКА'} title={'Флюїд-шовк для тонкого волосся'} slideClassName={'firstSlide'} />
+        <Slide
+          labelText={'ХІТ ПРОДАЖУ'}
+          title={'Шампунь-реконструктор для пошкодженого волосся'}
+          slideClassName={'secondSlide'}
+        />
+        <Slide labelText={'НОВИНКА'} title={'Крем-маска для кучерявого волосся'} slideClassName={'thirdSlide'} />
       </Slider>
     </div>
   );

@@ -1,0 +1,25 @@
+@import '@mixins';
+
+.bannerWrapper {
+  padding-left: 5%;
+  padding-right: 4%;
+  position: relative;
+
+  .arrow {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .previousArrow {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+  }
+
+  .nextArrow {
+    position: absolute;
+    top: 50%;
+    right: 1.5%;
+  }
+}
