@@ -24,6 +24,7 @@ const HelpButtonsSection = ({
       return () => clearTimeout(hideTimer);
     }, randomShowDelay);
     return () => clearTimeout(showTimer);
+    // eslint-disable-next-line
   }, []);
   const { t } = useTranslation();
 
