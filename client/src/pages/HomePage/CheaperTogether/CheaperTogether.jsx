@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 import slidesData from './data';
-import Banner from '../Banner/Banner';
+import Banner from '../../../components/UI/Banner/Banner';
 
 const CheaperTogether = () => {
   return (

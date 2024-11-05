@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Overlay from '../Overlay/Overlay';
+import Overlay from '../../UI/Overlay/Overlay';
 import cl from './index.module.scss';
 import crossIcon from '@assets/svg/crossIcon.svg';
 import { useState, useEffect } from 'react';
