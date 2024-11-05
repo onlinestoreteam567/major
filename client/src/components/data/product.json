@@ -1,0 +1,25 @@
+{
+  "id": 0,
+  "article": "string",
+  "available": true,
+  "name": "string",
+  "price": 0,
+  "opt_price": 0,
+  "dropshipper_price": 0,
+  "small_opt_price": 0,
+  "description": "string",
+  "volume_ml": 0,
+  "upload_images": ["string"],
+  "purpose_category": {
+    "id": 0,
+    "title": "string"
+  },
+  "type_category": {
+    "id": 0,
+    "title": "string"
+  },
+  "is_new": true,
+  "is_best_seller": true,
+  "ingredients": "string",
+  "application": "string"
+}
