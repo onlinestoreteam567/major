@@ -15,7 +15,7 @@ const HelpButtonsSection = ({
 
   // Show "Потрібна допомога?" button after 40-50 seconds after page load and close it after 3 seconds
   useEffect(() => {
-    const randomShowDelay = Math.floor(Math.random() * 10000) + 40000;
+    const randomShowDelay = Math.floor(Math.random() * 10000);
     const showTimer = setTimeout(() => {
       showNeedHelpButtonFnc();
       const hideTimer = setTimeout(() => {
@@ -24,7 +24,7 @@ const HelpButtonsSection = ({
       return () => clearTimeout(hideTimer);
     }, randomShowDelay);
     return () => clearTimeout(showTimer);
-  }, []);
+  });
   const { t } = useTranslation();
 
   return (

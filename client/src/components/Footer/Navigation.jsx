@@ -1,41 +1,40 @@
 import cl from './index.module.scss';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const Navigation = () => {
-  const { t } = useTranslation();
-
+  const { getTranslation } = useTranslationNamespace('footer');
   return (
     <>
       <section className={cl.firstNavigationSection}>
         <ul className={cl.ulNavigation}>
           <li className={cl.textToRight}>
-            <Link to="/">{t('main', { ns: 'footer' })}</Link>
+            <Link to="/">{getTranslation('main')}</Link>
           </li>
           <li className={cl.textToRight}>
-            <Link to="catalog">{t('catalog', { ns: 'footer' })}</Link>
+            <Link to="catalog">{getTranslation('catalog')}</Link>
           </li>
           <li className={cl.textToRight}>
-            <Link to="/about">{t('about', { ns: 'footer' })}</Link>
+            <Link to="/about">{getTranslation('about')}</Link>
           </li>
           <li className={cl.textToRight}>
-            <Link to="blog">{t('blog', { ns: 'footer' })}</Link>
+            <Link to="blog">{getTranslation('blog')}</Link>
           </li>
         </ul>
       </section>
       <section>
         <ul className={cl.ulNavigation}>
           <li>
-            <Link to="cooperation">{t('cooperation', { ns: 'footer' })}</Link>
+            <Link to="cooperation">{getTranslation('cooperation')}</Link>
           </li>
           <li>
-            <a href="">{t('public offer', { ns: 'footer' })}</a>
+            <a href="">{getTranslation('publicOffer')}</a>
           </li>
           <li>
-            <a href="">{t('exchange and return', { ns: 'footer' })}</a>
+            <a href="">{getTranslation('exchangeAndReturn')}</a>
           </li>
           <li>
-            <a href="">{t('payment and delivery', { ns: 'footer' })}</a>
+            <a href="">{getTranslation('paymentAndDelivery')}</a>
           </li>
         </ul>
       </section>

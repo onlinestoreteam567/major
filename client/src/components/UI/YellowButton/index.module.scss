@@ -180,21 +180,11 @@
       }
     }
 
-    button {
-      height: 63px;
-      width: 381px;
-      border-radius: 2px;
-      border: 2px solid #000000;
-      font-family: $font-main;
-      font-size: $font-size-medium;
-      font-weight: $font-weight-medium;
-      line-height: 23.04px;
-      cursor: pointer;
-      align-self: center;
+    .buttonWrapper {
+      @include flex();
 
-      &:hover {
-        background-color: $second-background-color-black;
-        color: $text-color-light;
+      button {
+        width: 95%;
       }
     }
   }

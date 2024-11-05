@@ -1,6 +1,7 @@
 import cl from './index.module.scss';
 import photo from '@assets/png/majorInfo/1.png';
 import { useTranslation } from 'react-i18next';
+import Button from '../Button/Button';
 
 const MajorInfo = () => {
   const { t } = useTranslation();
@@ -17,9 +18,11 @@ const MajorInfo = () => {
           <p>{t('text2', { ns: 'majorInfo' })}</p>
           <p>{t('text3', { ns: 'majorInfo' })}</p>
 
-          <h3>
-            <a href="">{t('more', { ns: 'majorInfo' })}</a>
-          </h3>
+          <div>
+            <Button variant="link" purpose="fitContent">
+              {t('more', { ns: 'majorInfo' })}
+            </Button>
+          </div>
         </figcaption>
       </figure>
     </section>

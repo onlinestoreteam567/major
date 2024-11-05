@@ -17,7 +17,7 @@ const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractio
     <aside onMouseLeave={handleUnmountComponent}>
       <h3>{informationAboutPartner.title}</h3>
       <section className={cl.workScheduleSection}>
-        <h4>{t('working hours', { ns: 'ourPartners' })}</h4>
+        <h4>{t('workingHours', { ns: 'ourPartners' })}</h4>
         <p>{informationAboutPartner.workSchedule}</p>
         <p>{informationAboutPartner.workSchedule1}</p>
       </section>
@@ -27,7 +27,7 @@ const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractio
         <p>{informationAboutPartner.address}</p>
       </section>
       <button>
-        <a href={informationAboutPartner.googleMapAddress}>{t('open google map', { ns: 'ourPartners' })}</a>
+        <a href={informationAboutPartner.googleMapAddress}>{t('openGoogleMap', { ns: 'ourPartners' })}</a>
       </button>
     </aside>
   );

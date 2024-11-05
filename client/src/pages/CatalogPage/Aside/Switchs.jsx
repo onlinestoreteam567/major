@@ -6,10 +6,10 @@ import dollar from '@svg/catalogPage/dollar.svg';
 import SwitchItem from './SwitchItem';
 
 const switchItems = [
-  { icon: filter, label: 'new items' },
-  { icon: fire, label: 'best sellers' },
+  { icon: filter, label: 'newItems' },
+  { icon: fire, label: 'bestSellers' },
   { icon: discount, label: 'discounts' },
-  { icon: dollar, label: 'together cheaper' },
+  { icon: dollar, label: 'togetherCheaper' },
 ];
 
 const Switchs = () => {

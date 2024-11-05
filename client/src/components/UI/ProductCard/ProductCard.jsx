@@ -6,6 +6,7 @@ import Stars from '../Stars/Stars';
 import Label from '../Labels/Label';
 import Benefit from '../Labels/Benefit';
 import { useState } from 'react';
+import Button from '../Button/Button';
 
 const ProductCard = ({ cardData }) => {
   const [isShowButton, setIsShowButton] = useState(false);
@@ -19,7 +20,7 @@ const ProductCard = ({ cardData }) => {
   };
 
   const changeButtonText = () => {
-    setButtonText('До кошику');
+    setButtonText('Додати до кошику');
   };
   const defaultButtonText = () => {
     setButtonText('Дізнатись більше');
@@ -45,10 +46,11 @@ const ProductCard = ({ cardData }) => {
           <span>{cardData.mlQuantity}мл.</span>
         </h4>
       </section>
+
       {isShowButton ? (
-        <button onMouseEnter={changeButtonText} onMouseLeave={defaultButtonText}>
+        <Button onMouseEnter={changeButtonText} onMouseLeave={defaultButtonText}>
           {buttonText}
-        </button>
+        </Button>
       ) : (
         <div className={cl.space}></div>
       )}

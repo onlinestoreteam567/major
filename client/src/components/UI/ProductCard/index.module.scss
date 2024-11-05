@@ -1,10 +1,12 @@
 @import '@mixins';
 
 .card {
+  @include flexGap(15px, column);
   box-sizing: border-box;
-  padding: 12px;
+  padding: 0 12px 2px 12px;
   width: 100%;
   color: $text-color-black;
+  cursor: pointer;
 
   .cardHeader {
     position: relative;
@@ -20,16 +22,15 @@
     font-size: 20px;
     font-weight: $font-weight-medium;
     line-height: $line-height-base;
-    margin-top: 20px;
     text-wrap: balance;
     padding-right: 10px;
-    margin-bottom: 20px;
+    margin: 20px 0;
   }
 
   .cardFooter {
     @include flex(row, space-between, center);
-    margin-top: 30px;
     position: relative;
+    margin-top: 10px;
 
     h3 {
       @include flexGap(8px);
@@ -62,31 +63,8 @@
     }
   }
 
-  button {
-    background-color: $second-background-color-black;
-    width: 100%;
-    height: 56px;
-    border-radius: 8px;
-    font-family: $font-main;
-    font-size: 20px;
-    font-weight: $font-weight-medium;
-    line-height: $line-height-base;
-    color: $text-color-light;
-    border: none;
-    margin-top: 30px;
-    cursor: pointer;
-    transition:
-      0.3s ease-out background-color,
-      0.3s ease-out color;
-
-    &:hover {
-      background-color: $text-color-light;
-      color: $text-color-black;
-      border: 2px solid $second-background-color-black;
-    }
-  }
   .space {
     width: 100%;
-    height: 86px;
+    height: 56px;
   }
 }

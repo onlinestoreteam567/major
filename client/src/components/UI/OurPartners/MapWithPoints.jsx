@@ -74,7 +74,7 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
       onMouseMove={handleMouseMove}
       className={cl.mapContainer}
     >
-      <img src={mapImage} alt={t('map alt', { ns: 'ourPartners' })} onDragStart={(e) => e.preventDefault()} />
+      <img src={mapImage} alt={t('mapAlt', { ns: 'ourPartners' })} onDragStart={(e) => e.preventDefault()} />
       {partnerData.map((partner) => (
         <img
           key={partner.className}

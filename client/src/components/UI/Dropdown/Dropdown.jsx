@@ -21,7 +21,7 @@ const DropDown = ({ options, onSelect }) => {
   return (
     <div className={`${cl.dropdown} ${isOpen ? cl.open : ''}`}>
       <button onClick={toggleDropDown}>
-        {selectedOption ? t(selectedOption, { ns: 'catalogPage' }) : t('select an option', { ns: 'catalogPage' })}
+        {selectedOption ? t(selectedOption, { ns: 'catalogPage' }) : t('selectAnOption', { ns: 'catalogPage' })}
         <img src={arrow} alt="" />
       </button>
       {isOpen && (

@@ -4,6 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import settings from './settings';
 import Slide from './Slide';
+import slideData from './slideData';
 
 const MainBanner = () => {
   const sliderRef = useRef(null);
@@ -11,13 +12,9 @@ const MainBanner = () => {
   return (
     <div className="slider-container">
       <Slider ref={sliderRef} {...settings}>
-        <Slide labelText={'НОВИНКА'} title={'Флюїд-шовк для тонкого волосся'} slideClassName={'firstSlide'} />
-        <Slide
-          labelText={'ХІТ ПРОДАЖУ'}
-          title={'Шампунь-реконструктор для пошкодженого волосся'}
-          slideClassName={'secondSlide'}
-        />
-        <Slide labelText={'НОВИНКА'} title={'Крем-маска для кучерявого волосся'} slideClassName={'thirdSlide'} />
+        {slideData.map((slide, index) => (
+          <Slide key={index} labelText={slide.labelText} title={slide.title} slideClassName={slide.slideClassName} />
+        ))}
       </Slider>
     </div>
   );

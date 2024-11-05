@@ -1,12 +1,15 @@
+import Button from '../Button/Button';
 import cl from './index.module.scss';
 
 const Slide = ({ labelText, title, slideClassName }) => {
   return (
     <div className={`${cl.slide} ${cl[slideClassName]}`}>
       <section>
-        <div>{labelText}</div>
+        <div className={cl.label}>{labelText}</div>
         <h1>{title}</h1>
-        <button>Додати до кошику</button>
+        <div className={cl.buttonWrapper}>
+          <Button variant="banner">Додати до кошику</Button>
+        </div>
       </section>
     </div>
   );

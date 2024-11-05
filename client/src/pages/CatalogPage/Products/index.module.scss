@@ -17,22 +17,8 @@
       color: #3b3c37;
     }
 
-    button {
-      font-family: $font-main;
-      font-size: 20px;
-      font-weight: $font-weight-medium;
-      line-height: $line-height-base;
+    .buttonWrapper {
       width: 306px;
-      height: 56px;
-      border-radius: 2px;
-      border: 1px solid $second-background-color-black;
-      transition: 0.3s ease-out;
-      cursor: pointer;
-
-      &:hover {
-        background-color: $second-background-color-black;
-        color: #f8f8f9;
-      }
     }
   }
 }

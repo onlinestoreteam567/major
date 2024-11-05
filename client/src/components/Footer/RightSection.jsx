@@ -1,8 +1,9 @@
 import cl from './index.module.scss';
 import calendarIcon from './../../assets/svg/footer/calendar.svg';
 import phoneCallIcon from './../../assets/svg/footer/phoneCall.svg';
-import { useTranslation } from 'react-i18next';
-
+{
+  getTranslation('');
+}
 const RightSection = () => {
   const { t } = useTranslation();
 

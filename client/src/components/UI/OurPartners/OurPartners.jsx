@@ -5,6 +5,7 @@ import InformationAboutPartner from './InformationAboutPartner';
 import partnerData from './partnerData';
 import handlePointClick from './handlePointClick';
 import { useTranslation } from 'react-i18next';
+import Button from '../Button/Button';
 
 const OurPartners = () => {
   const [partnerInteractionState, setPartnerInteractionState] = useState({
@@ -26,7 +27,7 @@ const OurPartners = () => {
 
   return (
     <section className={`${cl.ourPartnersWrapper} ${partnerInteractionState.closeAnimation ? cl.closeAnimation : ''}`}>
-      <h2>{t('our partners', { ns: 'ourPartners' })}</h2>
+      <h2>{t('ourPartners', { ns: 'ourPartners' })}</h2>
       <MapWithPoints
         partnerData={partnerData}
         onPointClick={(className) =>
@@ -45,7 +46,9 @@ const OurPartners = () => {
           informationAboutPartner={informationAboutPartner}
         />
       )}
-      <button className={cl.becomePartnerButton}>{t('become partner', { ns: 'ourPartners' })}</button>
+      <div>
+        <Button>{t('becomePartner', { ns: 'ourPartners' })}</Button>
+      </div>
     </section>
   );
 };

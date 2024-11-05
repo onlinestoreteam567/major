@@ -1,10 +1,10 @@
 {
-  "our partners": "Наші партнери",
-  "become partner": "Стати партнером",
+  "ourPartners": "Наші партнери",
+  "becomePartner": "Стати партнером",
 
-  "map alt": "Карта, що показує місцезнаходження партнерів",
+  "mapAlt": "Карта, що показує місцезнаходження партнерів",
 
-  "working hours": "Графік роботи",
+  "workingHours": "Графік роботи",
   "address": "Адреса",
-  "open google map": "Відкрити Google Map"
+  "openGoogleMap": "Відкрити Google Map"
 }

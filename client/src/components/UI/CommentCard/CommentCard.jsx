@@ -1,3 +1,4 @@
+import Button from '../Button/Button';
 import Stars from '../Stars/Stars';
 import cl from './index.module.scss';
 
@@ -13,7 +14,9 @@ const CommentCard = ({ cardData }) => {
           <br />
           {cardData.date}
         </h5>
-        <a href={cardData.link}>Перейти</a>
+        <Button variant="link" purpose="fitContent">
+          Перейти
+        </Button>
       </section>
     </div>
   );
