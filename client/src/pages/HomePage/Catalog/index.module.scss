@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@import '@mixins';
 
 .catalogWrapper {
   @include flex(column, center, center);

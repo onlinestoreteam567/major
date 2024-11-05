@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@import '@mixins';
 
 .cheaperTogetherWrapper {
   @include flexGap(5vh, column);

@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@import '@mixins';
 
 .bestSellersWrapper {
   @include flexGap(5vh, column);

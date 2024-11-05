@@ -1,4 +1,4 @@
-@import '../../../styles/mixins.scss';
+@import '@mixins';
 
 .basketWrapper {
   @include flex(column, null, center);
