@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import crossIcon from '@assets/svg/crossIcon.svg';
 import { useState } from 'react';
 import PhoneNumberInput from './PhoneNumberInput';
-import Overlay from '../../../components/UI/Overlay/Overlay';
+import Overlay from '@UI/Overlay/Overlay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import Button from '../../../components/UI/Button/Button';
+import Button from '@UI/Button/Button';
 
 const MessagePopUp = ({ setShowMessagePopUp }) => {
   const [inputsValue, setInputsValue] = useState({

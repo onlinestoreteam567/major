@@ -1,4 +1,4 @@
-import Button from '../Button/Button';
+import Button from '@UI/Button/Button';
 import cl from './index.module.scss';
 
 const Slide = ({ labelText, title, slideClassName }) => {

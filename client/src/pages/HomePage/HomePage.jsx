@@ -1,20 +1,20 @@
-import BestSellersBanner from '@pages/HomePage/BestSellers/BestSellers';
-import Catalog from '@pages/HomePage/Catalog/Catalog';
-import MainBanner from '@components/UI/MainBanner/MainBanner';
-import YellowButtonMainWrapper from '@pages/HomePage/YellowButton/YellowButtonMainWrapper';
-import OurPartners from '@pages/HomePage/OurPartners/OurPartners';
-import MajorInfo from '@pages/HomePage/MajorInfo/MajorInfo';
-import WhyChooseUs from '@pages/HomePage/WhyChooseUs/WhyChooseUs';
-import CheaperTogetherBanner from '@pages/HomePage/CheaperTogether/CheaperTogether';
-import Comments from '@pages/HomePage/Comments/Comments';
+import BestSellers from './BestSellers/BestSellers';
+import Catalog from './Catalog/Catalog';
+import CheaperTogether from './CheaperTogether/CheaperTogether';
+import Comments from './Comments/Comments';
+import MainBanner from './MainBanner/MainBanner';
+import MajorInfo from './MajorInfo/MajorInfo';
+import OurPartners from './OurPartners/OurPartners';
+import WhyChooseUs from './WhyChooseUs/WhyChooseUs';
+import YellowButtonMainWrapper from './YellowButton/YellowButtonMainWrapper';
 
 const HomePage = () => {
   return (
     <div>
       <MainBanner />
       <YellowButtonMainWrapper />
-      <BestSellersBanner />
-      <CheaperTogetherBanner />
+      <BestSellers />
+      <CheaperTogether />
       <Catalog />
       <MajorInfo />
       <WhyChooseUs />

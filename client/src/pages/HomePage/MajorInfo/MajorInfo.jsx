@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 import photo from '@assets/png/majorInfo/1.png';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import Button from '../../../components/UI/Button/Button';
+import Button from '@UI/Button/Button';
 
 const MajorInfo = () => {
   const { getTranslation } = useTranslationNamespace('majorInfo');

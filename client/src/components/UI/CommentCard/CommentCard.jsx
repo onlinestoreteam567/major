@@ -1,5 +1,5 @@
-import Button from '../Button/Button';
-import Stars from '../Stars/Stars';
+import Button from '@UI/Button/Button';
+import Stars from '@UI/Stars/Stars';
 import cl from './index.module.scss';
 
 const CommentCard = ({ cardData }) => {

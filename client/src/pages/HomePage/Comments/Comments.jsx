@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 import commentsData from './data';
-import Banner from '../../../components/UI/Banner/Banner';
+import Banner from '@UI/Banner/Banner';
 
 // Comments banner component
 const Comments = () => {

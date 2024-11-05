@@ -3,11 +3,11 @@ import { useRef } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import cl from './index.module.scss';
-import ProductCard from '../ProductCard/ProductCard';
+import ProductCard from '@UI/ProductCard/ProductCard';
 import defaultSettings from './defaultSettings';
 import commentsSettings from './commentsSettings';
 import Arrows from './Arrows';
-import CommentCard from '../CommentCard/CommentCard';
+import CommentCard from '@UI/CommentCard/CommentCard';
 
 const Banner = ({ slidesData, type = 'default' }) => {
   const sliderRef = useRef(null);

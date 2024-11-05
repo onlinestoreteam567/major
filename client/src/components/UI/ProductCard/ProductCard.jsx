@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import hryvniaSymbol from '@assets/svg/hryvnia.svg';
 import oldPrice from '@assets/svg/oldPrice.svg';
-import Stars from '../Stars/Stars';
-import Label from '../Labels/Label';
-import Benefit from '../Labels/Benefit';
+import Stars from '@UI/Stars/Stars';
+import Label from '@UI/Labels/Label';
+import Benefit from '@UI/Labels/Benefit';
 import { useState } from 'react';
-import Button from '../Button/Button';
+import Button from '@UI/Button/Button';
 
 const ProductCard = ({ cardData }) => {
   const [isShowButton, setIsShowButton] = useState(false);

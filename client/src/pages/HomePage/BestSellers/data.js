@@ -1,11 +1,11 @@
-import firstSlideImage from '../../../assets/png/banners/bestSellersBanner/1.png';
-import secondSlideImage from '../../../assets/png/banners/bestSellersBanner/2.png';
-import thirdSlideImage from '../../../assets/png/banners/bestSellersBanner/3.png';
-import fourthSlideImage from '../../../assets/png/banners/bestSellersBanner/4.png';
-import fivethSlideImage from '../../../assets/png/banners/bestSellersBanner/5.png';
-import sixthSlideImage from '../../../assets/png/banners/bestSellersBanner/6.png';
-import seventhSlideImage from '../../../assets/png/banners/bestSellersBanner/7.png';
-import eighthSlideImage from '../../../assets/png/banners/bestSellersBanner/8.png';
+import firstSlideImage from '@png/banners/bestSellersBanner/1.png';
+import secondSlideImage from '@png/banners/bestSellersBanner/2.png';
+import thirdSlideImage from '@png/banners/bestSellersBanner/3.png';
+import fourthSlideImage from '@png/banners/bestSellersBanner/4.png';
+import fivethSlideImage from '@png/banners/bestSellersBanner/5.png';
+import sixthSlideImage from '@png/banners/bestSellersBanner/6.png';
+import seventhSlideImage from '@png/banners/bestSellersBanner/7.png';
+import eighthSlideImage from '@png/banners/bestSellersBanner/8.png';
 
 const data = [
   {
