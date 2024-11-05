@@ -1,4 +1,4 @@
-const settings = {
+const commentsSettings = {
   accessibility: true,
   dots: false,
   infinite: true,
@@ -25,4 +25,4 @@ const settings = {
   ],
 };
 
-export default settings;
+export default commentsSettings;

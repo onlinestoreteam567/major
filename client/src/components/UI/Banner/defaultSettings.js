@@ -1,4 +1,4 @@
-const settings = {
+const defaultSettings = {
   accessibility: true,
   dots: false,
   infinite: true,
@@ -32,4 +32,4 @@ const settings = {
   ],
 };
 
-export default settings;
+export default defaultSettings;

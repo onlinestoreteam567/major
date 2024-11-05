@@ -136,6 +136,7 @@
 
   .becomePartnerButton {
     margin-top: 50px;
+    margin-bottom: 15vh;
     width: 306px;
     height: 56px;
     border-radius: 8px;
@@ -146,7 +147,9 @@
     font-weight: $font-weight-medium;
     line-height: $line-height-base;
     border: none;
-    transition: color 0.5s, background-color 0.5s;
+    transition:
+      color 0.5s,
+      background-color 0.5s;
     cursor: pointer;
 
     &:hover {

@@ -46,7 +46,7 @@ const ProductCard = ({ cardData }) => {
         </h4>
       </section>
       {isShowButton ? (
-        <button className={cl.addToBasketButton} onMouseEnter={changeButtonText} onMouseLeave={defaultButtonText}>
+        <button onMouseEnter={changeButtonText} onMouseLeave={defaultButtonText}>
           {buttonText}
         </button>
       ) : (

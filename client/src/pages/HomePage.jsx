@@ -6,7 +6,7 @@ import OurPartners from '@components/UI/OurPartners/OurPartners';
 import MajorInfo from '@components/UI/MajorInfo/MajorInfo';
 import WhyChooseUs from '@components/UI/WhyChooseUs/WhyChooseUs';
 import CheaperTogetherBanner from '@components/UI/CheaperTogether/CheaperTogether';
-import CommentsBanner from '@components/UI/CommentsBanner/CommentsBanner';
+import Comments from '@components/UI/Comments/Comments';
 
 const HomePage = () => {
   return (
@@ -18,8 +18,8 @@ const HomePage = () => {
       <Catalog />
       <MajorInfo />
       <WhyChooseUs />
+      <Comments />
       <OurPartners />
-      <CommentsBanner />
     </div>
   );
 };
