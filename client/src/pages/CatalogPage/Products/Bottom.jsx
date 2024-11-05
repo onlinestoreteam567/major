@@ -1,3 +1,4 @@
+import Button from '@components/UI/Button/Button';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
@@ -7,7 +8,9 @@ const Bottom = () => {
   return (
     <section className={cl.bottom}>
       <p>{getTranslation('showing')}</p>
-      <button>{getTranslation('load more')}</button>
+      <div className={cl.buttonWrapper}>
+        <Button variant="secondary">{getTranslation('loadMore')}</Button>
+      </div>
     </section>
   );
 };

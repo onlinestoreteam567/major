@@ -1,12 +1,12 @@
 {
   "help": "Потрібна допомога?",
 
-  "has question": "Маєте питання?",
-  "leave you phone": "Залиште Ваш номер телефону і ми Вам зателефонуємо!",
-  "name and surname": "Ім’я та прізвище",
-  "phone number": "Номер телефону",
+  "hasQuestion": "Маєте питання?",
+  "leaveYouPhone": "Залиште Ваш номер телефону і ми Вам зателефонуємо!",
+  "nameAndSurname": "Ім’я та прізвище",
+  "phoneNumber": "Номер телефону",
   "question": "Питання",
   "send": "Відправити повідомлення",
-  "write your question placeholder": "Напишіть нам Ваше питання",
-  "cross alt": "Закрити"
+  "writeYourQuestionPlaceholder": "Напишіть нам Ваше питання",
+  "crossAlt": "Закрити"
 }

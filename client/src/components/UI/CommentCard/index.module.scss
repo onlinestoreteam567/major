@@ -1,0 +1,46 @@
+@import '@mixins';
+
+.commentCard {
+  @include flexGap(10px, column);
+  box-sizing: border-box;
+  padding-right: 8%;
+  padding-left: 8%;
+
+  h4 {
+    font-family: $font-main;
+    font-size: 20px;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-base;
+    color: $text-color-black;
+  }
+
+  p {
+    height: 100px;
+    font-family: $font-second;
+    font-size: $font-size-base;
+    font-weight: $font-weight-base;
+    line-height: 19.84px;
+    color: $text-color-black;
+  }
+
+  .commentCardFooter {
+    @include flex(row, space-between, end);
+
+    h5 {
+      font-family: $font-main;
+      font-size: $font-size-medium;
+      font-weight: $font-weight-medium;
+      line-height: $line-height-base;
+      color: $text-color-black;
+    }
+
+    a {
+      font-family: $font-main;
+      font-size: 20px;
+      font-weight: $font-weight-medium;
+      line-height: $line-height-base;
+      text-decoration: underline;
+      color: $text-color-black;
+    }
+  }
+}

@@ -15,7 +15,7 @@ const Top = () => {
           <h3>{getTranslation('sorting')}:</h3>
         </section>
         <Dropdown
-          options={['sort by popularity', 'sort by price asc', 'sort by price desc']}
+          options={['sortByPopularity', 'sortByPriceAsc', 'sortByPriceDesc']}
           onSelect={(option) => console.log(option)}
         />
       </section>

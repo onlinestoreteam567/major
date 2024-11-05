@@ -1,10 +1,10 @@
 {
-  "our partners": "Our partners",
-  "become partner": "Become a partner",
+  "ourPartners": "Our partners",
+  "becomePartner": "Become a partner",
 
-  "map alt": "Map showing locations of partners",
+  "mapAlt": "Map showing locations of partners",
 
-  "working hours": "Working Hours",
+  "workingHours": "Working Hours",
   "address": "Address",
-  "open google map": "Open Google Map"
+  "openGoogleMap": "Open Google Map"
 }

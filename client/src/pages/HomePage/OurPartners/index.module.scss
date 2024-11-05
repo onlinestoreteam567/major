@@ -1,0 +1,164 @@
+@import '@mixins';
+
+.ourPartnersWrapper {
+  user-select: none;
+  @include flex(column, center, center);
+  margin-top: 200px;
+  position: relative;
+  padding: 0 4% 0 5%;
+  width: 100%;
+  box-sizing: border-box;
+
+  h2 {
+    font-family: $font-main;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    line-height: 44.64px;
+    text-align: center;
+    color: $text-color-black;
+  }
+
+  figure {
+    margin-top: 75px;
+    height: 68vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+
+    img:first-of-type {
+      object-fit: cover;
+      width: 1471px;
+      height: 997px;
+    }
+
+    .point {
+      height: 30px;
+      width: 30px;
+      cursor: pointer;
+
+      &:hover {
+        width: 40px;
+        height: 40px;
+        transform: translateY(-20%) translateX(-10%);
+      }
+    }
+
+    .lvivPoint {
+      @include absolute(300px, 153px);
+    }
+
+    .lytskPoint {
+      @include absolute(143px, 243px);
+    }
+
+    .ternopilPoint {
+      @include absolute(329px, 298px);
+    }
+
+    .ivanoFrankivskPoint {
+      @include absolute(439px, 223px);
+    }
+
+    .vinnitsaPoint {
+      @include absolute(414px, 538px);
+    }
+  }
+
+  aside {
+    @include flex(column, space-between, start);
+    height: 68vh;
+    width: 388px;
+    box-sizing: border-box;
+    padding: 10vh 50px 10vh 40px;
+    gap: 32px;
+    background: #000000cc;
+    font-family: $font-main;
+    color: $text-color-light;
+    position: absolute;
+    top: 120px;
+    right: 4%;
+    animation: showInformationAboutPartners 0.5s;
+
+    .workScheduleSection {
+      @include flexGap(8px, column);
+    }
+
+    h3 {
+      font-size: 32px;
+      font-weight: $font-weight-bold;
+      line-height: 39.68px;
+    }
+
+    h4 {
+      font-size: 20px;
+      font-weight: $font-weight-medium;
+      line-height: $line-height-base;
+    }
+
+    p {
+      font-size: $font-size-base;
+      font-weight: $font-weight-medium;
+      line-height: 21.76px;
+      letter-spacing: $letter-spacing-base;
+    }
+
+    button {
+      min-width: 254px;
+      width: 254px;
+      min-height: 56px;
+      height: 56px;
+      border-radius: 2px;
+      border: 2px solid $text-color-light;
+      background-color: transparent;
+      cursor: pointer;
+      transition: 0.5s ease-out;
+      color: $text-color-light;
+
+      &:hover {
+        background-color: $background-color-light;
+        color: $text-color-black;
+        border: none;
+      }
+
+      a {
+        font-size: 20px;
+        font-weight: $font-weight-base;
+        line-height: $line-height-base;
+        letter-spacing: $letter-spacing-base;
+      }
+    }
+  }
+
+  div {
+    margin-top: 25px;
+    margin-bottom: 15vh;
+    width: 306px;
+  }
+}
+
+.closeAnimation > aside {
+  animation: closeInformationAboutPartners 0.6s !important;
+}
+
+@keyframes showInformationAboutPartners {
+  from {
+    transform: translateX(250%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeInformationAboutPartners {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}

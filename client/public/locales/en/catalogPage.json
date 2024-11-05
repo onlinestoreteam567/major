@@ -1,16 +1,16 @@
 {
   "sorting": "Sorting",
-  "sort by popularity": "by popularity",
-  "sort by price asc": "cheaper first",
-  "sort by price desc": "expensive first",
-  "select an option": "by popularity",
+  "sortByPopularity": "by popularity",
+  "sortByPriceAsc": "cheaper first",
+  "sortByPriceDesc": "expensive first",
+  "selectAnOption": "by popularity",
 
-  "new items": "New Items",
-  "best sellers": "Best Sellers",
+  "newItems": "New Items",
+  "bestSellers": "Best Sellers",
   "discounts": "Discounts",
-  "together cheaper": "Cheaper Together",
+  "togetherCheaper": "Cheaper Together",
 
-  "assignment title": "Assignment",
+  "assignmentTitle": "Assignment",
 
   "category": "Category",
   "shampoo": "Shampoo",
@@ -22,5 +22,5 @@
   "mask": "Mask",
 
   "showing": "Showing: 6 items out of 7",
-  "load more": "Load more"
+  "loadMore": "Load more"
 }

@@ -1,0 +1,54 @@
+@import '@mixins';
+
+.whyChooseUsWrapper {
+  margin: auto;
+  box-sizing: border-box;
+  padding: 0 95px 0 95px;
+  h2 {
+    font-family: $font-main;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    line-height: 44.64px;
+    text-align: center;
+    color: $text-color-black;
+  }
+  .figuresWrapper {
+    @include flex(column, center, center);
+    margin-top: 76px;
+    gap: 96px;
+
+    section {
+      @include flex(row, space-around, center);
+      width: 100%;
+      figure {
+        display: flex;
+        gap: 10px;
+
+        img {
+          object-fit: cover;
+          width: 112px;
+          height: 112px;
+        }
+
+        figcaption {
+          max-width: 338px;
+          color: $text-color-black;
+          text-wrap: pretty;
+
+          h3 {
+            font-family: $font-main;
+            font-size: 20px;
+            font-weight: $font-weight-medium;
+            line-height: $line-height-base;
+          }
+          p {
+            font-family: $font-second;
+            font-size: $font-size-base;
+            font-weight: $font-weight-base;
+            line-height: 23.04px;
+          }
+        }
+      }
+    }
+  }
+}

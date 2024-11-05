@@ -1,16 +1,16 @@
 {
   "sorting": "Сортування",
-  "sort by popularity": "за популярністю",
-  "sort by price asc": "спочатку дешевше",
-  "sort by price desc": "спочатку дорожче",
-  "select an option": "за популярністю",
+  "sortByPopularity": "за популярністю",
+  "sortByPriceAsc": "спочатку дешевше",
+  "sortByPriceDesc": "спочатку дорожче",
+  "selectAnOption": "за популярністю",
 
-  "new items": "Новинки",
-  "best sellers": "Хіт продажу",
+  "newItems": "Новинки",
+  "bestSellers": "Хіт продажу",
   "discounts": "Знижки",
-  "together cheaper": "Разом дешевше",
+  "togetherCheaper": "Разом дешевше",
 
-  "assignment title": "Призначення",
+  "assignmentTitle": "Призначення",
 
   "category": "Категорія",
   "shampoo": "Шампунь",
@@ -22,5 +22,5 @@
   "mask": "Маска",
 
   "showing": "Показано: 6 товарів з 7",
-  "load more": "Завантажити більше"
+  "loadMore": "Завантажити більше"
 }

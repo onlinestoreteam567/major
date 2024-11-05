@@ -1,8 +1,8 @@
 import cl from './index.module.scss';
 import LogoIcon from '@assets/svg/header/LogoIcon';
-import SearchInput from '@components/UI/SearchInput/SearchInput';
+import SearchInput from '@components/Header/SearchInput/SearchInput';
 import { useState, useEffect } from 'react';
-import Basket from '@components/UI/Basket/Basket';
+import Basket from '@components/Header/Basket/Basket';
 import Navigation from './Navigation';
 import RightSection from './RightSection';
 import { useLocation } from 'react-router-dom';

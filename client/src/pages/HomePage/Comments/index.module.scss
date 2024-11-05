@@ -1,0 +1,15 @@
+@import '@mixins';
+
+.comments {
+  @include flexGap(10vh, column);
+  margin-top: 18vh;
+
+  h2 {
+    font-family: $font-main;
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    line-height: 44.64px;
+    color: $text-color-black;
+    text-align: center;
+  }
+}
