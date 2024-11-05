@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import cl from './index.module.scss';
-import { useTranslation } from 'react-i18next';
-
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractionState }) => {
   const handleUnmountComponent = () => {
     clearTimeout();
@@ -11,23 +10,23 @@ const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractio
     }, 500);
   };
 
-  const { t } = useTranslation();
+  const { getTranslation } = useTranslationNamespace('ourPartners');
 
   return (
     <aside onMouseLeave={handleUnmountComponent}>
       <h3>{informationAboutPartner.title}</h3>
       <section className={cl.workScheduleSection}>
-        <h4>{t('workingHours', { ns: 'ourPartners' })}</h4>
+        <h4>{getTranslation('workingHours')}</h4>
         <p>{informationAboutPartner.workSchedule}</p>
         <p>{informationAboutPartner.workSchedule1}</p>
       </section>
       <section>
-        <h4>{t('address', { ns: 'ourPartners' })}</h4>
+        <h4>{getTranslation('address')}</h4>
         <br />
         <p>{informationAboutPartner.address}</p>
       </section>
       <button>
-        <a href={informationAboutPartner.googleMapAddress}>{t('openGoogleMap', { ns: 'ourPartners' })}</a>
+        <a href={informationAboutPartner.googleMapAddress}>{getTranslation('openGoogleMap')}</a>
       </button>
     </aside>
   );

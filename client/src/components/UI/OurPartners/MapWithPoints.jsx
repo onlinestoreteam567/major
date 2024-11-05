@@ -4,6 +4,7 @@ import mapUa from '@assets/png/ourPartners/mapUa.png';
 import mapEn from '@assets/png/ourPartners/mapEn.png';
 import point from '@assets/svg/ourPartners/point.svg';
 import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const MapWithPoints = ({ partnerData, onPointClick }) => {
   const [dragState, setDragState] = useState({
@@ -62,8 +63,10 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
   const mapImage = i18n.language === 'en' ? mapEn : mapUa;
+
+  const { getTranslation } = useTranslationNamespace('ourPartners');
 
   return (
     <figure
@@ -74,7 +77,7 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
       onMouseMove={handleMouseMove}
       className={cl.mapContainer}
     >
-      <img src={mapImage} alt={t('mapAlt', { ns: 'ourPartners' })} onDragStart={(e) => e.preventDefault()} />
+      <img src={mapImage} alt={getTranslation('mapAlt')} onDragStart={(e) => e.preventDefault()} />
       {partnerData.map((partner) => (
         <img
           key={partner.className}

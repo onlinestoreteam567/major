@@ -17,29 +17,29 @@ const Catalog = () => {
         <section>
           <figure>
             <img src={png1} alt="" />
-            <figcaption>{getTranslation('normal hair')}</figcaption>
+            <figcaption>{getTranslation('normalHair')}</figcaption>
           </figure>
           <figure>
             <img src={png2} alt="" />
-            <figcaption>{getTranslation('colored hair')}</figcaption>
+            <figcaption>{getTranslation('coloredHair')}</figcaption>
           </figure>
           <figure>
             <img src={png3} alt="" />
-            <figcaption>{getTranslation('damaged hair')}</figcaption>
+            <figcaption>{getTranslation('damagedHair')}</figcaption>
           </figure>
         </section>
         <section>
           <figure>
             <img src={png4} alt="" />
-            <figcaption>{getTranslation('thin hair')}</figcaption>
+            <figcaption>{getTranslation('thinHair')}</figcaption>
           </figure>
           <figure>
             <img src={png5} alt="" />
-            <figcaption>{getTranslation('deep conditioning')}</figcaption>
+            <figcaption>{getTranslation('deepConditioning')}</figcaption>
           </figure>
           <figure>
             <img src={png6} alt="" />
-            <figcaption>{getTranslation('hair growth')}</figcaption>
+            <figcaption>{getTranslation('hairGrowth')}</figcaption>
           </figure>
         </section>
       </section>

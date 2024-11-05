@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import cl from './index.module.scss';
-import { useTranslation } from 'react-i18next';
-
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const HelpButtonsSection = ({
   handleShowAnotherIcons,
   closeHelpButtonAnimation,
@@ -25,8 +24,7 @@ const HelpButtonsSection = ({
     }, randomShowDelay);
     return () => clearTimeout(showTimer);
   });
-  const { t } = useTranslation();
-
+  const { getTranslation } = useTranslationNamespace('yellowButton');
   return (
     <section className={cl.buttonsSection}>
       <button className={cl.questionButton} onMouseEnter={showNeedHelpButtonFnc}>
@@ -41,7 +39,7 @@ const HelpButtonsSection = ({
           }}
           onMouseLeave={closeHelpButtonAnimation}
         >
-          {t('help', { ns: 'yellowButton' })}
+          {getTranslation('help')}
           <div className={cl.triangle}></div>
         </button>
       )}

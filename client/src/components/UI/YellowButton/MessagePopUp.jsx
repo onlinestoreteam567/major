@@ -4,7 +4,7 @@ import crossIcon from '@assets/svg/crossIcon.svg';
 import { useState } from 'react';
 import PhoneNumberInput from './PhoneNumberInput';
 import Overlay from '../Overlay/Overlay';
-import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '../Button/Button';
 
 const MessagePopUp = ({ setShowMessagePopUp }) => {
@@ -40,36 +40,35 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
       message: '',
     });
   };
-  const { t } = useTranslation();
-
+  const { getTranslation } = useTranslationNamespace('yellowButton');
   return (
     <>
       <Overlay handleClose={handleCloseMessagePopUp} />
 
       <div className={cl.messagePopUp}>
-        <img src={crossIcon} alt={t('crossAlt', { ns: 'yellowButton' })} onClick={handleCloseMessagePopUp} />
-        <h2>{t('hasQuestion', { ns: 'yellowButton' })}</h2>
-        <h3>{t('leaveYouPhone', { ns: 'yellowButton' })}</h3>
+        <img src={crossIcon} alt={getTranslation('crossAlt')} onClick={handleCloseMessagePopUp} />
+        <h2>{getTranslation('hasQuestion')}</h2>
+        <h3>{getTranslation('leaveYouPhone')}</h3>
 
         <form>
-          <label htmlFor="name">{t('nameAndSurname', { ns: 'yellowButton' })}</label>
+          <label htmlFor="name">{getTranslation('nameAndSurname')}</label>
           <input
             id="name"
             type="text"
-            placeholder={t('nameAndSurname', { ns: 'yellowButton' })}
+            placeholder={getTranslation('nameAndSurname')}
             value={inputsValue.name}
             required
             onChange={handleInputNameChange}
             autoComplete="name"
           />
 
-          <label htmlFor="phone">{t('phoneNumber', { ns: 'yellowButton' })}</label>
+          <label htmlFor="phone">{getTranslation('phoneNumber')}</label>
           <PhoneNumberInput inputsValue={inputsValue} setInputsValue={setInputsValue} />
 
-          <label htmlFor="message">{t('question', { ns: 'yellowButton' })}</label>
+          <label htmlFor="message">{getTranslation('question')}</label>
           <textarea
             id="message"
-            placeholder={t('writeYourQuestionPlaceholder', { ns: 'yellowButton' })}
+            placeholder={getTranslation('writeYourQuestionPlaceholder')}
             value={inputsValue.message}
             onChange={handleTextAreaChange}
             required
@@ -77,7 +76,7 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
 
           <div className={cl.buttonWrapper}>
             <Button onClick={handleSubmit} variant="secondary">
-              {t('send', { ns: 'yellowButton' })}
+              {getTranslation('send')}
             </Button>
           </div>
         </form>

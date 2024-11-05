@@ -1,12 +1,11 @@
 import cl from './index.module.scss';
-import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const BottomSection = () => {
-  const { t } = useTranslation();
-
+  const { getTranslation } = useTranslationNamespace('footer');
   return (
     <section className={cl.bottomSection}>
       <hr />
-      <p>{t('copyright', { ns: 'footer' })}</p>
+      <p>{getTranslation('copyright')}</p>
     </section>
   );
 };

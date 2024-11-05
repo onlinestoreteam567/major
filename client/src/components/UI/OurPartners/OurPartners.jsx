@@ -4,7 +4,7 @@ import MapWithPoints from './MapWithPoints';
 import InformationAboutPartner from './InformationAboutPartner';
 import partnerData from './partnerData';
 import handlePointClick from './handlePointClick';
-import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '../Button/Button';
 
 const OurPartners = () => {
@@ -23,11 +23,11 @@ const OurPartners = () => {
     googleMapAdress: '',
   });
 
-  const { t } = useTranslation();
+  const { getTranslation } = useTranslationNamespace('ourPartners');
 
   return (
     <section className={`${cl.ourPartnersWrapper} ${partnerInteractionState.closeAnimation ? cl.closeAnimation : ''}`}>
-      <h2>{t('ourPartners', { ns: 'ourPartners' })}</h2>
+      <h2>{getTranslation('ourPartners')}</h2>
       <MapWithPoints
         partnerData={partnerData}
         onPointClick={(className) =>
@@ -47,7 +47,7 @@ const OurPartners = () => {
         />
       )}
       <div>
-        <Button>{t('becomePartner', { ns: 'ourPartners' })}</Button>
+        <Button>{getTranslation('becomePartner')}</Button>
       </div>
     </section>
   );

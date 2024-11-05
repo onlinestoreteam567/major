@@ -1,26 +1,26 @@
 import cl from './index.module.scss';
 import photo from '@assets/png/majorInfo/1.png';
-import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '../Button/Button';
 
 const MajorInfo = () => {
-  const { t } = useTranslation();
+  const { getTranslation } = useTranslationNamespace('majorInfo');
 
   return (
     <section className={cl.majorInfoWrapper}>
-      <h2>{t('title', { ns: 'majorInfo' })}</h2>
+      <h2>{getTranslation('title')}</h2>
 
       <figure>
-        <img src={photo} alt={t('imgAlt', { ns: 'majorInfo' })} />
+        <img src={photo} alt={getTranslation('imgAlt')} />
 
         <figcaption>
-          <p>{t('text1', { ns: 'majorInfo' })}</p>
-          <p>{t('text2', { ns: 'majorInfo' })}</p>
-          <p>{t('text3', { ns: 'majorInfo' })}</p>
+          <p>{getTranslation('text1')}</p>
+          <p>{getTranslation('text2')}</p>
+          <p>{getTranslation('text3')}</p>
 
           <div>
             <Button variant="link" purpose="fitContent">
-              {t('more', { ns: 'majorInfo' })}
+              {getTranslation('more')}
             </Button>
           </div>
         </figcaption>
