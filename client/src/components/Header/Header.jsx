@@ -6,6 +6,7 @@ import Basket from '@components/Header/Basket/Basket';
 import Navigation from './Navigation';
 import RightSection from './RightSection';
 import { useLocation } from 'react-router-dom';
+import useMediaQuery from '@hooks/useMediaQuery';
 
 const Header = () => {
   const [isShowInput, setIsShowInput] = useState(false);
@@ -14,6 +15,7 @@ const Header = () => {
   const [isMainPage, setIsMainPage] = useState(true);
   const [inputValue, setInputValue] = useState('');
 
+  const isDesktop = useMediaQuery('(max-width: 1024px)');
   const location = useLocation();
 
   useEffect(() => {
@@ -25,6 +27,14 @@ const Header = () => {
       setIsScrolled(false);
     }
   }, [location]);
+
+  useEffect(() => {
+    if (isDesktop) {
+      setIsShowInput(true);
+    } else {
+      setIsShowInput(false);
+    }
+  }, [isDesktop]);
 
   const handleShowInput = () => {
     setIsShowInput(true);

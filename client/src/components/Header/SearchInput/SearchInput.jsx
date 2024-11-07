@@ -47,7 +47,7 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput }) {
     <>
       <Overlay handleClose={handleCloseInputAnimation} />
 
-      <search className={isHiddenInputAnimation && cl.hiddenInput}>
+      <search className={isHiddenInputAnimation ? cl.hiddenInput : ''}>
         <div className={inputValue && cl.activeSearch}>
           <input
             className={`${cl.searchInput} ${inputValue && cl.activeSearchInput} ${isInputFocus && cl.inputFocus}`}
