@@ -1,15 +1,15 @@
 {
-  "why choose us": "Why choose us?",
-  "first title": "Discounts for regular customers",
-  "first paragraph": "As a regular customer, you can take advantage of special discounts and exclusive offers.",
-  "second title": "Fast shipment",
-  "second paragraph": "We understand how important it is to receive orders on time, so we offer you a fast and secure shipment service.",
-  "third title": "Quality certificate",
-  "third paragraph": "This document confirms our commitment to high standards and provides you with confidence in the effectiveness of our products and services.",
-  "fourth title": "Result from the first use",
-  "fourth paragraph": "Thanks to innovative formulas and high-quality ingredients, you will see and feel the effect after the first use.",
-  "first alt": "Discounts for regular customers icon",
-  "second alt": "Fast shipment icon",
-  "third alt": "Quality certificate icon",
-  "fourth alt": "Like icon"
+  "whyChooseUs": "Why choose us?",
+  "firstTitle": "Discounts for regular customers",
+  "firstParagraph": "As a regular customer, you can take advantage of special discounts and exclusive offers.",
+  "secondTitle": "Fast shipment",
+  "secondParagraph": "We understand how important it is to receive orders on time, so we offer you a fast and secure shipment service.",
+  "thirdTitle": "Quality certificate",
+  "thirdParagraph": "This document confirms our commitment to high standards and provides you with confidence in the effectiveness of our products and services.",
+  "fourthTitle": "Result from the first use",
+  "fourthParagraph": "Thanks to innovative formulas and high-quality ingredients, you will see and feel the effect after the first use.",
+  "firstAlt": "Discounts for regular customers icon",
+  "secondAlt": "Fast shipment icon",
+  "thirdAlt": "Quality certificate icon",
+  "fourthAlt": "Like icon"
 }

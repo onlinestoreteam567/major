@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import cl from './index.module.scss';
 import arrow from '@svg/catalogPage/arrow.svg';
 
 const DropDown = ({ options, onSelect }) => {
-  const { t } = useTranslation();
+  const { getTranslation } = useTranslationNamespace('catalogPage');
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -21,14 +21,14 @@ const DropDown = ({ options, onSelect }) => {
   return (
     <div className={`${cl.dropdown} ${isOpen ? cl.open : ''}`}>
       <button onClick={toggleDropDown}>
-        {selectedOption ? t(selectedOption, { ns: 'catalogPage' }) : t('select an option', { ns: 'catalogPage' })}
+        {selectedOption ? getTranslation(selectedOption) : getTranslation('selectAnOption')}
         <img src={arrow} alt="" />
       </button>
       {isOpen && (
         <ul>
           {options.map((option, index) => (
             <li key={index} onClick={() => handleSelect(option)}>
-              {t(option, { ns: 'catalogPage' })}
+              {getTranslation(option)}
             </li>
           ))}
         </ul>

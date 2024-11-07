@@ -15,7 +15,7 @@ import ErrorBoundary from './error/ErrorBoundary'; // A component to handle erro
 import Requests from './testСomponents/Requests';
 
 // Lazy loading
-const Home = lazy(() => import('@pages/HomePage'));
+const Home = lazy(() => import('@pages/HomePage/HomePage'));
 const Catalog = lazy(() => import('@pages/CatalogPage/CatalogPage'));
 const About = lazy(() => import('@pages/AboutPage'));
 const Blog = lazy(() => import('@pages/BlogPage'));

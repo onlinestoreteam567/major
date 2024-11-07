@@ -4,12 +4,12 @@ import CheckboxItem from './CheckboxItem';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const checkboxData = [
-  { key: 'normal', label: 'normal hair' },
-  { key: 'colored', label: 'colored hair' },
-  { key: 'thin', label: 'thin hair' },
-  { key: 'damaged', label: 'damaged hair' },
-  { key: 'growth', label: 'hair growth' },
-  { key: 'cleansing', label: 'deep conditioning' },
+  { key: 'normal', label: 'normalHair' },
+  { key: 'colored', label: 'coloredHair' },
+  { key: 'thin', label: 'thinHair' },
+  { key: 'damaged', label: 'damagedHair' },
+  { key: 'growth', label: 'hairGrowth' },
+  { key: 'cleansing', label: 'deepConditioning' },
 ];
 
 const Assignment = () => {
@@ -33,7 +33,7 @@ const Assignment = () => {
 
   return (
     <section className={cl.assignmentWrapper}>
-      <h4>{getTranslation('assignment title')}</h4>
+      <h4>{getTranslation('assignmentTitle')}</h4>
       <ul>
         {checkboxData.map((item) => (
           <CheckboxItem

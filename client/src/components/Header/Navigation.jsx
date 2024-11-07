@@ -1,26 +1,25 @@
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const Navigation = () => {
-  const { t } = useTranslation();
-
+  const { getTranslation } = useTranslationNamespace('header');
   return (
     <nav>
       <ul>
         <li>
-          <Link to="catalog">{t('catalog', { ns: 'header' })}</Link>
+          <Link to="catalog">{getTranslation('catalog')}</Link>
         </li>
         <li>
-          <Link to="about">{t('about', { ns: 'header' })}</Link>
+          <Link to="about">{getTranslation('about')}</Link>
         </li>
         <li>
-          <Link to="blog">{t('blog', { ns: 'header' })}</Link>
+          <Link to="blog">{getTranslation('blog')}</Link>
         </li>
         <li>
-          <Link to="cooperation">{t('cooperation', { ns: 'header' })}</Link>
+          <Link to="cooperation">{getTranslation('cooperation')}</Link>
         </li>
         <li>
-          <Link to="contact">{t('contact', { ns: 'header' })}</Link>
+          <Link to="contact">{getTranslation('contact')}</Link>
         </li>
       </ul>
     </nav>
