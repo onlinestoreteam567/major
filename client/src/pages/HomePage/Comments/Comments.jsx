@@ -1,12 +1,13 @@
 import cl from './index.module.scss';
 import commentsData from './data';
 import Banner from '@UI/Banner/Banner';
+import H2 from '@components/UI/Hs/H2/H2';
 
 // Comments banner component
 const Comments = () => {
   return (
     <div className={`slider-container ${cl.comments}`}>
-      <h2>Відгуки про наші засоби</h2>
+      <H2>Відгуки про наші засоби</H2>
 
       <Banner slidesData={commentsData} type="comments" />
     </div>

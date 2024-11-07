@@ -33,8 +33,12 @@
       max-width: 40vw;
     }
 
-    .buttonWrapper {
+    button {
       width: 330px;
+
+      @include respond-medium {
+        width: 275px;
+      }
     }
   }
 }

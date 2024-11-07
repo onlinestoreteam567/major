@@ -13,8 +13,8 @@
   margin-top: 100px;
 
   section {
-    @include flex(column, center, center);
-    flex: 0 0 33.33%;
+    @include flex(row, center, center);
+    flex-wrap: wrap;
     gap: 25px;
 
     section {

@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import BasketItem from './BasketItem';
 import hryvniaIcon from '@assets/svg/hryvnia.svg';
 import { useSelector } from 'react-redux';
+import H2 from '@components/UI/Hs/H2/H2';
 
 const Basket = ({ setIsShowBasket }) => {
   const [hiddenBasket, setHiddenBasket] = useState(false);
@@ -38,7 +39,7 @@ const Basket = ({ setIsShowBasket }) => {
 
       <div className={`${cl.basketWrapper} ${hiddenBasket && cl.closeBasket} ${!isEmptyBasket && cl.emptyBasket}`}>
         <section className={cl.basketHeaderSection}>
-          <h2>Кошик</h2>
+          <H2>Кошик</H2>
           <img onClick={handleCloseBasket} src={crossIcon} alt="Закрити" />
         </section>
 

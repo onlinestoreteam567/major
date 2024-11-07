@@ -2,12 +2,13 @@ import cl from './index.module.scss';
 import Dropdown from '@components/UI/Dropdown/Dropdown';
 import filter from '@svg/catalogPage/filter.svg';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import H2 from '@components/UI/Hs/H2/H2';
 
 const Top = () => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
   return (
     <section className={cl.catalogSection}>
-      <h2>{getTranslation('catalog', 'common')}</h2>
+      <H2>{getTranslation('catalog', 'common')}</H2>
 
       <section className={cl.sortSection}>
         <section>

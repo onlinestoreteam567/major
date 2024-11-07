@@ -19,6 +19,13 @@
   left: $left;
 }
 
+// responsives
+@mixin respond-medium {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
 // example
 // @import '~/mixins.scss'
 // .modal {

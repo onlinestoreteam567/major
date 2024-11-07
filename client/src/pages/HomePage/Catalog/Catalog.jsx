@@ -5,6 +5,7 @@ import png3 from '@assets/png/catalog/3.png';
 import png4 from '@assets/png/catalog/4.png';
 import png5 from '@assets/png/catalog/5.png';
 import png6 from '@assets/png/catalog/6.png';
+import H2 from '@components/UI/Hs/H2/H2';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const Catalog = () => {
@@ -12,36 +13,32 @@ const Catalog = () => {
 
   return (
     <div className={cl.catalogWrapper}>
-      <h2>{getTranslation('catalog')}</h2>
+      <H2>{getTranslation('catalog')}</H2>
       <section>
-        <section>
-          <figure>
-            <img src={png1} alt="" />
-            <figcaption>{getTranslation('normalHair')}</figcaption>
-          </figure>
-          <figure>
-            <img src={png2} alt="" />
-            <figcaption>{getTranslation('coloredHair')}</figcaption>
-          </figure>
-          <figure>
-            <img src={png3} alt="" />
-            <figcaption>{getTranslation('damagedHair')}</figcaption>
-          </figure>
-        </section>
-        <section>
-          <figure>
-            <img src={png4} alt="" />
-            <figcaption>{getTranslation('thinHair')}</figcaption>
-          </figure>
-          <figure>
-            <img src={png5} alt="" />
-            <figcaption>{getTranslation('deepConditioning')}</figcaption>
-          </figure>
-          <figure>
-            <img src={png6} alt="" />
-            <figcaption>{getTranslation('hairGrowth')}</figcaption>
-          </figure>
-        </section>
+        <figure>
+          <img src={png1} alt="" />
+          <figcaption>{getTranslation('normalHair')}</figcaption>
+        </figure>
+        <figure>
+          <img src={png2} alt="" />
+          <figcaption>{getTranslation('coloredHair')}</figcaption>
+        </figure>
+        <figure>
+          <img src={png3} alt="" />
+          <figcaption>{getTranslation('damagedHair')}</figcaption>
+        </figure>
+        <figure>
+          <img src={png4} alt="" />
+          <figcaption>{getTranslation('thinHair')}</figcaption>
+        </figure>
+        <figure>
+          <img src={png5} alt="" />
+          <figcaption>{getTranslation('deepConditioning')}</figcaption>
+        </figure>
+        <figure>
+          <img src={png6} alt="" />
+          <figcaption>{getTranslation('hairGrowth')}</figcaption>
+        </figure>
       </section>
     </div>
   );

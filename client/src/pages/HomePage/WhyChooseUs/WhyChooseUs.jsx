@@ -3,12 +3,13 @@ import discountIcon from '@assets/png/whyChooseUs/discount.png';
 import fastDeliveryIcon from '@assets/png/whyChooseUs/fastDelivery.png';
 import qualityIcon from '@assets/png/whyChooseUs/quality.png';
 import thumbUpIcon from '@assets/png/whyChooseUs/thumbUp.png';
+import H2 from '@components/UI/Hs/H2/H2';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const WhyChooseUs = () => {
   const { getTranslation } = useTranslationNamespace('whyChooseUs');
   return (
     <div className={cl.whyChooseUsWrapper}>
-      <h2>{getTranslation('whyChooseUs')}</h2>
+      <H2>{getTranslation('whyChooseUs')}</H2>
       <section className={cl.figuresWrapper}>
         <section>
           <figure>
