@@ -14,17 +14,13 @@
     .cardImage {
       width: 100%;
     }
-  }
 
-  .cardTitle {
-    font-family: $font-main;
-    height: 40px;
-    font-size: 20px;
-    font-weight: $font-weight-medium;
-    line-height: $line-height-base;
-    text-wrap: balance;
-    padding-right: 10px;
-    margin: 20px 0;
+    h3 {
+      height: 40px;
+      text-wrap: balance;
+      padding-right: 10px;
+      margin: 20px 0;
+    }
   }
 
   .cardFooter {
@@ -32,13 +28,8 @@
     position: relative;
     margin-top: 10px;
 
-    h3 {
+    h2 {
       @include flexGap(8px);
-      font-family: $font-main;
-      font-size: 24px;
-      font-weight: $font-weight-bold;
-      line-height: 28.8px;
-      letter-spacing: $letter-spacing-base;
 
       .oldPrice {
         @include flex();
@@ -54,7 +45,7 @@
       }
     }
 
-    h4 {
+    p {
       font-family: $font-main;
       font-size: 20px;
       font-weight: $font-weight-base;

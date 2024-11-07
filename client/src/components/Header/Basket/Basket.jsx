@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import BasketItem from './BasketItem';
 import hryvniaIcon from '@assets/svg/hryvnia.svg';
 import { useSelector } from 'react-redux';
-import H2 from '@components/UI/Hs/H2/H2';
+import Heading from '@components/UI/Heading/Heading';
 
 const Basket = ({ setIsShowBasket }) => {
   const [hiddenBasket, setHiddenBasket] = useState(false);
@@ -39,7 +39,8 @@ const Basket = ({ setIsShowBasket }) => {
 
       <div className={`${cl.basketWrapper} ${hiddenBasket && cl.closeBasket} ${!isEmptyBasket && cl.emptyBasket}`}>
         <section className={cl.basketHeaderSection}>
-          <H2>Кошик</H2>
+          <Heading type="h2">Кошик</Heading>
+
           <img onClick={handleCloseBasket} src={crossIcon} alt="Закрити" />
         </section>
 
@@ -62,12 +63,12 @@ const Basket = ({ setIsShowBasket }) => {
                 <span>Кількість товарів</span>
                 <strong>{totalQuantity}</strong>
               </p>
-              <h3>
+              <Heading type="h3">
                 <span>Загалом</span>
                 <span>
                   {totalPrice} <img src={hryvniaIcon} alt="" className={cl.hryvniaIcon} />
                 </span>
-              </h3>
+              </Heading>
             </section>
             <section className={cl.buttonsSection}>
               <button className={cl.continueShoppingButtonSecond} onClick={handleCloseBasket}>

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import Heading from '@components/UI/Heading/Heading';
 const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractionState }) => {
   const handleUnmountComponent = () => {
     clearTimeout();
@@ -16,12 +17,12 @@ const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractio
     <aside onMouseLeave={handleUnmountComponent}>
       <h3>{informationAboutPartner.title}</h3>
       <section className={cl.workScheduleSection}>
-        <h4>{getTranslation('workingHours')}</h4>
+        <Heading type="h3">{getTranslation('workingHours')}</Heading>
         <p>{informationAboutPartner.workSchedule}</p>
         <p>{informationAboutPartner.workSchedule1}</p>
       </section>
       <section>
-        <h4>{getTranslation('address')}</h4>
+        <Heading type="h3">{getTranslation('address')}</Heading>
         <br />
         <p>{informationAboutPartner.address}</p>
       </section>

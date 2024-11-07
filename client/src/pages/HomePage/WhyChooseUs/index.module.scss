@@ -1,9 +1,9 @@
 @import '@mixins';
 
 .whyChooseUsWrapper {
-  margin: auto;
+  margin-top: 18vh;
   box-sizing: border-box;
-  padding: 0 95px 0 95px;
+  padding: 0 5vw;
 
   .figuresWrapper {
     @include flex(column, center, center);
@@ -15,30 +15,27 @@
       width: 100%;
       figure {
         display: flex;
+        @include flex();
         gap: 10px;
 
         img {
           object-fit: cover;
           width: 112px;
           height: 112px;
+
+          @include respond-medium {
+            height: 90px;
+            width: 90px;
+          }
         }
 
         figcaption {
           max-width: 338px;
           color: $text-color-black;
-          text-wrap: pretty;
+          text-wrap: balance;
 
-          h3 {
-            font-family: $font-main;
-            font-size: 20px;
-            font-weight: $font-weight-medium;
-            line-height: $line-height-base;
-          }
           p {
-            font-family: $font-second;
-            font-size: $font-size-base;
-            font-weight: $font-weight-base;
-            line-height: 23.04px;
+            width: 90%;
           }
         }
       }

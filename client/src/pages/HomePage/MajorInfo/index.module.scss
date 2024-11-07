@@ -7,6 +7,13 @@
   figure {
     @include flex();
 
+    img {
+      @include respond-medium {
+        height: 345px;
+        width: 420px;
+      }
+    }
+
     figcaption {
       @include flexGap(24px, column);
       box-sizing: border-box;

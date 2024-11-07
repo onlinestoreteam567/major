@@ -5,7 +5,7 @@ import png3 from '@assets/png/catalog/3.png';
 import png4 from '@assets/png/catalog/4.png';
 import png5 from '@assets/png/catalog/5.png';
 import png6 from '@assets/png/catalog/6.png';
-import H2 from '@components/UI/Hs/H2/H2';
+import Heading from '@components/UI/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const Catalog = () => {
@@ -13,7 +13,7 @@ const Catalog = () => {
 
   return (
     <div className={cl.catalogWrapper}>
-      <H2>{getTranslation('catalog')}</H2>
+      <Heading type="h2">{getTranslation('catalog')}</Heading>
       <section>
         <figure>
           <img src={png1} alt="" />

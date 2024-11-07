@@ -79,18 +79,6 @@
       @include flexGap(8px, column);
     }
 
-    h3 {
-      font-size: 32px;
-      font-weight: $font-weight-bold;
-      line-height: 39.68px;
-    }
-
-    h4 {
-      font-size: 20px;
-      font-weight: $font-weight-medium;
-      line-height: $line-height-base;
-    }
-
     p {
       font-size: $font-size-base;
       font-weight: $font-weight-medium;

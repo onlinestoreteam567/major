@@ -25,6 +25,7 @@
       position: relative;
       img {
         cursor: pointer;
+        width: 100%;
         transition: 0.5s;
         &:hover {
           filter: brightness(1.7);

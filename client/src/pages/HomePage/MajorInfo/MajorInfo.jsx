@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 import photo from '@assets/png/majorInfo/1.png';
-import H2 from '@components/UI/Hs/H2/H2';
+import Heading from '@components/UI/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
 
@@ -9,7 +9,7 @@ const MajorInfo = () => {
 
   return (
     <section className={cl.majorInfoWrapper}>
-      <H2>{getTranslation('title')}</H2>
+      <Heading type="h2">{getTranslation('title')}</Heading>
 
       <figure>
         <img src={photo} alt={getTranslation('imgAlt')} />

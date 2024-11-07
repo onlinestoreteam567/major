@@ -6,6 +6,8 @@ import PhoneNumberInput from './PhoneNumberInput';
 import Overlay from '@UI/Overlay/Overlay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
+import Subtitle from '@components/UI/Subtitle/Subtitle';
+import Heading from '@components/UI/Heading/Heading';
 
 const MessagePopUp = ({ setShowMessagePopUp }) => {
   const [inputsValue, setInputsValue] = useState({
@@ -47,8 +49,8 @@ const MessagePopUp = ({ setShowMessagePopUp }) => {
 
       <div className={cl.messagePopUp}>
         <img src={crossIcon} alt={getTranslation('crossAlt')} onClick={handleCloseMessagePopUp} />
-        <h2>{getTranslation('hasQuestion')}</h2>
-        <h3>{getTranslation('leaveYouPhone')}</h3>
+        <Subtitle>{getTranslation('hasQuestion')}</Subtitle>
+        <Heading type="h3">{getTranslation('leaveYouPhone')}</Heading>
 
         <form>
           <label htmlFor="name">{getTranslation('nameAndSurname')}</label>

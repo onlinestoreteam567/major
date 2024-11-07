@@ -7,6 +7,8 @@ import Label from '@UI/Labels/Label';
 import Benefit from '@UI/Labels/Benefit';
 import { useState } from 'react';
 import Button from '@UI/Button/Button';
+import Heading from '../Heading/Heading';
+import Subtitle from '../Subtitle/Subtitle';
 
 const ProductCard = ({ cardData }) => {
   const [isShowButton, setIsShowButton] = useState(false);
@@ -32,19 +34,19 @@ const ProductCard = ({ cardData }) => {
         <Label labels={cardData.label} />
         <Benefit percent={cardData.percent} />
         <img src={cardData.img.src} alt={cardData.img.alt} className={cl.cardImage} />
-        <h3 className={cl.cardTitle}>{cardData.title}</h3>
+        <Heading type="h3">{cardData.title}</Heading>
         <Stars starsAmount={cardData.stars} feedbackAmount={cardData.feedbackAmount} />
       </section>
       <section className={cl.cardFooter}>
-        <h3>
+        <Subtitle>
           <span>{cardData.price}</span> <img className={cl.hryvniaSymbol} src={hryvniaSymbol} alt="hryvnia symbol" />
           <span className={cl.oldPrice}>
             555 <img src={oldPrice} alt="" />
           </span>
-        </h3>
-        <h4>
+        </Subtitle>
+        <p>
           <span>{cardData.mlQuantity}мл.</span>
-        </h4>
+        </p>
       </section>
 
       {isShowButton ? (

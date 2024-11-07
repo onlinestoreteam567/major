@@ -1,12 +1,12 @@
 import cl from './index.module.scss';
 import slidesData from './data';
 import Banner from '@UI/Banner/Banner';
-import H2 from '@components/UI/Hs/H2/H2';
+import Heading from '@components/UI/Heading/Heading';
 
 const BestSellers = () => {
   return (
     <div className={`slider-container ${cl.bestSellersWrapper}`}>
-      <H2>Хіти продажу</H2>
+      <Heading type={'h2'}>Хіти продажу</Heading>
 
       <Banner slidesData={slidesData} />
     </div>

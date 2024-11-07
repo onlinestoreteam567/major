@@ -1,19 +1,21 @@
 import Button from '@UI/Button/Button';
 import Stars from '@UI/Stars/Stars';
 import cl from './index.module.scss';
+import Heading from '@components/UI/Heading/Heading';
+import Paragraph from '../Paragraph/Paragraph';
 
 const CommentCard = ({ cardData }) => {
   return (
     <div className={cl.commentCard}>
-      <h4>{cardData.productTitle}</h4>
+      <Heading type="h3">{cardData.productTitle}</Heading>
       <Stars starsAmount={cardData.rating} />
-      <p>{cardData.userComment}</p>
+      <Paragraph>{cardData.userComment}</Paragraph>
       <section className={cl.commentCardFooter}>
-        <h5>
+        <Heading type="h4">
           {cardData.userName}
           <br />
           {cardData.date}
-        </h5>
+        </Heading>
         <Button variant="link" purpose="fitContent">
           Перейти
         </Button>

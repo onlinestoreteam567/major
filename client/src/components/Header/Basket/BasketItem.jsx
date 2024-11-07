@@ -5,6 +5,7 @@ import Plus from '@assets/svg/basket/Plus.jsx';
 import hryvniaIcon from '@assets/svg/hryvnia.svg';
 import { useDispatch } from 'react-redux';
 import { addItem, removeItem, decrementItemQuantity, setItemQuantity } from '@features/cart/cartSlice.js/';
+import Heading from '@components/UI/Heading/Heading';
 
 const BasketItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -29,10 +30,10 @@ const BasketItem = ({ item }) => {
     <li>
       <img src={BasketItemImg} className={cl.basketItemImg} alt="" />
       <section>
-        <h3>{item.name}</h3>
-        <h3>
+        <Heading type="h4">{item.name}</Heading>
+        <Heading type="h4">
           {item.price} <img src={hryvniaIcon} alt="" className={cl.hryvniaIcon} />
-        </h3>
+        </Heading>
         <section className={cl.basketItemCounterAndDeleteSection}>
           <section>
             <button className={cl.countButton} onClick={handleDecrementItem}>
