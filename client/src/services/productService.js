@@ -37,24 +37,6 @@ const ProductService = {
       handleApiError(error);
     }
   },
-
-  async patchCategoryById(id, partialData) {
-    try {
-      const { data } = await apiClient.patch(`/products/product_purpose_categories/${id}`, partialData);
-      return data;
-    } catch (error) {
-      handleApiError(error);
-    }
-  },
-
-  async deleteCategoryById(id) {
-    try {
-      const { data } = await apiClient.delete(`/products/product_purpose_categories/${id}`);
-      return data;
-    } catch (error) {
-      handleApiError(error);
-    }
-  },
 };
 
 export default ProductService;

@@ -23,15 +23,9 @@ const HelpButtonsSection = ({
       return () => clearTimeout(hideTimer);
     }, randomShowDelay);
     return () => clearTimeout(showTimer);
-<<<<<<< HEAD:client/src/components/UI/YellowButton/HelpButtonsSection.jsx
-    // eslint-disable-next-line
-  }, []);
-  const { t } = useTranslation();
-
-=======
   });
   const { getTranslation } = useTranslationNamespace('yellowButton');
->>>>>>> 2e8c9df72013482de91cf292d90bceed164c2a4a:client/src/pages/HomePage/YellowButton/HelpButtonsSection.jsx
+
   return (
     <section className={cl.buttonsSection}>
       <button className={cl.questionButton} onMouseEnter={showNeedHelpButtonFnc}>
