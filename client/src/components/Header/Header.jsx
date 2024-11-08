@@ -1,65 +1,28 @@
 import cl from './index.module.scss';
 import LogoIcon from '@assets/svg/header/LogoIcon';
 import SearchInput from '@components/Header/SearchInput/SearchInput';
-import { useState, useEffect } from 'react';
 import Basket from '@components/Header/Basket/Basket';
 import Navigation from './Navigation';
 import RightSection from './RightSection';
-import { useLocation } from 'react-router-dom';
 import useMediaQuery from '@hooks/useMediaQuery';
+import { useEffect, useState } from 'react';
+import { usePageState } from '@hooks/header/usePageState';
+import { useScrollState } from '@hooks/header/useScrollState';
 
 const Header = () => {
-  const [isShowInput, setIsShowInput] = useState(false);
+  const isMainPage = usePageState();
+  const isScrolled = useScrollState(isMainPage);
+  const isDesktop = useMediaQuery('(max-width: 1024px)');
+  const [isShowInput, setIsShowInput] = useState(isDesktop);
   const [isShowBasket, setIsShowBasket] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMainPage, setIsMainPage] = useState(true);
   const [inputValue, setInputValue] = useState('');
 
-  const isDesktop = useMediaQuery('(max-width: 1024px)');
-  const location = useLocation();
-
   useEffect(() => {
-    if (location.pathname !== '/') {
-      setIsMainPage(false);
-      setIsScrolled(true);
-    } else {
-      setIsMainPage(true);
-      setIsScrolled(false);
-    }
-  }, [location]);
-
-  useEffect(() => {
-    if (isDesktop) {
-      setIsShowInput(true);
-    } else {
-      setIsShowInput(false);
-    }
+    setIsShowInput(isDesktop);
   }, [isDesktop]);
 
-  const handleShowInput = () => {
-    setIsShowInput(true);
-  };
-
-  const handleShowBasket = () => {
-    setIsShowBasket(true);
-  };
-
-  // Check if header is scrolled
-  useEffect(() => {
-    if (!isMainPage) {
-      return;
-    }
-    const handleScroll = () => {
-      const scrollY = window.scrollY > 1;
-      if (scrollY !== isScrolled) {
-        setIsScrolled(scrollY);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [isScrolled, isMainPage]);
+  const handleShowInput = () => setIsShowInput(true);
+  const handleShowBasket = () => setIsShowBasket(true);
 
   return (
     <header className={`${isScrolled ? cl.headerScrolled : ''} ${!isMainPage ? cl.headerNotMainPage : ''}`}>
@@ -67,10 +30,15 @@ const Header = () => {
         <LogoIcon fillColor={isScrolled ? 'white' : 'black'} />
 
         {isShowInput && (
-          <SearchInput setIsShowInput={setIsShowInput} inputValue={inputValue} setInputValue={setInputValue} />
+          <SearchInput
+            setIsShowInput={setIsShowInput}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+            isDesktop={isDesktop}
+          />
         )}
 
-        <Navigation />
+        {!isDesktop && <Navigation />}
 
         <RightSection
           isShowInput={isShowInput}
