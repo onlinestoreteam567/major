@@ -14,7 +14,9 @@ const RightSection = ({ handleShowInput, isScrolled, handleShowBasket }) => {
   return (
     <section className={cl.rightSection}>
       {isDesktop ? (
-        <Burger fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
+        <i>
+          <Burger fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
+        </i>
       ) : (
         <i onClick={handleShowInput}>
           <SearchIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
