@@ -1,4 +1,54 @@
 @import '@mixins';
+
+$mobile: 380px;
+$tablet: 768px;
+$deskmin: 1024px;
+$deskmax: 1440px;
+
+.wrapListReviewsCard {
+  @include flexGap(32px, column);
+  width: 356px;
+  padding: 0;
+  margin: 0 auto;
+  ul {
+    @include flexGap(32px, column);
+    justify-content: flex-start;
+  }
+  @media only screen and (min-width: $tablet) {
+    width: 696px;
+    ul {
+      gap: 16px;
+    }
+  }
+}
+.wrapReviewsCard {
+  @include flexGap(8px, column);
+  box-sizing: border-box;
+  width: 356px;
+  border-top: 2px solid rgb(162, 162, 162);
+  padding: 24px 0px;
+  @media only screen and (min-width: $tablet) {
+    width: 696px;
+    height: 194px;
+    padding: 16px 0;
+  }
+}
+
+.wrapTitleRating {
+  @include flex(row, center, center);
+  h3 {
+    color: rgb(0, 0, 0);
+    font-family: $font-main;
+    font-size: 20px;
+    font-weight: $font-weight-medium;
+    line-height: 1.22;
+  }
+  @media only screen and (min-width: $tablet) {
+    font-size: $font-size-base;
+    line-height: 1.36;
+    letter-spacing: 1.28px;
+  }
+}
 .wrapRating {
   @include flex(row, flex-start, center);
   .arrStar {
@@ -12,16 +62,6 @@
       width: 20px;
       height: 20px;
     }
-  }
-  .average {
-    @include flex(row, center, center);
-    width: 38px;
-    height: 24px;
-    color: rgb(192, 192, 192);
-    font-family: $font-second;
-    font-size: font-size-base;
-    font-weight: $font-weight-base;
-    line-height: 1.44;
   }
 }
 .wrapUser {
@@ -48,7 +88,6 @@
 }
 .wrapMessage {
   @include flex(row, flex-start, center);
-
   p {
     @include flex(row, flex-start, flex-start);
     width: 100%;
@@ -58,20 +97,35 @@
     font-weight: $font-weight-base;
     line-height: 1.36;
   }
-}
-
-// *** ReviewsCard ***
-.wrapListReviewsCard {
-  @include flex(row, center, flex-start);
-  width: 351px;
-  padding: 0;
-  margin: 0 auto;
-  ul {
-    @include flexGap(16px, column);
-    justify-content: flex-start;
+  @media only screen and (min-width: $tablet) {
+    p {
+      height: 112px;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 4px;
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #a2a2a2;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+    }
   }
 }
-.wrapReviewsCard {
-  @include flexGap(8px, column);
-  width: 351px;
+.wrapReviewBtn {
+  @include flex(row, center, center);
+  gap: 12px;
+  .wrapBtnArrow {
+    @include flex(row, center, center);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgb(248, 248, 249);
+    border: rgb(248, 248, 249);
+    cursor: pointer;
+  }
 }
