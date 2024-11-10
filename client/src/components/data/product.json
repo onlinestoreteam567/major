@@ -7,6 +7,8 @@
   "opt_price": 0,
   "dropshipper_price": 0,
   "small_opt_price": 0,
+  "price_sale": 0,
+  "discount": 10,
   "description": "string",
   "volume_ml": 0,
   "upload_images": ["string"],
@@ -20,6 +22,7 @@
   },
   "is_new": true,
   "is_best_seller": true,
+  "is_sale": true,
   "ingredients": "string",
   "application": "string"
 }
