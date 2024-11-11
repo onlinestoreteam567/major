@@ -1,6 +1,9 @@
 const settings = {
   autoplay: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 0,
+  pauseOnDotsHover: true,
+  pauseOnFocus: true,
+  pauseOnHover: true,
   fade: true,
   accessibility: true,
   dots: true,
