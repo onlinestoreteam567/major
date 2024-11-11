@@ -25,6 +25,16 @@
     @content;
   }
 }
+@mixin respond-small {
+  @media (max-width: 380px) {
+    @content;
+  }
+}
+@mixin respond-s {
+  @media (max-width: 720px) {
+    @content;
+  }
+}
 
 // example
 // @import '~/mixins.scss'

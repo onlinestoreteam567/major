@@ -9,6 +9,7 @@
 .slide {
   height: 85vh;
   background-size: cover;
+  background-repeat: no-repeat;
 
   section {
     .label {
@@ -45,6 +46,19 @@
 .firstSlide {
   @include flex(column, center, start);
   background-image: url('../../../assets/png/banners/mainBanner/MainBannerFirstImage.png');
+  background-attachment: fixed;
+
+  @include respond-medium {
+    background-position: 30%;
+  }
+
+  @include respond-s {
+    background-position: 55%;
+  }
+
+  @include respond-small {
+    background-position: 73%;
+  }
 
   section {
     @include slide();
