@@ -12,7 +12,7 @@ search {
   left: 14%;
   width: 990px;
 
-  @include respond-medium {
+  @include deskmim {
     @include flex();
     justify-self: center;
     width: 300px;
@@ -30,7 +30,7 @@ search {
     flex-direction: column;
     box-sizing: border-box;
 
-    @include respond-medium {
+    @include deskmim {
       position: absolute;
     }
 

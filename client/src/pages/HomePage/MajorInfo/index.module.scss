@@ -8,7 +8,7 @@
     @include flex();
 
     img {
-      @include respond-medium {
+      @include deskmim {
         height: 345px;
         width: 420px;
       }

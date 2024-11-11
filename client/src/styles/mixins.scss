@@ -20,18 +20,26 @@
 }
 
 // responsives
-@mixin respond-medium {
+@mixin deskmax {
+  @media (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin deskmim {
   @media (max-width: 1024px) {
     @content;
   }
 }
-@mixin respond-small {
-  @media (max-width: 380px) {
+
+@mixin tablet {
+  @media (max-width: 768px) {
     @content;
   }
 }
-@mixin respond-s {
-  @media (max-width: 720px) {
+
+@mixin mobile {
+  @media (max-width: 380px) {
     @content;
   }
 }

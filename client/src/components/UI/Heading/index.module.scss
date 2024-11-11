@@ -8,7 +8,7 @@
   color: $background-color-black;
   max-width: 40vw;
 
-  @include respond-medium {
+  @include deskmim {
     font-size: 48px;
     line-height: 51.84px;
     letter-spacing: $letter-spacing-extra-small;
@@ -23,7 +23,7 @@
   color: $text-color-black;
   text-align: center;
 
-  @include respond-medium {
+  @include deskmim {
     font-size: 32px;
     font-weight: $font-weight-medium;
     line-height: 36.68px;
@@ -37,7 +37,7 @@
   line-height: $line-height-base;
   color: $text-color-black;
 
-  @include respond-medium {
+  @include deskmim {
     font-family: $font-main;
     font-size: $font-size-medium;
     font-weight: $font-weight-medium;

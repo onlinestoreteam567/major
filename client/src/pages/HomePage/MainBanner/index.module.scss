@@ -36,7 +36,7 @@
     button {
       width: 330px;
 
-      @include respond-medium {
+      @include deskmim {
         width: 275px;
       }
     }
@@ -48,15 +48,15 @@
   background-image: url('../../../assets/png/banners/mainBanner/MainBannerFirstImage.png');
   background-attachment: fixed;
 
-  @include respond-medium {
+  @include deskmim {
     background-position: 30%;
   }
 
-  @include respond-s {
+  @include tablet {
     background-position: 55%;
   }
 
-  @include respond-small {
+  @include mobile {
     background-position: 73%;
   }
 
