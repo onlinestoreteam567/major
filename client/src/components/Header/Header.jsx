@@ -12,14 +12,14 @@ import { useScrollState } from '@hooks/header/useScrollState';
 const Header = () => {
   const isMainPage = usePageState();
   const isScrolled = useScrollState(isMainPage);
-  const isDesktop = useMediaQuery('(max-width: 1024px)');
-  const [isShowInput, setIsShowInput] = useState(isDesktop);
+  const isDeskmin = useMediaQuery('(max-width: 1024px)');
+  const [isShowInput, setIsShowInput] = useState(isDeskmin);
   const [isShowBasket, setIsShowBasket] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
-    setIsShowInput(isDesktop);
-  }, [isDesktop]);
+    setIsShowInput(isDeskmin);
+  }, [isDeskmin]);
 
   const handleShowInput = () => setIsShowInput(true);
   const handleShowBasket = () => setIsShowBasket(true);
@@ -34,11 +34,11 @@ const Header = () => {
             setIsShowInput={setIsShowInput}
             inputValue={inputValue}
             setInputValue={setInputValue}
-            isDesktop={isDesktop}
+            isDesktop={isDeskmin}
           />
         )}
 
-        {!isDesktop && <Navigation />}
+        {!isDeskmin && <Navigation />}
 
         <RightSection
           isShowInput={isShowInput}
