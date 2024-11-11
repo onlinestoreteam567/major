@@ -1,7 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import MainLayout from './layouts/MainLayout';
+import MainLayout from './layouts/MainLayout/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
 import ProfilePage from '@pages/ProfilePage';
 
