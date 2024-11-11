@@ -5,15 +5,15 @@ import HryvniaGr from '@components/Icons/HryvniaGr';
 export default function Price({ card }) {
   return (
     <div className={cl.wrapPrice}>
-      <p className={cl.price}>
-        {card.is_sale ? card.price_sale : card.price}
+      <div className={cl.price}>
+        <p>{card.is_sale ? card.price_sale : card.price}</p>
         <Hryvnia />
-      </p>
+      </div>
       {card.is_sale && (
-        <p className={cl.oldPrice}>
-          {card.price}
+        <div className={cl.oldPrice}>
+          <p>{card.price}</p>
           <HryvniaGr />
-        </p>
+        </div>
       )}
     </div>
   );
