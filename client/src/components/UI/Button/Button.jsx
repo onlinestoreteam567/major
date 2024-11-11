@@ -15,7 +15,7 @@ const Button = ({ onClick, children, variant = 'primary', purpose = 'default', o
 };
 
 Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   children: PropTypes.string.isRequired,
   variant: PropTypes.string,
   purpose: PropTypes.string,

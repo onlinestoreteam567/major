@@ -1,0 +1,9 @@
+@import '@mixins';
+
+.subtitle1 {
+  font-family: $font-main;
+  font-size: 24px;
+  font-weight: $font-weight-bold;
+  line-height: 28.8px;
+  letter-spacing: $letter-spacing-base;
+}

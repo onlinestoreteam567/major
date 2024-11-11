@@ -9,15 +9,6 @@
   width: 100%;
   box-sizing: border-box;
 
-  h2 {
-    font-family: $font-main;
-    font-size: $font-size-large;
-    font-weight: $font-weight-bold;
-    line-height: 44.64px;
-    text-align: center;
-    color: $text-color-black;
-  }
-
   figure {
     margin-top: 75px;
     height: 68vh;
@@ -86,18 +77,6 @@
 
     .workScheduleSection {
       @include flexGap(8px, column);
-    }
-
-    h3 {
-      font-size: 32px;
-      font-weight: $font-weight-bold;
-      line-height: 39.68px;
-    }
-
-    h4 {
-      font-size: 20px;
-      font-weight: $font-weight-medium;
-      line-height: $line-height-base;
     }
 
     p {

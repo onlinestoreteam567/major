@@ -6,6 +6,7 @@ import partnerData from './partnerData';
 import handlePointClick from './handlePointClick';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
+import Heading from '@components/UI/Heading/Heading';
 
 const OurPartners = () => {
   const [partnerInteractionState, setPartnerInteractionState] = useState({
@@ -27,7 +28,7 @@ const OurPartners = () => {
 
   return (
     <section className={`${cl.ourPartnersWrapper} ${partnerInteractionState.closeAnimation ? cl.closeAnimation : ''}`}>
-      <h2>{getTranslation('ourPartners')}</h2>
+      <Heading type="h2">{getTranslation('ourPartners')}</Heading>
       <MapWithPoints
         partnerData={partnerData}
         onPointClick={(className) =>

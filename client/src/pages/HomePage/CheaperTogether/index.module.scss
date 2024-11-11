@@ -3,13 +3,4 @@
 .cheaperTogetherWrapper {
   @include flexGap(5vh, column);
   margin-top: 18vh;
-
-  h2 {
-    font-family: $font-main;
-    font-size: $font-size-large;
-    font-weight: $font-weight-bold;
-    line-height: 44.64px;
-    text-align: center;
-    color: $text-color-black;
-  }
 }

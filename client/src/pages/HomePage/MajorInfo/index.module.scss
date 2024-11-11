@@ -4,17 +4,15 @@
   margin-top: 100px;
   color: black;
 
-  h2 {
-    text-align: center;
-    font-family: $font-main;
-    font-size: $font-size-large;
-    font-weight: $font-weight-bold;
-    line-height: 44.64px;
-    margin-bottom: 50px;
-  }
-
   figure {
     @include flex();
+
+    img {
+      @include deskmim {
+        height: 345px;
+        width: 420px;
+      }
+    }
 
     figcaption {
       @include flexGap(24px, column);

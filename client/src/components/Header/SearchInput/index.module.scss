@@ -12,6 +12,15 @@ search {
   left: 14%;
   width: 990px;
 
+  @include deskmim {
+    @include flex();
+    justify-self: center;
+    width: 300px;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
   div {
     width: 100%;
     height: auto;
@@ -20,6 +29,11 @@ search {
     justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
+
+    @include deskmim {
+      position: absolute;
+    }
+
     .searchInput {
       width: 100%;
       height: 40px;
