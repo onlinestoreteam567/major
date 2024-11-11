@@ -9,7 +9,7 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const WhyChooseUs = () => {
   const { getTranslation } = useTranslationNamespace('whyChooseUs');
   return (
-    <div className={cl.whyChooseUsWrapper}>
+    <section className={cl.whyChooseUsWrapper}>
       <Heading type="h2">{getTranslation('whyChooseUs')}</Heading>
       <section className={cl.figuresWrapper}>
         <section>
@@ -45,7 +45,7 @@ const WhyChooseUs = () => {
           </figure>
         </section>
       </section>
-    </div>
+    </section>
   );
 };
 export default WhyChooseUs;

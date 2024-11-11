@@ -5,11 +5,11 @@ import Heading from '@components/UI/Heading/Heading';
 
 const BestSellers = () => {
   return (
-    <div className={`slider-container ${cl.bestSellersWrapper}`}>
+    <section className={`slider-container ${cl.bestSellersWrapper}`}>
       <Heading type={'h2'}>Хіти продажу</Heading>
 
       <Banner slidesData={slidesData} />
-    </div>
+    </section>
   );
 };
 

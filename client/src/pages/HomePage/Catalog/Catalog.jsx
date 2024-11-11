@@ -12,7 +12,7 @@ const Catalog = () => {
   const { getTranslation } = useTranslationNamespace('common');
 
   return (
-    <div className={cl.catalogWrapper}>
+    <section className={cl.catalogWrapper}>
       <Heading type="h2">{getTranslation('catalog')}</Heading>
       <section>
         <figure>
@@ -40,7 +40,7 @@ const Catalog = () => {
           <figcaption>{getTranslation('hairGrowth')}</figcaption>
         </figure>
       </section>
-    </div>
+    </section>
   );
 };
 export default Catalog;

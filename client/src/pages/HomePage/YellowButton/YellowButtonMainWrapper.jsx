@@ -44,7 +44,7 @@ const YellowButtonMainWrapper = () => {
 
   return (
     <>
-      <div className={cl.yellowButtonWrapper}>
+      <section className={cl.yellowButtonWrapper}>
         <HelpButtonsSection
           handleShowAnotherIcons={handleShowAnotherIcons}
           closeHelpButtonAnimation={closeHelpButtonAnimation}
@@ -60,7 +60,7 @@ const YellowButtonMainWrapper = () => {
             handleCloseAnotherIcons={handleCloseAnotherIcons}
           />
         )}
-      </div>
+      </section>
       {showMessagePopUp && <MessagePopUp setShowMessagePopUp={setShowMessagePopUp} />}
     </>
   );

@@ -5,11 +5,11 @@ import Heading from '@components/UI/Heading/Heading';
 
 const CheaperTogether = () => {
   return (
-    <div className={`slider-container ${cl.cheaperTogetherWrapper}`}>
+    <section className={`slider-container ${cl.cheaperTogetherWrapper}`}>
       <Heading type={'h2'}>Разом дешевше</Heading>
 
       <Banner slidesData={slidesData} />
-    </div>
+    </section>
   );
 };
 
