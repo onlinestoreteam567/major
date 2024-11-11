@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import MessagePopUp from './MessagePopUp';
+import MessagePopUp from '@UI/PopUp/PopUp';
 import HelpButtonsSection from './HelpButtonsSection';
 import CommunicationButtons from './CommunicationButtons';
 
@@ -61,7 +61,7 @@ const YellowButtonMainWrapper = () => {
           />
         )}
       </section>
-      {showMessagePopUp && <MessagePopUp setShowMessagePopUp={setShowMessagePopUp} />}
+      {showMessagePopUp && <MessagePopUp setShowMessagePopUp={setShowMessagePopUp} type={'leaveComment'} />}
     </>
   );
 };
