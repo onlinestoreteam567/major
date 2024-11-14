@@ -13,10 +13,6 @@ const HomePage = () => {
   return (
     <div>
       <MainBanner />
-      <div style={{ height: '400px', color: 'black' }}>
-        <Link to="cookie">cookie</Link>
-      </div>
-
       <YellowButtonMainWrapper />
       <BestSellers />
       <CheaperTogether />

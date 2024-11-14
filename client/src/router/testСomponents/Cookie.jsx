@@ -1,7 +1,6 @@
 import { useCookie } from '@hooks/useCookie';
 import { useCookieConsent } from '@hooks/useCookieConsent';
-import test from '/assets/svg/test.svg';
-import test2 from '@assets/svg/footer/gmail.svg';
+
 const CookieTest = () => {
   const [userToken, setUserToken, removeUserToken] = useCookie('userToken');
   const { allowCookie, disallowCookie } = useCookieConsent();
@@ -23,22 +22,6 @@ const CookieTest = () => {
 
   return (
     <div>
-      <div>
-        <span style={{ color: 'red', fontSize: '22px', marginLeft: '6px' }}>1: </span>
-        <img src={test}></img>{' '}
-      </div>
-      <div>
-        <span style={{ color: 'red', fontSize: '22px', marginLeft: '6px' }}>2: </span>
-        <img src={test2}></img>{' '}
-      </div>
-      <div>
-        <span style={{ color: 'red', fontSize: '22px', marginLeft: '6px' }}>3: </span>
-        <img src="/assets/svg/test.svg"></img>{' '}
-      </div>
-      <div>
-        <span style={{ color: 'red', fontSize: '22px', marginLeft: '6px' }}>4: </span>
-        <img src="/public/assets/svg/test.svg"></img>{' '}
-      </div>
       <button onClick={handleSetCookie} style={{ color: 'black' }}>
         Set Cookie
       </button>
