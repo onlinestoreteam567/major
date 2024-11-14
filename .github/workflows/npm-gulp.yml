@@ -23,11 +23,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        working-directory: ./client
+        working-directory: ./client  # Переход в папку client для выполнения команды npm install
         run: npm install
 
       - name: Build
+        working-directory: ./client  # Переход в папку client для выполнения команды сборки
         run: npm run build
 
       - name: Run tests
+        working-directory: ./client  # Переход в папку client для выполнения тестов
         run: npm test
