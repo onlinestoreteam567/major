@@ -1,7 +1,7 @@
-import Minus from '@components/Icons/Minus';
 import cl from './index.module.scss';
-import Plus from '@components/Icons/Plus';
 import { useState } from 'react';
+import ButtonMinus from '@components/Icons/ButtonMinus';
+import ButtonPlus from '@components/Icons/ButtonPlus';
 
 export default function Counter() {
   const [count, setCount] = useState(1);
@@ -18,11 +18,11 @@ export default function Counter() {
   return (
     <div className={cl.wrapCounter}>
       <button type="button" onClick={handleDecrement} disabled={count <= 1}>
-        <Minus />
+        <ButtonMinus />
       </button>
-      <p>{count}</p>
+      <input type="text" value={count} onChange={(e) => setCount(Number(e.target.value))} />
       <button type="button" onClick={handleIncrement}>
-        <Plus />
+        <ButtonPlus />
       </button>
     </div>
   );

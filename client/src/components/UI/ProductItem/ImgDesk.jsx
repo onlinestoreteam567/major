@@ -2,14 +2,14 @@ import cl from './index.module.scss';
 import LabelHit from './LabelHit';
 import LabelNew from './LabelNew';
 import LabelSale from './LabelSale';
-import oil_1 from '@assets/png/thin/thin_oil_0502.webp';
-import oil_2 from '@assets/png/thin/thin_oil_1091.webp';
-import oil_3 from '@assets/png/thin/thin_oil_3346.webp';
-import oil_4 from '@assets/png/thin/thin_all_0872.webp';
+// import oil_1 from '@pablic/images/thin_oil_0502.webp';
+// import oil_2 from '@pablic/images/thin_oil_1091.webp';
+// import oil_3 from '@pablic/images/thin_oil_3346.webp';
+// import oil_4 from '@pablic/images/thin_all_0872.webp';
 import { useState } from 'react';
 
 export default function ImgDesk({ card }) {
-  const [bigImage, setBigImage] = useState(oil_1);
+  const [bigImage, setBigImage] = useState('/images/card/thin_oil_0502.webp');
 
   const handleImageClick = (image) => {
     setBigImage(image);
@@ -25,28 +25,28 @@ export default function ImgDesk({ card }) {
       </div>
       <div className={cl.wrapSmallImg}>
         <img
-          src={oil_1}
+          src="/images/card/thin_oil_0502.webp"
           alt={card.name}
-          onClick={() => handleImageClick(oil_1)}
-          className={bigImage === oil_1 ? cl.selected : ''}
+          onClick={() => handleImageClick('/images/card/thin_oil_0502.webp')}
+          className={bigImage === '/images/card/thin_oil_0502.webp' ? cl.selected : ''}
         />
         <img
-          src={oil_2}
+          src="/images/card/thin_oil_1091.webp"
           alt={card.name}
-          onClick={() => handleImageClick(oil_2)}
-          className={bigImage === oil_2 ? cl.selected : ''}
+          onClick={() => handleImageClick('/images/card/thin_oil_1091.webp')}
+          className={bigImage === '/images/card/thin_oil_1091.webp' ? cl.selected : ''}
         />
         <img
-          src={oil_3}
+          src="/images/card/thin_oil_3346.webp"
           alt={card.name}
-          onClick={() => handleImageClick(oil_3)}
-          className={bigImage === oil_3 ? cl.selected : ''}
+          onClick={() => handleImageClick('/images/card/thin_oil_3346.webp')}
+          className={bigImage === '/images/card/thin_oil_3346.webp' ? cl.selected : ''}
         />
         <img
-          src={oil_4}
+          src="/images/card/thin_all_0872.webp"
           alt={card.name}
-          onClick={() => handleImageClick(oil_4)}
-          className={bigImage === oil_4 ? cl.selected : ''}
+          onClick={() => handleImageClick('/images/card/thin_all_0872.webp')}
+          className={bigImage === '/images/card/thin_all_0872.webp' ? cl.selected : ''}
         />
       </div>
     </div>

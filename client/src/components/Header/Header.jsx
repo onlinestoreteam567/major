@@ -5,7 +5,8 @@ import Basket from '@components/Header/Basket/Basket';
 import Navigation from './Navigation';
 import RightSection from './RightSection';
 import useMediaQuery from '@hooks/useMediaQuery';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { usePageState } from '@hooks/header/usePageState';
 import { useScrollState } from '@hooks/header/useScrollState';
 
@@ -17,9 +18,9 @@ const Header = () => {
   const [isShowBasket, setIsShowBasket] = useState(false);
   const [inputValue, setInputValue] = useState('');
 
-  useEffect(() => {
-    setIsShowInput(isDeskmin);
-  }, [isDeskmin]);
+  // useEffect(() => {
+  //   setIsShowInput(isDeskmin);
+  // }, [isDeskmin]);
 
   const handleShowInput = () => setIsShowInput(true);
   const handleShowBasket = () => setIsShowBasket(true);

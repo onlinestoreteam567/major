@@ -16,41 +16,76 @@
 }
 
 .h2 {
+  @include flex(row, flex-start, center);
   font-family: $font-main;
-  font-size: $font-size-large;
+  font-size: 20px;
   font-weight: $font-weight-bold;
-  line-height: 44.64px;
+  line-height: 1.24;
   color: $text-color-black;
-  text-align: center;
-
+  @include tablet {
+    font-size: 24px;
+  }
   @include deskmim {
+    font-size: 28px;
+  }
+  @include deskmax {
     font-size: 32px;
-    font-weight: $font-weight-medium;
-    line-height: 36.68px;
   }
 }
 
 .h3 {
+  @include flex(row, flex-start, center);
   font-family: $font-main;
-  font-size: 20px;
+  font-size: $font-size-medium;
   font-weight: $font-weight-medium;
-  line-height: $line-height-base;
+  line-height: 1.22;
   color: $text-color-black;
-
-  @include deskmim {
-    font-family: $font-main;
-    font-size: $font-size-medium;
-    font-weight: $font-weight-medium;
-    line-height: $line-height-base;
-    letter-spacing: $letter-spacing-base;
-    text-align: left;
-  }
 }
 
 .h4 {
   font-family: $font-main;
-  font-size: $font-size-medium;
+  font-size: $font-size-base;
   font-weight: $font-weight-medium;
-  line-height: $line-height-base;
+  line-height: 1.36;
   color: $text-color-black;
 }
+
+// .h2 {
+//   font-family: $font-main;
+//   font-size: $font-size-large;
+//   font-weight: $font-weight-bold;
+//   line-height: 44.64px;
+//   color: $text-color-black;
+//   text-align: center;
+
+//   @include deskmim {
+//     font-size: 32px;
+//     font-weight: $font-weight-medium;
+//     line-height: 36.68px;
+//   }
+// }
+
+// .h3 {
+//   font-family: $font-main;
+//   font-size: 20px;
+//   font-weight: $font-weight-medium;
+//   line-height: $line-height-base;
+//   color: $text-color-black;
+
+//   @include deskmim {
+//     font-family: $font-main;
+//     font-size: $font-size-medium;
+//     font-weight: $font-weight-medium;
+//     line-height: $line-height-base;
+//     letter-spacing: $letter-spacing-base;
+//     text-align: left;
+//   }
+// }
+
+// .h4 {
+//   font-family: $font-main;
+//   font-size: $font-size-medium;
+//   font-weight: $font-weight-medium;
+//   line-height: $line-height-base;
+//   color: $text-color-black;
+// }

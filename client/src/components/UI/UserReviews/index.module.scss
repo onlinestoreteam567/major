@@ -14,7 +14,7 @@ $deskmax: 1440px;
     @include flexGap(32px, column);
     justify-content: flex-start;
   }
-  @media only screen and (min-width: $tablet) {
+  @include tablet {
     width: 696px;
     ul {
       gap: 16px;
@@ -27,7 +27,7 @@ $deskmax: 1440px;
   width: 356px;
   border-top: 2px solid rgb(162, 162, 162);
   padding: 24px 0px;
-  @media only screen and (min-width: $tablet) {
+  @include tablet {
     width: 696px;
     height: 194px;
     padding: 16px 0;
@@ -36,18 +36,27 @@ $deskmax: 1440px;
 
 .wrapTitleRating {
   @include flex(row, center, center);
-  h3 {
-    color: rgb(0, 0, 0);
-    font-family: $font-main;
-    font-size: 20px;
-    font-weight: $font-weight-medium;
-    line-height: 1.22;
-  }
-  @media only screen and (min-width: $tablet) {
-    font-size: $font-size-base;
-    line-height: 1.36;
-    letter-spacing: 1.28px;
-  }
+  // h3 {
+  //   color: rgb(0, 0, 0);
+  //   font-family: $font-main;
+  //   font-size: $font-size-medium;
+  //   font-weight: $font-weight-medium;
+  //   line-height: 1.22;
+  // }
+  // @include tablet {
+  //   h3 {
+  //     font-size: $font-size-base;
+  //     line-height: 1.36;
+  //     letter-spacing: 1.28px;
+  //   }
+  // }
+  // @include deskmax {
+  //   h3 {
+  //     font-size: 20px;
+  //     line-height: 1.22;
+  //     letter-spacing: 0;
+  //   }
+  // }
 }
 .wrapRating {
   @include flex(row, flex-start, center);
@@ -67,11 +76,11 @@ $deskmax: 1440px;
 .wrapUser {
   @include flex(row, space-between, center);
   width: 100%;
-  h6 {
+  h3 {
     @include flex(row, flex-start, center);
     color: $header-link-hover-color;
     font-family: $font-main;
-    font-size: $font-size-medium;
+    font-size: $font-size-base;
     font-weight: $font-weight-medium;
     line-height: 1.22;
     padding: 0;
@@ -85,19 +94,40 @@ $deskmax: 1440px;
     font-weight: $font-weight-base;
     line-height: 1.44;
   }
+  @include tablet {
+    h3 {
+      font-weight: $font-weight-medium;
+      line-height: 1.36;
+      letter-spacing: 1.28px;
+    }
+    p {
+      line-height: 1.2;
+    }
+  }
+  @include deskmax {
+    h3 {
+      font-size: $font-size-medium;
+      line-height: 1.28;
+      letter-spacing: 0;
+    }
+    p {
+      font-size: $font-size-base;
+      line-height: 1.28;
+    }
+  }
 }
 .wrapMessage {
   @include flex(row, flex-start, center);
   p {
-    @include flex(row, flex-start, flex-start);
+    // @include flex(row, flex-start, flex-start);
     width: 100%;
     color: rgb(34, 33, 31);
     font-family: $font-second;
     font-size: $font-size-base;
     font-weight: $font-weight-base;
-    line-height: 1.36;
+    line-height: 1.24;
   }
-  @media only screen and (min-width: $tablet) {
+  @include tablet {
     p {
       height: 112px;
       overflow-y: auto;
@@ -119,13 +149,23 @@ $deskmax: 1440px;
 .wrapReviewBtn {
   @include flex(row, center, center);
   gap: 12px;
-  .wrapBtnArrow {
+  button {
     @include flex(row, center, center);
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background: rgb(248, 248, 249);
-    border: rgb(248, 248, 249);
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
     cursor: pointer;
+    &:hover {
+      svg {
+        @include flex(row, center, center);
+        rect {
+          fill: rgb(34, 33, 31);
+        }
+        path {
+          stroke: #ffffff;
+        }
+      }
+    }
   }
 }

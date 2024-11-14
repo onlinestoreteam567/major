@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
+import Paragraph from '../Paragraph/Paragraph';
 
 export default function Description({ card }) {
   const [activeText, setActiveText] = useState('description');
@@ -30,9 +31,9 @@ export default function Description({ card }) {
         </button>
       </div>
       <div className={cl.wrapText}>
-        {activeText === 'description' && <p>{card.description}</p>}
-        {activeText === 'application' && <p>{card.application}</p>}
-        {activeText === 'ingredients' && <p>{card.ingredients}</p>}
+        {activeText === 'description' && <Paragraph type="body1">{card.description}</Paragraph>}
+        {activeText === 'application' && <Paragraph type="body1">{card.application}</Paragraph>}
+        {activeText === 'ingredients' && <Paragraph type="body1">{card.ingredients}</Paragraph>}
       </div>
     </div>
   );

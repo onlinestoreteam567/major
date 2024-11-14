@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import cl from './index.module.scss';
-import StarAll from '@components/Icons/StarAll';
-import StarEmpty from '@components/Icons/StarEmpty';
+// import StarAll from '@components/Icons/StarAll';
+// import StarEmpty from '@components/Icons/StarEmpty';
 import reviews from '../UserReviews/reviewsList.json';
+import StarTrue from '@components/Icons/StarTrue';
+import StarFalse from '@components/Icons/StarFalse';
 
 export default function ProductRating() {
   const [stars, setStars] = useState([]);
@@ -28,7 +30,7 @@ export default function ProductRating() {
     <div className={cl.wrapRating}>
       <ul className={cl.arrStar}>
         {stars.map((el, i) => (
-          <li key={i}>{el === true ? <StarAll /> : <StarEmpty />}</li>
+          <li key={i}>{el === true ? <StarTrue /> : <StarFalse />}</li>
         ))}
       </ul>
       <p className={cl.total}>{reviews.length}</p>
