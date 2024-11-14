@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
-import calendarIcon from './../../assets/svg/footer/calendar.svg';
-import phoneCallIcon from './../../assets/svg/footer/phoneCall.svg';
+import calendarIcon from '@assets/svg/footer/calendar.svg';
+import phoneCallIcon from '@assets/svg/footer/phoneCall.svg';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const RightSection = () => {
