@@ -11,10 +11,12 @@ const ProductService = {
     }
   },
 
-  async createCategory(categoryData) {
+  async createCategory(categoryName) {
     try {
-      const { data } = await apiClient.post(`/products/product_purpose_categories`, categoryData);
-      return data;
+      if (!categoryName) {
+        throw new Error('Invalid category data');
+      }
+      await apiClient.post(`/products/product_purpose_categories`, { name: categoryName });
     } catch (error) {
       handleApiError(error);
     }
