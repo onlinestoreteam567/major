@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import BestSellers from './BestSellers/BestSellers';
 import Catalog from './Catalog/Catalog';
 import CheaperTogether from './CheaperTogether/CheaperTogether';
@@ -12,6 +13,10 @@ const HomePage = () => {
   return (
     <div>
       <MainBanner />
+      <div style={{ height: '400px', color: 'black' }}>
+        <Link to="cookie">cookie</Link>
+      </div>
+
       <YellowButtonMainWrapper />
       <BestSellers />
       <CheaperTogether />
