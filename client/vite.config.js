@@ -6,9 +6,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve('/src'),
-      '@assets': path.resolve('/public/assets'),
-      '@svg': path.resolve('/public/assets/svg'),
-      '@png': path.resolve('/public/assets/png'),
+      '@assets': path.resolve('/src/assets'),
+      '@svg': path.resolve('/src/assets/svg'),
+      '@png': path.resolve('/src/assets/png'),
       '@components': path.resolve('/src/components'),
       '@UI': path.resolve('src/components/UI'),
       '@config': path.resolve('/src/config'),
