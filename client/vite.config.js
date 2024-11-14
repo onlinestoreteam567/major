@@ -27,7 +27,7 @@ export default defineConfig({
     assetsInlineLimit: 0,
     outDir: 'dist',
     rollupOptions: {
-      input: '/src/index.html',
+      input: '/client/src/index.html',
     },
   },
 });
