@@ -9,6 +9,8 @@ footer {
   line-height: $line-height-base;
   letter-spacing: $letter-spacing-base;
 
+  position: relative;
+  bottom: 0;
   box-sizing: border-box;
   padding-top: 54px;
   height: 312px;

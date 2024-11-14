@@ -11,7 +11,6 @@ import CommentCard from '@UI/CommentCard/CommentCard';
 
 const Banner = ({ slidesData, type = 'default' }) => {
   const sliderRef = useRef(null);
-  console.log(slidesData);
 
   return (
     <div className={`slider-container ${cl.bannerWrapper}`}>

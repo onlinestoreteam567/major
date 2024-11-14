@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import MessagePopUp from './MessagePopUp';
+import MessagePopUp from '@UI/PopUp/PopUp';
 import HelpButtonsSection from './HelpButtonsSection';
 import CommunicationButtons from './CommunicationButtons';
 
@@ -44,7 +44,7 @@ const YellowButtonMainWrapper = () => {
 
   return (
     <>
-      <div className={cl.yellowButtonWrapper}>
+      <section className={cl.yellowButtonWrapper}>
         <HelpButtonsSection
           handleShowAnotherIcons={handleShowAnotherIcons}
           closeHelpButtonAnimation={closeHelpButtonAnimation}
@@ -60,8 +60,8 @@ const YellowButtonMainWrapper = () => {
             handleCloseAnotherIcons={handleCloseAnotherIcons}
           />
         )}
-      </div>
-      {showMessagePopUp && <MessagePopUp setShowMessagePopUp={setShowMessagePopUp} />}
+      </section>
+      {showMessagePopUp && <MessagePopUp setShowMessagePopUp={setShowMessagePopUp} type={'leaveComment'} />}
     </>
   );
 };

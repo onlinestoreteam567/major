@@ -5,45 +5,42 @@ import png3 from '@assets/png/catalog/3.png';
 import png4 from '@assets/png/catalog/4.png';
 import png5 from '@assets/png/catalog/5.png';
 import png6 from '@assets/png/catalog/6.png';
+import Heading from '@components/UI/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const Catalog = () => {
   const { getTranslation } = useTranslationNamespace('common');
 
   return (
-    <div className={cl.catalogWrapper}>
-      <h2>{getTranslation('catalog')}</h2>
+    <section className={cl.catalogWrapper}>
+      <Heading type="h2">{getTranslation('catalog')}</Heading>
       <section>
-        <section>
-          <figure>
-            <img src={png1} alt="" />
-            <figcaption>{getTranslation('normalHair')}</figcaption>
-          </figure>
-          <figure>
-            <img src={png2} alt="" />
-            <figcaption>{getTranslation('coloredHair')}</figcaption>
-          </figure>
-          <figure>
-            <img src={png3} alt="" />
-            <figcaption>{getTranslation('damagedHair')}</figcaption>
-          </figure>
-        </section>
-        <section>
-          <figure>
-            <img src={png4} alt="" />
-            <figcaption>{getTranslation('thinHair')}</figcaption>
-          </figure>
-          <figure>
-            <img src={png5} alt="" />
-            <figcaption>{getTranslation('deepConditioning')}</figcaption>
-          </figure>
-          <figure>
-            <img src={png6} alt="" />
-            <figcaption>{getTranslation('hairGrowth')}</figcaption>
-          </figure>
-        </section>
+        <figure>
+          <img src={png1} alt="" />
+          <figcaption>{getTranslation('normalHair')}</figcaption>
+        </figure>
+        <figure>
+          <img src={png2} alt="" />
+          <figcaption>{getTranslation('coloredHair')}</figcaption>
+        </figure>
+        <figure>
+          <img src={png3} alt="" />
+          <figcaption>{getTranslation('damagedHair')}</figcaption>
+        </figure>
+        <figure>
+          <img src={png4} alt="" />
+          <figcaption>{getTranslation('thinHair')}</figcaption>
+        </figure>
+        <figure>
+          <img src={png5} alt="" />
+          <figcaption>{getTranslation('deepConditioning')}</figcaption>
+        </figure>
+        <figure>
+          <img src={png6} alt="" />
+          <figcaption>{getTranslation('hairGrowth')}</figcaption>
+        </figure>
       </section>
-    </div>
+    </section>
   );
 };
 export default Catalog;

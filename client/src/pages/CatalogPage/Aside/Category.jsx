@@ -2,6 +2,7 @@ import { useState } from 'react';
 import cl from './index.module.scss';
 import CheckboxItem from './CheckboxItem';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import Heading from '@components/UI/Heading/Heading';
 
 const checkboxData = [
   { key: 'shampoo', label: 'shampoo' },
@@ -35,7 +36,7 @@ const Category = () => {
 
   return (
     <section className={cl.assignmentWrapper}>
-      <h4>{getTranslation('category')}</h4>
+      <Heading type="h4">{getTranslation('category')}</Heading>
       <ul>
         {checkboxData.map((item) => (
           <CheckboxItem

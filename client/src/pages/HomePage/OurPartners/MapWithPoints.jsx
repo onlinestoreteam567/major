@@ -1,10 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import cl from './index.module.scss';
 import mapUa from '@assets/png/ourPartners/mapUa.png';
 import mapEn from '@assets/png/ourPartners/mapEn.png';
 import point from '@assets/svg/ourPartners/point.svg';
 import { useTranslation } from 'react-i18next';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import useCenterMap from '@hooks/mapWithPoints/useCenterMap';
 
 const MapWithPoints = ({ partnerData, onPointClick }) => {
   const [dragState, setDragState] = useState({
@@ -42,30 +43,16 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
     e.preventDefault();
     const x = e.pageX - imageContainerRef.current.offsetLeft;
     const y = e.pageY - imageContainerRef.current.offsetTop;
-    // Change number for change speed
     const walkX = (x - dragState.startX) * 1;
     const walkY = (y - dragState.startY) * 1;
     imageContainerRef.current.scrollLeft = dragState.scrollLeft - walkX;
     imageContainerRef.current.scrollTop = dragState.scrollTop - walkY;
   };
 
-  // UseEffect for the initial centering of the map
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (imageContainerRef.current) {
-        const container = imageContainerRef.current;
-        const scrollToY = container.scrollHeight / 2.7 - container.clientHeight / 2;
-        container.scrollTop = scrollToY;
-        const scrollToX = container.scrollWidth / 2 - container.clientWidth / 2;
-        container.scrollLeft = scrollToX;
-      }
-    }, 500);
-    return () => clearTimeout(timeoutId);
-  }, []);
+  useCenterMap(imageContainerRef); // Use the custom hook for centering
 
   const { i18n } = useTranslation();
   const mapImage = i18n.language === 'en' ? mapEn : mapUa;
-
   const { getTranslation } = useTranslationNamespace('ourPartners');
 
   return (

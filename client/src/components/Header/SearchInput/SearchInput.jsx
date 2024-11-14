@@ -7,7 +7,7 @@ import Overlay from '@UI/Overlay/Overlay';
 import ProductResults from './ProductResults';
 import NotFound from './NotFound';
 
-function SearchInput({ inputValue, setInputValue, setIsShowInput }) {
+function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
   const [isInputFocus, setIsInputFocus] = useState(false);
   const [isHiddenInputAnimation, setIsHiddenInputAnimation] = useState(false);
   const inputRef = useRef();
@@ -45,9 +45,9 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput }) {
 
   return (
     <>
-      <Overlay handleClose={handleCloseInputAnimation} />
+      {!isDesktop && <Overlay handleClose={handleCloseInputAnimation} />}
 
-      <search className={isHiddenInputAnimation && cl.hiddenInput}>
+      <search className={isHiddenInputAnimation ? cl.hiddenInput : ''}>
         <div className={inputValue && cl.activeSearch}>
           <input
             className={`${cl.searchInput} ${inputValue && cl.activeSearchInput} ${isInputFocus && cl.inputFocus}`}

@@ -22,13 +22,6 @@
     @include flex(row, space-between, center);
     width: 100%;
 
-    h2 {
-      font-size: $font-main;
-      font-size: 36px;
-      font-weight: $font-weight-bold;
-      line-height: 44.64px;
-    }
-
     img {
       cursor: pointer;
     }

@@ -1,0 +1,9 @@
+@import '@mixins';
+
+.paragraph {
+  font-family: $font-second;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  line-height: 23.04px;
+  color: $text-color-black;
+}

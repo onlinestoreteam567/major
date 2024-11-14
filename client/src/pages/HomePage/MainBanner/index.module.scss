@@ -9,6 +9,7 @@
 .slide {
   height: 85vh;
   background-size: cover;
+  background-repeat: no-repeat;
 
   section {
     .label {
@@ -18,7 +19,6 @@
       font-weight: $font-weight-base;
       line-height: 33.6px;
       letter-spacing: $letter-spacing-base;
-      height: 62px;
       padding: 10px 20px 10px 20px;
       border-radius: 4px;
       box-sizing: border-box;
@@ -33,8 +33,12 @@
       max-width: 40vw;
     }
 
-    .buttonWrapper {
+    button {
       width: 330px;
+
+      @include deskmim {
+        width: 275px;
+      }
     }
   }
 }
@@ -42,6 +46,19 @@
 .firstSlide {
   @include flex(column, center, start);
   background-image: url('../../../assets/png/banners/mainBanner/MainBannerFirstImage.png');
+  background-attachment: fixed;
+
+  @include deskmim {
+    background-position: 30%;
+  }
+
+  @include tablet {
+    background-position: 55%;
+  }
+
+  @include mobile {
+    background-position: 73%;
+  }
 
   section {
     @include slide();

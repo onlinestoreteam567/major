@@ -2,17 +2,18 @@ import cl from './index.module.scss';
 import Dropdown from '@components/UI/Dropdown/Dropdown';
 import filter from '@svg/catalogPage/filter.svg';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import Heading from '@components/UI/Heading/Heading';
 
 const Top = () => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
   return (
     <section className={cl.catalogSection}>
-      <h2>{getTranslation('catalog', 'common')}</h2>
+      <Heading type="h2">{getTranslation('catalog', 'common')}</Heading>
 
       <section className={cl.sortSection}>
         <section>
           <img src={filter} alt="" />
-          <h3>{getTranslation('sorting')}:</h3>
+          <Heading type="h4">{getTranslation('sorting')}:</Heading>
         </section>
         <Dropdown
           options={['sortByPopularity', 'sortByPriceAsc', 'sortByPriceDesc']}
