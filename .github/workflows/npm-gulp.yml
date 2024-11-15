@@ -1,0 +1,35 @@
+name: React CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        working-directory: ./client  # Переход в папку client для выполнения команды npm install
+        run: npm install
+
+      - name: Build
+        working-directory: ./client  # Переход в папку client для выполнения команды сборки
+        run: npm run build
+
+      # - name: Run tests
+      #   working-directory: ./client  # Переход в папку client для выполнения тестов
+      #   run: npm test
