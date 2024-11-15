@@ -5,6 +5,10 @@
   box-sizing: border-box;
   padding: 0 5vw;
 
+  h2 {
+    text-align: center;
+  }
+
   .figuresWrapper {
     @include flex(column, center, center);
     margin-top: 76px;

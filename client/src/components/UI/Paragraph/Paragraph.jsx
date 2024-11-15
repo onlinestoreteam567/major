@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 
-const Paragraph = ({ type, children }) => {
+const Paragraph = ({ type = 'body1', children }) => {
   return (
     <>
       {/* {<p className={cl.paragraph}>{children}</p>} */}

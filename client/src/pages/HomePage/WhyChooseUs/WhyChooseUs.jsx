@@ -17,14 +17,14 @@ const WhyChooseUs = () => {
             <img src={discountIcon} alt={getTranslation('firstAlt')} />
             <figcaption>
               <Heading type="h3">{getTranslation('firstTitle')}</Heading>
-              <Paragraph>{getTranslation('firstParagraph')}</Paragraph>
+              <Paragraph type="body2">{getTranslation('firstParagraph')}</Paragraph>
             </figcaption>
           </figure>
           <figure>
             <img src={fastDeliveryIcon} alt={getTranslation('secondAlt')} />
             <figcaption>
               <Heading type="h3">{getTranslation('secondTitle')}</Heading>
-              <Paragraph>{getTranslation('secondParagraph')}</Paragraph>
+              <Paragraph type="body2">{getTranslation('secondParagraph')}</Paragraph>
             </figcaption>
           </figure>
         </section>
@@ -33,14 +33,14 @@ const WhyChooseUs = () => {
             <img src={qualityIcon} alt={getTranslation('thirdAlt')} />
             <figcaption>
               <Heading type="h3">{getTranslation('thirdTitle')}</Heading>
-              <Paragraph>{getTranslation('thirdParagraph')}</Paragraph>
+              <Paragraph type="body2">{getTranslation('thirdParagraph')}</Paragraph>
             </figcaption>
           </figure>
           <figure>
             <img src={thumbUpIcon} alt={getTranslation('fourthAlt')} />
             <figcaption>
               <Heading type="h3">{getTranslation('fourthTitle')}</Heading>
-              <Paragraph>{getTranslation('fourthParagraph')}</Paragraph>
+              <Paragraph type="body2">{getTranslation('fourthParagraph')}</Paragraph>
             </figcaption>
           </figure>
         </section>

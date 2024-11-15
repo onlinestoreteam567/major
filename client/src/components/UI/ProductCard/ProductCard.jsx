@@ -51,7 +51,7 @@ const ProductCard = ({ cardData }) => {
 
       {isShowButton ? (
         <Button onMouseEnter={changeButtonText} onMouseLeave={defaultButtonText}>
-          {buttonText}
+          <h3>{buttonText}</h3>
         </Button>
       ) : (
         <div className={cl.space}></div>
