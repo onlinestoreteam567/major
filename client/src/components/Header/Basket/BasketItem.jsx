@@ -1,4 +1,3 @@
-import BasketItemImg from '@assets/png/basket/basketItem.jpg';
 import cl from './index.module.scss';
 import Minus from '@assets/svg/basket/Minus';
 import Plus from '@assets/svg/basket/Plus.jsx';
@@ -28,7 +27,7 @@ const BasketItem = ({ item }) => {
 
   return (
     <li>
-      <img src={BasketItemImg} className={cl.basketItemImg} alt="" />
+      <img src="images/basket/basketItem" className={cl.basketItemImg} alt="" />
       <section>
         <Heading type="h4">{item.name}</Heading>
         <Heading type="h4">

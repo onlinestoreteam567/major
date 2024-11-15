@@ -1,10 +1,8 @@
 import { useState, useRef } from 'react';
 import cl from './index.module.scss';
-import mapUa from '@assets/png/ourPartners/mapUa.png';
-import mapEn from '@assets/png/ourPartners/mapEn.png';
-import point from '@assets/svg/ourPartners/point.svg';
 import { useTranslation } from 'react-i18next';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import point from '@assets/svg/ourPartners/point.svg';
 import useCenterMap from '@hooks/mapWithPoints/useCenterMap';
 
 const MapWithPoints = ({ partnerData, onPointClick }) => {
@@ -52,7 +50,7 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
   useCenterMap(imageContainerRef); // Use the custom hook for centering
 
   const { i18n } = useTranslation();
-  const mapImage = i18n.language === 'en' ? mapEn : mapUa;
+  const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.png' : '/images/ourPartners/mapUa.png';
   const { getTranslation } = useTranslationNamespace('ourPartners');
 
   return (

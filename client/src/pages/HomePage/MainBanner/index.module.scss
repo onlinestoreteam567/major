@@ -45,7 +45,7 @@
 
 .firstSlide {
   @include flex(column, center, start);
-  background-image: url('../../../assets/png/banners/mainBanner/MainBannerFirstImage.png');
+  background-image: url('/images/banners/mainBanner/1.png');
   background-attachment: fixed;
 
   @include deskmim {
@@ -76,7 +76,7 @@
 .secondSlide {
   @include flex(column, center, end);
 
-  background-image: url('../../../assets/png/banners/mainBanner/MainBannerSecondImage.png');
+  background-image: url('/images/banners/mainBanner/2.png');
 
   section {
     @include slide();
@@ -94,7 +94,7 @@
 }
 .thirdSlide {
   @include flex(column, center, start);
-  background-image: url('../../../assets/png/banners/mainBanner/3.png');
+  background-image: url('/images/banners/mainBanner/3.png');
 
   section {
     @include slide();

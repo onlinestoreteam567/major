@@ -1,10 +1,4 @@
 import cl from './index.module.scss';
-import png1 from '@assets/png/catalog/1.png';
-import png2 from '@assets/png/catalog/2.png';
-import png3 from '@assets/png/catalog/3.png';
-import png4 from '@assets/png/catalog/4.png';
-import png5 from '@assets/png/catalog/5.png';
-import png6 from '@assets/png/catalog/6.png';
 import Heading from '@components/UI/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
@@ -16,27 +10,27 @@ const Catalog = () => {
       <Heading type="h2">{getTranslation('catalog')}</Heading>
       <section>
         <figure>
-          <img src={png1} alt="" />
+          <img src="/images/catalog/1.png" alt="" />
           <figcaption>{getTranslation('normalHair')}</figcaption>
         </figure>
         <figure>
-          <img src={png2} alt="" />
+          <img src="/images/catalog/2.png" alt="" />
           <figcaption>{getTranslation('coloredHair')}</figcaption>
         </figure>
         <figure>
-          <img src={png3} alt="" />
+          <img src="/images/catalog/3.png" alt="" />
           <figcaption>{getTranslation('damagedHair')}</figcaption>
         </figure>
         <figure>
-          <img src={png4} alt="" />
+          <img src="/images/catalog/4.png" alt="" />
           <figcaption>{getTranslation('thinHair')}</figcaption>
         </figure>
         <figure>
-          <img src={png5} alt="" />
+          <img src="/images/catalog/5.png" alt="" />
           <figcaption>{getTranslation('deepConditioning')}</figcaption>
         </figure>
         <figure>
-          <img src={png6} alt="" />
+          <img src="/images/catalog/6.png" alt="" />
           <figcaption>{getTranslation('hairGrowth')}</figcaption>
         </figure>
       </section>

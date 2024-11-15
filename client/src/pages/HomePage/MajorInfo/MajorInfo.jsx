@@ -1,5 +1,4 @@
 import cl from './index.module.scss';
-import photo from '@assets/png/majorInfo/1.png';
 import Heading from '@components/UI/Heading/Heading';
 import Paragraph from '@components/UI/Paragraph/Paragraph';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
@@ -13,7 +12,7 @@ const MajorInfo = () => {
       <Heading type="h2">{getTranslation('title')}</Heading>
 
       <figure>
-        <img src={photo} alt={getTranslation('imgAlt')} />
+        <img src="/images/majorInfo/1.png" alt={getTranslation('imgAlt')} />
 
         <figcaption>
           <Paragraph>{getTranslation('text1')}</Paragraph>
