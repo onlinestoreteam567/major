@@ -25,6 +25,7 @@ const HelpButtonsSection = ({
     return () => clearTimeout(showTimer);
   });
   const { getTranslation } = useTranslationNamespace('yellowButton');
+
   return (
     <section className={cl.buttonsSection}>
       <button className={cl.questionButton} onMouseEnter={showNeedHelpButtonFnc}>
