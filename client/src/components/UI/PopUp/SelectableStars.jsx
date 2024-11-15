@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import star from '@assets/svg/banners/star.svg';
-import uncheckstar from '@assets/svg/banners/uncheckstar.svg';
 import cl from './index.module.scss';
 
 const SelectableStars = ({ initialRating = 0, maxStars = 5, onRatingChange }) => {
@@ -36,7 +34,7 @@ const SelectableStars = ({ initialRating = 0, maxStars = 5, onRatingChange }) =>
         return (
           <img
             key={starIndex}
-            src={isFilled ? star : uncheckstar}
+            src={isFilled ? '/svg/banners/star.svg' : '/svg/banners/uncheckstar.svg'}
             alt={isFilled ? 'filled star' : 'unfilled star'}
             className={cl.star}
             onClick={() => handleClick(starIndex)}

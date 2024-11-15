@@ -1,6 +1,4 @@
 import cl from './index.module.scss';
-import calendarIcon from './../../assets/svg/footer/calendar.svg';
-import phoneCallIcon from './../../assets/svg/footer/phoneCall.svg';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const RightSection = () => {
@@ -10,7 +8,7 @@ const RightSection = () => {
     <section>
       <section>
         <p className={cl.titleFooterWithCalendarIcon}>
-          <img src={calendarIcon} alt={getTranslation('calendarAlt')} />
+          <img src="/svg/footer/calendar.svg" alt={getTranslation('calendarAlt')} />
           <span>{getTranslation('workingHours')}</span>
         </p>
         <ul className={cl.ulFooter}>
@@ -21,7 +19,7 @@ const RightSection = () => {
       <section>
         <ul className={cl.ulFooter}>
           <li className={cl.phoneCallLi}>
-            <img className={cl.phoneCallIcon} src={phoneCallIcon} alt={getTranslation('phoneAlt')} />
+            <img className={cl.phoneCallIcon} src="/svg/footer/phoneCall.svg" alt={getTranslation('phoneAlt')} />
             <span>+38 (096) 327 77 34</span>
           </li>
           <li>+38 (050) 123 84 99</li>

@@ -2,7 +2,6 @@ import { useState, useRef } from 'react';
 import cl from './index.module.scss';
 import { useTranslation } from 'react-i18next';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import point from '@assets/svg/ourPartners/point.svg';
 import useCenterMap from '@hooks/mapWithPoints/useCenterMap';
 
 const MapWithPoints = ({ partnerData, onPointClick }) => {
@@ -67,7 +66,7 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
         <img
           key={partner.className}
           className={`${cl.point} ${cl[partner.className]}`}
-          src={point}
+          src="/svg/ourPartners/point.svg"
           alt={partner.title}
           onClick={() => onPointClick(partner.className)}
           onDragStart={(e) => e.preventDefault()}

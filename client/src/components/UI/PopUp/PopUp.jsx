@@ -1,6 +1,5 @@
 import cl from './index.module.scss';
 import PropTypes from 'prop-types';
-import crossIcon from '@assets/svg/crossIcon.svg';
 import { useState } from 'react';
 import PhoneNumberInput from '@UI/PhoneNumberInput/PhoneNumberInput';
 import Overlay from '@UI/Overlay/Overlay';
@@ -55,7 +54,7 @@ const MessagePopUp = ({ setShowMessagePopUp, type }) => {
       <Overlay handleClose={handleCloseMessagePopUp} />
 
       <div className={cl.messagePopUp}>
-        <img src={crossIcon} alt={getTranslation('crossAlt')} onClick={handleCloseMessagePopUp} />
+        <img src="svg/crossIcon.svg" alt={getTranslation('crossAlt')} onClick={handleCloseMessagePopUp} />
         <Subtitle>{selectedData.subtitle}</Subtitle>
         {selectedData.heading && <Heading type="h3">{selectedData.heading}</Heading>}
 

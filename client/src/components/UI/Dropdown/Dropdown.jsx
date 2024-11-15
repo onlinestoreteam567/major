@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import cl from './index.module.scss';
-import arrow from '@svg/catalogPage/arrow.svg';
 
 const DropDown = ({ options, onSelect }) => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
@@ -22,7 +21,7 @@ const DropDown = ({ options, onSelect }) => {
     <div className={`${cl.dropdown} ${isOpen ? cl.open : ''}`}>
       <button onClick={toggleDropDown}>
         {selectedOption ? getTranslation(selectedOption) : getTranslation('selectAnOption')}
-        <img src={arrow} alt="" />
+        <img src={'/svg/catalogPage/arrow.svg'} alt="" />
       </button>
       {isOpen && (
         <ul>

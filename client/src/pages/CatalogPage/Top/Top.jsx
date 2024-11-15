@@ -1,6 +1,5 @@
 import cl from './index.module.scss';
 import Dropdown from '@components/UI/Dropdown/Dropdown';
-import filter from '@svg/catalogPage/filter.svg';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@components/UI/Heading/Heading';
 
@@ -12,7 +11,7 @@ const Top = () => {
 
       <section className={cl.sortSection}>
         <section>
-          <img src={filter} alt="" />
+          <img src={'svg/catalogPage/filter.svg'} alt="" />
           <Heading type="h4">{getTranslation('sorting')}:</Heading>
         </section>
         <Dropdown
