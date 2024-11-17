@@ -9,7 +9,7 @@ import LabelSale from './LabelSale';
 import { useState } from 'react';
 
 export default function ImgDesk({ card }) {
-  const [bigImage, setBigImage] = useState('/images/card/thin_oil_0502.webp');
+  const [bigImage, setBigImage] = useState(card.upload_images[0]);
 
   const handleImageClick = (image) => {
     setBigImage(image);
@@ -25,7 +25,7 @@ export default function ImgDesk({ card }) {
       </div>
       <div className={cl.wrapSmallImg}>
         <img
-          src="/images/card/thin_oil_0502.webp"
+          src={card.upload_images[0]}
           alt={card.name}
           onClick={() => handleImageClick('/images/card/thin_oil_0502.webp')}
           className={bigImage === '/images/card/thin_oil_0502.webp' ? cl.selected : ''}

@@ -13,11 +13,10 @@
   "volume_ml": 50,
   "images": [],
   "upload_images": [
-    "../../../assets/png/thin/thin_oil_0502.webp",
-    "../../../assets/png/thin/thin_oil_1091.webp",
-    "../../../assets/png/thin/thin_oil_1161.webp",
-    "../../../assets/png/thin/thin_oil_3346.webp",
-    "../../../assets/png/thin/thin_all_0872.webp"
+    "/images/card/thin/thin_oil_0502.webp",
+    "/images/card/thin/thin_oil_1091.webp",
+    "/images/card/thin/thin_oil_3346.webp",
+    "/images/card/thin/thin_all_0872.webp"
   ],
   "purpose_category": {
     "id": 0,

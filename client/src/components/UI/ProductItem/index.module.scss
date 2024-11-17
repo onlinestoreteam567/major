@@ -105,6 +105,8 @@ $deskmax: 1440px;
   img {
     width: 356px;
     height: 356px;
+    background-color: rgb(248, 248, 249);
+    background-image: url('/public/images/default_img.svg');
     object-fit: cover;
   }
   .wrapDots {
