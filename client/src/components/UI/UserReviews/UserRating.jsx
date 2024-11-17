@@ -1,6 +1,4 @@
 import cl from './index.module.scss';
-// import StarAll from '@components/Icons/StarAll';
-// import StarEmpty from '@components/Icons/StarEmpty';
 import StarFalse from '@components/Icons/StarFalse';
 import StarTrue from '@components/Icons/StarTrue';
 

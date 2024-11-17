@@ -1,0 +1,26 @@
+@import '@mixins';
+
+.wrapFeedback {
+  @include flex(row, flex-end, center);
+
+  p {
+    @include flex(row, senter, center);
+    color: #a2a2a2;
+    font-family: $font-second;
+    font-size: $font-size-small;
+    font-weight: $font-weight-base;
+    line-height: 1.44;
+    cursor: pointer;
+    &:hover {
+      color: $text-color-black;
+      transition:
+        color 0.5s ease,
+        box-shadow 0.5s ease;
+    }
+  }
+  @include tablet {
+    p {
+      font-size: $font-size-base;
+    }
+  }
+}

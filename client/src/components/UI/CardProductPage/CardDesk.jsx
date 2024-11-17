@@ -1,16 +1,15 @@
 import Button from '../Button/Button';
-import Article from './Article';
-import card from './card.json';
-import Counter from './Counter';
-import ImgDesk from './ImgDesk';
+import Article from '../CardProduct/Article/Article';
+import Counter from '../CardProduct/Counter/Counter';
+import ImgDesk from '../CardProduct/ImgCard/ImgDesk';
+import Price from '../CardProduct/Price/Price';
+import ProductRating from '../CardProduct/Rating/ProductRating';
+import LeaveFeedback from '../CardProduct/Review/LeaveFeedback';
+import Title from '../CardProduct/Title/Title';
+import Volume from '../CardProduct/Volume/Volume';
 import cl from './index.module.scss';
-import LeaveFeedback from './LeaveFeedback';
-import Price from './Price';
-import ProductRating from './ProductRating';
-import Title from './Title';
-import Volume from './Volume';
 
-export default function CardDesk() {
+export default function CardDesk({ card }) {
   const getConsole = () => {
     console.log('Hello word');
   };

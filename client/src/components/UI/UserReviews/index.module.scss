@@ -1,10 +1,5 @@
 @import '@mixins';
 
-$mobile: 380px;
-$tablet: 768px;
-$deskmin: 1024px;
-$deskmax: 1440px;
-
 .wrapListReviewsCard {
   @include flexGap(32px, column);
   width: 356px;
@@ -15,10 +10,16 @@ $deskmax: 1440px;
     justify-content: flex-start;
   }
   @include tablet {
-    width: 696px;
+    width: 720px;
     ul {
       gap: 16px;
     }
+  }
+  @include deskmim {
+    width: 960px;
+  }
+  @include deskmax {
+    width: 1296px;
   }
 }
 .wrapReviewsCard {
@@ -28,35 +29,21 @@ $deskmax: 1440px;
   border-top: 2px solid rgb(162, 162, 162);
   padding: 24px 0px;
   @include tablet {
-    width: 696px;
+    width: 720px;
     height: 194px;
     padding: 16px 0;
+  }
+  @include deskmim {
+    width: 960px;
+    height: 168px;
+  }
+  @include deskmax {
+    width: 1296px;
   }
 }
 
 .wrapTitleRating {
-  @include flex(row, center, center);
-  // h3 {
-  //   color: rgb(0, 0, 0);
-  //   font-family: $font-main;
-  //   font-size: $font-size-medium;
-  //   font-weight: $font-weight-medium;
-  //   line-height: 1.22;
-  // }
-  // @include tablet {
-  //   h3 {
-  //     font-size: $font-size-base;
-  //     line-height: 1.36;
-  //     letter-spacing: 1.28px;
-  //   }
-  // }
-  // @include deskmax {
-  //   h3 {
-  //     font-size: 20px;
-  //     line-height: 1.22;
-  //     letter-spacing: 0;
-  //   }
-  // }
+  @include flex(row, flex-start, center);
 }
 .wrapRating {
   @include flex(row, flex-start, center);
@@ -76,16 +63,6 @@ $deskmax: 1440px;
 .wrapUser {
   @include flex(row, space-between, center);
   width: 100%;
-  h3 {
-    @include flex(row, flex-start, center);
-    color: $header-link-hover-color;
-    font-family: $font-main;
-    font-size: $font-size-base;
-    font-weight: $font-weight-medium;
-    line-height: 1.22;
-    padding: 0;
-    margin: 0;
-  }
   p {
     @include flex(row, flex-end, center);
     color: rgb(162, 162, 162);
@@ -94,32 +71,11 @@ $deskmax: 1440px;
     font-weight: $font-weight-base;
     line-height: 1.44;
   }
-  @include tablet {
-    h3 {
-      font-weight: $font-weight-medium;
-      line-height: 1.36;
-      letter-spacing: 1.28px;
-    }
-    p {
-      line-height: 1.2;
-    }
-  }
-  @include deskmax {
-    h3 {
-      font-size: $font-size-medium;
-      line-height: 1.28;
-      letter-spacing: 0;
-    }
-    p {
-      font-size: $font-size-base;
-      line-height: 1.28;
-    }
-  }
 }
 .wrapMessage {
   @include flex(row, flex-start, center);
   p {
-    // @include flex(row, flex-start, flex-start);
+    @include flex(row, flex-start, flex-start);
     width: 100%;
     color: rgb(34, 33, 31);
     font-family: $font-second;
@@ -129,7 +85,7 @@ $deskmax: 1440px;
   }
   @include tablet {
     p {
-      height: 112px;
+      height: 116px;
       overflow-y: auto;
       &::-webkit-scrollbar {
         width: 4px;
@@ -143,6 +99,11 @@ $deskmax: 1440px;
       &::-webkit-scrollbar-track {
         background: #f1f1f1;
       }
+    }
+  }
+  @include deskmim {
+    p {
+      height: 80px;
     }
   }
 }
@@ -161,9 +122,11 @@ $deskmax: 1440px;
         @include flex(row, center, center);
         rect {
           fill: rgb(34, 33, 31);
+          transition: fill 0.5s ease;
         }
         path {
           stroke: #ffffff;
+          transition: stroke 0.5s ease;
         }
       }
     }

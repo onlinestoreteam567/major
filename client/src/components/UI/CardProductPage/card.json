@@ -11,12 +11,11 @@
   "discount": 10,
   "description": "Збагачений  маслом крамбе та вітаміном Е, які живлять та ущільнюють структуру тонкого волосся. Легка текстура засобу забезпечує миттєве відчуття комфорту, надає м’якість та шовковистість без обтяження волосся.",
   "volume_ml": 50,
-  "images": [],
   "upload_images": [
-    "/images/card/thin/thin_oil_0502.webp",
-    "/images/card/thin/thin_oil_1091.webp",
-    "/images/card/thin/thin_oil_3346.webp",
-    "/images/card/thin/thin_all_0872.webp"
+    "/images/card/thin_oil_0502.webp",
+    "/images/card/thin_oil_1091.webp",
+    "/images/card/thin_oil_3346.webp",
+    "/images/card/thin_all_0872.webp"
   ],
   "purpose_category": {
     "id": 0,
