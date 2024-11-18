@@ -1,0 +1,15 @@
+@import '@mixins';
+
+.searchWrapper {
+  @include absolute();
+  padding: 16px 4% 16px 5%;
+  background-color: #f8f8f9;
+  width: 100%;
+  height: 480px;
+  box-sizing: border-box;
+
+  .topSection {
+    @include flex(row, space-between, center);
+    color: black;
+  }
+}

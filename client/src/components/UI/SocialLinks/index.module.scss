@@ -1,0 +1,10 @@
+@import '@mixins';
+
+.socialLinks {
+  @include flex(column);
+  // TODO styles for h...
+  ul {
+    @include flexGap(24px);
+    margin-top: 16px;
+  }
+}

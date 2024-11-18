@@ -1,0 +1,16 @@
+@import '@mixins';
+
+.rightSection {
+  width: auto;
+  gap: 8px;
+
+  @include deskmim {
+    @include flex(row, end, center);
+    gap: 24px;
+    position: relative;
+  }
+
+  img {
+    cursor: pointer;
+  }
+}

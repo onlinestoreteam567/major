@@ -1,12 +1,21 @@
 @import '@mixins';
 
 header {
-  height: 96px;
   width: 100%;
   position: fixed;
   z-index: 10;
 
+  height: 75px;
+
+  @include deskmax {
+    height: 96px;
+  }
+
   .mainWrapper {
+    @include mobile {
+      @include flex(row, space-between, null);
+    }
+
     display: grid;
     grid-template-columns: 0.2fr auto 0.2fr;
     padding: 21px 4% 0 5%;
@@ -14,44 +23,11 @@ header {
     i {
       cursor: pointer;
     }
-
-    nav {
-      @include flex();
-
-      ul {
-        @include flexGap(40px);
-
-        li {
-          cursor: pointer;
-
-          font-family: $font-main;
-          font-size: $font-size-medium;
-          font-weight: $font-weight-medium;
-          line-height: $line-height-base;
-          letter-spacing: $letter-spacing-base;
-          color: $header-link-color;
-
-          transition: 0.6s;
-
-          &:hover {
-            color: $header-link-hover-color;
-            text-shadow: 0.1px 0.1px 0.7px black;
-          }
-        }
-      }
-    }
-
-    .rightSection {
-      width: 100%;
-      @include flex(row, end, center);
-      gap: 24px;
-      position: relative;
-
-      img {
-        cursor: pointer;
-      }
-    }
   }
+}
+
+.inputtextarea {
+  display: none;
 }
 
 .headerScrolled {
