@@ -24,12 +24,12 @@
 // Buttons variants
 .primary {
   background-color: $second-background-color-black;
-  color: white;
+  color: white !important;
   border: 2px solid $second-background-color-black;
 
   &:hover {
     background-color: transparent;
-    color: $text-color-black;
+    color: $text-color-black !important;
   }
 }
 

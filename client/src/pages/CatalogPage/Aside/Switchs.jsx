@@ -1,15 +1,11 @@
 import cl from './index.module.scss';
-import filter from '@svg/catalogPage/new.svg';
-import fire from '@svg/catalogPage/fire.svg';
-import discount from '@svg/catalogPage/discount.svg';
-import dollar from '@svg/catalogPage/dollar.svg';
 import SwitchItem from './SwitchItem';
 
 const switchItems = [
-  { icon: filter, label: 'newItems' },
-  { icon: fire, label: 'bestSellers' },
-  { icon: discount, label: 'discounts' },
-  { icon: dollar, label: 'togetherCheaper' },
+  { icon: '/svg/catalogPage/filter.svg', label: 'newItems' },
+  { icon: '/svg/catalogPage/fire.svg', label: 'bestSellers' },
+  { icon: '/svg/catalogPage/discount.svg', label: 'discounts' },
+  { icon: '/svg/catalogPage/dollar.svg', label: 'togetherCheaper' },
 ];
 
 const Switchs = () => {

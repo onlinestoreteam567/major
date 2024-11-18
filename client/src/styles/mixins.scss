@@ -21,25 +21,25 @@
 
 // responsives
 @mixin deskmax {
-  @media (max-width: 1440px) {
+  @media only screen and (min-width: 1440px) {
     @content;
   }
 }
 
 @mixin deskmim {
-  @media (max-width: 1024px) {
+  @media only screen and (min-width: 1024px) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (max-width: 768px) {
+  @media only screen and (min-width: 768px) {
     @content;
   }
 }
 
 @mixin mobile {
-  @media (max-width: 380px) {
+  @media only screen and (min-width: 380px) {
     @content;
   }
 }

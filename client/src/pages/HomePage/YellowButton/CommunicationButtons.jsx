@@ -1,6 +1,4 @@
 import cl from './index.module.scss';
-import telegramIcon from '@assets/svg/yellowCircle/telegram.svg';
-import phoneIcon from '@assets/svg/yellowCircle/phone.svg';
 
 const CommunicationButtons = ({ handleCloseAnimation, handleShowMesssagePopUp, handleCloseAnotherIcons }) => {
   return (
@@ -8,8 +6,13 @@ const CommunicationButtons = ({ handleCloseAnimation, handleShowMesssagePopUp, h
       className={`${cl.communicationButtons} ${handleCloseAnimation ? cl.closeAnimation : ''}`}
       onMouseLeave={handleCloseAnotherIcons}
     >
-      <img src={telegramIcon} alt="Telegram icon" className={cl.telegramIcon} />
-      <img src={phoneIcon} alt="Open message pop-up" onClick={handleShowMesssagePopUp} className={cl.phoneIcon} />
+      <img src="/svg/yellowCircle/telegram.svg" alt="Telegram icon" className={cl.telegramIcon} />
+      <img
+        src="/svg/yellowCircle/phone.svg"
+        alt="Open message pop-up"
+        onClick={handleShowMesssagePopUp}
+        className={cl.phoneIcon}
+      />
     </div>
   );
 };

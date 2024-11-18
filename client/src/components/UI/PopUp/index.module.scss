@@ -107,4 +107,28 @@
       }
     }
   }
+  // ********
+  .wrapRating {
+    @include flex(row, space-between, center);
+    ul {
+      @include flex(row, center, center);
+      width: 136px;
+      height: 24px;
+      gap: 4px;
+      li {
+        @include flex(row, center, center);
+        position: relative;
+        width: 24px;
+        height: 24px;
+        input {
+          position: absolute;
+          appearance: none;
+          border: none;
+          padding: 0;
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
 }

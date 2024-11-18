@@ -1,0 +1,7 @@
+@import '@mixins';
+
+.wrapTitle {
+  @include flexGap(24px, column);
+  width: 100%;
+  height: auto;
+}

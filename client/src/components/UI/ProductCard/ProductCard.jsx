@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 import cl from './index.module.scss';
-import hryvniaSymbol from '@assets/svg/hryvnia.svg';
-import oldPrice from '@assets/svg/oldPrice.svg';
 import Stars from '@UI/Stars/Stars';
 import Label from '@UI/Labels/Label';
 import Benefit from '@UI/Labels/Benefit';
@@ -39,9 +37,9 @@ const ProductCard = ({ cardData }) => {
       </section>
       <section className={cl.cardFooter}>
         <Subtitle>
-          <span>{cardData.price}</span> <img className={cl.hryvniaSymbol} src={hryvniaSymbol} alt="hryvnia symbol" />
+          <span>{cardData.price}</span> <img className={cl.hryvniaSymbol} src="/svg/hryvnia.svg" alt="hryvnia symbol" />
           <span className={cl.oldPrice}>
-            555 <img src={oldPrice} alt="" />
+            555 <img src="/svg/oldPrice.svg" alt="" />
           </span>
         </Subtitle>
         <p>
@@ -51,7 +49,7 @@ const ProductCard = ({ cardData }) => {
 
       {isShowButton ? (
         <Button onMouseEnter={changeButtonText} onMouseLeave={defaultButtonText}>
-          {buttonText}
+          <h3>{buttonText}</h3>
         </Button>
       ) : (
         <div className={cl.space}></div>

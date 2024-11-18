@@ -1,0 +1,65 @@
+@import '@mixins';
+
+.wrapPrice {
+  @include flex(row, flex-start, center);
+  width: auto;
+  height: 34px;
+  gap: 16px;
+  .price {
+    @include flex(row, center, center);
+    p {
+      @include flex(row, center, center);
+      width: 20px;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .oldPrice {
+    @include flex(row, flex-start, center);
+    height: 34px;
+    h4 {
+      color: rgb(103, 103, 103);
+      text-decoration-line: line-through;
+      font-family: $font-main;
+      font-size: $font-size-medium;
+      font-weight: $font-weight-medium;
+      line-height: 1.28;
+      padding: 0;
+      margin: 0;
+    }
+    p {
+      @include flex(row, center, center);
+      width: 18px;
+    }
+  }
+  @include tablet {
+    .price {
+      p {
+        width: 24px;
+      }
+    }
+    .oldPrice {
+      h4 {
+        font-size: 20px;
+      }
+      p {
+        width: 22px;
+      }
+    }
+  }
+  @include deskmim {
+    .price {
+      p {
+        width: 26px;
+      }
+    }
+    .oldPrice {
+      h4 {
+        font-size: 22px;
+      }
+      p {
+        width: 24px;
+      }
+    }
+  }
+}

@@ -3,6 +3,12 @@
 .majorInfoWrapper {
   margin-top: 100px;
   color: black;
+  padding-right: 4vw;
+
+  h2 {
+    text-align: center;
+    text-wrap: balance;
+  }
 
   figure {
     @include flex();
@@ -17,7 +23,7 @@
     figcaption {
       @include flexGap(24px, column);
       box-sizing: border-box;
-      padding: 0 4% 0 9%;
+      padding-left: 9%;
 
       p {
         font-family: $font-second;
@@ -29,7 +35,6 @@
       }
 
       div {
-        width: fit-content;
         @include flex(row, end);
       }
     }

@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
-import photo from '@assets/png/majorInfo/1.png';
 import Heading from '@components/UI/Heading/Heading';
+import Paragraph from '@components/UI/Paragraph/Paragraph';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
 
@@ -12,12 +12,12 @@ const MajorInfo = () => {
       <Heading type="h2">{getTranslation('title')}</Heading>
 
       <figure>
-        <img src={photo} alt={getTranslation('imgAlt')} />
+        <img src="/images/majorInfo/1.png" alt={getTranslation('imgAlt')} />
 
         <figcaption>
-          <p>{getTranslation('text1')}</p>
-          <p>{getTranslation('text2')}</p>
-          <p>{getTranslation('text3')}</p>
+          <Paragraph>{getTranslation('text1')}</Paragraph>
+          <Paragraph>{getTranslation('text2')}</Paragraph>
+          <Paragraph>{getTranslation('text3')}</Paragraph>
 
           <div>
             <Button variant="link" purpose="fitContent">

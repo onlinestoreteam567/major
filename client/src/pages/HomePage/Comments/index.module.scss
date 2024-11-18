@@ -3,4 +3,8 @@
 .comments {
   @include flexGap(10vh, column);
   margin-top: 18vh;
+
+  h2 {
+    text-align: center;
+  }
 }

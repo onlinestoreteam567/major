@@ -9,7 +9,7 @@ const CommentCard = ({ cardData }) => {
     <div className={cl.commentCard}>
       <Heading type="h3">{cardData.productTitle}</Heading>
       <Stars starsAmount={cardData.rating} />
-      <Paragraph>{cardData.userComment}</Paragraph>
+      <Paragraph type="body2">{cardData.userComment}</Paragraph>
       <section className={cl.commentCardFooter}>
         <Heading type="h4">
           {cardData.userName}

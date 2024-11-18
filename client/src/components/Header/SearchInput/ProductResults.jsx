@@ -1,4 +1,3 @@
-import hryvniaSymbol from '@assets/svg/hryvnia.svg';
 import cl from './index.module.scss';
 
 const ProductResults = ({ products }) => (
@@ -15,7 +14,7 @@ const ProductResults = ({ products }) => (
               <p className={cl.productName}>{product.name}</p>
             </a>
             <p className={cl.productPrice}>
-              {product.price} <img src={hryvniaSymbol} alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
+              {product.price} <img src="/svg/hryvnia.svg" alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
             </p>
           </section>
         </li>
