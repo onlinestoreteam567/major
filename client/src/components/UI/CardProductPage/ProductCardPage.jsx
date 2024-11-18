@@ -10,7 +10,6 @@ import Heading from '../Heading/Heading';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
 
 export default function ProductCardPage() {
-  console.log(card);
   return (
     <section className={cl.cardPage}>
       <div className={cl.topCase}>
