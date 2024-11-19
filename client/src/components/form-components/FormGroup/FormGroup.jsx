@@ -1,19 +1,15 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 
-export function Form({ defaultValues, children, onSubmit, schema }) {
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm({ defaultValues, resolver: yupResolver(schema) });
-
+export function FormGroup({ name, children, register, errors, className = '', ...rest }) {
+  if (!name) {
+    console.error('Error: Name not provided for FormGroup.');
+    return <div style={{ color: 'red' }}>Name is required for this FormGroup</div>;
+  }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <div className={`form-group ${className}`} {...rest}>
       {Array.isArray(children)
         ? children.map((child, index) => {
-            const uniqueKey = `${name || 'group'}-${index}`;
+            const uniqueKey = `${name || 'Form-group__number'}-${index}`;
             return child.props.name
               ? React.createElement(child.type, {
                   ...{
@@ -26,6 +22,6 @@ export function Form({ defaultValues, children, onSubmit, schema }) {
               : child;
           })
         : children}
-    </form>
+    </div>
   );
 }
