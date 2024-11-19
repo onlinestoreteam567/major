@@ -39,7 +39,7 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
 
   return (
     <>
-      {!isDesktop && <Overlay handleClose={handleCloseInputAnimation} />}
+      {isDesktop && <Overlay handleClose={handleCloseInputAnimation} />}
 
       <search className={isHiddenInputAnimation ? cl.hiddenInput : ''}>
         <div className={inputValue && cl.activeSearch}>

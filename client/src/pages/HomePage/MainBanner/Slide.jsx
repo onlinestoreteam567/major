@@ -5,10 +5,12 @@ import Heading from '@components/UI/Heading/Heading';
 const Slide = ({ labelText, title, slideClassName }) => {
   return (
     <div className={`${cl.slide} ${cl[slideClassName]}`}>
-      <section>
+      <section className={cl.mainSection}>
         <div className={cl.label}>{labelText}</div>
-        <Heading type="h1">{title}</Heading>
-        <Button variant="banner">Додати до кошику</Button>
+        <div className={cl.bottomWrapper}>
+          <Heading type="h1">{title}</Heading>
+          <Button variant="banner">Додати до кошику</Button>
+        </div>
       </section>
     </div>
   );

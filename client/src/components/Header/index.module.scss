@@ -4,7 +4,6 @@ header {
   width: 100%;
   position: fixed;
   z-index: 10;
-
   height: 75px;
 
   @include deskmax {
@@ -12,13 +11,13 @@ header {
   }
 
   .mainWrapper {
-    @include mobile {
-      @include flex(row, space-between, null);
-    }
-
-    display: grid;
-    grid-template-columns: 0.2fr auto 0.2fr;
+    @include flex(row, space-between, null);
     padding: 21px 4% 0 5%;
+
+    @include deskmim {
+      display: grid;
+      grid-template-columns: 0.2fr auto 0.2fr;
+    }
 
     i {
       cursor: pointer;

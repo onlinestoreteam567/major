@@ -58,12 +58,30 @@
 }
 
 .banner {
-  height: 77px;
   width: 331px;
+  height: 54px;
   background-color: $second-background-color-black;
   color: $text-color-light;
-  font-size: 24px;
-  font-weight: $font-weight-bold;
-  letter-spacing: $letter-spacing-base;
+  font-size: 18px;
+  font-weight: $font-weight-medium;
   border: none;
+
+  @include deskmax {
+    height: 77px;
+    font-size: 24px;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-base;
+  }
+}
+
+.navDrawer {
+  width: 100%;
+  height: 46px;
+  font-size: $font-size-medium;
+  border: none;
+
+  &:hover {
+    color: $text-color-light;
+    background-color: #676767;
+  }
 }

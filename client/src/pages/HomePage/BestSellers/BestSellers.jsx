@@ -6,7 +6,7 @@ import Heading from '@components/UI/Heading/Heading';
 const BestSellers = () => {
   return (
     <section className={`slider-container ${cl.bestSellersWrapper}`}>
-      <Heading type={'h2'}>Хіти продажу</Heading>
+      <Heading type="h2">Хіти продажу</Heading>
 
       <Banner slidesData={slidesData} />
     </section>

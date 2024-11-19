@@ -1,24 +1,20 @@
 @import '@mixins';
 
 search {
+  box-sizing: border-box;
   border-radius: 4px;
-  padding-left: 6.5%;
-  z-index: 100;
   display: flex;
   justify-content: center;
-  animation: showSearchInput 0.3s ease-in;
-  position: absolute;
-  top: 26%;
-  left: 14%;
-  width: 990px;
+  width: 100%;
 
   @include deskmim {
     @include flex();
-    justify-self: center;
-    width: 300px;
-    position: relative;
-    top: 0;
-    left: 0;
+    position: absolute;
+    top: 27px;
+    left: 17%;
+    z-index: 100;
+    animation: showSearchInput 0.3s ease-in;
+    width: 990px;
   }
 
   div {
@@ -29,10 +25,6 @@ search {
     justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
-
-    @include deskmim {
-      position: absolute;
-    }
 
     .searchInput {
       width: 100%;
@@ -78,6 +70,7 @@ search {
       background-color: white;
       border: 1px solid #676767;
       border-radius: 4px;
+      position: relative;
     }
 
     .crossIcon {
@@ -86,7 +79,7 @@ search {
       cursor: pointer;
       position: absolute;
       right: 2.5%;
-      top: 17px;
+      top: 15px;
     }
   }
 
@@ -164,7 +157,7 @@ search {
     }
   }
   .searchNotFound {
-    @include flex();
+    @include flex(column);
     gap: 30px;
     height: auto;
     padding: 0 12px 25px 12px;

@@ -43,10 +43,3 @@
     @content;
   }
 }
-
-// example
-// @import '~/mixins.scss'
-// .modal {
-//     @include flex(column, center, center);
-//     height: 100vh;
-// }

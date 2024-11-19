@@ -6,7 +6,7 @@ import Heading from '@components/UI/Heading/Heading';
 const CheaperTogether = () => {
   return (
     <section className={`slider-container ${cl.cheaperTogetherWrapper}`}>
-      <Heading type={'h2'}>Разом дешевше</Heading>
+      <Heading type="h2">Разом дешевше</Heading>
 
       <Banner slidesData={slidesData} />
     </section>

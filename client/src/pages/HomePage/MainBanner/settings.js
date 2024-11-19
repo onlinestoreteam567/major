@@ -1,5 +1,5 @@
 const settings = {
-  autoplay: true,
+  // autoplay: true,
   autoplaySpeed: 10000,
   pauseOnDotsHover: true,
   pauseOnFocus: true,
@@ -12,6 +12,7 @@ const settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   lazyLoad: true,
+  swipe: true,
 };
 
 export default settings;

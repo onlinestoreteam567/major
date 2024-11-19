@@ -1,9 +1,14 @@
 @import '@mixins';
 
 @mixin slide() {
-  @include flex(column, center, start);
-  gap: 4vh;
-  padding-left: 5vw;
+  @include flex(column, space-between, start);
+  padding: 15vh 5vw 5vh 5vw;
+
+  @include deskmax {
+    @include flex(column, center, start);
+    gap: 4vh;
+    padding-left: 5vw;
+  }
 }
 
 .slide {
@@ -12,6 +17,8 @@
   background-repeat: no-repeat;
 
   section {
+    height: 100%;
+
     .label {
       font-family: $font-main;
       width: fit-content;
@@ -24,20 +31,14 @@
       box-sizing: border-box;
     }
 
-    h1 {
-      font-family: $font-main;
-      font-size: $font-size-xlarge;
-      font-weight: $font-weight-base;
-      line-height: 60.48px;
-      color: $background-color-black;
-      max-width: 40vw;
-    }
+    .bottomWrapper {
+      @include flexGap(16px, column);
+      button {
+        width: 330px;
 
-    button {
-      width: 330px;
-
-      @include deskmim {
-        width: 275px;
+        @include deskmim {
+          width: 275px;
+        }
       }
     }
   }
@@ -79,8 +80,8 @@
   background-image: url('/images/banners/mainBanner/2.png');
 
   section {
-    @include slide();
     padding-right: 5vw;
+    @include slide();
 
     .label {
       color: #0b7729;

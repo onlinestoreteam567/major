@@ -2,14 +2,39 @@
 
 .searchWrapper {
   @include absolute();
+  @include flexGap(20px, column);
+  z-index: 12;
   padding: 16px 4% 16px 5%;
   background-color: #f8f8f9;
   width: 100%;
   height: 480px;
   box-sizing: border-box;
+  animation: showSearch 0.3s ease-in;
+
+  &.closeAnimation {
+    animation: closeSearch 0.3s ease-in;
+  }
 
   .topSection {
     @include flex(row, space-between, center);
     color: black;
+  }
+}
+
+@keyframes showSearch {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes closeSearch {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
   }
 }

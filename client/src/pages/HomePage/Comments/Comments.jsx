@@ -7,7 +7,7 @@ import Heading from '@components/UI/Heading/Heading';
 const Comments = () => {
   return (
     <section className={`slider-container ${cl.comments}`}>
-      <Heading type={'h2'}>Відгуки про наші засоби</Heading>
+      <Heading type="h2">Відгуки про наші засоби</Heading>
 
       <Banner slidesData={commentsData} type="comments" />
     </section>

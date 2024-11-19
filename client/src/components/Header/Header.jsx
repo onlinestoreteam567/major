@@ -5,12 +5,12 @@ import Navigation from '@components/Header/Navigation/Navigation';
 import RightSection from './RightSection/RightSection';
 import useScreenSizes from '@hooks/useScreenSizes';
 import { useState } from 'react';
-// import { useEffect, useState } from 'react';
 import { usePageState } from '@hooks/header/usePageState';
 import { useScrollState } from '@hooks/header/useScrollState';
 import BurgerIcon from '@assets/svg/header/BurgerIcon';
 import NavDrawer from './NavDrawer/NavDrawer';
-import Search from './Search/Search';
+import MobileSearchWrapper from './Search/MobileSearchWrapper';
+import SearchInput from './Search/SearchInput/SearchInput';
 
 const Header = () => {
   const { deskmin } = useScreenSizes();
@@ -35,15 +35,18 @@ const Header = () => {
         )}
 
         <LogoIcon fillColor={isScrolled ? 'white' : 'black'} />
-        {/* {isShowInput && (
+
+        {deskmin && <Navigation />}
+
+        {deskmin && isShowInput && (
           <SearchInput
             setIsShowInput={setIsShowInput}
             inputValue={inputValue}
             setInputValue={setInputValue}
-            isDesktop={false}
+            isDesktop={deskmin}
           />
-        )} */}
-        {deskmin && <Navigation />}
+        )}
+
         <RightSection
           isShowInput={isShowInput}
           handleShowInput={handleShowInput}
@@ -52,14 +55,15 @@ const Header = () => {
         />
       </div>
 
-      {isShowInput && (
-        <Search
+      {!deskmin && isShowInput && (
+        <MobileSearchWrapper
           setIsShowInput={setIsShowInput}
           inputValue={inputValue}
           setInputValue={setInputValue}
-          isDesktop={false}
+          isDesktop={deskmin}
         />
       )}
+
       {isShowNavDrawer && <NavDrawer setIsShowNavDrawer={setIsShowNavDrawer} />}
       {isShowBasket && <Basket setIsShowBasket={setIsShowBasket} />}
     </header>
