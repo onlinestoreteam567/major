@@ -3,7 +3,9 @@
 .basketWrapper {
   @include flex(column, null, center);
   height: 100vh;
-  width: 609px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 32px 15px 32px;
   position: absolute;
   right: 0;
   top: 0;
@@ -13,14 +15,19 @@
   background-repeat: no-repeat;
   background-position: center;
   color: black;
-  padding: 40px 32px 20px 32px;
-  box-sizing: border-box;
   animation: showBacket 0.5s;
   z-index: 100;
+
+  @include deskmim {
+    padding: 40px 32px 20px 32px;
+    width: 609px;
+  }
 
   .basketHeaderSection {
     @include flex(row, space-between, center);
     width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #a2a2a2;
 
     img {
       cursor: pointer;
@@ -28,13 +35,16 @@
   }
 
   .emptyBasketText {
-    font-family: $font-second;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 22.32px;
     margin-top: 53vh;
 
-    color: #8f8f8f;
+    p {
+      color: #8f8f8f;
+    }
+  }
+
+  .emptyBasketButtonWrapper {
+    width: 100%;
+    margin-top: auto;
   }
 
   ul {
@@ -230,25 +240,6 @@
       &:hover {
         background-color: #7e57c2;
       }
-    }
-  }
-
-  .continueShoppingButton {
-    height: 60px;
-    width: 367px;
-    border-radius: 2px;
-    border: 2px solid #000000;
-    font-family: Inter;
-    font-size: $font-size-base;
-    font-weight: $font-weight-bold;
-    line-height: 20.48px;
-    margin-top: auto;
-    cursor: pointer;
-    transition: 0.3s;
-
-    &:hover {
-      background-color: $background-color-black;
-      color: $text-color-light;
     }
   }
 }

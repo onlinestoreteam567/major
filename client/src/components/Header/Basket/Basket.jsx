@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import BasketItem from './BasketItem';
 import { useSelector } from 'react-redux';
 import Heading from '@components/UI/Heading/Heading';
+import Paragraph from '@components/UI/Paragraph/Paragraph';
+import Button from '@components/UI/Button/Button';
 
 const Basket = ({ setIsShowBasket }) => {
   const [hiddenBasket, setHiddenBasket] = useState(false);
@@ -44,10 +46,14 @@ const Basket = ({ setIsShowBasket }) => {
 
         {isEmptyBasket ? (
           <>
-            <p className={cl.emptyBasketText}>У вашому кошику зараз немає товарів</p>
-            <button className={cl.continueShoppingButton} onClick={handleCloseBasket}>
-              Продовжити покупки
-            </button>
+            <div className={cl.emptyBasketText}>
+              <Paragraph type="body1">У вашому кошику зараз немає товарів</Paragraph>
+            </div>
+            <div className={cl.emptyBasketButtonWrapper}>
+              <Button variant="secondary" onClick={handleCloseBasket}>
+                Продовжити покупки
+              </Button>
+            </div>
           </>
         ) : (
           <>
