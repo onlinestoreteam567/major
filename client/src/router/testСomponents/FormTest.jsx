@@ -1,7 +1,7 @@
 import { Form, ErrorMessage, Input, FormGroup } from '@components/form-components';
 import { reviewSchema } from '@validations/reviewSchema';
 
-// import { Select } from '@components/form-components/Select/Select';
+import { Select } from '@components/form-components/Select/Select';
 
 const FormExample = () => {
   const onSubmit = (data) => alert('good' + data.sex);
@@ -15,7 +15,7 @@ const FormExample = () => {
         </FormGroup>
 
         <Input name="comment" />
-        {/* <Select name="sex" options={['female', 'male']} /> */}
+        <Select name="sex" options={['female', 'male']} />
 
         <button>Submit</button>
       </Form>
