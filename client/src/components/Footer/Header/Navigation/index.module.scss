@@ -1,0 +1,24 @@
+@import '@mixins';
+
+.ulNavigation {
+  @include flex(row, space-between);
+  gap: 18px;
+
+  @include deskmim {
+    @include flexGap(18px, column);
+  }
+
+  section {
+    @include flexGap(24px, column);
+  }
+
+  // li {
+  //   a {
+  //     color: white;
+  //   }
+  // }
+}
+
+// .firstNavigationSection {
+//   justify-self: center;
+// }

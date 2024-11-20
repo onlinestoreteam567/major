@@ -1,0 +1,45 @@
+@import '@mixins';
+
+.footerInfo {
+  @include flex(row, space-between);
+  margin-bottom: 32px;
+
+  h3 {
+    font-family: $font-main;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    letter-spacing: $letter-spacing-small;
+    line-height: 21.76px;
+
+    @include deskmim {
+      font-family: $font-main;
+      font-size: $font-size-medium;
+      line-height: $line-height-base;
+    }
+  }
+
+  ul {
+    @include flexGap(16px, column);
+    margin-top: 24px;
+
+    section {
+      @include flexGap(8px, column);
+    }
+  }
+}
+
+// .titleFooterWithCalendarIcon {
+//   @include flexGap(16px);
+//   margin-left: -34px;
+//   user-select: none;
+// }
+
+// .phoneCallLi {
+//   @include flexGap(6px);
+//   margin-left: -35px;
+// }
+
+// .phoneCallIcon {
+//   user-select: none;
+//   margin-right: 5px;
+// }

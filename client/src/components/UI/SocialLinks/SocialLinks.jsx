@@ -6,7 +6,7 @@ const SocialLinks = () => {
 
   return (
     <section className={cl.socialLinks}>
-      <p>{getTranslation('socials')}</p>
+      <h3>{getTranslation('socials')}</h3>
       <ul>
         <li>
           <a href="">

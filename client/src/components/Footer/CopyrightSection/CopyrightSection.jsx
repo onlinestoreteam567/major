@@ -1,12 +1,12 @@
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-const BottomSection = () => {
+const CopyrightSection = () => {
   const { getTranslation } = useTranslationNamespace('footer');
   return (
-    <section className={cl.bottomSection}>
+    <section className={cl.copyrightSection}>
       <hr />
-      <p>{getTranslation('copyright')}</p>
+      <h3>{getTranslation('copyright')}</h3>
     </section>
   );
 };
-export default BottomSection;
+export default CopyrightSection;
