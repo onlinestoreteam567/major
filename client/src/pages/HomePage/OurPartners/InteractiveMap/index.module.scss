@@ -17,6 +17,10 @@
     object-fit: cover;
     width: 770px;
 
+    @include tablet {
+      width: 900px;
+    }
+
     @include deskmim {
       width: 1471px;
       height: 997px;
@@ -33,10 +37,25 @@
       height: 40px;
       transform: translateY(-20%) translateX(-10%);
     }
+
+    @include tablet {
+      height: 19px;
+      width: 19px;
+
+      &:hover {
+        width: 25px;
+        height: 25px;
+        transform: translateY(-20%) translateX(-10%);
+      }
+    }
   }
 
   .lvivPoint {
     @include absolute(153px, 81px);
+
+    @include tablet {
+      @include absolute(182px, 95px);
+    }
 
     @include deskmim {
       @include absolute(300px, 153px);
@@ -46,6 +65,10 @@
   .lytskPoint {
     @include absolute(72px, 122px);
 
+    @include tablet {
+      @include absolute(86px, 145px);
+    }
+
     @include deskmim {
       @include absolute(143px, 243px);
     }
@@ -53,6 +76,10 @@
 
   .ternopilPoint {
     @include absolute(155px, 147px);
+
+    @include tablet {
+      @include absolute(204px, 186px);
+    }
 
     @include deskmim {
       @include absolute(329px, 298px);
@@ -62,6 +89,10 @@
   .ivanoFrankivskPoint {
     @include absolute(230px, 111px);
 
+    @include tablet {
+      @include absolute(269px, 136px);
+    }
+
     @include deskmim {
       @include absolute(439px, 223px);
     }
@@ -69,6 +100,10 @@
 
   .vinnitsaPoint {
     @include absolute(197px, 278px);
+
+    @include tablet {
+      @include absolute(245px, 330px);
+    }
 
     @include deskmim {
       @include absolute(414px, 538px);
