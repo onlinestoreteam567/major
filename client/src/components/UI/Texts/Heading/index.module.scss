@@ -8,6 +8,12 @@
   line-height: 30.24px;
   text-align: center;
 
+  @include tablet {
+    font-size: 36px;
+    line-height: 38.88px;
+    letter-spacing: $letter-spacing-extra-small;
+  }
+
   @include deskmim {
     font-size: 48px;
     line-height: 51.84px;

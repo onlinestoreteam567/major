@@ -67,6 +67,15 @@
   font-weight: $font-weight-medium;
   border: none;
 
+  @include tablet {
+    height: 58px;
+    width: 241px;
+    font-weight: $font-weight-bold;
+    line-height: $letter-spacing-base;
+    letter-spacing: $letter-spacing-base;
+    color: $text-color-light;
+  }
+
   @include deskmax {
     height: 77px;
     font-size: 24px;

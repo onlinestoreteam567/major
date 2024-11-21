@@ -6,6 +6,7 @@
 
   @include tablet {
     @include flex(column, center, start);
+    padding: 0 5vw;
     gap: 8vh;
   }
 
@@ -25,12 +26,7 @@
     height: 100%;
 
     .label {
-      font-family: $font-main;
       width: fit-content;
-      font-size: 24px;
-      font-weight: $font-weight-base;
-      line-height: 33.6px;
-      letter-spacing: $letter-spacing-base;
       padding: 10px 20px 10px 20px;
       border-radius: 4px;
       box-sizing: border-box;
@@ -41,14 +37,6 @@
 
       @include tablet {
         @include flexGap(8vh, column);
-      }
-
-      button {
-        width: 330px;
-
-        @include deskmim {
-          width: 275px;
-        }
       }
     }
   }

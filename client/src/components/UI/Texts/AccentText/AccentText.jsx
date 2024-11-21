@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 
-const AccentText = () => {
-  return <p className={cl.accentText}></p>;
+const AccentText = ({ children }) => {
+  return <p className={cl.accentText}>{children}</p>;
 };
 export default AccentText;
