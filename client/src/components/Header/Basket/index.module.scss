@@ -2,8 +2,8 @@
 
 .basketWrapper {
   @include flex(column, null, center);
-  height: 100vh;
-  width: 100%;
+  height: $height-pop-up-header-mobile;
+  width: $width-pop-up-header-width;
   box-sizing: border-box;
   padding: 20px 32px 15px 32px;
   position: absolute;
@@ -18,9 +18,19 @@
   animation: showBacket 0.5s;
   z-index: 100;
 
+  @include tablet {
+    height: $height-pop-up-header-tablet;
+    max-height: 100vh;
+    overflow: scroll;
+  }
+
   @include deskmim {
     padding: 40px 32px 20px 32px;
     width: 609px;
+  }
+
+  @include deskmax {
+    height: 100vh;
   }
 
   .basketHeaderSection {

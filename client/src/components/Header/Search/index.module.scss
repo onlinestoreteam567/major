@@ -6,10 +6,16 @@
   z-index: 12;
   padding: 16px 4% 16px 5%;
   background-color: #f8f8f9;
-  width: 100%;
-  height: 480px;
+  width: $width-pop-up-header-width;
+  height: 100vh;
   box-sizing: border-box;
   animation: showSearch 0.3s ease-in;
+
+  @include tablet {
+    height: $height-pop-up-header-tablet;
+    max-height: 100vh;
+    overflow: scroll;
+  }
 
   &.closeAnimation {
     animation: closeSearch 0.3s ease-in;

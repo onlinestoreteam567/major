@@ -4,6 +4,11 @@
   @include flex(column, space-between, start);
   padding: 15vh 5vw 5vh 5vw;
 
+  @include tablet {
+    @include flex(column, center, start);
+    gap: 8vh;
+  }
+
   @include deskmax {
     @include flex(column, center, start);
     gap: 4vh;
@@ -33,6 +38,11 @@
 
     .bottomWrapper {
       @include flexGap(16px, column);
+
+      @include tablet {
+        @include flexGap(8vh, column);
+      }
+
       button {
         width: 330px;
 
@@ -48,18 +58,7 @@
   @include flex(column, center, start);
   background-image: url('/images/banners/mainBanner/1.png');
   background-attachment: fixed;
-
-  @include deskmim {
-    background-position: 30%;
-  }
-
-  @include tablet {
-    background-position: 55%;
-  }
-
-  @include mobile {
-    background-position: 73%;
-  }
+  background-position: 73%;
 
   section {
     @include slide();
