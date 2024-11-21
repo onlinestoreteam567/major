@@ -12,7 +12,7 @@
   }
 
   figure {
-    @include deskmim {
+    @include tablet {
       @include flex();
     }
 
@@ -20,6 +20,10 @@
       width: 375px;
       height: 304px;
       border-radius: 2px 8px 8px 2px;
+
+      @include tablet {
+        height: 379px;
+      }
 
       @include deskmim {
         height: 345px;
