@@ -1,8 +1,7 @@
 @import '@mixins';
 
 .rightSection {
-  width: auto;
-  gap: 8px;
+  @include flexGap(8px);
 
   @include deskmim {
     @include flex(row, end, center);

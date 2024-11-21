@@ -19,6 +19,10 @@ header {
       grid-template-columns: 0.2fr auto 0.2fr;
     }
 
+    .burgerWrapper {
+      width: 64px;
+    }
+
     i {
       cursor: pointer;
     }
