@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@components/UI/Heading/Heading';
-const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractionState }) => {
+import Button from '@components/UI/Button/Button';
+const PartnerInfo = ({ informationAboutPartner, setPartnerInteractionState }) => {
   const handleUnmountComponent = () => {
     clearTimeout();
     setPartnerInteractionState((prev) => ({ ...prev, closeAnimation: true, activePartner: null }));
@@ -14,26 +15,28 @@ const InformationAboutPartner = ({ informationAboutPartner, setPartnerInteractio
   const { getTranslation } = useTranslationNamespace('ourPartners');
 
   return (
-    <aside onMouseLeave={handleUnmountComponent}>
-      <h3>{informationAboutPartner.title}</h3>
+    <aside onMouseLeave={handleUnmountComponent} className={cl.partnerInfo}>
+      <Heading type="h2">{informationAboutPartner.title}</Heading>
       <section className={cl.workScheduleSection}>
         <Heading type="h3">{getTranslation('workingHours')}</Heading>
-        <p>{informationAboutPartner.workSchedule}</p>
-        <p>{informationAboutPartner.workSchedule1}</p>
+        <Heading type="h4">{informationAboutPartner.workSchedule}</Heading>
+        <Heading type="h4">{informationAboutPartner.workSchedule1}</Heading>
       </section>
       <section>
         <Heading type="h3">{getTranslation('address')}</Heading>
         <br />
-        <p>{informationAboutPartner.address}</p>
+        <Heading type="h4">{informationAboutPartner.address}</Heading>
       </section>
-      <button>
-        <a href={informationAboutPartner.googleMapAddress}>{getTranslation('openGoogleMap')}</a>
-      </button>
+      <Button variant="secondary">
+        <a href={informationAboutPartner.googleMapAddress}>
+          <Heading type="h3">{getTranslation('openGoogleMap')}</Heading>
+        </a>
+      </Button>
     </aside>
   );
 };
 
-InformationAboutPartner.propTypes = {
+PartnerInfo.propTypes = {
   setPartnerInteractionState: PropTypes.func.isRequired,
   informationAboutPartner: PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -43,4 +46,4 @@ InformationAboutPartner.propTypes = {
     googleMapAddress: PropTypes.string.isRequired,
   }),
 };
-export default InformationAboutPartner;
+export default PartnerInfo;

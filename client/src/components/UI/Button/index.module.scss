@@ -7,7 +7,9 @@
   box-sizing: border-box;
   cursor: pointer;
   border-radius: 8px;
-  transition: 300ms ease-out all;
+  transition:
+    300ms ease-out background-color,
+    300ms ease-out color;
 }
 
 // Buttons purposes

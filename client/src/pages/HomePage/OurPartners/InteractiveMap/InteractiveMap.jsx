@@ -2,9 +2,9 @@ import { useState, useRef } from 'react';
 import cl from './index.module.scss';
 import { useTranslation } from 'react-i18next';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import useCenterMap from '@hooks/mapWithPoints/useCenterMap';
+import useCenterMap from '@hooks/interactiveMap/useCenterMap';
 
-const MapWithPoints = ({ partnerData, onPointClick }) => {
+const InteractiveMap = ({ partnerData, onPointClick }) => {
   const [dragState, setDragState] = useState({
     isDragging: false,
     startX: 0,
@@ -76,4 +76,4 @@ const MapWithPoints = ({ partnerData, onPointClick }) => {
   );
 };
 
-export default MapWithPoints;
+export default InteractiveMap;

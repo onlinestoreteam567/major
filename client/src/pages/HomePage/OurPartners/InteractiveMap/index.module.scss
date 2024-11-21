@@ -1,0 +1,76 @@
+@import '@mixins';
+
+.mapContainer {
+  margin-top: 75px;
+  height: 68vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  img:first-of-type {
+    object-fit: cover;
+    width: 770px;
+
+    @include deskmim {
+      width: 1471px;
+      height: 997px;
+    }
+  }
+
+  .point {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+
+    &:hover {
+      width: 40px;
+      height: 40px;
+      transform: translateY(-20%) translateX(-10%);
+    }
+  }
+
+  .lvivPoint {
+    @include absolute(153px, 81px);
+
+    @include deskmim {
+      @include absolute(300px, 153px);
+    }
+  }
+
+  .lytskPoint {
+    @include absolute(72px, 122px);
+
+    @include deskmim {
+      @include absolute(143px, 243px);
+    }
+  }
+
+  .ternopilPoint {
+    @include absolute(155px, 147px);
+
+    @include deskmim {
+      @include absolute(329px, 298px);
+    }
+  }
+
+  .ivanoFrankivskPoint {
+    @include absolute(230px, 111px);
+
+    @include deskmim {
+      @include absolute(439px, 223px);
+    }
+  }
+
+  .vinnitsaPoint {
+    @include absolute(197px, 278px);
+
+    @include deskmim {
+      @include absolute(414px, 538px);
+    }
+  }
+}
