@@ -38,6 +38,11 @@
           filter: brightness(1.7);
         }
 
+        @include tablet {
+          height: 186px;
+          width: 216px;
+        }
+
         @include deskmim {
           width: 100%;
         }
@@ -53,6 +58,10 @@
         box-sizing: border-box;
         background-color: #22211f;
         pointer-events: none;
+
+        @include tablet {
+          padding: 4px 10px;
+        }
 
         @include deskmim {
           height: 44px;
