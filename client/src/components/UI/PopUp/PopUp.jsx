@@ -5,8 +5,8 @@ import PhoneNumberInput from '@UI/PhoneNumberInput/PhoneNumberInput';
 import Overlay from '@UI/Overlay/Overlay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
-import Subtitle from '@components/UI/Subtitle/Subtitle';
-import Heading from '@components/UI/Heading/Heading';
+import Subtitle from '@components/UI/Texts/Subtitle/Subtitle';
+import Heading from '@components/UI/Texts/Heading/Heading';
 import SelectableStars from './SelectableStars';
 import data from './data';
 

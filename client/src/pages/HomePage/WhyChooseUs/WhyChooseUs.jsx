@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
-import Heading from '@components/UI/Heading/Heading';
-import Paragraph from '@components/UI/Paragraph/Paragraph';
+import Heading from '@components/UI/Texts/Heading/Heading';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const WhyChooseUs = () => {
   const { getTranslation } = useTranslationNamespace('whyChooseUs');

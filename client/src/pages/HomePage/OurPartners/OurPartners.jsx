@@ -6,7 +6,7 @@ import partnerData from './partnerData';
 import handlePointClick from './handlePointClick';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
-import Heading from '@components/UI/Heading/Heading';
+import Heading from '@components/UI/Texts/Heading/Heading';
 
 const OurPartners = () => {
   const [partnerInteractionState, setPartnerInteractionState] = useState({

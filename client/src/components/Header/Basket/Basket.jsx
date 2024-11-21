@@ -4,8 +4,8 @@ import cl from './index.module.scss';
 import { useState, useEffect } from 'react';
 import BasketItem from './BasketItem';
 import { useSelector } from 'react-redux';
-import Heading from '@components/UI/Heading/Heading';
-import Paragraph from '@components/UI/Paragraph/Paragraph';
+import Heading from '@components/UI/Texts/Heading/Heading';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import Button from '@components/UI/Button/Button';
 
 const Basket = ({ setIsShowBasket }) => {

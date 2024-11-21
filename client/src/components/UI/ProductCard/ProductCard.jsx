@@ -5,8 +5,8 @@ import Label from '@UI/Labels/Label';
 import Benefit from '@UI/Labels/Benefit';
 import { useState } from 'react';
 import Button from '@UI/Button/Button';
-import Heading from '../Heading/Heading';
-import Subtitle from '../Subtitle/Subtitle';
+import Heading from '../Texts/Heading/Heading';
+import Subtitle from '../Texts/Subtitle/Subtitle';
 
 const ProductCard = ({ cardData }) => {
   const [isShowButton, setIsShowButton] = useState(false);

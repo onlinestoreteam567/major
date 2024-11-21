@@ -1,0 +1,56 @@
+@import '@mixins';
+
+.h1 {
+  font-family: $font-main;
+  font-weight: $font-weight-base;
+  color: $text-color-black;
+  font-size: 28px;
+  line-height: 30.24px;
+  text-align: center;
+
+  @include deskmim {
+    font-size: 48px;
+    line-height: 51.84px;
+    letter-spacing: $letter-spacing-extra-small;
+  }
+
+  @include deskmax {
+    font-size: $font-size-xlarge;
+    line-height: 60.48px;
+    max-width: 40vw;
+    text-align: start;
+  }
+}
+
+.h2 {
+  font-family: $font-main;
+  font-size: 20px;
+  font-weight: $font-weight-bold;
+  line-height: 1.24;
+  color: $text-color-black;
+  @include tablet {
+    font-size: 24px;
+  }
+  @include deskmim {
+    font-size: 28px;
+  }
+  @include deskmax {
+    font-size: 32px;
+  }
+}
+
+.h3 {
+  font-family: $font-main;
+  font-size: $font-size-medium;
+  font-weight: $font-weight-medium;
+  line-height: 1.22;
+  color: $text-color-black;
+}
+
+.h4 {
+  font-family: $font-main;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: 1.36;
+  color: $text-color-black;
+}

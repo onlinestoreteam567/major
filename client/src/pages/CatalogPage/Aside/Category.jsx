@@ -2,7 +2,7 @@ import { useState } from 'react';
 import cl from './index.module.scss';
 import CheckboxItem from './CheckboxItem';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import Heading from '@components/UI/Heading/Heading';
+import Heading from '@components/UI/Texts/Heading/Heading';
 
 const checkboxData = [
   { key: 'shampoo', label: 'shampoo' },
