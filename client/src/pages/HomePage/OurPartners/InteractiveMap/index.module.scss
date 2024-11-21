@@ -1,6 +1,7 @@
 @import '@mixins';
 
 .mapContainer {
+  touch-action: none;
   margin-top: 75px;
   height: 68vh;
   width: 100%;

@@ -3,6 +3,12 @@ import cl from './index.module.scss';
 import { useTranslation } from 'react-i18next';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import useCenterMap from '@hooks/interactiveMap/useCenterMap';
+import { handleMouseDown } from './eventHandlers/handleMouseDown';
+import { handleTouchStart } from './eventHandlers/handleTouchStart';
+import { handleMouseMove } from './eventHandlers/handleMouseMove';
+import { handleTouchMove } from './eventHandlers/handleTouchMove.js';
+import { handleMouseUp } from './eventHandlers/handleMouseUp';
+import { handleTouchEnd } from './eventHandlers/handleTouchEnd';
 
 const InteractiveMap = ({ partnerData, onPointClick }) => {
   const [dragState, setDragState] = useState({
@@ -15,38 +21,7 @@ const InteractiveMap = ({ partnerData, onPointClick }) => {
 
   const imageContainerRef = useRef(null);
 
-  const handleMouseDown = (e) => {
-    if (imageContainerRef.current) {
-      setDragState({
-        isDragging: true,
-        startX: e.pageX - imageContainerRef.current.offsetLeft,
-        startY: e.pageY - imageContainerRef.current.offsetTop,
-        scrollLeft: imageContainerRef.current.scrollLeft,
-        scrollTop: imageContainerRef.current.scrollTop,
-      });
-    }
-  };
-
-  const handleMouseLeave = () => {
-    setDragState((prevState) => ({ ...prevState, isDragging: false }));
-  };
-
-  const handleMouseUp = () => {
-    setDragState((prevState) => ({ ...prevState, isDragging: false }));
-  };
-
-  const handleMouseMove = (e) => {
-    if (!dragState.isDragging || !imageContainerRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - imageContainerRef.current.offsetLeft;
-    const y = e.pageY - imageContainerRef.current.offsetTop;
-    const walkX = (x - dragState.startX) * 1;
-    const walkY = (y - dragState.startY) * 1;
-    imageContainerRef.current.scrollLeft = dragState.scrollLeft - walkX;
-    imageContainerRef.current.scrollTop = dragState.scrollTop - walkY;
-  };
-
-  useCenterMap(imageContainerRef); // Use the custom hook for centering
+  useCenterMap(imageContainerRef);
 
   const { i18n } = useTranslation();
   const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.png' : '/images/ourPartners/mapUa.png';
@@ -55,10 +30,12 @@ const InteractiveMap = ({ partnerData, onPointClick }) => {
   return (
     <figure
       ref={imageContainerRef}
-      onMouseDown={handleMouseDown}
-      onMouseLeave={handleMouseLeave}
-      onMouseUp={handleMouseUp}
-      onMouseMove={handleMouseMove}
+      onMouseDown={(e) => handleMouseDown(e, imageContainerRef, setDragState)}
+      onTouchStart={(e) => handleTouchStart(e, imageContainerRef, setDragState)}
+      onMouseMove={(e) => handleMouseMove(e, imageContainerRef, dragState)}
+      onTouchMove={(e) => handleTouchMove(e, imageContainerRef, dragState)}
+      onMouseUp={() => handleMouseUp(setDragState)}
+      onTouchEnd={() => handleTouchEnd(setDragState)}
       className={cl.mapContainer}
     >
       <img src={mapImage} alt={getTranslation('mapAlt')} onDragStart={(e) => e.preventDefault()} />
