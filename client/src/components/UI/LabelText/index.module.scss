@@ -1,0 +1,9 @@
+@import '@mixins';
+
+.labelText {
+  font-family: $font-main;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  line-height: 17.08px;
+  color: #fdfdfd;
+}
