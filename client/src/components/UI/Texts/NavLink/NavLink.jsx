@@ -6,17 +6,13 @@ const NavLink = ({ children, type, to }) => {
   return (
     <>
       {type === 'header' && (
-        <li>
-          <Link to={to} className={cl.header}>
-            {children}
-          </Link>
+        <li className={cl.header}>
+          <Link to={to}>{children}</Link>
         </li>
       )}
       {type === 'footer' && (
-        <li>
-          <Link to={to} className={cl.footer}>
-            {children}
-          </Link>
+        <li className={cl.footer}>
+          <Link to={to}>{children}</Link>
         </li>
       )}
     </>

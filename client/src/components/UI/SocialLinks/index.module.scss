@@ -20,5 +20,11 @@
   ul {
     @include flexGap(24px);
     margin-top: 16px;
+
+    img {
+      gap: 16px;
+      height: 24px;
+      width: 24px;
+    }
   }
 }

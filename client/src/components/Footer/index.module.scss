@@ -6,6 +6,10 @@ footer {
   box-sizing: border-box;
   background-color: $second-background-color-black;
 
+  @include tablet {
+    padding-top: 48px;
+  }
+
   @include deskmim {
     padding-top: 54px;
     height: 312px;
