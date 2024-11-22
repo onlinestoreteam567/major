@@ -15,6 +15,7 @@
       "@services/*": ["src/services/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
+      "@validations/*": ["src/validations/*"],
       "@mixins/*": ["src/styles/mixins/*"],
       "@../*": ["src/*"]
     }
