@@ -3,7 +3,7 @@ import cl from './index.module.scss';
 export default function TitleCardCatalog({ card }) {
   return (
     <div className={cl.wrapTitle}>
-      <h4>{card.name}</h4>
+      <h3>{card.name}</h3>
     </div>
   );
 }
