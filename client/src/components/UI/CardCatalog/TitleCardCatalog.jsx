@@ -1,9 +1,9 @@
 import cl from './index.module.scss';
 
-export default function Title({ card }) {
+export default function TitleCardCatalog({ card }) {
   return (
     <div className={cl.wrapTitle}>
-      <h2>{card.name}</h2>
+      <h4>{card.name}</h4>
     </div>
   );
 }
