@@ -1,11 +1,13 @@
 @import '@mixins';
 
 .button {
+  @include flex(row, center, center);
   font-family: $font-main;
   font-weight: $font-weight-medium;
   line-height: $line-height-base;
   box-sizing: border-box;
   cursor: pointer;
+  padding: 0;
   border-radius: 8px;
   transition: 300ms ease-out all;
 }
