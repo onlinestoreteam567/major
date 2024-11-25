@@ -1,12 +1,12 @@
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
 import PhoneNumberInput from '@components/UI/PhoneNumberInput/PhoneNumberInput';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { needHelpSchema } from '@validations/needHelpSchema';
 
 const MyComponent = () => {
-  const [inputsValue, setInputsValue] = useState({ phone: '+38 (0__)  __ __ ___' });
-  const { register, handleSubmit, errors } = useForm();
-
-  console.log('errors:', errors);
+  const { register, errors, handleSubmit, setValue } = useForm({
+    resolver: yupResolver(needHelpSchema),
+  });
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -21,7 +21,7 @@ const MyComponent = () => {
       </label>
       <label>
         Phone Number:
-        <PhoneNumberInput inputsValue={inputsValue} setInputsValue={setInputsValue} />
+        <PhoneNumberInput setValue={setValue} />
       </label>
       <label>
         Question:
