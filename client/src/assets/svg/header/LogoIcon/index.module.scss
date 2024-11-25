@@ -5,7 +5,7 @@
   height: 34px;
   @include flex();
 
-  @include deskmim {
+  @include deskmin {
     width: auto;
     height: auto;
   }

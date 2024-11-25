@@ -18,14 +18,14 @@
       @include flex(row, center, center);
     }
 
-    @include deskmim {
+    @include deskmin {
       gap: 96px;
     }
 
     section {
       @include flexGap(16px, column);
 
-      @include deskmim {
+      @include deskmin {
         @include flex(row, space-around, center);
         width: 100%;
       }

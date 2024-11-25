@@ -14,7 +14,7 @@ header {
     @include flex(row, space-between, null);
     padding: 21px 4% 0 5%;
 
-    @include deskmim {
+    @include deskmin {
       display: grid;
       grid-template-columns: 0.2fr auto 0.2fr;
     }

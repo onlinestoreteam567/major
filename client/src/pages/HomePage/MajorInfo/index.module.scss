@@ -25,7 +25,7 @@
         height: 379px;
       }
 
-      @include deskmim {
+      @include deskmin {
         height: 345px;
         width: 420px;
       }
@@ -37,7 +37,7 @@
       padding: 0 5%;
       box-sizing: border-box;
 
-      @include deskmim {
+      @include deskmin {
         padding-left: 9%;
       }
 

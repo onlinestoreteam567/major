@@ -8,7 +8,7 @@
     margin-left: 37px;
   }
 
-  @include deskmim {
+  @include deskmin {
     @include flexGap(18px, column);
   }
 

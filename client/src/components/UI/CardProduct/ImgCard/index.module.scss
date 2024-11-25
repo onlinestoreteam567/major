@@ -85,7 +85,7 @@
       }
     }
   }
-  @include deskmim {
+  @include deskmin {
     @include flex(row-reverse, flex-start, center);
     width: 376px;
     height: 296px;

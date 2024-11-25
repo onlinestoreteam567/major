@@ -15,7 +15,7 @@
       gap: 16px;
     }
   }
-  @include deskmim {
+  @include deskmin {
     width: 960px;
   }
   @include deskmax {
@@ -33,7 +33,7 @@
     height: 194px;
     padding: 16px 0;
   }
-  @include deskmim {
+  @include deskmin {
     width: 960px;
     height: 168px;
   }
@@ -101,7 +101,7 @@
       }
     }
   }
-  @include deskmim {
+  @include deskmin {
     p {
       height: 80px;
     }

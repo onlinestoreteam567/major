@@ -14,7 +14,7 @@
     letter-spacing: $letter-spacing-extra-small;
   }
 
-  @include deskmim {
+  @include deskmin {
     font-size: 48px;
     line-height: 51.84px;
     letter-spacing: $letter-spacing-extra-small;
@@ -37,7 +37,7 @@
   @include tablet {
     font-size: 24px;
   }
-  @include deskmim {
+  @include deskmin {
     font-size: 28px;
   }
   @include deskmax {

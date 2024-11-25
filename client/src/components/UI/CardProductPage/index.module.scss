@@ -14,7 +14,7 @@
     width: 768px;
     padding: 48px 24px 120px 24px;
   }
-  @include deskmim {
+  @include deskmin {
     gap: 64px;
     width: 1024px;
     padding: 48px 32px 120px 32px;
@@ -44,7 +44,7 @@
   @include tablet {
     gap: 36px;
   }
-  @include deskmim {
+  @include deskmin {
     gap: 48px;
   }
   @include deskmax {
@@ -72,7 +72,7 @@
     @include flexGap(24px, row);
     width: 720px;
   }
-  @include deskmim {
+  @include deskmin {
     @include flexGap(24px, row);
     width: 960px;
   }
@@ -98,7 +98,7 @@
       height: 46px;
     }
   }
-  @include deskmim {
+  @include deskmin {
     width: 536px;
     height: 296px;
     button {

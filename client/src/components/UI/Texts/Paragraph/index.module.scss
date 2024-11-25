@@ -6,7 +6,7 @@
   font-weight: $font-weight-base;
   line-height: 1.36;
   color: $text-color-black;
-  @include deskmim {
+  @include deskmin {
     font-size: $font-size-medium;
   }
 }
@@ -16,7 +16,7 @@
   font-weight: $font-weight-base;
   line-height: 1.24;
   color: $text-color-black;
-  @include deskmim {
+  @include deskmin {
     font-size: $font-size-base;
   }
 }
@@ -26,7 +26,7 @@
   font-weight: $font-weight-medium;
   line-height: 1.22;
   color: $text-color-black;
-  @include deskmim {
+  @include deskmin {
     font-size: $font-size-base;
   }
 }

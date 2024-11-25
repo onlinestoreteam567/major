@@ -7,7 +7,7 @@ search {
   justify-content: center;
   width: 100%;
 
-  @include deskmim {
+  @include deskmin {
     @include flex();
     position: absolute;
     top: 27px;

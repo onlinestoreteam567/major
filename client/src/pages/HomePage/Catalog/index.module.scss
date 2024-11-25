@@ -43,7 +43,7 @@
           width: 216px;
         }
 
-        @include deskmim {
+        @include deskmin {
           width: 100%;
         }
       }
@@ -63,7 +63,7 @@
           padding: 4px 10px;
         }
 
-        @include deskmim {
+        @include deskmin {
           height: 44px;
           width: 240px;
         }

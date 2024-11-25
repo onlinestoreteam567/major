@@ -19,7 +19,7 @@
     text-wrap: nowrap;
   }
 
-  @include deskmim {
+  @include deskmin {
     font-family: $font-main;
     font-size: $font-size-medium;
     line-height: $line-height-base;

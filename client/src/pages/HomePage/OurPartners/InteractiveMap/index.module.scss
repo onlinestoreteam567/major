@@ -21,7 +21,7 @@
       width: 900px;
     }
 
-    @include deskmim {
+    @include deskmin {
       width: 1471px;
       height: 997px;
     }
@@ -57,7 +57,7 @@
       @include absolute(182px, 95px);
     }
 
-    @include deskmim {
+    @include deskmin {
       @include absolute(300px, 153px);
     }
   }
@@ -69,7 +69,7 @@
       @include absolute(86px, 145px);
     }
 
-    @include deskmim {
+    @include deskmin {
       @include absolute(143px, 243px);
     }
   }
@@ -81,7 +81,7 @@
       @include absolute(204px, 186px);
     }
 
-    @include deskmim {
+    @include deskmin {
       @include absolute(329px, 298px);
     }
   }
@@ -93,7 +93,7 @@
       @include absolute(269px, 136px);
     }
 
-    @include deskmim {
+    @include deskmin {
       @include absolute(439px, 223px);
     }
   }
@@ -105,7 +105,7 @@
       @include absolute(245px, 330px);
     }
 
-    @include deskmim {
+    @include deskmin {
       @include absolute(414px, 538px);
     }
   }
