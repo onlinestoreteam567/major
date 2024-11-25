@@ -6,10 +6,7 @@ export const needHelpSchema = yup.object().shape({
     .trim()
     .min(5, 'Full name must be at least 5 characters long')
     .required('Full name is required'),
-  phoneNumber: yup
-    .string()
-    .trim()
-    .matches(/^\d{10}$/, 'Phone number must be exactly 10 digits'),
+
   question: yup
     .string()
     .trim()
