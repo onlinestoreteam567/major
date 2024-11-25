@@ -61,7 +61,7 @@ const YellowButtonMainWrapper = () => {
           />
         )}
       </section>
-      {showMessagePopUp && <MessagePopUp setShowMessagePopUp={setShowMessagePopUp} type={'leaveComment'} />}
+      {showMessagePopUp && <MessagePopUp setShowMessagePopUp={setShowMessagePopUp} type={'hasQuestion'} />}
     </>
   );
 };
