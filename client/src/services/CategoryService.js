@@ -10,7 +10,7 @@ if (!CATEGORY_ENDPOINT) {
 const CategoryService = {
   async getCategory() {
     try {
-      const { data } = await apiClient.get(`${CATEGORY_ENDPOINT}`);
+      const { data } = await apiClient.get(`${CATEGORY_ENDPOINT}/`);
       return data;
     } catch (error) {
       handleApiError(error);
@@ -24,7 +24,7 @@ const CategoryService = {
     }
 
     try {
-      return await apiClient.post(`${CATEGORY_ENDPOINT}`, { name: categoryName });
+      return await apiClient.post(`${CATEGORY_ENDPOINT}/`, { name: categoryName });
     } catch (error) {
       handleApiError(error);
     }
@@ -37,7 +37,7 @@ const CategoryService = {
     }
 
     try {
-      const { data } = await apiClient.get(`${CATEGORY_ENDPOINT}/${categoryId}`);
+      const { data } = await apiClient.get(`${CATEGORY_ENDPOINT}/${categoryId}/`);
       return data;
     } catch (error) {
       handleApiError(error); // logs and rethrows the error
@@ -51,7 +51,7 @@ const CategoryService = {
     }
 
     try {
-      await apiClient.put(`${CATEGORY_ENDPOINT}/${categoryId}`, updatedCategory);
+      await apiClient.put(`${CATEGORY_ENDPOINT}/${categoryId}/`, updatedCategory);
     } catch (error) {
       handleApiError(error);
     }
@@ -64,7 +64,7 @@ const CategoryService = {
     }
 
     try {
-      await apiClient.patch(`${CATEGORY_ENDPOINT}/${categoryId}`, partialUpdate);
+      await apiClient.patch(`${CATEGORY_ENDPOINT}/${categoryId}/`, partialUpdate);
     } catch (error) {
       handleApiError(error);
     }
@@ -77,7 +77,7 @@ const CategoryService = {
     }
 
     try {
-      await apiClient.delete(`${CATEGORY_ENDPOINT}/${categoryId}`);
+      await apiClient.delete(`${CATEGORY_ENDPOINT}/${categoryId}/`);
     } catch (error) {
       handleApiError(error);
     }

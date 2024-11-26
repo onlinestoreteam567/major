@@ -10,7 +10,7 @@ if (!TYPE_ENDPOINT) {
 const TypeService = {
   async getTypes() {
     try {
-      const { data } = await apiClient.get(`${TYPE_ENDPOINT}`);
+      const { data } = await apiClient.get(`${TYPE_ENDPOINT}/`);
       return data;
     } catch (error) {
       handleApiError(error);
@@ -25,7 +25,7 @@ const TypeService = {
     }
 
     try {
-      return await apiClient.post(`${TYPE_ENDPOINT}`, { name: typeName });
+      return await apiClient.post(`${TYPE_ENDPOINT}/`, { name: typeName });
     } catch (error) {
       handleApiError(error);
     }
@@ -39,7 +39,7 @@ const TypeService = {
     }
 
     try {
-      const { data } = await apiClient.get(`${TYPE_ENDPOINT}/${typeId}`);
+      const { data } = await apiClient.get(`${TYPE_ENDPOINT}/${typeId}/`);
       return data;
     } catch (error) {
       handleApiError(error); // logs and rethrows the error
@@ -54,7 +54,7 @@ const TypeService = {
     }
 
     try {
-      await apiClient.put(`${TYPE_ENDPOINT}/${typeId}`, updatedType);
+      await apiClient.put(`${TYPE_ENDPOINT}/${typeId}/`, updatedType);
     } catch (error) {
       handleApiError(error);
     }
@@ -68,7 +68,7 @@ const TypeService = {
     }
 
     try {
-      await apiClient.patch(`${TYPE_ENDPOINT}/${typeId}`, partialUpdate);
+      await apiClient.patch(`${TYPE_ENDPOINT}/${typeId}/`, partialUpdate);
     } catch (error) {
       handleApiError(error);
     }
@@ -82,7 +82,7 @@ const TypeService = {
     }
 
     try {
-      await apiClient.delete(`${TYPE_ENDPOINT}/${typeId}`);
+      await apiClient.delete(`${TYPE_ENDPOINT}/${typeId}/`);
     } catch (error) {
       handleApiError(error);
     }
