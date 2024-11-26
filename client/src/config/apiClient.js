@@ -29,39 +29,38 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Log the error details for debugging
     if (error.response) {
+      // Handle errors with a response from the server
       console.error('API Error:', {
         status: error.response.status,
         data: error.response.data,
-        config: error.config,
+        url: error.config?.url,
+        method: error.config?.method,
       });
 
-      // Example handling for specific status codes
+      // Specific error handling based on HTTP status codes
       switch (error.response.status) {
         case 401:
-          // Handle unauthorized access
-          console.warn('Unauthorized access - possibly redirect to login');
+          console.warn('Unauthorized access - consider redirecting to login.');
           break;
         case 404:
-          console.warn('Requested resource not found');
+          console.warn('Resource not found:', error.config?.url);
           break;
         case 500:
-          console.error('Internal Server Error');
+          console.error('Internal Server Error on:', error.config?.url);
           break;
-        // Add more cases as needed
         default:
-          console.error('An unexpected error occurred');
+          console.warn('Unhandled error status:', error.response.status);
       }
     } else if (error.request) {
-      // The request was made but no response was received
+      // Handle network errors (request made but no response received)
       console.error('Network Error:', error.message);
     } else {
-      // Something happened in setting up the request
+      // Handle unexpected errors during request setup
       console.error('Unexpected Error:', error.message);
     }
 
-    return Promise.reject(error);
+    return Promise.reject(error); // Pass the error for further handling
   }
 );
 
