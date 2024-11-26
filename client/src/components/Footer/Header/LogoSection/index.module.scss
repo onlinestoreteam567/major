@@ -1,0 +1,19 @@
+@import '@mixins';
+
+.logoSection {
+  @include flex(column, null, center);
+
+  @include tablet {
+    @include flex(column, null, start);
+    gap: 30px;
+  }
+
+  ul {
+    @include flexGap(24px);
+    margin-top: 16px;
+
+    @include tablet {
+      gap: 18px;
+    }
+  }
+}

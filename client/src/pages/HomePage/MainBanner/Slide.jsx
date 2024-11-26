@@ -1,14 +1,19 @@
 import Button from '@UI/Button/Button';
 import cl from './index.module.scss';
-import Heading from '@components/UI/Heading/Heading';
+import Heading from '@components/UI/Texts/Heading/Heading';
+import AccentText from '@components/UI/Texts/AccentText/AccentText';
 
 const Slide = ({ labelText, title, slideClassName }) => {
   return (
     <div className={`${cl.slide} ${cl[slideClassName]}`}>
-      <section>
-        <div className={cl.label}>{labelText}</div>
-        <Heading type="h1">{title}</Heading>
-        <Button variant="banner">Додати до кошику</Button>
+      <section className={cl.mainSection}>
+        <div className={cl.label}>
+          <AccentText>{labelText}</AccentText>
+        </div>
+        <div className={cl.bottomWrapper}>
+          <Heading type="h1">{title}</Heading>
+          <Button variant="banner">Додати до кошику</Button>
+        </div>
       </section>
     </div>
   );

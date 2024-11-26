@@ -1,5 +1,6 @@
 import cl from './index.module.scss';
-import Heading from '@components/UI/Heading/Heading';
+import Heading from '@components/UI/Texts/Heading/Heading';
+import LabelText from '@components/UI/Texts/LabelText/LabelText';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const Catalog = () => {
@@ -11,27 +12,39 @@ const Catalog = () => {
       <section>
         <figure>
           <img src="/images/catalog/1.png" alt="" />
-          <figcaption>{getTranslation('normalHair')}</figcaption>
+          <figcaption>
+            <LabelText>{getTranslation('normalHair')}</LabelText>
+          </figcaption>
         </figure>
         <figure>
           <img src="/images/catalog/2.png" alt="" />
-          <figcaption>{getTranslation('coloredHair')}</figcaption>
+          <figcaption>
+            <LabelText>{getTranslation('coloredHair')}</LabelText>
+          </figcaption>
         </figure>
         <figure>
           <img src="/images/catalog/3.png" alt="" />
-          <figcaption>{getTranslation('damagedHair')}</figcaption>
+          <figcaption>
+            <LabelText>{getTranslation('damagedHair')}</LabelText>
+          </figcaption>
         </figure>
         <figure>
           <img src="/images/catalog/4.png" alt="" />
-          <figcaption>{getTranslation('thinHair')}</figcaption>
+          <figcaption>
+            <LabelText>{getTranslation('thinHair')}</LabelText>
+          </figcaption>
         </figure>
         <figure>
           <img src="/images/catalog/5.png" alt="" />
-          <figcaption>{getTranslation('deepConditioning')}</figcaption>
+          <figcaption>
+            <LabelText>{getTranslation('deepConditioning')}</LabelText>
+          </figcaption>
         </figure>
         <figure>
           <img src="/images/catalog/6.png" alt="" />
-          <figcaption>{getTranslation('hairGrowth')}</figcaption>
+          <figcaption>
+            <LabelText>{getTranslation('hairGrowth')}</LabelText>
+          </figcaption>
         </figure>
       </section>
     </section>

@@ -1,0 +1,12 @@
+@import '@mixins';
+
+.headerLogo {
+  width: 74px;
+  height: 34px;
+  @include flex();
+
+  @include deskmin {
+    width: auto;
+    height: auto;
+  }
+}

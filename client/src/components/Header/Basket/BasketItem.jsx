@@ -3,7 +3,7 @@ import Plus from '@assets/svg/basket/Plus.jsx';
 import Minus from '@assets/svg/basket/Minus';
 import { useDispatch } from 'react-redux';
 import { addItem, removeItem, decrementItemQuantity, setItemQuantity } from '@features/cart/cartSlice.js/';
-import Heading from '@components/UI/Heading/Heading';
+import Heading from '@components/UI/Texts/Heading/Heading';
 
 const BasketItem = ({ item }) => {
   const dispatch = useDispatch();

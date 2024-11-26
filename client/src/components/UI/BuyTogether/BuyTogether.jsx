@@ -1,4 +1,4 @@
-import Heading from '../Heading/Heading';
+import Heading from '../Texts/Heading/Heading';
 import cards from './cards_of_category.json';
 import cl from './index.module.scss';
 

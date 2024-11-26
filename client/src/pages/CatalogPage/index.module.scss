@@ -14,7 +14,7 @@
 
 .wrapAside {
   display: none;
-  @include deskmim {
+  @include deskmin {
     display: block;
     padding: 0;
     margin: 0;

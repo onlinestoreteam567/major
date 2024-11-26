@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import Paragraph from '@components/UI/Paragraph/Paragraph';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 
 export default function Description({ card }) {
   const [activeText, setActiveText] = useState('description');

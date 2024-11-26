@@ -1,0 +1,18 @@
+@import '@mixins';
+
+.ulNavigation {
+  @include flex(row, space-between, null);
+  gap: 18px;
+
+  @include tablet {
+    margin-left: 37px;
+  }
+
+  @include deskmin {
+    @include flexGap(18px, column);
+  }
+
+  section {
+    @include flexGap(24px, column);
+  }
+}

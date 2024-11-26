@@ -1,0 +1,11 @@
+@import '@mixins';
+
+.accentText {
+  @include tablet {
+    font-family: $font-main;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-base;
+    line-height: $line-height-base;
+    letter-spacing: $letter-spacing-base;
+  }
+}

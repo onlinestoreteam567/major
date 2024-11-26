@@ -1,4 +1,4 @@
-import Heading from '../Heading/Heading';
+import Heading from '../Texts/Heading/Heading';
 import cl from './index.module.scss';
 
 export default function ReviewsTitle() {

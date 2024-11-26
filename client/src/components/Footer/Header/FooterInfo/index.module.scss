@@ -1,0 +1,57 @@
+@import '@mixins';
+
+.footerInfo {
+  @include flex(row, space-between, null);
+  margin-bottom: 32px;
+  gap: 37px;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 36px;
+    justify-content: unset;
+    margin-bottom: 0;
+    margin-left: 25%;
+  }
+
+  h3 {
+    font-family: $font-main;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    letter-spacing: $letter-spacing-small;
+    line-height: 21.76px;
+
+    @include deskmin {
+      font-family: $font-main;
+      font-size: $font-size-medium;
+      line-height: $line-height-base;
+    }
+  }
+
+  ul {
+    @include flexGap(16px, column);
+    margin-top: 24px;
+
+    @include tablet {
+      margin-top: unset;
+      position: relative;
+    }
+
+    section {
+      @include flexGap(8px, column);
+    }
+
+    img {
+      @include tablet {
+        height: 24px;
+        width: 24px;
+        position: absolute;
+        left: -35px;
+      }
+    }
+  }
+}
+
+.titleWithIcon {
+  @include flexGap(16px);
+  user-select: none;
+}

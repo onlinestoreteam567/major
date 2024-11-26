@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
+import cl from './index.module.scss';
 
-const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
+const PhoneNumberInput = ({ setValue }) => {
+  const [inputsValue, setInputsValue] = useState('+38 (0__)  __ __ ___');
   const input = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
+
+  useEffect(() => {
+    setValue('phone', inputsValue);
+  }, [inputsValue, setValue]);
   const handleInputChange = (e) => {
     const phoneNumberValue = e.target.value;
 
@@ -19,7 +25,7 @@ const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
     const isValidNumber = /^[\d ()+_]*$/.test(phoneNumberValue);
 
     if (isValidNumber) {
-      setInputsValue({ ...inputsValue, phone: cleanedPhoneNumber });
+      setInputsValue(cleanedPhoneNumber);
     }
   };
 
@@ -35,20 +41,26 @@ const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
     const keyboardButton = e.key;
 
     // Replace last digit with underscore
-    const cleanedPhoneNumber = inputsValue.phone.replace(/\d(?=[^0-9]*$)/, '_');
+    const cleanedPhoneNumber = inputsValue.replace(/\d(?=[^0-9]*$)/, '_');
 
     if (keyboardButton === 'Backspace') {
       e.preventDefault();
 
-      if (inputsValue.phone === '+38 (0__)  __ __ ___') {
+      if (inputsValue === '+38 (0__)  __ __ ___') {
         return;
       }
 
-      setInputsValue({ ...inputsValue, phone: cleanedPhoneNumber });
+      setInputsValue(cleanedPhoneNumber);
     }
   };
 
   const handleInputCursorPosition = (e) => {
+    // Prevent user selection when input is not focused
+    if (!isFocused) {
+      e.preventDefault();
+      input.current.focus();
+    }
+
     if (document.activeElement !== e.target) {
       // If the input is not already focused, allow the focus
       return;
@@ -73,14 +85,14 @@ const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
         input.current.setSelectionRange(firstUnderscoreIndex + 1, firstUnderscoreIndex + 1);
       }
     }
-  }, [isFocused, inputsValue.phone]);
+  }, [isFocused, inputsValue]);
 
   return (
     <input
       id="phone"
       type="text"
-      placeholder="+38 (0__) __ __ ___"
-      value={inputsValue.phone}
+      placeholder={inputsValue}
+      value={inputsValue}
       autoComplete="tel"
       ref={input}
       onChange={handleInputChange}
@@ -91,7 +103,7 @@ const PhoneNumberInput = ({ inputsValue, setInputsValue }) => {
         handleKeyDown(e);
       }}
       onMouseDown={handleInputCursorPosition}
-      required
+      className={cl.input}
     />
   );
 };

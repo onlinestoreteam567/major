@@ -22,7 +22,7 @@
     height: 28px;
     font-size: $font-size-base;
   }
-  @include deskmim {
+  @include deskmin {
     top: 16px;
     width: 58px;
     height: 40px;
@@ -62,7 +62,7 @@
       display: none;
     }
   }
-  @include deskmim {
+  @include deskmin {
     top: 16px;
     height: 40px;
     .withoutWord {

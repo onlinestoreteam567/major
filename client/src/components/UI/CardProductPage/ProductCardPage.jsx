@@ -6,7 +6,7 @@ import Description from '../CardProduct/Descript/Description';
 import ReviewsTitle from '../UserReviews/ReviewsTitle';
 import ListReviewsCard from '../UserReviews/ListReviewsCard';
 import BuyTogether from '../BuyTogether/BuyTogether';
-import Heading from '../Heading/Heading';
+import Heading from '../Texts/Heading/Heading';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
 
 export default function ProductCardPage() {

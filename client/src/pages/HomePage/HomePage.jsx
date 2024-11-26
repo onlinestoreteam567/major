@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom';
 import BestSellers from './BestSellers/BestSellers';
 import Catalog from './Catalog/Catalog';
 import CheaperTogether from './CheaperTogether/CheaperTogether';

@@ -1,0 +1,52 @@
+@import '@mixins';
+
+.partnerInfo {
+  @include flex(column, space-between, start);
+  gap: 16px;
+  padding: 20px 50px;
+  height: 394px;
+  width: 318px;
+  box-sizing: border-box;
+  background: #000000cc;
+  position: absolute;
+  top: 120px;
+  right: 4%;
+  animation: showInformationAboutPartners 0.5s;
+
+  @include deskmin {
+    height: 68vh;
+    width: 388px;
+    padding: 10vh 50px 10vh 40px;
+    gap: 32px;
+  }
+
+  .workScheduleSection {
+    @include flexGap(8px, column);
+  }
+
+  h2,
+  h3,
+  h4 {
+    color: white;
+  }
+
+  button {
+    min-height: 56px;
+    transition: 0.5s ease-out;
+    border: 2px solid $text-color-light;
+    color: $text-color-light;
+    transition: 300ms ease-out;
+
+    &:hover {
+      background-color: $background-color-light;
+      color: $text-color-black;
+      border: none;
+
+      a {
+        h3 {
+          color: $text-color-black;
+        }
+      }
+    }
+  }
+}

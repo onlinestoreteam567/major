@@ -1,3 +1,4 @@
+import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 
 export default function Title({ card }) {
