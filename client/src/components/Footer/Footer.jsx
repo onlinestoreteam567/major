@@ -1,17 +1,12 @@
-import BottomSection from './BottomSection';
-import cl from './index.module.scss';
-import LeftSection from './LeftSection';
-import Navigation from './Navigation';
-import RightSection from './RightSection';
+import CopyrightSection from '@components/Footer/CopyrightSection/CopyrightSection';
+import Header from '@components/Footer/Header/Header';
+import './index.module.scss';
+
 const Footer = () => {
   return (
     <footer>
-      <section className={cl.topSection}>
-        <LeftSection />
-        <Navigation />
-        <RightSection />
-      </section>
-      <BottomSection />
+      <Header />
+      <CopyrightSection />
     </footer>
   );
 };

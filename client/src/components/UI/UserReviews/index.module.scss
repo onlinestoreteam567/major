@@ -1,10 +1,5 @@
 @import '@mixins';
 
-$mobile: 380px;
-$tablet: 768px;
-$deskmin: 1024px;
-$deskmax: 1440px;
-
 .wrapListReviewsCard {
   @include flexGap(32px, column);
   width: 356px;
@@ -14,11 +9,17 @@ $deskmax: 1440px;
     @include flexGap(32px, column);
     justify-content: flex-start;
   }
-  @media only screen and (min-width: $tablet) {
-    width: 696px;
+  @include tablet {
+    width: 720px;
     ul {
       gap: 16px;
     }
+  }
+  @include deskmin {
+    width: 960px;
+  }
+  @include deskmax {
+    width: 1296px;
   }
 }
 .wrapReviewsCard {
@@ -27,27 +28,22 @@ $deskmax: 1440px;
   width: 356px;
   border-top: 2px solid rgb(162, 162, 162);
   padding: 24px 0px;
-  @media only screen and (min-width: $tablet) {
-    width: 696px;
+  @include tablet {
+    width: 720px;
     height: 194px;
     padding: 16px 0;
+  }
+  @include deskmin {
+    width: 960px;
+    height: 168px;
+  }
+  @include deskmax {
+    width: 1296px;
   }
 }
 
 .wrapTitleRating {
-  @include flex(row, center, center);
-  h3 {
-    color: rgb(0, 0, 0);
-    font-family: $font-main;
-    font-size: 20px;
-    font-weight: $font-weight-medium;
-    line-height: 1.22;
-  }
-  @media only screen and (min-width: $tablet) {
-    font-size: $font-size-base;
-    line-height: 1.36;
-    letter-spacing: 1.28px;
-  }
+  @include flex(row, flex-start, center);
 }
 .wrapRating {
   @include flex(row, flex-start, center);
@@ -67,16 +63,6 @@ $deskmax: 1440px;
 .wrapUser {
   @include flex(row, space-between, center);
   width: 100%;
-  h6 {
-    @include flex(row, flex-start, center);
-    color: $header-link-hover-color;
-    font-family: $font-main;
-    font-size: $font-size-medium;
-    font-weight: $font-weight-medium;
-    line-height: 1.22;
-    padding: 0;
-    margin: 0;
-  }
   p {
     @include flex(row, flex-end, center);
     color: rgb(162, 162, 162);
@@ -95,11 +81,11 @@ $deskmax: 1440px;
     font-family: $font-second;
     font-size: $font-size-base;
     font-weight: $font-weight-base;
-    line-height: 1.36;
+    line-height: 1.24;
   }
-  @media only screen and (min-width: $tablet) {
+  @include tablet {
     p {
-      height: 112px;
+      height: 116px;
       overflow-y: auto;
       &::-webkit-scrollbar {
         width: 4px;
@@ -115,17 +101,34 @@ $deskmax: 1440px;
       }
     }
   }
+  @include deskmin {
+    p {
+      height: 80px;
+    }
+  }
 }
 .wrapReviewBtn {
   @include flex(row, center, center);
   gap: 12px;
-  .wrapBtnArrow {
+  button {
     @include flex(row, center, center);
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background: rgb(248, 248, 249);
-    border: rgb(248, 248, 249);
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
     cursor: pointer;
+    &:hover {
+      svg {
+        @include flex(row, center, center);
+        rect {
+          fill: rgb(34, 33, 31);
+          transition: fill 0.5s ease;
+        }
+        path {
+          stroke: #ffffff;
+          transition: stroke 0.5s ease;
+        }
+      }
+    }
   }
 }

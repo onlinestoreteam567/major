@@ -15,10 +15,10 @@ export default function ListReviewsCard() {
         ))}
       </ul>
       <div className={cl.wrapReviewBtn}>
-        <button type="button" className={cl.wrapBtnArrow}>
+        <button type="button">
           <ArrowLeft />
         </button>
-        <button type="button" className={cl.wrapBtnArrow}>
+        <button type="button">
           <ArrowRight />
         </button>
       </div>

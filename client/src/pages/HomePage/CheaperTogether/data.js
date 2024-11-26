@@ -1,15 +1,6 @@
-import firstSlideImage from '@png/banners/bestSellersBanner/1.png';
-import secondSlideImage from '@png/banners/bestSellersBanner/2.png';
-import thirdSlideImage from '@png/banners/bestSellersBanner/3.png';
-import fourthSlideImage from '@png/banners/bestSellersBanner/4.png';
-import fivethSlideImage from '@png/banners/bestSellersBanner/5.png';
-import sixthSlideImage from '@png/banners/bestSellersBanner/6.png';
-import seventhSlideImage from '@png/banners/bestSellersBanner/7.png';
-import eighthSlideImage from '@png/banners/bestSellersBanner/8.png';
-
 const data = [
   {
-    imgSrc: firstSlideImage,
+    imgSrc: '/images/banners/bestSellersBanner/1.png',
     imgAlt: 'First best seller image',
     feedbackAmount: '1',
     stars: 1,
@@ -17,7 +8,7 @@ const data = [
     title: 'І тут теж назви, але інші',
   },
   {
-    imgSrc: secondSlideImage,
+    imgSrc: '/images/banners/bestSellersBanner/2.png',
     imgAlt: 'Second best seller image',
     feedbackAmount: '1',
     stars: 2,
@@ -25,7 +16,7 @@ const data = [
     title: 'Дууууууууууууууууууже велика назва',
   },
   {
-    imgSrc: thirdSlideImage,
+    imgSrc: '/images/banners/bestSellersBanner/3.png',
     imgAlt: 'Third best seller image',
     feedbackAmount: '1',
     stars: 3,
@@ -33,7 +24,7 @@ const data = [
     title: 'Назва',
   },
   {
-    imgSrc: fourthSlideImage,
+    imgSrc: '/images/banners/bestSellersBanner/4.png',
     imgAlt: 'Fourth best seller image',
     feedbackAmount: '5',
     stars: 4,
@@ -41,7 +32,7 @@ const data = [
     title: 'Назва',
   },
   {
-    imgSrc: fivethSlideImage,
+    imgSrc: '/images/banners/bestSellersBanner/5.png',
     imgAlt: 'Fiveth best seller image',
     feedbackAmount: '5',
     stars: 5,
@@ -49,7 +40,7 @@ const data = [
     title: 'Назва',
   },
   {
-    imgSrc: sixthSlideImage,
+    imgSrc: '/images/banners/bestSellersBanner/6.png',
     imgAlt: 'Sixth best seller image',
     feedbackAmount: '5',
     percent: '10%',
@@ -57,7 +48,7 @@ const data = [
     stars: '5',
   },
   {
-    imgSrc: seventhSlideImage,
+    imgSrc: '/images/banners/bestSellersBanner/7.png',
     imgAlt: 'Seventh best seller image',
     feedbackAmount: '5',
     percent: '10%',
@@ -65,7 +56,7 @@ const data = [
     stars: '5',
   },
   {
-    imgSrc: eighthSlideImage,
+    imgSrc: '/images/banners/bestSellersBanner/8.png',
     imgAlt: 'Eighth best seller image',
     feedbackAmount: '5',
     percent: '10%',

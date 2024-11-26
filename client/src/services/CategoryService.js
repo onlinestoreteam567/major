@@ -16,7 +16,8 @@ const ProductService = {
       if (!categoryName) {
         throw new Error('Invalid category data');
       }
-      await apiClient.post(`/products/product_purpose_categories`, { name: categoryName });
+      const response = await apiClient.post(`/products/product_purpose_categories/`, { name: categoryName });
+      return response;
     } catch (error) {
       handleApiError(error);
     }

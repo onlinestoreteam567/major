@@ -54,6 +54,14 @@
     }
   }
 
+  button {
+    h3 {
+      font-family: $font-main;
+      font-size: $font-size-medium;
+      font-weight: $font-weight-medium;
+      line-height: 1.22;
+    }
+  }
   .space {
     width: 100%;
     height: 56px;

@@ -1,11 +1,6 @@
 import cl from './index.module.scss';
-import png1 from '@assets/png/catalog/1.png';
-import png2 from '@assets/png/catalog/2.png';
-import png3 from '@assets/png/catalog/3.png';
-import png4 from '@assets/png/catalog/4.png';
-import png5 from '@assets/png/catalog/5.png';
-import png6 from '@assets/png/catalog/6.png';
-import Heading from '@components/UI/Heading/Heading';
+import Heading from '@components/UI/Texts/Heading/Heading';
+import LabelText from '@components/UI/Texts/LabelText/LabelText';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const Catalog = () => {
@@ -16,28 +11,40 @@ const Catalog = () => {
       <Heading type="h2">{getTranslation('catalog')}</Heading>
       <section>
         <figure>
-          <img src={png1} alt="" />
-          <figcaption>{getTranslation('normalHair')}</figcaption>
+          <img src="/images/catalog/1.png" alt="" />
+          <figcaption>
+            <LabelText>{getTranslation('normalHair')}</LabelText>
+          </figcaption>
         </figure>
         <figure>
-          <img src={png2} alt="" />
-          <figcaption>{getTranslation('coloredHair')}</figcaption>
+          <img src="/images/catalog/2.png" alt="" />
+          <figcaption>
+            <LabelText>{getTranslation('coloredHair')}</LabelText>
+          </figcaption>
         </figure>
         <figure>
-          <img src={png3} alt="" />
-          <figcaption>{getTranslation('damagedHair')}</figcaption>
+          <img src="/images/catalog/3.png" alt="" />
+          <figcaption>
+            <LabelText>{getTranslation('damagedHair')}</LabelText>
+          </figcaption>
         </figure>
         <figure>
-          <img src={png4} alt="" />
-          <figcaption>{getTranslation('thinHair')}</figcaption>
+          <img src="/images/catalog/4.png" alt="" />
+          <figcaption>
+            <LabelText>{getTranslation('thinHair')}</LabelText>
+          </figcaption>
         </figure>
         <figure>
-          <img src={png5} alt="" />
-          <figcaption>{getTranslation('deepConditioning')}</figcaption>
+          <img src="/images/catalog/5.png" alt="" />
+          <figcaption>
+            <LabelText>{getTranslation('deepConditioning')}</LabelText>
+          </figcaption>
         </figure>
         <figure>
-          <img src={png6} alt="" />
-          <figcaption>{getTranslation('hairGrowth')}</figcaption>
+          <img src="/images/catalog/6.png" alt="" />
+          <figcaption>
+            <LabelText>{getTranslation('hairGrowth')}</LabelText>
+          </figcaption>
         </figure>
       </section>
     </section>

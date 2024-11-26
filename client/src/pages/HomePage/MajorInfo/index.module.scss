@@ -3,12 +3,29 @@
 .majorInfoWrapper {
   margin-top: 100px;
   color: black;
+  padding-right: 4vw;
+
+  h2 {
+    text-align: center;
+    text-wrap: balance;
+    margin-bottom: 64px;
+  }
 
   figure {
-    @include flex();
+    @include tablet {
+      @include flex();
+    }
 
     img {
-      @include deskmim {
+      width: 375px;
+      height: 304px;
+      border-radius: 2px 8px 8px 2px;
+
+      @include tablet {
+        height: 379px;
+      }
+
+      @include deskmin {
         height: 345px;
         width: 420px;
       }
@@ -16,20 +33,15 @@
 
     figcaption {
       @include flexGap(24px, column);
+      margin-top: 32px;
+      padding: 0 5%;
       box-sizing: border-box;
-      padding: 0 4% 0 9%;
 
-      p {
-        font-family: $font-second;
-        font-size: 20px;
-        font-weight: $font-weight-base;
-        line-height: 27.2px;
-        text-align: justify;
-        color: #22211f;
+      @include deskmin {
+        padding-left: 9%;
       }
 
       div {
-        width: fit-content;
         @include flex(row, end);
       }
     }

@@ -19,8 +19,13 @@ export default defineConfig({
       '@services': path.resolve('/src/services'),
       '@styles': path.resolve('/src/styles'),
       '@utils': path.resolve('/src/utils'),
+      '@validations': path.resolve('/src/validations'),
       '@mixins': path.resolve('/src/styles/mixins.scss'),
     },
   },
   plugins: [react()],
+  build: {
+    assetsInlineLimit: 0,
+    outDir: 'dist',
+  },
 });

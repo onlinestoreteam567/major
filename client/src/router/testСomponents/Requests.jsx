@@ -5,7 +5,7 @@ const Requests = () => {
     ProductService.getCategory().then((res) => console.log(res));
   };
   const handleOnCreateCategory = () => {
-    ProductService.createCategory('Test');
+    ProductService.createCategory('frontend test').then((res) => console.log(res));
   };
   return (
     <div>

@@ -5,34 +5,58 @@
   box-sizing: border-box;
   padding: 0 5vw;
 
+  h2 {
+    text-align: center;
+  }
+
   .figuresWrapper {
     @include flex(column, center, center);
+    gap: 16px;
     margin-top: 76px;
-    gap: 96px;
+
+    @include tablet {
+      @include flex(row, center, center);
+    }
+
+    @include deskmin {
+      gap: 96px;
+    }
 
     section {
-      @include flex(row, space-around, center);
-      width: 100%;
+      @include flexGap(16px, column);
+
+      @include deskmin {
+        @include flex(row, space-around, center);
+        width: 100%;
+      }
+
       figure {
-        display: flex;
-        @include flex();
-        gap: 10px;
+        @include flex(column);
+        gap: 16px;
 
         img {
           object-fit: cover;
-          width: 112px;
-          height: 112px;
+          height: 80px;
+          width: 80px;
 
-          @include deskmim {
+          @include tablet {
             height: 90px;
             width: 90px;
+          }
+
+          @include deskmax {
+            width: 112px;
+            height: 112px;
           }
         }
 
         figcaption {
+          @include flex(column);
+          gap: 16px;
           max-width: 338px;
           color: $text-color-black;
           text-wrap: balance;
+          text-align: center;
 
           p {
             width: 90%;

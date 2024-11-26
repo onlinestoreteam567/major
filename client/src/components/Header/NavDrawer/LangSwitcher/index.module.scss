@@ -1,0 +1,6 @@
+@import '@mixins';
+
+.langSwitcher {
+  @include flex(row, center, center);
+  gap: 8px;
+}

@@ -1,10 +1,6 @@
 import cl from './index.module.scss';
-import discountIcon from '@assets/png/whyChooseUs/discount.png';
-import fastDeliveryIcon from '@assets/png/whyChooseUs/fastDelivery.png';
-import qualityIcon from '@assets/png/whyChooseUs/quality.png';
-import thumbUpIcon from '@assets/png/whyChooseUs/thumbUp.png';
-import Heading from '@components/UI/Heading/Heading';
-import Paragraph from '@components/UI/Paragraph/Paragraph';
+import Heading from '@components/UI/Texts/Heading/Heading';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const WhyChooseUs = () => {
   const { getTranslation } = useTranslationNamespace('whyChooseUs');
@@ -14,33 +10,33 @@ const WhyChooseUs = () => {
       <section className={cl.figuresWrapper}>
         <section>
           <figure>
-            <img src={discountIcon} alt={getTranslation('firstAlt')} />
+            <img src="/images/whyChooseUs/discount.png" alt={getTranslation('firstAlt')} />
             <figcaption>
               <Heading type="h3">{getTranslation('firstTitle')}</Heading>
-              <Paragraph>{getTranslation('firstParagraph')}</Paragraph>
+              <Paragraph type="body2">{getTranslation('firstParagraph')}</Paragraph>
             </figcaption>
           </figure>
           <figure>
-            <img src={fastDeliveryIcon} alt={getTranslation('secondAlt')} />
+            <img src="/images/whyChooseUs/fastDelivery.png" alt={getTranslation('secondAlt')} />
             <figcaption>
               <Heading type="h3">{getTranslation('secondTitle')}</Heading>
-              <Paragraph>{getTranslation('secondParagraph')}</Paragraph>
+              <Paragraph type="body2">{getTranslation('secondParagraph')}</Paragraph>
             </figcaption>
           </figure>
         </section>
         <section>
           <figure>
-            <img src={qualityIcon} alt={getTranslation('thirdAlt')} />
+            <img src="/images/whyChooseUs/quality.png" alt={getTranslation('thirdAlt')} />
             <figcaption>
               <Heading type="h3">{getTranslation('thirdTitle')}</Heading>
-              <Paragraph>{getTranslation('thirdParagraph')}</Paragraph>
+              <Paragraph type="body2">{getTranslation('thirdParagraph')}</Paragraph>
             </figcaption>
           </figure>
           <figure>
-            <img src={thumbUpIcon} alt={getTranslation('fourthAlt')} />
+            <img src={'/images/whyChooseUs/thumbUp.png'} alt={getTranslation('fourthAlt')} />
             <figcaption>
               <Heading type="h3">{getTranslation('fourthTitle')}</Heading>
-              <Paragraph>{getTranslation('fourthParagraph')}</Paragraph>
+              <Paragraph type="body2">{getTranslation('fourthParagraph')}</Paragraph>
             </figcaption>
           </figure>
         </section>

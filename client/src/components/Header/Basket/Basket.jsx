@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import Overlay from '@UI/Overlay/Overlay';
 import cl from './index.module.scss';
-import crossIcon from '@assets/svg/crossIcon.svg';
 import { useState, useEffect } from 'react';
 import BasketItem from './BasketItem';
-import hryvniaIcon from '@assets/svg/hryvnia.svg';
 import { useSelector } from 'react-redux';
-import Heading from '@components/UI/Heading/Heading';
+import Heading from '@components/UI/Texts/Heading/Heading';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
+import Button from '@components/UI/Button/Button';
 
 const Basket = ({ setIsShowBasket }) => {
   const [hiddenBasket, setHiddenBasket] = useState(false);
@@ -41,15 +41,19 @@ const Basket = ({ setIsShowBasket }) => {
         <section className={cl.basketHeaderSection}>
           <Heading type="h2">Кошик</Heading>
 
-          <img onClick={handleCloseBasket} src={crossIcon} alt="Закрити" />
+          <img onClick={handleCloseBasket} src="/svg/crossIcon.svg" alt="Закрити" />
         </section>
 
         {isEmptyBasket ? (
           <>
-            <p className={cl.emptyBasketText}>У вашому кошику зараз немає товарів</p>
-            <button className={cl.continueShoppingButton} onClick={handleCloseBasket}>
-              Продовжити покупки
-            </button>
+            <div className={cl.emptyBasketText}>
+              <Paragraph type="body1">У вашому кошику зараз немає товарів</Paragraph>
+            </div>
+            <div className={cl.emptyBasketButtonWrapper}>
+              <Button variant="secondary" onClick={handleCloseBasket}>
+                Продовжити покупки
+              </Button>
+            </div>
           </>
         ) : (
           <>
@@ -66,7 +70,7 @@ const Basket = ({ setIsShowBasket }) => {
               <Heading type="h3">
                 <span>Загалом</span>
                 <span>
-                  {totalPrice} <img src={hryvniaIcon} alt="" className={cl.hryvniaIcon} />
+                  {totalPrice} <img src="/svg/hryvnia.svg" alt="" className={cl.hryvniaIcon} />
                 </span>
               </Heading>
             </section>

@@ -1,9 +1,20 @@
 @import '@mixins';
 
 @mixin slide() {
-  @include flex(column, center, start);
-  gap: 4vh;
-  padding-left: 5vw;
+  @include flex(column, space-between, start);
+  padding: 15vh 5vw 5vh 5vw;
+
+  @include tablet {
+    @include flex(column, center, start);
+    padding: 0 5vw;
+    gap: 8vh;
+  }
+
+  @include deskmax {
+    @include flex(column, center, start);
+    gap: 4vh;
+    padding-left: 5vw;
+  }
 }
 
 .slide {
@@ -12,32 +23,20 @@
   background-repeat: no-repeat;
 
   section {
+    height: 100%;
+
     .label {
-      font-family: $font-main;
       width: fit-content;
-      font-size: 24px;
-      font-weight: $font-weight-base;
-      line-height: 33.6px;
-      letter-spacing: $letter-spacing-base;
       padding: 10px 20px 10px 20px;
       border-radius: 4px;
       box-sizing: border-box;
     }
 
-    h1 {
-      font-family: $font-main;
-      font-size: $font-size-xlarge;
-      font-weight: $font-weight-base;
-      line-height: 60.48px;
-      color: $background-color-black;
-      max-width: 40vw;
-    }
+    .bottomWrapper {
+      @include flexGap(16px, column);
 
-    button {
-      width: 330px;
-
-      @include deskmim {
-        width: 275px;
+      @include tablet {
+        @include flexGap(8vh, column);
       }
     }
   }
@@ -45,20 +44,9 @@
 
 .firstSlide {
   @include flex(column, center, start);
-  background-image: url('../../../assets/png/banners/mainBanner/MainBannerFirstImage.png');
+  background-image: url('/images/banners/mainBanner/1.png');
   background-attachment: fixed;
-
-  @include deskmim {
-    background-position: 30%;
-  }
-
-  @include tablet {
-    background-position: 55%;
-  }
-
-  @include mobile {
-    background-position: 73%;
-  }
+  background-position: 73%;
 
   section {
     @include slide();
@@ -76,11 +64,11 @@
 .secondSlide {
   @include flex(column, center, end);
 
-  background-image: url('../../../assets/png/banners/mainBanner/MainBannerSecondImage.png');
+  background-image: url('/images/banners/mainBanner/2.png');
 
   section {
-    @include slide();
     padding-right: 5vw;
+    @include slide();
 
     .label {
       color: #0b7729;
@@ -94,7 +82,7 @@
 }
 .thirdSlide {
   @include flex(column, center, start);
-  background-image: url('../../../assets/png/banners/mainBanner/3.png');
+  background-image: url('/images/banners/mainBanner/3.png');
 
   section {
     @include slide();

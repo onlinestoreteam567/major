@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import MapWithPoints from './MapWithPoints';
-import InformationAboutPartner from './InformationAboutPartner';
+import InteractiveMap from './InteractiveMap/InteractiveMap';
+import InformationAboutPartner from './PartnerInfo/PartnerInfo';
 import partnerData from './partnerData';
 import handlePointClick from './handlePointClick';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
-import Heading from '@components/UI/Heading/Heading';
+import Heading from '@components/UI/Texts/Heading/Heading';
 
 const OurPartners = () => {
   const [partnerInteractionState, setPartnerInteractionState] = useState({
@@ -29,7 +29,7 @@ const OurPartners = () => {
   return (
     <section className={`${cl.ourPartnersWrapper} ${partnerInteractionState.closeAnimation ? cl.closeAnimation : ''}`}>
       <Heading type="h2">{getTranslation('ourPartners')}</Heading>
-      <MapWithPoints
+      <InteractiveMap
         partnerData={partnerData}
         onPointClick={(className) =>
           handlePointClick(

@@ -1,0 +1,13 @@
+@import '@mixins';
+
+.topSection {
+  width: 100%;
+
+  @include tablet {
+    height: 254px;
+    display: grid;
+    grid-template-columns: min-content 1fr 1fr;
+    box-sizing: border-box;
+    gap: 37px;
+  }
+}

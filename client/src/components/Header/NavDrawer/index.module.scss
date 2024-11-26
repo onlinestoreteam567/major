@@ -1,0 +1,66 @@
+@import '@mixins';
+
+.navDrawer {
+  @include flexGap(25px, column);
+  @include absolute();
+  z-index: 11;
+  height: $height-pop-up-header-mobile;
+  width: $width-pop-up-header-width;
+  box-sizing: border-box;
+  padding: 16px 4% 16px 5%;
+  background-color: #f8f8f9;
+  animation: showNavDrawer 0.5s;
+
+  @include tablet {
+    padding: 32px 4% 128px 5%;
+    height: $height-pop-up-header-tablet;
+    max-height: 100vh;
+    overflow: scroll;
+  }
+
+  .topSection {
+    @include flex(row, space-between, center);
+    border-bottom: 2px solid #a2a2a2;
+    padding-bottom: 10px;
+
+    div {
+      @include flex(row, end, null);
+      width: 64px;
+    }
+  }
+
+  .buttonsSection {
+    @include flex(column, center, center);
+    gap: 16px;
+
+    button {
+      width: 327px;
+    }
+  }
+
+  p {
+    color: black;
+  }
+}
+
+.closeAnimation {
+  animation: closeNavDrawer 0.5s;
+}
+
+@keyframes showNavDrawer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeNavDrawer {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

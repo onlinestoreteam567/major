@@ -12,6 +12,7 @@ import CookieTest from './testСomponents/Cookie';
 
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
+import FormTest from './testСomponents/FormTest';
 import Requests from './testСomponents/Requests';
 
 // Lazy loading
@@ -53,6 +54,7 @@ const router = createBrowserRouter([
       { path: 'redux', element: <Redux /> },
       { path: 'i18next', element: <I18next /> },
       { path: 'cookie', element: <CookieTest /> },
+      { path: 'form', element: <FormTest /> },
       { path: 'requests', element: <Requests /> },
     ],
   },

@@ -1,0 +1,118 @@
+@import '@mixins';
+
+// *** ProductCardPage ***
+.cardPage {
+  @include flex(column, flex-start, center);
+  box-sizing: border-box;
+  gap: 24px;
+  width: 380px;
+  padding: 16px 12px 96px 12px;
+  height: auto;
+  margin: 0 auto;
+  @include tablet {
+    gap: 56px;
+    width: 768px;
+    padding: 48px 24px 120px 24px;
+    // padding: 48px 36px 120px 36px;
+  }
+  @include deskmin {
+    gap: 64px;
+    width: 1024px;
+    padding: 48px 32px 120px 32px;
+  }
+  @include deskmax {
+    gap: 72px;
+    width: 1440px;
+    padding: 48px 72px 120px 72px;
+  }
+}
+.wrapMobile {
+  position: relative;
+  display: block;
+  @include tablet {
+    display: none;
+  }
+}
+.wrapDesk {
+  display: none;
+  @include tablet {
+    position: relative;
+    display: block;
+  }
+}
+.topCase {
+  @include flexGap(24px, column);
+  @include tablet {
+    gap: 36px;
+  }
+  @include deskmin {
+    gap: 48px;
+  }
+  @include deskmax {
+    gap: 72px;
+  }
+}
+.wrapReviews {
+  @include flexGap(24px, column);
+  @include tablet {
+    gap: 32px;
+  }
+  @include deskmax {
+    gap: 72px;
+  }
+}
+
+// *** CardMobile  CardDesk ***
+.wrapItem {
+  @include flexGap(24px, column);
+  width: 356px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  @include tablet {
+    @include flexGap(24px, row);
+    width: 720px;
+  }
+  @include deskmin {
+    @include flexGap(24px, row);
+    width: 960px;
+  }
+  @include deskmax {
+    @include flexGap(134px, row);
+    width: 1296px;
+  }
+}
+.wrapOrder {
+  @include flex(row, space-between, center);
+}
+.rightCase {
+  @include mobile {
+    display: none;
+  }
+  @include tablet {
+    @include flexGap(0, column);
+    justify-content: space-between;
+    width: 456px;
+    height: 288px;
+    button {
+      width: 200px;
+      height: 46px;
+    }
+  }
+  @include deskmin {
+    width: 536px;
+    height: 296px;
+    button {
+      width: 220px;
+      height: 48px;
+    }
+  }
+  @include deskmax {
+    width: 638px;
+    height: 416px;
+    button {
+      width: 248px;
+      height: 56px;
+    }
+  }
+}
