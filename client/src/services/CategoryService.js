@@ -14,13 +14,13 @@ const ProductService = {
   async createCategory(categoryName) {
     try {
       if (!categoryName) {
-        throw new Error('Invalid category data'); 
+        throw new Error('Invalid category data');
       }
-      return await apiClient.post('/products/product_purpose_categories/', { name: categoryName }); 
+      return await apiClient.post('/products/product_purpose_categories/', { name: categoryName });
     } catch (error) {
-      handleApiError(error); 
+      handleApiError(error);
     }
-  }
+  },
 
   async getCategoryById(id) {
     try {
