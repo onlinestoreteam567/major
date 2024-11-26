@@ -8,7 +8,7 @@ if (!CATEGORY_ENDPOINT) {
 }
 
 const CategoryService = {
-  async getCategory() {
+  async getCategories() {
     try {
       const { data } = await apiClient.get(`${CATEGORY_ENDPOINT}/`);
       return data;
