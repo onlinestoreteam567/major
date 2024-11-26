@@ -1,5 +1,5 @@
 import cl from './index.module.scss';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 const Button = ({
   onClick,
@@ -31,13 +31,13 @@ const Button = ({
   );
 };
 
-Button.propTypes = {
-  onClick: PropTypes.func,
-  children: PropTypes.string.isRequired,
-  variant: PropTypes.string,
-  purpose: PropTypes.string,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-};
+// Button.propTypes = {
+//   onClick: PropTypes.func,
+//   children: PropTypes.string.isRequired,
+//   variant: PropTypes.string,
+//   purpose: PropTypes.string,
+//   onMouseEnter: PropTypes.func,
+//   onMouseLeave: PropTypes.func,
+// };
 
 export default Button;

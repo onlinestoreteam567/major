@@ -1,7 +1,29 @@
 @import '@mixins';
 
 .wrapTitle {
-  @include flexGap(24px, column);
+  @include flex(row, flex-start, center);
   width: 100%;
   height: auto;
+  h2 {
+    font-family: $font-main;
+    font-size: 20px;
+    font-weight: $font-weight-bold;
+    line-height: 1.24;
+    color: $text-color-black;
+  }
+  @include tablet {
+    h2 {
+      font-size: 24px;
+    }
+  }
+  @include deskmim {
+    h2 {
+      font-size: 28px;
+    }
+  }
+  @include deskmax {
+    h2 {
+      font-size: 32px;
+    }
+  }
 }

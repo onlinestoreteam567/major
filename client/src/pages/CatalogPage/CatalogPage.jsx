@@ -2,7 +2,8 @@ import BreadCrumbs from '@components/UI/BreadCrumbs/BreadCrumbs';
 import cl from './index.module.scss';
 import Aside from './Aside/Aside';
 import Top from './Top/Top';
-import Products from './Products/Products';
+// import Products from './Products/Products';
+import Container from '@components/UI/CardCatalog/Container';
 
 const Catalog = () => {
   return (
@@ -11,8 +12,12 @@ const Catalog = () => {
       <Top />
 
       <section className={cl.mainWrapper}>
-        <Aside />
-        <Products />
+        <div className={cl.wrapAside}>
+          <Aside />
+        </div>
+
+        {/* <Products /> */}
+        <Container />
       </section>
     </div>
   );

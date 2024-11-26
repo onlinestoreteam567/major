@@ -11,3 +11,12 @@
     @include flexGap(24px);
   }
 }
+
+.wrapAside {
+  display: none;
+  @include deskmim {
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+}
