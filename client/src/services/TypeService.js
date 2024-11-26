@@ -1,4 +1,4 @@
-import apiClient from '@config/apiClient'; // adjust the path as needed
+import apiClient from '@config/apiClient';
 import { handleApiError } from '@utils/handleApiError';
 
 const TYPE_ENDPOINT = import.meta.env.VITE_TYPE_ENDPOINT;

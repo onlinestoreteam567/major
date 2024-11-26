@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import TypeService from '@services/TypeService'; // Adjust the import path if needed
-import CategoryService from '@services/CategoryService'; // Adjust the import path if needed
+import TypeService from '@services/TypeService';
+import CategoryService from '@services/CategoryService';
 
 const Requests = () => {
   const [typeId, setTypeId] = useState('');

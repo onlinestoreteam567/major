@@ -1,4 +1,4 @@
-import apiClient from '@config/apiClient'; // adjust the path as needed
+import apiClient from '@config/apiClient';
 import { handleApiError } from '@utils/handleApiError';
 
 // Ensure that the API category endpoint is correctly set in the environment
