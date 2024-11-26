@@ -1,10 +1,16 @@
 import apiClient from '@config/apiClient'; // adjust the path as needed
 import { handleApiError } from '@utils/handleApiError';
 
+// Ensure that the API category endpoint is correctly set in the environment
+const CATEGORY_ENDPOINT = import.meta.env.VITE_CATEGORY_ENDPOINT;
+if (!CATEGORY_ENDPOINT) {
+  console.error('VITE_CATEGORY_ENDPOINT is not defined! Check the configuration in the .env file.');
+}
+
 const CategoryService = {
   async getCategory() {
     try {
-      const { data } = await apiClient.get(`/products/product_purpose_categories/`);
+      const { data } = await apiClient.get(`${CATEGORY_ENDPOINT}`);
       return data;
     } catch (error) {
       handleApiError(error);
@@ -12,19 +18,26 @@ const CategoryService = {
   },
 
   async createCategory(categoryName) {
+    if (!categoryName) {
+      console.error('Invalid category data');
+      throw new Error('Category name is required');
+    }
+
     try {
-      if (!categoryName) {
-        throw new Error('Invalid category data');
-      }
-      return await apiClient.post('/products/product_purpose_categories/', { name: categoryName });
+      return await apiClient.post(`${CATEGORY_ENDPOINT}`, { name: categoryName });
     } catch (error) {
       handleApiError(error);
     }
   },
 
   async getCategoryById(categoryId) {
+    if (!categoryId) {
+      console.error('Category ID is required');
+      throw new Error('Invalid category ID');
+    }
+
     try {
-      const { data } = await apiClient.get(`/products/product_purpose_categories/${categoryId}`);
+      const { data } = await apiClient.get(`${CATEGORY_ENDPOINT}/${categoryId}`);
       return data;
     } catch (error) {
       handleApiError(error); // logs and rethrows the error
@@ -32,24 +45,39 @@ const CategoryService = {
   },
 
   async updateCategoryById(categoryId, updatedCategory) {
+    if (!categoryId || !updatedCategory) {
+      console.error('Invalid category data');
+      throw new Error('Category ID and updated data are required');
+    }
+
     try {
-      await apiClient.put(`/products/product_purpose_categories/${categoryId}`, updatedCategory);
+      await apiClient.put(`${CATEGORY_ENDPOINT}/${categoryId}`, updatedCategory);
     } catch (error) {
       handleApiError(error);
     }
   },
 
   async patchCategoryById(categoryId, partialUpdate) {
+    if (!categoryId || !partialUpdate) {
+      console.error('Invalid category data');
+      throw new Error('Category ID and partial data are required');
+    }
+
     try {
-      await apiClient.put(`/products/product_purpose_categories/${categoryId}`, partialUpdate);
+      await apiClient.patch(`${CATEGORY_ENDPOINT}/${categoryId}`, partialUpdate);
     } catch (error) {
       handleApiError(error);
     }
   },
 
   async deleteCategoryById(categoryId) {
+    if (!categoryId) {
+      console.error('Category ID is required');
+      throw new Error('Invalid category ID');
+    }
+
     try {
-      await apiClient.delete(`/products/product_purpose_categories/${categoryId}`);
+      await apiClient.delete(`${CATEGORY_ENDPOINT}/${categoryId}`);
     } catch (error) {
       handleApiError(error);
     }

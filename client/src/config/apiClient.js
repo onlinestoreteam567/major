@@ -1,8 +1,14 @@
 import axios from 'axios';
 
+// Check if the environment variable is defined
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+if (!API_BASE_URL) {
+  console.error('API_BASE_URL is not defined! Check the configuration in the .env file.');
+}
+
 // Axios instance with base settings
 const apiClient = axios.create({
-  baseURL: 'https://major-rvf6.onrender.com/api/v1',
+  baseURL: API_BASE_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
