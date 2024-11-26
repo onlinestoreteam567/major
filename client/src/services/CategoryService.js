@@ -1,7 +1,7 @@
 import apiClient from '@config/apiClient'; // adjust the path as needed
 import { handleApiError } from '@utils/handleApiError';
 
-const ProductService = {
+const CategoryService = {
   async getCategory() {
     try {
       const { data } = await apiClient.get(`/products/product_purpose_categories/`);
@@ -22,23 +22,38 @@ const ProductService = {
     }
   },
 
-  async getCategoryById(id) {
+  async getCategoryById(categoryId) {
     try {
-      const { data } = await apiClient.get(`/products/product_purpose_categories/${id}`);
+      const { data } = await apiClient.get(`/products/product_purpose_categories/${categoryId}`);
       return data;
     } catch (error) {
       handleApiError(error); // logs and rethrows the error
     }
   },
 
-  async updateCategoryById(id, categoryData) {
+  async updateCategoryById(categoryId, updatedCategory) {
     try {
-      const { data } = await apiClient.put(`/products/product_purpose_categories/${id}`, categoryData);
-      return data;
+      await apiClient.put(`/products/product_purpose_categories/${categoryId}`, updatedCategory);
+    } catch (error) {
+      handleApiError(error);
+    }
+  },
+
+  async patchCategoryById(categoryId, partialUpdate) {
+    try {
+      await apiClient.put(`/products/product_purpose_categories/${categoryId}`, partialUpdate);
+    } catch (error) {
+      handleApiError(error);
+    }
+  },
+
+  async deleteCategoryById(categoryId) {
+    try {
+      await apiClient.delete(`/products/product_purpose_categories/${categoryId}`);
     } catch (error) {
       handleApiError(error);
     }
   },
 };
 
-export default ProductService;
+export default CategoryService;
