@@ -46,7 +46,7 @@ const Requests = () => {
   };
 
   // Category Service Methods
-  const handleOnGetCategory = () => {
+  const handleOnGetCategories = () => {
     CategoryService.getCategory().then((res) => {
       console.log('Fetched Category:', res);
     });
@@ -122,7 +122,7 @@ const Requests = () => {
 
       {/* Buttons for CategoryService */}
       <div>
-        <button onClick={handleOnGetCategory}>Fetch Category</button>
+        <button onClick={handleOnGetCategories}>Fetch Category</button>
         <button onClick={handleOnCreateCategory}>Create Category</button>
         <button onClick={handleOnGetCategoryById}>Get Category by ID</button>
         <button onClick={handleOnUpdateCategoryById}>Update Category by ID</button>
