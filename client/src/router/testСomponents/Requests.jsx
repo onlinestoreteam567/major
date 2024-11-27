@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import TypeService from '@services/TypeService';
 import CategoryService from '@services/CategoryService';
+import UserService from '@services/UserService'; // Assuming you have a UserService
 
 const Requests = () => {
   const [typeId, setTypeId] = useState('');
   const [typeName, setTypeName] = useState('');
   const [categoryId, setCategoryId] = useState('');
   const [categoryName, setCategoryName] = useState('');
+  const [userId, setUserId] = useState('');
+  const [userName, setUserName] = useState('');
 
   // Type Service Methods
   const handleOnGetTypes = () => {
@@ -47,7 +50,7 @@ const Requests = () => {
 
   // Category Service Methods
   const handleOnGetCategories = () => {
-    CategoryService.getCategory().then((res) => {
+    CategoryService.getCategories().then((res) => {
       console.log('Fetched Category:', res);
     });
   };
@@ -82,9 +85,46 @@ const Requests = () => {
     });
   };
 
+  // User Service Methods (new section)
+  const handleOnGetUsers = () => {
+    UserService.getUsers().then((res) => {
+      console.log('Fetched Users:', res);
+    });
+  };
+
+  const handleOnCreateUser = () => {
+    UserService.createUser(userName).then((res) => {
+      console.log('Created User:', res);
+    });
+  };
+
+  const handleOnGetUserById = () => {
+    UserService.getUserById(userId).then((res) => {
+      console.log('Fetched User by ID:', res);
+    });
+  };
+
+  const handleOnUpdateUserById = () => {
+    UserService.updateUserById(userId, { name: userName }).then((res) => {
+      console.log('Updated User:', res);
+    });
+  };
+
+  const handleOnPatchUserById = () => {
+    UserService.patchUserById(userId, { name: userName }).then((res) => {
+      console.log('Patched User:', res);
+    });
+  };
+
+  const handleOnDeleteUserById = () => {
+    UserService.deleteUserById(userId).then((res) => {
+      console.log('Deleted User:', res);
+    });
+  };
+
   return (
     <div>
-      <h1>Test Type & Category API Requests</h1>
+      <h1>Test Type, Category & User API Requests</h1>
 
       {/* Inputs for testing TypeService */}
       <div>
@@ -128,6 +168,24 @@ const Requests = () => {
         <button onClick={handleOnUpdateCategoryById}>Update Category by ID</button>
         <button onClick={handleOnPatchCategoryById}>Patch Category by ID</button>
         <button onClick={handleOnDeleteCategoryById}>Delete Category by ID</button>
+      </div>
+
+      <hr />
+
+      {/* Inputs for testing UserService */}
+      <div>
+        <input type="text" placeholder="User ID" value={userId} onChange={(e) => setUserId(e.target.value)} />
+        <input type="text" placeholder="User Name" value={userName} onChange={(e) => setUserName(e.target.value)} />
+      </div>
+
+      {/* Buttons for UserService */}
+      <div>
+        <button onClick={handleOnGetUsers}>Fetch Users</button>
+        <button onClick={handleOnCreateUser}>Create User</button>
+        <button onClick={handleOnGetUserById}>Get User by ID</button>
+        <button onClick={handleOnUpdateUserById}>Update User by ID</button>
+        <button onClick={handleOnPatchUserById}>Patch User by ID</button>
+        <button onClick={handleOnDeleteUserById}>Delete User by ID</button>
       </div>
     </div>
   );
