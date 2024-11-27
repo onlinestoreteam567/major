@@ -1,23 +1,26 @@
 import cl from './index.module.scss';
 import PropTypes from 'prop-types';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import PhoneNumberInput from '@UI/PhoneNumberInput/PhoneNumberInput';
 import Overlay from '@UI/Overlay/Overlay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
 import Subtitle from '@components/UI/Texts/Subtitle/Subtitle';
 import Heading from '@components/UI/Texts/Heading/Heading';
-import SelectableStars from './SelectableStars';
 import data from './data';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { needHelpSchema } from '@validations/needHelpSchema';
+import { Form, Input, PhoneNumberInput, Textarea } from '@components/form-components';
 
 const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
   const { getTranslation } = useTranslationNamespace('yellowButton');
   const [rating, setRating] = useState(0);
-
-  const { register, handleSubmit, setValue } = useForm({
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(needHelpSchema),
   });
 
@@ -25,14 +28,17 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
     setShowMessagePopUp(false);
   };
 
-  const onSubmit = (data) => {
-    console.log('Form Submitted with:', { ...data, rating });
-    setRating(0);
-  };
+  const onSubmit = (data) => alert('good ' + data);
+  // const onSubmit = (data) => {
+  //   try {
+  //     console.log('Form Submitted with:', { ...data, rating });
+  //     setRating(0);
+  //   } catch (error) {
+  //     console.error('Form submission error:', error);
+  //   }
+  // };
 
   const selectedData = data.find((item) => item.type === type) || {};
-
-  const handleRatingChange = (newRating) => setRating(newRating);
 
   return (
     <>
@@ -42,28 +48,23 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
         <img src="svg/crossIcon.svg" alt={getTranslation('crossAlt')} onClick={handleCloseMessagePopUp} />
         <Subtitle>{selectedData.subtitle}</Subtitle>
         {selectedData.heading && <Heading type="h3">{selectedData.heading}</Heading>}
-
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={onSubmit}>
           <label htmlFor="name">{getTranslation('nameAndSurname')}</label>
-          <input id="name" type="text" placeholder={getTranslation('nameAndSurname')} {...register('fullName')} />
+          <Input name="fullName" placeholder={getTranslation('nameAndSurname')} variant="popUp" />
 
           <label htmlFor="phone">{getTranslation('phoneNumber')}</label>
-          <PhoneNumberInput setValue={setValue} />
-
-          {selectedData.additionalText && (
-            <div className={cl.additionalText}>
-              <Heading type="h4">{selectedData.additionalText}</Heading>
-              <SelectableStars starsAmount={rating} onRatingChange={handleRatingChange} initialRating={rating} />
-            </div>
-          )}
+          <PhoneNumberInput setValue={setValue} variant="popUp" name="phone" />
 
           <label htmlFor="message">{selectedData.textAreaTitle}</label>
-          <textarea id="message" placeholder={selectedData.textAreaPlaceholder} {...register('question')} />
+          <Textarea name="question" placeholder={selectedData.textAreaPlaceholder} y />
 
           <Button variant="secondary" submit={true}>
             {selectedData.buttonText}
           </Button>
-        </form>
+        </Form>
+        {errors.fullName && <span>{errors.fullName.message}</span>}
+        {errors.phone && <span>{errors.phone.message}</span>}
+        {errors.question && <span>{errors.question.message}</span>}
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import cl from './index.module.scss';
 
-const PhoneNumberInput = ({ setValue }) => {
+export function PhoneNumberInput({ setValue, variant, name, register, ...rest }) {
   const [inputsValue, setInputsValue] = useState('+38 (0__)  __ __ ___');
   const input = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -29,13 +29,8 @@ const PhoneNumberInput = ({ setValue }) => {
     }
   };
 
-  const handleInputFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleInputBlur = () => {
-    setIsFocused(false);
-  };
+  const handleInputFocus = () => setIsFocused(true);
+  const handleInputBlur = () => setIsFocused(false);
 
   const handleInputDelete = (e) => {
     const keyboardButton = e.key;
@@ -103,9 +98,9 @@ const PhoneNumberInput = ({ setValue }) => {
         handleKeyDown(e);
       }}
       onMouseDown={handleInputCursorPosition}
-      className={cl.input}
+      className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]}`}
+      {...register(name)}
+      {...rest}
     />
   );
-};
-
-export default PhoneNumberInput;
+}
