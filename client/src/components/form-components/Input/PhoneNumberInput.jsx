@@ -4,11 +4,13 @@ import cl from './index.module.scss';
 export function PhoneNumberInput({ setValue, variant, name, register, ...rest }) {
   const [inputsValue, setInputsValue] = useState('+38 (0__)  __ __ ___');
   const input = useRef(null);
+  console.log(input);
   const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
     setValue('phone', inputsValue);
   }, [inputsValue, setValue]);
+
   const handleInputChange = (e) => {
     const phoneNumberValue = e.target.value;
 
@@ -53,7 +55,11 @@ export function PhoneNumberInput({ setValue, variant, name, register, ...rest })
     // Prevent user selection when input is not focused
     if (!isFocused) {
       e.preventDefault();
-      input.current.focus();
+
+      // Check if ref is defined before calling focus
+      if (input.current) {
+        input.current.focus();
+      }
     }
 
     if (document.activeElement !== e.target) {

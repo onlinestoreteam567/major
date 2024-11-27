@@ -16,8 +16,6 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
   const { getTranslation } = useTranslationNamespace('yellowButton');
   const [rating, setRating] = useState(0);
   const {
-    register,
-    handleSubmit,
     setValue,
     formState: { errors },
   } = useForm({
@@ -27,16 +25,15 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
   const handleCloseMessagePopUp = () => {
     setShowMessagePopUp(false);
   };
-
-  const onSubmit = (data) => alert('good ' + data);
-  // const onSubmit = (data) => {
-  //   try {
-  //     console.log('Form Submitted with:', { ...data, rating });
-  //     setRating(0);
-  //   } catch (error) {
-  //     console.error('Form submission error:', error);
-  //   }
-  // };
+  2;
+  const onSubmit = (data) => {
+    try {
+      console.log('Form Submitted with:', { ...data, rating });
+      setRating(0);
+    } catch (error) {
+      console.error('Form submission error:', error);
+    }
+  };
 
   const selectedData = data.find((item) => item.type === type) || {};
 
@@ -48,7 +45,7 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
         <img src="svg/crossIcon.svg" alt={getTranslation('crossAlt')} onClick={handleCloseMessagePopUp} />
         <Subtitle>{selectedData.subtitle}</Subtitle>
         {selectedData.heading && <Heading type="h3">{selectedData.heading}</Heading>}
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} schema={needHelpSchema}>
           <label htmlFor="name">{getTranslation('nameAndSurname')}</label>
           <Input name="fullName" placeholder={getTranslation('nameAndSurname')} variant="popUp" />
 
@@ -56,7 +53,7 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
           <PhoneNumberInput setValue={setValue} variant="popUp" name="phone" />
 
           <label htmlFor="message">{selectedData.textAreaTitle}</label>
-          <Textarea name="question" placeholder={selectedData.textAreaPlaceholder} y />
+          <Textarea name="question" placeholder={selectedData.textAreaPlaceholder} />
 
           <Button variant="secondary" submit={true}>
             {selectedData.buttonText}
