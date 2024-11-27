@@ -34,12 +34,11 @@ apiClient.interceptors.request.use(
 );
 
 apiClient.interceptors.response.use(
-  (response) => response, // If the request is successful, return the response
+  (response) => response,
   (error) => {
-    logApiError(error); // Call the function for logging API errors
+    logApiError(error);
 
-    // Pass the error along to allow further handling if needed
-    return Promise.reject(error);
+    return Promise.reject(error); // Pass the error for further handling
   }
 );
 

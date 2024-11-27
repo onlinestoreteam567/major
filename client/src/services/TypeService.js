@@ -1,5 +1,4 @@
 import apiClient from '@config/apiClient';
-import { handleApiError } from '@utils/handleApiError';
 
 const TYPE_ENDPOINT = import.meta.env.VITE_TYPE_ENDPOINT;
 
@@ -8,84 +7,61 @@ if (!TYPE_ENDPOINT) {
 }
 
 const TypeService = {
+  // Get all types
   async getTypes() {
-    try {
-      const { data } = await apiClient.get(`${TYPE_ENDPOINT}/`);
-      return data;
-    } catch (error) {
-      handleApiError(error);
-    }
+    const { data } = await apiClient.get(`${TYPE_ENDPOINT}/`);
+    return data;
   },
 
+  // Create a new type
   async createType(typeName) {
-    // Validate type name before making the request
     if (!typeName) {
       console.error('Invalid type data');
       throw new Error('Type name is required');
     }
 
-    try {
-      return await apiClient.post(`${TYPE_ENDPOINT}/`, { name: typeName });
-    } catch (error) {
-      handleApiError(error);
-    }
+    return apiClient.post(`${TYPE_ENDPOINT}/`, { name: typeName });
   },
 
+  // Get type by ID
   async getTypeById(typeId) {
-    // Validate type ID before making the request
     if (!typeId) {
       console.error('Type ID is required');
       throw new Error('Invalid type ID');
     }
 
-    try {
-      const { data } = await apiClient.get(`${TYPE_ENDPOINT}/${typeId}/`);
-      return data;
-    } catch (error) {
-      handleApiError(error); // logs and rethrows the error
-    }
+    const { data } = await apiClient.get(`${TYPE_ENDPOINT}/${typeId}/`);
+    return data;
   },
 
+  // Update type by ID
   async updateTypeById(typeId, updatedType) {
-    // Validate type ID and updated data before making the request
     if (!typeId || !updatedType) {
       console.error('Invalid type data');
       throw new Error('Type ID and updated data are required');
     }
 
-    try {
-      await apiClient.put(`${TYPE_ENDPOINT}/${typeId}/`, updatedType);
-    } catch (error) {
-      handleApiError(error);
-    }
+    await apiClient.put(`${TYPE_ENDPOINT}/${typeId}/`, updatedType);
   },
 
+  // Partially update type by ID
   async patchTypeById(typeId, partialUpdate) {
-    // Validate type ID and partial update data before making the request
     if (!typeId || !partialUpdate) {
       console.error('Invalid type data');
       throw new Error('Type ID and partial data are required');
     }
 
-    try {
-      await apiClient.patch(`${TYPE_ENDPOINT}/${typeId}/`, partialUpdate);
-    } catch (error) {
-      handleApiError(error);
-    }
+    await apiClient.patch(`${TYPE_ENDPOINT}/${typeId}/`, partialUpdate);
   },
 
+  // Delete type by ID
   async deleteTypeById(typeId) {
-    // Validate type ID before making the request
     if (!typeId) {
       console.error('Type ID is required');
       throw new Error('Invalid type ID');
     }
 
-    try {
-      await apiClient.delete(`${TYPE_ENDPOINT}/${typeId}/`);
-    } catch (error) {
-      handleApiError(error);
-    }
+    await apiClient.delete(`${TYPE_ENDPOINT}/${typeId}/`);
   },
 };
 

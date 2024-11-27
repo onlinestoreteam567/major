@@ -1,5 +1,4 @@
 import apiClient from '@config/apiClient';
-import { handleApiError } from '@utils/handleApiError';
 
 const USER_ENDPOINT = import.meta.env.VITE_USER_ENDPOINT;
 
@@ -8,17 +7,14 @@ if (!USER_ENDPOINT) {
 }
 
 const UserService = {
+  // Get all users
   async getUsers() {
-    try {
-      const { data } = await apiClient.get(`${USER_ENDPOINT}/`);
-      return data;
-    } catch (error) {
-      handleApiError(error);
-    }
+    const { data } = await apiClient.get(`${USER_ENDPOINT}/`);
+    return data;
   },
 
+  // Create a new user
   async createUser(data) {
-    // Ensure the provided data is valid
     if (!data) {
       console.error('User data is required');
       throw new Error('Invalid user data');
@@ -36,76 +32,48 @@ const UserService = {
       throw new Error('Data must contain email (string), first_name (string), last_name (string), and role (number)');
     }
 
-    try {
-      // Make the API call to create the user
-      await apiClient.post(`${USER_ENDPOINT}/`, data);
-    } catch (error) {
-      // Handle any API-related errors
-      handleApiError(error);
-    }
+    return apiClient.post(`${USER_ENDPOINT}/`, data);
   },
 
+  // Get a user by ID
   async getUserById(userId) {
-    // Validate user ID before making the request
     if (!userId) {
       console.error('User ID is required');
       throw new Error('Invalid user ID');
     }
 
-    try {
-      const { data } = await apiClient.get(`${USER_ENDPOINT}/${userId}/`);
-      return data;
-    } catch (error) {
-      handleApiError(error);
-    }
+    const { data } = await apiClient.get(`${USER_ENDPOINT}/${userId}/`);
+    return data;
   },
 
+  // Update a user by ID
   async updateUserById(userId, updatedUser) {
-    // Validate type ID and updated data before making the request
-    // {
-    //   "password": "string",
-    //   "first_name": "string",
-    //   "last_name": "string",
-    //   "role": 9223372036854776000
-    // }
     if (!userId || !updatedUser) {
-      console.error('Invalid type data');
-      throw new Error('Type ID and updated data are required');
+      console.error('Invalid user data');
+      throw new Error('User ID and updated data are required');
     }
 
-    try {
-      await apiClient.put(`${USER_ENDPOINT}/${userId}/`, updatedUser);
-    } catch (error) {
-      handleApiError(error);
-    }
+    await apiClient.put(`${USER_ENDPOINT}/${userId}/`, updatedUser);
   },
 
-  async patchUserById(typeId, partialUpdate) {
-    // Validate type ID and partial update data before making the request
-    if (!typeId || !partialUpdate) {
-      console.error('Invalid type data');
-      throw new Error('Type ID and partial data are required');
+  // Partially update a user by ID
+  async patchUserById(userId, partialUpdate) {
+    if (!userId || !partialUpdate) {
+      console.error('Invalid user data');
+      throw new Error('User ID and partial data are required');
     }
 
-    try {
-      await apiClient.patch(`${USER_ENDPOINT}/${typeId}/`, partialUpdate);
-    } catch (error) {
-      handleApiError(error);
-    }
+    await apiClient.patch(`${USER_ENDPOINT}/${userId}/`, partialUpdate);
   },
 
-  async deleteUserById(typeId) {
-    // Validate type ID before making the request
-    if (!typeId) {
-      console.error('Type ID is required');
-      throw new Error('Invalid type ID');
+  // Delete a user by ID
+  async deleteUserById(userId) {
+    if (!userId) {
+      console.error('User ID is required');
+      throw new Error('Invalid user ID');
     }
 
-    try {
-      await apiClient.delete(`${USER_ENDPOINT}/${typeId}/`);
-    } catch (error) {
-      handleApiError(error);
-    }
+    await apiClient.delete(`${USER_ENDPOINT}/${userId}/`);
   },
 };
 
