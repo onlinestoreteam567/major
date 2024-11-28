@@ -1,11 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import cl from './index.module.scss';
 
-export function PhoneNumberInput({ setValue, variant, name, register, ...rest }) {
+export const PhoneNumberInput = forwardRef(({ setValue, variant, ...props }, ref) => {
   const [inputsValue, setInputsValue] = useState('+38 (0__)  __ __ ___');
-  const input = useRef(null);
-  console.log(input);
+  const inputRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
+
+  useEffect(() => {
+    if (typeof ref === 'function') {
+      ref(inputRef.current);
+    }
+  }, [ref]);
 
   useEffect(() => {
     setValue('phone', inputsValue);
@@ -57,9 +62,7 @@ export function PhoneNumberInput({ setValue, variant, name, register, ...rest })
       e.preventDefault();
 
       // Check if ref is defined before calling focus
-      if (input.current) {
-        input.current.focus();
-      }
+      inputRef.current.focus();
     }
 
     if (document.activeElement !== e.target) {
@@ -80,22 +83,23 @@ export function PhoneNumberInput({ setValue, variant, name, register, ...rest })
 
   useEffect(() => {
     if (isFocused) {
-      const firstUnderscoreIndex = input.current.value.indexOf('_');
+      const firstUnderscoreIndex = inputRef.current.value.indexOf('_');
       if (firstUnderscoreIndex !== -1) {
         // Set the cursor position to one character after the first underscore
-        input.current.setSelectionRange(firstUnderscoreIndex + 1, firstUnderscoreIndex + 1);
+        inputRef.current.setSelectionRange(firstUnderscoreIndex + 1, firstUnderscoreIndex + 1);
       }
     }
   }, [isFocused, inputsValue]);
 
   return (
     <input
+      {...props}
       id="phone"
       type="text"
       placeholder={inputsValue}
       value={inputsValue}
       autoComplete="tel"
-      ref={input}
+      ref={inputRef}
       onChange={handleInputChange}
       onFocus={handleInputFocus}
       onBlur={handleInputBlur}
@@ -105,8 +109,8 @@ export function PhoneNumberInput({ setValue, variant, name, register, ...rest })
       }}
       onMouseDown={handleInputCursorPosition}
       className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]}`}
-      {...register(name)}
-      {...rest}
     />
   );
-}
+});
+
+PhoneNumberInput.displayName = 'PhoneNumberInput';

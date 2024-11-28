@@ -8,34 +8,24 @@ import Heading from '@components/UI/Texts/Heading/Heading';
 import data from './data';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useState } from 'react';
 import { needHelpSchema } from '@validations/needHelpSchema';
-import { Form, Input, PhoneNumberInput, Textarea } from '@components/form-components';
+import { Input, PhoneNumberInput, Textarea } from '@components/form-components';
 
 const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
   const { getTranslation } = useTranslationNamespace('yellowButton');
-  const [rating, setRating] = useState(0);
-  const {
-    setValue,
-    formState: { errors },
-  } = useForm({
+  const { setValue, register, handleSubmit } = useForm({
     resolver: yupResolver(needHelpSchema),
   });
 
   const handleCloseMessagePopUp = () => {
     setShowMessagePopUp(false);
   };
-  2;
-  const onSubmit = (data) => {
-    try {
-      console.log('Form Submitted with:', { ...data, rating });
-      setRating(0);
-    } catch (error) {
-      console.error('Form submission error:', error);
-    }
-  };
 
   const selectedData = data.find((item) => item.type === type) || {};
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <>
@@ -45,23 +35,20 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
         <img src="svg/crossIcon.svg" alt={getTranslation('crossAlt')} onClick={handleCloseMessagePopUp} />
         <Subtitle>{selectedData.subtitle}</Subtitle>
         {selectedData.heading && <Heading type="h3">{selectedData.heading}</Heading>}
-        <Form onSubmit={onSubmit} schema={needHelpSchema}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="name">{getTranslation('nameAndSurname')}</label>
-          <Input name="fullName" placeholder={getTranslation('nameAndSurname')} variant="popUp" />
+          <Input name="fullName" placeholder={getTranslation('nameAndSurname')} variant="popUp" register={register} />
 
           <label htmlFor="phone">{getTranslation('phoneNumber')}</label>
-          <PhoneNumberInput setValue={setValue} variant="popUp" name="phone" />
+          <PhoneNumberInput setValue={setValue} variant="popUp" register={'phone'} />
 
           <label htmlFor="message">{selectedData.textAreaTitle}</label>
-          <Textarea name="question" placeholder={selectedData.textAreaPlaceholder} />
+          <Textarea name="question" placeholder={selectedData.textAreaPlaceholder} register={register} />
 
           <Button variant="secondary" submit={true}>
             {selectedData.buttonText}
           </Button>
-        </Form>
-        {errors.fullName && <span>{errors.fullName.message}</span>}
-        {errors.phone && <span>{errors.phone.message}</span>}
-        {errors.question && <span>{errors.question.message}</span>}
+        </form>
       </div>
     </>
   );
