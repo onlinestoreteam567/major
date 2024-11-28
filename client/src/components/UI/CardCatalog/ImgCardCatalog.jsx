@@ -9,7 +9,7 @@ export default function ImgCardCatalog({ card }) {
       {card.is_best_seller ? <LabelHit /> : ''}
       {card.is_new ? <LabelNew /> : ''}
       {card.is_sale ? <LabelSale card={card} /> : ''}
-      <img src={card.upload_images[3]} alt="" />
+      <img src={card.upload_images[0]} alt="" />
     </div>
   );
 }

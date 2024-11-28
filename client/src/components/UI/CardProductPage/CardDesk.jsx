@@ -5,7 +5,7 @@ import ImgDesk from '../CardProduct/ImgCard/ImgDesk';
 import Price from '../CardProduct/Price/Price';
 import ProductRating from '../CardProduct/Rating/ProductRating';
 import LeaveFeedback from '../CardProduct/Review/LeaveFeedback';
-import Title from '../CardProduct/Title/Title';
+import TitleCard from '../CardProduct/Title/TitleCard';
 import Volume from '../CardProduct/Volume/Volume';
 import cl from './index.module.scss';
 
@@ -18,7 +18,7 @@ export default function CardDesk({ card }) {
       <ImgDesk card={card} />
       <div className={cl.rightCase}>
         <Article card={card} />
-        <Title card={card} />
+        <TitleCard card={card} />
         <div className={cl.wrapOrder}>
           <ProductRating />
           <LeaveFeedback />

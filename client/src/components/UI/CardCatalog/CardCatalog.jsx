@@ -6,6 +6,8 @@ import PriceCardCatalog from './PriceCardCatalog';
 import TitleCardCatalog from './TitleCardCatalog';
 
 export default function CardCatalog({ card }) {
+  console.log(card);
+
   return (
     <div className={cl.wrapCardCatalog}>
       <ImgCardCatalog card={card} />

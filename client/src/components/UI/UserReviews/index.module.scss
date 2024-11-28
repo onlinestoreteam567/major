@@ -1,22 +1,43 @@
 @import '@mixins';
 
+// .wrapListReviewsCard {
+//   @include flexGap(32px, column);
+//   width: 356px;
+//   padding: 0;
+//   margin: 0 auto;
+//   ul {
+//     @include flexGap(32px, column);
+//     justify-content: flex-start;
+//   }
+//   @include tablet {
+//     width: 720px;
+//     ul {
+//       gap: 16px;
+//     }
+//   }
+//   @include deskmin {
+//     width: 960px;
+//   }
+//   @include deskmax {
+//     width: 1296px;
+//   }
+// }
 .wrapListReviewsCard {
-  @include flexGap(32px, column);
+  @include flex(column, flex-start, center);
+  box-sizing: border-box;
+  gap: 40px;
   width: 356px;
-  padding: 0;
-  margin: 0 auto;
-  ul {
-    @include flexGap(32px, column);
-    justify-content: flex-start;
+  .wrapList {
+    @include flex(column, flex-start, center);
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 28px;
   }
   @include tablet {
-    width: 720px;
-    ul {
-      gap: 16px;
-    }
+    width: 640px;
   }
   @include deskmin {
-    width: 960px;
+    width: 980px;
   }
   @include deskmax {
     width: 1296px;

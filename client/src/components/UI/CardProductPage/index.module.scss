@@ -4,7 +4,7 @@
 .cardPage {
   @include flex(column, flex-start, center);
   box-sizing: border-box;
-  gap: 24px;
+  gap: 40px;
   width: 380px;
   padding: 16px 12px 96px 12px;
   height: auto;
@@ -52,15 +52,15 @@
     gap: 72px;
   }
 }
-.wrapReviews {
-  @include flexGap(24px, column);
-  @include tablet {
-    gap: 32px;
-  }
-  @include deskmax {
-    gap: 72px;
-  }
-}
+// .wrapReviews {
+//   @include flexGap(24px, column);
+//   @include tablet {
+//     gap: 32px;
+//   }
+//   @include deskmax {
+//     gap: 72px;
+//   }
+// }
 
 // *** CardMobile  CardDesk ***
 .wrapItem {

@@ -1,7 +1,6 @@
-import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 
-export default function Title({ card }) {
+export default function TitleCard({ card }) {
   return (
     <div className={cl.wrapTitle}>
       <h2>{card.name}</h2>

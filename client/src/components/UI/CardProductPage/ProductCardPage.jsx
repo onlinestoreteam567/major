@@ -3,11 +3,13 @@ import card from './card.json';
 import CardMobile from './CardMobile';
 import CardDesk from './CardDesk';
 import Description from '../CardProduct/Descript/Description';
-import ReviewsTitle from '../UserReviews/ReviewsTitle';
+// import ReviewsTitle from '../UserReviews/ReviewsTitle';
 import ListReviewsCard from '../UserReviews/ListReviewsCard';
-import BuyTogether from '../BuyTogether/BuyTogether';
-import Heading from '../Texts/Heading/Heading';
+// import BuyTogether from '../BuyTogether/BuyTogether';
+// import Heading from '../Texts/Heading/Heading';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
+import ProductOffer from '../CardProduct/ProductOffer/ProductOffer';
+// import Offer from '../CardProduct/ProductOffer/Offer';
 
 export default function ProductCardPage() {
   return (
@@ -22,14 +24,11 @@ export default function ProductCardPage() {
         </div>
       </div>
       <Description card={card} />
-      <div className={cl.wrapReviews}>
-        <ReviewsTitle />
-        <ListReviewsCard />
-      </div>
-      <div className={cl.wrapReviews}>
-        <Heading type="h2">Разом з цим товаром купують</Heading>
-        <BuyTogether card={card} />
-      </div>
+      <ProductOffer card={card} />
+      {/* <Offer card={card} /> */}
+      <ListReviewsCard />
+      {/* <div className={cl.wrapReviews}></div>
+      <div className={cl.wrapReviews}></div> */}
     </section>
   );
 }
