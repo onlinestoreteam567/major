@@ -36,8 +36,13 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
         <Subtitle>{selectedData.subtitle}</Subtitle>
         {selectedData.heading && <Heading type="h3">{selectedData.heading}</Heading>}
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="name">{getTranslation('nameAndSurname')}</label>
-          <Input name="fullName" placeholder={getTranslation('nameAndSurname')} variant="popUp" register={register} />
+          <Input
+            labelText={getTranslation('nameAndSurname')}
+            name="fullName"
+            placeholder={getTranslation('nameAndSurname')}
+            variant="popUp"
+            register={register}
+          />
 
           <label htmlFor="phone">{getTranslation('phoneNumber')}</label>
           <PhoneNumberInput setValue={setValue} variant="popUp" register={'phone'} />

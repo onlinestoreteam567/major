@@ -1,5 +1,5 @@
 import { forwardRef, useEffect, useRef, useState } from 'react';
-import cl from './index.module.scss';
+import cl from '../index.module.scss';
 
 export const PhoneNumberInput = forwardRef(({ setValue, variant, ...props }, ref) => {
   const [inputsValue, setInputsValue] = useState('+38 (0__)  __ __ ___');
@@ -65,10 +65,6 @@ export const PhoneNumberInput = forwardRef(({ setValue, variant, ...props }, ref
       inputRef.current.focus();
     }
 
-    if (document.activeElement !== e.target) {
-      // If the input is not already focused, allow the focus
-      return;
-    }
     e.preventDefault(); // Prevent cursor positioning with mouse if already focused
   };
 
