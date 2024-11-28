@@ -1,31 +1,22 @@
-import cl from './index.module.scss';
-import PropTypes from 'prop-types';
+import cl from '../index.module.scss';
 import Overlay from '@UI/Overlay/Overlay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
 import Subtitle from '@components/UI/Texts/Subtitle/Subtitle';
 import Heading from '@components/UI/Texts/Heading/Heading';
-import data from './data';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { needHelpSchema } from '@validations/needHelpSchema';
 import { Input, PhoneNumberInput, Textarea } from '@components/form-components';
 
-const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
+const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
   const { getTranslation } = useTranslationNamespace('yellowButton');
   const { setValue, register, handleSubmit } = useForm({
     resolver: yupResolver(needHelpSchema),
   });
 
-  const handleCloseMessagePopUp = () => {
-    setShowMessagePopUp(false);
-  };
-
-  const selectedData = data.find((item) => item.type === type) || {};
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const handleCloseMessagePopUp = () => setShowMessagePopUp(false);
+  const onSubmit = (data) => console.log(data);
 
   return (
     <>
@@ -33,8 +24,8 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
 
       <div className={cl.messagePopUp}>
         <img src="svg/crossIcon.svg" alt={getTranslation('crossAlt')} onClick={handleCloseMessagePopUp} />
-        <Subtitle>{selectedData.subtitle}</Subtitle>
-        {selectedData.heading && <Heading type="h3">{selectedData.heading}</Heading>}
+        <Subtitle>{popUpData.subtitle}</Subtitle>
+        <Heading type="h3">{popUpData.heading}</Heading>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             labelText={getTranslation('nameAndSurname')}
@@ -53,14 +44,14 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
           />
 
           <Textarea
-            labelText={selectedData.textAreaTitle}
+            labelText={popUpData.textAreaTitle}
             name="question"
-            placeholder={selectedData.textAreaPlaceholder}
+            placeholder={popUpData.textAreaPlaceholder}
             register={register}
           />
 
           <Button variant="secondary" submit={true}>
-            {selectedData.buttonText}
+            {popUpData.buttonText}
           </Button>
         </form>
       </div>
@@ -68,9 +59,4 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
   );
 };
 
-HasQuestionPopUp.propTypes = {
-  setShowMessagePopUp: PropTypes.func.isRequired,
-  type: PropTypes.string.isRequired,
-};
-
-export default HasQuestionPopUp;
+export default MainPopUp;

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import HasQuestionPopUp from '@UI/PopUp/HasQuestionPopUp';
+import MainPopUp from '@components/UI/PopUp/MainPopUp/MainPopUp';
 import HelpButtonsSection from './HelpButtonsSection';
 import CommunicationButtons from './CommunicationButtons';
+import popUpData from './popUpData';
 
 const YellowButtonMainWrapper = () => {
   const [showAnotherIcons, setShowAnotherIcons] = useState(false);
@@ -61,7 +62,7 @@ const YellowButtonMainWrapper = () => {
           />
         )}
       </section>
-      {showMessagePopUp && <HasQuestionPopUp setShowMessagePopUp={setShowMessagePopUp} type={'hasQuestion'} />}
+      {showMessagePopUp && <MainPopUp setShowMessagePopUp={setShowMessagePopUp} popUpData={popUpData} />}
     </>
   );
 };
