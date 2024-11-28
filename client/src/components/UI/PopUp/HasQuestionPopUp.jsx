@@ -44,11 +44,20 @@ const HasQuestionPopUp = ({ setShowMessagePopUp, type }) => {
             register={register}
           />
 
-          <label htmlFor="phone">{getTranslation('phoneNumber')}</label>
-          <PhoneNumberInput setValue={setValue} variant="popUp" register={'phone'} />
+          <PhoneNumberInput
+            setValue={setValue}
+            variant="popUp"
+            register={'phone'}
+            name="phone"
+            labelText={getTranslation('phoneNumber')}
+          />
 
-          <label htmlFor="message">{selectedData.textAreaTitle}</label>
-          <Textarea name="question" placeholder={selectedData.textAreaPlaceholder} register={register} />
+          <Textarea
+            labelText={selectedData.textAreaTitle}
+            name="question"
+            placeholder={selectedData.textAreaPlaceholder}
+            register={register}
+          />
 
           <Button variant="secondary" submit={true}>
             {selectedData.buttonText}
