@@ -16,8 +16,12 @@ const apiClient = axios.create({
   },
 });
 
-const username = 'admin@gmail.com';
-const password = 'admin';
+const username = import.meta.env.VITE_API_USERNAME;
+const password = import.meta.env.VITE_API_PASSWORD;
+
+if (!username || !password) {
+  console.error('VITE_API_PASSWORD and VITE_API_USERNAME is not defined! Check the configuration in the .env file.');
+}
 
 apiClient.defaults.headers.common['Authorization'] = `Basic ${btoa(`${username}:${password}`)}`;
 
