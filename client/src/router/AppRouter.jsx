@@ -6,14 +6,14 @@ import AuthLayout from './layouts/AuthLayout';
 import ProfilePage from '@pages/ProfilePage';
 
 //test-components
-import Redux from './testСomponents/Redux';
-import I18next from './testСomponents/I18next';
-import CookieTest from './testСomponents/Cookie';
+import Redux from './testComponents/Redux';
+import I18next from './testComponents/I18next';
+import CookieTest from './testComponents/Cookie';
 
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
-import FormTest from './testСomponents/FormTest';
-import Requests from './testСomponents/Requests';
+import FormTest from './testComponents/FormTest';
+import Requests from './testComponents/Requests';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
