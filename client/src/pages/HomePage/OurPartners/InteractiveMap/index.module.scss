@@ -28,25 +28,14 @@
   }
 
   .point {
-    height: 30px;
-    width: 30px;
+    height: 32px;
+    width: 32px;
     cursor: pointer;
 
     &:hover {
       width: 40px;
       height: 40px;
       transform: translateY(-20%) translateX(-10%);
-    }
-
-    @include tablet {
-      height: 19px;
-      width: 19px;
-
-      &:hover {
-        width: 25px;
-        height: 25px;
-        transform: translateY(-20%) translateX(-10%);
-      }
     }
   }
 
