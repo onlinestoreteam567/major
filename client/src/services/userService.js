@@ -6,22 +6,22 @@ if (!USER_ENDPOINT) {
   console.error('USER_ENDPOINT is not defined! Check the configuration in the .env file.');
 }
 
-function validateUserData(data) {
-  const { email, first_name, last_name, role } = data;
-  if (
-    !email ||
-    typeof email !== 'string' ||
-    !first_name ||
-    typeof first_name !== 'string' ||
-    !last_name ||
-    typeof last_name !== 'string' ||
-    typeof role !== 'number'
-  ) {
-    throw new Error(
-      'Invalid data structure. Expected email (string), first_name (string), last_name (string), and role (number).'
-    );
-  }
-}
+// function validateUserData(data) {
+//   const { email, first_name, last_name, role } = data;
+//   if (
+//     !email ||
+//     typeof email !== 'string' ||
+//     !first_name ||
+//     typeof first_name !== 'string' ||
+//     !last_name ||
+//     typeof last_name !== 'string' ||
+//     typeof role !== 'number'
+//   ) {
+//     throw new Error(
+//       'Invalid data structure. Expected email (string), first_name (string), last_name (string), and role (number).'
+//     );
+//   }
+// }
 
 const UserService = {
   // Get all users
@@ -34,8 +34,8 @@ const UserService = {
   async createUser(data) {
     if (!data) throw new Error('User data is required');
 
-    // Validate user data
-    validateUserData(data);
+    // // Validate user data
+    // validateUserData(data);
 
     await apiClient.post(`${USER_ENDPOINT}/`, data);
   },
