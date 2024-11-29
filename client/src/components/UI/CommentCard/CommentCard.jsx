@@ -1,7 +1,7 @@
 import Button from '@UI/Button/Button';
 import Stars from '@UI/Stars/Stars';
 import cl from './index.module.scss';
-import Heading from '@components/UI/Texts/Heading/Heading';
+import Heading from '@UI/Texts/Heading/Heading';
 import Paragraph from '../Texts/Paragraph/Paragraph';
 
 const CommentCard = ({ cardData }) => {

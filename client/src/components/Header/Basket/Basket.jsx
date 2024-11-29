@@ -4,9 +4,9 @@ import cl from './index.module.scss';
 import { useState, useEffect } from 'react';
 import BasketItem from './BasketItem';
 import { useSelector } from 'react-redux';
-import Heading from '@components/UI/Texts/Heading/Heading';
-import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
-import Button from '@components/UI/Button/Button';
+import Heading from '@UI/Texts/Heading/Heading';
+import Paragraph from '@UI/Texts/Paragraph/Paragraph';
+import Button from '@UI/Button/Button';
 
 const Basket = ({ setIsShowBasket }) => {
   const [hiddenBasket, setHiddenBasket] = useState(false);

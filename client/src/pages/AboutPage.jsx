@@ -1,4 +1,4 @@
-import ProductCardPage from '@components/UI/CardProductPage/ProductCardPage';
+import ProductCardPage from '@UI/CardProductPage/ProductCardPage';
 
 const AboutPage = () => {
   return (

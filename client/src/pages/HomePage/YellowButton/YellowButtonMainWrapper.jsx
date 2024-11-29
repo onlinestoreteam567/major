@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import MainPopUp from '@components/UI/PopUp/MainPopUp/MainPopUp';
+import MainPopUp from '@UI/PopUp/MainPopUp/MainPopUp';
 import HelpButtonsSection from './HelpButtonsSection';
 import CommunicationButtons from './CommunicationButtons';
 import popUpData from './popUpData';

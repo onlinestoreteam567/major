@@ -1,8 +1,8 @@
 import LogoIcon from '@assets/svg/header/LogoIcon/LogoIcon';
 import LangSwitcher from './LangSwitcher/LangSwitcher';
 import cl from './index.module.scss';
-import Button from '@components/UI/Button/Button';
-import SocialLinks from '@components/UI/SocialLinks/SocialLinks';
+import Button from '@UI/Button/Button';
+import SocialLinks from '@UI/SocialLinks/SocialLinks';
 import { useState } from 'react';
 
 const NavDrawer = ({ setIsShowNavDrawer }) => {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import ReviewPopUp from '@components/UI/PopUp/ReviewPopUp';
+import ReviewPopUp from '@UI/PopUp/ReviewPopUp';
 
 export default function LeaveFeedback() {
   const [showMessagePopUp, setShowMessagePopUp] = useState(false);

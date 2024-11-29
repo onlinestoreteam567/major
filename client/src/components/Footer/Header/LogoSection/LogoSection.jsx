@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 import { Link } from 'react-router-dom';
-import SocialLinks from '@components/UI/SocialLinks/SocialLinks';
+import SocialLinks from '@UI/SocialLinks/SocialLinks';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import useScreenSizes from '@hooks/useScreenSizes';
 

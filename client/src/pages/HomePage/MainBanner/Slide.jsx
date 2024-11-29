@@ -1,7 +1,7 @@
 import Button from '@UI/Button/Button';
 import cl from './index.module.scss';
-import Heading from '@components/UI/Texts/Heading/Heading';
-import AccentText from '@components/UI/Texts/AccentText/AccentText';
+import Heading from '@UI/Texts/Heading/Heading';
+import AccentText from '@UI/Texts/AccentText/AccentText';
 
 const Slide = ({ labelText, title, slideClassName }) => {
   return (
