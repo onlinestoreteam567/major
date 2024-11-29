@@ -6,10 +6,14 @@ export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant
   const [inputsValue, setInputsValue] = useState('+38 (0__)  __ __ ___');
   const inputRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
-  const handleInputFocus = () => setIsFocused(true);
-  const handleInputBlur = () => setIsFocused(false);
 
   useEffect(() => {
+    if (typeof ref === 'function') {
+      ref(inputRef.current);
+    }
+
+    setValue('phone', inputsValue);
+
     if (isFocused) {
       const firstUnderscoreIndex = inputRef.current.value.indexOf('_');
       if (firstUnderscoreIndex !== -1) {
@@ -17,17 +21,16 @@ export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant
         inputRef.current.setSelectionRange(firstUnderscoreIndex + 1, firstUnderscoreIndex + 1);
       }
     }
-  }, [isFocused, inputsValue]);
 
-  useEffect(() => {
-    if (typeof ref === 'function') {
-      ref(inputRef.current);
-    }
-  }, [ref]);
+    return () => {
+      if (typeof ref === 'function') {
+        ref(null);
+      }
+    };
+  }, [isFocused, inputsValue, setValue, ref]);
 
-  useEffect(() => {
-    setValue('phone', inputsValue);
-  }, [inputsValue, setValue]);
+  const handleInputFocus = () => setIsFocused(true);
+  const handleInputBlur = () => setIsFocused(false);
 
   return (
     <>
