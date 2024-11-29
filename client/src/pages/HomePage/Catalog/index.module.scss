@@ -44,7 +44,13 @@
         }
 
         @include deskmin {
-          width: 100%;
+          width: 308px;
+          height: 245px;
+        }
+
+        @include deskmax {
+          width: 416px;
+          height: 352px;
         }
       }
       figcaption {
@@ -58,14 +64,14 @@
         box-sizing: border-box;
         background-color: #22211f;
         pointer-events: none;
+        border-radius: 2px 0px 0px 2px;
 
         @include tablet {
           padding: 4px 10px;
         }
 
         @include deskmin {
-          height: 44px;
-          width: 240px;
+          padding: 4px 10px 4px 10px;
         }
       }
     }

@@ -5,11 +5,14 @@
   gap: 18px;
 
   @include tablet {
-    margin-left: 37px;
+    justify-content: space-evenly;
+    width: 100%;
   }
 
   @include deskmin {
-    @include flexGap(18px, column);
+    justify-content: space-evenly;
+    margin-left: 0;
+    width: 100%;
   }
 
   section {

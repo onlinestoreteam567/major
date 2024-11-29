@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
-import Dropdown from '@components/UI/Dropdown/Dropdown';
+import Dropdown from '@UI/Dropdown/Dropdown';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import Heading from '@components/UI/Texts/Heading/Heading';
+import Heading from '@UI/Texts/Heading/Heading';
 
 const Top = () => {
   const { getTranslation } = useTranslationNamespace('catalogPage');

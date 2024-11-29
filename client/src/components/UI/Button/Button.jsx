@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 // import PropTypes from 'prop-types';
 
-const Button = ({
+export default function Button({
   onClick,
   children,
   variant = 'primary',
@@ -9,7 +9,7 @@ const Button = ({
   onMouseEnter,
   onMouseLeave,
   submit,
-}) => {
+}) {
   const handleClick = (e) => {
     // If it's a submit button, let the form handle the submission
     if (submit) return;
@@ -29,7 +29,7 @@ const Button = ({
       {children}
     </button>
   );
-};
+}
 
 // Button.propTypes = {
 //   onClick: PropTypes.func,
@@ -39,5 +39,3 @@ const Button = ({
 //   onMouseEnter: PropTypes.func,
 //   onMouseLeave: PropTypes.func,
 // };
-
-export default Button;

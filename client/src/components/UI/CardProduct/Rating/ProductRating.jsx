@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import cl from './index.module.scss';
-import reviews from '@components/UI/UserReviews/reviewsList.json';
+import reviews from '@UI/UserReviews/reviewsList.json';
 import StarTrue from '@components/Icons/StarTrue';
 import StarFalse from '@components/Icons/StarFalse';
 
