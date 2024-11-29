@@ -35,7 +35,7 @@ export default [
       'react/prop-types': 'off',
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       // 'prettier/prettier': 'warn',
-      'linebreak-style': ['warn', 'unix'],
+      'linebreak-style': ['warn', 'lf'],
     },
   },
 ];

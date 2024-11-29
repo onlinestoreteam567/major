@@ -1,3 +1,4 @@
+// Helper function for user data validation
 export const validateUserData = (data) => {
   const { email, first_name, last_name, role } = data;
   if (
