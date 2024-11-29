@@ -4,7 +4,6 @@ import StarTrue from '@components/Icons/StarTrue';
 
 export default function UserRating({ review }) {
   return (
-    // <div>
     <div className={cl.wrapRating}>
       <ul className={cl.arrStar}>
         {review.stars.map((el, i) => (
@@ -12,6 +11,5 @@ export default function UserRating({ review }) {
         ))}
       </ul>
     </div>
-    // </div>
   );
 }

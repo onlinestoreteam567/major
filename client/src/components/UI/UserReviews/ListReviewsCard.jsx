@@ -23,13 +23,6 @@ export default function ListReviewsCard() {
         <Heading type="h2">Флюїд шовк для тонкого волосся</Heading>
       </div>
       <ReviewsCard review={showReview} />
-      {/* <ul>
-        {reviewsList.map((review) => (
-          <li key={review.id}>
-            <ReviewsCard review={review} />
-          </li>
-        ))}
-      </ul> */}
       <div className={cl.wrapReviewBtn}>
         <button type="button" disabled={index === 1} onClick={() => onChangeValue(-1)}>
           <ArrowLeft />
