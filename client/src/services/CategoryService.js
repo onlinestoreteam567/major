@@ -1,7 +1,7 @@
 import apiClient from '@config/apiClient';
 
 // Ensure that the API category endpoint is correctly set in the environment
-const CATEGORY_ENDPOINT = import.meta.env.CATEGORY_ENDPOINT;
+const CATEGORY_ENDPOINT = import.meta.env.VITE_CATEGORY_ENDPOINT;
 if (!CATEGORY_ENDPOINT) {
   console.error('CATEGORY_ENDPOINT is not defined! Check the configuration in the .env file.');
 }

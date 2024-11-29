@@ -1,6 +1,6 @@
 import apiClient from '@config/apiClient';
 
-const TYPE_ENDPOINT = import.meta.env.TYPE_ENDPOINT;
+const TYPE_ENDPOINT = import.meta.env.VITE_TYPE_ENDPOINT;
 
 if (!TYPE_ENDPOINT) {
   console.error('TYPE_ENDPOINT is not defined! Check the configuration in the .env file.');

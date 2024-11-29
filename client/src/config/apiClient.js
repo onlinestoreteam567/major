@@ -2,7 +2,7 @@ import axios from 'axios';
 import { logApiError } from './lib/logApiError';
 
 // Check if the environment variable is defined
-const API_BASE_URL = import.meta.env.API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 if (!API_BASE_URL) {
   console.error('API_BASE_URL is not defined! Check the configuration in the .env file.');
 }
@@ -16,8 +16,8 @@ const apiClient = axios.create({
   },
 });
 
-const username = import.meta.env.API_USERNAME;
-const password = import.meta.env.API_PASSWORD;
+const username = import.meta.env.VITE_API_USERNAME;
+const password = import.meta.env.VITE_API_PASSWORD;
 
 if (!username || !password) {
   console.error('API_PASSWORD and API_USERNAME is not defined! Check the configuration in the .env file.');
