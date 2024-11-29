@@ -18,7 +18,8 @@
     }
 
     @include deskmin {
-      gap: 96px;
+      gap: 28px;
+      flex-direction: column;
     }
 
     section {
@@ -32,6 +33,10 @@
       figure {
         @include flex(column);
         gap: 16px;
+
+        @include deskmin {
+          flex-direction: row;
+        }
 
         img {
           object-fit: cover;
