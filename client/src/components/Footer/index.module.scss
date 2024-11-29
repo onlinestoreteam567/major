@@ -1,6 +1,6 @@
 @import '@mixins';
 
-footer {
+.footer {
   @include flex(column, null, center);
   padding: 20px 15px 0 15px;
   box-sizing: border-box;

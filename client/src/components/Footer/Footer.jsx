@@ -1,10 +1,10 @@
 import CopyrightSection from '@components/Footer/CopyrightSection/CopyrightSection';
 import Header from '@components/Footer/Header/Header';
-import './index.module.scss';
+import cl from './index.module.scss';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className={cl.footer}>
       <Header />
       <CopyrightSection />
     </footer>
