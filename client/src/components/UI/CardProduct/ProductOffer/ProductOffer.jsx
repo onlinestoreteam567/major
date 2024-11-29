@@ -6,7 +6,6 @@ import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
 
 export default function ProductOffer({ card }) {
   const arrOffer = cards.filter((item) => item.id !== card.id);
-  console.log(arrOffer);
 
   return (
     <div className={cl.wrapProductOffer}>

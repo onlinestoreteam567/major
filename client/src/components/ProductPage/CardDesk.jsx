@@ -1,12 +1,12 @@
-import Button from '../Button/Button';
-import Article from '../CardProduct/Article/Article';
-import Counter from '../CardProduct/Counter/Counter';
-import ImgDesk from '../CardProduct/ImgCard/ImgDesk';
-import Price from '../CardProduct/Price/Price';
-import ProductRating from '../CardProduct/Rating/ProductRating';
-import LeaveFeedback from '../CardProduct/Review/LeaveFeedback';
-import TitleCard from '../CardProduct/Title/TitleCard';
-import Volume from '../CardProduct/Volume/Volume';
+import Button from '@components/UI/Button/Button';
+import Article from '@components/UI/CardProduct/Article/Article';
+import Counter from '@components/UI/CardProduct/Counter/Counter';
+import ImgDesk from '@components/UI/CardProduct/ImgCard/ImgDesk';
+import Price from '@components/UI/CardProduct/Price/Price';
+import TitleCard from '@components/UI/CardProduct/Title/TitleCard';
+import ProductRating from '@components/UI/CardProduct/Rating/ProductRating';
+import LeaveFeedback from '@components/UI/CardProduct/Review/LeaveFeedback';
+import Volume from '@components/UI/CardProduct/Volume/Volume';
 import cl from './index.module.scss';
 
 export default function CardDesk({ card }) {

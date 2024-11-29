@@ -1,9 +1,11 @@
-import ProductCardPage from '@components/UI/CardProductPage/ProductCardPage';
+// import ProductCardPage from '@components/UI/CardProductPage/ProductPage';
+
+import ProductPage from '@components/ProductPage/ProductPage';
 
 const AboutPage = () => {
   return (
     <>
-      <ProductCardPage />
+      <ProductPage />
     </>
   );
 };

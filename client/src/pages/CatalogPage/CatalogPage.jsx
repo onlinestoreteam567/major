@@ -17,6 +17,7 @@ const Catalog = () => {
         </div>
 
         {/* <Products /> */}
+
         <Container />
       </section>
     </div>

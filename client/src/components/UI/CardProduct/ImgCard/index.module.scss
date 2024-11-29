@@ -43,8 +43,22 @@
           }
         }
       }
+      &:disabled {
+        svg {
+          @include flex(row, center, center);
+          rect {
+            fill: #f8f8f9;
+            transition: fill 0.5s ease;
+          }
+          path {
+            stroke: #22211f;
+            transition: stroke 0.5s ease;
+          }
+        }
+      }
     }
   }
+
   @include tablet {
     display: none;
   }
