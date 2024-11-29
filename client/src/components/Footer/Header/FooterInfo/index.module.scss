@@ -11,8 +11,9 @@
     justify-content: unset;
     margin-bottom: 0;
     margin-left: 25%;
+    justify-self: end;
+    width: max-content;
   }
-
   h3 {
     font-family: $font-main;
     font-size: $font-size-base;
@@ -21,7 +22,6 @@
     line-height: 21.76px;
 
     @include deskmin {
-      font-family: $font-main;
       font-size: $font-size-medium;
       line-height: $line-height-base;
     }

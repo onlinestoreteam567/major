@@ -10,7 +10,7 @@
 
   hr {
     height: 1px;
-    width: 97%;
+    width: 100%;
     color: #a2a2a2;
   }
 
@@ -24,6 +24,10 @@
     @include tablet {
       font-size: 14px;
       line-height: 18px;
+    }
+
+    @include deskmin {
+      font-size: $font-size-base;
     }
   }
 }

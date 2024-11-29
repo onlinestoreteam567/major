@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 import commentsData from './data';
 import Banner from '@UI/Banner/Banner';
-import Heading from '@components/UI/Texts/Heading/Heading';
+import Heading from '@UI/Texts/Heading/Heading';
 
 // Comments banner component
 const Comments = () => {

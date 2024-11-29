@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
-import Heading from '@components/UI/Texts/Heading/Heading';
-import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
+import Heading from '@UI/Texts/Heading/Heading';
+import Paragraph from '@UI/Texts/Paragraph/Paragraph';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
 

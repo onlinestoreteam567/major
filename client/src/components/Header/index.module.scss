@@ -6,17 +6,26 @@ header {
   z-index: 10;
   height: 75px;
 
-  @include deskmax {
+  @include deskmin {
     height: 96px;
   }
 
   .mainWrapper {
     @include flex(row, space-between, null);
-    padding: 21px 4% 0 5%;
+    padding: 21px 15px 0 15px;
+
+    @include tablet {
+      padding: 24px 64px 0 64px;
+    }
 
     @include deskmin {
       display: grid;
       grid-template-columns: 0.2fr auto 0.2fr;
+      padding: 24px 21px 0 21px;
+    }
+
+    @include deskmax {
+      padding: 24px 72px 0 72px;
     }
 
     .burgerWrapper {

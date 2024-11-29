@@ -1,3 +1,4 @@
+import cl from './index.module.scss';
 import BestSellers from './BestSellers/BestSellers';
 import Catalog from './Catalog/Catalog';
 import CheaperTogether from './CheaperTogether/CheaperTogether';
@@ -12,14 +13,16 @@ const HomePage = () => {
   return (
     <div>
       <MainBanner />
-      <YellowButtonMainWrapper />
-      <BestSellers />
-      <CheaperTogether />
-      <Catalog />
-      <MajorInfo />
-      <WhyChooseUs />
-      <Comments />
-      <OurPartners />
+      <div className={cl.homePageWrapper}>
+        <YellowButtonMainWrapper />
+        <BestSellers />
+        <CheaperTogether />
+        <Catalog />
+        <MajorInfo />
+        <WhyChooseUs />
+        <Comments />
+        <OurPartners />
+      </div>
     </div>
   );
 };

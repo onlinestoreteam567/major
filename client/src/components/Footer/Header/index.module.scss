@@ -6,8 +6,12 @@
   @include tablet {
     height: 254px;
     display: grid;
-    grid-template-columns: min-content 1fr 1fr;
+    grid-template-columns: min-content 1fr min-content;
     box-sizing: border-box;
     gap: 37px;
+  }
+
+  @include deskmin {
+    grid-template-columns: min-content 1fr min-content;
   }
 }
