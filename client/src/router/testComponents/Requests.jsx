@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import TypeService from '@services/TypeService.js';
 import CategoryService from '@services/CategoryService.js';
-import UserService from '@services/UserService';
+import UserService from '@services/UserService.js';
 
 const Requests = () => {
   const [typeId, setTypeId] = useState('');
