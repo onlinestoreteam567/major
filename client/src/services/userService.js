@@ -4,7 +4,7 @@ import validateUserData from './lib/validateUserData';
 const USER_ENDPOINT = import.meta.env.VITE_USER_ENDPOINT;
 
 if (!USER_ENDPOINT) {
-  throw new Error('USER_ENDPOINT is not defined! Check the configuration in the .env file.');
+  console.error('USER_ENDPOINT is not defined! Check the configuration in the .env file.');
 }
 
 const UserService = {
