@@ -1,5 +1,5 @@
 // Helper function for user data validation
-export const validateUserData = (data) => {
+export default function validateUserData(data) {
   const { email, first_name, last_name, role } = data;
   if (
     !email ||
@@ -14,4 +14,4 @@ export const validateUserData = (data) => {
       'Invalid data structure. Expected email (string), first_name (string), last_name (string), and role (number).'
     );
   }
-};
+}

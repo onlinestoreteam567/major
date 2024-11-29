@@ -1,5 +1,5 @@
 import apiClient from '@config/apiClient';
-import { validateUserData } from './lib/validateUserData';
+import validateUserData from './lib/validateUserData';
 
 const USER_ENDPOINT = import.meta.env.VITE_USER_ENDPOINT;
 

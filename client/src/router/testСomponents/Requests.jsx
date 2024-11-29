@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import TypeService from '@services/TypeService';
 import CategoryService from '@services/CategoryService';
-// import UserService from '@services/UserService';
+import UserService from '@services/UserService';
 
 const Requests = () => {
   const [typeId, setTypeId] = useState('');
@@ -86,42 +86,42 @@ const Requests = () => {
     });
   };
 
-  // // User Service Methods (new section)
-  // const handleOnGetUsers = () => {
-  //   UserService.getUsers().then((res) => {
-  //     console.log('Fetched Users:', res);
-  //   });
-  // };
+  // User Service Methods (new section)
+  const handleOnGetUsers = () => {
+    UserService.getUsers().then((res) => {
+      console.log('Fetched Users:', res);
+    });
+  };
 
-  // const handleOnCreateUser = () => {
-  //   UserService.createUser(userName).then((res) => {
-  //     console.log('Created User:', res);
-  //   });
-  // };
+  const handleOnCreateUser = () => {
+    UserService.createUser(userName).then((res) => {
+      console.log('Created User:', res);
+    });
+  };
 
-  // const handleOnGetUserById = () => {
-  //   UserService.getUserById(userId).then((res) => {
-  //     console.log('Fetched User by ID:', res);
-  //   });
-  // };
+  const handleOnGetUserById = () => {
+    UserService.getUserById(userId).then((res) => {
+      console.log('Fetched User by ID:', res);
+    });
+  };
 
-  // const handleOnUpdateUserById = () => {
-  //   UserService.updateUserById(userId, { name: userName }).then((res) => {
-  //     console.log('Updated User:', res);
-  //   });
-  // };
+  const handleOnUpdateUserById = () => {
+    UserService.updateUserById(userId, { name: userName }).then((res) => {
+      console.log('Updated User:', res);
+    });
+  };
 
-  // const handleOnPatchUserById = () => {
-  //   UserService.patchUserById(userId, { name: userName }).then((res) => {
-  //     console.log('Patched User:', res);
-  //   });
-  // };
+  const handleOnPatchUserById = () => {
+    UserService.patchUserById(userId, { name: userName }).then((res) => {
+      console.log('Patched User:', res);
+    });
+  };
 
-  // const handleOnDeleteUserById = () => {
-  //   UserService.deleteUserById(userId).then((res) => {
-  //     console.log('Deleted User:', res);
-  //   });
-  // };
+  const handleOnDeleteUserById = () => {
+    UserService.deleteUserById(userId).then((res) => {
+      console.log('Deleted User:', res);
+    });
+  };
 
   return (
     <div>
@@ -180,7 +180,7 @@ const Requests = () => {
       </div>
 
       {/* Buttons for UserService */}
-      {/* 
+
       <div>
         <button onClick={handleOnGetUsers}>Fetch Users</button>
         <button onClick={handleOnCreateUser}>Create User</button>
@@ -189,7 +189,6 @@ const Requests = () => {
         <button onClick={handleOnPatchUserById}>Patch User by ID</button>
         <button onClick={handleOnDeleteUserById}>Delete User by ID</button>
       </div>
-      */}
     </div>
   );
 };
