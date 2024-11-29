@@ -21,8 +21,7 @@ const UserService = {
     // Validate user data
     validateUserData(data);
 
-    const response = await apiClient.post(`${USER_ENDPOINT}/`, data);
-    return response.data;
+    await apiClient.post(`${USER_ENDPOINT}/`, data);
   },
 
   // Get a user by ID
