@@ -7,6 +7,8 @@ export const needHelpSchema = yup.object().shape({
     .min(5, 'Full name must be at least 5 characters long')
     .required('Full name is required'),
 
+  phone: yup.string().trim(),
+
   question: yup
     .string()
     .trim()

@@ -9,7 +9,7 @@ const FormExample = () => {
     <>
       <h1 style={{ color: 'black' }}>Smart Form Component</h1>
       <Form onSubmit={onSubmit} schema={reviewSchema}>
-        <FormGroup>
+        <FormGroup name="rating">
           <Input name="rating" />
           <ErrorMessage name="rating" />
         </FormGroup>

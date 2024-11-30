@@ -1,18 +1,23 @@
 @import '@mixins';
 
-footer {
+.footer {
   @include flex(column, null, center);
-  padding: 20px 5% 0 5%;
+  padding: 20px 15px 0 15px;
   box-sizing: border-box;
   background-color: $second-background-color-black;
 
   @include tablet {
-    padding-top: 48px;
+    padding: 48px 64px 0 64px;
   }
 
   @include deskmin {
+    padding: 20px 21px 0 21px;
     padding-top: 54px;
     height: 312px;
     max-height: 312px;
+  }
+
+  @include deskmax {
+    padding: 20px 72px 0 72px;
   }
 }

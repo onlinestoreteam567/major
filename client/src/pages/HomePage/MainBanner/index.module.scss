@@ -2,18 +2,26 @@
 
 @mixin slide() {
   @include flex(column, space-between, start);
-  padding: 15vh 5vw 5vh 5vw;
+  padding: 15vh 15px 5vh 15px;
+
+  @include deskmax {
+    padding: 0 72px;
+  }
 
   @include tablet {
     @include flex(column, center, start);
-    padding: 0 5vw;
+    padding: 0 64px;
     gap: 8vh;
+  }
+
+  @include deskmin {
+    padding: 0 21px;
   }
 
   @include deskmax {
     @include flex(column, center, start);
     gap: 4vh;
-    padding-left: 5vw;
+    padding: 0 72px 5vw 72px;
   }
 }
 

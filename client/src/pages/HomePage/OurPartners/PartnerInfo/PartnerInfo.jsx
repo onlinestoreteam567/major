@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import Heading from '@components/UI/Texts/Heading/Heading';
-import Button from '@components/UI/Button/Button';
+import Heading from '@UI/Texts/Heading/Heading';
+import Button from '@UI/Button/Button';
 const PartnerInfo = ({ informationAboutPartner, setPartnerInteractionState }) => {
   const handleUnmountComponent = () => {
     clearTimeout();
