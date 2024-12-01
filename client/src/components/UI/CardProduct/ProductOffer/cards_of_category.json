@@ -47,8 +47,8 @@
     },
     "type_category": { "id": 5, "title": "Спрей" },
     "is_new": false,
-    "is_best_seller": true,
-    "is_sale": true,
+    "is_best_seller": false,
+    "is_sale": false,
     "ingredients": "Aqua, Alcohol Denat., Dimethicone, PEG-7 Glyceryl Cocoate, Stearamidopropyl Dimethylamine, Silk Amino Acids, Trehalose, Hydrolyzed Keratin, Glycerin, Crambe  Abyssinica Seed Oil, Phytosterols, Parfum, Lactic Acid, CI 60725.",
     "application": "збовтати флакон для змішування двох фаз. Розпилити на чисте вологе або сухе волосся, відступаючи на 2-3 см від коренів. Розподілити пальцями та розчесати. Не змивати!"
   },
@@ -72,8 +72,8 @@
     },
     "type_category": { "id": 2, "title": "Шампунь" },
     "is_new": false,
-    "is_best_seller": true,
-    "is_sale": true,
+    "is_best_seller": false,
+    "is_sale": false,
     "ingredients": "Aqua, Sodium Coco Sulfatе, Sodium Laureth Sulfate, Coco Glucoside, Cocamidopropyl Betaine, Sodium Cocoyl Isethionate, Sodium Chloride, Sodium Lauroyl Lactylate, Butylene Glycol, Piper Nigrum (Pepper) Fruit Extract, Inga Alba Bark Extract, Stearamidopropyl Dimethylamine, Silk Amino Acids, Trehalose, Hydrolyzed Keratin, PEG-7 Glyceryl Cocoate, Parfum, Citric Acid, Benzyl Alcohol, Ethylhexylglycerin.",
     "application": "нанести шампунь на вологе волосся, масувати його до утворення піни та промити теплою водою. Ідеальний у поєднанні з іншими засобами лінійки Silky Therapy."
   },
@@ -106,7 +106,7 @@
     "id": 4,
     "article": "mj009",
     "available": true,
-    "name": "Разом дешевше",
+    "name": "Бальзам-шовк для тонкого волосся",
     "price": 375,
     "opt_price": 244,
     "dropshipper_price": 281,
@@ -122,8 +122,8 @@
     },
     "type_category": { "id": 3, "title": "Бальзам" },
     "is_new": false,
-    "is_best_seller": true,
-    "is_sale": true,
+    "is_best_seller": false,
+    "is_sale": false,
     "ingredients": "Aqua, Cetearyl Alcohol, Behentrimonium Chloride, Stearamidopropyl Dimethylamine, Coco-Caprylate, Glyceryl Stearate, Amodimethicone, Hydroxyethylcellulose, Silk Amino Acids, Trehalose, Hydrolyzed Keratin, Glycerin, Crambe  Abyssinica Seed Oil, Phytosterols, Tocopherol Acetate, Parfum, Cetrimonium Chloride, Trideceth-12, Lactic Acid, Benzyl Alcohol, Ethylhexylglycerin",
     "application": "нанести бальзам на чисте вологе волосся, залишити на 2-3 хвилини, змити водою. Ідеальний у поєднанні з іншими засобами лінійки Silky Therapy."
   }

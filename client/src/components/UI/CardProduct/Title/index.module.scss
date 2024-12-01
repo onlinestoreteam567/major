@@ -1,9 +1,9 @@
 @import '@mixins';
 
 .wrapTitle {
-  @include flex(row, flex-start, center);
+  @include flex(row, flex-start, flex-start);
   width: 100%;
-  height: auto;
+  height: 52px;
   h2 {
     font-family: $font-main;
     font-size: 20px;

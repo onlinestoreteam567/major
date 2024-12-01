@@ -1,0 +1,75 @@
+@import '@mixins';
+
+// *** SliderBoxMain ***
+.wrapSlider {
+  text-align: center;
+  width: 356px;
+  height: auto;
+  .slider {
+    display: flex;
+    width: auto;
+    padding: 0;
+  }
+  @include tablet {
+    // width: 640px;
+    width: 668px;
+    .slider {
+      padding: 0 14px;
+    }
+  }
+  @include deskmin {
+    // width: 980px;
+    width: 1008px;
+  }
+  @include deskmax {
+    // width: 1296px;
+    width: 1320px;
+    .slider {
+      padding: 0 12px;
+    }
+  }
+}
+
+.btnSlider {
+  @include flex(row, center, center);
+  gap: 16px;
+  margin-top: 40px;
+  button {
+    @include flex(row, center, center);
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background: #f8f8f9;
+    padding: 0;
+    cursor: pointer;
+    &:hover {
+      svg {
+        @include flex(row, center, center);
+        rect {
+          fill: rgb(34, 33, 31);
+          transition: fill 0.5s ease;
+        }
+        path {
+          stroke: #ffffff;
+          transition: stroke 0.5s ease;
+        }
+      }
+    }
+    &:disabled {
+      svg {
+        @include flex(row, center, center);
+        rect {
+          fill: #f8f8f9;
+          transition: fill 0.5s ease;
+        }
+        path {
+          stroke: #22211f;
+          transition: stroke 0.5s ease;
+        }
+      }
+    }
+  }
+}
+// ****************************************
