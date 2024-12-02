@@ -12,7 +12,9 @@ header {
 
   .mainWrapper {
     @include flex(row, space-between, null);
+    @include layout();
     padding: 21px 15px 0 15px;
+    margin: 0 auto;
 
     @include tablet {
       padding: 24px 64px 0 64px;

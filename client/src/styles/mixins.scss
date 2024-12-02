@@ -43,3 +43,28 @@
     @content;
   }
 }
+
+@mixin layout {
+  box-sizing: border-box;
+  padding: 0 15px;
+  min-width: 380px;
+  max-width: 767px;
+
+  @include tablet {
+    padding: 0 64px;
+    min-width: 768px;
+    max-width: 1023px;
+  }
+
+  @include deskmin {
+    padding: 0 21px;
+    min-width: 1024px;
+    max-width: 1439px;
+  }
+
+  @include deskmax {
+    padding: 0 72px;
+    min-width: 1440px;
+    max-width: 1440px;
+  }
+}

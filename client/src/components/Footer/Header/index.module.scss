@@ -1,13 +1,12 @@
 @import '@mixins';
 
 .topSection {
-  width: 100%;
+  @include layout();
 
   @include tablet {
     height: 254px;
     display: grid;
     grid-template-columns: min-content 1fr min-content;
-    box-sizing: border-box;
     gap: 37px;
   }
 

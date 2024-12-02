@@ -3,7 +3,6 @@
 .ourPartnersWrapper {
   user-select: none;
   @include flex(column, center, center);
-  margin-top: 200px;
   position: relative;
   width: 100%;
   box-sizing: border-box;
