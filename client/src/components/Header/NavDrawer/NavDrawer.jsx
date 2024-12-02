@@ -5,6 +5,7 @@ import Button from '@UI/Button/Button';
 import SocialLinks from '@UI/SocialLinks/SocialLinks';
 import { useState } from 'react';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import { Link } from 'react-router-dom';
 
 const NavDrawer = ({ setIsShowNavDrawer }) => {
   const [hiddenNavDrawer, setHiddenNavDrawer] = useState(false);
@@ -29,10 +30,26 @@ const NavDrawer = ({ setIsShowNavDrawer }) => {
         </div>
       </section>
       <section className={cl.buttonsSection}>
-        <Button variant="navDrawer">{getTranslation('catalog')}</Button>
-        <Button variant="navDrawer">{getTranslation('about')}</Button>
-        <Button variant="navDrawer">{getTranslation('blog')}</Button>
-        <Button variant="navDrawer">{getTranslation('cooperation')}</Button>
+        <Link to="catalog">
+          <Button variant="navDrawer" onClick={handleCloseNavDrawer}>
+            {getTranslation('catalog')}
+          </Button>
+        </Link>
+        <Link to="about">
+          <Button variant="navDrawer" onClick={handleCloseNavDrawer}>
+            {getTranslation('about')}
+          </Button>
+        </Link>
+        <Link to="blog">
+          <Button variant="navDrawer" onClick={handleCloseNavDrawer}>
+            {getTranslation('blog')}
+          </Button>
+        </Link>
+        <Link to="cooperation">
+          <Button variant="navDrawer" onClick={handleCloseNavDrawer}>
+            {getTranslation('cooperation')}
+          </Button>
+        </Link>
       </section>
       <SocialLinks />
     </section>
