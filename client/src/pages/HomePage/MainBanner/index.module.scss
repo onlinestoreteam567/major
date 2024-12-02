@@ -2,7 +2,7 @@
 
 @mixin slide() {
   @include flex(column, space-between, start);
-  padding: 15vh 15px 5vh 15px;
+  padding: 15vh 15px 100px 15px;
 
   @include deskmax {
     padding: 0 72px;
