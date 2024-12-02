@@ -24,6 +24,7 @@ i18n
       'yellowButton',
 
       // Modules/Sections
+      'mainBanner',
       'majorInfo',
       'whyChooseUs',
       'ourPartners',
