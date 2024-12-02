@@ -30,6 +30,10 @@ header {
 
     .burgerWrapper {
       width: 64px;
+
+      svg {
+        cursor: pointer;
+      }
     }
 
     i {

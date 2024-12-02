@@ -1,10 +1,20 @@
 import PropTypes from 'prop-types';
 import { changeLanguage } from '@utils/changeLanguage';
 
-const UaIcon = ({ fillColor, setIsLanguageDefault }) => {
+const UaIcon = ({ fillColor, setIsLanguageDefault, isNavDrawer }) => {
   const handleLanguageChangeOnClick = () => {
-    setIsLanguageDefault(false);
-    changeLanguage('en');
+    let isDefaultLanguage;
+    let language;
+    if (isNavDrawer) {
+      isDefaultLanguage = true;
+      language = 'ua';
+    } else {
+      language;
+      isDefaultLanguage = false;
+      language = 'en';
+    }
+    setIsLanguageDefault(isDefaultLanguage);
+    changeLanguage(language);
   };
 
   return (
