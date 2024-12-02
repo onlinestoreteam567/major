@@ -1,17 +1,17 @@
 const slideData = [
   {
-    labelText: 'НОВИНКА',
-    title: 'Флюїд-шовк для тонкого волосся',
+    labelText: 'labelText1',
+    title: 'title1',
     slideClassName: 'firstSlide',
   },
   {
-    labelText: 'ХІТ ПРОДАЖУ',
-    title: 'Шампунь-реконструктор для пошкодженого волосся',
+    labelText: 'labelText2',
+    title: 'title2',
     slideClassName: 'secondSlide',
   },
   {
-    labelText: 'НОВИНКА',
-    title: 'Крем-маска для кучерявого волосся',
+    labelText: 'labelText3',
+    title: 'title3',
     slideClassName: 'thirdSlide',
   },
 ];

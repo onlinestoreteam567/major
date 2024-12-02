@@ -9,9 +9,17 @@ const LangSwitcher = () => {
 
   return (
     <section className={cl.langSwitcher}>
-      <UaIcon fillColor={isLanguageDefault ? '#A2A2A2' : '#000000'} setIsLanguageDefault={setIsLanguageDefault} />
+      <UaIcon
+        fillColor={isLanguageDefault ? '#000000' : '#A2A2A2'}
+        setIsLanguageDefault={setIsLanguageDefault}
+        isNavDrawer={true}
+      />
       <LineSeparator fillColor={'#A2A2A2'} />
-      <EnIcon fillColor={!isLanguageDefault ? '#A2A2A2' : '#000000'} setIsLanguageDefault={setIsLanguageDefault} />
+      <EnIcon
+        fillColor={!isLanguageDefault ? '#000000' : '#A2A2A2'}
+        setIsLanguageDefault={setIsLanguageDefault}
+        isNavDrawer={true}
+      />
     </section>
   );
 };

@@ -10,7 +10,6 @@
   color: $text-color-black;
   gap: 50px;
   box-sizing: border-box;
-  margin-top: 100px;
 
   h2 {
     text-align: center;
@@ -49,7 +48,7 @@
         }
 
         @include deskmax {
-          width: 416px;
+          width: 415px;
           height: 352px;
         }
       }

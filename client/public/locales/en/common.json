@@ -20,5 +20,10 @@
   "ok": "OK",
 
   "home": "Home",
-  "imgAlt": "Separator"
+  "imgAlt": "Separator",
+
+  "addToCart": "Add To cart",
+  "bestSellers": "Best Sellers",
+  "cheaperTogether": "Cheaper together",
+  "reviewsAboutProducts": "Reviews about our products"
 }

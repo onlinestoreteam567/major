@@ -1,18 +1,7 @@
 @import '@mixins';
 
 .homePageWrapper {
-  box-sizing: border-box;
-  padding: 0 15px;
-
-  @include tablet {
-    padding: 0 64px;
-  }
-
-  @include deskmin {
-    padding: 0 21px;
-  }
-
-  @include deskmax {
-    padding: 0 72px;
-  }
+  @include flexGap(18vh, column);
+  @include layout();
+  margin: 15vh auto 5vh auto;
 }
