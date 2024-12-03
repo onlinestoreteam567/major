@@ -9,7 +9,7 @@ const PartnerInfo = ({ informationAboutPartner, setPartnerInteractionState }) =>
     setPartnerInteractionState((prev) => ({ ...prev, closeAnimation: true, activePartner: null }));
     setTimeout(() => {
       setPartnerInteractionState((prev) => ({ ...prev, showInformationAboutPartner: false }));
-    }, 500);
+    }, 275);
   };
 
   const { getTranslation } = useTranslationNamespace('ourPartners');

@@ -9,9 +9,9 @@
   box-sizing: border-box;
   background: #000000cc;
   position: absolute;
-  top: 120px;
-  right: 4%;
-  animation: showInformationAboutPartners 0.5s;
+  top: 115px;
+  right: 0;
+  @include showCloseAnimation();
 
   @include deskmin {
     height: 68vh;
