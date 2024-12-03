@@ -5,6 +5,7 @@ import products from './productsExample';
 import Overlay from '@UI/Overlay/Overlay';
 import ProductResults from './ProductResults';
 import NotFound from './NotFound';
+import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 
 function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
   const [isInputFocus, setIsInputFocus] = useState(false);
@@ -19,14 +20,6 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
     inputRef.current.focus();
   };
 
-  const handleCloseInputAnimation = () => {
-    setIsHiddenInputAnimation(true);
-    clearTimeout();
-    setTimeout(() => {
-      setIsShowInput(false);
-    }, 275);
-  };
-
   const filteredProducts = useMemo(
     () =>
       products.filter((product) => {
@@ -39,7 +32,7 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
 
   return (
     <>
-      {isDesktop && <Overlay handleClose={handleCloseInputAnimation} />}
+      {isDesktop && <Overlay handleClose={() => handleCloseWithDelay(setIsHiddenInputAnimation, setIsShowInput)} />}
 
       <search className={isHiddenInputAnimation ? cl.hiddenInput : ''}>
         <div className={inputValue && cl.activeSearch}>

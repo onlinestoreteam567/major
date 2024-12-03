@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import EmptyBasket from './EmptyBasket/EmptyBasket';
 import FilledBusket from './FilledBasket/FilledBasket';
 import Header from './Header/Header';
+import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 
 const Basket = ({ setIsShowBasket }) => {
   const [hiddenBasket, setHiddenBasket] = useState(false);
@@ -15,11 +16,7 @@ const Basket = ({ setIsShowBasket }) => {
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleCloseBasket = () => {
-    setHiddenBasket(true);
-    clearTimeout();
-    setTimeout(() => {
-      setIsShowBasket(false);
-    }, 450);
+    handleCloseWithDelay(setHiddenBasket, setIsShowBasket);
   };
 
   // Check if basket is empty
