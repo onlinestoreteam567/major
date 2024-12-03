@@ -15,7 +15,6 @@
   background-repeat: no-repeat;
   background-position: center;
   color: black;
-  animation: showBacket 0.5s;
   z-index: 100;
 
   @include tablet {
@@ -29,6 +28,8 @@
     width: 609px;
     height: 100vh;
   }
+
+  @include showCloseAnimation();
 }
 
 .emptyBasket {
@@ -36,23 +37,5 @@
 }
 
 .closeBasket {
-  animation: closeBacket 0.5s;
-}
-
-@keyframes showBacket {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes closeBacket {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
+  @include showCloseAnimation('close');
 }

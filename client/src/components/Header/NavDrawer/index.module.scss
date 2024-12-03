@@ -9,7 +9,6 @@
   box-sizing: border-box;
   padding: 16px 4% 16px 5%;
   background-color: #f8f8f9;
-  animation: showNavDrawer 0.5s;
 
   @include tablet {
     padding: 32px 4% 128px 5%;
@@ -17,6 +16,8 @@
     max-height: 100vh;
     overflow: scroll;
   }
+
+  @include showCloseAnimation('show', -100%);
 
   .topSection {
     @include flex(row, space-between, center);
@@ -48,23 +49,5 @@
 }
 
 .closeAnimation {
-  animation: closeNavDrawer 0.5s;
-}
-
-@keyframes showNavDrawer {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes closeNavDrawer {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+  @include showCloseAnimation('close', -100%);
 }
