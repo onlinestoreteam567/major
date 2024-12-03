@@ -4,22 +4,29 @@
   @include flex(column, space-between, start);
   gap: 16px;
   padding: 20px 50px;
-  height: 394px;
+  height: 68vh;
   width: 318px;
   box-sizing: border-box;
   background: #000000cc;
   position: absolute;
-  top: 115px;
+  top: 100px;
   right: 0;
   @include showCloseAnimation();
 
+  @include tablet {
+    top: 105px;
+  }
+
   @include deskmin {
-    height: 68vh;
     width: 388px;
     padding: 10vh 50px 10vh 40px;
     gap: 32px;
+    top: 110px;
   }
 
+  @include deskmax {
+    top: 115px;
+  }
   .workScheduleSection {
     @include flexGap(8px, column);
   }
