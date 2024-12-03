@@ -1,7 +1,7 @@
 @import '@mixins';
 
 .homePageWrapper {
+  margin: 15vh auto 5vh auto;
   @include flexGap(18vh, column);
   @include layout();
-  margin: 15vh auto 5vh auto;
 }

@@ -45,11 +45,12 @@
 }
 
 @mixin layout {
-  box-sizing: border-box;
-  padding: 0 15px;
-  min-width: 380px;
-  max-width: 767px;
-
+  & {
+    box-sizing: border-box;
+    padding: 0 15px;
+    min-width: 380px;
+    max-width: 767px;
+  }
   @include tablet {
     padding: 0 64px;
     min-width: 768px;

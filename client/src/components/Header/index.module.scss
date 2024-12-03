@@ -11,11 +11,9 @@ header {
   }
 
   .mainWrapper {
-    @include flex(row, space-between, null);
-    @include layout();
     padding: 21px 15px 0 15px;
     margin: 0 auto;
-
+    @include flex(row, space-between, null);
     @include tablet {
       padding: 24px 64px 0 64px;
     }
@@ -29,6 +27,8 @@ header {
     @include deskmax {
       padding: 24px 72px 0 72px;
     }
+
+    @include layout();
 
     .burgerWrapper {
       width: 64px;
