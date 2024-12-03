@@ -4,6 +4,7 @@ import Minus from '@assets/svg/basket/Minus';
 import { useDispatch } from 'react-redux';
 import { addItem, removeItem, decrementItemQuantity, setItemQuantity } from '@features/cart/cartSlice.js/';
 import Heading from '@UI/Texts/Heading/Heading';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const BasketItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -24,6 +25,8 @@ const BasketItem = ({ item }) => {
     }
   };
 
+  const { getTranslation } = useTranslationNamespace('common');
+
   return (
     <li className={cl.basketItem}>
       <img src="images/basket/basketItem" className={cl.basketItemImg} alt="" />
@@ -43,7 +46,7 @@ const BasketItem = ({ item }) => {
             </button>
           </section>
           <button className={cl.deleteButton} onClick={handleRemoveItem}>
-            Видалити
+            {getTranslation('delete')}
           </button>
         </section>
       </section>

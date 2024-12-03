@@ -1,9 +1,11 @@
 import Heading from '@components/UI/Texts/Heading/Heading';
 import BasketItem from '../BasketItem/BasketItem';
 import cl from './index.module.scss';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const { getTranslation } = useTranslationNamespace('basket');
 
   return (
     <>
@@ -14,11 +16,11 @@ const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
       </ul>
       <section className={cl.totalSection}>
         <p>
-          <span>Кількість товарів</span>
+          <span>{getTranslation('numberOfItems')}</span>
           <strong>{totalQuantity}</strong>
         </p>
         <Heading type="h3">
-          <span>Загалом</span>
+          <span>{getTranslation('totalPrice')}</span>
           <span>
             {totalPrice} <img src="/svg/hryvnia.svg" alt="" className={cl.hryvniaIcon} />
           </span>
@@ -26,9 +28,9 @@ const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
       </section>
       <section className={cl.buttonsSection}>
         <button className={cl.continueShoppingButtonSecond} onClick={onClick}>
-          Продовжити покупки
+          {getTranslation('continueShopping')}
         </button>
-        <button className={cl.orderButton}>Оформити замовлення</button>
+        <button className={cl.orderButton}>{getTranslation('placeOrder')}</button>
       </section>
     </>
   );
