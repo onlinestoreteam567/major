@@ -25,7 +25,7 @@ const BasketItem = ({ item }) => {
   };
 
   return (
-    <li>
+    <li className={cl.basketItem}>
       <img src="images/basket/basketItem" className={cl.basketItemImg} alt="" />
       <section>
         <Heading type="h4">{item.name}</Heading>
