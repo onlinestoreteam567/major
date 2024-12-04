@@ -9,7 +9,6 @@
   width: $width-pop-up-header-width;
   height: 100vh;
   box-sizing: border-box;
-  animation: showSearch 0.3s ease-in;
 
   @include tablet {
     height: $height-pop-up-header-tablet;
@@ -17,30 +16,14 @@
     overflow: scroll;
   }
 
+  @include showCloseAnimation('show', -100%);
+
   &.closeAnimation {
-    animation: closeSearch 0.3s ease-in;
+    @include showCloseAnimation('close', -100%);
   }
 
   .topSection {
     @include flex(row, space-between, center);
     color: black;
-  }
-}
-
-@keyframes showSearch {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes closeSearch {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-100%);
   }
 }

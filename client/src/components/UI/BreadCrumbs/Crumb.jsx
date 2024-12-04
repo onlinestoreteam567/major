@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import cl from './index.module.scss';
 
 const Crumb = ({ path, name }) => {
   const { getTranslation } = useTranslationNamespace('common');
   return (
     <>
-      <span className={cl.separator}>
+      <span>
         <img src="/svg/breadCrumbs/separator.svg" alt={getTranslation('img alt')} />
       </span>
       <li>

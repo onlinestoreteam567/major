@@ -38,7 +38,7 @@
 
       border-radius: 2px 0 0 2px;
       border: none;
-      animation: showHelpButton 0.3s ease-out;
+      @include showCloseAnimation();
 
       .triangle {
         width: 0px;
@@ -54,16 +54,17 @@
     }
 
     .closeAnimation {
-      animation: closeHelpButton 0.3s ease-out;
+      @include showCloseAnimation('close');
     }
   }
 
   .communicationButtons {
     @include flex(column, null, null);
-    animation: showButtons 0.3s ease-out;
     position: absolute;
     bottom: -130px;
     right: 18px;
+
+    @include showCloseAnimation('show', 375%);
 
     .telegramIcon {
       cursor: pointer;
@@ -76,7 +77,7 @@
   }
 
   .closeAnimation {
-    animation: closeButtons 0.3s ease-out;
+    @include showCloseAnimation('close', 375%);
   }
 }
 
@@ -88,40 +89,4 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 90;
-}
-
-@keyframes showHelpButton {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes closeHelpButton {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes showButtons {
-  from {
-    transform: translateX(375%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes closeButtons {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(375%);
-  }
 }

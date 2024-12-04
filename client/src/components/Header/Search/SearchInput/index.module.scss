@@ -13,8 +13,8 @@ search {
     top: 27px;
     left: 17%;
     z-index: 100;
-    animation: showSearchInput 0.3s ease-in;
     width: 696px;
+    @include showCloseAnimation();
   }
 
   @include deskmax {
@@ -197,23 +197,5 @@ search {
 }
 
 .hiddenInput {
-  animation: closeSearchInput 0.3s ease-in;
-}
-
-@keyframes showSearchInput {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes closeSearchInput {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
+  @include showCloseAnimation('close');
 }

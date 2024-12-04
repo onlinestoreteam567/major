@@ -45,11 +45,12 @@
 }
 
 @mixin layout {
-  box-sizing: border-box;
-  padding: 0 15px;
-  min-width: 380px;
-  max-width: 767px;
-
+  & {
+    box-sizing: border-box;
+    padding: 0 15px;
+    min-width: 380px;
+    max-width: 767px;
+  }
   @include tablet {
     padding: 0 64px;
     min-width: 768px;
@@ -66,5 +67,33 @@
     padding: 0 72px;
     min-width: 1440px;
     max-width: 1440px;
+  }
+}
+
+@mixin showCloseAnimation($animationType: 'show', $direction: 100%, $duration: 300ms) {
+  @keyframes show {
+    from {
+      transform: translateX($direction);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes close {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX($direction);
+    }
+  }
+
+  & {
+    @if $animationType == 'show' {
+      animation: show $duration ease-out;
+    } @else if $animationType == 'close' {
+      animation: close $duration ease-in;
+    }
   }
 }

@@ -5,6 +5,8 @@ import products from './productsExample';
 import Overlay from '@UI/Overlay/Overlay';
 import ProductResults from './ProductResults';
 import NotFound from './NotFound';
+import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
   const [isInputFocus, setIsInputFocus] = useState(false);
@@ -19,14 +21,6 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
     inputRef.current.focus();
   };
 
-  const handleCloseInputAnimation = () => {
-    setIsHiddenInputAnimation(true);
-    clearTimeout();
-    setTimeout(() => {
-      setIsShowInput(false);
-    }, 275);
-  };
-
   const filteredProducts = useMemo(
     () =>
       products.filter((product) => {
@@ -37,16 +31,17 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
     [inputValue]
   );
 
+  const { getTranslation } = useTranslationNamespace('header');
   return (
     <>
-      {isDesktop && <Overlay handleClose={handleCloseInputAnimation} />}
+      {isDesktop && <Overlay handleClose={() => handleCloseWithDelay(setIsHiddenInputAnimation, setIsShowInput)} />}
 
       <search className={isHiddenInputAnimation ? cl.hiddenInput : ''}>
         <div className={inputValue && cl.activeSearch}>
           <input
             className={`${cl.searchInput} ${inputValue && cl.activeSearchInput} ${isInputFocus && cl.inputFocus}`}
             type="text"
-            placeholder="Я шукаю..."
+            placeholder={getTranslation('searchInputPlaceholder')}
             onChange={handleInput}
             value={inputValue}
             onFocus={handleInputFocus}

@@ -7,50 +7,12 @@
   width: 100%;
   box-sizing: border-box;
 
-  div {
+  button {
     margin-top: 25px;
-    margin-bottom: 15vh;
     width: 306px;
-    height: 56px;
-    border-radius: 8px;
-    background: $second-background-color-black;
-    color: $text-color-light;
-    text-align: center;
-    font-size: 20px;
-    font-weight: $font-weight-medium;
-    line-height: $line-height-base;
-    border: none;
-    transition:
-      color 0.5s,
-      background-color 0.5s;
-    cursor: pointer;
-
-    &:hover {
-      background-color: transparent;
-      color: $text-color-black;
-      border: 2px solid $second-background-color-black;
-    }
   }
 }
 
 .closeAnimation > aside {
-  animation: closeInformationAboutPartners 0.6s !important;
-}
-
-@keyframes showInformationAboutPartners {
-  from {
-    transform: translateX(250%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes closeInformationAboutPartners {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(250%);
-  }
+  @include showCloseAnimation('close', 250%);
 }

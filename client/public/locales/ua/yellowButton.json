@@ -1,12 +1,12 @@
 {
   "help": "Потрібна допомога?",
 
-  "hasQuestion": "Маєте питання?",
-  "leaveYouPhone": "Залиште Ваш номер телефону і ми Вам зателефонуємо!",
+  "subtitle": "Маєте питання?",
+  "heading": "Залиште Ваш номер телефону і ми Вам зателефонуємо!",
   "nameAndSurname": "Ім’я та прізвище",
   "phoneNumber": "Номер телефону",
-  "question": "Питання",
-  "send": "Відправити повідомлення",
-  "writeYourQuestionPlaceholder": "Напишіть нам Ваше питання",
-  "crossAlt": "Закрити"
+  "textAreaTitle": "Питання",
+  "buttonText": "Відправити повідомлення",
+  "textAreaPlaceholder": "Напишіть нам Ваше питання",
+  "crrossAlt": "Закрити"
 }
