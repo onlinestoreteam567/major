@@ -33,6 +33,7 @@ export const defaultSettings = {
   slidesToShow: 4,
   slidesToScroll: 1,
   lazyLoad: true,
+  fade: true,
   responsive: [
     {
       breakpoint: 1024,
@@ -65,12 +66,13 @@ export const mainSettings = {
   infinite: false,
   adaptiveHeight: true,
   arrows: true,
-  speed: 500,
+  speed: 300,
   slidesToShow: 4,
   slidesToScroll: 1,
   lazyLoad: true,
   variableWidth: true,
-
+  draggable: false,
+  // fade: true,
   responsive: [
     {
       breakpoint: 1440,
@@ -94,4 +96,19 @@ export const mainSettings = {
       },
     },
   ],
+};
+
+export const oneElement = {
+  accessibility: true,
+  dots: false,
+  infinite: false,
+  adaptiveHeight: true,
+  arrows: true,
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  lazyLoad: true,
+  variableWidth: true,
+  draggable: false,
+  // fade: true,
 };

@@ -12,7 +12,7 @@ header {
 
   .mainWrapper {
     @include flex(row, space-between, null);
-    @include layout();
+    // @include layout();
     padding: 21px 15px 0 15px;
     margin: 0 auto;
 

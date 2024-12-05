@@ -10,6 +10,48 @@
     width: auto;
     padding: 0;
   }
+  .btnSlider {
+    @include flex(row, center, center);
+    gap: 16px;
+    margin-top: 40px;
+    button {
+      @include flex(row, center, center);
+      width: 40px;
+      height: 40px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      background: #f8f8f9;
+      padding: 0;
+      cursor: pointer;
+      &:hover {
+        svg {
+          @include flex(row, center, center);
+          rect {
+            fill: rgb(34, 33, 31);
+            transition: fill 0.5s ease;
+          }
+          path {
+            stroke: #ffffff;
+            transition: stroke 0.5s ease;
+          }
+        }
+      }
+      &:disabled {
+        svg {
+          @include flex(row, center, center);
+          rect {
+            fill: #f8f8f9;
+            transition: fill 0.5s ease;
+          }
+          path {
+            stroke: #22211f;
+            transition: stroke 0.5s ease;
+          }
+        }
+      }
+    }
+  }
   @include tablet {
     // width: 640px;
     width: 668px;
@@ -22,54 +64,21 @@
     width: 1008px;
   }
   @include deskmax {
+    position: relative;
     // width: 1296px;
     width: 1320px;
+    text-align: center;
     .slider {
       padding: 0 12px;
     }
-  }
-}
-
-.btnSlider {
-  @include flex(row, center, center);
-  gap: 16px;
-  margin-top: 40px;
-  button {
-    @include flex(row, center, center);
-    width: 40px;
-    height: 40px;
-    border: none;
-    outline: none;
-    border-radius: 8px;
-    background: #f8f8f9;
-    padding: 0;
-    cursor: pointer;
-    &:hover {
-      svg {
-        @include flex(row, center, center);
-        rect {
-          fill: rgb(34, 33, 31);
-          transition: fill 0.5s ease;
-        }
-        path {
-          stroke: #ffffff;
-          transition: stroke 0.5s ease;
-        }
-      }
-    }
-    &:disabled {
-      svg {
-        @include flex(row, center, center);
-        rect {
-          fill: #f8f8f9;
-          transition: fill 0.5s ease;
-        }
-        path {
-          stroke: #22211f;
-          transition: stroke 0.5s ease;
-        }
-      }
+    .btnSlider {
+      position: absolute;
+      top: 240px;
+      left: 0;
+      right: 0;
+      @include flex(row, space-between, center);
+      width: 1280px;
+      margin: 0 auto;
     }
   }
 }
-// ****************************************

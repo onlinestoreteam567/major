@@ -1,23 +1,32 @@
 @import '@mixins';
 
+// *** SliderBoxMain ***
 // *** ImgMobile of ProductCardPage ***
-.wrapImgMobCard {
+.wrapSlider {
   position: relative;
-  @include flexGap(24px, column);
+  display: block;
+  text-align: center;
   width: 356px;
   height: 356px;
-  padding: 0;
-  img {
+  .wrapImgMobCard {
+    position: relative;
+    @include flexGap(24px, column);
     width: 356px;
     height: 356px;
-    background-color: rgb(248, 248, 249);
-    object-fit: cover;
-    transition: opacity 0.5s ease;
-    opacity: 1;
+    padding: 0;
+    img {
+      width: 356px;
+      height: 356px;
+      background-color: rgb(248, 248, 249);
+      object-fit: cover;
+      transition: opacity 0.5s ease;
+      opacity: 1;
+    }
   }
   .wrapImgBtn {
     position: absolute;
     top: 240px;
+    left: 0px;
     @include flex(row, space-between, center);
     width: 100%;
     padding: 0;
@@ -58,11 +67,11 @@
       }
     }
   }
-
   @include tablet {
     display: none;
   }
 }
+
 // *** ImgDesk of ProductCardPage ***
 .wrapImgDeskCard {
   @include mobile {
@@ -77,7 +86,7 @@
       width: 216px;
       height: 230px;
       background-color: rgb(248, 248, 249);
-      img {
+      .imgBig {
         width: 216px;
         height: 230px;
         object-fit: cover;
@@ -87,6 +96,7 @@
       @include flex(row, space-between, center);
       width: 216px;
       height: 40px;
+      list-style: none;
       img {
         width: 40px;
         height: 40px;
@@ -111,7 +121,7 @@
     .wrapImgCase {
       width: 296px;
       height: 296px;
-      img {
+      .imgBig {
         width: 296px;
         height: 296px;
       }
@@ -134,7 +144,7 @@
     .wrapImgCase {
       width: 416px;
       height: 416px;
-      img {
+      .imgBig {
         width: 416px;
         height: 416px;
       }
