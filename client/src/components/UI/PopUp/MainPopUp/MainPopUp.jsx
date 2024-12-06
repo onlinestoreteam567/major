@@ -24,8 +24,8 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
 
       <div className={cl.messagePopUp}>
         <img src="svg/crossIcon.svg" alt={getTranslation('crossAlt')} onClick={handleCloseMessagePopUp} />
-        <Subtitle>{popUpData.subtitle}</Subtitle>
-        <Heading type="h3">{popUpData.heading}</Heading>
+        <Subtitle>{getTranslation(popUpData.subtitle)}</Subtitle>
+        <Heading type="h3">{getTranslation(popUpData.heading)}</Heading>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             labelText={getTranslation('nameAndSurname')}
@@ -44,14 +44,14 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
           />
 
           <Textarea
-            labelText={popUpData.textAreaTitle}
+            labelText={getTranslation(popUpData.textAreaTitle)}
             name="question"
-            placeholder={popUpData.textAreaPlaceholder}
+            placeholder={getTranslation(popUpData.textAreaPlaceholder)}
             register={register}
           />
 
           <Button variant="secondary" submit={true}>
-            {popUpData.buttonText}
+            {getTranslation(popUpData.buttonText)}
           </Button>
         </form>
       </div>

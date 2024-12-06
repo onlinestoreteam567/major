@@ -50,7 +50,7 @@
       @include absolute(182px, 95px);
     }
 
-    @include tablet {
+    @include deskmin {
       @include absolute(205px, 110px);
     }
 
@@ -66,7 +66,7 @@
       @include absolute(86px, 145px);
     }
 
-    @include tablet {
+    @include deskmin {
       @include absolute(100px, 170px);
     }
 
@@ -82,7 +82,7 @@
       @include absolute(204px, 186px);
     }
 
-    @include tablet {
+    @include deskmin {
       @include absolute(225px, 207px);
     }
 
@@ -98,7 +98,7 @@
       @include absolute(269px, 136px);
     }
 
-    @include tablet {
+    @include deskmin {
       @include absolute(310px, 155px);
     }
 
@@ -114,7 +114,7 @@
       @include absolute(245px, 330px);
     }
 
-    @include tablet {
+    @include deskmin {
       @include absolute(275px, 380px);
     }
 

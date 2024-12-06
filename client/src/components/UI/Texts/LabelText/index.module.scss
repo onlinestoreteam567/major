@@ -10,4 +10,10 @@
   @include tablet {
     font-size: $font-size-small;
   }
+
+  @include deskmax {
+    @include flex();
+    height: 44px;
+    width: 240px;
+  }
 }

@@ -47,9 +47,7 @@ const OurPartners = () => {
           informationAboutPartner={informationAboutPartner}
         />
       )}
-      <div>
-        <Button>{getTranslation('becomePartner')}</Button>
-      </div>
+      <Button>{getTranslation('becomePartner')}</Button>
     </section>
   );
 };

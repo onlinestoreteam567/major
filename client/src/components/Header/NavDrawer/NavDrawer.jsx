@@ -6,16 +6,13 @@ import SocialLinks from '@UI/SocialLinks/SocialLinks';
 import { useState } from 'react';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { Link } from 'react-router-dom';
+import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 
 const NavDrawer = ({ setIsShowNavDrawer }) => {
   const [hiddenNavDrawer, setHiddenNavDrawer] = useState(false);
 
   const handleCloseNavDrawer = () => {
-    setHiddenNavDrawer(true);
-    clearTimeout();
-    setTimeout(() => {
-      setIsShowNavDrawer(false);
-    }, 450);
+    handleCloseWithDelay(setHiddenNavDrawer, setIsShowNavDrawer);
   };
 
   const { getTranslation } = useTranslationNamespace('footer');

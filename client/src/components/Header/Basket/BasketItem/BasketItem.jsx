@@ -4,19 +4,13 @@ import Minus from '@assets/svg/basket/Minus';
 import { useDispatch } from 'react-redux';
 import { addItem, removeItem, decrementItemQuantity, setItemQuantity } from '@features/cart/cartSlice.js/';
 import Heading from '@UI/Texts/Heading/Heading';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const BasketItem = ({ item }) => {
   const dispatch = useDispatch();
-
-  const handleAddToCart = () => {
-    dispatch(addItem(item));
-  };
-  const handleRemoveItem = () => {
-    dispatch(removeItem(item.id));
-  };
-  const handleDecrementItem = () => {
-    dispatch(decrementItemQuantity(item.id));
-  };
+  const handleAddToCart = () => dispatch(addItem(item));
+  const handleRemoveItem = () => dispatch(removeItem(item.id));
+  const handleDecrementItem = () => dispatch(decrementItemQuantity(item.id));
   const handleQuantityChange = (e) => {
     const newQuantity = parseInt(e.target.value, 10);
     if (!isNaN(newQuantity) && newQuantity >= 1) {
@@ -24,8 +18,10 @@ const BasketItem = ({ item }) => {
     }
   };
 
+  const { getTranslation } = useTranslationNamespace('common');
+
   return (
-    <li>
+    <li className={cl.basketItem}>
       <img src="images/basket/basketItem" className={cl.basketItemImg} alt="" />
       <section>
         <Heading type="h4">{item.name}</Heading>
@@ -43,7 +39,7 @@ const BasketItem = ({ item }) => {
             </button>
           </section>
           <button className={cl.deleteButton} onClick={handleRemoveItem}>
-            Видалити
+            {getTranslation('delete')}
           </button>
         </section>
       </section>
