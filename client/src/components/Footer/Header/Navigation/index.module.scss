@@ -1,8 +1,7 @@
 @import '@mixins';
 
 .ulNavigation {
-  @include flex(row, space-between, null);
-  gap: 18px;
+  @include flex(row, space-around, null);
 
   @include tablet {
     justify-content: space-evenly;
@@ -17,5 +16,7 @@
 
   section {
     @include flexGap(24px, column);
+    width: 25%;
+    text-wrap: nowrap;
   }
 }

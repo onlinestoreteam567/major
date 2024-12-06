@@ -6,7 +6,7 @@ const Navigation = () => {
   const { getTranslation } = useTranslationNamespace('footer');
   return (
     <ul className={cl.ulNavigation}>
-      <section className={cl.firstNavigationSection}>
+      <section>
         <NavLink type="footer" to="/">
           {getTranslation('main')}
         </NavLink>

@@ -2,6 +2,8 @@
 
 .copyrightSection {
   padding-bottom: 10px;
+  width: 100%;
+
   @include layout();
 
   @include deskmin {
