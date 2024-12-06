@@ -1,6 +1,7 @@
 @import '@mixins';
 
 .topSection {
+  width: 100%;
   @include layout();
 
   @include tablet {

@@ -47,24 +47,24 @@
 @mixin layout {
   & {
     box-sizing: border-box;
-    padding: 0 15px;
+    padding: 0 $padding-mobile;
     min-width: 380px;
     max-width: 767px;
   }
   @include tablet {
-    padding: 0 64px;
+    padding: 0 $padding-tablet;
     min-width: 768px;
     max-width: 1023px;
   }
 
   @include deskmin {
-    padding: 0 21px;
+    padding: 0 $padding-deskmin;
     min-width: 1024px;
     max-width: 1439px;
   }
 
   @include deskmax {
-    padding: 0 72px;
+    padding: 0 $padding-deskmax;
     min-width: 1440px;
     max-width: 1440px;
   }

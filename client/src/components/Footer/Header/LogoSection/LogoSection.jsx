@@ -5,7 +5,7 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import useScreenSizes from '@hooks/useScreenSizes';
 
 const LogoSection = () => {
-  const { tablet } = useScreenSizes();
+  const { tablet, deskmin, deskmax } = useScreenSizes();
   const { getTranslation } = useTranslationNamespace('footer');
 
   return (
@@ -13,7 +13,7 @@ const LogoSection = () => {
       <Link to="/">
         <img src="/svg/footer/footerLogo.svg" alt={getTranslation('logoAlt')} />
       </Link>
-      {tablet && <SocialLinks />}
+      {(tablet || deskmin || deskmax) && <SocialLinks />}
     </section>
   );
 };

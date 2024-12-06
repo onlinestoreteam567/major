@@ -14,8 +14,12 @@ $font-second: 'Lora', sans-serif; // Second font for the application
 $font-family-base: $font-main, system-ui, Avenir, Helvetica, Arial, sans-serif; // Base font family
 
 // Font Sizes
-$font-size-xlarge: 56px; // Extra large
+$font-size-xlarge: 48px; // Extra large
 $font-size-large: 36px; // Large
+$font-size-large-minus: 32px; // Large minus
+$font-size-medium-max: 28px; // Medium max
+$font-size-medium-extra: 24px; // Medium extra
+$font-size-medium-plus: 20px; // Medium plus
 $font-size-medium: 18px; // Medium
 $font-size-base: 16px; // Base
 $font-size-small: 14px; // Small
@@ -25,6 +29,7 @@ $line-height-base: 24.48px; // Base line height
 $line-height-small: 16.24px; // Small line height
 
 // Font weight
+$font-weight-small: 300; // Small font weight
 $font-weight-base: 400; // Base font weight
 $font-weight-medium: 500; // Medium font weight
 $font-weight-bold: 700; // Bold font weight
@@ -34,8 +39,12 @@ $letter-spacing-base: 0.08em; // Base
 $letter-spacing-small: 0.04em; // Small
 $letter-spacing-extra-small: -0.02em; // Extra small
 
-// Spacing & Dimensions
-$border-radius: 4px; // Base border radius for elements
+// Border radius
+$border-radius-circle: 50%; // Circle
+$border-radius-medium: 8px; // Medium
+$border-radius-base: 4px; // Base
+$border-radius-small: 2px; // Small
+
 $box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1); // Light box shadow for elements
 
 // Miscellaneous
@@ -46,5 +55,11 @@ $moz-font-smoothing: grayscale; // Font smoothing for Firefox
 $width-pop-up-header-width: 100%;
 $height-pop-up-header-mobile: 100vh;
 $height-pop-up-header-tablet: 666px;
+
+// Layout paddings
+$padding-mobile: 15px;
+$padding-tablet: 64px;
+$padding-deskmin: 21px;
+$padding-deskmax: 72px;
 
 // transition: border 200ms linear;

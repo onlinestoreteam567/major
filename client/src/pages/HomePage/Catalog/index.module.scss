@@ -29,7 +29,7 @@
       img {
         width: 164px;
         height: 136px;
-        border-radius: 2px;
+        border-radius: $border-radius-small;
 
         cursor: pointer;
         transition: 0.5s;
@@ -63,7 +63,7 @@
         box-sizing: border-box;
         background-color: #22211f;
         pointer-events: none;
-        border-radius: 2px 0px 0px 2px;
+        border-radius: $border-radius-small 0px 0px 2px;
 
         @include tablet {
           padding: 4px 10px;

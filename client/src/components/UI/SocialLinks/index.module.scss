@@ -10,6 +10,10 @@
     letter-spacing: $letter-spacing-small;
     line-height: 21.76px;
 
+    &.black {
+      color: $header-link-color;
+    }
+
     @include deskmin {
       font-family: $font-main;
       font-size: $font-size-medium;

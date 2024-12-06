@@ -13,7 +13,7 @@ const MainBanner = () => {
     <section className="slider-container">
       <Slider ref={sliderRef} {...settings}>
         {slideData.map((slide, index) => (
-          <Slide key={index} labelText={slide.labelText} title={slide.title} slideClassName={slide.slideClassName} />
+          <Slide key={index} slide={slide} />
         ))}
       </Slider>
     </section>

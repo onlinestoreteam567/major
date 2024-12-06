@@ -1,12 +1,12 @@
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-const SocialLinks = () => {
+const SocialLinks = ({ black }) => {
   const { getTranslation } = useTranslationNamespace('footer');
 
   return (
     <section className={cl.socialLinks}>
-      <h3>{getTranslation('socials')}</h3>
+      <h3 className={black ? cl.black : ''}>{getTranslation('socials')}</h3>
       <ul>
         <li>
           <a href="">

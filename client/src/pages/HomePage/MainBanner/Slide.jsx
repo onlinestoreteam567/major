@@ -4,19 +4,28 @@ import Heading from '@UI/Texts/Heading/Heading';
 import AccentText from '@UI/Texts/AccentText/AccentText';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-const Slide = ({ labelText, title, slideClassName }) => {
+const Slide = ({ slide }) => {
   const { getTranslation } = useTranslationNamespace('mainBanner');
+
+  const styleVariables = {
+    '--background-image': `url(${slide.background})`,
+    '--button-hover': slide.buttonHoverColor,
+    '--label-color': slide.labelColor,
+  };
+
   return (
-    <div className={`${cl.slide} ${cl[slideClassName]}`}>
-      <section className={cl.mainSection}>
+    <div className={`${cl.slide} ${slide.left ? cl.right : ''}`} style={styleVariables}>
+      {slide.left && <img src={slide.image} alt="" />}
+      <section>
         <div className={cl.label}>
-          <AccentText>{getTranslation(labelText)}</AccentText>
+          <AccentText>{getTranslation(slide.labelText)}</AccentText>
         </div>
         <div className={cl.bottomWrapper}>
-          <Heading type="h1">{getTranslation(title)}</Heading>
+          <Heading type="h1">{getTranslation(slide.title)}</Heading>
           <Button variant="banner">{getTranslation('addToCart', 'common')}</Button>
         </div>
       </section>
+      {!slide.left && <img src={slide.image} alt="" />}
     </div>
   );
 };

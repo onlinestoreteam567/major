@@ -13,10 +13,10 @@ import MobileSearchWrapper from './Search/MobileSearchWrapper';
 import SearchInput from './Search/SearchInput/SearchInput';
 
 const Header = () => {
-  const { deskmin } = useScreenSizes();
+  const { deskmin, deskmax } = useScreenSizes();
   const isMainPage = usePageState();
   const isScrolled = useScrollState(isMainPage);
-  const [isShowInput, setIsShowInput] = useState(deskmin);
+  const [isShowInput, setIsShowInput] = useState(false);
   const [isShowBasket, setIsShowBasket] = useState(false);
   const [isShowNavDrawer, setIsShowNavDrawer] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header className={`${isScrolled ? cl.headerScrolled : ''} ${!isMainPage ? cl.headerNotMainPage : ''}`}>
       <div className={cl.mainWrapper}>
-        {!deskmin && (
+        {!deskmin && !deskmax && (
           <div onClick={handleShowNavDrawer} className={cl.burgerWrapper}>
             <BurgerIcon fillColor={isScrolled ? 'white' : 'black'} />
           </div>
@@ -36,14 +36,14 @@ const Header = () => {
 
         <LogoIcon fillColor={isScrolled ? 'white' : 'black'} />
 
-        {deskmin && <Navigation />}
+        {(deskmin || deskmax) && <Navigation />}
 
-        {deskmin && isShowInput && (
+        {(deskmin || deskmax) && isShowInput && (
           <SearchInput
             setIsShowInput={setIsShowInput}
             inputValue={inputValue}
             setInputValue={setInputValue}
-            isDesktop={deskmin}
+            isDesktop={deskmin || deskmax}
           />
         )}
 
@@ -55,7 +55,7 @@ const Header = () => {
         />
       </div>
 
-      {!deskmin && isShowInput && (
+      {!deskmin && !deskmax && isShowInput && (
         <MobileSearchWrapper
           setIsShowInput={setIsShowInput}
           inputValue={inputValue}

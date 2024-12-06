@@ -4,13 +4,13 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const FooterInfo = () => {
   const { getTranslation } = useTranslationNamespace('footer');
-  const { tablet } = useScreenSizes();
+  const { tablet, deskmin, deskmax } = useScreenSizes();
 
   return (
     <section className={cl.footerInfo}>
       <ul>
         <h3 className={cl.titleWithIcon}>
-          {tablet && <img src="/svg/footer/calendar.svg" alt={getTranslation('calendarAlt')} />}
+          {(tablet || deskmin || deskmax) && <img src="/svg/footer/calendar.svg" alt={getTranslation('calendarAlt')} />}
           {getTranslation('workingHours')}
         </h3>
         <section>
@@ -25,12 +25,12 @@ const FooterInfo = () => {
       </ul>
 
       <ul>
-        {!tablet && <h3>Номери телефонів</h3>}
+        {!tablet && !deskmin && !deskmax && <h3>Номери телефонів</h3>}
 
         <section>
           <li>
             <h3 className={cl.titleWithIcon}>
-              {tablet && (
+              {(tablet || deskmin || deskmax) && (
                 <img className={cl.phoneCallIcon} src="/svg/footer/phoneCall.svg" alt={getTranslation('phoneAlt')} />
               )}{' '}
               +38 (096) 327 77 34
