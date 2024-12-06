@@ -44,6 +44,7 @@ $border-radius-circle: 50%; // Circle
 $border-radius-medium: 8px; // Medium
 $border-radius-base: 4px; // Base
 $border-radius-small: 2px; // Small
+
 $box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1); // Light box shadow for elements
 
 // Miscellaneous
@@ -54,5 +55,11 @@ $moz-font-smoothing: grayscale; // Font smoothing for Firefox
 $width-pop-up-header-width: 100%;
 $height-pop-up-header-mobile: 100vh;
 $height-pop-up-header-tablet: 666px;
+
+// Layout paddings
+$padding-mobile: 15px;
+$padding-tablet: 64px;
+$padding-deskmin: 21px;
+$padding-deskmax: 72px;
 
 // transition: border 200ms linear;

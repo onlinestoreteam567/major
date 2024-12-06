@@ -15,11 +15,11 @@ header {
     @include flex(row, space-between, null);
     @include layout();
     & {
-      padding: 21px 15px 0 15px;
+      padding: 21px $padding-mobile 0;
     }
 
     @include tablet {
-      padding: 24px 64px 0 64px;
+      padding: 21px $padding-tablet 0;
     }
 
     @include deskmin {
