@@ -51,38 +51,35 @@
         img {
           width: 306px;
           height: 186px;
-          @include tablet {
-            padding: 4px 10px;
-          }
         }
       }
     }
-    @include deskmin {
-      .wrapImges {
-        width: 980px;
-        gap: 28px;
-        figure {
-          img {
-            width: 308px;
-            height: 222px;
-          }
-          figcaption {
-            font-size: $font-size-base;
-            padding: 6px;
-          }
+  }
+  @include deskmin {
+    .wrapImges {
+      width: 980px;
+      gap: 28px;
+      figure {
+        img {
+          width: 308px;
+          height: 222px;
+        }
+        figcaption {
+          font-size: $font-size-base;
+          padding: 6px;
         }
       }
     }
-    @include deskmax {
-      gap: 72px;
-      .wrapImges {
-        width: 1296px;
-        gap: 24px;
-        figure {
-          img {
-            width: 416px;
-            height: 352px;
-          }
+  }
+  @include deskmax {
+    gap: 72px;
+    .wrapImges {
+      width: 1296px;
+      gap: 24px;
+      figure {
+        img {
+          width: 416px;
+          height: 352px;
         }
       }
     }

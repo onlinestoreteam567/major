@@ -37,16 +37,16 @@
   }
   @include tablet {
     width: 320px;
-    padding: 0 14px 0 14px;
+    padding: 0 16px 0 16px;
     gap: 24px;
     .wrapReview {
       gap: 16px;
       p {
-        width: 292px;
+        width: 288px;
       }
     }
     .cardFooter {
-      width: 292px;
+      width: 288px;
     }
   }
   @include deskmin {
