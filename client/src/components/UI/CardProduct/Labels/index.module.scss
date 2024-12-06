@@ -29,7 +29,7 @@
   }
   @include deskmax {
     top: 24px;
-    font-size: 20px;
+    font-size: $font-size-medium-plus;
   }
 }
 // *** LabelSale ***
@@ -74,6 +74,6 @@
   }
   @include deskmax {
     top: 24px;
-    font-size: 20px;
+    font-size: $font-size-medium-plus;
   }
 }

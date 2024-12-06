@@ -35,7 +35,7 @@
     @include flex(row, space-between, center);
     span {
       font-family: $font-main;
-      font-size: 20px;
+      font-size: $font-size-medium-plus;
       font-weight: $font-weight-medium;
       line-height: $line-height-base;
     }

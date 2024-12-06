@@ -52,7 +52,7 @@
   text-decoration: underline;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: $font-size-medium-plus;
 
   &:hover {
     text-decoration: none;
@@ -65,7 +65,7 @@
   height: 54px;
   background-color: $second-background-color-black;
   color: $text-color-light;
-  font-size: 18px;
+  font-size: $font-size-medium;
   font-weight: $font-weight-medium;
   border: none;
 
@@ -80,7 +80,7 @@
 
   @include deskmax {
     height: 77px;
-    font-size: 24px;
+    font-size: $font-size-medium-extra;
     font-weight: $font-weight-bold;
     letter-spacing: $letter-spacing-base;
   }
