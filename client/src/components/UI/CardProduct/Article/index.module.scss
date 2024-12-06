@@ -14,14 +14,14 @@
       display: flex;
       width: 8px;
       height: 8px;
-      border-radius: 50%;
+      border-radius: $border-radius-circle;
       background-color: #009721;
     }
     .gray {
       display: flex;
       width: 8px;
       height: 8px;
-      border-radius: 50%;
+      border-radius: $border-radius-circle;
       background-color: #676767;
     }
   }

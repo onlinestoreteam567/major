@@ -6,24 +6,24 @@
   height: 52px;
   h2 {
     font-family: $font-main;
-    font-size: 20px;
+    font-size: $font-size-medium-plus;
     font-weight: $font-weight-bold;
     line-height: 1.24;
     color: $text-color-black;
   }
   @include tablet {
     h2 {
-      font-size: 24px;
+      font-size: $font-size-medium-extra;
     }
   }
   @include deskmin {
     h2 {
-      font-size: 28px;
+      font-size: $font-size-medium-max;
     }
   }
   @include deskmax {
     h2 {
-      font-size: 32px;
+      font-size: $font-size-large-minus;
     }
   }
 }

@@ -15,11 +15,11 @@ header {
     @include flex(row, space-between, null);
     @include layout();
     & {
-      padding: 21px 15px 0 15px;
+      padding: 21px $padding-mobile 0;
     }
 
     @include tablet {
-      padding: 24px 64px 0 64px;
+      padding: 21px $padding-tablet 0;
     }
 
     @include deskmin {
@@ -65,23 +65,6 @@ header {
       }
     }
   }
-
-  // Option 2 of animation when header is scrolled
-  // background-color: #22211f;
-  // height: 78px;
-  // transition: 0.6s;
-
-  // .mainWrapper {
-  //   padding: 1% 4% 1% 5%;
-
-  //   li {
-  //     color: #ffffff !important;
-
-  //     &:hover {
-  //       text-shadow: 0px 1px 2px 0px #0000004d !important;
-  //     }
-  //   }
-  // }
 }
 
 .headerNotMainPage {

@@ -13,7 +13,7 @@
   z-index: 100;
   padding: 44px 40px 90px 37px;
   box-sizing: border-box;
-  border-radius: 2px;
+  border-radius: $border-radius-small;
 
   img {
     cursor: pointer;
@@ -22,14 +22,14 @@
 
   h2 {
     margin-top: 20px;
-    font-size: 24px;
+    font-size: $font-size-medium-extra;
     font-weight: $font-weight-bold;
     line-height: 28.8px;
     letter-spacing: $letter-spacing-base;
   }
 
   h3 {
-    font-size: 20px;
+    font-size: $font-size-medium-plus;
     margin-top: 10px;
     font-weight: $font-weight-medium;
     line-height: $line-height-base;

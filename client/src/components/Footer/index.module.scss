@@ -5,6 +5,7 @@
   padding: 20px 15px 0 15px;
   box-sizing: border-box;
   background-color: $second-background-color-black;
+  overflow-x: scroll;
 
   @include tablet {
     padding: 48px 64px 0 64px;

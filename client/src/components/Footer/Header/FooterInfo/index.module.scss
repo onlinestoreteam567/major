@@ -1,9 +1,9 @@
 @import '@mixins';
 
 .footerInfo {
-  @include flex(row, space-between, null);
+  @include flex(row, space-around, null);
   margin-bottom: 32px;
-  gap: 37px;
+  text-wrap: nowrap;
 
   @include tablet {
     flex-direction: column;
@@ -30,6 +30,7 @@
   ul {
     @include flexGap(16px, column);
     margin-top: 24px;
+    width: 25%;
 
     @include tablet {
       margin-top: unset;

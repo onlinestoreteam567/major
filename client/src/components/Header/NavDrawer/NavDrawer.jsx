@@ -48,7 +48,7 @@ const NavDrawer = ({ setIsShowNavDrawer }) => {
           </Button>
         </Link>
       </section>
-      <SocialLinks />
+      <SocialLinks black={true} />
     </section>
   );
 };
