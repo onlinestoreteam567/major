@@ -8,13 +8,19 @@ import ArrowLeft from '@components/Icons/ArrowLeft';
 import ArrowRight from '@components/Icons/ArrowRight';
 import './slider.css';
 import { mainSettings } from '@components/constants/settingSlider';
-import { useLocation } from 'react-router-dom';
-import useScreenSizes from '@hooks/useScreenSizes';
+// import { useLocation } from 'react-router-dom';
+// import useScreenSizes from '@hooks/useScreenSizes';
 
 const SliderBoxMain = ({ slidesData }) => {
-  const { pathname } = useLocation();
-  const { deskmax } = useScreenSizes();
-  const isHidden = pathname === '/' && deskmax === true;
+  // const { pathname } = useLocation();
+  // const { deskmax } = useScreenSizes();
+  // const isHidden = pathname === '/' && deskmax === true;
+  // const { mobile, deskmax } = useScreenSizes();
+
+  // const isColorBtn = mobile === true || deskmax === true;
+  // const isHidden = deskmax === true;
+  // console.log(isColorBtn);
+  // console.log(isHidden);
   const total = slidesData.length;
 
   const [slidesToShow, setSlidesToShow] = useState(4);
@@ -45,7 +51,7 @@ const SliderBoxMain = ({ slidesData }) => {
       <Slider ref={sliderRef} {...settings}>
         {slidesData.map((slide, index) => (
           <div key={index} className={cl.slider}>
-            <CardCatalog key={index} card={slide} isHidden={isHidden} />
+            <CardCatalog key={index} card={slide} />
           </div>
         ))}
       </Slider>

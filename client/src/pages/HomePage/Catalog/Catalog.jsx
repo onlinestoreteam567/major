@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 import Heading from '@UI/Texts/Heading/Heading';
-import LabelText from '@UI/Texts/LabelText/LabelText';
+// import LabelText from '@UI/Texts/LabelText/LabelText';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const Catalog = () => {
@@ -9,44 +9,32 @@ const Catalog = () => {
   return (
     <section className={cl.catalogWrapper}>
       <Heading type="h2">{getTranslation('catalog')}</Heading>
-      <section>
+      <div className={cl.wrapImges}>
         <figure>
           <img src="/images/catalog/1.png" alt="" />
-          <figcaption>
-            <LabelText>{getTranslation('normalHair')}</LabelText>
-          </figcaption>
+          <figcaption>{getTranslation('normalHair')}</figcaption>
         </figure>
         <figure>
           <img src="/images/catalog/2.png" alt="" />
-          <figcaption>
-            <LabelText>{getTranslation('coloredHair')}</LabelText>
-          </figcaption>
+          <figcaption>{getTranslation('coloredHair')}</figcaption>
         </figure>
         <figure>
           <img src="/images/catalog/3.png" alt="" />
-          <figcaption>
-            <LabelText>{getTranslation('damagedHair')}</LabelText>
-          </figcaption>
+          <figcaption>{getTranslation('damagedHair')}</figcaption>
         </figure>
         <figure>
           <img src="/images/catalog/4.png" alt="" />
-          <figcaption>
-            <LabelText>{getTranslation('thinHair')}</LabelText>
-          </figcaption>
+          <figcaption>{getTranslation('thinHair')}</figcaption>
         </figure>
         <figure>
           <img src="/images/catalog/5.png" alt="" />
-          <figcaption>
-            <LabelText>{getTranslation('deepConditioning')}</LabelText>
-          </figcaption>
+          <figcaption>{getTranslation('deepConditioning')}</figcaption>
         </figure>
         <figure>
           <img src="/images/catalog/6.png" alt="" />
-          <figcaption>
-            <LabelText>{getTranslation('hairGrowth')}</LabelText>
-          </figcaption>
+          <figcaption>{getTranslation('hairGrowth')}</figcaption>
         </figure>
-      </section>
+      </div>
     </section>
   );
 };

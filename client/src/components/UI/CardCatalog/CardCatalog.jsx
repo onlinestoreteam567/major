@@ -6,9 +6,15 @@ import cl from './index.module.scss';
 import PriceCardCatalog from './PriceCardCatalog';
 import TitleCardCatalog from './TitleCardCatalog';
 import { useState } from 'react';
+import useScreenSizes from '@hooks/useScreenSizes';
 
-export default function CardCatalog({ card, isHidden }) {
+export default function CardCatalog({ card }) {
   const [isShowButton, setIsShowButton] = useState(false);
+
+  const { tablet, deskmax } = useScreenSizes();
+
+  const isColorBtn = tablet === false || deskmax === true;
+  const isHidden = deskmax === true;
 
   const showButton = () => {
     setIsShowButton(true);
@@ -31,7 +37,7 @@ export default function CardCatalog({ card, isHidden }) {
               <ProductRating />
               <PriceCardCatalog card={card} />
             </div>
-            {isShowButton && <Button variant="primary">Додати до кошику</Button>}
+            {isShowButton && <Button variant={isColorBtn ? 'primary' : 'secondary'}>Додати до кошику</Button>}
           </div>
         </div>
       ) : (
@@ -45,7 +51,7 @@ export default function CardCatalog({ card, isHidden }) {
               <ProductRating />
               <PriceCardCatalog card={card} />
             </div>
-            <Button variant="secondary">Додати до кошику</Button>
+            <Button variant={isColorBtn ? 'primary' : 'secondary'}>Додати до кошику</Button>
           </div>
         </div>
       )}

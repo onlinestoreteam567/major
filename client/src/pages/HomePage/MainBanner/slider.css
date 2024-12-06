@@ -1,0 +1,73 @@
+/* https://www.youtube.com/watch?v=rXNfDfqtM3M */
+.slider-container {
+  min-width: 0;
+}
+
+/* Слайдер запущений */
+/* .slick-slider.slick-initialized {
+} */
+
+/* Слайдер з крапками */
+/* .slick-slider.slick-dotted {
+} */
+
+/* Обмежувальна оболонка */
+/* .slick-list {
+  overflow: hidden;
+} */
+
+/* Стрічка слайдів */
+/* .slick-track {
+  text-align: center;
+} */
+
+/* Слайд */
+/* .slick-slide {
+} */
+
+/* Слайд активний (показується) */
+/* .slick-slide.slick-active {
+} */
+
+/* Слайд основний */
+/* .slick-slide.slick-current {
+} */
+
+/* Слайд по центру */
+/* .slick-slide.slick-center {
+} */
+
+/* Клонований слайд */
+/* .slick-slide.slick-cloned {
+} */
+
+/* Стрілка */
+/* .slick-arrow {
+} */
+
+/* Стрілка вліво */
+/* .slick-arrow.slick-prev {
+} */
+
+/* Стрілка вправо */
+/* .slick-arrow.slick-next {
+} */
+
+/* Стрілка не активна */
+/* .slick-arrow.slick-disabled {
+} */
+
+/* Точки (буліти) */
+/* .slick-dots {
+} */
+
+/* .slick-dots li {
+} */
+
+/* Активна точка */
+/* .slick-dots li.slick-active {
+} */
+
+/* Елемент точки */
+/* .slick-dots li button {
+} */

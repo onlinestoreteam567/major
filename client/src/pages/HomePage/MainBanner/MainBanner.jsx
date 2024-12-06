@@ -10,13 +10,13 @@ const MainBanner = () => {
   const sliderRef = useRef(null);
 
   return (
-    <section className="slider-container">
+    <div className="slider-container">
       <Slider ref={sliderRef} {...settings}>
         {slideData.map((slide, index) => (
           <Slide key={index} labelText={slide.labelText} title={slide.title} slideClassName={slide.slideClassName} />
         ))}
       </Slider>
-    </section>
+    </div>
   );
 };
 

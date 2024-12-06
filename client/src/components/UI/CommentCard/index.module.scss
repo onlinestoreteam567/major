@@ -1,25 +1,80 @@
 @import '@mixins';
 
 .commentCard {
-  @include flexGap(10px, column);
+  @include flex(column, flex-start, flex-start);
   box-sizing: border-box;
-  padding-right: 8%;
-  padding-left: 8%;
-
-  p {
-    height: 130px;
+  width: 356px;
+  gap: 28px;
+  .wrapReview {
+    @include flex(column, flex-start, flex-start);
+    gap: 8px;
+    p {
+      display: block;
+      width: 356px;
+      height: 100px;
+      color: $text-color-black;
+      font-family: $font-second;
+      font-size: $font-size-base;
+      font-weight: $font-weight-base;
+      line-height: 1.24;
+      text-align: left;
+      white-space: wrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
-
-  .commentCardFooter {
-    @include flex(row, space-between, end);
-
+  .cardFooter {
+    @include flex(row, space-between, center);
+    width: 356px;
     a {
       font-family: $font-main;
-      font-size: 20px;
+      font-size: 16px;
       font-weight: $font-weight-medium;
       line-height: $line-height-base;
       text-decoration: underline;
       color: $text-color-black;
+    }
+  }
+  @include tablet {
+    width: 320px;
+    padding: 0 14px 0 14px;
+    gap: 24px;
+    .wrapReview {
+      gap: 16px;
+      p {
+        width: 292px;
+      }
+    }
+    .cardFooter {
+      width: 292px;
+    }
+  }
+  @include deskmin {
+    width: 326px;
+    padding: 0 18px 0 18px;
+    gap: 24px;
+    .wrapReview {
+      gap: 16px;
+      p {
+        width: 290px;
+      }
+    }
+    .cardFooter {
+      width: 290px;
+    }
+  }
+  @include deskmax {
+    width: 378px;
+    padding: 0 28px 0 28px;
+    gap: 24px;
+    .wrapReview {
+      gap: 16px;
+      p {
+        width: 322px;
+      }
+    }
+    .cardFooter {
+      width: 322px;
     }
   }
 }

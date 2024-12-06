@@ -1,52 +1,108 @@
 @import '@mixins';
 
 .majorInfoWrapper {
-  color: black;
-  padding-right: 4vw;
-
-  h2 {
-    text-align: center;
-    text-wrap: balance;
-    margin-bottom: 64px;
+  @include flex(column, flex-start, center);
+  gap: 40px;
+  width: 356px;
+  .wrapItem {
+    @include flex(column, flex-start, center);
+    gap: 32px;
+    .wrapImg {
+      @include flex(row, center, center);
+      width: 356px;
+      height: 304px;
+      img {
+        width: 356px;
+        height: 304px;
+        border-radius: 2px 8px 8px 2px;
+        object-fit: cover;
+      }
+    }
+    .wrapInfo {
+      @include flex(column, space-between, center);
+      width: 356px;
+      height: 314px;
+      .wrapText {
+        @include flex(column, flex-start, center);
+        gap: 24px;
+        padding: 0;
+      }
+      .link {
+        @include flex(row, flex-end, center);
+        width: 100%;
+        color: rgb(103, 103, 103);
+        font-family: $font-main;
+        font-size: 18px;
+        font-weight: $font-weight-medium;
+        line-height: 1.22;
+        text-decoration: underline;
+      }
+    }
   }
 
-  figure {
-    @include tablet {
-      @include flex();
-    }
-
-    img {
-      width: 375px;
-      height: 304px;
-      border-radius: 2px 8px 8px 2px;
-
-      @include tablet {
-        height: 379px;
+  @include tablet {
+    width: 640px;
+    gap: 48px;
+    .wrapItem {
+      @include flex(row, center, center);
+      gap: 28px;
+      .wrapImg {
+        width: 306px;
+        height: 336px;
+        img {
+          width: 306px;
+          height: 336px;
+        }
       }
-
-      @include deskmin {
-        height: 399px;
+      .wrapInfo {
+        width: 306px;
+        height: 336px;
+        .wrapText {
+          gap: 16px;
+        }
+      }
+    }
+  }
+  @include deskmin {
+    width: 980px;
+    .wrapItem {
+      .wrapImg {
         width: 476px;
+        height: 400px;
+        img {
+          width: 476px;
+          height: 400px;
+        }
       }
-
-      @include deskmax {
-        height: 345px;
-        width: 420px;
+      .wrapInfo {
+        width: 476px;
+        .wrapText {
+          gap: 28px;
+        }
+        .link {
+          font-size: 20px;
+        }
       }
     }
-
-    figcaption {
-      @include flexGap(24px, column);
-      margin-top: 32px;
-      padding: 0 5%;
-      box-sizing: border-box;
-
-      @include deskmin {
-        padding-left: 9%;
+  }
+  @include deskmax {
+    width: 1296px;
+    gap: 72px;
+    .wrapItem {
+      gap: 134px;
+      .wrapImg {
+        width: 526px;
+        height: 492px;
+        img {
+          width: 526px;
+          height: 492px;
+        }
       }
-
-      div {
-        @include flex(row, end);
+      .wrapInfo {
+        width: 636px;
+        .link {
+          font-size: 24px;
+        }
       }
     }
   }
