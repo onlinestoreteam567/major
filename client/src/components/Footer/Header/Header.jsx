@@ -6,13 +6,13 @@ import SocialLinks from '@UI/SocialLinks/SocialLinks';
 import LogoSection from './LogoSection/LogoSection';
 
 const Header = () => {
-  const { tablet } = useScreenSizes();
+  const { tablet, deskmin, deskmax } = useScreenSizes();
   return (
     <section className={cl.topSection}>
       <LogoSection />
       <Navigation />
       <FooterInfo />
-      {!tablet && <SocialLinks />}
+      {!tablet && !deskmin && !deskmax && <SocialLinks />}
     </section>
   );
 };

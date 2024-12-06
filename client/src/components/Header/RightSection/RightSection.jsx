@@ -7,7 +7,7 @@ import EnIcon from '@assets/svg/header/EnIcon';
 import useScreenSizes from '@hooks/useScreenSizes';
 
 const RightSection = ({ handleShowInput, isScrolled, handleShowBasket }) => {
-  const { deskmin } = useScreenSizes();
+  const { deskmin, deskmax } = useScreenSizes();
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
 
   return (
@@ -17,7 +17,7 @@ const RightSection = ({ handleShowInput, isScrolled, handleShowBasket }) => {
       </i>
 
       <i>
-        {deskmin &&
+        {(deskmin || deskmax) &&
           (isLanguageDefault ? (
             <UaIcon fillColor={isScrolled ? '#FFFFFF' : '#1C1C1C'} setIsLanguageDefault={setIsLanguageDefault} />
           ) : (
