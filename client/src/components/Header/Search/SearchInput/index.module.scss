@@ -2,7 +2,7 @@
 
 search {
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: $border-radius-base;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -45,7 +45,7 @@ search {
       background-position: 12px center;
       padding-left: 35px;
       border: 1px solid #676767;
-      border-radius: 4px;
+      border-radius: $border-radius-base;
       outline: none;
       box-sizing: border-box;
 
@@ -73,7 +73,7 @@ search {
     &.activeSearch {
       background-color: white;
       border: 1px solid #676767;
-      border-radius: 4px;
+      border-radius: $border-radius-base;
       position: relative;
     }
 
@@ -170,7 +170,7 @@ search {
     font-weight: $font-weight-small;
     line-height: 16.24px;
     $letter-spacing-small: 0.04em;
-    border-radius: 4px;
+    border-radius: $border-radius-base;
     color: #a2a2a2;
 
     p {

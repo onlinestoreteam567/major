@@ -39,8 +39,11 @@ $letter-spacing-base: 0.08em; // Base
 $letter-spacing-small: 0.04em; // Small
 $letter-spacing-extra-small: -0.02em; // Extra small
 
-// Spacing & Dimensions
-$border-radius: 4px; // Base border radius for elements
+// Border radius
+$border-radius-circle: 50%; // Circle
+$border-radius-medium: 8px; // Medium
+$border-radius-base: 4px; // Base
+$border-radius-small: 2px; // Small
 $box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1); // Light box shadow for elements
 
 // Miscellaneous

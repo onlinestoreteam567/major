@@ -18,7 +18,7 @@
     img {
       width: 375px;
       height: 304px;
-      border-radius: 2px 8px 8px 2px;
+      border-radius: $border-radius-small 8px 8px 2px;
 
       @include tablet {
         height: 379px;

@@ -5,7 +5,7 @@
   padding: 34px 32px;
   box-sizing: border-box;
   border: 1px solid #cccccc;
-  border-radius: 2px;
+  border-radius: $border-radius-small;
   height: fit-content;
 
   .switchBox {
@@ -109,7 +109,7 @@
 
           width: 82px;
           height: 40px;
-          border-radius: 2px;
+          border-radius: $border-radius-small;
           border: 1px solid #a2a2a2;
         }
       }
@@ -117,7 +117,7 @@
         cursor: pointer;
         width: 52px;
         height: 40px;
-        border-radius: 2px;
+        border-radius: $border-radius-small;
         background-color: $second-background-color-black;
         color: #f8f8f9;
         outline: none;
@@ -138,14 +138,14 @@
       height: 5px;
       position: relative;
       background: #ddd;
-      border-radius: 5px;
+      border-radius: $border-radius-base;
 
       .progress {
         height: 100%;
         left: 25%;
         right: 25%;
         position: absolute;
-        border-radius: 5px;
+        border-radius: $border-radius-base;
         background: #000;
       }
     }
@@ -183,7 +183,7 @@
         height: 24px;
         width: 24px;
         border: 2px solid #22211f;
-        border-radius: 50%;
+        border-radius: $border-radius-circle;
         background: #ffffff;
         pointer-events: auto;
         -moz-appearance: none;

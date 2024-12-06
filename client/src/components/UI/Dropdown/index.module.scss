@@ -16,7 +16,7 @@
 
     width: 208px;
     height: 40px;
-    border-radius: 2px;
+    border-radius: $border-radius-small;
     border: 1px solid #a2a2a2;
     text-align: left;
     box-sizing: border-box;
@@ -58,7 +58,7 @@
 .open {
   button {
     border-bottom: none;
-    border-radius: 2px 2px 0 0;
+    border-radius: $border-radius-small 2px 0 0;
     padding-bottom: 2px;
 
     img {
