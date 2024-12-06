@@ -91,7 +91,7 @@
           transform: translate(-50%, -50%);
           font-family: $font-main;
           font-size: $font-size-base;
-          font-weight: 300;
+          font-weight: $font-weight-small;
           line-height: 20.48px;
           color: #a2a2a2;
         }
@@ -104,7 +104,7 @@
 
           font-family: $font-main;
           font-size: $font-size-base;
-          font-weight: 300;
+          font-weight: $font-weight-small;
           line-height: 20.48px;
 
           width: 82px;

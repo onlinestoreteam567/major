@@ -131,7 +131,7 @@ search {
             margin-top: 10px;
             font-family: $font-main;
             font-size: $font-size-base;
-            font-weight: 300;
+            font-weight: $font-weight-small;
             line-height: 20.48px;
           }
 
@@ -167,7 +167,7 @@ search {
     padding: 0 12px 25px 12px;
     font-family: $font-main;
     font-size: $font-size-small;
-    font-weight: 300;
+    font-weight: $font-weight-small;
     line-height: 16.24px;
     $letter-spacing-small: 0.04em;
     border-radius: 4px;
