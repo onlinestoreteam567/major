@@ -1,76 +1,85 @@
 @import '@mixins';
 
 .catalogWrapper {
-  @include flex(column, center, center);
+  @include flex(column, flex-start, center);
   width: 100%;
-  font-family: $font-main;
-  font-size: $font-size-large;
-  font-weight: $font-weight-bold;
-  line-height: 44.64px;
-  color: $text-color-black;
-  gap: 50px;
+  gap: 40px;
   box-sizing: border-box;
-
-  h2 {
-    text-align: center;
-  }
-
-  section {
+  .wrapImges {
     @include flex(row, center, center);
     flex-wrap: wrap;
-    gap: 25px;
-
-    section {
-      @include flex();
-    }
-
+    width: 356px;
+    gap: 22px;
     figure {
       position: relative;
+      @include flex(row, center, center);
       img {
-        width: 164px;
+        width: 166px;
         height: 136px;
+        object-fit: cover;
         border-radius: $border-radius-small;
-
         cursor: pointer;
         transition: 0.5s;
         &:hover {
           filter: brightness(1.7);
         }
-
-        @include tablet {
-          height: 186px;
-          width: 216px;
-        }
-
-        @include deskmin {
-          width: 308px;
-          height: 245px;
-        }
-
-        @include deskmax {
-          width: 415px;
-          height: 352px;
-        }
       }
       figcaption {
-        @include flex();
-        max-width: 85%;
-        padding: 2px 10px;
-        text-align: end;
         position: absolute;
-        bottom: 32px;
+        width: auto;
+        color: rgb(253, 253, 253);
+        font-family: $font-main;
+        font-size: $font-size-small;
+        font-weight: 500;
+        line-height: 1.22;
+        text-align: right;
+        padding: 4px;
+        bottom: 10px;
         right: 0;
-        box-sizing: border-box;
         background-color: #22211f;
+        text-shadow: 2px 2px 4px #22211f;
         pointer-events: none;
-        border-radius: $border-radius-small 0px 0px 2px;
-
-        @include tablet {
-          padding: 4px 10px;
+      }
+    }
+  }
+  @include tablet {
+    gap: 48px;
+    .wrapImges {
+      width: 640px;
+      gap: 28px;
+      figure {
+        img {
+          width: 306px;
+          height: 186px;
         }
-
-        @include deskmin {
-          padding: 4px 10px 4px 10px;
+      }
+    }
+  }
+  @include deskmin {
+    .wrapImges {
+      width: 980px;
+      gap: 28px;
+      figure {
+        img {
+          width: 308px;
+          height: 222px;
+        }
+        figcaption {
+          font-size: $font-size-base;
+          padding: 6px;
+        }
+      }
+    }
+  }
+  @include deskmax {
+    gap: 72px;
+    .wrapImges {
+      width: 1296px;
+      gap: 24px;
+      figure {
+        img {
+          width: 416px;
+          height: 352px;
         }
       }
     }

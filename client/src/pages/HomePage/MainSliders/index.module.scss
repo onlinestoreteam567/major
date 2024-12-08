@@ -1,0 +1,19 @@
+@import '@mixins';
+
+.wrapSliders {
+  @include flex(column, flex-start, center);
+  box-sizing: border-box;
+  gap: 40px;
+  width: 356px;
+  @include tablet {
+    width: 640px;
+    gap: 48px;
+  }
+  @include deskmin {
+    width: 980px;
+  }
+  @include deskmax {
+    width: 1296px;
+    gap: 72px;
+  }
+}

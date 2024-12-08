@@ -1,18 +1,17 @@
-import cl from './index.module.scss';
-import slidesData from './data';
-import Banner from '@UI/Banner/Banner';
-import Heading from '@UI/Texts/Heading/Heading';
-import useTranslationNamespace from '@hooks/useTranslationNamespace';
+// import cl from './index.module.scss';
+// import Heading from '@UI/Texts/Heading/Heading';
+// import useTranslationNamespace from '@hooks/useTranslationNamespace';
+// import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
+// import cards from '../cards_of_category.json';
 
-const CheaperTogether = () => {
-  const { getTranslation } = useTranslationNamespace('common');
-  return (
-    <section className={`slider-container ${cl.cheaperTogetherWrapper}`}>
-      <Heading type="h2">{getTranslation('cheaperTogether')}</Heading>
+// const CheaperTogether = () => {
+//   const { getTranslation } = useTranslationNamespace('common');
+//   return (
+//     <section className={`slider-container ${cl.cheaperTogetherWrapper}`}>
+//       <Heading type="h2">{getTranslation('cheaperTogether')}</Heading>
+//       <SliderBoxMain slidesData={cards} />
+//     </section>
+//   );
+// };
 
-      <Banner slidesData={slidesData} />
-    </section>
-  );
-};
-
-export default CheaperTogether;
+// export default CheaperTogether;

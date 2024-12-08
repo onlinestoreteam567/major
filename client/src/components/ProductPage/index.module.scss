@@ -6,7 +6,7 @@
   box-sizing: border-box;
   gap: 40px;
   width: 380px;
-  padding: 16px 12px 96px 12px;
+  padding: 32px 12px 96px 12px;
   height: auto;
   margin: 0 auto;
   @include tablet {
@@ -41,9 +41,9 @@
   }
 }
 .topCase {
-  @include flexGap(24px, column);
+  @include flexGap(38px, column);
   @include tablet {
-    gap: 36px;
+    gap: 32px;
   }
   @include deskmin {
     gap: 48px;
@@ -52,16 +52,6 @@
     gap: 72px;
   }
 }
-// .wrapReviews {
-//   @include flexGap(24px, column);
-//   @include tablet {
-//     gap: 32px;
-//   }
-//   @include deskmax {
-//     gap: 72px;
-//   }
-// }
-
 // *** CardMobile  CardDesk ***
 .wrapItem {
   @include flexGap(24px, column);
@@ -114,5 +104,21 @@
       width: 248px;
       height: 56px;
     }
+  }
+}
+
+.wrapProductOffer {
+  @include flex(column, flex-start, center);
+  box-sizing: border-box;
+  gap: 40px;
+  width: 356px;
+  @include tablet {
+    width: 640px;
+  }
+  @include deskmin {
+    width: 980px;
+  }
+  @include deskmax {
+    width: 1296px;
   }
 }

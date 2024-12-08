@@ -4,17 +4,27 @@ import ReviewsCard from './ReviewsCard';
 import ArrowLeft from '@components/Icons/ArrowLeft';
 import ArrowRight from '@components/Icons/ArrowRight';
 import Heading from '../Texts/Heading/Heading';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { oneElement } from '@components/constants/settingSlider';
 
 export default function ListReviewsCard() {
   const [index, setIndex] = useState(1);
 
-  const onChangeValue = (value) => {
-    setIndex((prevIndex) => prevIndex + value);
+  let sliderRef = useRef(null);
+  const next = () => {
+    sliderRef.current.slickNext();
+    setIndex((prevIndex) => prevIndex + 1);
+  };
+  const previous = () => {
+    sliderRef.current.slickPrev();
+    setIndex((prevIndex) => prevIndex - 1);
   };
 
   const total = reviewsList.length;
-  const showReview = reviewsList[index - 1];
+  const slidesData = reviewsList;
 
   return (
     <div className={cl.wrapListReviewsCard}>
@@ -22,12 +32,20 @@ export default function ListReviewsCard() {
         <Heading type="h2">Відгуки про товар</Heading>
         <Heading type="h2">Флюїд шовк для тонкого волосся</Heading>
       </div>
-      <ReviewsCard review={showReview} />
+      <div className={`slider-container ${cl.wrapSlider}`}>
+        <Slider ref={sliderRef} {...oneElement}>
+          {slidesData.map((slide, index) => (
+            <div key={index}>
+              <ReviewsCard review={slide} />
+            </div>
+          ))}
+        </Slider>
+      </div>
       <div className={cl.wrapReviewBtn}>
-        <button type="button" disabled={index === 1} onClick={() => onChangeValue(-1)}>
+        <button type="button" disabled={index === 1} onClick={previous}>
           <ArrowLeft />
         </button>
-        <button type="button" disabled={index === total} onClick={() => onChangeValue(+1)}>
+        <button type="button" disabled={index === total} onClick={next}>
           <ArrowRight />
         </button>
       </div>

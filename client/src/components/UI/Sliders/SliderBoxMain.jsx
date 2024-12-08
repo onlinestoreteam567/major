@@ -1,5 +1,5 @@
 import Slider from 'react-slick';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import cl from './index.module.scss';
@@ -7,10 +7,36 @@ import CardCatalog from '../CardCatalog/CardCatalog';
 import ArrowLeft from '@components/Icons/ArrowLeft';
 import ArrowRight from '@components/Icons/ArrowRight';
 import './slider.css';
+import { mainSettings } from '@components/constants/settingSlider';
+// import { useLocation } from 'react-router-dom';
+// import useScreenSizes from '@hooks/useScreenSizes';
 
-const SliderBoxMain = ({ slidesData, settings }) => {
+const SliderBoxMain = ({ slidesData }) => {
+  // const { pathname } = useLocation();
+  // const { deskmax } = useScreenSizes();
+  // const isHidden = pathname === '/' && deskmax === true;
+  // const { mobile, deskmax } = useScreenSizes();
+
+  // const isColorBtn = mobile === true || deskmax === true;
+  // const isHidden = deskmax === true;
+  // console.log(isColorBtn);
+  // console.log(isHidden);
+  const total = slidesData.length;
+
+  const [slidesToShow, setSlidesToShow] = useState(4);
   const [index, setIndex] = useState(1);
   let sliderRef = useRef(null);
+
+  useEffect(() => {
+    if (!slidesData) return;
+    setSlidesToShow(total < 4 ? total : 4);
+  }, [slidesData, total]);
+
+  const settings = {
+    ...mainSettings,
+    slidesToShow: slidesToShow,
+  };
+
   const next = () => {
     sliderRef.current.slickNext();
     setIndex((prevIndex) => prevIndex + 1);
@@ -19,7 +45,6 @@ const SliderBoxMain = ({ slidesData, settings }) => {
     sliderRef.current.slickPrev();
     setIndex((prevIndex) => prevIndex - 1);
   };
-  const total = slidesData.length;
 
   return (
     <div className={`slider-container ${cl.wrapSlider}`}>

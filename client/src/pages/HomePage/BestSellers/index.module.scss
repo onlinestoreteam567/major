@@ -1,9 +1,0 @@
-@import '@mixins';
-
-.bestSellersWrapper {
-  @include flexGap(5vh, column);
-
-  h2 {
-    text-align: center;
-  }
-}

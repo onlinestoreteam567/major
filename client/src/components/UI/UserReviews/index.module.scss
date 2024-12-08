@@ -19,6 +19,22 @@
     width: 1296px;
   }
 }
+// *** SliderBoxMain ***
+.wrapSlider {
+  text-align: center;
+  width: 356px;
+  height: auto;
+
+  @include tablet {
+    width: 640px;
+  }
+  @include deskmin {
+    width: 980px;
+  }
+  @include deskmax {
+    width: 1296px;
+  }
+}
 .wrapReviewsCard {
   @include flexGap(16px, column);
   box-sizing: border-box;

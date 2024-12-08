@@ -1,20 +1,22 @@
 import cl from './index.module.scss';
 import card from './card.json';
-import { useParams } from 'react-router-dom';
-import BreadCrumbs from '@components/UI/BreadCrumbs/BreadCrumbs';
 import CardMobile from './CardMobile';
 import CardDesk from './CardDesk';
 import Description from '@components/UI/CardProduct/Descript/Description';
 import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
-import ProductOffer from '@components/UI/CardProduct/ProductOffer/ProductOffer';
+// import ProductOffer from '@components/UI/CardProduct/ProductOffer/ProductOffer';
+import TopLink from '@components/UI/TopLink/TopLink';
+import ProductOffer from './ProductOffer';
+import ProductSet from './ProductSet';
+import ProductLook from './ProductLook';
+// import ProductSet from '@components/UI/CardProduct/ProductOffer/ProductSet';
+// import ProductLook from '@components/UI/CardProduct/ProductOffer/ProductLook';
 
 export default function ProductPage() {
-  const path = useParams();
-  console.log(path);
   return (
     <section className={cl.cardPage}>
       <div className={cl.topCase}>
-        <BreadCrumbs product={card.name} />
+        <TopLink card={card} />
         <div className={cl.wrapMobile}>
           <CardMobile card={card} />
         </div>
@@ -25,7 +27,8 @@ export default function ProductPage() {
       <Description card={card} />
       <ListReviewsCard />
       <ProductOffer card={card} />
-      <ProductOffer card={card} />
+      <ProductSet card={card} />
+      <ProductLook />
     </section>
   );
 }

@@ -38,6 +38,7 @@
   padding: 0;
   width: 356px;
   height: 570px;
+
   .wrapInfo {
     @include flexGap(16px, column);
     width: 100%;

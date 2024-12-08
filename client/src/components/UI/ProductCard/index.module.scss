@@ -1,69 +1,76 @@
-@import '@mixins';
+// @import '@mixins';
 
-.card {
-  @include flexGap(15px, column);
-  box-sizing: border-box;
-  padding: 0 12px 2px 12px;
-  width: 100%;
-  color: $text-color-black;
-  cursor: pointer;
+// .card {
+//   @include flexGap(15px, column);
+//   box-sizing: border-box;
+//   padding: 0 12px 2px 12px;
+//   width: 100%;
+//   color: $text-color-black;
+//   cursor: pointer;
 
-  .cardHeader {
-    position: relative;
+//   .cardHeader {
+//     position: relative;
 
-    .cardImage {
-      width: 100%;
-    }
+//     .cardImage {
+//       width: 100%;
+//     }
 
-    h3 {
-      height: 40px;
-      text-wrap: balance;
-      padding-right: 10px;
-      margin: 20px 0;
-    }
-  }
+//     h3 {
+//       height: 40px;
+//       text-wrap: balance;
+//       padding-right: 10px;
+//       margin: 20px 0;
+//     }
+//   }
 
-  .cardFooter {
-    @include flex(row, space-between, center);
-    position: relative;
-    margin-top: 10px;
+//   .cardFooter {
+//     @include flex(row, space-between, center);
+//     position: relative;
+//     margin-top: 10px;
 
-    h2 {
-      @include flexGap(8px);
+//     h2 {
+//       @include flexGap(8px);
 
-      .oldPrice {
-        @include flex();
-        text-decoration: line-through;
-        gap: 10px;
-        font-family: $font-main;
-        font-size: $font-size-medium;
-        font-weight: $font-weight-bold;
-        line-height: 21.6px;
-        letter-spacing: $letter-spacing-base;
-        color: #a2a2a2;
-        margin-left: 15px;
-      }
-    }
+//       .oldPrice {
+//         @include flex();
+//         text-decoration: line-through;
+//         gap: 10px;
+//         font-family: $font-main;
+//         font-size: $font-size-medium;
+//         font-weight: $font-weight-bold;
+//         line-height: 21.6px;
+//         letter-spacing: $letter-spacing-base;
+//         color: #a2a2a2;
+//         margin-left: 15px;
+//       }
+//     }
 
-    p {
-      font-family: $font-main;
-      font-size: $font-size-medium-plus;
-      font-weight: $font-weight-base;
-      line-height: $line-height-base;
-      letter-spacing: $letter-spacing-base;
-    }
-  }
+//     p {
+//       font-family: $font-main;
+//       font-size: 20px;
+//       font-weight: $font-weight-base;
+//       line-height: $line-height-base;
+//       letter-spacing: $letter-spacing-base;
+//     }
+//   }
+// p {
+//   font-family: $font-main;
+//   font-size: $font-size-medium-plus;
+//   font-weight: $font-weight-base;
+//   line-height: $line-height-base;
+//   letter-spacing: $letter-spacing-base;
+// }
 
-  button {
-    h3 {
-      font-family: $font-main;
-      font-size: $font-size-medium;
-      font-weight: $font-weight-medium;
-      line-height: 1.22;
-    }
-  }
-  .space {
-    width: 100%;
-    height: 56px;
-  }
-}
+//   button {
+//     h3 {
+//       font-family: $font-main;
+//       font-size: $font-size-medium;
+//       font-weight: $font-weight-medium;
+//       line-height: 1.22;
+//     }
+//   }
+//   .space {
+//     width: 100%;
+//     height: 56px;
+//   }
+// }

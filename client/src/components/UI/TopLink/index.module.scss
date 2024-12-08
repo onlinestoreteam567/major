@@ -1,48 +1,40 @@
 @import '@mixins';
 
-.wrapMobile {
-  position: relative;
-  display: block;
-  @include tablet {
-    display: none;
-  }
-}
-
-.wrapDesk {
-  display: none;
-  @include tablet {
-    position: relative;
-    display: block;
-  }
-}
-
 .wrapLinkBack {
   @include flex(row, flex-start, center);
   width: 356px;
-  height: 48px;
+  height: 20px;
+  gap: 4px;
   padding: 0;
-  .link {
-    color: rgb(162, 162, 162);
-    font-family: $font-main;
-    font-size: $font-size-base;
-    font-weight: $font-weight-base;
-    line-height: 1.44;
-    &:hover {
-      color: $text-color-black;
+  .wrapLink {
+    @include flex(row, flex-start, center);
+    gap: 4px;
+    .link {
+      display: block;
+      color: rgb(162, 162, 162);
+      font-family: $font-main;
+      font-size: $font-size-base;
+      font-weight: 300;
+      line-height: 1.28;
       transition: color 0.5s ease;
     }
   }
-  .wrapLastLink {
-    display: none;
+  .wrapLink:last-child {
+    width: 240px;
+    .link {
+      display: block;
+      color: $text-color-black;
+      font-weight: $font-weight-base;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
+
   @include tablet {
     width: auto;
-    height: 20px;
-    .wrapLastLink {
-      @include flex(row, flex-start, center);
-      .lastLink {
-        color: $text-color-black;
-      }
+    .wrapLink:last-child {
+      width: auto;
     }
   }
 }
