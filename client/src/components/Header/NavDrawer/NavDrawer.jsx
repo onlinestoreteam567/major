@@ -14,17 +14,17 @@ const NavDrawer = ({ setIsShowNavDrawer }) => {
   };
 
   return (
-    <section className={`${cl.navDrawer} ${hiddenNavDrawer ? cl.closeAnimation : ''}`}>
-      <section className={cl.topSection}>
+    <div className={`${cl.navDrawer} ${hiddenNavDrawer ? cl.closeAnimation : ''}`}>
+      <div className={cl.top}>
         <LangSwitcher />
         <LogoIcon fillColor={'black'} />
         <div>
           <img src="/svg/crossIcon.svg" alt="" onClick={handleCloseNavDrawer} />
         </div>
-      </section>
+      </div>
       <Navigation />
       <SocialLinks black={true} />
-    </section>
+    </div>
   );
 };
 export default NavDrawer;

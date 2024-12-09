@@ -6,12 +6,12 @@ import BagIcon from '@assets/svg/header/BagIcon';
 import EnIcon from '@assets/svg/header/EnIcon';
 import useScreenSizes from '@hooks/useScreenSizes';
 
-const RightSection = ({ handleShowInput, isScrolled, handleShowBasket }) => {
+const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) => {
   const { deskmin, deskmax } = useScreenSizes();
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
 
   return (
-    <section className={cl.rightSection}>
+    <div className={cl.rightSection}>
       <i onClick={handleShowInput}>
         <SearchIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
       </i>
@@ -28,7 +28,7 @@ const RightSection = ({ handleShowInput, isScrolled, handleShowBasket }) => {
       <i onClick={handleShowBasket}>
         <BagIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
       </i>
-    </section>
+    </div>
   );
 };
-export default RightSection;
+export default RightHeaderControls;

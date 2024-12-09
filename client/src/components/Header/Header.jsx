@@ -2,7 +2,7 @@ import cl from './index.module.scss';
 import LogoIcon from '@assets/svg/header/LogoIcon/LogoIcon';
 import Basket from '@components/Header/Basket/Basket';
 import Navigation from '@components/Header/Navigation/Navigation';
-import RightSection from './RightSection/RightSection';
+import RightHeaderControls from './RightHeaderControls/RightSection';
 import useScreenSizes from '@hooks/useScreenSizes';
 import { useState } from 'react';
 import { usePageState } from '@hooks/header/usePageState';
@@ -47,7 +47,7 @@ const Header = () => {
           />
         )}
 
-        <RightSection
+        <RightHeaderControls
           isShowInput={isShowInput}
           handleShowInput={handleShowInput}
           isScrolled={isScrolled}
