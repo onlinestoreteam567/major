@@ -10,10 +10,6 @@ import Button from '@components/UI/Button/Button';
 import cl from './index.module.scss';
 
 export default function CardMobile({ card }) {
-  const getConsole = () => {
-    console.log('Hello word');
-  };
-
   return (
     <div className={cl.wrapItem}>
       <ImgMobile card={card} />
@@ -28,7 +24,7 @@ export default function CardMobile({ card }) {
         <Counter />
       </div>
       <Volume card={card} />
-      <Button onClick={getConsole}>Додати до кошику</Button>
+      <Button>Додати до кошику</Button>
     </div>
   );
 }

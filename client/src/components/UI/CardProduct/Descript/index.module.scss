@@ -159,19 +159,6 @@
       @include flex(row, flex-start, center);
       width: 100%;
       padding: 8px 0 0 40px;
-      // overflow-y: auto;
-      // &::-webkit-scrollbar {
-      //   width: 4px;
-      //   background: transparent;
-      // }
-      // &::-webkit-scrollbar-thumb {
-      //   background-color: #a2a2a2;
-      //   border-radius: $border-radius-base;
-      //   cursor: pointer;
-      // }
-      // &::-webkit-scrollbar-track {
-      //   background: #f1f1f1;
-      // }
     }
   }
 }

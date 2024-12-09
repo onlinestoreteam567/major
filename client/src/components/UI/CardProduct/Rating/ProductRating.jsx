@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import cl from './index.module.scss';
 import reviews from '@UI/UserReviews/reviewsList.json';
-import StarTrue from '@components/Icons/StarTrue';
-import StarFalse from '@components/Icons/StarFalse';
+import StarTrue from '@assets/svg/Icons/StarTrue';
+import StarFalse from '@assets/svg/Icons/StarFalse';
 
 export default function ProductRating() {
   const [stars, setStars] = useState([]);

@@ -58,7 +58,6 @@
     }
   }
   @include tablet {
-    // width: 640px;
     width: 668px;
     height: 600px;
     .slider {
@@ -71,11 +70,9 @@
     }
   }
   @include deskmin {
-    // width: 980px;
     width: 1008px;
   }
   @include deskmax {
-    // width: 1296px;
     width: 1320px;
     height: 520px;
     text-align: center;

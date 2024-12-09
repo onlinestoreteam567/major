@@ -1,6 +1,5 @@
 import cl from './index.module.scss';
 import commentsData from './data';
-// import Banner from '@UI/Banner/Banner';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import CommentCard from '@components/UI/CommentCard/CommentCard';
@@ -9,8 +8,8 @@ import { useEffect, useRef, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { commentsSettings } from '@components/constants/settingSlider';
-import ArrowLeft from '@components/Icons/ArrowLeft';
-import ArrowRight from '@components/Icons/ArrowRight';
+import ArrowLeft from '@assets/svg/Icons/ArrowLeft';
+import ArrowRight from '@assets/svg/Icons/ArrowRight';
 
 const Comments = () => {
   const [slidesToShow, setSlidesToShow] = useState(4);

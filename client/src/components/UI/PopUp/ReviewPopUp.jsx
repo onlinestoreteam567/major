@@ -9,8 +9,8 @@ import Heading from '@UI/Texts/Heading/Heading';
 import data from './data';
 // import StarAll from '@components/Icons/StarAll';
 // import StarEmpty from '@components/Icons/StarEmpty';
-import StarTrue from '@components/Icons/StarTrue';
-import StarFalse from '@components/Icons/StarFalse';
+import StarTrue from '@assets/svg/Icons/StarTrue';
+import StarFalse from '@assets/svg/Icons/StarFalse';
 // import PhoneNumberInput from '../PhoneNumberInput/PhoneNumberInput';
 
 const ReviewPopUp = ({ setShowMessagePopUp, type }) => {
@@ -31,10 +31,6 @@ const ReviewPopUp = ({ setShowMessagePopUp, type }) => {
 
   const handleReview = () => {
     const newReview = {
-      // product: {
-      //   id: item.id,
-      //   name: item.title,
-      // },
       product: {
         id: 0,
         name: 'Флюїд шовк для тонкого волосся',

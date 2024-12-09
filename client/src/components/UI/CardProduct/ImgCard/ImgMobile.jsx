@@ -1,7 +1,7 @@
-import ArrowLeft from '@components/Icons/ArrowLeft';
+import ArrowLeft from '@assets/svg/Icons/ArrowLeft';
 import cl from './index.module.scss';
 import { useRef, useState } from 'react';
-import ArrowRight from '@components/Icons/ArrowRight';
+import ArrowRight from '@assets/svg/Icons/ArrowRight';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -23,7 +23,6 @@ export default function ImgMobile({ card }) {
     setIndex((prevIndex) => prevIndex - 1);
   };
 
-  // const slidesData = card ? card.upload_images : ['/images/default_img.svg'];
   const slidesData = card.upload_images;
   const total = slidesData.length;
 

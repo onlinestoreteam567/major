@@ -1,8 +1,8 @@
 import cl from './index.module.scss';
 import reviewsList from './reviewsList.json';
 import ReviewsCard from './ReviewsCard';
-import ArrowLeft from '@components/Icons/ArrowLeft';
-import ArrowRight from '@components/Icons/ArrowRight';
+import ArrowLeft from '@assets/svg/Icons/ArrowLeft';
+import ArrowRight from '@assets/svg/Icons/ArrowRight';
 import Heading from '../Texts/Heading/Heading';
 import { useRef, useState } from 'react';
 import Slider from 'react-slick';

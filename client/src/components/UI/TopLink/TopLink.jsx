@@ -1,4 +1,4 @@
-import ArrowLink from '@components/Icons/ArrowLink';
+import ArrowLink from '@assets/svg/Icons/ArrowLink';
 import cl from './index.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
@@ -7,8 +7,6 @@ export default function TopLink({ card }) {
   let { pathname } = useLocation();
   const segments = pathname.split('/');
   const page = segments[1];
-  // let id = segments[2];
-  // console.log(id);
   const { getTranslation } = useTranslationNamespace('common');
   return (
     <nav className={cl.wrapLinkBack}>
