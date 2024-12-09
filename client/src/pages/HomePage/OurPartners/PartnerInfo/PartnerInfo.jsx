@@ -3,7 +3,7 @@ import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
 import Button from '@UI/Button/Button';
-const PartnerInfo = ({ informationAboutPartner }) => {
+const PartnerInfo = ({ informationAboutPartner, setPartnerInteractionState }) => {
   const handleUnmountComponent = () => {
     clearTimeout();
     setPartnerInteractionState((prev) => ({ ...prev, closeAnimation: true, activePartner: null }));

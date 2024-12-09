@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
 import InteractiveMap from './InteractiveMap/InteractiveMap';
-import InformationAboutPartner from './PartnerInfo/PartnerInfo';
 import partnerData from './partnerData';
 import handlePointClick from './handlePointClick';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
 import Button from '@components/UI/Button/Button';
+import PartnerInfo from './PartnerInfo/PartnerInfo';
 
 const OurPartners = () => {
   const [partnerInteractionState, setPartnerInteractionState] = useState({
@@ -42,7 +42,7 @@ const OurPartners = () => {
         }
       />
       {partnerInteractionState.showInformationAboutPartner && (
-        <InformationAboutPartner
+        <PartnerInfo
           setPartnerInteractionState={setPartnerInteractionState}
           informationAboutPartner={informationAboutPartner}
         />
