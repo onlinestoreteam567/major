@@ -85,16 +85,3 @@
     letter-spacing: $letter-spacing-base;
   }
 }
-
-.navDrawer {
-  width: 100%;
-  height: 46px;
-  font-size: $font-size-medium;
-  border: none;
-  background: transparent;
-
-  &:hover {
-    color: $text-color-light;
-    background-color: #676767;
-  }
-}

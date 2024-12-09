@@ -34,15 +34,6 @@
     }
   }
 
-  .buttonsSection {
-    @include flex(column, center, center);
-    gap: 16px;
-
-    button {
-      width: 327px;
-    }
-  }
-
   p {
     color: black;
   }
