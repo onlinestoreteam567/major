@@ -25,6 +25,19 @@
     font-size: $font-size-base;
   }
 }
+
+.body3 {
+  font-family: $font-second;
+  font-size: $font-size-small;
+  font-weight: $font-weight-base;
+  line-height: 1.24;
+  color: $text-color-black;
+  text-align: left;
+  @include deskmin {
+    font-size: $font-size-base;
+  }
+}
+
 .label {
   font-family: $font-main;
   font-size: $font-size-small;

@@ -5,8 +5,8 @@ import InformationAboutPartner from './PartnerInfo/PartnerInfo';
 import partnerData from './partnerData';
 import handlePointClick from './handlePointClick';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-// import Button from '@UI/Button/Button';
 import Heading from '@UI/Texts/Heading/Heading';
+import Button from '@components/UI/Button/Button';
 
 const OurPartners = () => {
   const [partnerInteractionState, setPartnerInteractionState] = useState({
@@ -47,7 +47,7 @@ const OurPartners = () => {
           informationAboutPartner={informationAboutPartner}
         />
       )}
-      {/* <Button>{getTranslation('becomePartner')}</Button> */}
+      <Button>{getTranslation('becomePartner')}</Button>
     </section>
   );
 };
