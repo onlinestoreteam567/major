@@ -1,31 +1,29 @@
 @import '@mixins';
 
 .headerNavigation {
-  color: $header-link-color;
-
+  width: 100%;
   @include flex(column);
   @include deskmin {
     flex-direction: row;
   }
 
-  @include flex(column);
-  width: 100%;
-
   a {
     text-align: center;
-    width: 100%;
+    width: 327px;
     background-color: transparent;
     border-radius: $border-radius-medium;
     border: none;
     padding: 20px;
     box-sizing: border-box;
-    transition: 300ms;
     font-family: $font-main;
     font-size: $font-size-medium;
     font-weight: $font-weight-medium;
     line-height: $line-height-base;
     letter-spacing: $letter-spacing-base;
     color: $header-link-color;
+    text-wrap: nowrap;
+    transition: 300ms;
+    cursor: pointer;
 
     &:hover {
       color: $text-color-light;
@@ -37,16 +35,9 @@
     @include flexGap(40px);
 
     a {
-      cursor: pointer;
-
-      font-family: $font-main;
-      font-size: $font-size-medium;
-      font-weight: $font-weight-medium;
-      line-height: $line-height-base;
-      letter-spacing: $letter-spacing-base;
-      color: $header-link-color;
-
-      transition: 0.6s;
+      width: auto;
+      padding: 0;
+      transition: 600ms;
 
       &:hover {
         color: $header-link-hover-color;
