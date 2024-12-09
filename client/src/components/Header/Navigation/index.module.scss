@@ -6,7 +6,7 @@
   ul {
     @include flexGap(40px);
 
-    li {
+    a {
       cursor: pointer;
 
       font-family: $font-main;
