@@ -7,6 +7,7 @@ import ProductResults from './ProductResults';
 import NotFound from './NotFound';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import ButtonClose from '@assets/svg/ButtonClose/ButtonClose';
 
 function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
   const [isInputFocus, setIsInputFocus] = useState(false);
@@ -48,9 +49,7 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
             ref={inputRef}
           />
 
-          {inputValue && (
-            <img src="/svg/crossIcon.svg" alt="Cross icon" className={cl.crossIcon} onClick={handleClearInputValue} />
-          )}
+          {inputValue && <ButtonClose onClick={handleClearInputValue} />}
 
           {inputValue && filteredProducts.length > 0 ? (
             <ProductResults products={filteredProducts.slice(0, 3)} />

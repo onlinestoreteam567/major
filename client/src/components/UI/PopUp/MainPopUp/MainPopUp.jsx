@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { needHelpSchema } from '@validations/needHelpSchema';
 import { Input, PhoneNumberInput, Textarea } from '@components/form-components';
+import ButtonClose from '@assets/svg/ButtonClose/ButtonClose';
 
 const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
   const { getTranslation } = useTranslationNamespace('yellowButton');
@@ -23,7 +24,8 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
       <Overlay handleClose={handleCloseMessagePopUp} />
 
       <div className={cl.messagePopUp}>
-        <img src="svg/crossIcon.svg" alt={getTranslation('crossAlt')} onClick={handleCloseMessagePopUp} />
+        <ButtonClose onClick={handleCloseMessagePopUp} />
+
         <Subtitle>{getTranslation(popUpData.subtitle)}</Subtitle>
         <Heading type="h3">{getTranslation(popUpData.heading)}</Heading>
         <form onSubmit={handleSubmit(onSubmit)}>
