@@ -1,6 +1,6 @@
-import Hryvnia from '@assets/svg/Icons/Hryvnia';
+import Hryvnia from '@assets/svg/Hryvnia';
 import cl from './index.module.scss';
-import HryvniaGr from '@assets/svg/Icons/HryvniaGr';
+import HryvniaGr from '@assets/svg/HryvniaGr';
 
 export default function PriceCardCatalog({ card }) {
   return (

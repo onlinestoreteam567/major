@@ -1,5 +1,5 @@
 import cl from './index.module.scss';
-import LogoIcon from '@assets/svg/header/LogoIcon/LogoIcon';
+import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
 import Basket from '@components/Header/Basket/Basket';
 import Navigation from '@components/Header/Navigation/Navigation';
 import RightHeaderControls from './RightHeaderControls/RightSection';
@@ -7,7 +7,7 @@ import useScreenSizes from '@hooks/useScreenSizes';
 import { useState } from 'react';
 import { usePageState } from '@hooks/header/usePageState';
 import { useScrollState } from '@hooks/header/useScrollState';
-import BurgerIcon from '@assets/svg/header/BurgerIcon';
+import BurgerIcon from '@assets/svg/Header/BurgerIcon';
 import NavDrawer from './NavDrawer/NavDrawer';
 import MobileSearchWrapper from './Search/MobileSearchWrapper';
 import SearchInput from './Search/SearchInput/SearchInput';

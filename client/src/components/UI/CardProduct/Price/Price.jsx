@@ -1,6 +1,6 @@
-import Hryvnia from '@assets/svg/Icons/Hryvnia';
+import Hryvnia from '@assets/svg/Hryvnia';
 import cl from './index.module.scss';
-import HryvniaGr from '@assets/svg/Icons/HryvniaGr';
+import HryvniaGr from '@assets/svg/HryvniaGr';
 import Heading from '@UI/Texts/Heading/Heading';
 
 export default function Price({ card }) {

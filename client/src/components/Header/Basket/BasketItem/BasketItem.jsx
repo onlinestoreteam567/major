@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
-import Plus from '@assets/svg/basket/Plus.jsx';
-import Minus from '@assets/svg/basket/Minus';
+import Plus from '@assets/svg/ButtonPlus';
+import Minus from '@assets/svg/ButtonMinus';
 import { useDispatch } from 'react-redux';
 import { addItem, removeItem, decrementItemQuantity, setItemQuantity } from '@features/cart/cartSlice.js/';
 import Heading from '@UI/Texts/Heading/Heading';
@@ -30,11 +30,11 @@ const BasketItem = ({ item }) => {
         </Heading>
         <section className={cl.basketItemCounterAndDeleteSection}>
           <section>
-            <button className={cl.countButton} onClick={handleDecrementItem}>
+            <button onClick={handleDecrementItem}>
               <Minus />
             </button>
             <input type="number" name="" id="" value={item.quantity} onChange={handleQuantityChange} />
-            <button className={cl.countButton} onClick={handleAddToCart}>
+            <button onClick={handleAddToCart}>
               <Plus />
             </button>
           </section>

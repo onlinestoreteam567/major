@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import SearchIcon from '@assets/svg/header/SearchIcon';
-import UaIcon from '@assets/svg/header/UaIcon';
-import BagIcon from '@assets/svg/header/BagIcon';
-import EnIcon from '@assets/svg/header/EnIcon';
+import SearchIcon from '@assets/svg/Header/SearchIcon';
+import UaIcon from '@assets/svg/Header/UaIcon';
+import BagIcon from '@assets/svg/Header/BagIcon';
+import EnIcon from '@assets/svg/Header/EnIcon';
 import useScreenSizes from '@hooks/useScreenSizes';
 
 const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) => {

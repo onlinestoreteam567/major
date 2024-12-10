@@ -8,8 +8,8 @@ import { useEffect, useRef, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { commentsSettings } from '@components/constants/settingSlider';
-import ArrowLeft from '@assets/svg/Icons/ArrowLeft';
-import ArrowRight from '@assets/svg/Icons/ArrowRight';
+import ArrowLeft from '@assets/svg/ArrowLeft';
+import ArrowRight from '@assets/svg/ArrowRight';
 
 const Comments = () => {
   const [slidesToShow, setSlidesToShow] = useState(4);

@@ -1,7 +1,7 @@
-import ArrowLeft from '@assets/svg/Icons/ArrowLeft';
+import ArrowLeft from '@assets/svg/ArrowLeft';
 import cl from './index.module.scss';
 import { useRef, useState } from 'react';
-import ArrowRight from '@assets/svg/Icons/ArrowRight';
+import ArrowRight from '@assets/svg/ArrowRight';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

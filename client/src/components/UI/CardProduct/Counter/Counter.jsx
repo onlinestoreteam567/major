@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 import { useState } from 'react';
-import ButtonMinus from '@assets/svg/Icons/ButtonMinus';
-import ButtonPlus from '@assets/svg/Icons/ButtonPlus';
+import ButtonMinus from '@assets/svg/ButtonMinus';
+import ButtonPlus from '@assets/svg/ButtonPlus';
 
 export default function Counter() {
   const [count, setCount] = useState(1);
