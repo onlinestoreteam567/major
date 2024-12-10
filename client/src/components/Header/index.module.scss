@@ -12,6 +12,8 @@ header {
 
   .mainWrapper {
     margin: 0 auto;
+    position: relative;
+
     @include flex(row, space-between, null);
     @include layout();
     & {
