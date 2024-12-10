@@ -8,7 +8,7 @@ const Slide = ({ slide }) => {
   const { getTranslation } = useTranslationNamespace('mainBanner');
 
   const styleVariables = {
-    '--background-image': `url(${slide.background})`,
+    backgroundImage: `url(${slide.background})`,
     '--button-hover': slide.buttonHoverColor,
     '--label-color': slide.labelColor,
   };
