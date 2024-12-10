@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import SearchIcon from '@assets/svg/header/SearchIcon';
-import UaIcon from '@assets/svg/header/UaIcon';
-import BagIcon from '@assets/svg/header/BagIcon';
-import EnIcon from '@assets/svg/header/EnIcon';
+import SearchIcon from '@assets/svg/Header/SearchIcon';
+import UaIcon from '@assets/svg/Header/UaIcon';
+import BagIcon from '@assets/svg/Header/BagIcon';
+import EnIcon from '@assets/svg/Header/EnIcon';
 import useScreenSizes from '@hooks/useScreenSizes';
 
-const RightSection = ({ handleShowInput, isScrolled, handleShowBasket }) => {
+const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) => {
   const { deskmin, deskmax } = useScreenSizes();
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
 
   return (
-    <section className={cl.rightSection}>
+    <div className={cl.rightSection}>
       <i onClick={handleShowInput}>
         <SearchIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
       </i>
@@ -28,7 +28,7 @@ const RightSection = ({ handleShowInput, isScrolled, handleShowBasket }) => {
       <i onClick={handleShowBasket}>
         <BagIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
       </i>
-    </section>
+    </div>
   );
 };
-export default RightSection;
+export default RightHeaderControls;

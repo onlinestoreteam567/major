@@ -7,8 +7,8 @@ const MobileSearchWrapper = ({ setIsShowInput, inputValue, setInputValue, isDesk
   const [IsHiddenSearchAnimation, setIsHiddenSearchAnimation] = useState(false);
 
   return (
-    <section className={`${cl.searchWrapper} ${IsHiddenSearchAnimation && cl.closeAnimation}`}>
-      <section className={cl.topSection}>
+    <div className={`${cl.searchWrapper} ${IsHiddenSearchAnimation && cl.closeAnimation}`}>
+      <div className={cl.top}>
         <img src="/svg/header/searchLogo.svg" alt="" />
         <div>
           <img
@@ -19,9 +19,9 @@ const MobileSearchWrapper = ({ setIsShowInput, inputValue, setInputValue, isDesk
             }}
           />
         </div>
-      </section>
+      </div>
       <SearchInput inputValue={inputValue} setInputValue={setInputValue} isDesktop={isDesktop} />
-    </section>
+    </div>
   );
 };
 export default MobileSearchWrapper;

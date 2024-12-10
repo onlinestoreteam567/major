@@ -1,9 +1,4 @@
 const slideData = [
-  // {
-  //   labelText: 'labelText1',
-  //   title: 'title1',
-  //   slideClassName: 'firstSlide',
-  // },
   {
     labelText: 'labelText2',
     labelColor: '#0b7729',

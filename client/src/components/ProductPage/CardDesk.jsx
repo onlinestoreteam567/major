@@ -10,9 +10,6 @@ import Volume from '@components/UI/CardProduct/Volume/Volume';
 import cl from './index.module.scss';
 
 export default function CardDesk({ card }) {
-  const getConsole = () => {
-    console.log('Hello word');
-  };
   return (
     <div className={cl.wrapItem}>
       <ImgDesk card={card} />
@@ -29,7 +26,7 @@ export default function CardDesk({ card }) {
           <Counter />
           <Volume card={card} />
         </div>
-        <Button onClick={getConsole}>Додати до кошику</Button>
+        <Button>Додати до кошику</Button>
       </div>
     </div>
   );

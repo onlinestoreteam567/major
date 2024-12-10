@@ -1,28 +1,16 @@
-import { Link } from 'react-router-dom';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import cl from './index.module.scss';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
   const { getTranslation } = useTranslationNamespace('header');
   return (
     <nav className={cl.headerNavigation}>
-      <ul>
-        <li>
-          <Link to="catalog">{getTranslation('catalog')}</Link>
-        </li>
-        <li>
-          <Link to="about">{getTranslation('about')}</Link>
-        </li>
-        <li>
-          <Link to="blog">{getTranslation('blog')}</Link>
-        </li>
-        <li>
-          <Link to="cooperation">{getTranslation('cooperation')}</Link>
-        </li>
-        <li>
-          <Link to="contact">{getTranslation('contact')}</Link>
-        </li>
-      </ul>
+      <NavLink to="/catalog">{getTranslation('catalog')}</NavLink>
+      <NavLink to="/about">{getTranslation('about')}</NavLink>
+      <NavLink to="/blog">{getTranslation('blog')}</NavLink>
+      <NavLink to="/cooperation">{getTranslation('cooperation')}</NavLink>
+      <NavLink to="/contact">{getTranslation('contact')}</NavLink>
     </nav>
   );
 };

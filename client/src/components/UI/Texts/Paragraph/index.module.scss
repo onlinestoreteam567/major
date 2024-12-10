@@ -20,11 +20,11 @@
   font-weight: $font-weight-base;
   line-height: 1.24;
   color: $text-color-black;
-  text-align: center;
   @include deskmin {
     font-size: $font-size-base;
   }
 }
+
 .label {
   font-family: $font-main;
   font-size: $font-size-small;

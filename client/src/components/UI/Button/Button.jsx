@@ -1,5 +1,4 @@
 import cl from './index.module.scss';
-// import PropTypes from 'prop-types';
 
 export default function Button({
   onClick,
@@ -30,12 +29,3 @@ export default function Button({
     </button>
   );
 }
-
-// Button.propTypes = {
-//   onClick: PropTypes.func,
-//   children: PropTypes.string.isRequired,
-//   variant: PropTypes.string,
-//   purpose: PropTypes.string,
-//   onMouseEnter: PropTypes.func,
-//   onMouseLeave: PropTypes.func,
-// };

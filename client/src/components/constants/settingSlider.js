@@ -10,7 +10,6 @@ export const commentsSettings = {
   slidesToScroll: 1,
   draggable: false,
   swipe: true,
-  // lazyLoad: true,
   responsive: [
     {
       breakpoint: 1024,

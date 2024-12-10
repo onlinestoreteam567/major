@@ -5,9 +5,6 @@ import cards from './list.json';
 // ****** Це тимчасовий компонент *****
 
 export default function Container() {
-  // let location = useLocation();
-  // console.log(location);
-
   return (
     <ul className={cl.container}>
       {cards.map((card) => (

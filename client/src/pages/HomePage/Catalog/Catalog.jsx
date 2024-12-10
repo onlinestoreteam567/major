@@ -1,6 +1,5 @@
 import cl from './index.module.scss';
 import Heading from '@UI/Texts/Heading/Heading';
-// import LabelText from '@UI/Texts/LabelText/LabelText';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const Catalog = () => {

@@ -21,6 +21,14 @@
         @include flex(column, flex-start, center);
         width: 356px;
         gap: 16px;
+
+        p {
+          text-align: center;
+
+          @include deskmin {
+            text-align: left;
+          }
+        }
       }
     }
   }
