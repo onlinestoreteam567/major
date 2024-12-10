@@ -10,7 +10,7 @@
   @include flex();
   @include layout();
   & {
-    padding: 60px 15px 90px 15px;
+    padding: 60px 15px 40px 15px;
 
     @include tablet {
       padding: 75px 64px 0 64px;
@@ -29,7 +29,7 @@
   img {
     position: absolute;
     top: 60px;
-    width: 270px;
+    width: 390px;
     @include tablet {
       position: static;
     }
