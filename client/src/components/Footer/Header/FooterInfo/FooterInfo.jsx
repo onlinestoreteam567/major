@@ -13,7 +13,7 @@ const FooterInfo = () => {
           {(tablet || deskmin || deskmax) && <img src="/svg/footer/calendar.svg" alt={getTranslation('calendarAlt')} />}
           {getTranslation('workingHours')}
         </h3>
-        <section>
+        <section className={cl.workingHours}>
           {' '}
           <li>
             <h3>{getTranslation('monFri')}</h3>

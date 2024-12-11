@@ -1,6 +1,6 @@
-import UaIcon from '@assets/svg/header/UaIcon';
+import UaIcon from '@assets/svg/Header/UaIcon';
 import cl from './index.module.scss';
-import EnIcon from '@assets/svg/header/EnIcon';
+import EnIcon from '@assets/svg/Header/EnIcon';
 import LineSeparator from '@assets/svg/LineSeparator';
 import { useState } from 'react';
 

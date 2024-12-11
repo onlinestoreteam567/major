@@ -6,14 +6,10 @@
   p {
     @include flex(row, senter, center);
     color: #a2a2a2;
-    // color: rgb(34, 33, 31);
     font-family: $font-second;
     font-size: $font-size-base;
     font-weight: $font-weight-base;
     line-height: 1.44;
-    // background: rgb(249, 174, 26);
-    // border-radius: 14px;
-    // padding: 4px 8px;
     cursor: pointer;
     &:hover {
       color: $text-color-black;

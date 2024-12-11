@@ -22,7 +22,7 @@
     @include showCloseAnimation('close', -100%);
   }
 
-  .topSection {
+  .top {
     @include flex(row, space-between, center);
     color: black;
   }

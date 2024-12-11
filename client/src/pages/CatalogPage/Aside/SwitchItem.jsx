@@ -1,4 +1,4 @@
-import Switch from '@UI/Switch/Switch.jsx'; // Adjust the import path as needed
+import Switch from '@UI/Switch/Switch.jsx';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const SwitchItem = ({ icon, label }) => {
   const { getTranslation } = useTranslationNamespace('catalogPage');

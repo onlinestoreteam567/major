@@ -13,7 +13,7 @@ search {
     top: 27px;
     left: 17%;
     z-index: 100;
-    width: 696px;
+    width: 69%;
     @include showCloseAnimation();
   }
 
@@ -77,10 +77,9 @@ search {
       position: relative;
     }
 
-    .crossIcon {
+    svg {
       height: 14px;
       width: 14px;
-      cursor: pointer;
       position: absolute;
       right: 2.5%;
       top: 15px;
