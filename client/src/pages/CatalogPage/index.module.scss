@@ -6,6 +6,12 @@
   color: $text-color-black;
   box-sizing: border-box;
 
+  @include layout();
+
+  @include deskmax {
+    margin: 0 auto;
+  }
+
   .mainWrapper {
     @include flexGap(24px);
   }
