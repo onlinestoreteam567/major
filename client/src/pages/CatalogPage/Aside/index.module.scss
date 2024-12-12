@@ -8,6 +8,10 @@
   border-radius: $border-radius-small;
   height: fit-content;
 
+  @include deskmin {
+    width: 308px;
+  }
+
   .switchBox {
     user-select: none;
     li {

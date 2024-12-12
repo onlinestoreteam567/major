@@ -1,0 +1,18 @@
+@import '@mixins';
+
+.bottom {
+  @include flex(column);
+  gap: 10px;
+
+  p {
+    font-family: $font-main;
+    font-size: $font-size-base;
+    font-weight: $font-weight-small;
+    line-height: 20.48px;
+    color: #3b3c37;
+  }
+
+  button {
+    width: 306px;
+  }
+}

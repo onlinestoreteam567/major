@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import cl from './index.module.scss';
-import CardCatalog from '../CardCatalog/CardCatalog';
+import CardCatalog from '../../../pages/CatalogPage/Products/CardsContainer/Card/Card';
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
 import { mainSettings } from '@components/constants/settingSlider';

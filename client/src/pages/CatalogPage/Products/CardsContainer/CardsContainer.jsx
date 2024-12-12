@@ -1,10 +1,8 @@
-import CardCatalog from './CardCatalog';
+import CardCatalog from './Card/Card';
 import cl from './index.module.scss';
 import cards from './list.json';
 
-// ****** Це тимчасовий компонент *****
-
-export default function Container() {
+export default function CardsContainer() {
   return (
     <ul className={cl.container}>
       {cards.map((card) => (

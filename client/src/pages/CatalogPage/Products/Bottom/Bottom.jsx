@@ -8,9 +8,7 @@ const Bottom = () => {
   return (
     <section className={cl.bottom}>
       <p>{getTranslation('showing')}</p>
-      <div className={cl.buttonWrapper}>
-        <Button variant="secondary">{getTranslation('loadMore')}</Button>
-      </div>
+      <Button variant="secondary">{getTranslation('loadMore')}</Button>
     </section>
   );
 };

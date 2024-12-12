@@ -9,6 +9,7 @@
 
   @include tablet {
     padding: 48px 64px 0 64px;
+    overflow: hidden;
   }
 
   @include deskmin {

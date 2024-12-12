@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
-import ProductRating from '../CardProduct/Rating/ProductRating';
-import ImgCardCatalog from './ImgCardCatalog';
+import Button from '../../../../../components/UI/Button/Button';
+import ProductRating from '../../../../../components/UI/CardProduct/Rating/ProductRating';
+import ImgCardCatalog from './Image/Image';
 import cl from './index.module.scss';
-import PriceCardCatalog from './PriceCardCatalog';
-import TitleCardCatalog from './TitleCardCatalog';
+import PriceCardCatalog from './Price/Price';
+import TitleCardCatalog from './Title/Title';
 import { useState } from 'react';
 import useScreenSizes from '@hooks/useScreenSizes';
 
-export default function CardCatalog({ card }) {
+export default function Card({ card }) {
   const [isShowButton, setIsShowButton] = useState(false);
 
   const { tablet, deskmax } = useScreenSizes();
