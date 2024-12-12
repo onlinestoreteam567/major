@@ -1,10 +1,13 @@
 @import '@mixins';
 
 .copyrightSection {
-  padding-bottom: 10px;
   width: 100%;
 
   @include layout();
+
+  & {
+    padding-bottom: 10px;
+  }
 
   @include deskmin {
     height: 57px;
