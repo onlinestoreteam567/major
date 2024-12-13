@@ -23,7 +23,7 @@ const NavDrawer = ({ setIsShowNavDrawer }) => {
           <ButtonClose onClick={handleCloseNavDrawer} />
         </div>
       </div>
-      <Navigation />
+      <Navigation onClick={handleCloseNavDrawer} />
       <SocialLinks black={true} />
     </div>
   );
