@@ -58,7 +58,6 @@ const PriceRange = () => {
           <span>{getTranslation('to')}</span>
           <input type="number" value={maxPrice} onChange={handleMaxInputChange} />
         </div>
-        <button>{getTranslation('ok')}</button>
       </div>
     </div>
   );
