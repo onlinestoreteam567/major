@@ -90,49 +90,100 @@
   @include flex(row, space-between, center);
   .wrapPrice {
     @include flex(row, flex-start, center);
+    width: auto;
     height: 34px;
-    gap: 16px;
+    gap: 32px;
     .price {
-      @include flex(row, center, center);
-      h4 {
-        @include flex(row, flex-start, center);
-        width: auto;
-        color: $text-color-black;
-        font-family: $font-main;
-        font-size: $font-size-medium;
-        font-weight: $font-weight-medium;
-        line-height: 1.36;
-        padding: 0;
-        margin: 0;
+      @include flex(row, flex-start, center);
+      color: $text-color-black;
+      font-family: $font-main;
+      font-size: $font-size-medium-extra;
+      line-height: 1.24;
+      text-align: left;
+      gap: 8px;
+      .costNow {
+        font-weight: 500;
       }
-      p {
-        @include flex(row, center, center);
-        width: 18px;
-        padding: 0;
-        margin: 0;
+      .hrnBlack {
+        font-weight: 400;
       }
     }
     .oldPrice {
       @include flex(row, flex-start, center);
-      height: 34px;
-      h4 {
-        @include flex(row, flex-start, center);
-        width: auto;
-        color: rgb(103, 103, 103);
+      color: rgb(103, 103, 103);
+      font-family: $font-main;
+      font-size: $font-size-medium;
+      font-weight: 500;
+      line-height: 1.28;
+      text-align: left;
+      gap: 8px;
+      .costOld {
         text-decoration-line: line-through;
-        font-family: $font-main;
-        font-size: $font-size-medium;
-        font-weight: $font-weight-base;
-        line-height: 1.28;
-        padding: 0;
-        margin: 0;
+        font-weight: 500;
       }
-      p {
-        @include flex(row, center, center);
-        width: 18px;
+      .hrnGrey {
+        font-weight: 400;
       }
     }
+    // @include tablet {
+    //   .price {
+    //     font-size: $font-size-medium;
+    //   }
+    //   .oldPrice {
+    //     font-size: $font-size-base;
+    //   }
+    // }
+    // @include deskmax {
+    //   .price {
+    //     letter-spacing: 0.08;
+    //   }
+    // }
   }
+  // .wrapPrice {
+  //   @include flex(row, flex-start, center);
+  //   height: 34px;
+  //   gap: 16px;
+  //   .price {
+  //     @include flex(row, center, center);
+  //     h4 {
+  //       @include flex(row, flex-start, center);
+  //       width: auto;
+  //       color: $text-color-black;
+  //       font-family: $font-main;
+  //       font-size: $font-size-medium;
+  //       font-weight: $font-weight-medium;
+  //       line-height: 1.36;
+  //       padding: 0;
+  //       margin: 0;
+  //     }
+  //     p {
+  //       @include flex(row, center, center);
+  //       width: 18px;
+  //       padding: 0;
+  //       margin: 0;
+  //     }
+  //   }
+  //   .oldPrice {
+  //     @include flex(row, flex-start, center);
+  //     height: 34px;
+  //     h4 {
+  //       @include flex(row, flex-start, center);
+  //       width: auto;
+  //       color: rgb(103, 103, 103);
+  //       text-decoration-line: line-through;
+  //       font-family: $font-main;
+  //       font-size: $font-size-medium;
+  //       font-weight: $font-weight-base;
+  //       line-height: 1.28;
+  //       padding: 0;
+  //       margin: 0;
+  //     }
+  //     p {
+  //       @include flex(row, center, center);
+  //       width: 18px;
+  //     }
+  //   }
+  // }
   .wrapVolume {
     @include flex(row, center, center);
     width: 68px;

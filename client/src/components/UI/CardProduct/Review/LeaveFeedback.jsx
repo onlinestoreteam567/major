@@ -1,18 +1,26 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import ReviewPopUp from '@UI/PopUp/ReviewPopUp';
+import { createPortal } from 'react-dom';
+import ReviewPopUp from '@components/UI/PopUp/ReviewPopUp/ReviewPopUp';
+import WrapModal from '@components/UI/WrapModal/WrapModal';
 
 export default function LeaveFeedback() {
-  const [showMessagePopUp, setShowMessagePopUp] = useState(false);
-  const handleShowMesssagePopUp = () => {
-    setShowMessagePopUp(true);
+  const [isShow, setIsShow] = useState(false);
+
+  const openModal = () => {
+    setIsShow(true);
   };
+  const closeModal = () => {
+    setIsShow(false);
+  };
+
   return (
     <>
       <div className={cl.wrapFeedback}>
-        <p onClick={handleShowMesssagePopUp}>Залишити відгук</p>
+        <p onClick={openModal}>Залишити відгук</p>
       </div>
-      {showMessagePopUp && <ReviewPopUp setShowMessagePopUp={setShowMessagePopUp} type={'leaveComment'} />}
+      {isShow &&
+        createPortal(<WrapModal closeModal={closeModal} isShow={isShow} content={<ReviewPopUp />} />, document.body)}
     </>
   );
 }

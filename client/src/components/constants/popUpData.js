@@ -1,4 +1,4 @@
-const popUpData = {
+export const popUpData = {
   type: 'hasQuestion',
   heading: 'heading',
   subtitle: 'subtitle',
@@ -13,5 +13,3 @@ const popUpData = {
   textAreaPlaceholder1: 'Напишіть нам Ваше питання',
   buttonText1: 'Відправити повідомлення',
 };
-
-export default popUpData;

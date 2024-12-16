@@ -11,7 +11,8 @@
     gap: 8px;
 
     p {
-      text-align: left;
+      // text-align: left;
+      text-align: justify;
       width: 100%;
       height: 100px;
       display: -webkit-box;
@@ -80,7 +81,6 @@
 
     .wrapReview {
       gap: 16px;
-
       p {
         width: 322px;
       }
