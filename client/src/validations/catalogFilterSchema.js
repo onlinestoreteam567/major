@@ -1,6 +1,11 @@
 import * as yup from 'yup';
 
 export const catalogFilterSchema = yup.object({
+  // switchs
+  newItems: yup.boolean(),
+  bestSellers: yup.boolean(),
+  discounts: yup.boolean(),
+
   // assignment
   normal: yup.boolean(),
   colored: yup.boolean(),

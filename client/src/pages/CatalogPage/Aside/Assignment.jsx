@@ -37,7 +37,7 @@ const Assignment = ({ register, handleSubmit }) => {
   return (
     <FormGroup className={cl.assignmentWrapper} name={'assignment'}>
       <Heading type="h4">{getTranslation('assignmentTitle')}</Heading>
-      <>
+      <ul>
         {checkboxData.map((item) => (
           <CheckBox
             key={item.key}
@@ -48,7 +48,7 @@ const Assignment = ({ register, handleSubmit }) => {
             onChange={() => handleCheckboxChange(item.key)}
           />
         ))}
-      </>
+      </ul>
     </FormGroup>
   );
 };

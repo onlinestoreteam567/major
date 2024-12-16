@@ -33,7 +33,7 @@ const CatalogPage = () => {
       <section className={cl.mainWrapper}>
         <div className={cl.wrapAside}>
           <Aside>
-            <Switchs />
+            <Switchs register={register} handleSubmit={handleSubmit(onSubmit)} />
             <Assignment register={register} handleSubmit={handleSubmit(onSubmit)} />
             <Range />
             <Category register={register} handleSubmit={handleSubmit(onSubmit)} />

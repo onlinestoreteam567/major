@@ -3,13 +3,6 @@ import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export default function CheckBox({ onChange, labelText, name, register, checked, ...rest }) {
-  // const handleToggle = () => {
-  //   setChecked((prevChecked) => !prevChecked);
-  //   if (onChange) {
-  //     onChange(!checked);
-  //   }
-  // };
-
   const { getTranslation } = useTranslationNamespace('common');
 
   return (
