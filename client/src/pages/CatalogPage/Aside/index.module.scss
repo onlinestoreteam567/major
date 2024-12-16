@@ -39,32 +39,27 @@
     font-size: $font-size-medium;
     font-weight: $font-weight-medium;
     line-height: 23.04px;
+    margin-bottom: 8px;
   }
 
   .assignmentWrapper {
-    @include flexGap(16px, column);
     max-width: 212px;
     margin-top: 45px;
+    gap: 8px;
+    @include flex(column, null, start);
 
-    ul {
+    label {
+      @include flex();
       user-select: none;
-      @include flex(column, null, start);
+      cursor: pointer;
 
-      li {
-        label {
-          @include flex();
-          gap: 8px;
-          cursor: pointer;
+      p {
+        font-family: $font-second;
+        font-size: $font-size-base;
+        font-weight: $font-weight-base;
 
-          p {
-            font-family: $font-second;
-            font-size: $font-size-base;
-            font-weight: $font-weight-base;
-
-            span {
-              color: #a2a2a2;
-            }
-          }
+        span {
+          color: #a2a2a2;
         }
       }
     }

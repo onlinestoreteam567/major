@@ -10,9 +10,20 @@ import Switchs from './Aside/Switchs';
 import Products from './Products/Products';
 import Catalog from '@pages/HomePage/Catalog/Catalog';
 import { useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { catalogFilterSchema } from '@validations/catalogFilterSchema';
 
 const CatalogPage = () => {
   const initialState = useSelector((state) => state.catalogPage.initialState);
+
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(catalogFilterSchema),
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className={cl.catalogWrapper}>
@@ -23,7 +34,7 @@ const CatalogPage = () => {
         <div className={cl.wrapAside}>
           <Aside>
             <Switchs />
-            <Assignment />
+            <Assignment register={register} handleSubmit={handleSubmit(onSubmit)} />
             <Range />
             <Category />
           </Aside>

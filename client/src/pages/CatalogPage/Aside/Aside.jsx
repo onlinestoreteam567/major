@@ -1,9 +1,11 @@
 import cl from './index.module.scss';
 
-const Aside = ({ children }) => {
+const Aside = ({ children, handleSubmit }) => {
   return (
     <aside className={cl.aside}>
-      <form action="">{children}</form>
+      <form action="" onSubmit={handleSubmit}>
+        {children}
+      </form>
     </aside>
   );
 };
