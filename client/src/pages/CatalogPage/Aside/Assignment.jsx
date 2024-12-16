@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import CheckboxItem from './CheckboxItem';
+// import CheckboxItem from './CheckboxItem';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
+import { FormGroup } from '@components/form-components';
+import CheckBox from '@components/form-components/Checkbox/Checkbox';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { assignmentSchema } from '@validations/assignmentSchema';
+import { useForm } from 'react-hook-form';
 
 const checkboxData = [
   { key: 'normal', label: 'normalHair' },
@@ -23,6 +28,12 @@ const Assignment = () => {
     cleansing: false,
   });
 
+  console.log(checkboxes);
+
+  const { register } = useForm({
+    resolver: yupResolver(assignmentSchema),
+  });
+
   const handleCheckboxChange = (name) => {
     setCheckboxes((prev) => ({
       ...prev,
@@ -33,19 +44,21 @@ const Assignment = () => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
 
   return (
-    <section className={cl.assignmentWrapper}>
+    <FormGroup className={cl.assignmentWrapper} name={'assignment'}>
       <Heading type="h4">{getTranslation('assignmentTitle')}</Heading>
       <ul>
         {checkboxData.map((item) => (
-          <CheckboxItem
+          <CheckBox
             key={item.key}
             checked={checkboxes[item.key]}
-            label={item.label}
+            name={item.key}
+            labelText={item.label}
             onChange={() => handleCheckboxChange(item.key)}
+            register={register}
           />
         ))}
       </ul>
-    </section>
+    </FormGroup>
   );
 };
 
