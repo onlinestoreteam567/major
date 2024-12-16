@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from '@features/cart/cartSlice';
+import catalogPageReducer from '@features/catalogPage/catalogPageSlice';
 // import checkoutReducer from '@features/checkout/checkoutSlice';
 // import productReducer from '@features/product/productSlice';
 // import userReducer from '@features/user/userSlice';
@@ -10,6 +11,7 @@ const preloadedState = loadFromStorage('state');
 const store = configureStore({
   reducer: {
     cart: cartReducer,
+    catalogPage: catalogPageReducer,
     // checkout: checkoutReducer,
     // product: productReducer,
     // user: userReducer,

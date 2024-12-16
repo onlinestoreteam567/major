@@ -8,8 +8,12 @@ import Range from './Aside/Range';
 import Category from './Aside/Category';
 import Switchs from './Aside/Switchs';
 import Products from './Products/Products';
+import Catalog from '@pages/HomePage/Catalog/Catalog';
+import { useSelector } from 'react-redux';
 
-const Catalog = () => {
+const CatalogPage = () => {
+  const initialState = useSelector((state) => state.catalogPage.initialState);
+
   return (
     <div className={cl.catalogWrapper}>
       <TopLink />
@@ -25,11 +29,17 @@ const Catalog = () => {
           </Aside>
         </div>
 
-        <Products>
-          <Container />
-        </Products>
+        {initialState ? (
+          <div className={cl.initialContent}>
+            <Catalog />
+          </div>
+        ) : (
+          <Products>
+            <Container />
+          </Products>
+        )}
       </section>
     </div>
   );
 };
-export default Catalog;
+export default CatalogPage;
