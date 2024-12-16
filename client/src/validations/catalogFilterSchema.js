@@ -10,4 +10,11 @@ export const catalogFilterSchema = yup.object({
   cleansing: yup.boolean(),
 
   // category
+  shampoo: yup.boolean(),
+  conditioner: yup.boolean(),
+  balm: yup.boolean(),
+  serum: yup.boolean(),
+  cream: yup.boolean(),
+  oil: yup.boolean(),
+  mask: yup.boolean(),
 });

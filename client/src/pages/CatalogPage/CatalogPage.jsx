@@ -36,7 +36,7 @@ const CatalogPage = () => {
             <Switchs />
             <Assignment register={register} handleSubmit={handleSubmit(onSubmit)} />
             <Range />
-            <Category />
+            <Category register={register} handleSubmit={handleSubmit(onSubmit)} />
           </Aside>
         </div>
 

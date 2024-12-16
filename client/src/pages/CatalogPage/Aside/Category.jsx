@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import CheckboxItem from './CheckboxItem';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
+import CheckBox from '@components/form-components/Checkbox/Checkbox';
+import { FormGroup } from '@components/form-components';
 
 const checkboxData = [
   { key: 'shampoo', label: 'shampoo' },
@@ -14,7 +15,7 @@ const checkboxData = [
   { key: 'mask', label: 'mask' },
 ];
 
-const Category = () => {
+const Category = ({ register, handleSubmit }) => {
   const [categories, setCategories] = useState({
     shampoo: false,
     conditioner: false,
@@ -30,24 +31,27 @@ const Category = () => {
       ...prev,
       [name]: !prev[name],
     }));
+    handleSubmit();
   };
 
   const { getTranslation } = useTranslationNamespace('catalogPage');
 
   return (
-    <section className={cl.assignmentWrapper}>
+    <FormGroup className={cl.assignmentWrapper} name={'category'}>
       <Heading type="h4">{getTranslation('category')}</Heading>
-      <ul>
+      <>
         {checkboxData.map((item) => (
-          <CheckboxItem
+          <CheckBox
             key={item.key}
             checked={categories[item.key]}
-            label={getTranslation(item.label)}
+            labelText={getTranslation(item.label)}
+            name={item.key}
+            register={register}
             onChange={() => handleCategoryChange(item.key)}
           />
         ))}
-      </ul>
-    </section>
+      </>
+    </FormGroup>
   );
 };
 
