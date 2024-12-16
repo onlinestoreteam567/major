@@ -1,14 +1,11 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
 
-const Switch = ({ onChange, initialChecked = false }) => {
+const Switch = ({ initialChecked = false }) => {
   const [checked, setChecked] = useState(initialChecked);
 
   const handleToggle = () => {
     setChecked((prevChecked) => !prevChecked);
-    if (onChange) {
-      onChange(!checked);
-    }
   };
 
   return (

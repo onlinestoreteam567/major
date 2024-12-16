@@ -5,7 +5,6 @@ const switchItems = [
   { icon: '/svg/catalogPage/filter.svg', label: 'newItems' },
   { icon: '/svg/catalogPage/fire.svg', label: 'bestSellers' },
   { icon: '/svg/catalogPage/discount.svg', label: 'discounts' },
-  { icon: '/svg/catalogPage/dollar.svg', label: 'togetherCheaper' },
 ];
 
 const Switchs = () => {
