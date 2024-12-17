@@ -7,19 +7,12 @@ const switchItems = [
   { icon: '/svg/catalogPage/discount.svg', label: 'discounts' },
 ];
 
-const Switchs = ({ register, handleSubmit, getValues }) => {
+const Switchs = ({ register, watch }) => {
   return (
     <FormGroup name={'switch'}>
       <>
         {switchItems.map((item) => (
-          <Switch
-            key={item.label}
-            labelText={item.label}
-            name={item.label}
-            register={register}
-            onChange={() => handleSubmit()}
-            checked={getValues([item.label])}
-          />
+          <Switch key={item.label} labelText={item.label} name={item.label} register={register} watch={watch} />
         ))}
       </>
     </FormGroup>

@@ -4,9 +4,9 @@ import Top from './Top/Top';
 import Container from '@pages/CatalogPage/Products/CardsContainer/CardsContainer';
 import TopLink from '@components/UI/TopLink/TopLink';
 import Assignment from './Aside/Assignment';
+import Switchs from './Aside/Switchs';
 // import Range from './Aside/Range';
 import Category from './Aside/Category';
-// import Switchs from './Aside/Switchs';
 import Products from './Products/Products';
 import Catalog from '@pages/HomePage/Catalog/Catalog';
 import { useSelector } from 'react-redux';
@@ -51,6 +51,7 @@ const CatalogPage = () => {
       <section className={cl.mainWrapper}>
         <div className={cl.wrapAside}>
           <Aside handleSubmit={handleSubmit(onSubmit)}>
+            <Switchs register={register} watch={watch} />
             <Assignment register={register} watch={watch} />
             <Category register={register} watch={watch} />
           </Aside>

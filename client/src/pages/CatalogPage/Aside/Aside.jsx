@@ -5,7 +5,7 @@ const Aside = ({ children, handleSubmit }) => {
     <aside className={cl.aside}>
       <form onSubmit={handleSubmit}>
         {children}
-        <button type="submit">Submit</button>
+        <button type="submit">Вивести дані в консоль (заглушка)</button>
       </form>
     </aside>
   );
