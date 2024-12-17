@@ -1,6 +1,4 @@
-// import Hryvnia from '@assets/svg/Hryvnia';
 import cl from './index.module.scss';
-// import HryvniaGr from '@assets/svg/HryvniaGr';
 
 export default function PriceCardCatalog({ card }) {
   const hryvnia = '\u20B4';
@@ -23,20 +21,3 @@ export default function PriceCardCatalog({ card }) {
     </div>
   );
 }
-
-/* <div className={cl.wrapPrice}>
-        <div className={cl.price}>
-          <h4>{card.is_sale ? card.price_sale : card.price}</h4>
-          <p>
-            <Hryvnia />
-          </p>
-        </div>
-        {card.is_sale && (
-          <div className={cl.oldPrice}>
-            <h4>{card.price}</h4>
-            <p>
-              <HryvniaGr />
-            </p>
-          </div>
-        )}
-      </div> */

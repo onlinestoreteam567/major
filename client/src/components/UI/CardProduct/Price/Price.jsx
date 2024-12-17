@@ -1,6 +1,4 @@
 import cl from './index.module.scss';
-// import card from '../../CardProduct/card.json';
-// import HryvniaGr from '@assets/svg/HryvniaGr';
 
 export default function Price({ card }) {
   const hryvnia = '\u20B4';
