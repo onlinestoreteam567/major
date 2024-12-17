@@ -1,23 +1,17 @@
-import Hryvnia from '@assets/svg/Hryvnia';
 import cl from './index.module.scss';
-import HryvniaGr from '@assets/svg/HryvniaGr';
-import Heading from '@UI/Texts/Heading/Heading';
 
 export default function Price({ card }) {
+  const hryvnia = '\u20B4';
   return (
     <div className={cl.wrapPrice}>
       <div className={cl.price}>
-        <Heading type="h2">{card.is_sale ? card.price_sale : card.price}</Heading>
-        <p>
-          <Hryvnia />
-        </p>
+        <span className={cl.costNow}>{card.is_sale ? card.price_sale : card.price}</span>
+        <span className={cl.hrnBlack}>{hryvnia}</span>
       </div>
       {card.is_sale && (
         <div className={cl.oldPrice}>
-          <h4>{card.price}</h4>
-          <p>
-            <HryvniaGr />
-          </p>
+          <span className={cl.costOld}>{card.price}</span>
+          <span className={cl.hrnGrey}>{hryvnia}</span>
         </div>
       )}
     </div>

@@ -3,7 +3,8 @@ import cl from './index.module.scss';
 import MainPopUp from '@UI/PopUp/MainPopUp/MainPopUp';
 import HelpButtonsSection from './HelpButtonsSection';
 import CommunicationButtons from './CommunicationButtons';
-import popUpData from './popUpData';
+import { popUpData } from '@components/constants/popUpData';
+// import popUpData from './popUpData';
 
 const YellowButtonMainWrapper = () => {
   const [showAnotherIcons, setShowAnotherIcons] = useState(false);

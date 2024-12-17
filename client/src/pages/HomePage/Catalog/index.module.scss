@@ -81,6 +81,10 @@
           width: 416px;
           height: 352px;
         }
+        figcaption {
+          font-size: $font-size-medium-plus;
+          padding: 8px;
+        }
       }
     }
   }

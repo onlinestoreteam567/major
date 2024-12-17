@@ -96,6 +96,7 @@ export const mainSettings = {
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
+        fade: true,
       },
     },
   ],
@@ -114,4 +115,5 @@ export const oneElement = {
   variableWidth: true,
   draggable: false,
   swipe: true,
+  // fade: true,
 };

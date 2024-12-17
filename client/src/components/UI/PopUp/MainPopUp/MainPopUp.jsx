@@ -1,4 +1,4 @@
-import cl from '../index.module.scss';
+import cl from './index.module.scss';
 import Overlay from '@UI/Overlay/Overlay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
