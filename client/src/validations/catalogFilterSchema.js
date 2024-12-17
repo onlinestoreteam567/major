@@ -14,6 +14,12 @@ export const catalogFilterSchema = yup.object({
   growth: yup.boolean(),
   cleansing: yup.boolean(),
 
+  // range
+  priceRange: yup.object({
+    min: yup.number().min(0).max(999).required(),
+    max: yup.number().min(0).max(999).required(),
+  }),
+
   // category
   shampoo: yup.boolean(),
   conditioner: yup.boolean(),

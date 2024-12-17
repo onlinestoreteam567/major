@@ -5,7 +5,7 @@ import Container from '@pages/CatalogPage/Products/CardsContainer/CardsContainer
 import TopLink from '@components/UI/TopLink/TopLink';
 import Assignment from './Aside/Assignment';
 import Switchs from './Aside/Switchs';
-// import Range from './Aside/Range';
+import Range from './Aside/Range';
 import Category from './Aside/Category';
 import Products from './Products/Products';
 import Catalog from '@pages/HomePage/Catalog/Catalog';
@@ -17,7 +17,7 @@ import { catalogFilterSchema } from '@validations/catalogFilterSchema';
 const CatalogPage = () => {
   const initialState = useSelector((state) => state.catalogPage.initialState);
 
-  const { register, handleSubmit, watch } = useForm({
+  const { register, handleSubmit, watch, setValue } = useForm({
     resolver: yupResolver(catalogFilterSchema),
     defaultValues: {
       newItems: false,
@@ -29,6 +29,10 @@ const CatalogPage = () => {
       damaged: false,
       growth: false,
       cleansing: false,
+      priceRange: {
+        min: 0,
+        max: 999,
+      },
       shampoo: false,
       conditioner: false,
       balm: false,
@@ -53,6 +57,7 @@ const CatalogPage = () => {
           <Aside handleSubmit={handleSubmit(onSubmit)}>
             <Switchs register={register} watch={watch} />
             <Assignment register={register} watch={watch} />
+            <Range setValue={setValue} register={'priceRange'} name="priceRange" />
             <Category register={register} watch={watch} />
           </Aside>
         </div>
