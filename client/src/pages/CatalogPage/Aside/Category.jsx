@@ -25,7 +25,7 @@ const Category = ({ register, watch }) => {
           <CheckBox
             key={item.key}
             labelText={getTranslation(item.label)}
-            name={item.key}
+            name={`category.${item.key}`}
             register={register}
             watch={watch}
           />

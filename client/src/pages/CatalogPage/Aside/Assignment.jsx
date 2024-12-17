@@ -24,7 +24,7 @@ const Assignment = ({ register, watch }) => {
           <CheckBox
             key={item.key}
             labelText={getTranslation(item.label, 'common')}
-            name={item.key}
+            name={`assignment.${item.key}`}
             register={register}
             watch={watch}
           />

@@ -12,7 +12,13 @@ const Switchs = ({ register, watch }) => {
     <FormGroup name={'switch'}>
       <>
         {switchItems.map((item) => (
-          <Switch key={item.label} labelText={item.label} name={item.label} register={register} watch={watch} />
+          <Switch
+            key={item.label}
+            labelText={item.label}
+            name={`switch.${item.label}`}
+            register={register}
+            watch={watch}
+          />
         ))}
       </>
     </FormGroup>

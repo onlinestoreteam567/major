@@ -20,26 +20,35 @@ const CatalogPage = () => {
   const { register, handleSubmit, watch, setValue } = useForm({
     resolver: yupResolver(catalogFilterSchema),
     defaultValues: {
-      newItems: false,
-      bestSellers: false,
-      discounts: false,
-      normal: false,
-      colored: false,
-      thin: false,
-      damaged: false,
-      growth: false,
-      cleansing: false,
+      switch: {
+        newItems: false,
+        bestSellers: false,
+        discounts: false,
+      },
+
+      assignment: {
+        normal: false,
+        colored: false,
+        thin: false,
+        damaged: false,
+        growth: false,
+        cleansing: false,
+      },
+
       priceRange: {
         min: 0,
         max: 999,
       },
-      shampoo: false,
-      conditioner: false,
-      balm: false,
-      serum: false,
-      cream: false,
-      oil: false,
-      mask: false,
+
+      category: {
+        shampoo: false,
+        conditioner: false,
+        balm: false,
+        serum: false,
+        cream: false,
+        oil: false,
+        mask: false,
+      },
     },
   });
 
