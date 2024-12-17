@@ -4,7 +4,7 @@ import Top from './Top/Top';
 import Container from '@pages/CatalogPage/Products/CardsContainer/CardsContainer';
 import TopLink from '@components/UI/TopLink/TopLink';
 import Assignment from './Aside/Assignment';
-import Switchs from './Aside/Switchs';
+import Switchs from './Aside/Switchs/Switchs';
 import Range from './Aside/Range';
 import Category from './Aside/Category';
 import Products from './Products/Products';

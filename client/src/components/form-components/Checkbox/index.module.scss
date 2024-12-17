@@ -1,6 +1,6 @@
 @import '@mixins';
 
-label {
+.checkboxLabel {
   @include flex();
   gap: 8px;
   cursor: pointer;

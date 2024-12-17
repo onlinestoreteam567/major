@@ -4,7 +4,7 @@ export default function CheckBox({ labelText, name, register, watch, ...rest }) 
   const checked = watch(name);
 
   return (
-    <label htmlFor={name}>
+    <label htmlFor={name} className={cl.checkboxLabel}>
       <span className={cl.checkbox}>
         <img
           src={checked ? '/svg/catalogPage/checkbox.svg' : '/svg/catalogPage/emptyCheckbox.svg'}

@@ -1,21 +1,23 @@
+import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 
-const Switch = ({ labelText, name, watch, register, ...rest }) => {
+const Switch = ({ labelText, name, watch, register, img, ...rest }) => {
   const checked = watch(name);
 
   return (
-    <label htmlFor={name} className={cl.switch}>
-      <p>
-        {labelText} <span>(0)</span>
-      </p>
-      <input type="checkbox" id={name} {...register(name)} checked={checked} {...rest} />
-      <span className={cl.slider}>
-        <img
-          src={checked ? '/svg/catalogPage/check.svg' : '/svg/catalogPage/uncheck.svg'}
-          alt={checked ? 'Checked' : 'Unchecked'}
-        />
-      </span>
-    </label>
+    <div className={cl.switchWrapper}>
+      <img src={img} alt="" />
+      <Heading type="h4">{labelText}</Heading>
+      <label htmlFor={name} className={cl.switch}>
+        <input type="checkbox" id={name} {...register(name)} checked={checked} {...rest} />
+        <span className={cl.slider}>
+          <img
+            src={checked ? '/svg/catalogPage/check.svg' : '/svg/catalogPage/uncheck.svg'}
+            alt={checked ? 'Checked' : 'Unchecked'}
+          />
+        </span>
+      </label>
+    </div>
   );
 };
 

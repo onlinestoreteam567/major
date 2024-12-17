@@ -1,18 +1,23 @@
 @import '@mixins';
 
-.switch {
+.switchWrapper {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  width: 48px;
-  border: 1px solid $text-color-black;
-  border-radius: 15px;
   box-sizing: border-box;
+  user-select: none;
+  height: 44px;
+  border-bottom: 1px solid #c0c0c0;
 
-  position: relative;
-  display: inline-block;
-  width: 48px;
-  height: 24px;
-  cursor: pointer; /* Change cursor on hover */
+  label {
+    border: 1px solid $text-color-black;
+    border-radius: 15px;
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+    cursor: pointer; /* Change cursor on hover */
+  }
 
   input {
     opacity: 0;
