@@ -19,7 +19,7 @@ const Assignment = ({ register, watch }) => {
   return (
     <FormGroup className={cl.assignmentWrapper} name={'assignment'}>
       <Heading type="h4">{getTranslation('assignmentTitle')}</Heading>
-      <ul>
+      <>
         {checkboxData.map((item) => (
           <CheckBox
             key={item.key}
@@ -29,7 +29,7 @@ const Assignment = ({ register, watch }) => {
             watch={watch}
           />
         ))}
-      </ul>
+      </>
     </FormGroup>
   );
 };

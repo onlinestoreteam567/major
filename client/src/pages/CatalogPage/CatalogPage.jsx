@@ -5,7 +5,7 @@ import Container from '@pages/CatalogPage/Products/CardsContainer/CardsContainer
 import TopLink from '@components/UI/TopLink/TopLink';
 import Assignment from './Aside/Assignment';
 // import Range from './Aside/Range';
-// import Category from './Aside/Category';
+import Category from './Aside/Category';
 // import Switchs from './Aside/Switchs';
 import Products from './Products/Products';
 import Catalog from '@pages/HomePage/Catalog/Catalog';
@@ -52,6 +52,7 @@ const CatalogPage = () => {
         <div className={cl.wrapAside}>
           <Aside handleSubmit={handleSubmit(onSubmit)}>
             <Assignment register={register} watch={watch} />
+            <Category register={register} watch={watch} />
           </Aside>
         </div>
 
