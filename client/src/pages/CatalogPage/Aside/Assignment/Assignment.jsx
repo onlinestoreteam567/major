@@ -1,4 +1,4 @@
-import cl from './index.module.scss';
+import cl from '../index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
 import { FormGroup } from '@components/form-components';
@@ -17,7 +17,7 @@ const Assignment = ({ register, watch }) => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
 
   return (
-    <FormGroup className={cl.assignmentWrapper} name={'assignment'}>
+    <FormGroup className={cl.checkboxesWrapper} name={'assignment'}>
       <Heading type="h4">{getTranslation('assignmentTitle')}</Heading>
       <>
         {checkboxData.map((item) => (
