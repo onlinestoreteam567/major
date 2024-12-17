@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
@@ -14,28 +13,8 @@ const checkboxData = [
   { key: 'cleansing', label: 'deepConditioning' },
 ];
 
-const Assignment = ({ register, handleSubmit, watch }) => {
-  const [checkboxes, setCheckboxes] = useState({
-    normal: false,
-    colored: false,
-    thin: false,
-    damaged: false,
-    growth: false,
-    cleansing: false,
-  });
-
-  const checkboxes555 = watch();
-  console.log(checkboxes555.normal);
-
+const Assignment = ({ register, watch }) => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
-
-  // const handleCheckboxChange = (name) => {
-  //   setCheckboxes((prev) => ({
-  //     ...prev,
-  //     [name]: !prev[name],
-  //   }));
-  //   handleSubmit();
-  // };
 
   return (
     <FormGroup className={cl.assignmentWrapper} name={'assignment'}>
@@ -44,10 +23,10 @@ const Assignment = ({ register, handleSubmit, watch }) => {
         {checkboxData.map((item) => (
           <CheckBox
             key={item.key}
-            labelText={getTranslation(item.label)}
+            labelText={getTranslation(item.label, 'common')}
             name={item.key}
             register={register}
-            // onChange={() => handleCheckboxChange(item.key)}
+            watch={watch}
           />
         ))}
       </ul>

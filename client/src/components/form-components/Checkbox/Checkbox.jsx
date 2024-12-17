@@ -1,9 +1,7 @@
-// import { useState } from 'react';
 import cl from './index.module.scss';
-import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-export default function CheckBox({ onChange, labelText, name, register, checked, ...rest }) {
-  const { getTranslation } = useTranslationNamespace('common');
+export default function CheckBox({ labelText, name, register, watch, ...rest }) {
+  const checked = watch(name);
 
   return (
     <label htmlFor={name}>
@@ -14,9 +12,9 @@ export default function CheckBox({ onChange, labelText, name, register, checked,
         />
       </span>
       <p>
-        {getTranslation(labelText)} <span>(0)</span>
+        {labelText} <span>(0)</span>
       </p>
-      <input id={name} className={cl.checkbox} {...register(name)} onChange={onChange} type="checkbox" {...rest} />
+      <input id={name} className={cl.checkbox} type="checkbox" {...register(name)} {...rest} />
     </label>
   );
 }

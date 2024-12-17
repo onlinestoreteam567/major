@@ -19,7 +19,6 @@ const CatalogPage = () => {
 
   const { register, handleSubmit, watch } = useForm({
     resolver: yupResolver(catalogFilterSchema),
-
     defaultValues: {
       newItems: false,
       bestSellers: false,
@@ -41,7 +40,7 @@ const CatalogPage = () => {
   });
 
   const onSubmit = (data) => {
-    console.log('Submitted data:', data); // Logs all form data
+    console.log('Submitted data:', data);
   };
 
   return (
@@ -51,11 +50,8 @@ const CatalogPage = () => {
 
       <section className={cl.mainWrapper}>
         <div className={cl.wrapAside}>
-          <Aside>
-            {/* <Switchs register={register} handleSubmit={handleSubmit(onSubmit)} getValues={getValues} /> */}
-            <Assignment register={register} handleSubmit={handleSubmit(onSubmit)} watch={watch} />
-            {/* <Range />
-            <Category register={register} handleSubmit={handleSubmit(onSubmit)} /> */}
+          <Aside handleSubmit={handleSubmit(onSubmit)}>
+            <Assignment register={register} watch={watch} />
           </Aside>
         </div>
 
