@@ -16,15 +16,7 @@ export default function CheckBox({ onChange, labelText, name, register, checked,
       <p>
         {getTranslation(labelText)} <span>(0)</span>
       </p>
-      <input
-        id={name}
-        className={cl.checkbox}
-        {...register(name)}
-        checked={checked}
-        onChange={onChange}
-        type="checkbox"
-        {...rest}
-      />
+      <input id={name} className={cl.checkbox} {...register(name)} onChange={onChange} type="checkbox" {...rest} />
     </label>
   );
 }

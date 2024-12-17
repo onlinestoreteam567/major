@@ -1,4 +1,4 @@
-import Switch from '@components/UI/Switch/Switch';
+import Switch from '@components/form-components/Checkbox/Switch/Switch';
 import { FormGroup } from '@components/form-components';
 
 const switchItems = [
@@ -7,7 +7,7 @@ const switchItems = [
   { icon: '/svg/catalogPage/discount.svg', label: 'discounts' },
 ];
 
-const Switchs = ({ register, handleSubmit }) => {
+const Switchs = ({ register, handleSubmit, getValues }) => {
   return (
     <FormGroup name={'switch'}>
       <>
@@ -18,6 +18,7 @@ const Switchs = ({ register, handleSubmit }) => {
             name={item.label}
             register={register}
             onChange={() => handleSubmit()}
+            checked={getValues([item.label])}
           />
         ))}
       </>

@@ -14,7 +14,7 @@ const checkboxData = [
   { key: 'cleansing', label: 'deepConditioning' },
 ];
 
-const Assignment = ({ register, handleSubmit }) => {
+const Assignment = ({ register, handleSubmit, watch }) => {
   const [checkboxes, setCheckboxes] = useState({
     normal: false,
     colored: false,
@@ -24,15 +24,18 @@ const Assignment = ({ register, handleSubmit }) => {
     cleansing: false,
   });
 
+  const checkboxes555 = watch();
+  console.log(checkboxes555.normal);
+
   const { getTranslation } = useTranslationNamespace('catalogPage');
 
-  const handleCheckboxChange = (name) => {
-    setCheckboxes((prev) => ({
-      ...prev,
-      [name]: !prev[name],
-    }));
-    handleSubmit();
-  };
+  // const handleCheckboxChange = (name) => {
+  //   setCheckboxes((prev) => ({
+  //     ...prev,
+  //     [name]: !prev[name],
+  //   }));
+  //   handleSubmit();
+  // };
 
   return (
     <FormGroup className={cl.assignmentWrapper} name={'assignment'}>
@@ -41,11 +44,10 @@ const Assignment = ({ register, handleSubmit }) => {
         {checkboxData.map((item) => (
           <CheckBox
             key={item.key}
-            checked={checkboxes[item.key]}
             labelText={getTranslation(item.label)}
             name={item.key}
             register={register}
-            onChange={() => handleCheckboxChange(item.key)}
+            // onChange={() => handleCheckboxChange(item.key)}
           />
         ))}
       </ul>
