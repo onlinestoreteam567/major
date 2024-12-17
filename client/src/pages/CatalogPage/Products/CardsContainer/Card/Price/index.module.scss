@@ -1,0 +1,60 @@
+@import '@mixins';
+
+.wrapPriceCatalog {
+  @include flex(row, space-between, center);
+  .wrapPrice {
+    @include flex(row, flex-start, center);
+    height: 34px;
+    gap: 16px;
+    .price {
+      @include flex(row, center, center);
+      h4 {
+        @include flex(row, flex-start, center);
+        width: auto;
+        color: $text-color-black;
+        font-family: $font-main;
+        font-size: $font-size-medium;
+        font-weight: $font-weight-medium;
+        line-height: 1.36;
+        padding: 0;
+        margin: 0;
+      }
+      p {
+        @include flex(row, center, center);
+        width: 18px;
+        padding: 0;
+        margin: 0;
+      }
+    }
+    .oldPrice {
+      @include flex(row, flex-start, center);
+      height: 34px;
+      h4 {
+        @include flex(row, flex-start, center);
+        width: auto;
+        color: rgb(103, 103, 103);
+        text-decoration-line: line-through;
+        font-family: $font-main;
+        font-size: $font-size-medium;
+        font-weight: $font-weight-base;
+        line-height: 1.28;
+        padding: 0;
+        margin: 0;
+      }
+      p {
+        @include flex(row, center, center);
+        width: 18px;
+      }
+    }
+  }
+  .wrapVolume {
+    @include flex(row, center, center);
+    width: 68px;
+    height: 40px;
+    color: #676767;
+    font-family: $font-second;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-base;
+    line-height: 1.44;
+  }
+}

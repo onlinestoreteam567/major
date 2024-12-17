@@ -4,6 +4,7 @@ import cl from './index.module.scss';
 
 export default function PriceCardCatalog({ card }) {
   const hryvnia = '\u20B4';
+
   return (
     <div className={cl.wrapPriceCatalog}>
       <div className={cl.wrapPrice}>
