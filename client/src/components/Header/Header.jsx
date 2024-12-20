@@ -26,7 +26,7 @@ const Header = () => {
   const handleShowBasket = () => setIsShowBasket(true);
 
   return (
-    <header className={`${isScrolled ? cl.headerScrolled : ''} ${!isMainPage ? cl.headerNotMainPage : ''}`}>
+    <header className={`${isScrolled ? cl.headerScrolled : ''}`}>
       <div className={cl.mainWrapper}>
         {!deskmin && !deskmax && (
           <div onClick={handleShowNavDrawer} className={cl.burgerWrapper}>
