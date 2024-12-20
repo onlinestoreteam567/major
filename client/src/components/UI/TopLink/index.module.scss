@@ -6,6 +6,16 @@
   height: 20px;
   gap: 4px;
   padding: 0;
+  margin: 15px 0;
+
+  @include tablet {
+    margin: 40px 0;
+  }
+
+  @include deskmin {
+    margin: 48px 0;
+  }
+
   .wrapLink {
     @include flex(row, flex-start, center);
     gap: 4px;
