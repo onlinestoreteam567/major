@@ -73,6 +73,7 @@
     .wrapSlider {
       width: 980px;
       .btnSlider {
+        padding-top: 0;
         width: 980px;
       }
     }
@@ -85,9 +86,9 @@
       width: 1134px;
       .btnSlider {
         position: absolute;
-        top: 200px;
         right: 0;
         left: 0;
+        bottom: 97.75px;
         @include flex(row, space-between, center);
         width: 1296px;
       }
