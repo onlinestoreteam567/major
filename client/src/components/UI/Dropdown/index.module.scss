@@ -37,9 +37,9 @@
     width: 100%;
     z-index: 1000;
     box-sizing: border-box;
-    padding-top: 10px;
 
     li {
+      @include flex(row, null, center);
       padding-left: 24px;
       cursor: pointer;
       font-family: $font-main;
