@@ -2,7 +2,7 @@ import { useState } from 'react';
 import cl from './index.module.scss';
 import SearchInput from './SearchInput/SearchInput';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
-import ButtonClose from '@assets/svg/ButtonClose/ButtonClose';
+import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
 const MobileSearchWrapper = ({ setIsShowInput, inputValue, setInputValue, isDesktop }) => {
   const [IsHiddenSearchAnimation, setIsHiddenSearchAnimation] = useState(false);

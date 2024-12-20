@@ -8,7 +8,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { needHelpSchema } from '@validations/needHelpSchema';
 import { Input, PhoneNumberInput, Textarea } from '@components/form-components';
-import ButtonClose from '@assets/svg/ButtonClose/ButtonClose';
+import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
 const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
   const { getTranslation } = useTranslationNamespace('yellowButton');
