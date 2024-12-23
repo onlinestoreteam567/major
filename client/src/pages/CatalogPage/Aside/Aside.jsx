@@ -1,17 +1,14 @@
 import cl from './index.module.scss';
-// import Assignment from './Assignment';
-// import Range from './Range';
-// import Category from './Category';
-// import Switchs from './Switchs';
 
-const Aside = ({ children }) => {
-  return <aside className={cl.aside}>{children}</aside>;
+const Aside = ({ children, handleSubmit }) => {
+  return (
+    <aside className={cl.aside}>
+      <form onSubmit={handleSubmit}>
+        {children}
+        <button type="submit">Вивести дані в консоль (заглушка)</button>
+      </form>
+    </aside>
+  );
 };
 
-{
-  /* <Switchs />
-<Assignment />
-<Range />
-<Category /> */
-}
 export default Aside;

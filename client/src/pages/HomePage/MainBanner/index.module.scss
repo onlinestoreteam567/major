@@ -1,5 +1,10 @@
 @import '@mixins';
 
+.wrapBackground {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .slide {
   height: 620px;
   margin: 0 auto;

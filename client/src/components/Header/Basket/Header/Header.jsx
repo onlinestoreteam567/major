@@ -1,7 +1,7 @@
 import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import ButtonClose from '@assets/svg/ButtonClose/ButtonClose';
+import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
 const Header = ({ onClick }) => {
   const { getTranslation } = useTranslationNamespace('basket');

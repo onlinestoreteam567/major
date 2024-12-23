@@ -7,7 +7,7 @@ import ProductResults from './ProductResults';
 import NotFound from './NotFound';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import ButtonClose from '@assets/svg/ButtonClose/ButtonClose';
+import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
 function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
   const [isInputFocus, setIsInputFocus] = useState(false);

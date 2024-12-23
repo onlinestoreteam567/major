@@ -5,7 +5,7 @@ import SocialLinks from '@UI/SocialLinks/SocialLinks';
 import { useState } from 'react';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import Navigation from '../Navigation/Navigation';
-import ButtonClose from '@assets/svg/ButtonClose/ButtonClose';
+import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
 const NavDrawer = ({ setIsShowNavDrawer }) => {
   const [hiddenNavDrawer, setHiddenNavDrawer] = useState(false);

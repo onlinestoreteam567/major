@@ -13,7 +13,7 @@ const Slide = ({ slide }) => {
   };
 
   return (
-    <div style={{ backgroundImage: `url(${slide.background})` }}>
+    <div style={{ backgroundImage: `url(${slide.background})` }} className={cl.wrapBackground}>
       <div className={`${cl.slide} ${slide.left ? cl.right : ''}`} style={styleVariables}>
         {slide.left && <img src={slide.image} alt="" />}
         <section>
