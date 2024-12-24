@@ -12,10 +12,22 @@
     button {
       width: 100%;
       height: 54px;
+      animation: appear 0.3s ease-in-out;
     }
   }
   @include tablet {
     width: 306px;
     height: 518px;
+  }
+}
+
+@keyframes appear {
+  from {
+    transform: scale(0.01);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
 }
