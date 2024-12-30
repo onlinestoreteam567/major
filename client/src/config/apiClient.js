@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { logApiError } from './lib/logApiError';
 
 // Check if the environment variable is defined
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -15,8 +16,12 @@ const apiClient = axios.create({
   },
 });
 
-const username = 'admin@gmail.com';
-const password = 'admin';
+const username = import.meta.env.VITE_API_USERNAME;
+const password = import.meta.env.VITE_API_PASSWORD;
+
+if (!username || !password) {
+  console.error('API_PASSWORD and API_USERNAME is not defined! Check the configuration in the .env file.');
+}
 
 apiClient.defaults.headers.common['Authorization'] = `Basic ${btoa(`${username}:${password}`)}`;
 
@@ -35,36 +40,7 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response) {
-      // Handle errors with a response from the server
-      console.error('API Error:', {
-        status: error.response.status,
-        data: error.response.data,
-        url: error.config?.url,
-        method: error.config?.method,
-      });
-
-      // Specific error handling based on HTTP status codes
-      switch (error.response.status) {
-        case 401:
-          console.warn('Unauthorized access - consider redirecting to login.');
-          break;
-        case 404:
-          console.warn('Resource not found:', error.config?.url);
-          break;
-        case 500:
-          console.error('Internal Server Error on:', error.config?.url);
-          break;
-        default:
-          console.warn('Unhandled error status:', error.response.status);
-      }
-    } else if (error.request) {
-      // Handle network errors (request made but no response received)
-      console.error('Network Error:', error.message);
-    } else {
-      // Handle unexpected errors during request setup
-      console.error('Unexpected Error:', error.message);
-    }
+    logApiError(error);
 
     return Promise.reject(error); // Pass the error for further handling
   }
