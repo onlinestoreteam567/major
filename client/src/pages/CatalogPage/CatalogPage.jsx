@@ -13,48 +13,32 @@ import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { catalogFilterSchema } from '@validations/catalogFilterSchema';
+import CategoryService from '../../services/CategoryService';
+import { useEffect, useState } from 'react';
+import defaultValues from './defaultCatalogValues';
 
 const CatalogPage = () => {
+  const [categories, setCategories] = useState();
+
+  const fetchCategories = async () => {
+    const data = await CategoryService.getCategories();
+    setCategories(data);
+  };
+
   const initialState = useSelector((state) => state.catalogPage.initialState);
 
   const { register, handleSubmit, watch, setValue } = useForm({
     resolver: yupResolver(catalogFilterSchema),
-    defaultValues: {
-      switch: {
-        newItems: false,
-        bestSellers: false,
-        discounts: false,
-      },
-
-      assignment: {
-        normal: false,
-        colored: false,
-        thin: false,
-        damaged: false,
-        growth: false,
-        cleansing: false,
-      },
-
-      priceRange: {
-        min: 0,
-        max: 999,
-      },
-
-      category: {
-        shampoo: false,
-        conditioner: false,
-        balm: false,
-        serum: false,
-        cream: false,
-        oil: false,
-        mask: false,
-      },
-    },
+    defaultValues: defaultValues,
   });
 
   const onSubmit = (data) => {
     console.log('Submitted data:', data);
   };
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
 
   return (
     <div className={cl.catalogWrapper}>
@@ -65,7 +49,7 @@ const CatalogPage = () => {
         <div className={cl.wrapAside}>
           <Aside handleSubmit={handleSubmit(onSubmit)}>
             <Switchs register={register} watch={watch} />
-            <Assignment register={register} watch={watch} />
+            <Assignment register={register} watch={watch} categories={categories} />
             <Range setValue={setValue} register={'priceRange'} name="priceRange" />
             <Category register={register} watch={watch} />
           </Aside>

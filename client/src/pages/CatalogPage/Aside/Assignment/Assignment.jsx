@@ -3,6 +3,7 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
 import { FormGroup } from '@components/form-components';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
+import { useEffect, useState } from 'react';
 
 const checkboxData = [
   { key: 'normal', label: 'normalHair' },
@@ -13,8 +14,19 @@ const checkboxData = [
   { key: 'cleansing', label: 'deepConditioning' },
 ];
 
-const Assignment = ({ register, watch }) => {
+const Assignment = ({ register, watch, categories }) => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
+  const [fetchedCategories, setFetchedCategories] = useState();
+
+  useEffect(() => {
+    if (categories) {
+      setFetchedCategories(categories);
+    }
+  }, [categories]);
+
+  if (!fetchedCategories) return null;
+
+  console.log(fetchedCategories);
 
   return (
     <FormGroup className={cl.checkboxesWrapper} name={'assignment'}>
