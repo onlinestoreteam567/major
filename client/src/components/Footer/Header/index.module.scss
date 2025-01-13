@@ -18,4 +18,9 @@
   @include deskmin {
     grid-template-columns: min-content 1fr min-content;
   }
+
+  .wrapper {
+    @include flex(row, center, null);
+    gap: 45px;
+  }
 }

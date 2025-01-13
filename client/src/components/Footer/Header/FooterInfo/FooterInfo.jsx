@@ -24,7 +24,7 @@ const FooterInfo = () => {
         </section>
       </ul>
 
-      <ul>
+      <ul className={cl.ulPhoneNumber}>
         {!tablet && !deskmin && !deskmax && <h3>Номери телефонів</h3>}
 
         <section>

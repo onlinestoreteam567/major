@@ -7,20 +7,6 @@ const Navigation = () => {
   return (
     <ul className={cl.ulNavigation}>
       <section>
-        <NavLink type="footer" to="/">
-          {getTranslation('main')}
-        </NavLink>
-        <NavLink type="footer" to="catalog">
-          {getTranslation('catalog')}
-        </NavLink>
-        <NavLink type="footer" to="about">
-          {getTranslation('about')}
-        </NavLink>
-        <NavLink type="footer" to="blog">
-          {getTranslation('blog')}
-        </NavLink>
-      </section>
-      <section>
         <NavLink type="footer" to="cooperation">
           {getTranslation('cooperation')}
         </NavLink>

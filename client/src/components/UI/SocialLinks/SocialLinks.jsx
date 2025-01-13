@@ -10,22 +10,17 @@ const SocialLinks = ({ black }) => {
       <ul>
         <li>
           <a href="">
-            <img src="/svg/footer/telegram.svg" alt={getTranslation('telegramAlt')} />
+            <img src="/svg/footer/monochromeTelegram.svg" alt={getTranslation('telegramAlt')} />
           </a>
         </li>
         <li>
           <a href="">
-            <img src="/svg/footer/instagram.svg" alt={getTranslation('instagramAlt')} />
+            <img src="/svg/footer/monochromeInstagram.svg" alt={getTranslation('instagramAlt')} />
           </a>
         </li>
         <li>
           <a href="">
-            <img src="/svg/footer/facebook.svg" alt={getTranslation('facebookAlt')} />
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <img src="/svg/footer/gmail.svg" alt={getTranslation('mailAlt')} />
+            <img className={cl.mailIcon} src="/svg/footer/monochromeMail.svg" alt={getTranslation('mailAlt')} />
           </a>
         </li>
       </ul>
