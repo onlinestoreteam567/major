@@ -2,7 +2,6 @@
 
 .topSection {
   width: 100%;
-  @include layout();
 
   & {
     padding-bottom: 0;
@@ -11,16 +10,25 @@
   @include tablet {
     height: 254px;
     display: grid;
-    grid-template-columns: min-content 1fr min-content;
+    grid-template-columns: min-content auto;
     gap: 37px;
   }
 
   @include deskmin {
+    gap: 0;
     grid-template-columns: min-content 1fr min-content;
+  }
+
+  @include deskmax {
+    max-width: 1296px;
   }
 
   .wrapper {
     @include flex(row, center, null);
     gap: 45px;
+
+    @include tablet {
+      gap: 0;
+    }
   }
 }

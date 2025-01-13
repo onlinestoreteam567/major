@@ -11,9 +11,21 @@
     justify-content: unset;
     margin-bottom: 0;
     margin-left: 75px;
-    justify-self: end;
     width: max-content;
   }
+
+  @include deskmin {
+    margin-left: 0;
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include deskmax {
+    gap: 0px;
+    align-items: center;
+  }
+
   h3 {
     font-family: $font-main;
     font-size: $font-size-base;
@@ -24,6 +36,18 @@
     @include deskmin {
       font-size: $font-size-medium;
       line-height: $line-height-base;
+    }
+  }
+
+  .ulWorkingHours {
+    margin-left: 60px;
+
+    @include tablet {
+      margin-left: 0;
+    }
+
+    @include deskmax {
+      margin-left: 60px;
     }
   }
 
@@ -60,6 +84,10 @@
 
 .ulPhoneNumber {
   margin-top: 32px;
+
+  @include deskmax {
+    margin-left: auto;
+  }
 }
 
 .titleWithIcon {

@@ -8,7 +8,7 @@ const FooterInfo = () => {
 
   return (
     <section className={cl.footerInfo}>
-      <ul>
+      <ul className={cl.ulWorkingHours}>
         <h3 className={cl.titleWithIcon}>
           {(tablet || deskmin || deskmax) && <img src="/svg/footer/calendar.svg" alt={getTranslation('calendarAlt')} />}
           {getTranslation('workingHours')}
@@ -25,16 +25,13 @@ const FooterInfo = () => {
       </ul>
 
       <ul className={cl.ulPhoneNumber}>
-        {!tablet && !deskmin && !deskmax && <h3>Номери телефонів</h3>}
-
+        {(tablet || deskmin || deskmax) && (
+          <img className={cl.phoneCallIcon} src="/svg/footer/phoneCall.svg" alt={getTranslation('phoneAlt')} />
+        )}{' '}
+        <h3>Номери телефонів</h3>
         <section>
           <li>
-            <h3 className={cl.titleWithIcon}>
-              {(tablet || deskmin || deskmax) && (
-                <img className={cl.phoneCallIcon} src="/svg/footer/phoneCall.svg" alt={getTranslation('phoneAlt')} />
-              )}{' '}
-              +38 (096) 327 77 34
-            </h3>
+            <h3 className={cl.titleWithIcon}>+38 (096) 327 77 34</h3>
           </li>
           <li>
             <h3>+38 (050) 123 84 99</h3>
