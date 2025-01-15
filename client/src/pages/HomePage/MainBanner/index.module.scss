@@ -25,6 +25,10 @@
       }
     }
 
+    @include deskmin {
+      padding: 96px 24px 0 24px;
+    }
+
     @include deskmax {
       padding: 96px 72px 0 72px;
     }
@@ -32,8 +36,8 @@
 
   img {
     position: absolute;
-    top: 60px;
-    width: 390px;
+    top: 102px;
+    height: 424px;
     @include tablet {
       position: static;
     }
