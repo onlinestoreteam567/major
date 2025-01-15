@@ -7,6 +7,7 @@
   line-height: $line-height-base;
   box-sizing: border-box;
   cursor: pointer;
+  overflow: hidden;
   padding: 0;
   border-radius: $border-radius-medium;
   transition:
