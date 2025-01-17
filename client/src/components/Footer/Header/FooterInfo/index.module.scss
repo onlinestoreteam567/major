@@ -40,8 +40,6 @@
   }
 
   .ulWorkingHours {
-    margin-left: 60px;
-
     @include tablet {
       margin-left: 0;
     }
