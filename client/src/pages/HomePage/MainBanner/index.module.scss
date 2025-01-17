@@ -66,12 +66,14 @@
     }
 
     .bottomWrapper {
+      backdrop-filter: blur(7.199999809265137px);
       align-items: center;
       @include flexGap(16px, column);
 
       @include tablet {
         @include flexGap(50px, column);
         align-items: start;
+        backdrop-filter: none;
 
         h1 {
           text-align: start;
