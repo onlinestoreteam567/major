@@ -14,7 +14,7 @@
   @include showCloseAnimation('show', -100%);
 
   @include deskmin {
-    width: 306px;
+    width: 308px;
     padding: 34px 32px;
     position: static;
     animation: none;
@@ -27,11 +27,13 @@
   .topSection {
     @include flex(row, space-between);
     width: 354px;
+    max-width: 354px;
     margin-bottom: 25px;
   }
 
   form {
-    width: 354px;
+    width: 100%;
+    max-width: 354px;
   }
 
   .switchBox {

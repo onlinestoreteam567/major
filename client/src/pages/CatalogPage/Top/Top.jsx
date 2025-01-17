@@ -24,10 +24,13 @@ const Top = ({ setIsAsideMobile, setisHiddenAside }) => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
   return (
     <section className={cl.catalogSection}>
-      <TopLink />
-      <Heading type="h2">{getTranslation('catalog', 'common')}</Heading>
+      <div>
+        <TopLink />
+        <Heading type="h2">{getTranslation('catalog', 'common')}</Heading>
+      </div>
       <section className={cl.sortSection}>
         {deskmin || deskmax ? (
+          // Deskmin and Deskmax
           <>
             <section>
               <img src={'svg/catalogPage/filter.svg'} alt="" />
@@ -39,6 +42,7 @@ const Top = ({ setIsAsideMobile, setisHiddenAside }) => {
             />
           </>
         ) : (
+          // Mobile and Tablet
           <>
             <Button variant="secondary" onClick={showAside}>
               <Filters />

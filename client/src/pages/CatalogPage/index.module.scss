@@ -14,16 +14,26 @@
   }
 
   @include deskmin {
-    margin: 144px auto 0;
+    margin: 96px auto 0;
   }
 
   .mainWrapper {
     @include flexGap(24px);
+
+    @include deskmin {
+      width: 980px;
+      margin: 0 auto;
+    }
+
+    @include deskmax {
+      width: 1296px;
+    }
   }
 }
 
 .wrapAside {
   display: none;
+
   @include deskmin {
     display: block;
     padding: 0;
@@ -32,5 +42,5 @@
 }
 
 .asideMobile {
-  display: block;
+  display: contents;
 }
