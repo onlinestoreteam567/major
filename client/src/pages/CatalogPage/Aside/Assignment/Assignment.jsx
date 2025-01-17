@@ -26,8 +26,6 @@ const Assignment = ({ register, watch, categories }) => {
 
   if (!fetchedCategories) return null;
 
-  console.log(fetchedCategories);
-
   return (
     <FormGroup className={cl.checkboxesWrapper} name={'assignment'}>
       <Heading type="h4">{getTranslation('assignmentTitle')}</Heading>

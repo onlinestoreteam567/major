@@ -11,8 +11,8 @@
   @include flex(column);
 
   @include tablet {
-    justify-content: space-evenly;
     flex-direction: row;
+    width: 636px;
     gap: 24px;
   }
 

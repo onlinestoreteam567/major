@@ -5,12 +5,12 @@
   padding: 0 12px;
   color: $text-color-black;
   box-sizing: border-box;
-  margin-top: 100px;
+  margin-top: 75px;
 
   @include layout();
 
   @include tablet {
-    margin: 120px auto 0;
+    margin: 75px auto 0 auto;
   }
 
   @include deskmin {
@@ -29,4 +29,8 @@
     padding: 0;
     margin: 0;
   }
+}
+
+.asideMobile {
+  display: block;
 }

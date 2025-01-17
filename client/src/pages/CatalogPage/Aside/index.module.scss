@@ -1,15 +1,37 @@
 @import '@mixins';
 
 .aside {
-  width: 21.25vw;
-  padding: 34px 32px;
+  @include flex(column, null, center);
   box-sizing: border-box;
   border: 1px solid #cccccc;
   border-radius: $border-radius-small;
+  padding: 34px 12px;
   height: fit-content;
+  @include absolute();
+  z-index: 10;
+  background-color: #ffffff;
+  width: 100%;
+  @include showCloseAnimation('show', -100%);
 
   @include deskmin {
-    width: 308px;
+    width: 306px;
+    padding: 34px 32px;
+    position: static;
+    animation: none;
+  }
+
+  &.hiddenAnimation {
+    @include showCloseAnimation('close', -100%);
+  }
+
+  .topSection {
+    @include flex(row, space-between);
+    width: 354px;
+    margin-bottom: 25px;
+  }
+
+  form {
+    width: 354px;
   }
 
   .switchBox {
@@ -42,10 +64,12 @@
   }
 
   .checkboxesWrapper {
-    max-width: 212px;
     margin-top: 45px;
     gap: 8px;
     @include flex(column, null, start);
+    @include deskmin {
+      max-width: 212px;
+    }
 
     label {
       @include flex();

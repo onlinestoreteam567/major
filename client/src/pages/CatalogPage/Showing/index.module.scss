@@ -1,0 +1,12 @@
+@import '@mixins';
+
+.showing {
+  font-family: $font-main;
+  font-size: $font-size-base;
+  font-weight: $font-weight-small;
+  line-height: 20.48px;
+  color: #a2a2a2;
+
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}

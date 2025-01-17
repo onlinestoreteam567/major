@@ -2,10 +2,7 @@ import cl from './index.module.scss';
 import Aside from './Aside/Aside';
 import Top from './Top/Top';
 import Container from '@pages/CatalogPage/Products/CardsContainer/CardsContainer';
-import TopLink from '@components/UI/TopLink/TopLink';
-import Assignment from './Aside/Assignment/Assignment';
 import Switchs from './Aside/Switchs/Switchs';
-import Range from './Aside/PriceRange/PriceRange';
 import Category from './Aside/Category/Category';
 import Products from './Products/Products';
 import Catalog from '@pages/HomePage/Catalog/Catalog';
@@ -13,17 +10,20 @@ import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { catalogFilterSchema } from '@validations/catalogFilterSchema';
-import CategoryService from '../../services/CategoryService';
-import { useEffect, useState } from 'react';
+// import CategoryService from '../../services/CategoryService';
+import { useState } from 'react';
 import defaultValues from './defaultCatalogValues';
+import PriceRange from './Aside/PriceRange/PriceRange';
 
 const CatalogPage = () => {
-  const [categories, setCategories] = useState();
+  // const [categories, setCategories] = useState();
+  const [isAsideMobile, setIsAsideMobile] = useState(false);
+  const [isHiddenAside, setisHiddenAside] = useState(false);
 
-  const fetchCategories = async () => {
-    const data = await CategoryService.getCategories();
-    setCategories(data);
-  };
+  // const fetchCategories = async () => {
+  // const data = await CategoryService.getCategories();
+  // setCategories(data);
+  // };
 
   const initialState = useSelector((state) => state.catalogPage.initialState);
 
@@ -32,25 +32,30 @@ const CatalogPage = () => {
     defaultValues: defaultValues,
   });
 
-  const onSubmit = (data) => {
-    console.log('Submitted data:', data);
-  };
+  const onSubmit = (data) => console.log('Submitted data:', data);
 
-  useEffect(() => {
-    fetchCategories();
-  }, []);
+  // useEffect(() => {
+  //   fetchCategories();
+  // }, []);
 
   return (
     <div className={cl.catalogWrapper}>
-      <TopLink />
-      <Top />
+      <Top setIsAsideMobile={setIsAsideMobile} setisHiddenAside={setisHiddenAside} />
 
       <section className={cl.mainWrapper}>
-        <div className={cl.wrapAside}>
-          <Aside handleSubmit={handleSubmit(onSubmit)}>
+        <div className={`${cl.wrapAside} ${isAsideMobile ? cl.asideMobile : ''}`}>
+          <Aside
+            handleSubmit={handleSubmit(onSubmit)}
+            setIsAsideMobile={setIsAsideMobile}
+            isHiddenAside={isHiddenAside}
+            setisHiddenAside={setisHiddenAside}
+          >
             <Switchs register={register} watch={watch} />
-            <Assignment register={register} watch={watch} categories={categories} />
-            <Range setValue={setValue} register={'priceRange'} name="priceRange" />
+
+            {/* It will not be here in future */}
+            {/* <Assignment register={register} watch={watch} categories={categories} /> */}
+
+            <PriceRange setValue={setValue} register={'priceRange'} name="priceRange" />
             <Category register={register} watch={watch} />
           </Aside>
         </div>

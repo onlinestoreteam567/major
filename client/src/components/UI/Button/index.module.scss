@@ -39,12 +39,19 @@
 }
 
 .secondary {
-  border: 2px solid #000000;
+  border: 1px solid #22211f;
   background-color: transparent;
 
-  &:hover {
+  &:hover,
+  &:active {
     background-color: $second-background-color-black;
     color: $text-color-light;
+
+    svg {
+      path {
+        stroke: $text-color-light;
+      }
+    }
   }
 }
 
