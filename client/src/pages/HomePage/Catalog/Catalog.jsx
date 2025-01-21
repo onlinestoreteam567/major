@@ -1,14 +1,9 @@
 import cl from './index.module.scss';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import { useDispatch } from 'react-redux';
-import { setFalse } from '@features/catalogPage/catalogPageSlice';
 
 const Catalog = () => {
   const { getTranslation } = useTranslationNamespace('common');
-  const dispatch = useDispatch();
-
-  const handleSetFalse = () => dispatch(setFalse());
 
   const catalogItems = [
     { src: '/images/catalog/1.png', label: 'normalHair' },
@@ -24,7 +19,7 @@ const Catalog = () => {
       <Heading type="h2">{getTranslation('catalog')}</Heading>
       <div className={cl.wrapImges}>
         {catalogItems.map((item, index) => (
-          <figure key={index} onClick={handleSetFalse}>
+          <figure key={index}>
             <img src={item.src} alt="" />
             <figcaption>{getTranslation(item.label)}</figcaption>
           </figure>

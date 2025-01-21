@@ -5,8 +5,6 @@ import Container from '@pages/CatalogPage/Products/CardsContainer/CardsContainer
 import Switchs from './Aside/Switchs/Switchs';
 import Category from './Aside/Category/Category';
 import Products from './Products/Products';
-import Catalog from '@pages/HomePage/Catalog/Catalog';
-import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { catalogFilterSchema } from '@validations/catalogFilterSchema';
@@ -24,8 +22,6 @@ const CatalogPage = () => {
   // const data = await CategoryService.getCategories();
   // setCategories(data);
   // };
-
-  const initialState = useSelector((state) => state.catalogPage.initialState);
 
   const { register, handleSubmit, watch, setValue } = useForm({
     resolver: yupResolver(catalogFilterSchema),
@@ -60,15 +56,9 @@ const CatalogPage = () => {
           </Aside>
         </div>
 
-        {initialState ? (
-          <div className={cl.initialContent}>
-            <Catalog />
-          </div>
-        ) : (
-          <Products>
-            <Container />
-          </Products>
-        )}
+        <Products>
+          <Container />
+        </Products>
       </section>
     </div>
   );
