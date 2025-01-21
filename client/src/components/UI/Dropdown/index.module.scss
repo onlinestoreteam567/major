@@ -7,7 +7,7 @@
   button {
     @include flex(row, space-between);
     cursor: pointer;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     outline: none;
     font-family: $font-main;
     font-size: $font-size-base;
@@ -16,7 +16,7 @@
     width: 208px;
     height: 40px;
     border-radius: $border-radius-small;
-    border: 1px solid #a2a2a2;
+    border: 1px solid $text-color-black;
     text-align: left;
     box-sizing: border-box;
     padding-left: 24px;
@@ -31,7 +31,7 @@
 
   ul {
     position: absolute;
-    border: 1px solid #a2a2a2;
+    border: 1px solid $text-color-black;
     background-color: $background-color-light;
     width: 100%;
     z-index: 1000;
