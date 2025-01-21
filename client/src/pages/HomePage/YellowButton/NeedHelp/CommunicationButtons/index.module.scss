@@ -1,0 +1,12 @@
+@import '@mixins';
+
+.communicationButtons {
+  @include flex();
+
+  a,
+  button,
+  img {
+    height: 35px;
+    width: 35px;
+  }
+}

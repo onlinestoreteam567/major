@@ -64,6 +64,23 @@ p {
   margin: 0;
 }
 
+// Buttons
+button {
+  outline: none;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  height: fit-content;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 // figure
 figure {
   margin: 0;
