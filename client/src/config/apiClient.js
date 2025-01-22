@@ -1,4 +1,5 @@
 import axios from 'axios';
+import i18n from 'i18next';
 
 // Check if the environment variable is defined
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -14,6 +15,16 @@ const apiClient = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+// Dynamically set the Accept-Language header
+const defaultLanguage = 'ua';
+apiClient.interceptors.request.use(
+  (config) => {
+    config.headers['Accept-Language'] = i18n.language || defaultLanguage;
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
 const username = 'admin@gmail.com';
 const password = 'admin';

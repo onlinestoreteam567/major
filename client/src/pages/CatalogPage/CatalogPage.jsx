@@ -8,20 +8,21 @@ import Products from './Products/Products';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { catalogFilterSchema } from '@validations/catalogFilterSchema';
-// import CategoryService from '../../services/CategoryService';
-import { useState } from 'react';
+import CategoryService from '../../services/CategoryService';
+import { useEffect, useState } from 'react';
 import defaultValues from './defaultCatalogValues';
 import PriceRange from './Aside/PriceRange/PriceRange';
+import { useTranslation } from 'react-i18next';
 
 const CatalogPage = () => {
-  // const [categories, setCategories] = useState();
   const [isAsideMobile, setIsAsideMobile] = useState(false);
   const [isHiddenAside, setisHiddenAside] = useState(false);
+  const { i18n } = useTranslation();
 
-  // const fetchCategories = async () => {
-  // const data = await CategoryService.getCategories();
-  // setCategories(data);
-  // };
+  const fetchCategories = async () => {
+    const data = await CategoryService.getCategories();
+    console.log(data);
+  };
 
   const { register, handleSubmit, watch, setValue } = useForm({
     resolver: yupResolver(catalogFilterSchema),
@@ -30,9 +31,9 @@ const CatalogPage = () => {
 
   const onSubmit = (data) => console.log('Submitted data:', data);
 
-  // useEffect(() => {
-  //   fetchCategories();
-  // }, []);
+  useEffect(() => {
+    fetchCategories();
+  }, [i18n.language]);
 
   return (
     <div className={cl.catalogWrapper}>
