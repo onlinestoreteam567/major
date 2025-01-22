@@ -8,19 +8,19 @@ import Products from './Products/Products';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { catalogFilterSchema } from '@validations/catalogFilterSchema';
-import CategoryService from '../../services/CategoryService';
 import { useEffect, useState } from 'react';
 import defaultValues from './defaultCatalogValues';
 import PriceRange from './Aside/PriceRange/PriceRange';
 import { useTranslation } from 'react-i18next';
+import TypeService from '@services/TypeService';
 
 const CatalogPage = () => {
   const [isAsideMobile, setIsAsideMobile] = useState(false);
   const [isHiddenAside, setisHiddenAside] = useState(false);
   const { i18n } = useTranslation();
 
-  const fetchCategories = async () => {
-    const data = await CategoryService.getCategories();
+  const fetchTypes = async () => {
+    const data = await TypeService.getTypes();
     console.log(data);
   };
 
@@ -32,7 +32,7 @@ const CatalogPage = () => {
   const onSubmit = (data) => console.log('Submitted data:', data);
 
   useEffect(() => {
-    fetchCategories();
+    fetchTypes();
   }, [i18n.language]);
 
   return (
