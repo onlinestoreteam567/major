@@ -15,13 +15,15 @@ import { useTranslation } from 'react-i18next';
 import TypeService from '@services/TypeService';
 
 const CatalogPage = () => {
+  const [types, setTypes] = useState();
+
   const [isAsideMobile, setIsAsideMobile] = useState(false);
   const [isHiddenAside, setisHiddenAside] = useState(false);
   const { i18n } = useTranslation();
 
   const fetchTypes = async () => {
     const data = await TypeService.getTypes();
-    console.log(data);
+    setTypes(data);
   };
 
   const { register, handleSubmit, watch, setValue } = useForm({
@@ -53,7 +55,7 @@ const CatalogPage = () => {
             {/* <Assignment register={register} watch={watch} categories={categories} /> */}
 
             <PriceRange setValue={setValue} register={'priceRange'} name="priceRange" />
-            <Category register={register} watch={watch} />
+            <Category register={register} watch={watch} types={types} />
           </Aside>
         </div>
 
