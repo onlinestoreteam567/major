@@ -3,8 +3,6 @@
 .copyrightSection {
   width: 100%;
 
-  @include layout();
-
   & {
     padding-bottom: 10px;
   }
@@ -13,10 +11,18 @@
     height: 57px;
   }
 
+  @include deskmax {
+    max-width: 1440px;
+  }
+
   hr {
     height: 1px;
     width: 100%;
     color: #a2a2a2;
+
+    @include deskmax {
+      max-width: 1296px;
+    }
   }
 
   h3 {

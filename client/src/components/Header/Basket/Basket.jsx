@@ -15,9 +15,7 @@ const Basket = ({ setIsShowBasket }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  const handleCloseBasket = () => {
-    handleCloseWithDelay(setHiddenBasket, setIsShowBasket);
-  };
+  const handleCloseBasket = () => handleCloseWithDelay(setHiddenBasket, setIsShowBasket);
 
   // Check if basket is empty
   useEffect(() => {

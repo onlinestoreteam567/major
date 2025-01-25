@@ -1,0 +1,49 @@
+@import '@mixins';
+
+.buttonsSection {
+  .questionButton {
+    background-color: #f9ae1a;
+    cursor: pointer;
+    width: 20px;
+    height: 44px;
+    border-radius: $border-radius-medium 0 0 $border-radius-medium;
+    border: none;
+    color: $text-color-black;
+    font-family: $font-second;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    line-height: 17.92px;
+    margin-right: -1px;
+  }
+
+  .closeAnimation {
+    @include showCloseAnimation('close');
+  }
+}
+
+.needHelpButtonsWrapper {
+  @include flex();
+  position: absolute;
+  top: 0;
+  right: 0;
+  @include showCloseAnimation();
+
+  .needHelpButtons {
+    @include flex();
+    gap: 7px;
+    text-wrap: nowrap;
+    width: 235px;
+    height: 44px;
+    font-family: $font-second;
+    font-size: $font-size-small;
+    font-weight: $font-weight-base;
+    line-height: 17.92px;
+    color: $text-color-black;
+    background-color: #ffffff;
+    cursor: pointer;
+    border-radius: $border-radius-small 0 0 2px;
+    border: none;
+    padding: 0 12px 0 14px;
+    box-sizing: border-box;
+  }
+}

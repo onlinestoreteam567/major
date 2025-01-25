@@ -7,6 +7,7 @@
   line-height: $line-height-base;
   box-sizing: border-box;
   cursor: pointer;
+  overflow: hidden;
   padding: 0;
   border-radius: $border-radius-medium;
   transition:
@@ -38,12 +39,19 @@
 }
 
 .secondary {
-  border: 2px solid #000000;
+  border: 1px solid #22211f;
   background-color: transparent;
 
-  &:hover {
+  &:hover,
+  &:active {
     background-color: $second-background-color-black;
     color: $text-color-light;
+
+    svg {
+      path {
+        stroke: $text-color-light;
+      }
+    }
   }
 }
 

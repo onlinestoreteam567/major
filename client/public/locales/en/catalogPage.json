@@ -21,6 +21,7 @@
   "oil": "Oil",
   "mask": "Mask",
 
-  "showing": "Showing: 6 items out of 7",
+  "showingFirst": "Showing:",
+  "showingSecond": " items out of",
   "loadMore": "Load more"
 }

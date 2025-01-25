@@ -10,8 +10,10 @@ const Header = () => {
   return (
     <section className={cl.topSection}>
       <LogoSection />
-      <Navigation />
-      <FooterInfo />
+      <div className={cl.wrapper}>
+        <Navigation />
+        <FooterInfo />
+      </div>
       {!tablet && !deskmin && !deskmax && <SocialLinks />}
     </section>
   );

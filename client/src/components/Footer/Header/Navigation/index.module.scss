@@ -1,22 +1,39 @@
 @import '@mixins';
 
 .ulNavigation {
-  @include flex(row, space-around, null);
+  @include flex(column, null, null);
+  gap: 24px;
 
   @include tablet {
-    justify-content: space-evenly;
-    width: 100%;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
   }
 
   @include deskmin {
-    justify-content: space-evenly;
     margin-left: 0;
-    width: 100%;
+    width: 50%;
   }
 
-  section {
+  @include deskmax {
+    justify-content: center;
+    width: 33%;
+  }
+
+  .wrapList {
     @include flexGap(24px, column);
-    width: 25%;
     text-wrap: nowrap;
+
+    @include deskmax {
+      flex-direction: row;
+      justify-content: space-evenly;
+      gap: 0;
+      width: 100%;
+      margin-bottom: 23px;
+    }
+
+    .wrapLinks {
+      @include flexGap(24px, column);
+    }
   }
 }

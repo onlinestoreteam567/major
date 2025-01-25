@@ -2,14 +2,11 @@
 
 .bottom {
   @include flex(column);
-  gap: 10px;
+  gap: 25px;
+  margin-top: 120px;
 
-  p {
-    font-family: $font-main;
-    font-size: $font-size-base;
-    font-weight: $font-weight-small;
-    line-height: 20.48px;
-    color: #3b3c37;
+  @include deskmax {
+    margin-top: 96px;
   }
 
   button {

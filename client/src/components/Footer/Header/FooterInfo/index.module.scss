@@ -1,7 +1,7 @@
 @import '@mixins';
 
 .footerInfo {
-  @include flex(row, space-around, null);
+  @include flex(column, space-around, null);
   margin-bottom: 32px;
   text-wrap: nowrap;
 
@@ -11,9 +11,21 @@
     justify-content: unset;
     margin-bottom: 0;
     margin-left: 75px;
-    justify-self: end;
     width: max-content;
   }
+
+  @include deskmin {
+    margin-left: 0;
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include deskmax {
+    gap: 0px;
+    align-items: center;
+  }
+
   h3 {
     font-family: $font-main;
     font-size: $font-size-base;
@@ -27,10 +39,18 @@
     }
   }
 
+  .ulWorkingHours {
+    @include tablet {
+      margin-left: 0;
+    }
+
+    @include deskmax {
+      margin-left: 60px;
+    }
+  }
+
   ul {
     @include flexGap(16px, column);
-    margin-top: 24px;
-    width: 25%;
 
     @include tablet {
       margin-top: unset;
@@ -57,6 +77,14 @@
         left: -35px;
       }
     }
+  }
+}
+
+.ulPhoneNumber {
+  margin-top: 32px;
+
+  @include deskmax {
+    margin-left: auto;
   }
 }
 

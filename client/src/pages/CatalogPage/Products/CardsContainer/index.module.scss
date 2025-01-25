@@ -6,18 +6,19 @@
   flex-wrap: wrap;
   gap: 36px;
   margin: 0 auto;
-  overflow: scroll;
+  overflow: hidden;
 
   @include flex(column);
 
   @include tablet {
-    justify-content: space-evenly;
     flex-direction: row;
+    width: 636px;
     gap: 24px;
   }
 
   @include deskmax {
     justify-content: space-around;
+    width: auto;
     gap: 22px;
   }
 

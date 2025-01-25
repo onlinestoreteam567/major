@@ -16,7 +16,7 @@ const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) 
         <SearchIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
       </i>
 
-      <i>
+      <i className={cl.languageButtons}>
         {(deskmin || deskmax) &&
           (isLanguageDefault ? (
             <UaIcon fillColor={isScrolled ? '#FFFFFF' : '#1C1C1C'} setIsLanguageDefault={setIsLanguageDefault} />
