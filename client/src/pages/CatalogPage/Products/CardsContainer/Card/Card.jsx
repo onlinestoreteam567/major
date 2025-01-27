@@ -10,6 +10,7 @@ import useScreenSizes from '@hooks/useScreenSizes';
 
 export default function Card({ card }) {
   const [isShowButton, setIsShowButton] = useState(false);
+  console.log(card);
 
   const { tablet, deskmax } = useScreenSizes();
 
@@ -34,7 +35,7 @@ export default function Card({ card }) {
           <div className={cl.wrapInfo}>
             <TitleCardCatalog card={card} />
             <div>
-              <ProductRating />
+              {card && <ProductRating card={card} />}
               <PriceCardCatalog card={card} />
             </div>
             {isShowButton && <Button variant={isColorBtn ? 'primary' : 'secondary'}>Додати до кошику</Button>}
