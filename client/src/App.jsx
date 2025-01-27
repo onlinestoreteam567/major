@@ -1,16 +1,14 @@
-import ProductListService from '@services/ProductListService';
+import { useDispatch } from 'react-redux';
 import AppRouter from './router/AppRouter';
 import { useEffect } from 'react';
-
-const fetchProductList = async () => {
-  const bestSellers = await ProductListService.getProductList({ is_best_seller: true });
-  console.log(bestSellers);
-};
+import { fetchBestSellers } from '@features/products/bestSellersSlice';
 
 function App() {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    fetchProductList();
-  }, []);
+    dispatch(fetchBestSellers());
+  }, [dispatch]);
 
   return <AppRouter />;
 }

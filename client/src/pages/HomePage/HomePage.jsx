@@ -18,7 +18,7 @@ const HomePage = () => {
       <div className={cl.page}>
         <YellowButtonMainWrapper />
         <BestSellers />
-        <CheaperTogether />
+        {/* <CheaperTogether /> */}
         <Catalog />
         <MajorInfo />
         <WhyChooseUs />
