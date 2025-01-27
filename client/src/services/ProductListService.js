@@ -8,9 +8,14 @@ if (!PRODUCT_LIST_ENDPOINT) {
 }
 
 const ProductListService = {
-  async getProductList() {
+  async getProductList(params = {}) {
     try {
-      const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/`);
+      const queryString = new URLSearchParams(params).toString();
+
+      // Append the query string to the endpoint if it exists
+      const endpointWithParams = queryString ? `${PRODUCT_LIST_ENDPOINT}?${queryString}` : PRODUCT_LIST_ENDPOINT;
+
+      const { data } = await apiClient.get(endpointWithParams);
       return data;
     } catch (error) {
       handleApiError(error);

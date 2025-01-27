@@ -3,8 +3,8 @@ import AppRouter from './router/AppRouter';
 import { useEffect } from 'react';
 
 const fetchProductList = async () => {
-  const data = await ProductListService.getProductList();
-  console.log(data);
+  const bestSellers = await ProductListService.getProductList({ is_best_seller: true });
+  console.log(bestSellers);
 };
 
 function App() {
