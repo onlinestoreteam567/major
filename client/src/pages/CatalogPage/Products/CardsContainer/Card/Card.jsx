@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Button from '../../../../../components/UI/Button/Button';
+import AddToCartButton from './AddToCartButton/AddToCardButton';
 import ProductRating from '../../../../../components/UI/CardProduct/Rating/ProductRating';
 import ImgCardCatalog from './Image/Image';
 import cl from './index.module.scss';
@@ -21,7 +21,7 @@ export default function Card({ card }) {
           <ProductRating card={card} />
           <PriceCardCatalog card={card} />
         </div>
-        <Button variant="secondary">Додати до кошику</Button>
+        <AddToCartButton variant="secondary">Додати до кошику</AddToCartButton>
       </div>
     </div>
   );

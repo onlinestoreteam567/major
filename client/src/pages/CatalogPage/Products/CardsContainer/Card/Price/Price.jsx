@@ -1,7 +1,10 @@
 import cl from './index.module.scss';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export default function PriceCardCatalog({ card }) {
   const hryvnia = '\u20B4';
+
+  const { getTranslation } = useTranslationNamespace('common');
 
   return (
     <div className={cl.wrapPriceCatalog}>
@@ -17,7 +20,9 @@ export default function PriceCardCatalog({ card }) {
           </div>
         )}
       </div>
-      <div className={cl.wrapVolume}>{card.volume_ml} ml</div>
+      <div className={cl.wrapVolume}>
+        {card.volume_ml} {getTranslation('milliliters')}
+      </div>
     </div>
   );
 }
