@@ -6,9 +6,18 @@ import { useSelector } from 'react-redux';
 // import cards from '../cards_of_category.json';
 
 const BestSellers = () => {
-  const { items } = useSelector((state) => state.bestSellers);
+  const { items, status, error } = useSelector((state) => state.bestSellers);
 
   const { getTranslation } = useTranslationNamespace('common');
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (status === 'failed') {
+    return <div>Error: {error}</div>;
+  }
+
   return (
     <section className={cl.wrapSliders}>
       <Heading type="h2">{getTranslation('bestSellers')}</Heading>
