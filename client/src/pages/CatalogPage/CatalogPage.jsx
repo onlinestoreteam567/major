@@ -13,13 +13,18 @@ import defaultValues from './defaultCatalogValues';
 import PriceRange from './Aside/PriceRange/PriceRange';
 import { useTranslation } from 'react-i18next';
 import TypeService from '@services/TypeService';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProductList } from '@features/products/productListSlice';
 
 const CatalogPage = () => {
   const [types, setTypes] = useState();
+  const dispatch = useDispatch();
 
   const [isAsideMobile, setIsAsideMobile] = useState(false);
   const [isHiddenAside, setisHiddenAside] = useState(false);
   const { i18n } = useTranslation();
+
+  const { items } = useSelector((state) => state.productList);
 
   const fetchTypes = async () => {
     const data = await TypeService.getTypes();
@@ -35,7 +40,8 @@ const CatalogPage = () => {
 
   useEffect(() => {
     fetchTypes();
-  }, [i18n.language]);
+    dispatch(fetchProductList());
+  }, [i18n.language, dispatch]);
 
   return (
     <div className={cl.catalogWrapper}>
@@ -51,16 +57,13 @@ const CatalogPage = () => {
           >
             <Switchs register={register} watch={watch} />
 
-            {/* It will not be here in future */}
-            {/* <Assignment register={register} watch={watch} categories={categories} /> */}
-
             <PriceRange setValue={setValue} register={'priceRange'} name="priceRange" />
             <Category register={register} watch={watch} types={types} />
           </Aside>
         </div>
 
         <Products>
-          <Container />
+          <Container cards={items} />
         </Products>
       </section>
     </div>

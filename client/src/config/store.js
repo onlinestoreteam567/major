@@ -5,12 +5,14 @@ import cartReducer from '@features/cart/cartSlice';
 // import userReducer from '@features/user/userSlice';
 import { loadFromStorage, saveToStorage } from '@utils/localStorage';
 import bestSellersReducer from '@features/products/bestSellersSlice';
+import productListReducer from '@features/products/productListSlice';
 
 const preloadedState = loadFromStorage('state');
 
 const store = configureStore({
   reducer: {
     cart: cartReducer,
+    productList: productListReducer,
     bestSellers: bestSellersReducer,
 
     // checkout: checkoutReducer,

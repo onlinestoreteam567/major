@@ -3,7 +3,6 @@ import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
 import { useSelector } from 'react-redux';
-// import cards from '../cards_of_category.json';
 
 const BestSellers = () => {
   const { items, status, error } = useSelector((state) => state.bestSellers);
