@@ -35,7 +35,7 @@ export default function Card({ card }) {
           <div className={cl.wrapInfo}>
             <TitleCardCatalog card={card} />
             <div>
-              {card && <ProductRating card={card} />}
+              <ProductRating card={card} />
               <PriceCardCatalog card={card} />
             </div>
             {isShowButton && <Button variant={isColorBtn ? 'primary' : 'secondary'}>Додати до кошику</Button>}
