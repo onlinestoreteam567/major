@@ -36,7 +36,6 @@ export default function ProductPage() {
     <section className={cl.cardPage}>
       {status === 'succeeded' && (
         <>
-          {console.log(card)}
           <div className={cl.topCase}>
             <TopLink card={card} />
             <div className={cl.wrapMobile}>
