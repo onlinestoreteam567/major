@@ -4,9 +4,9 @@ import CardDesk from './CardDesk';
 import Description from '@components/UI/CardProduct/Descript/Description';
 import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
 import TopLink from '@components/UI/TopLink/TopLink';
-import ProductOffer from './ProductOffer';
-import ProductSet from './ProductSet';
-import ProductLook from './ProductLook';
+// import ProductOffer from './ProductOffer';
+// import ProductSet from './ProductSet';
+// import ProductLook from './ProductLook';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -49,6 +49,7 @@ export default function ProductPage() {
           <Description card={card} />
           <ListReviewsCard card={card} />
           {/* <ProductOffer card={card} /> */}
+
           {/* <ProductSet card={card} /> */}
           {/* <ProductLook /> */}
         </>

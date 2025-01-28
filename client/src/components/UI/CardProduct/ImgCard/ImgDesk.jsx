@@ -5,11 +5,9 @@ import cl from './index.module.scss';
 import { useState } from 'react';
 
 export default function ImgDesk({ card }) {
-  const [bigImage, setBigImage] = useState(card.images[0]);
+  const [bigImage, setBigImage] = useState(card.images[0].image);
 
-  const handleImageClick = (image) => {
-    setBigImage(image);
-  };
+  const handleImageClick = (image) => setBigImage(image);
 
   const images = card.images;
   // const addDefaultImg = (ev) => {
@@ -28,7 +26,7 @@ export default function ImgDesk({ card }) {
         {images.map((img, i) => (
           <li key={i}>
             <img
-              src={card.images[i]}
+              src={card.images[i].image}
               alt={card.name}
               // onError={addDefaultImg}
               onClick={() => handleImageClick(card.upload_images[i])}
