@@ -27,5 +27,13 @@
   "bestSellers": "Best Sellers",
   "cheaperTogether": "Cheaper together",
   "reviewsAboutProducts": "Reviews about our products",
-  "milliliters": "ml."
+  "milliliters": "ml.",
+  "available": "Available",
+  "temporarilyUnavailable": "Temporarily unavailable",
+  "sku": "SKU",
+  "leaveAReview": "Leave a review",
+  "description": "Description",
+  "use": "Use",
+  "ingredients": "Ingredients",
+  "productReviews": "Product reviews"
 }

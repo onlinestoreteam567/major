@@ -19,7 +19,7 @@ export default function Card({ card }) {
           <ProductRating card={card} />
           <PriceCardCatalog card={card} />
         </div>
-        <AddToCartButton variant="secondary">Додати до кошику</AddToCartButton>
+        <AddToCartButton />
       </div>
     </div>
   );

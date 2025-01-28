@@ -8,9 +8,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { oneElement } from '@components/constants/settingSlider';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export default function ListReviewsCard({ card }) {
   const [index, setIndex] = useState(1);
+  const { getTranslation } = useTranslationNamespace('common');
 
   let sliderRef = useRef(null);
   const next = () => {
@@ -25,11 +27,15 @@ export default function ListReviewsCard({ card }) {
   const total = card.reviews.length;
   const slidesData = card.reviews;
 
+  if (card.reviews.length === 0) {
+    return null;
+  }
+
   return (
     <div className={cl.wrapListReviewsCard}>
       <div className={cl.wrapTitle}>
-        <Heading type="h2">Відгуки про товар</Heading>
-        <Heading type="h2">Флюїд шовк для тонкого волосся</Heading>
+        <Heading type="h2">{getTranslation('productReviews')}</Heading>
+        <Heading type="h2">{card.name}</Heading>
       </div>
       <div className={`slider-container ${cl.wrapSlider}`}>
         <Slider ref={sliderRef} {...oneElement}>

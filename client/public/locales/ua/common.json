@@ -27,5 +27,13 @@
   "bestSellers": "Хіти продажів",
   "cheaperTogether": "Разом дешевше",
   "reviewsAboutProducts": "Відгуки про наші засоби",
-  "milliliters": "мл."
+  "milliliters": "мл.",
+  "available": "В наявності",
+  "temporarilyUnavailable": "Тимчасово відсутній",
+  "sku": "Артикул",
+  "leaveAReview": "Залишити відгук",
+  "description": "Опис товару",
+  "use": "Застосування",
+  "ingredients": "Склад",
+  "productReviews": "Відгуки про товар"
 }
