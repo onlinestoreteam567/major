@@ -9,6 +9,7 @@ export default function Image({ card }) {
       {card.is_best_seller ? <LabelHit /> : ''}
       {card.is_new ? <LabelNew /> : ''}
       {card.is_discount ? <LabelSale card={card} /> : ''}
+      {console.log(card)}
       <img src={card.images[0].image} alt="" />
     </div>
   );

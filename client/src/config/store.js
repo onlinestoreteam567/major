@@ -6,6 +6,7 @@ import cartReducer from '@features/cart/cartSlice';
 import { loadFromStorage, saveToStorage } from '@utils/localStorage';
 import bestSellersReducer from '@features/products/bestSellersSlice';
 import productListReducer from '@features/products/productListSlice';
+import productReducer from '@features/products/productSlice';
 
 const preloadedState = loadFromStorage('state');
 
@@ -14,6 +15,7 @@ const store = configureStore({
     cart: cartReducer,
     productList: productListReducer,
     bestSellers: bestSellersReducer,
+    product: productReducer,
 
     // checkout: checkoutReducer,
     // product: productReducer,
