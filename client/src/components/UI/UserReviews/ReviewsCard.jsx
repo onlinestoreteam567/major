@@ -8,10 +8,10 @@ export default function ReviewsCard({ review }) {
     <div className={cl.wrapReviewsCard}>
       <div className={cl.wrapUser}>
         <div className={cl.case}>
-          <Heading type="h4">{review.user.user_name}</Heading>
+          <Heading type="h4">{review.user_name}</Heading>
           <UserRating review={review} />
         </div>
-        <p>{review.user.data}</p>
+        <p>{review.data}</p>
       </div>
       <UserMessage review={review} />
     </div>

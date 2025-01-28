@@ -5,7 +5,6 @@ import StarFalse from '@assets/svg/StarFalse';
 
 export default function ProductRating({ card }) {
   const [stars, setStars] = useState([]);
-  console.log(card);
 
   useEffect(() => {
     if (card && card.reviews.length > 0) {

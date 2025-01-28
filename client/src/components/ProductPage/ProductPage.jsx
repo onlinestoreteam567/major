@@ -47,7 +47,7 @@ export default function ProductPage() {
             </div>
           </div>
           <Description card={card} />
-          <ListReviewsCard />
+          <ListReviewsCard card={card} />
           {/* <ProductOffer card={card} /> */}
           {/* <ProductSet card={card} /> */}
           {/* <ProductLook /> */}

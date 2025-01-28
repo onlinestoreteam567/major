@@ -1,5 +1,4 @@
 import cl from './index.module.scss';
-import reviewsList from './reviewsList.json';
 import ReviewsCard from './ReviewsCard';
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
@@ -10,7 +9,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { oneElement } from '@components/constants/settingSlider';
 
-export default function ListReviewsCard() {
+export default function ListReviewsCard({ card }) {
   const [index, setIndex] = useState(1);
 
   let sliderRef = useRef(null);
@@ -23,8 +22,8 @@ export default function ListReviewsCard() {
     setIndex((prevIndex) => prevIndex - 1);
   };
 
-  const total = reviewsList.length;
-  const slidesData = reviewsList;
+  const total = card.reviews.length;
+  const slidesData = card.reviews;
 
   return (
     <div className={cl.wrapListReviewsCard}>
