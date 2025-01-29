@@ -14,7 +14,7 @@ const BestSellers = () => {
   }
 
   if (status === 'failed') {
-    return <div>Error: {error}</div>;
+    return <div style={{ color: 'black', fontSize: '50px' }}>Error: {error}</div>;
   }
 
   return (

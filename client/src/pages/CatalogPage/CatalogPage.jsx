@@ -12,24 +12,16 @@ import { useEffect, useState } from 'react';
 import defaultValues from './defaultCatalogValues';
 import PriceRange from './Aside/PriceRange/PriceRange';
 import { useTranslation } from 'react-i18next';
-import TypeService from '@services/TypeService';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchProductList } from '@features/products/productListSlice';
+import { fetchCategories } from '@features/catalog/categoriesSlice';
 
 const CatalogPage = () => {
-  const [types, setTypes] = useState();
   const dispatch = useDispatch();
 
   const [isAsideMobile, setIsAsideMobile] = useState(false);
   const [isHiddenAside, setisHiddenAside] = useState(false);
   const { i18n } = useTranslation();
-
-  const { items } = useSelector((state) => state.productList);
-
-  const fetchTypes = async () => {
-    const data = await TypeService.getTypes();
-    setTypes(data);
-  };
 
   const { register, handleSubmit, watch, setValue } = useForm({
     resolver: yupResolver(catalogFilterSchema),
@@ -39,8 +31,8 @@ const CatalogPage = () => {
   const onSubmit = (data) => console.log('Submitted data:', data);
 
   useEffect(() => {
-    fetchTypes();
     dispatch(fetchProductList());
+    dispatch(fetchCategories());
   }, [i18n.language, dispatch]);
 
   return (
@@ -58,12 +50,12 @@ const CatalogPage = () => {
             <Switchs register={register} watch={watch} />
 
             <PriceRange setValue={setValue} register={'priceRange'} name="priceRange" />
-            <Category register={register} watch={watch} types={types} />
+            <Category register={register} watch={watch} />
           </Aside>
         </div>
 
         <Products>
-          <Container cards={items} />
+          <Container />
         </Products>
       </section>
     </div>
