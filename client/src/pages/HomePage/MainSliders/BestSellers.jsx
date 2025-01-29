@@ -10,7 +10,7 @@ const BestSellers = () => {
   const { getTranslation } = useTranslationNamespace('common');
 
   if (status === 'loading') {
-    return <div>Loading...</div>;
+    return <div style={{ color: 'black', fontSize: '50px' }}>Завантаження хітів продажу...</div>;
   }
 
   if (status === 'failed') {
