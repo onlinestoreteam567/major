@@ -8,19 +8,8 @@ import WhyChooseUs from './WhyChooseUs/WhyChooseUs';
 import YellowButtonMainWrapper from './YellowButton/YellowButtonMainWrapper';
 import BestSellers from './MainSliders/BestSellers';
 // import CheaperTogether from './MainSliders/CheaperTogether';
-import { useEffect } from 'react';
-import { fetchBestSellers } from '@features/products/bestSellersSlice';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-  const { i18n } = useTranslation();
-
-  useEffect(() => {
-    dispatch(fetchBestSellers());
-  }, [dispatch, i18n.language]);
-
   return (
     <div className={cl.homePage}>
       <div className={cl.banner}>
