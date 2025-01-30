@@ -1,14 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import ProductListService from '@services/ProductListService';
-
-// Thunk for fetching best sellers (delegates API logic to the service)
-export const fetchBestSellers = createAsyncThunk('bestSellers/fetchBestSellers', async (_, { rejectWithValue }) => {
-  try {
-    return await ProductListService.getProductList({ is_best_seller: true });
-  } catch (error) {
-    return rejectWithValue(error.message);
-  }
-});
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchBestSellers } from '@services/bestSellersService';
 
 // Slice definition
 const bestSellersSlice = createSlice({
