@@ -10,8 +10,8 @@ import TopLink from '@components/UI/TopLink/TopLink';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { fetchProduct } from '@features/products/productSlice';
 import { useLocation } from 'react-router-dom';
+import { fetchProduct } from '@services/productService';
 
 export default function ProductPage() {
   const dispatch = useDispatch();
@@ -25,11 +25,15 @@ export default function ProductPage() {
   }, [dispatch, i18n.language, productId]);
 
   if (status === 'loading') {
-    return <div>Loading...</div>;
+    return (
+      <div style={{ color: 'black', fontSize: '50px', marginTop: '200px', height: '100vh' }}>
+        Завантаження карточки...
+      </div>
+    );
   }
 
   if (status === 'failed') {
-    return <div>Error: {error}</div>;
+    return <div style={{ color: 'black', fontSize: '50px' }}>Error: {error}</div>;
   }
 
   return (

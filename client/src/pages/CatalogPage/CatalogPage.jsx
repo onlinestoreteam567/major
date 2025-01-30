@@ -3,25 +3,18 @@ import Aside from './Aside/Aside';
 import Top from './Top/Top';
 import Container from '@pages/CatalogPage/Products/CardsContainer/CardsContainer';
 import Switchs from './Aside/Switchs/Switchs';
-import Category from './Aside/Category/Category';
 import Products from './Products/Products';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { catalogFilterSchema } from '@validations/catalogFilterSchema';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import defaultValues from './defaultCatalogValues';
 import PriceRange from './Aside/PriceRange/PriceRange';
-import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { fetchProductList } from '@features/products/productListSlice';
-import { fetchCategories } from '@features/catalog/categoriesSlice';
+import Types from './Aside/Category/Category';
 
 const CatalogPage = () => {
-  const dispatch = useDispatch();
-
   const [isAsideMobile, setIsAsideMobile] = useState(false);
   const [isHiddenAside, setisHiddenAside] = useState(false);
-  const { i18n } = useTranslation();
 
   const { register, handleSubmit, watch, setValue } = useForm({
     resolver: yupResolver(catalogFilterSchema),
@@ -29,11 +22,6 @@ const CatalogPage = () => {
   });
 
   const onSubmit = (data) => console.log('Submitted data:', data);
-
-  useEffect(() => {
-    dispatch(fetchProductList());
-    dispatch(fetchCategories());
-  }, [i18n.language, dispatch]);
 
   return (
     <div className={cl.catalogWrapper}>
@@ -50,7 +38,7 @@ const CatalogPage = () => {
             <Switchs register={register} watch={watch} />
 
             <PriceRange setValue={setValue} register={'priceRange'} name="priceRange" />
-            <Category register={register} watch={watch} />
+            <Types register={register} watch={watch} />
           </Aside>
         </div>
 

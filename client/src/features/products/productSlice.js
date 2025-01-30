@@ -1,13 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import ProductListService from '@services/ProductListService';
-
-export const fetchProduct = createAsyncThunk('product/fetchProduct', async (_, { rejectWithValue }) => {
-  try {
-    return await ProductListService.getProductListById(_);
-  } catch (error) {
-    return rejectWithValue(error.message);
-  }
-});
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchProduct } from '@services/productService';
 
 const productSlice = createSlice({
   name: 'product',
