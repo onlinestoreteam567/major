@@ -7,30 +7,16 @@ export default function ProductRating({ card }) {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
-    if (card && card.reviews.length > 0) {
-      const newStars = calculateRating(card.reviews);
+    if (card && card.average_rating !== undefined) {
+      const trueStars = Math.round(card.average_rating);
+      const newStars = Array(5).fill(true, 0, trueStars).fill(false, trueStars);
       setStars(newStars);
-    } else if (card) {
-      // If there are no reviews, set 5 false stars
-      setStars(Array(5).fill(false));
     }
   }, [card]);
 
-  const calculateRating = (reviews) => {
-    const totalStars = reviews.reduce((acc, review) => {
-      review.stars.forEach((star, index) => {
-        acc[index] = (acc[index] || 0) + (star ? 1 : 0);
-      });
-      return acc;
-    }, []);
-
-    const averageStars = totalStars.map((starCount) => starCount >= reviews.length / 2);
-    return averageStars;
-  };
-
-  if (!card) {
-    return null;
-  }
+  // if (!card) {
+  //   return <p>awdawddwa</p>;
+  // }
 
   return (
     <div className={cl.wrapRating}>
@@ -39,7 +25,7 @@ export default function ProductRating({ card }) {
           <li key={i}>{el ? <StarTrue /> : <StarFalse />}</li>
         ))}
       </ul>
-      <p className={cl.total}>{card.reviews.length}</p>
+      <p className={cl.total}>{card.reviews?.length || 0}</p>
     </div>
   );
 }
