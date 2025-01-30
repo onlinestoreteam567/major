@@ -67,29 +67,3 @@
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
   }
 }
-
-.banner {
-  width: 331px;
-  height: 54px;
-  background-color: $second-background-color-black;
-  color: $text-color-light;
-  font-size: $font-size-medium;
-  font-weight: $font-weight-medium;
-  border: none;
-
-  @include tablet {
-    height: 58px;
-    width: 241px;
-    font-weight: $font-weight-bold;
-    line-height: $letter-spacing-base;
-    letter-spacing: $letter-spacing-base;
-    color: $text-color-light;
-  }
-
-  @include deskmax {
-    height: 77px;
-    font-size: $font-size-medium-extra;
-    font-weight: $font-weight-bold;
-    letter-spacing: $letter-spacing-base;
-  }
-}

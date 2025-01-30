@@ -7,14 +7,10 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const Slide = ({ slide }) => {
   const { getTranslation } = useTranslationNamespace('mainBanner');
 
-  const styleVariables = {
-    '--button-hover': slide.buttonHoverColor,
-    '--label-color': slide.labelColor,
-  };
-
   return (
     <div style={{ backgroundImage: `url(${slide.background})` }} className={cl.wrapBackground}>
-      <div className={`${cl.slide} ${slide.left ? cl.right : ''}`} style={styleVariables}>
+      <img src="/images/banners/mainBanner/background.png" alt="" className={cl.flowersBackground} />
+      <div className={`${cl.slide} ${slide.left ? cl.right : ''}`}>
         {slide.left && <img src={slide.image} alt="" />}
         <section>
           <div className={cl.label}>
@@ -22,7 +18,7 @@ const Slide = ({ slide }) => {
           </div>
           <div className={cl.bottomWrapper}>
             <Heading type="h1">{getTranslation(slide.title)}</Heading>
-            <Button variant="banner">{getTranslation('addToCart', 'common')}</Button>
+            <Button>{getTranslation('addToCart', 'common')}</Button>
           </div>
         </section>
         {!slide.left && <img src={slide.image} alt="" />}
