@@ -1,12 +1,40 @@
 @import '@mixins';
 
 .aside {
-  width: 21.25vw;
-  padding: 34px 32px;
+  @include flex(column, null, center);
   box-sizing: border-box;
   border: 1px solid #cccccc;
-  border-radius: 2px;
+  border-radius: $border-radius-small;
+  padding: 34px 12px;
   height: fit-content;
+  @include absolute();
+  z-index: 10;
+  background-color: #ffffff;
+  width: 100%;
+  @include showCloseAnimation('show', -100%);
+
+  @include deskmin {
+    width: 308px;
+    padding: 34px 32px;
+    position: static;
+    animation: none;
+  }
+
+  &.hiddenAnimation {
+    @include showCloseAnimation('close', -100%);
+  }
+
+  .topSection {
+    @include flex(row, space-between);
+    width: 354px;
+    max-width: 354px;
+    margin-bottom: 25px;
+  }
+
+  form {
+    width: 100%;
+    max-width: 354px;
+  }
 
   .switchBox {
     user-select: none;
@@ -37,170 +65,27 @@
     line-height: 23.04px;
   }
 
-  .assignmentWrapper {
-    @include flexGap(16px, column);
-    max-width: 212px;
+  .checkboxesWrapper {
     margin-top: 45px;
-
-    ul {
-      user-select: none;
-      @include flex(column, null, start);
-
-      li {
-        label {
-          @include flex();
-          gap: 8px;
-          cursor: pointer;
-
-          p {
-            font-family: $font-second;
-            font-size: $font-size-base;
-            font-weight: $font-weight-base;
-
-            span {
-              color: #a2a2a2;
-            }
-          }
-        }
-      }
+    gap: 8px;
+    @include flex(column, null, start);
+    @include deskmin {
+      max-width: 212px;
     }
-  }
 
-  .rangeWrapper {
-    margin-top: 53px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    label {
+      @include flex();
+      user-select: none;
+      cursor: pointer;
 
-    .priceInput {
-      @include flex(row, space-between);
-      width: 100%;
-      margin: 30px 0 35px;
-
-      .field {
-        display: flex;
-        height: 45px;
-        align-items: center;
-        position: relative;
-        box-sizing: border-box;
+      p {
+        font-family: $font-second;
+        font-size: $font-size-base;
+        font-weight: $font-weight-base;
 
         span {
-          position: absolute;
-          top: 50%;
-          left: 18px;
-          transform: translate(-50%, -50%);
-          font-family: $font-main;
-          font-size: $font-size-base;
-          font-weight: 300;
-          line-height: 20.48px;
           color: #a2a2a2;
         }
-
-        input {
-          outline: none;
-          text-align: center;
-          appearance: textfield;
-          box-sizing: border-box;
-
-          font-family: $font-main;
-          font-size: $font-size-base;
-          font-weight: 300;
-          line-height: 20.48px;
-
-          width: 82px;
-          height: 40px;
-          border-radius: 2px;
-          border: 1px solid #a2a2a2;
-        }
-      }
-      button {
-        cursor: pointer;
-        width: 52px;
-        height: 40px;
-        border-radius: 2px;
-        background-color: $second-background-color-black;
-        color: #f8f8f9;
-        outline: none;
-        border: none;
-        font-family: $font-main;
-        font-size: $font-size-medium;
-        font-weight: $font-weight-medium;
-        line-height: 23.04px;
-      }
-    }
-
-    input[type='number']::-webkit-outer-spin-button,
-    input[type='number']::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-    }
-
-    .slider {
-      height: 5px;
-      position: relative;
-      background: #ddd;
-      border-radius: 5px;
-
-      .progress {
-        height: 100%;
-        left: 25%;
-        right: 25%;
-        position: absolute;
-        border-radius: 5px;
-        background: #000;
-      }
-    }
-
-    .rangeInput {
-      position: relative;
-
-      input {
-        position: absolute;
-        width: 100%;
-        height: 5px;
-        top: -5px;
-        background: none;
-        pointer-events: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        margin: 0;
-      }
-
-      input[type='range']::-webkit-slider-thumb {
-        height: 24px !important;
-        width: 24px !important;
-        border-radius: 50% !important;
-        border: 2px solid #000000 !important;
-        background: #fff !important;
-        pointer-events: auto !important;
-        cursor: pointer !important;
-        -webkit-appearance: none !important; /* Зняття дефолтного стилю Chrome */
-        box-shadow: 0 0.125rem 0.5625rem -0.125rem rgba(0, 0, 0, 0.25) !important;
-        box-sizing: border-box;
-      }
-
-      input[type='range']::-moz-range-thumb {
-        height: 24px;
-        width: 24px;
-        border: 2px solid #22211f;
-        border-radius: 50%;
-        background: #ffffff;
-        pointer-events: auto;
-        -moz-appearance: none;
-        box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
-        cursor: pointer;
-        box-sizing: border-box;
-      }
-
-      input[type='range'] {
-        -webkit-appearance: none; /* Chrome */
-        -moz-appearance: none; /* Firefox */
-        appearance: none; /* Modern Browsers */
-        width: 100%;
-        height: 5px;
-        background: none;
-        pointer-events: none;
-        margin: 0;
       }
     }
   }

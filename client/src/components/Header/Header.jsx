@@ -1,22 +1,22 @@
 import cl from './index.module.scss';
-import LogoIcon from '@assets/svg/header/LogoIcon/LogoIcon';
+import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
 import Basket from '@components/Header/Basket/Basket';
 import Navigation from '@components/Header/Navigation/Navigation';
-import RightSection from './RightSection/RightSection';
+import RightHeaderControls from './RightHeaderControls/RightSection';
 import useScreenSizes from '@hooks/useScreenSizes';
 import { useState } from 'react';
 import { usePageState } from '@hooks/header/usePageState';
 import { useScrollState } from '@hooks/header/useScrollState';
-import BurgerIcon from '@assets/svg/header/BurgerIcon';
+import BurgerIcon from '@assets/svg/Header/BurgerIcon';
 import NavDrawer from './NavDrawer/NavDrawer';
 import MobileSearchWrapper from './Search/MobileSearchWrapper';
 import SearchInput from './Search/SearchInput/SearchInput';
 
 const Header = () => {
-  const { deskmin } = useScreenSizes();
+  const { deskmin, deskmax } = useScreenSizes();
   const isMainPage = usePageState();
   const isScrolled = useScrollState(isMainPage);
-  const [isShowInput, setIsShowInput] = useState(deskmin);
+  const [isShowInput, setIsShowInput] = useState(false);
   const [isShowBasket, setIsShowBasket] = useState(false);
   const [isShowNavDrawer, setIsShowNavDrawer] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -26,9 +26,9 @@ const Header = () => {
   const handleShowBasket = () => setIsShowBasket(true);
 
   return (
-    <header className={`${isScrolled ? cl.headerScrolled : ''} ${!isMainPage ? cl.headerNotMainPage : ''}`}>
+    <header className={`${isScrolled ? cl.headerScrolled : ''}`}>
       <div className={cl.mainWrapper}>
-        {!deskmin && (
+        {!deskmin && !deskmax && (
           <div onClick={handleShowNavDrawer} className={cl.burgerWrapper}>
             <BurgerIcon fillColor={isScrolled ? 'white' : 'black'} />
           </div>
@@ -36,18 +36,18 @@ const Header = () => {
 
         <LogoIcon fillColor={isScrolled ? 'white' : 'black'} />
 
-        {deskmin && <Navigation />}
+        {(deskmin || deskmax) && <Navigation />}
 
-        {deskmin && isShowInput && (
+        {(deskmin || deskmax) && isShowInput && (
           <SearchInput
             setIsShowInput={setIsShowInput}
             inputValue={inputValue}
             setInputValue={setInputValue}
-            isDesktop={deskmin}
+            isDesktop={deskmin || deskmax}
           />
         )}
 
-        <RightSection
+        <RightHeaderControls
           isShowInput={isShowInput}
           handleShowInput={handleShowInput}
           isScrolled={isScrolled}
@@ -55,7 +55,7 @@ const Header = () => {
         />
       </div>
 
-      {!deskmin && isShowInput && (
+      {!deskmin && !deskmax && isShowInput && (
         <MobileSearchWrapper
           setIsShowInput={setIsShowInput}
           inputValue={inputValue}

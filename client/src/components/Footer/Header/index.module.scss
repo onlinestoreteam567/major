@@ -3,15 +3,32 @@
 .topSection {
   width: 100%;
 
+  & {
+    padding-bottom: 0;
+  }
+
   @include tablet {
     height: 254px;
     display: grid;
-    grid-template-columns: min-content 1fr min-content;
-    box-sizing: border-box;
+    grid-template-columns: min-content auto;
     gap: 37px;
   }
 
   @include deskmin {
+    gap: 0;
     grid-template-columns: min-content 1fr min-content;
+  }
+
+  @include deskmax {
+    max-width: 1296px;
+  }
+
+  .wrapper {
+    @include flex(row, center, start);
+    gap: 45px;
+
+    @include tablet {
+      gap: 0;
+    }
   }
 }

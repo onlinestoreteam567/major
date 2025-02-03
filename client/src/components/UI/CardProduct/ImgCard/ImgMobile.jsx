@@ -1,48 +1,50 @@
+import ArrowLeft from '@assets/svg/ArrowLeft';
+import cl from './index.module.scss';
+import { useRef, useState } from 'react';
+import ArrowRight from '@assets/svg/ArrowRight';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { oneElement } from '@components/constants/settingSlider';
 import LabelHit from '../Labels/LabelHit';
 import LabelNew from '../Labels/LabelNew';
 import LabelSale from '../Labels/LabelSale';
-import cl from './index.module.scss';
-import { useEffect, useState } from 'react';
 
 export default function ImgMobile({ card }) {
-  const [index, setIndex] = useState(0);
-  const [active, setActive] = useState(false);
+  const [index, setIndex] = useState(1);
+  let sliderRef = useRef(null);
 
-  const images = card.upload_images;
-
-  const handleDotClick = (i) => {
-    setActive(false);
-    setTimeout(() => {
-      setIndex(i);
-      setActive(true);
-    }, 500); // Время должно совпадать с transition в CSS
+  const next = () => {
+    sliderRef.current.slickNext();
+    setIndex((prevIndex) => prevIndex + 1);
+  };
+  const previous = () => {
+    sliderRef.current.slickPrev();
+    setIndex((prevIndex) => prevIndex - 1);
   };
 
-  const addDefaultImg = (ev) => {
-    ev.target.src = '/images/default_img1.svg';
-  };
-
-  useEffect(() => {
-    setActive(true);
-  }, []);
+  const slidesData = card.images;
+  const total = slidesData.length;
 
   return (
-    <div className={cl.wrapImgMobCard}>
-      <div>
-        {card.is_best_seller ? <LabelHit /> : ''}
-        {card.is_new ? <LabelNew /> : ''}
-        {card.is_sale ? <LabelSale card={card} /> : ''}
-        <img src={images[index]} alt={card.name} onError={addDefaultImg} className={active ? 'active' : ''} />
-      </div>
-
-      <div className={cl.wrapDots}>
-        {images.map((_, i) => (
-          <button
-            key={i}
-            className={`${cl.dot} ${i === index ? cl.active : ''}`}
-            onClick={() => handleDotClick(i)}
-          ></button>
+    <div className={`slider-container ${cl.wrapSlider}`}>
+      <Slider ref={sliderRef} {...oneElement}>
+        {slidesData.map((slide, index) => (
+          <div key={index} className={cl.wrapImgMobCard}>
+            {card.is_best_seller ? <LabelHit /> : ''}
+            {card.is_new ? <LabelNew /> : ''}
+            {card.is_discount ? <LabelSale card={card} /> : ''}
+            <img src={slide} alt={card.name} />
+          </div>
         ))}
+      </Slider>
+      <div className={cl.wrapImgBtn}>
+        <button type="button" disabled={index === 1} onClick={previous}>
+          <ArrowLeft />
+        </button>
+        <button type="button" disabled={index === total} onClick={next}>
+          <ArrowRight />
+        </button>
       </div>
     </div>
   );

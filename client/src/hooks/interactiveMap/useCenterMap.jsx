@@ -10,7 +10,6 @@ const useCenterMap = (containerRef) => {
 
   useEffect(() => {
     if (deskmin) {
-      console.log('deskmin');
       setCenterMapValue({
         x: 10,
         y: 2.4,
@@ -18,9 +17,8 @@ const useCenterMap = (containerRef) => {
     }
 
     if (deskmax) {
-      console.log('deskmax');
       setCenterMapValue({
-        x: 4.5,
+        x: 2.1,
         y: 2.7,
       });
     }

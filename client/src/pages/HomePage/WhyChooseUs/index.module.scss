@@ -1,70 +1,100 @@
 @import '@mixins';
 
 .whyChooseUsWrapper {
-  margin-top: 18vh;
+  @include flex(column, flex-start, center);
   box-sizing: border-box;
-
-  h2 {
-    text-align: center;
-  }
-
+  gap: 40px;
+  width: 356px;
   .figuresWrapper {
-    @include flex(column, center, center);
-    gap: 16px;
-    margin-top: 76px;
-
-    @include tablet {
-      @include flex(row, center, center);
-    }
-
-    @include deskmin {
-      gap: 28px;
-      flex-direction: column;
-    }
-
-    section {
-      @include flexGap(16px, column);
-
-      @include deskmin {
-        @include flex(row, space-around, center);
-        width: 100%;
+    @include flex(column, flex-start, center);
+    gap: 12px;
+    figure {
+      box-sizing: border-box;
+      @include flex(column, flex-start, center);
+      gap: 16px;
+      img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
       }
-
-      figure {
-        @include flex(column);
+      figcaption {
+        @include flex(column, flex-start, center);
+        box-sizing: border-box;
+        width: 356px;
         gap: 16px;
 
-        @include deskmin {
-          flex-direction: row;
-        }
-
-        img {
-          object-fit: cover;
-          height: 80px;
-          width: 80px;
-
-          @include tablet {
-            height: 90px;
-            width: 90px;
-          }
-
-          @include deskmax {
-            width: 112px;
-            height: 112px;
-          }
-        }
-
-        figcaption {
-          @include flex(column);
-          gap: 16px;
-          max-width: 338px;
-          color: $text-color-black;
-          text-wrap: balance;
+        p {
           text-align: center;
 
-          p {
-            width: 90%;
-          }
+          // @include deskmin {
+          //   text-align: left;
+          // }
+        }
+      }
+    }
+  }
+  @include tablet {
+    width: 640px;
+    gap: 48px;
+    .figuresWrapper {
+      @include flex(row, flex-start, center);
+      flex-wrap: wrap;
+      gap: 28px;
+      figure {
+        width: 306px;
+        height: 232px;
+        gap: 8px;
+        // padding: 8px 0px;
+
+        img {
+          width: 88px;
+          height: 88px;
+        }
+        figcaption {
+          width: 306px;
+          height: 110px;
+          gap: 8px;
+          padding: 0 8px;
+        }
+      }
+    }
+  }
+  @include deskmin {
+    width: 980px;
+    .figuresWrapper {
+      figure {
+        @include flex(row, flex-start, center);
+        width: 476px;
+        height: 158px;
+        gap: 16px;
+        padding: 24px;
+        img {
+          width: 92px;
+          height: 92px;
+        }
+        figcaption {
+          width: 320px;
+        }
+      }
+    }
+  }
+  @include deskmax {
+    width: 1296px;
+    gap: 72px;
+    .figuresWrapper {
+      column-gap: 124px;
+      row-gap: 64px;
+      figure {
+        width: 586px;
+        height: 160px;
+        gap: 40px;
+        img {
+          width: 108px;
+          height: 108px;
+        }
+        figcaption {
+          width: 390px;
+          gap: 16px;
         }
       }
     }

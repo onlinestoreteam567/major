@@ -19,7 +19,7 @@ const handlePointClick = (
           clickLocked: false,
           activePartner: null,
         }));
-      }, 500);
+      }, 275);
     } else {
       setPartnerInteractionState((prevState) => ({
         ...prevState,
@@ -33,7 +33,7 @@ const handlePointClick = (
       }));
       setTimeout(() => {
         setPartnerInteractionState((prevState) => ({ ...prevState, clickLocked: false }));
-      }, 500);
+      }, 275);
     }
   }
 };

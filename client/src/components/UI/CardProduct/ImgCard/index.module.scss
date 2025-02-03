@@ -1,43 +1,69 @@
 @import '@mixins';
 
+// *** SliderBoxMain ***
 // *** ImgMobile of ProductCardPage ***
-.wrapImgMobCard {
+.wrapSlider {
   position: relative;
-  @include flexGap(24px, column);
+  display: block;
+  text-align: center;
   width: 356px;
-  height: 388px;
-  padding: 0;
-  img {
+  height: 356px;
+  .wrapImgMobCard {
+    position: relative;
+    @include flexGap(24px, column);
     width: 356px;
     height: 356px;
-    background-color: rgb(248, 248, 249);
-    object-fit: cover;
-    transition: opacity 0.5s ease;
-    opacity: 1;
+    padding: 0;
+    img {
+      width: 356px;
+      height: 356px;
+      background-color: rgb(248, 248, 249);
+      object-fit: cover;
+      transition: opacity 0.5s ease;
+      opacity: 1;
+    }
   }
-  img.active {
-    opacity: 0;
-  }
-  .wrapDots {
-    @include flex(row, center, flex-end);
-    width: 80px;
-    height: 32px;
-    gap: 16px;
-    margin: 0 auto;
-    .dot {
+  .wrapImgBtn {
+    position: absolute;
+    top: 240px;
+    left: 0px;
+    @include flex(row, space-between, center);
+    width: 100%;
+    padding: 0;
+    button {
       @include flex(row, center, center);
-      width: 10px;
-      height: 9px;
-      border-radius: 50%;
-      background-color: rgb(162, 162, 162);
-      transition: background-color 0.5s ease;
+      width: 48px;
+      height: 48px;
       border: none;
       outline: none;
+      background-color: transparent;
       padding: 0;
-      margin: 0;
       cursor: pointer;
-      &.active {
-        background-color: rgb(34, 33, 31);
+      &:hover {
+        svg {
+          @include flex(row, center, center);
+          rect {
+            fill: rgb(34, 33, 31);
+            transition: fill 0.5s ease;
+          }
+          path {
+            stroke: #ffffff;
+            transition: stroke 0.5s ease;
+          }
+        }
+      }
+      &:disabled {
+        svg {
+          @include flex(row, center, center);
+          rect {
+            fill: #f8f8f9;
+            transition: fill 0.5s ease;
+          }
+          path {
+            stroke: #22211f;
+            transition: stroke 0.5s ease;
+          }
+        }
       }
     }
   }
@@ -45,6 +71,7 @@
     display: none;
   }
 }
+
 // *** ImgDesk of ProductCardPage ***
 .wrapImgDeskCard {
   @include mobile {
@@ -59,7 +86,7 @@
       width: 216px;
       height: 230px;
       background-color: rgb(248, 248, 249);
-      img {
+      .imgBig {
         width: 216px;
         height: 230px;
         object-fit: cover;
@@ -69,12 +96,13 @@
       @include flex(row, space-between, center);
       width: 216px;
       height: 40px;
+      list-style: none;
       img {
         width: 40px;
         height: 40px;
         background-color: rgb(248, 248, 249);
         object-fit: cover;
-        border-radius: 2px;
+        border-radius: $border-radius-small;
         cursor: pointer;
       }
       .selected {
@@ -93,7 +121,7 @@
     .wrapImgCase {
       width: 296px;
       height: 296px;
-      img {
+      .imgBig {
         width: 296px;
         height: 296px;
       }
@@ -116,7 +144,7 @@
     .wrapImgCase {
       width: 416px;
       height: 416px;
-      img {
+      .imgBig {
         width: 416px;
         height: 416px;
       }

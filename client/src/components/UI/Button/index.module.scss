@@ -7,11 +7,12 @@
   line-height: $line-height-base;
   box-sizing: border-box;
   cursor: pointer;
+  overflow: hidden;
   padding: 0;
-  border-radius: 8px;
+  border-radius: $border-radius-medium;
   transition:
-    300ms ease-out background-color,
-    300ms ease-out color;
+    background-color 300ms ease-out,
+    color 300ms ease-out;
 }
 
 // Buttons purposes
@@ -28,22 +29,29 @@
 // Buttons variants
 .primary {
   background-color: $second-background-color-black;
-  color: white !important;
+  color: white;
   border: 2px solid $second-background-color-black;
 
   &:hover {
     background-color: transparent;
-    color: $text-color-black !important;
+    color: $text-color-black;
   }
 }
 
 .secondary {
-  border: 2px solid #000000;
+  border: 1px solid #22211f;
   background-color: transparent;
 
-  &:hover {
+  &:hover,
+  &:active {
     background-color: $second-background-color-black;
     color: $text-color-light;
+
+    svg {
+      path {
+        stroke: $text-color-light;
+      }
+    }
   }
 }
 
@@ -52,48 +60,10 @@
   text-decoration: underline;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: $font-size-medium-plus;
 
   &:hover {
     text-decoration: none;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-  }
-}
-
-.banner {
-  width: 331px;
-  height: 54px;
-  background-color: $second-background-color-black;
-  color: $text-color-light;
-  font-size: 18px;
-  font-weight: $font-weight-medium;
-  border: none;
-
-  @include tablet {
-    height: 58px;
-    width: 241px;
-    font-weight: $font-weight-bold;
-    line-height: $letter-spacing-base;
-    letter-spacing: $letter-spacing-base;
-    color: $text-color-light;
-  }
-
-  @include deskmax {
-    height: 77px;
-    font-size: 24px;
-    font-weight: $font-weight-bold;
-    letter-spacing: $letter-spacing-base;
-  }
-}
-
-.navDrawer {
-  width: 100%;
-  height: 46px;
-  font-size: $font-size-medium;
-  border: none;
-
-  &:hover {
-    color: $text-color-light;
-    background-color: #676767;
   }
 }

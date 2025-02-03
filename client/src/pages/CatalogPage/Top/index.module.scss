@@ -1,12 +1,80 @@
 @import '@mixins';
 
 .catalogSection {
-  @include flex(row, space-between, center);
-  margin-bottom: 45px;
+  @include flex(column, null, center);
+  margin-bottom: 25px;
+
+  @include tablet {
+    width: 636px;
+    margin: 0 auto 40px;
+  }
+
+  @include deskmin {
+    width: 980px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include deskmax {
+    width: 1296px;
+  }
+
+  nav {
+    @include tablet {
+      width: 636px;
+    }
+  }
+
+  h2 {
+    width: 356px;
+    text-align: start;
+
+    @include tablet {
+      width: 636px;
+    }
+  }
 
   .sortSection {
     @include flex(row, space-between, center);
-    width: 371px;
+    width: 356px;
+    margin-top: 20px;
+
+    @include tablet {
+      margin-top: 40px;
+      width: 636px;
+    }
+
+    @include deskmin {
+      justify-content: space-between;
+      gap: 0;
+
+      h4 {
+        @include flex();
+      }
+    }
+
+    @include deskmax {
+      justify-content: end;
+      gap: 35px;
+    }
+
+    button {
+      @include flexGap(16px, row);
+      height: 44px;
+      width: 165px;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 20.48px;
+      border-radius: 2px;
+
+      @include tablet {
+        width: 308px;
+      }
+
+      @include deskmin {
+        width: 206px;
+      }
+    }
 
     section {
       @include flexGap(10px);

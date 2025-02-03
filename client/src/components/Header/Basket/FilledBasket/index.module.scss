@@ -1,0 +1,87 @@
+@import '@mixins';
+
+.basketItems {
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.totalSection {
+  width: 100%;
+  p {
+    @include flex(row, space-between, center);
+    margin-bottom: 10px;
+    span {
+      font-family: $font-second;
+      font-size: $font-size-base;
+      font-weight: $font-weight-base;
+      line-height: 23.04px;
+    }
+
+    strong {
+      font-family: $font-main;
+      font-size: $font-size-medium;
+      font-weight: $font-weight-medium;
+      line-height: 23.04px;
+    }
+  }
+
+  h3 {
+    @include flex(row, space-between, center);
+    span {
+      font-family: $font-main;
+      font-size: $font-size-medium-plus;
+      font-weight: $font-weight-medium;
+      line-height: $line-height-base;
+    }
+  }
+}
+
+.buttonsSection {
+  margin-top: auto;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+
+  .continueShoppingButtonSecond {
+    width: 100%;
+    height: 55px;
+    box-sizing: border-box;
+    padding: 0;
+    border-radius: $border-radius-small;
+    border: 1px solid #22211f;
+    opacity: 0;
+    transition: 0.3s ease-out;
+    background-color: #f8f8f9;
+
+    &:hover {
+      border: none;
+      background-color: #676767;
+    }
+  }
+
+  .orderButton {
+    width: 100%;
+    height: 55px;
+    box-sizing: border-box;
+    border-radius: $border-radius-small;
+    border: none;
+    padding: 0;
+    background-color: $second-background-color-black;
+    color: #f8f8f9;
+    font-family: $font-main;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-medium;
+    line-height: 23.04px;
+    text-wrap: nowrap;
+    transition: 0.3s ease-out;
+
+    &:hover {
+      background-color: #7e57c2;
+    }
+  }
+}

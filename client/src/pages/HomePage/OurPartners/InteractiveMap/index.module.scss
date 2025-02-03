@@ -22,11 +22,10 @@
     }
 
     @include deskmin {
-      width: 1039px;
+      width: 1471px;
     }
 
     @include deskmax {
-      width: 1471px;
       height: 997px;
     }
   }
@@ -50,8 +49,8 @@
       @include absolute(182px, 95px);
     }
 
-    @include tablet {
-      @include absolute(205px, 110px);
+    @include deskmin {
+      @include absolute(300px, 153px);
     }
 
     @include deskmax {
@@ -66,8 +65,8 @@
       @include absolute(86px, 145px);
     }
 
-    @include tablet {
-      @include absolute(100px, 170px);
+    @include deskmin {
+      @include absolute(143px, 243px);
     }
 
     @include deskmax {
@@ -82,8 +81,8 @@
       @include absolute(204px, 186px);
     }
 
-    @include tablet {
-      @include absolute(225px, 207px);
+    @include deskmin {
+      @include absolute(329px, 298px);
     }
 
     @include deskmax {
@@ -98,8 +97,8 @@
       @include absolute(269px, 136px);
     }
 
-    @include tablet {
-      @include absolute(310px, 155px);
+    @include deskmin {
+      @include absolute(439px, 223px);
     }
 
     @include deskmax {
@@ -114,8 +113,8 @@
       @include absolute(245px, 330px);
     }
 
-    @include tablet {
-      @include absolute(275px, 380px);
+    @include deskmin {
+      @include absolute(414px, 538px);
     }
 
     @include deskmax {

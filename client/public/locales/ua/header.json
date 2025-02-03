@@ -3,5 +3,6 @@
   "about": "ПРО НАС",
   "blog": "БЛОГ",
   "cooperation": "СПІВПРАЦЯ",
-  "contact": "КОНТАКТИ"
+  "contact": "КОНТАКТИ",
+  "searchInputPlaceholder": "Я шукаю..."
 }

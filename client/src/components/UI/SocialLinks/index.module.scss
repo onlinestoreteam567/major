@@ -10,6 +10,10 @@
     letter-spacing: $letter-spacing-small;
     line-height: 21.76px;
 
+    &.black {
+      color: $header-link-color;
+    }
+
     @include deskmin {
       font-family: $font-main;
       font-size: $font-size-medium;
@@ -20,17 +24,20 @@
 
   ul {
     @include flexGap(24px);
+    align-items: center;
     margin-top: 16px;
 
     img {
       gap: 16px;
-      height: 24px;
-      width: 24px;
 
       @include deskmax {
         height: 32px;
         width: 32px;
       }
+    }
+
+    .mailIcon {
+      margin-left: 5px;
     }
   }
 }

@@ -1,28 +1,24 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
 import SearchInput from './SearchInput/SearchInput';
+import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
+import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
 const MobileSearchWrapper = ({ setIsShowInput, inputValue, setInputValue, isDesktop }) => {
   const [IsHiddenSearchAnimation, setIsHiddenSearchAnimation] = useState(false);
 
-  const handleCloseSearchAnimation = () => {
-    setIsHiddenSearchAnimation(true);
-    clearTimeout();
-    setTimeout(() => {
-      setIsShowInput(false);
-    }, 275);
-  };
-
   return (
-    <section className={`${cl.searchWrapper} ${IsHiddenSearchAnimation && cl.closeAnimation}`}>
-      <section className={cl.topSection}>
+    <div className={`${cl.searchWrapper} ${IsHiddenSearchAnimation && cl.closeAnimation}`}>
+      <div className={cl.top}>
         <img src="/svg/header/searchLogo.svg" alt="" />
-        <div>
-          <img src="/svg/crossIcon.svg" alt="" onClick={handleCloseSearchAnimation} />
-        </div>
-      </section>
+        <ButtonClose
+          onClick={() => {
+            handleCloseWithDelay(setIsHiddenSearchAnimation, setIsShowInput);
+          }}
+        />
+      </div>
       <SearchInput inputValue={inputValue} setInputValue={setInputValue} isDesktop={isDesktop} />
-    </section>
+    </div>
   );
 };
 export default MobileSearchWrapper;

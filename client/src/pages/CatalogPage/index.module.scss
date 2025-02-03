@@ -2,21 +2,45 @@
 
 .catalogWrapper {
   width: 100%;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding: 0 12px;
   color: $text-color-black;
   box-sizing: border-box;
+  margin-top: 75px;
+
+  @include layout();
+
+  @include tablet {
+    margin: 75px auto 0 auto;
+  }
+
+  @include deskmin {
+    margin: 96px auto 0;
+  }
 
   .mainWrapper {
     @include flexGap(24px);
+
+    @include deskmin {
+      width: 980px;
+      margin: 0 auto;
+    }
+
+    @include deskmax {
+      width: 1296px;
+    }
   }
 }
 
 .wrapAside {
   display: none;
+
   @include deskmin {
     display: block;
     padding: 0;
     margin: 0;
   }
+}
+
+.asideMobile {
+  display: contents;
 }

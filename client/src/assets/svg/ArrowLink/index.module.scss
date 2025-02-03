@@ -1,0 +1,7 @@
+@import '@mixins';
+
+.wrapArrowLink {
+  @include flex(row, center, center);
+  width: 16px;
+  height: 16px;
+}

@@ -1,0 +1,15 @@
+@import '@mixins';
+
+.bottom {
+  @include flex(column);
+  gap: 25px;
+  margin-top: 120px;
+
+  @include deskmax {
+    margin-top: 96px;
+  }
+
+  button {
+    width: 306px;
+  }
+}

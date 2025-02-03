@@ -2,7 +2,7 @@ import cl from './index.module.scss';
 import Heading from '@UI/Texts/Heading/Heading';
 import Paragraph from '@UI/Texts/Paragraph/Paragraph';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import Button from '@UI/Button/Button';
+import { Link } from 'react-router-dom';
 
 const MajorInfo = () => {
   const { getTranslation } = useTranslationNamespace('majorInfo');
@@ -10,22 +10,21 @@ const MajorInfo = () => {
   return (
     <section className={cl.majorInfoWrapper}>
       <Heading type="h2">{getTranslation('title')}</Heading>
-
-      <figure>
-        <img src="/images/majorInfo/1.png" alt={getTranslation('imgAlt')} />
-
-        <figcaption>
-          <Paragraph>{getTranslation('text1')}</Paragraph>
-          <Paragraph>{getTranslation('text2')}</Paragraph>
-          <Paragraph>{getTranslation('text3')}</Paragraph>
-
-          <div>
-            <Button variant="link" purpose="fitContent">
-              {getTranslation('more')}
-            </Button>
+      <div className={cl.wrapItem}>
+        <div className={cl.wrapImg}>
+          <img src="/images/majorInfo/1.png" alt={getTranslation('imgAlt')} />
+        </div>
+        <div className={cl.wrapInfo}>
+          <div className={cl.wrapText}>
+            <Paragraph>{getTranslation('text1')}</Paragraph>
+            <Paragraph>{getTranslation('text2')}</Paragraph>
+            <Paragraph>{getTranslation('text3')}</Paragraph>
           </div>
-        </figcaption>
-      </figure>
+          <Link to="/about" className={cl.link}>
+            {getTranslation('more')}
+          </Link>
+        </div>
+      </div>
     </section>
   );
 };

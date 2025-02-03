@@ -6,8 +6,12 @@
   font-weight: $font-weight-base;
   line-height: 1.36;
   color: $text-color-black;
+  text-align: justify;
   @include deskmin {
     font-size: $font-size-medium;
+  }
+  @include deskmax {
+    font-size: 20px;
   }
 }
 .body2 {
@@ -20,6 +24,7 @@
     font-size: $font-size-base;
   }
 }
+
 .label {
   font-family: $font-main;
   font-size: $font-size-small;

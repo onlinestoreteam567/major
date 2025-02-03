@@ -2,23 +2,4 @@
 
 .productsWrapper {
   width: 100%;
-
-  .bottom {
-    @include flex(column);
-    gap: 10px;
-    margin-top: 100%;
-    margin-bottom: 100px;
-
-    p {
-      font-family: $font-main;
-      font-size: $font-size-base;
-      font-weight: 300;
-      line-height: 20.48px;
-      color: #3b3c37;
-    }
-
-    .buttonWrapper {
-      width: 306px;
-    }
-  }
 }

@@ -43,3 +43,56 @@
     @content;
   }
 }
+
+@mixin layout {
+  & {
+    box-sizing: border-box;
+    padding: 0 12px 120px 12px;
+    min-width: 380px;
+    max-width: 767px;
+  }
+  @include tablet {
+    padding: 0 64px 120px 64px;
+    min-width: 768px;
+    max-width: 1023px;
+  }
+
+  @include deskmin {
+    padding: 0 24px 120px 24px;
+    min-width: 1024px;
+    max-width: 1439px;
+  }
+
+  @include deskmax {
+    padding: 0 72px 120px 72px;
+    width: 1440px;
+  }
+}
+
+@mixin showCloseAnimation($animationType: 'show', $direction: 100%, $duration: 300ms) {
+  @keyframes show {
+    from {
+      transform: translateX($direction);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes close {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX($direction);
+    }
+  }
+
+  & {
+    @if $animationType == 'show' {
+      animation: show $duration ease-out;
+    } @else if $animationType == 'close' {
+      animation: close $duration ease-in;
+    }
+  }
+}

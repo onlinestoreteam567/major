@@ -1,4 +1,4 @@
-import cl from '../index.module.scss';
+import cl from './index.module.scss';
 import Overlay from '@UI/Overlay/Overlay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { needHelpSchema } from '@validations/needHelpSchema';
 import { Input, PhoneNumberInput, Textarea } from '@components/form-components';
+import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
 const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
   const { getTranslation } = useTranslationNamespace('yellowButton');
@@ -23,9 +24,10 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
       <Overlay handleClose={handleCloseMessagePopUp} />
 
       <div className={cl.messagePopUp}>
-        <img src="svg/crossIcon.svg" alt={getTranslation('crossAlt')} onClick={handleCloseMessagePopUp} />
-        <Subtitle>{popUpData.subtitle}</Subtitle>
-        <Heading type="h3">{popUpData.heading}</Heading>
+        <ButtonClose onClick={handleCloseMessagePopUp} />
+
+        <Subtitle>{getTranslation(popUpData.subtitle)}</Subtitle>
+        <Heading type="h3">{getTranslation(popUpData.heading)}</Heading>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
             labelText={getTranslation('nameAndSurname')}
@@ -44,14 +46,14 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
           />
 
           <Textarea
-            labelText={popUpData.textAreaTitle}
+            labelText={getTranslation(popUpData.textAreaTitle)}
             name="question"
-            placeholder={popUpData.textAreaPlaceholder}
+            placeholder={getTranslation(popUpData.textAreaPlaceholder)}
             register={register}
           />
 
           <Button variant="secondary" submit={true}>
-            {popUpData.buttonText}
+            {getTranslation(popUpData.buttonText)}
           </Button>
         </form>
       </div>

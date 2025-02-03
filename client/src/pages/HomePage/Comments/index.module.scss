@@ -1,10 +1,97 @@
 @import '@mixins';
 
 .comments {
-  @include flexGap(10vh, column);
-  margin-top: 18vh;
-
-  h2 {
+  @include flex(column, flex-start, center);
+  box-sizing: border-box;
+  gap: 40px;
+  width: 356px;
+  .wrapSlider {
     text-align: center;
+    width: 356px;
+    height: auto;
+    .slider {
+      display: flex;
+      width: auto;
+      padding: 0;
+    }
+    .btnSlider {
+      @include flex(row, center, center);
+      width: 356px;
+      gap: 16px;
+      button {
+        @include flex(row, center, center);
+        width: 40px;
+        height: 40px;
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        background: #f8f8f9;
+        padding: 0;
+        cursor: pointer;
+        &:hover {
+          svg {
+            @include flex(row, center, center);
+            rect {
+              fill: rgb(34, 33, 31);
+              transition: fill 0.5s ease;
+            }
+            path {
+              stroke: #ffffff;
+              transition: stroke 0.5s ease;
+            }
+          }
+        }
+        &:disabled {
+          svg {
+            @include flex(row, center, center);
+            rect {
+              fill: #f8f8f9;
+              transition: fill 0.5s ease;
+            }
+            path {
+              stroke: #22211f;
+              transition: stroke 0.5s ease;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include tablet {
+    width: 640px;
+    gap: 48px;
+    .wrapSlider {
+      width: 640px;
+      .btnSlider {
+        width: 640px;
+        padding: 40px 0 0 0;
+      }
+    }
+  }
+  @include deskmin {
+    width: 980px;
+    .wrapSlider {
+      width: 980px;
+      .btnSlider {
+        padding-top: 0;
+        width: 980px;
+      }
+    }
+  }
+  @include deskmax {
+    position: relative;
+    width: 1296px;
+    gap: 72px;
+    .wrapSlider {
+      width: 1134px;
+      .btnSlider {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 97.75px;
+        @include flex(row, space-between, center);
+        width: 1296px;
+      }
+    }
   }
 }

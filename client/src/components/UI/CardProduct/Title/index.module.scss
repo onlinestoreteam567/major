@@ -1,29 +1,10 @@
 @import '@mixins';
 
 .wrapTitle {
-  @include flex(row, flex-start, center);
+  @include flex(row, flex-start, flex-start);
   width: 100%;
-  height: auto;
+  height: 52px;
   h2 {
-    font-family: $font-main;
-    font-size: 20px;
-    font-weight: $font-weight-bold;
-    line-height: 1.24;
-    color: $text-color-black;
-  }
-  @include tablet {
-    h2 {
-      font-size: 24px;
-    }
-  }
-  @include deskmin {
-    h2 {
-      font-size: 28px;
-    }
-  }
-  @include deskmax {
-    h2 {
-      font-size: 32px;
-    }
+    text-align: left;
   }
 }

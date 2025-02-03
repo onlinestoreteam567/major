@@ -1,38 +1,31 @@
-import LogoIcon from '@assets/svg/header/LogoIcon/LogoIcon';
+import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
 import LangSwitcher from './LangSwitcher/LangSwitcher';
 import cl from './index.module.scss';
-import Button from '@UI/Button/Button';
 import SocialLinks from '@UI/SocialLinks/SocialLinks';
 import { useState } from 'react';
+import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
+import Navigation from '../Navigation/Navigation';
+import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
 const NavDrawer = ({ setIsShowNavDrawer }) => {
   const [hiddenNavDrawer, setHiddenNavDrawer] = useState(false);
 
   const handleCloseNavDrawer = () => {
-    setHiddenNavDrawer(true);
-    clearTimeout();
-    setTimeout(() => {
-      setIsShowNavDrawer(false);
-    }, 450);
+    handleCloseWithDelay(setHiddenNavDrawer, setIsShowNavDrawer);
   };
 
   return (
-    <section className={`${cl.navDrawer} ${hiddenNavDrawer ? cl.closeAnimation : ''}`}>
-      <section className={cl.topSection}>
+    <div className={`${cl.navDrawer} ${hiddenNavDrawer ? cl.closeAnimation : ''}`}>
+      <div className={cl.top}>
         <LangSwitcher />
         <LogoIcon fillColor={'black'} />
         <div>
-          <img src="/svg/crossIcon.svg" alt="" onClick={handleCloseNavDrawer} />
+          <ButtonClose onClick={handleCloseNavDrawer} />
         </div>
-      </section>
-      <section className={cl.buttonsSection}>
-        <Button variant="navDrawer">Каталог</Button>
-        <Button variant="navDrawer">Про нас</Button>
-        <Button variant="navDrawer">Блог</Button>
-        <Button variant="navDrawer">Співпраця</Button>
-      </section>
-      <SocialLinks />
-    </section>
+      </div>
+      <Navigation onClick={handleCloseNavDrawer} />
+      <SocialLinks black={true} />
+    </div>
   );
 };
 export default NavDrawer;

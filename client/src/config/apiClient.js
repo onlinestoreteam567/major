@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { logApiError } from './lib/logApiError';
+import i18n from 'i18next';
 
 // Check if the environment variable is defined
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -10,18 +10,24 @@ if (!API_BASE_URL) {
 // Axios instance with base settings
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 10000,
+  // timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-const username = import.meta.env.VITE_API_USERNAME;
-const password = import.meta.env.VITE_API_PASSWORD;
+// Dynamically set the Accept-Language header
+const defaultLanguage = 'ua';
+apiClient.interceptors.request.use(
+  (config) => {
+    config.headers['Accept-Language'] = i18n.language || defaultLanguage;
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
-if (!username || !password) {
-  console.error('API_PASSWORD and API_USERNAME is not defined! Check the configuration in the .env file.');
-}
+const username = 'admin@gmail.com';
+const password = 'admin';
 
 apiClient.defaults.headers.common['Authorization'] = `Basic ${btoa(`${username}:${password}`)}`;
 

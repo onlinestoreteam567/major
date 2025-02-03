@@ -17,7 +17,7 @@
 
 .popUp {
   height: 40px;
-  border-radius: 4px;
+  border-radius: $border-radius-base;
   border: 1px solid #676767;
 
   &::placeholder {

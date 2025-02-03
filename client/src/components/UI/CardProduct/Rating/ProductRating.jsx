@@ -1,37 +1,31 @@
 import { useEffect, useState } from 'react';
 import cl from './index.module.scss';
-import reviews from '@UI/UserReviews/reviewsList.json';
-import StarTrue from '@components/Icons/StarTrue';
-import StarFalse from '@components/Icons/StarFalse';
+import StarTrue from '@assets/svg/StarTrue';
+import StarFalse from '@assets/svg/StarFalse';
 
-export default function ProductRating() {
+export default function ProductRating({ card }) {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
-    const newStars = calculateRating(reviews);
-    setStars(newStars);
-  }, []);
+    if (card && card.average_rating !== undefined) {
+      const trueStars = Math.round(card.average_rating);
+      const newStars = Array(5).fill(true, 0, trueStars).fill(false, trueStars);
+      setStars(newStars);
+    }
+  }, [card]);
 
-  const calculateRating = (reviews) => {
-    const totalStars = reviews.reduce((acc, review) => {
-      review.stars.forEach((star, index) => {
-        acc[index] = (acc[index] || 0) + (star ? 1 : 0);
-      });
-      return acc;
-    }, []);
-
-    const averageStars = totalStars.map((starCount) => starCount >= reviews.length / 2);
-    return averageStars;
-  };
+  // if (!card) {
+  //   return <p>awdawddwa</p>;
+  // }
 
   return (
     <div className={cl.wrapRating}>
       <ul className={cl.arrStar}>
         {stars.map((el, i) => (
-          <li key={i}>{el === true ? <StarTrue /> : <StarFalse />}</li>
+          <li key={i}>{el ? <StarTrue /> : <StarFalse />}</li>
         ))}
       </ul>
-      <p className={cl.total}>{reviews.length}</p>
+      <p className={cl.total}>{card.reviews?.length || 0}</p>
     </div>
   );
 }

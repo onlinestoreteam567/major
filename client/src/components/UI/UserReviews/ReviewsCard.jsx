@@ -1,13 +1,18 @@
+import Heading from '../Texts/Heading/Heading';
 import cl from './index.module.scss';
-import UserData from './UserData';
 import UserMessage from './UserMessage';
 import UserRating from './UserRating';
 
 export default function ReviewsCard({ review }) {
   return (
     <div className={cl.wrapReviewsCard}>
-      <UserData review={review} />
-      <UserRating review={review} />
+      <div className={cl.wrapUser}>
+        <div className={cl.case}>
+          <Heading type="h4">{review.user_name}</Heading>
+          <UserRating review={review} />
+        </div>
+        <p>{review.data}</p>
+      </div>
       <UserMessage review={review} />
     </div>
   );

@@ -1,18 +1,28 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import ReviewPopUp from '@UI/PopUp/ReviewPopUp';
+import { createPortal } from 'react-dom';
+import ReviewPopUp from '@components/UI/PopUp/ReviewPopUp/ReviewPopUp';
+import WrapModal from '@components/UI/WrapModal/WrapModal';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export default function LeaveFeedback() {
-  const [showMessagePopUp, setShowMessagePopUp] = useState(false);
-  const handleShowMesssagePopUp = () => {
-    setShowMessagePopUp(true);
+  const [isShow, setIsShow] = useState(false);
+
+  const openModal = () => {
+    setIsShow(true);
   };
+  const closeModal = () => {
+    setIsShow(false);
+  };
+
+  const { getTranslation } = useTranslationNamespace('common');
   return (
     <>
       <div className={cl.wrapFeedback}>
-        <p onClick={handleShowMesssagePopUp}>Залишити відгук</p>
+        <p onClick={openModal}>{getTranslation('leaveAReview')}</p>
       </div>
-      {showMessagePopUp && <ReviewPopUp setShowMessagePopUp={setShowMessagePopUp} type={'leaveComment'} />}
+      {isShow &&
+        createPortal(<WrapModal closeModal={closeModal} isShow={isShow} content={<ReviewPopUp />} />, document.body)}
     </>
   );
 }

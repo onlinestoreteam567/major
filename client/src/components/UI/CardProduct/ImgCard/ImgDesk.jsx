@@ -5,54 +5,36 @@ import cl from './index.module.scss';
 import { useState } from 'react';
 
 export default function ImgDesk({ card }) {
-  const [bigImage, setBigImage] = useState(card.upload_images[0]);
+  const [bigImage, setBigImage] = useState(card.images[0].image);
 
-  const handleImageClick = (image) => {
-    setBigImage(image);
-  };
+  const handleImageClick = (image) => setBigImage(image);
 
-  const addDefaultImg = (ev) => {
-    ev.target.src = '/images/default_img1.svg';
-  };
+  const images = card.images;
+  // const addDefaultImg = (ev) => {
+  //   ev.target.src = '/images/default_img1.svg';
+  // };
 
   return (
     <div className={cl.wrapImgDeskCard}>
       <div className={cl.wrapImgCase}>
         {card.is_best_seller ? <LabelHit /> : ''}
         {card.is_new ? <LabelNew /> : ''}
-        {card.is_sale ? <LabelSale card={card} /> : ''}
-        <img src={bigImage} alt={card.name} onError={addDefaultImg} />
+        {card.is_discount ? <LabelSale card={card} /> : ''}
+        <img src={bigImage} alt={card.name} className={cl.imgBig} />
       </div>
-      <div className={cl.wrapSmallImg}>
-        <img
-          src={card.upload_images[0]}
-          alt={card.name}
-          onError={addDefaultImg}
-          onClick={() => handleImageClick(card.upload_images[0])}
-          className={bigImage === card.upload_images[0] ? cl.selected : ''}
-        />
-        <img
-          src={card.upload_images[1]}
-          alt={card.name}
-          onError={addDefaultImg}
-          onClick={() => handleImageClick(card.upload_images[1])}
-          className={bigImage === card.upload_images[1] ? cl.selected : ''}
-        />
-        <img
-          src={card.upload_images[2]}
-          alt={card.name}
-          onError={addDefaultImg}
-          onClick={() => handleImageClick(card.upload_images[2])}
-          className={bigImage === card.upload_images[2] ? cl.selected : ''}
-        />
-        <img
-          src={card.upload_images[3]}
-          alt={card.name}
-          onError={addDefaultImg}
-          onClick={() => handleImageClick(card.upload_images[3])}
-          className={bigImage === card.upload_images[3] ? cl.selected : ''}
-        />
-      </div>
+      <ul className={cl.wrapSmallImg}>
+        {images.map((img, i) => (
+          <li key={i}>
+            <img
+              src={card.images[i].image}
+              alt={card.name}
+              // onError={addDefaultImg}
+              onClick={() => handleImageClick(card.upload_images[i])}
+              className={bigImage === card.images[i].image ? cl.selected : ''}
+            />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

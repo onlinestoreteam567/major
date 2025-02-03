@@ -1,0 +1,36 @@
+@import '@mixins';
+
+// **** ТИМЧАСОВИЙ КОНТЕЙНЕР ****
+.container {
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 36px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  @include flex(column);
+
+  @include tablet {
+    flex-direction: row;
+    width: 636px;
+    gap: 24px;
+  }
+
+  @include deskmax {
+    justify-content: space-around;
+    width: auto;
+    gap: 22px;
+  }
+
+  li {
+    padding: 0;
+    margin: 0;
+  }
+}
+// **********************************
+
+// *** ImgCardCatalog
+
+// *** TitleCardCatalog
+
+// ***  PriceCardCatalog

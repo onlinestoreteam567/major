@@ -3,5 +3,6 @@
   "about": "ABOUT US",
   "blog": "BLOG",
   "cooperation": "COOPERATION",
-  "contact": "CONTACTS"
+  "contact": "CONTACTS",
+  "searchInputPlaceholder": "I'm looking for..."
 }

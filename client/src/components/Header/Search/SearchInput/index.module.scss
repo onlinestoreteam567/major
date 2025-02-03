@@ -2,7 +2,7 @@
 
 search {
   box-sizing: border-box;
-  border-radius: 4px;
+  border-radius: $border-radius-base;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -13,8 +13,8 @@ search {
     top: 27px;
     left: 17%;
     z-index: 100;
-    animation: showSearchInput 0.3s ease-in;
-    width: 696px;
+    width: 69%;
+    @include showCloseAnimation();
   }
 
   @include deskmax {
@@ -45,7 +45,7 @@ search {
       background-position: 12px center;
       padding-left: 35px;
       border: 1px solid #676767;
-      border-radius: 4px;
+      border-radius: $border-radius-base;
       outline: none;
       box-sizing: border-box;
 
@@ -73,14 +73,13 @@ search {
     &.activeSearch {
       background-color: white;
       border: 1px solid #676767;
-      border-radius: 4px;
+      border-radius: $border-radius-base;
       position: relative;
     }
 
-    .crossIcon {
+    svg {
       height: 14px;
       width: 14px;
-      cursor: pointer;
       position: absolute;
       right: 2.5%;
       top: 15px;
@@ -131,7 +130,7 @@ search {
             margin-top: 10px;
             font-family: $font-main;
             font-size: $font-size-base;
-            font-weight: 300;
+            font-weight: $font-weight-small;
             line-height: 20.48px;
           }
 
@@ -167,10 +166,10 @@ search {
     padding: 0 12px 25px 12px;
     font-family: $font-main;
     font-size: $font-size-small;
-    font-weight: 300;
+    font-weight: $font-weight-small;
     line-height: 16.24px;
     $letter-spacing-small: 0.04em;
-    border-radius: 4px;
+    border-radius: $border-radius-base;
     color: #a2a2a2;
 
     p {
@@ -197,23 +196,5 @@ search {
 }
 
 .hiddenInput {
-  animation: closeSearchInput 0.3s ease-in;
-}
-
-@keyframes showSearchInput {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes closeSearchInput {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
+  @include showCloseAnimation('close');
 }

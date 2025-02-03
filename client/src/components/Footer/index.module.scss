@@ -2,12 +2,13 @@
 
 .footer {
   @include flex(column, null, center);
-  padding: 20px 15px 0 15px;
+  padding: 62px 15px 0 15px;
   box-sizing: border-box;
   background-color: $second-background-color-black;
 
   @include tablet {
     padding: 48px 64px 0 64px;
+    overflow: hidden;
   }
 
   @include deskmin {
@@ -18,6 +19,7 @@
   }
 
   @include deskmax {
-    padding: 20px 72px 0 72px;
+    padding: 65px 72px 0 72px;
+    height: 256px;
   }
 }

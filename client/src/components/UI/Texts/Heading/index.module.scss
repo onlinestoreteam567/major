@@ -4,18 +4,18 @@
   font-family: $font-main;
   font-weight: $font-weight-base;
   color: $text-color-black;
-  font-size: 28px;
+  font-size: $font-size-medium-max;
   line-height: 30.24px;
   text-align: center;
 
   @include tablet {
-    font-size: 36px;
+    font-size: $font-size-large;
     line-height: 38.88px;
     letter-spacing: $letter-spacing-extra-small;
   }
 
   @include deskmin {
-    font-size: 48px;
+    font-size: $font-size-xlarge;
     line-height: 51.84px;
     letter-spacing: $letter-spacing-extra-small;
   }
@@ -30,18 +30,19 @@
 
 .h2 {
   font-family: $font-main;
-  font-size: 20px;
+  font-size: $font-size-medium-plus;
   font-weight: $font-weight-bold;
   line-height: 1.24;
   color: $text-color-black;
+  text-align: center;
   @include tablet {
-    font-size: 24px;
+    font-size: $font-size-medium-extra;
   }
   @include deskmin {
-    font-size: 28px;
+    font-size: $font-size-medium-max;
   }
   @include deskmax {
-    font-size: 32px;
+    font-size: $font-size-large-minus;
   }
 }
 

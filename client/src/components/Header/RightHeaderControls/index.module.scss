@@ -1,0 +1,19 @@
+@import '@mixins';
+
+.rightSection {
+  @include flexGap(8px);
+
+  @include deskmin {
+    @include flex(row, end, center);
+    gap: 24px;
+    position: relative;
+  }
+
+  img {
+    cursor: pointer;
+  }
+
+  .languageButtons {
+    margin-bottom: 3px;
+  }
+}

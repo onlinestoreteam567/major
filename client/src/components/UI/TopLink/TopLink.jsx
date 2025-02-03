@@ -1,36 +1,34 @@
-import ArrowLink from '@components/Icons/ArrowLink';
+import ArrowLink from '@assets/svg/ArrowLink/ArrowLink';
 import cl from './index.module.scss';
-import { Link } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export default function TopLink({ card }) {
+  let { pathname } = useLocation();
+  const segments = pathname.split('/');
+  const page = segments[1];
+  const { getTranslation } = useTranslationNamespace('common');
   return (
-    <>
-      <div className={cl.wrapMobile}>
-        <div className={cl.wrapLinkBack}>
-          <Link to="/" className={cl.link}>
-            Головна
-          </Link>
-          <ArrowLink />
-          <Link to="/catalog" className={cl.link}>
-            Каталог
-          </Link>
-        </div>
+    <nav className={cl.wrapLinkBack}>
+      <div className={cl.wrapLink}>
+        <NavLink to="/" className={cl.link}>
+          {getTranslation('home')}
+        </NavLink>
       </div>
-      <div className={cl.wrapDesk}>
-        <div className={cl.wrapLinkBack}>
-          <Link to="/" className={cl.link}>
-            Головна
-          </Link>
-          <ArrowLink />
-          <Link to="/catalog" className={cl.link}>
-            Каталог
-          </Link>
-          <div className={cl.wrapLastLink}>
-            <ArrowLink />
-            <p className={cl.lastLink}>{card.name}</p>
-          </div>
-        </div>
+      <div className={cl.wrapLink}>
+        <ArrowLink />
+        <NavLink to={`/${page}`} className={cl.link}>
+          {getTranslation(page)}
+        </NavLink>
       </div>
-    </>
+      {card ? (
+        <div className={cl.wrapLink}>
+          <ArrowLink />
+          <NavLink to={`${pathname}`} className={cl.link}>
+            {card.name}
+          </NavLink>
+        </div>
+      ) : null}
+    </nav>
   );
 }

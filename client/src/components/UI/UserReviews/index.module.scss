@@ -1,40 +1,52 @@
 @import '@mixins';
 
 .wrapListReviewsCard {
-  @include flexGap(32px, column);
+  @include flex(column, flex-start, center);
+  box-sizing: border-box;
+  gap: 32px;
   width: 356px;
-  padding: 0;
-  margin: 0 auto;
-  ul {
-    @include flexGap(32px, column);
-    justify-content: flex-start;
+  .wrapTitle {
+    @include flex(column, center, center);
+    gap: 8px;
   }
   @include tablet {
-    width: 720px;
-    ul {
-      gap: 16px;
-    }
+    width: 640px;
   }
   @include deskmin {
-    width: 960px;
+    width: 980px;
+  }
+  @include deskmax {
+    width: 1296px;
+  }
+}
+// *** SliderBoxMain ***
+.wrapSlider {
+  text-align: center;
+  width: 356px;
+  height: auto;
+
+  @include tablet {
+    width: 640px;
+  }
+  @include deskmin {
+    width: 980px;
   }
   @include deskmax {
     width: 1296px;
   }
 }
 .wrapReviewsCard {
-  @include flexGap(8px, column);
+  @include flexGap(16px, column);
   box-sizing: border-box;
   width: 356px;
   border-top: 2px solid rgb(162, 162, 162);
-  padding: 24px 0px;
+  padding: 24px 0;
   @include tablet {
-    width: 720px;
-    height: 194px;
+    width: 640px;
     padding: 16px 0;
   }
   @include deskmin {
-    width: 960px;
+    width: 980px;
     height: 168px;
   }
   @include deskmax {
@@ -42,9 +54,6 @@
   }
 }
 
-.wrapTitleRating {
-  @include flex(row, flex-start, center);
-}
 .wrapRating {
   @include flex(row, flex-start, center);
   .arrStar {
@@ -61,8 +70,12 @@
   }
 }
 .wrapUser {
-  @include flex(row, space-between, center);
+  @include flex(row, space-between, flex-start);
   width: 100%;
+  .case {
+    @include flex(column, flex-start, flex-start);
+    gap: 16px;
+  }
   p {
     @include flex(row, flex-end, center);
     color: rgb(162, 162, 162);
@@ -71,34 +84,42 @@
     font-weight: $font-weight-base;
     line-height: 1.44;
   }
+  @include tablet {
+    .case {
+      @include flex(row, flex-start, center);
+      gap: 28px;
+    }
+  }
 }
 .wrapMessage {
   @include flex(row, flex-start, center);
   p {
     @include flex(row, flex-start, flex-start);
+    overflow: hidden;
+    overflow-y: auto;
     width: 100%;
-    color: rgb(34, 33, 31);
+    height: 180px;
+    color: $text-color-black;
     font-family: $font-second;
     font-size: $font-size-base;
     font-weight: $font-weight-base;
     line-height: 1.24;
+    &::-webkit-scrollbar {
+      width: 4px;
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #a2a2a2;
+      border-radius: $border-radius-base;
+      cursor: pointer;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
   }
   @include tablet {
     p {
       height: 116px;
-      overflow-y: auto;
-      &::-webkit-scrollbar {
-        width: 4px;
-        background: transparent;
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: #a2a2a2;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      &::-webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
     }
   }
   @include deskmin {
@@ -109,7 +130,7 @@
 }
 .wrapReviewBtn {
   @include flex(row, center, center);
-  gap: 12px;
+  gap: 16px;
   button {
     @include flex(row, center, center);
     border: none;
@@ -126,6 +147,19 @@
         }
         path {
           stroke: #ffffff;
+          transition: stroke 0.5s ease;
+        }
+      }
+    }
+    &:disabled {
+      svg {
+        @include flex(row, center, center);
+        rect {
+          fill: #f8f8f9;
+          transition: fill 0.5s ease;
+        }
+        path {
+          stroke: #22211f;
           transition: stroke 0.5s ease;
         }
       }

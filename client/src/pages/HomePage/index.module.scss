@@ -1,18 +1,32 @@
 @import '@mixins';
 
-.homePageWrapper {
-  box-sizing: border-box;
-  padding: 0 15px;
-
+.homePage {
+  @include flexGap(72px, column);
+  width: 100vw;
+  .banner {
+    position: relative;
+    display: block;
+  }
+  .page {
+    @include flexGap(72px, column);
+    justify-content: flex-start;
+    align-items: center;
+    @include layout();
+  }
   @include tablet {
-    padding: 0 64px;
+    gap: 64px;
+    .page {
+      gap: 64px;
+    }
   }
-
   @include deskmin {
-    padding: 0 21px;
+    gap: 64px;
   }
-
   @include deskmax {
-    padding: 0 72px;
+    gap: 140px;
+    .page {
+      gap: 140px;
+      margin: 0 auto;
+    }
   }
 }

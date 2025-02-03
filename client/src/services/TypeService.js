@@ -1,4 +1,6 @@
 import apiClient from '@config/apiClient';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { handleApiError } from '@utils/handleApiError';
 
 const TYPE_ENDPOINT = import.meta.env.VITE_TYPE_ENDPOINT;
 
@@ -6,12 +8,24 @@ if (!TYPE_ENDPOINT) {
   console.error('TYPE_ENDPOINT is not defined! Check the configuration in the .env file.');
 }
 
-const TypeService = {
-  // Get all types
-  async getTypes() {
+export const fetchTypes = createAsyncThunk('types/fetchTypes', async (_, { rejectWithValue }) => {
+  try {
     const { data } = await apiClient.get(`${TYPE_ENDPOINT}/`);
     return data;
-  },
+  } catch (error) {
+    return rejectWithValue(error.message);
+  }
+});
+
+const TypeService = {
+  // async getTypes() {
+  //   try {
+  //     const { data } = await apiClient.get(`${TYPE_ENDPOINT}/`);
+  //     return data;
+  //   } catch (error) {
+  //     handleApiError(error);
+  //   }
+  // },
 
   // Create a new type
   async createType(typeName) {

@@ -1,0 +1,83 @@
+@import '@mixins';
+
+// *** SliderBoxMain ***
+.wrapSlider {
+  position: relative;
+  text-align: center;
+  width: 356px;
+  height: 570px;
+  .slider {
+    display: flex;
+    width: auto;
+    padding: 0;
+  }
+  .btnSlider {
+    @include flex(row, space-between, center);
+    margin: 0 auto 10px auto;
+    button {
+      @include flex(row, center, center);
+      border: none;
+      outline: none;
+      padding: 0;
+      cursor: pointer;
+      &:hover,
+      &:active {
+        svg {
+          @include flex(row, center, center);
+          rect {
+            fill: rgb(34, 33, 31);
+            transition: fill 0.5s ease;
+          }
+          path {
+            stroke: #ffffff;
+            transition: stroke 0.5s ease;
+          }
+        }
+      }
+      &:disabled {
+        cursor: not-allowed;
+        svg {
+          @include flex(row, center, center);
+          rect {
+            fill: #f8f8f9;
+            transition: fill 0.5s ease;
+          }
+          path {
+            stroke: #22211f;
+            transition: stroke 0.5s ease;
+          }
+        }
+      }
+    }
+  }
+  @include tablet {
+    width: 668px;
+    height: 600px;
+    .slider {
+      padding: 0 14px;
+    }
+    .btnSlider {
+      gap: 16px;
+      padding: 0 13px;
+    }
+  }
+  @include deskmin {
+    width: 1008px;
+    .btnSlider {
+      justify-content: end;
+      padding: 0 20px;
+    }
+  }
+  @include deskmax {
+    width: 1320px;
+    height: 520px;
+    text-align: center;
+    .slider {
+      padding: 0 12px;
+    }
+    .btnSlider {
+      width: 1296px;
+      padding: 0;
+    }
+  }
+}

@@ -64,6 +64,23 @@ p {
   margin: 0;
 }
 
+// Buttons
+button {
+  outline: none;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  height: fit-content;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 // figure
 figure {
   margin: 0;
@@ -74,51 +91,36 @@ figure {
 /* For dots */
 
 .slick-dots {
-  bottom: 56px !important;
-}
+  bottom: 10px !important;
 
-.slick-dots li button::before {
-  color: $text-color-black !important;
-  opacity: unset !important;
-  font-size: 9.6px !important;
-}
+  li {
+    button {
+      &::before {
+        color: $text-color-black !important;
+        opacity: unset !important;
+        font-size: 6px !important;
 
-.slick-dots li.slick-active button::before {
-  opacity: unset !important;
-  font-size: 19px !important;
+        @include tablet {
+          font-size: 9.6px !important;
+        }
+      }
+    }
+    &.slick-active {
+      button {
+        &::before {
+          opacity: unset !important;
+          font-size: 10px !important;
+
+          @include tablet {
+            font-size: 19px !important;
+          }
+        }
+      }
+    }
+  }
 }
 
 // Remove arrows from inside page, avoid creating x scroll bar
 .slick-arrow {
   display: none !important;
 }
-
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-} */

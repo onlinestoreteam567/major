@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
@@ -9,7 +9,7 @@ const PartnerInfo = ({ informationAboutPartner, setPartnerInteractionState }) =>
     setPartnerInteractionState((prev) => ({ ...prev, closeAnimation: true, activePartner: null }));
     setTimeout(() => {
       setPartnerInteractionState((prev) => ({ ...prev, showInformationAboutPartner: false }));
-    }, 500);
+    }, 275);
   };
 
   const { getTranslation } = useTranslationNamespace('ourPartners');
@@ -36,14 +36,14 @@ const PartnerInfo = ({ informationAboutPartner, setPartnerInteractionState }) =>
   );
 };
 
-PartnerInfo.propTypes = {
-  setPartnerInteractionState: PropTypes.func.isRequired,
-  informationAboutPartner: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    workSchedule: PropTypes.string.isRequired,
-    workSchedule1: PropTypes.string.isRequired,
-    address: PropTypes.string.isRequired,
-    googleMapAddress: PropTypes.string.isRequired,
-  }),
-};
+// PartnerInfo.propTypes = {
+//   setPartnerInteractionState: PropTypes.func.isRequired,
+//   informationAboutPartner: PropTypes.shape({
+//     title: PropTypes.string.isRequired,
+//     workSchedule: PropTypes.string.isRequired,
+//     workSchedule1: PropTypes.string.isRequired,
+//     address: PropTypes.string.isRequired,
+//     googleMapAddress: PropTypes.string.isRequired,
+//   }),
+// };
 export default PartnerInfo;
