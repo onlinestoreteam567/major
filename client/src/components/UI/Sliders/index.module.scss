@@ -12,21 +12,12 @@
     padding: 0;
   }
   .btnSlider {
-    position: absolute;
-    top: 260px;
-    left: 0;
-    right: 0;
     @include flex(row, space-between, center);
-    width: 348px;
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
     button {
       @include flex(row, center, center);
-      width: 40px;
-      height: 40px;
       border: none;
       outline: none;
-      border-radius: 9px;
-      background: #f8f8f9;
       padding: 0;
       cursor: pointer;
       &:hover {
@@ -64,13 +55,16 @@
       padding: 0 14px;
     }
     .btnSlider {
-      top: 558px;
-      @include flex(row, center, center);
       gap: 16px;
+      padding: 0 13px;
     }
   }
   @include deskmin {
     width: 1008px;
+    .btnSlider {
+      justify-content: end;
+      padding: 0 20px;
+    }
   }
   @include deskmax {
     width: 1320px;
@@ -80,13 +74,8 @@
       padding: 0 12px;
     }
     .btnSlider {
-      position: absolute;
-      top: 240px;
-      left: 0;
-      right: 0;
-      @include flex(row, space-between, center);
-      width: 1280px;
-      margin: 0 auto;
+      width: 1296px;
+      padding: 0;
     }
   }
 }
