@@ -10,7 +10,7 @@ export default defineConfig({
       '@svg': path.resolve('/src/assets/svg'),
       '@png': path.resolve('/src/assets/png'),
       '@components': path.resolve('/src/components'),
-      '@UI': path.resolve('src/components/UI'),
+      '@UI': path.resolve('/src/components/UI'),
       '@config': path.resolve('/src/config'),
       '@features': path.resolve('/src/features'),
       '@hooks': path.resolve('/src/hooks'),
