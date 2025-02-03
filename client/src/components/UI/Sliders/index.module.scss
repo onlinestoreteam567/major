@@ -20,7 +20,8 @@
       outline: none;
       padding: 0;
       cursor: pointer;
-      &:hover {
+      &:hover,
+      &:active {
         svg {
           @include flex(row, center, center);
           rect {
@@ -34,6 +35,7 @@
         }
       }
       &:disabled {
+        cursor: not-allowed;
         svg {
           @include flex(row, center, center);
           rect {
