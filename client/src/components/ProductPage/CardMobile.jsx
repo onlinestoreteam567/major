@@ -6,8 +6,8 @@ import Article from '@components/UI/CardProduct/Article/Article';
 import Price from '@components/UI/CardProduct/Price/Price';
 import Counter from '@components/UI/CardProduct/Counter/Counter';
 import Volume from '@components/UI/CardProduct/Volume/Volume';
-import Button from '@components/UI/Button/Button';
 import cl from './index.module.scss';
+import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
 
 export default function CardMobile({ card }) {
   return (
@@ -15,7 +15,7 @@ export default function CardMobile({ card }) {
       <ImgMobile card={card} />
       <TitleCard card={card} />
       <div className={cl.wrapOrder}>
-        <ProductRating />
+        <ProductRating card={card} />
         <LeaveFeedback />
       </div>
       <Article card={card} />
@@ -24,7 +24,7 @@ export default function CardMobile({ card }) {
         <Counter />
       </div>
       <Volume card={card} />
-      <Button>Додати до кошику</Button>
+      <AddToCartButton variant={'primary'} />
     </div>
   );
 }

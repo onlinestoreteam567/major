@@ -8,8 +8,8 @@ export default function Image({ card }) {
     <div className={cl.wrapImg}>
       {card.is_best_seller ? <LabelHit /> : ''}
       {card.is_new ? <LabelNew /> : ''}
-      {card.is_sale ? <LabelSale card={card} /> : ''}
-      <img src={card.upload_images[0]} alt="" />
+      {card.is_discount ? <LabelSale card={card} /> : ''}
+      <img src={card.images[0].image} alt="" />
     </div>
   );
 }

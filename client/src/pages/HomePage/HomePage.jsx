@@ -7,7 +7,7 @@ import OurPartners from './OurPartners/OurPartners';
 import WhyChooseUs from './WhyChooseUs/WhyChooseUs';
 import YellowButtonMainWrapper from './YellowButton/YellowButtonMainWrapper';
 import BestSellers from './MainSliders/BestSellers';
-import CheaperTogether from './MainSliders/CheaperTogether';
+// import CheaperTogether from './MainSliders/CheaperTogether';
 
 const HomePage = () => {
   return (
@@ -18,7 +18,7 @@ const HomePage = () => {
       <div className={cl.page}>
         <YellowButtonMainWrapper />
         <BestSellers />
-        <CheaperTogether />
+        {/* <CheaperTogether /> */}
         <Catalog />
         <MajorInfo />
         <WhyChooseUs />

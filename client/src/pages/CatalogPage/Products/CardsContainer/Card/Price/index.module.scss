@@ -42,11 +42,11 @@
   }
   .wrapVolume {
     @include flex(row, center, center);
-    width: 68px;
+    width: auto;
     height: 40px;
-    color: #676767;
+    color: #22211f;
     font-family: $font-second;
-    font-size: $font-size-medium;
+    font-size: $font-size-medium-plus;
     font-weight: $font-weight-base;
     line-height: 1.44;
   }

@@ -1,4 +1,3 @@
-import Button from '@components/UI/Button/Button';
 import Article from '@components/UI/CardProduct/Article/Article';
 import Counter from '@components/UI/CardProduct/Counter/Counter';
 import ImgDesk from '@components/UI/CardProduct/ImgCard/ImgDesk';
@@ -8,6 +7,7 @@ import ProductRating from '@components/UI/CardProduct/Rating/ProductRating';
 import LeaveFeedback from '@components/UI/CardProduct/Review/LeaveFeedback';
 import Volume from '@components/UI/CardProduct/Volume/Volume';
 import cl from './index.module.scss';
+import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
 
 export default function CardDesk({ card }) {
   return (
@@ -17,7 +17,7 @@ export default function CardDesk({ card }) {
         <Article card={card} />
         <TitleCard card={card} />
         <div className={cl.wrapOrder}>
-          <ProductRating />
+          <ProductRating card={card} />
           <LeaveFeedback />
         </div>
 
@@ -26,7 +26,7 @@ export default function CardDesk({ card }) {
           <Counter />
           <Volume card={card} />
         </div>
-        <Button>Додати до кошику</Button>
+        <AddToCartButton variant={'primary'} />
       </div>
     </div>
   );

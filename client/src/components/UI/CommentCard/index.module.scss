@@ -25,7 +25,7 @@
   }
 
   .cardFooter {
-    @include flex(row, space-between, center);
+    @include flex(row, space-between, end);
     width: 100%;
 
     a {
@@ -52,6 +52,7 @@
 
       p {
         width: 288px;
+        height: 88px;
       }
     }
 
@@ -70,6 +71,7 @@
 
       p {
         width: 290px;
+        height: 100px;
       }
     }
 

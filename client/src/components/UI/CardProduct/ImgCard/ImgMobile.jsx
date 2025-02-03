@@ -23,7 +23,7 @@ export default function ImgMobile({ card }) {
     setIndex((prevIndex) => prevIndex - 1);
   };
 
-  const slidesData = card.upload_images;
+  const slidesData = card.images;
   const total = slidesData.length;
 
   return (
@@ -33,7 +33,7 @@ export default function ImgMobile({ card }) {
           <div key={index} className={cl.wrapImgMobCard}>
             {card.is_best_seller ? <LabelHit /> : ''}
             {card.is_new ? <LabelNew /> : ''}
-            {card.is_sale ? <LabelSale card={card} /> : ''}
+            {card.is_discount ? <LabelSale card={card} /> : ''}
             <img src={slide} alt={card.name} />
           </div>
         ))}

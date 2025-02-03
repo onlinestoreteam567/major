@@ -23,8 +23,17 @@
   "home": "Home",
   "imgAlt": "Separator",
 
-  "addToCart": "Add To cart",
+  "addToCart": "Add to cart",
   "bestSellers": "Best Sellers",
   "cheaperTogether": "Cheaper together",
-  "reviewsAboutProducts": "Reviews about our products"
+  "reviewsAboutProducts": "Reviews about our products",
+  "milliliters": "ml.",
+  "available": "Available",
+  "temporarilyUnavailable": "Temporarily unavailable",
+  "sku": "SKU",
+  "leaveAReview": "Leave a review",
+  "description": "Description",
+  "use": "Use",
+  "ingredients": "Ingredients",
+  "productReviews": "Product reviews"
 }

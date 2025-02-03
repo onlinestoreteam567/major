@@ -7,19 +7,8 @@ import CardCatalog from '../../../pages/CatalogPage/Products/CardsContainer/Card
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
 import { mainSettings } from '@components/constants/settingSlider';
-// import { useLocation } from 'react-router-dom';
-// import useScreenSizes from '@hooks/useScreenSizes';
 
 const SliderBoxMain = ({ slidesData }) => {
-  // const { pathname } = useLocation();
-  // const { deskmax } = useScreenSizes();
-  // const isHidden = pathname === '/' && deskmax === true;
-  // const { mobile, deskmax } = useScreenSizes();
-
-  // const isColorBtn = mobile === true || deskmax === true;
-  // const isHidden = deskmax === true;
-  // console.log(isColorBtn);
-  // console.log(isHidden);
   const total = slidesData.length;
 
   const [slidesToShow, setSlidesToShow] = useState(4);
@@ -47,13 +36,6 @@ const SliderBoxMain = ({ slidesData }) => {
 
   return (
     <div className={`slider-container ${cl.wrapSlider}`}>
-      <Slider ref={sliderRef} {...settings}>
-        {slidesData.map((slide, index) => (
-          <div key={index} className={cl.slider}>
-            <CardCatalog key={index} card={slide} />
-          </div>
-        ))}
-      </Slider>
       <div className={cl.btnSlider}>
         <button disabled={index === 1} onClick={previous}>
           <ArrowLeft />
@@ -62,6 +44,13 @@ const SliderBoxMain = ({ slidesData }) => {
           <ArrowRight />
         </button>
       </div>
+      <Slider ref={sliderRef} {...settings}>
+        {slidesData.map((slide, index) => (
+          <div key={index} className={cl.slider}>
+            <CardCatalog key={index} card={slide} />
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };

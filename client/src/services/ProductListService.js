@@ -1,4 +1,5 @@
 import apiClient from '@config/apiClient';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { handleApiError } from '@utils/handleApiError';
 
 const PRODUCT_LIST_ENDPOINT = import.meta.env.VITE_PRODUCT_LIST_ENDPOINT;
@@ -7,15 +8,24 @@ if (!PRODUCT_LIST_ENDPOINT) {
   console.error('VITE_PRODUCT_LIST_ENDPOINT is not defined! Check the configuration in the .env file.');
 }
 
+export const fetchProductList = createAsyncThunk('productList/fetchProductList', async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await apiClient.get(PRODUCT_LIST_ENDPOINT);
+    return data;
+  } catch (error) {
+    return rejectWithValue(error.message);
+  }
+});
+
 const ProductListService = {
-  async getProductList() {
-    try {
-      const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/`);
-      return data;
-    } catch (error) {
-      handleApiError(error);
-    }
-  },
+  // async getProductList() {
+  //   try {
+  //     const { data } = await apiClient.get(PRODUCT_LIST_ENDPOINT);
+  //     return data;
+  //   } catch (error) {
+  //     handleApiError(error);
+  //   }
+  // },
 
   async createProductList(typeName) {
     // Validate type name before making the request

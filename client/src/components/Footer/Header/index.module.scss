@@ -24,7 +24,7 @@
   }
 
   .wrapper {
-    @include flex(row, center, null);
+    @include flex(row, center, start);
     gap: 45px;
 
     @include tablet {

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
 import Paragraph from '@UI/Texts/Paragraph/Paragraph';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export default function Description({ card }) {
   const [activeText, setActiveText] = useState('description');
 
+  const { getTranslation } = useTranslationNamespace('common');
   return (
     <div className={cl.wrapInfo}>
       <div className={cl.wrapBtn}>
@@ -13,21 +15,21 @@ export default function Description({ card }) {
           className={activeText === 'description' ? cl.active : ''}
           onClick={() => setActiveText('description')}
         >
-          Опис товару
+          {getTranslation('description')}
         </button>
         <button
           type="button"
           className={activeText === 'application' ? cl.active : ''}
           onClick={() => setActiveText('application')}
         >
-          Застосування
+          {getTranslation('use')}
         </button>
         <button
           type="button"
           className={activeText === 'ingredients' ? cl.active : ''}
           onClick={() => setActiveText('ingredients')}
         >
-          Склад
+          {getTranslation('ingredients')}
         </button>
       </div>
       <div className={cl.wrapText}>

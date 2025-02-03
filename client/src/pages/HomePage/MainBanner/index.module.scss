@@ -3,6 +3,18 @@
 .wrapBackground {
   background-repeat: no-repeat;
   background-size: cover;
+
+  .flowersBackground {
+    width: 1440px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include deskmax {
+      width: 100%;
+    }
+  }
 }
 
 .slide {
@@ -10,6 +22,8 @@
   margin: 0 auto;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
+  z-index: 10;
 
   @include flex();
   @include layout();
@@ -61,8 +75,8 @@
       padding: 10px 20px 10px 20px;
       border-radius: $border-radius-base;
       box-sizing: border-box;
-      color: var(--label-color, #6d19da);
-      border: 1px solid var(--label-color, #6d19da);
+      color: #3a3a3a;
+      border: 1px solid #3a3a3a;
     }
 
     .bottomWrapper {
@@ -80,8 +94,32 @@
         }
       }
 
-      button:hover {
-        background-color: var(--button-hover, #6d19da);
+      button {
+        width: 331px;
+        height: 54px;
+        font-size: $font-size-medium;
+        font-weight: $font-weight-medium;
+
+        &:hover {
+          background-color: $background-color-light;
+          color: $text-color-black;
+        }
+
+        @include tablet {
+          height: 58px;
+          width: 241px;
+          font-weight: $font-weight-bold;
+          line-height: $letter-spacing-base;
+          letter-spacing: $letter-spacing-base;
+          color: $text-color-light;
+        }
+
+        @include deskmax {
+          height: 77px;
+          font-size: $font-size-medium-extra;
+          font-weight: $font-weight-bold;
+          letter-spacing: $letter-spacing-base;
+        }
       }
     }
   }

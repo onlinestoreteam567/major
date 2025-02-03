@@ -4,12 +4,21 @@ import cartReducer from '@features/cart/cartSlice';
 // import productReducer from '@features/product/productSlice';
 // import userReducer from '@features/user/userSlice';
 import { loadFromStorage, saveToStorage } from '@utils/localStorage';
+import bestSellersReducer from '@features/products/bestSellersSlice';
+import productListReducer from '@features/products/productListSlice';
+import productReducer from '@features/products/productSlice';
+import typesReducer from '@features/catalog/typesSlice';
 
 const preloadedState = loadFromStorage('state');
 
 const store = configureStore({
   reducer: {
     cart: cartReducer,
+    productList: productListReducer,
+    bestSellers: bestSellersReducer,
+    product: productReducer,
+    types: typesReducer,
+
     // checkout: checkoutReducer,
     // product: productReducer,
     // user: userReducer,
