@@ -22,7 +22,7 @@ const BasketItem = ({ item }) => {
 
   return (
     <li className={cl.basketItem}>
-      <img src="images/basket/basketItem" className={cl.basketItemImg} alt="" />
+      <img src={item.images[0].image} className={cl.basketItemImg} alt="" />
       <section>
         <Heading type="h4">{item.name}</Heading>
         <Heading type="h4">
@@ -33,7 +33,7 @@ const BasketItem = ({ item }) => {
             <button onClick={handleDecrementItem}>
               <Minus />
             </button>
-            <input type="number" name="" id="" value={item.quantity} onChange={handleQuantityChange} />
+            <input type="number" value={item.quantity} onChange={handleQuantityChange} />
             <button onClick={handleAddToCart}>
               <Plus />
             </button>
