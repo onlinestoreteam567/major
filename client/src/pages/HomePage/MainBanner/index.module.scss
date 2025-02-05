@@ -50,10 +50,11 @@
 
   img {
     position: absolute;
-    top: 102px;
+    top: 105px;
     height: 424px;
     @include tablet {
-      position: static;
+      position: relative;
+      top: 16px;
     }
   }
 
