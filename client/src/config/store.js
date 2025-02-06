@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from '@features/cart/cartSlice';
 import bestSellersReducer from '@features/products/bestSellersSlice';
+import setsReducer from '@features/products/setsSlice';
 import productListReducer from '@features/products/productListSlice/productListSlice';
 import productReducer from '@features/products/productSlice';
 import typesReducer from '@features/catalog/typesSlice';
@@ -15,6 +16,7 @@ const store = configureStore({
     cart: cartReducer,
     productList: productListReducer,
     bestSellers: bestSellersReducer,
+    sets: setsReducer,
     product: productReducer,
     types: typesReducer,
   },

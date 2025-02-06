@@ -6,6 +6,7 @@ import { fetchBestSellers } from '@services/bestSellersService';
 import { fetchProductList } from '@services/ProductListService';
 import { fetchTypes } from '@services/TypeService';
 import { setFetchType } from '@features/products/productListSlice/productListSlice';
+import { fetchSets } from '@services/SetsService';
 
 function App() {
   const { i18n } = useTranslation();
@@ -18,6 +19,7 @@ function App() {
     dispatch(fetchProductList());
 
     dispatch(fetchBestSellers());
+    dispatch(fetchSets());
     dispatch(fetchTypes());
   }, [i18n.language, dispatch]);
 
