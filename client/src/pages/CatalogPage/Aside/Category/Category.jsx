@@ -26,7 +26,7 @@ const Types = ({ register, watch }) => {
             <CheckBox
               key={item.name}
               labelText={item.name}
-              name={`category.${item.name}`}
+              name={`category.${item.name} ${item.id}`}
               register={register}
               watch={watch}
             />

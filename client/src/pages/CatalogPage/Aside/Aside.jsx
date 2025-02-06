@@ -21,7 +21,7 @@ const Aside = ({ children, handleSubmit, setIsAsideMobile, isHiddenAside, setisH
 
       <form onSubmit={handleSubmit}>
         {children}
-        {/* <button type="submit">Вивести дані в консоль (заглушка)</button> */}
+        <button type="submit">Вивести дані в консоль (заглушка)</button>
       </form>
     </aside>
   );
