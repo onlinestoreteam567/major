@@ -10,7 +10,6 @@ export const productListDefaultReducers = (builder) => {
       if (state.currentFetchType !== 'default') return;
       state.status = 'succeeded';
       state.items = action.payload;
-      state.savedAllItems = action.payload;
     })
     .addCase(fetchProductList.rejected, (state, action) => {
       if (state.currentFetchType !== 'default') return;

@@ -11,9 +11,9 @@ import { useState } from 'react';
 import defaultValues from './defaultCatalogValues';
 import PriceRange from './Aside/PriceRange/PriceRange';
 import Types from './Aside/Category/Category';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProductListWithParams } from '@services/ProductListService';
-import { restoreItemsFromSaved, setFetchType } from '@features/products/productListSlice/productListSlice';
+import { useDispatch } from 'react-redux';
+import { fetchProductList, fetchProductListWithParams } from '@services/ProductListService';
+import { setFetchType } from '@features/products/productListSlice/productListSlice';
 
 const CatalogPage = () => {
   const [isAsideMobile, setIsAsideMobile] = useState(false);
@@ -26,8 +26,6 @@ const CatalogPage = () => {
   });
 
   const onSubmit = (data) => console.log('Submitted data:', data);
-
-  const { savedAllItems } = useSelector((state) => state.productList);
 
   if (getValues().category) {
     const filteredCategories = Object.entries(getValues().category)
@@ -42,11 +40,12 @@ const CatalogPage = () => {
       fetchProductsWithParams(filteredCategories[0].match(/\d+/)?.[0]);
     } else {
       dispatch(setFetchType('default'));
+      dispatch(fetchProductList());
 
       // dispatch(restoreItemsFromSaved());
     }
   }
-
+  console.log('render');
   return (
     <div className={cl.catalogWrapper}>
       <Top setIsAsideMobile={setIsAsideMobile} setisHiddenAside={setisHiddenAside} />

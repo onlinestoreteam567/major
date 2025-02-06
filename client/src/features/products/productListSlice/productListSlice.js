@@ -6,7 +6,6 @@ const productListSlice = createSlice({
   name: 'productList',
   initialState: {
     items: [],
-    savedAllItems: [],
     status: 'idle',
     error: null,
     currentFetchType: 'default', // 'default' | 'withParams'
@@ -14,9 +13,6 @@ const productListSlice = createSlice({
   reducers: {
     setFetchType: (state, action) => {
       state.currentFetchType = action.payload;
-    },
-    restoreItemsFromSaved: (state) => {
-      state.items = [...state.savedAllItems]; // Restore items from savedAllItems
     },
   },
   extraReducers: (builder) => {
