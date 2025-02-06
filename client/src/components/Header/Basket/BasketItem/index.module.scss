@@ -28,6 +28,40 @@
     @include flex(column, space-between, null);
     width: 100%;
 
+    @import '@mixins';
+
+    .priceWrap {
+      @include flexGap(12px, row);
+
+      .oldPrice {
+        @include flex(row, flex-start, center);
+        color: rgb(103, 103, 103);
+        font-family: $font-main;
+        font-size: $font-size-base;
+        font-weight: 500;
+        line-height: 1.28;
+        text-align: left;
+        gap: 8px;
+        .costOld {
+          text-decoration-line: line-through;
+          font-weight: 500;
+        }
+        .hrnGrey {
+          font-weight: 400;
+        }
+        @include tablet {
+          .oldPrice {
+            font-size: $font-size-medium;
+          }
+        }
+        @include deskmax {
+          .price {
+            letter-spacing: 0.08;
+          }
+        }
+      }
+    }
+
     .basketItemCounterAndDeleteSection {
       @include flex(row, space-between, center);
 
