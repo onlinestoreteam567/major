@@ -29,7 +29,7 @@ const CatalogPage = () => {
 
   if (getValues().category) {
     const filteredCategories = Object.entries(getValues().category)
-      .filter(([key, value]) => value)
+      .filter(([, value]) => value)
       .map(([key]) => key);
 
     if (filteredCategories.length > 0) {
