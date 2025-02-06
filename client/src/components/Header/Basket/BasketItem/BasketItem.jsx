@@ -22,7 +22,7 @@ const BasketItem = ({ item }) => {
 
   return (
     <li className={cl.basketItem}>
-      <img src={item.images[0].image} className={cl.basketItemImg} alt="" />
+      <img src={item.images[0].image} className={cl.basketItemImg} alt={item.name} />
       <section>
         <Heading type="h4">{item.name}</Heading>
         <Heading type="h4">
