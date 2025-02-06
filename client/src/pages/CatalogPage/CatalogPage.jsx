@@ -41,11 +41,9 @@ const CatalogPage = () => {
     } else {
       dispatch(setFetchType('default'));
       dispatch(fetchProductList());
-
-      // dispatch(restoreItemsFromSaved());
     }
   }
-  console.log('render');
+
   return (
     <div className={cl.catalogWrapper}>
       <Top setIsAsideMobile={setIsAsideMobile} setisHiddenAside={setisHiddenAside} />
