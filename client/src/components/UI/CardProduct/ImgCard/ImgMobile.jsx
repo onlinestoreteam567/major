@@ -16,25 +16,25 @@ export default function ImgMobile({ card }) {
 
   const next = () => {
     sliderRef.current.slickNext();
-    setIndex((prevIndex) => prevIndex + 1);
-  };
-  const previous = () => {
-    sliderRef.current.slickPrev();
-    setIndex((prevIndex) => prevIndex - 1);
+    setIndex((prevIndex) => Math.min(prevIndex + 1, card.images.length));
   };
 
-  const slidesData = card.images;
-  const total = slidesData.length;
+  const previous = () => {
+    sliderRef.current.slickPrev();
+    setIndex((prevIndex) => Math.max(prevIndex - 1, 1));
+  };
+
+  const total = card.images.length;
 
   return (
     <div className={`slider-container ${cl.wrapSlider}`}>
       <Slider ref={sliderRef} {...oneElement}>
-        {slidesData.map((slide, index) => (
-          <div key={index} className={cl.wrapImgMobCard}>
-            {card.is_best_seller ? <LabelHit /> : ''}
-            {card.is_new ? <LabelNew /> : ''}
-            {card.is_discount ? <LabelSale card={card} /> : ''}
-            <img src={slide} alt={card.name} />
+        {card.images.map((slide) => (
+          <div key={slide.id} className={cl.wrapImgMobCard}>
+            {card.is_best_seller && <LabelHit />}
+            {card.is_new && <LabelNew />}
+            {card.is_discount && <LabelSale card={card} />}
+            <img src={slide.image} alt={card.name} />
           </div>
         ))}
       </Slider>
