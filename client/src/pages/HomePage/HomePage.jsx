@@ -3,12 +3,12 @@ import Catalog from './Catalog/Catalog';
 import Comments from './Comments/Comments';
 import MainBanner from './MainBanner/MainBanner';
 import MajorInfo from './MajorInfo/MajorInfo';
-import OurPartners from './OurPartners/OurPartners';
+// import OurPartners from './OurPartners/OurPartners';
 import WhyChooseUs from './WhyChooseUs/WhyChooseUs';
 import YellowButtonMainWrapper from './YellowButton/YellowButtonMainWrapper';
 import BestSellers from './MainSliders/BestSellers';
 import Sets from './MainSliders/Sets';
-import DraggableResizableImage from './DraggableResizableImage';
+import Map from './OurPartners/Map/Map';
 
 const HomePage = () => {
   return (
@@ -17,7 +17,6 @@ const HomePage = () => {
         <MainBanner />
       </div>
       <div className={cl.page}>
-        <DraggableResizableImage />
         <YellowButtonMainWrapper />
         <BestSellers />
         <Sets />
@@ -25,7 +24,8 @@ const HomePage = () => {
         <MajorInfo />
         <WhyChooseUs />
         <Comments />
-        <OurPartners />
+        <Map />
+        {/* <OurPartners /> */}
       </div>
     </div>
   );
