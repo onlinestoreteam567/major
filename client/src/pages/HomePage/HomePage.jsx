@@ -8,6 +8,7 @@ import WhyChooseUs from './WhyChooseUs/WhyChooseUs';
 import YellowButtonMainWrapper from './YellowButton/YellowButtonMainWrapper';
 import BestSellers from './MainSliders/BestSellers';
 import Sets from './MainSliders/Sets';
+import DraggableResizableImage from './DraggableResizableImage';
 
 const HomePage = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage = () => {
         <MainBanner />
       </div>
       <div className={cl.page}>
+        <DraggableResizableImage />
         <YellowButtonMainWrapper />
         <BestSellers />
         <Sets />
