@@ -10,6 +10,7 @@ export default function ImgDesk({ card }) {
   const handleImageClick = (image) => setBigImage(image);
 
   const images = card.images;
+  console.log(images);
   // const addDefaultImg = (ev) => {
   //   ev.target.src = '/images/default_img1.svg';
   // };

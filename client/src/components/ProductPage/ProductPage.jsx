@@ -4,14 +4,13 @@ import CardDesk from './CardDesk';
 import Description from '@components/UI/CardProduct/Descript/Description';
 import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
 import TopLink from '@components/UI/TopLink/TopLink';
-// import ProductOffer from './ProductOffer';
-// import ProductSet from './ProductSet';
-// import ProductLook from './ProductLook';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { fetchProduct } from '@services/productService';
+// import { selectError, selectLoading, selectProduct } from '../../redax/selectors';
+// import Loading from '@components/UI/Overlay/Loading';
 
 export default function ProductPage() {
   const dispatch = useDispatch();
@@ -19,6 +18,10 @@ export default function ProductPage() {
   const { card, status, error } = useSelector((state) => state.product);
   const location = useLocation();
   const productId = location.pathname.split('/').pop();
+
+  // const isLoading = useSelector(selectLoading);
+  // const product = useSelector(selectProduct);
+  // const errors = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchProduct(productId));
@@ -38,6 +41,9 @@ export default function ProductPage() {
 
   return (
     <section className={cl.cardPage}>
+      {/* {isLoading ? (
+        <Loading />
+      ) : ( */}
       {status === 'succeeded' && (
         <>
           <div className={cl.topCase}>
@@ -57,6 +63,7 @@ export default function ProductPage() {
           {/* <ProductLook /> */}
         </>
       )}
+      {/* {errors && <p>NOT FOUND</p>} */}
     </section>
   );
 }

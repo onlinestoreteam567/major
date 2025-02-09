@@ -3,15 +3,16 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const PRODUCT_LIST_ENDPOINT = import.meta.env.VITE_PRODUCT_LIST_ENDPOINT;
 
-if (!PRODUCT_LIST_ENDPOINT) {
-  console.error('VITE_PRODUCT_LIST_ENDPOINT is not defined! Check the configuration in the .env file.');
-}
+// if (!PRODUCT_LIST_ENDPOINT) {
+//   console.error('VITE_PRODUCT_LIST_ENDPOINT is not defined! Check the configuration in the .env file.');
+// }
 
 export const fetchProductList = createAsyncThunk('productList/fetchProductList', async (_, { rejectWithValue }) => {
   try {
     const { data } = await apiClient.get(PRODUCT_LIST_ENDPOINT);
     return data;
   } catch (error) {
+    // console.log(error.message);
     return rejectWithValue(error.message);
   }
 });
