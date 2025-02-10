@@ -5,15 +5,11 @@ import cl from './index.module.scss';
 import { useState } from 'react';
 
 export default function ImgDesk({ card }) {
-  const [bigImage, setBigImage] = useState(card.images[0].image);
+  const images = card.images;
+
+  const [bigImage, setBigImage] = useState(images[0].image);
 
   const handleImageClick = (image) => setBigImage(image);
-
-  const images = card.images;
-  console.log(images);
-  // const addDefaultImg = (ev) => {
-  //   ev.target.src = '/images/default_img1.svg';
-  // };
 
   return (
     <div className={cl.wrapImgDeskCard}>
@@ -25,13 +21,12 @@ export default function ImgDesk({ card }) {
       </div>
       <ul className={cl.wrapSmallImg}>
         {images.map((img, i) => (
-          <li key={i}>
+          <li key={img.id} className={cl.wrapImg}>
             <img
-              src={card.images[i].image}
+              src={images[i].image || '/vector.svg'}
               alt={card.name}
-              // onError={addDefaultImg}
-              onClick={() => handleImageClick(card.upload_images[i])}
-              className={bigImage === card.images[i].image ? cl.selected : ''}
+              onClick={() => handleImageClick(images[i].image)}
+              className={bigImage === images[i].image ? cl.selected : ''}
             />
           </li>
         ))}

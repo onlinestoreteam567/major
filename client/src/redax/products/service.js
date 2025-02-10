@@ -31,3 +31,12 @@ export const fetchProductList = createAsyncThunk('productList/fetchProductList',
     return rejectWithValue(error.message);
   }
 });
+
+export const getFilterList = createAsyncThunk('productList/fetchProductList', async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await apiClient.get(PRODUCT_LIST_ENDPOINT);
+    return data;
+  } catch (error) {
+    return rejectWithValue(error.message);
+  }
+});

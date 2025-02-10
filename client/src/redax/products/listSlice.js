@@ -26,6 +26,14 @@ const listSlice = createSlice({
         state.products = action.payload;
       })
       .addCase(fetchProductList.rejected, handleRejected),
+
+  // .addCase(getFilterList.pending, handlePending)
+  // .addCase(getFilterList.fulfilled, (state, action) => {
+  //   state.isLoading = false;
+  //   state.error = null;
+  //   state.products = action.payload;
+  // })
+  // .addCase(getFilterList.rejected, handleRejected),
 });
 
 export const productsReducer = listSlice.reducer;
