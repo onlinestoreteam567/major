@@ -1,43 +1,47 @@
 import cl from './index.module.scss';
-import { useState } from 'react';
-import Button from '@UI/Button/Button';
-import StarTrue from '@assets/svg/StarTrue';
-import StarFalse from '@assets/svg/StarFalse';
+// import { useState } from 'react';
+// import Button from '@UI/Button/Button';
+// import StarTrue from '@assets/svg/StarTrue';
+// import StarFalse from '@assets/svg/StarFalse';
 import Heading from '@components/UI/Texts/Heading/Heading';
+import ReviewForm from './ReviewForm';
 
-const ReviewPopUp = () => {
-  const [userName, setUserName] = useState('');
-  const [userTel, setUserTel] = useState('');
-  const [text, setText] = useState('');
-  const [checkboxStates, setCheckboxStates] = useState([false, false, false, false, false]);
+const ReviewPopUp = ({ card }) => {
+  // const [userName, setUserName] = useState('');
+  // const [userTel, setUserTel] = useState('');
+  // const [text, setText] = useState('');
+  // const [checkboxStates, setCheckboxStates] = useState([false, false, false, false, false]);
 
-  const handleRatingChange = (index) => {
-    const newCheckboxStates = checkboxStates.map((_, i) => i <= index);
-    setCheckboxStates(newCheckboxStates);
-  };
+  // const handleRatingChange = (index) => {
+  //   const newCheckboxStates = checkboxStates.map((_, i) => i <= index);
+  //   setCheckboxStates(newCheckboxStates);
+  // };
 
-  const handleReview = () => {
-    const newReview = {
-      product: {
-        id: 0,
-        name: 'Флюїд шовк для тонкого волосся',
-      },
-      user: {
-        user_name: userName,
-        user_tel: userTel,
-        data: new Date(),
-      },
-      stars: checkboxStates,
-      text: text,
-    };
+  // const handleReview = () => {
+  //   const newReview = {
+  //     product: {
+  //       id: card.id,
+  //       name: 'Флюїд шовк для тонкого волосся',
+  //     },
+  //     user: {
+  //       user_name: userName,
+  //       user_tel: userTel,
+  //       data: new Date(),
+  //     },
+  //     stars: checkboxStates,
+  //     text: text,
+  //   };
 
-    console.log(newReview);
-  };
+  //   console.log(newReview);
+  // };
+
+  console.log(card);
 
   return (
     <div className={cl.messagePopUp} onClick={(e) => e.stopPropagation()}>
       <Heading type="h3">Залиште відгук про наш товар</Heading>
-      <form onChange={handleReview}>
+      <ReviewForm />
+      {/* <form onChange={handleReview}>
         <label htmlFor="name">
           Ім’я та прізвище*
           <input
@@ -95,7 +99,7 @@ const ReviewPopUp = () => {
             Залишити повідомлення
           </Button>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };

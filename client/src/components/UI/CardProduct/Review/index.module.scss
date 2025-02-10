@@ -3,7 +3,7 @@
 .wrapFeedback {
   @include flex(row, flex-end, center);
 
-  p {
+  button {
     @include flex(row, senter, center);
     color: #a2a2a2;
     font-family: $font-second;

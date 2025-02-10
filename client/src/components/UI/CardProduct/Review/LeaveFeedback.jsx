@@ -5,10 +5,11 @@ import ReviewPopUp from '@components/UI/PopUp/ReviewPopUp/ReviewPopUp';
 import WrapModal from '@components/UI/WrapModal/WrapModal';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-export default function LeaveFeedback() {
+export default function LeaveFeedback({ card }) {
   const [isShow, setIsShow] = useState(false);
 
   const openModal = () => {
+    console.log('Hello');
     setIsShow(true);
   };
   const closeModal = () => {
@@ -19,10 +20,15 @@ export default function LeaveFeedback() {
   return (
     <>
       <div className={cl.wrapFeedback}>
-        <p onClick={openModal}>{getTranslation('leaveAReview')}</p>
+        <button type="button" onClick={openModal}>
+          {getTranslation('leaveAReview')}
+        </button>
       </div>
       {isShow &&
-        createPortal(<WrapModal closeModal={closeModal} isShow={isShow} content={<ReviewPopUp />} />, document.body)}
+        createPortal(
+          <WrapModal closeModal={closeModal} isShow={isShow} content={<ReviewPopUp card={card} />} />,
+          document.body
+        )}
     </>
   );
 }

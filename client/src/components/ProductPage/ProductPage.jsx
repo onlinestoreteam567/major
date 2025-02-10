@@ -15,7 +15,7 @@ import { fetchProduct } from '@services/productService';
 export default function ProductPage() {
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
-  const { card, status, error } = useSelector((state) => state.product);
+  const { card, status } = useSelector((state) => state.product);
   const location = useLocation();
   const productId = location.pathname.split('/').pop();
 
@@ -25,19 +25,19 @@ export default function ProductPage() {
 
   useEffect(() => {
     dispatch(fetchProduct(productId));
-  }, [dispatch, i18n.language, productId]);
+  }, [dispatch, i18n, productId]);
 
-  if (status === 'loading') {
-    return (
-      <div style={{ color: 'black', fontSize: '50px', marginTop: '200px', height: '100vh' }}>
-        Завантаження карточки...
-      </div>
-    );
-  }
+  // if (status === 'loading') {
+  //   return (
+  //     <div style={{ color: 'black', fontSize: '50px', marginTop: '200px', height: '100vh' }}>
+  //       Завантаження карточки...
+  //     </div>
+  //   );
+  // }
 
-  if (status === 'failed') {
-    return <div style={{ color: 'black', fontSize: '50px' }}>Error: {error}</div>;
-  }
+  // if (status === 'failed') {
+  //   return <div style={{ color: 'black', fontSize: '50px' }}>Error: {error}</div>;
+  // }
 
   return (
     <section className={cl.cardPage}>
