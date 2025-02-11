@@ -5,10 +5,9 @@
   "sortByPriceDesc": "спочатку дорожче",
   "selectAnOption": "за популярністю",
 
-  "newItems": "Новинки",
-  "bestSellers": "Хіт продажу",
-  "discounts": "Знижки",
-  "togetherCheaper": "Разом дешевше",
+  "new": "Новинки",
+  "bestSeller": "Хіт продажу",
+  "discount": "Знижки",
 
   "assignmentTitle": "Призначення",
 

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { productListDefaultReducers } from './productListDefaultReducers';
-import { productListWithParamsReducers } from './productListWithParamsReducers';
+import { productListDefaultReducers } from './builders/productListDefaultReducers';
+import { productListWithParamsReducers } from './builders/productListWithParamsReducers';
+import { productListSwitchReducer } from './builders/productListSwitchReducer';
 
 const productListSlice = createSlice({
   name: 'productList',
@@ -8,7 +9,6 @@ const productListSlice = createSlice({
     items: [],
     status: 'idle',
     error: null,
-    currentFetchType: 'default', // 'default' | 'withParams'
   },
   reducers: {
     setFetchType: (state, action) => {
@@ -16,10 +16,10 @@ const productListSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    productListSwitchReducer(builder);
     productListDefaultReducers(builder);
     productListWithParamsReducers(builder);
   },
 });
 
-export const { setFetchType, restoreItemsFromSaved } = productListSlice.actions;
 export default productListSlice.reducer;

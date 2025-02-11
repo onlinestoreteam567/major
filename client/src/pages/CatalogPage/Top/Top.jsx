@@ -9,6 +9,7 @@ import useScreenSizes from '@hooks/useScreenSizes';
 import MobileSorting from './MobileSorting/MobileSorting';
 import { useState } from 'react';
 import TopLink from '@components/UI/TopLink/TopLink';
+import PurposeCategories from '../Aside/Purpose/PurposeCategories';
 
 const Top = ({ setIsAsideMobile, setisHiddenAside }) => {
   const [isShowMobileSorting, setIsShowMobileSorting] = useState(false);
@@ -29,17 +30,18 @@ const Top = ({ setIsAsideMobile, setisHiddenAside }) => {
         <Heading type="h2">{getTranslation('catalog', 'common')}</Heading>
       </div>
       <section className={cl.sortSection}>
+        {/* <PurposeCategories /> */}
         {deskmin || deskmax ? (
           // Deskmin and Deskmax
           <>
-            <section>
+            {/* <section>
               <img src={'svg/catalogPage/filter.svg'} alt="" />
               <Heading type="h4">{getTranslation('sorting')}:</Heading>
             </section>
             <Dropdown
               options={['sortByPopularity', 'sortByPriceAsc', 'sortByPriceDesc']}
-              onSelect={(option) => console.log(option)}
-            />
+              onSelect={(option) => console.log(option)} */}
+            {/* /> */}
           </>
         ) : (
           // Mobile and Tablet

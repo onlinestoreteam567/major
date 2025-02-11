@@ -1,19 +1,19 @@
 import Switch from '@UI/Switch/Switch';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { useState } from 'react';
+import useRequest from './Request';
 
 const switchItems = [
-  { icon: '/svg/catalogPage/new.svg', label: 'newItems' },
-  { icon: '/svg/catalogPage/fire.svg', label: 'bestSellers' },
-  { icon: '/svg/catalogPage/discount.svg', label: 'discounts' },
+  { icon: '/svg/catalogPage/new.svg', label: 'is_new' },
+  { icon: '/svg/catalogPage/fire.svg', label: 'is_best_seller' },
+  { icon: '/svg/catalogPage/discount.svg', label: 'is_discount' },
 ];
 
-const Switchs = () => {
+const Switchs = ({ getFilter }) => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
-  const [selected, setSelected] = useState(null);
 
   const handleToggle = (value) => {
-    setSelected(value);
+    getFilter(value);
   };
 
   return (
@@ -26,8 +26,6 @@ const Switchs = () => {
           value={item.label}
           onChange={handleToggle}
           name="switchGroup"
-          checked={selected === item.label}
-          selected={selected}
         />
       ))}
     </>

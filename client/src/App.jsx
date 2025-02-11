@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux';
 import { fetchBestSellers } from '@services/bestSellersService';
 import { fetchProductList } from '@services/ProductListService';
 import { fetchTypes } from '@services/TypeService';
-import { setFetchType } from '@features/products/productListSlice/productListSlice';
 import { fetchSets } from '@services/SetsService';
+import { fetchPurposeCategories } from '@services/PurposeCategoryService';
 
 function App() {
   const { i18n } = useTranslation();
@@ -15,12 +15,12 @@ function App() {
   // Make a request to the server whevenever  the component mounts or the language changes
   useEffect(() => {
     // Product list
-    dispatch(setFetchType('default'));
     dispatch(fetchProductList());
 
     dispatch(fetchBestSellers());
     dispatch(fetchSets());
     dispatch(fetchTypes());
+    dispatch(fetchPurposeCategories());
   }, [i18n.language, dispatch]);
 
   return <AppRouter />;

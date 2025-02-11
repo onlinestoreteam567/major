@@ -5,6 +5,7 @@ import setsReducer from '@features/products/setsSlice';
 import productListReducer from '@features/products/productListSlice/productListSlice';
 import productReducer from '@features/products/productSlice';
 import typesReducer from '@features/catalog/typesSlice';
+import purposeCategoryReducer from '@features/catalog/purposeCategorySlice';
 import { loadFromStorage, saveToStorage } from '@utils/localStorage';
 
 const preloadedState = {
@@ -18,6 +19,7 @@ const store = configureStore({
     bestSellers: bestSellersReducer,
     sets: setsReducer,
     product: productReducer,
+    purposeCategory: purposeCategoryReducer,
     types: typesReducer,
   },
   preloadedState,
