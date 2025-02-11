@@ -3,7 +3,8 @@ import cl from './index.module.scss';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import useScreenSizes from '@hooks/useScreenSizes';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
-const Aside = ({ children, handleSubmit, setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
+import Switchs from './Switchs/Switchs';
+const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
   const { deskmin, deskmax } = useScreenSizes();
 
   const handleCloseAside = () => {
@@ -19,10 +20,7 @@ const Aside = ({ children, handleSubmit, setIsAsideMobile, isHiddenAside, setisH
         </section>
       )}
 
-      <form onSubmit={handleSubmit}>
-        {children}
-        <button type="submit">Вивести дані в консоль (заглушка)</button>
-      </form>
+      <Switchs />
     </aside>
   );
 };
