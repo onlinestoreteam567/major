@@ -19,6 +19,7 @@ function App() {
 
     dispatch(fetchBestSellers());
     dispatch(fetchSets());
+
     dispatch(fetchTypes());
     dispatch(fetchPurposeCategories());
   }, [i18n.language, dispatch]);

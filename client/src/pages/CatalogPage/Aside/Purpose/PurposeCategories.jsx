@@ -1,7 +1,7 @@
-import CatalogCard from '@components/UI/CatalogCard/CatalogCard';
+import PurposeCategoryCard from '@components/UI/CatalogCard/CatalogCard';
 import { useSelector } from 'react-redux';
 
-const PurposeCategories = () => {
+const PurposeCategories = ({ toggleFilter }) => {
   const { items, status, error } = useSelector((state) => state.purposeCategory);
 
   if (status === 'loading') {
@@ -14,9 +14,9 @@ const PurposeCategories = () => {
 
   return (
     <form>
-      <button>Усі товари</button>
+      <button type="button">Усі товари</button>
       {items.map((item) => (
-        <CatalogCard item={item} key={item.id} />
+        <PurposeCategoryCard card={item} key={item.id} name="purposeCategoryGroup" onChange={toggleFilter} />
       ))}
     </form>
   );
