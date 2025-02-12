@@ -5,9 +5,9 @@
   "sortByPriceDesc": "expensive first",
   "selectAnOption": "by popularity",
 
-  "new": "New Items",
-  "bestSeller": "Best Sellers",
-  "discount": "Discounts",
+  "is_new": "New Items",
+  "is_best_seller": "Best Sellers",
+  "is_discount": "Discounts",
 
   "assignmentTitle": "Assignment",
 

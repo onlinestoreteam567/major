@@ -3,7 +3,6 @@ import cl from './index.module.scss';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import useScreenSizes from '@hooks/useScreenSizes';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
-import Switchs from './Switchs/Switchs';
 import Request from './Switchs/Request';
 const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
   const { deskmin, deskmax } = useScreenSizes();

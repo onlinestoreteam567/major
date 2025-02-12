@@ -1,7 +1,5 @@
 import Switch from '@UI/Switch/Switch';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import { useState } from 'react';
-import useRequest from './Request';
 
 const switchItems = [
   { icon: '/svg/catalogPage/new.svg', label: 'is_new' },
@@ -9,12 +7,8 @@ const switchItems = [
   { icon: '/svg/catalogPage/discount.svg', label: 'is_discount' },
 ];
 
-const Switchs = ({ getFilter }) => {
+const Switchs = ({ activeFilter, toggleFilter }) => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
-
-  const handleToggle = (value) => {
-    getFilter(value);
-  };
 
   return (
     <>
@@ -24,7 +18,8 @@ const Switchs = ({ getFilter }) => {
           labelText={getTranslation(item.label)}
           img={item.icon}
           value={item.label}
-          onChange={handleToggle}
+          onChange={toggleFilter}
+          selected={activeFilter === item.label} // Ensure only one is active
           name="switchGroup"
         />
       ))}

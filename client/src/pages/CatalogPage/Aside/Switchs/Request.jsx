@@ -1,23 +1,36 @@
 import { fetchSwitch } from '@services/switchService';
 import { useDispatch } from 'react-redux';
 import Switchs from './Switchs';
+import { useState, useEffect } from 'react';
+import PurposeCategories from '../Purpose/PurposeCategories';
 
 const Request = () => {
+  const [activeFilter, setActiveFilter] = useState(null); // Store only one active filter
   const dispatch = useDispatch();
 
-  const getFilter = (value) => {
-    dispatch(fetchSwitch(value));
+  const toggleFilter = (value) => {
+    setActiveFilter((prev) => (prev === value ? null : value)); // Toggle selection
   };
-  // const dispatch = useDispatch();
+
+  const clearFilters = () => {
+    setActiveFilter(null);
+  };
+
+  useEffect(() => {
+    if (activeFilter) {
+      dispatch(fetchSwitch(activeFilter));
+    }
+  }, [activeFilter, dispatch]);
+
   return (
     <div>
-      {/* <Switchs getFilter={getFilter} /> */}
-
-      <div>Categories</div>
-      <div>
-        <div>Switch Types</div>
-        <div>List</div>
-      </div>
+      <aside>
+        <button onClick={clearFilters} disabled={!activeFilter}>
+          Зняти фільтри
+        </button>
+        <Switchs activeFilter={activeFilter} toggleFilter={toggleFilter} />
+        <PurposeCategories />
+      </aside>
     </div>
   );
 };
