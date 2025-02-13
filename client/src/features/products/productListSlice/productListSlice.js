@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { productListDefaultReducers } from './builders/productListDefaultReducers';
-import { productListWithParamsReducers } from './builders/productListWithParamsReducers';
+import { productListTypesReducer } from './builders/productListWithParamsReducers';
 import { productListSwitchReducer } from './builders/productListSwitchReducer';
 import { productListPurposeCategory } from './builders/productListPurposeCategory';
 
@@ -15,8 +15,8 @@ const productListSlice = createSlice({
   extraReducers: (builder) => {
     productListSwitchReducer(builder);
     productListPurposeCategory(builder);
+    productListTypesReducer(builder);
     productListDefaultReducers(builder);
-    productListWithParamsReducers(builder);
   },
 });
 

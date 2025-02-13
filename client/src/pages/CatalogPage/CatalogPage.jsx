@@ -33,12 +33,11 @@ const CatalogPage = () => {
 
       <section className={cl.mainWrapper}>
         <div className={`${cl.wrapAside} ${isAsideMobile ? cl.asideMobile : ''}`}>
-          <Aside setIsAsideMobile={setIsAsideMobile} isHiddenAside={isHiddenAside} setisHiddenAside={setisHiddenAside}>
-            {/* <Switchs register={register} watch={watch} />
-
-            <PriceRange setValue={setValue} register={'priceRange'} name="priceRange" />
-            <Types register={register} watch={watch} /> */}
-          </Aside>
+          <Aside
+            setIsAsideMobile={setIsAsideMobile}
+            isHiddenAside={isHiddenAside}
+            setisHiddenAside={setisHiddenAside}
+          ></Aside>
         </div>
 
         <Products>

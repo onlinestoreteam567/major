@@ -4,6 +4,7 @@ import Switchs from './Switchs';
 import { useState, useEffect } from 'react';
 import PurposeCategories from '../Purpose/PurposeCategories';
 import { fetchProductList } from '@services/ProductListService';
+import Types from '../Types/Types';
 
 const Request = () => {
   const [activeFilter, setActiveFilter] = useState(null); // Store only one active filter
@@ -38,6 +39,13 @@ const Request = () => {
           Зняти фільтри
         </button>
         <Switchs activeFilter={activeFilter} toggleFilter={toggleFilter} />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <Types />
       </aside>
     </div>
   );

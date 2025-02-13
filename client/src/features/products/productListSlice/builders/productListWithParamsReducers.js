@@ -1,15 +1,15 @@
-import { fetchProductListWithParams } from '@services/ProductListService';
+import { fetchProductListTypes } from '@services/ProductListService';
 
-export const productListWithParamsReducers = (builder) => {
+export const productListTypesReducer = (builder) => {
   builder
-    .addCase(fetchProductListWithParams.pending, (state) => {
+    .addCase(fetchProductListTypes.pending, (state) => {
       state.status = 'loading';
     })
-    .addCase(fetchProductListWithParams.fulfilled, (state, action) => {
+    .addCase(fetchProductListTypes.fulfilled, (state, action) => {
       state.status = 'succeeded';
       state.items = action.payload;
     })
-    .addCase(fetchProductListWithParams.rejected, (state, action) => {
+    .addCase(fetchProductListTypes.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.payload;
     });
