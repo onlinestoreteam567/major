@@ -16,6 +16,17 @@ export const fetchProductList = createAsyncThunk('productList/fetchProductList',
   }
 });
 
+export const fetchProductListPurposeCategory = createAsyncThunk(
+  'productList/fetchProductListPurposeCategory',
+  async (id, { rejectWithValue }) => {
+    try {
+      const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/?purpose_category=${id}`);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 export const fetchProductListWithParams = createAsyncThunk(
   'productList/fetchProductListWithParams',
   async (id, { rejectWithValue }) => {

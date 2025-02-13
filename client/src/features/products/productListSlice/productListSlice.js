@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { productListDefaultReducers } from './builders/productListDefaultReducers';
 import { productListWithParamsReducers } from './builders/productListWithParamsReducers';
 import { productListSwitchReducer } from './builders/productListSwitchReducer';
+import { productListPurposeCategory } from './builders/productListPurposeCategory';
 
 const productListSlice = createSlice({
   name: 'productList',
@@ -10,13 +11,10 @@ const productListSlice = createSlice({
     status: 'idle',
     error: null,
   },
-  reducers: {
-    setFetchType: (state, action) => {
-      state.currentFetchType = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     productListSwitchReducer(builder);
+    productListPurposeCategory(builder);
     productListDefaultReducers(builder);
     productListWithParamsReducers(builder);
   },
