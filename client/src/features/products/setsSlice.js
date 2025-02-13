@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchProductList } from '@services/ProductListService';
+import { fetchSets } from '@services/SetsService';
 
-const productListSlice = createSlice({
-  name: 'productList',
+const setsSlice = createSlice({
+  name: 'sets',
   initialState: {
     items: [],
     status: 'idle',
@@ -11,18 +11,18 @@ const productListSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProductList.pending, (state) => {
+      .addCase(fetchSets.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchProductList.fulfilled, (state, action) => {
+      .addCase(fetchSets.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.items = action.payload;
       })
-      .addCase(fetchProductList.rejected, (state, action) => {
+      .addCase(fetchSets.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
       });
   },
 });
 
-export default productListSlice.reducer;
+export default setsSlice.reducer;

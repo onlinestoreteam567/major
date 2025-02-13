@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchBestSellers } from '@services/bestSellersService';
 
-// Slice definition
 const bestSellersSlice = createSlice({
   name: 'bestSellers',
   initialState: {

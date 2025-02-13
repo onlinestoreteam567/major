@@ -1,0 +1,23 @@
+@import '@mixins';
+
+.checkboxLabel {
+  @include flex();
+  gap: 8px;
+  cursor: pointer;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  p {
+    font-family: $font-second;
+    font-size: $font-size-base;
+    font-weight: $font-weight-base;
+
+    span {
+      color: #a2a2a2;
+    }
+  }
+}

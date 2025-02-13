@@ -52,15 +52,15 @@
     height: 55px;
     box-sizing: border-box;
     padding: 0;
-    border-radius: $border-radius-small;
+    border-radius: $border-radius-medium;
     border: 1px solid #22211f;
-    opacity: 0;
     transition: 0.3s ease-out;
     background-color: #f8f8f9;
 
     &:hover {
       border: none;
       background-color: #676767;
+      color: #f8f8f9;
     }
   }
 
@@ -68,7 +68,7 @@
     width: 100%;
     height: 55px;
     box-sizing: border-box;
-    border-radius: $border-radius-small;
+    border-radius: $border-radius-medium;
     border: none;
     padding: 0;
     background-color: $second-background-color-black;

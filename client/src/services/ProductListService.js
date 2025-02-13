@@ -16,6 +16,40 @@ export const fetchProductList = createAsyncThunk('productList/fetchProductList',
   }
 });
 
+export const fetchProductListPurposeCategory = createAsyncThunk(
+  'productList/fetchProductListPurposeCategory',
+  async (id, { rejectWithValue }) => {
+    try {
+      const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/?purpose_category=${id}`);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchSwitch = createAsyncThunk('filters/fetchSwitch', async (SwitchType, { rejectWithValue }) => {
+  try {
+    const endpoint = `${PRODUCT_LIST_ENDPOINT}/?${SwitchType}=true`;
+    const { data } = await apiClient.get(endpoint);
+    return data;
+  } catch (error) {
+    return rejectWithValue(error.message);
+  }
+});
+
+export const fetchProductListTypes = createAsyncThunk(
+  'productList/fetchProductListTypes',
+  async (id, { rejectWithValue }) => {
+    try {
+      const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/?type_category=${id}`);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 const ProductListService = {
   // async getProductList() {
   //   try {

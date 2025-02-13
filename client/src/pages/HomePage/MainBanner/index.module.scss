@@ -32,7 +32,7 @@
 
     @include tablet {
       padding: 75px 64px 0 64px;
-      height: 530px;
+      height: 704px;
 
       &.right {
         gap: 100px;
@@ -45,15 +45,30 @@
 
     @include deskmax {
       padding: 96px 72px 0 72px;
+
+      &.right {
+        gap: 345px;
+      }
     }
   }
 
   img {
     position: absolute;
-    top: 102px;
+    top: 105px;
     height: 424px;
     @include tablet {
-      position: static;
+      position: relative;
+      top: 16px;
+    }
+
+    @include deskmin {
+      height: 562px;
+      top: 24px;
+    }
+
+    @include tablet {
+      height: 642px;
+      top: 0px;
     }
   }
 
