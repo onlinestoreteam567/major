@@ -27,6 +27,17 @@ export const fetchProductListPurposeCategory = createAsyncThunk(
     }
   }
 );
+
+export const fetchSwitch = createAsyncThunk('filters/fetchSwitch', async (SwitchType, { rejectWithValue }) => {
+  try {
+    const endpoint = `${PRODUCT_LIST_ENDPOINT}/?${SwitchType}=true`;
+    const { data } = await apiClient.get(endpoint);
+    return data;
+  } catch (error) {
+    return rejectWithValue(error.message);
+  }
+});
+
 export const fetchProductListTypes = createAsyncThunk(
   'productList/fetchProductListTypes',
   async (id, { rejectWithValue }) => {

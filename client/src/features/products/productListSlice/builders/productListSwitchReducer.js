@@ -1,4 +1,4 @@
-import { fetchSwitch } from '@services/switchService';
+import { fetchSwitch } from '@services/ProductListService';
 
 export const productListSwitchReducer = (builder) => {
   builder
