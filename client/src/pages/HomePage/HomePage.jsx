@@ -5,7 +5,7 @@ import MainBanner from './MainBanner/MainBanner';
 import MajorInfo from './MajorInfo/MajorInfo';
 // import OurPartners from './OurPartners/OurPartners';
 import WhyChooseUs from './WhyChooseUs/WhyChooseUs';
-import YellowButtonMainWrapper from './YellowButton/YellowButtonMainWrapper';
+import YellowButton from './YellowButton/YellowButton';
 import BestSellers from './MainSliders/BestSellers';
 import Sets from './MainSliders/Sets';
 import Map from './OurPartners/Map/Map';
@@ -17,7 +17,7 @@ const HomePage = () => {
         <MainBanner />
       </div>
       <div className={cl.page}>
-        <YellowButtonMainWrapper />
+        <YellowButton />
         <BestSellers />
         <Sets />
         <Catalog />
