@@ -11,6 +11,7 @@ import LabelNew from '../Labels/LabelNew';
 import LabelSale from '../Labels/LabelSale';
 
 export default function ImgMobile({ card }) {
+  // console.log(card);
   const [index, setIndex] = useState(1);
   let sliderRef = useRef(null);
 
@@ -26,10 +27,15 @@ export default function ImgMobile({ card }) {
   const slidesData = card.images;
   const total = slidesData.length;
 
+  const imageLinks = slidesData.reduce((acc, item) => {
+    acc.push(item.image);
+    return acc;
+  }, []);
+
   return (
-    <div className={`slider-container ${cl.wrapSlider}`}>
+    <div className={`slider-container ${cl.wrapSliderMob}`}>
       <Slider ref={sliderRef} {...oneElement}>
-        {slidesData.map((slide, index) => (
+        {imageLinks.map((slide, index) => (
           <div key={index} className={cl.wrapImgMobCard}>
             {card.is_best_seller ? <LabelHit /> : ''}
             {card.is_new ? <LabelNew /> : ''}
@@ -49,3 +55,24 @@ export default function ImgMobile({ card }) {
     </div>
   );
 }
+
+// const imgs = [
+//   { id: 1, image: 'https://res.cloudinary.com/ds0ib7qvu/image/upload/lkrivokb7gvghptrpgbo' },
+
+//   { id: 2, image: 'https://res.cloudinary.com/ds0ib7qvu/image/upload/l9mxskesoudboh3sb8uk' },
+
+//   { id: 3, image: 'https://res.cloudinary.com/ds0ib7qvu/image/upload/pdfgfclttctxmxj4kmxu' },
+
+//   { id: 4, image: 'https://res.cloudinary.com/ds0ib7qvu/image/upload/nmxbn8k2qwyqlwwbbitf' },
+
+//   { id: 5, image: 'https://res.cloudinary.com/ds0ib7qvu/image/upload/bbdf5ea5s0hjlottr1ea' },
+// ];
+// {id: 1, image: 'https://res.cloudinary.com/ds0ib7qvu/image/upload/lkrivokb7gvghptrpgbo'},
+
+// {id: 2, image: 'https://res.cloudinary.com/ds0ib7qvu/image/upload/l9mxskesoudboh3sb8uk'},
+
+// {id: 3, image: 'https://res.cloudinary.com/ds0ib7qvu/image/upload/pdfgfclttctxmxj4kmxu'},
+
+// {id: 4, image: 'https://res.cloudinary.com/ds0ib7qvu/image/upload/nmxbn8k2qwyqlwwbbitf'},
+
+// {id: 5, image: 'https://res.cloudinary.com/ds0ib7qvu/image/upload/bbdf5ea5s0hjlottr1ea'},

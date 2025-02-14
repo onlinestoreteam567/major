@@ -8,7 +8,6 @@ export default function WrapModal({ closeModal, isShow, content }) {
 
   useEffect(() => {
     if (isShow) {
-      console.log(isShow);
       setIsClosing(false);
     } else {
       setIsClosing(true);

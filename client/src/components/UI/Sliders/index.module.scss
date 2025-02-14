@@ -4,8 +4,10 @@
 .wrapSlider {
   position: relative;
   text-align: center;
-  width: 356px;
+  width: 100%;
   height: 570px;
+  // aspect-ratio: 1/1;
+
   .slider {
     display: flex;
     width: auto;

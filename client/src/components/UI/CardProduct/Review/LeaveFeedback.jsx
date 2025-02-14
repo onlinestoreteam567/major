@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
 import { createPortal } from 'react-dom';
-import ReviewPopUp from '@components/UI/PopUp/ReviewPopUp/ReviewPopUp';
-import WrapModal from '@components/UI/WrapModal/WrapModal';
+import ReviewPopUp from '@components/UI/PopUp/FormPopUp/ReviewPopUp';
+import WrapModal from '@components/UI/PopUp/WrapModal/WrapModal';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export default function LeaveFeedback({ card }) {
+  // console.log(card);
   const [isShow, setIsShow] = useState(false);
 
   const openModal = () => {
-    console.log('Hello');
     setIsShow(true);
   };
   const closeModal = () => {
@@ -26,7 +26,7 @@ export default function LeaveFeedback({ card }) {
       </div>
       {isShow &&
         createPortal(
-          <WrapModal closeModal={closeModal} isShow={isShow} content={<ReviewPopUp card={card} />} />,
+          <WrapModal isShow={isShow} closeModal={closeModal} content={<ReviewPopUp card={card} />} />,
           document.body
         )}
     </>

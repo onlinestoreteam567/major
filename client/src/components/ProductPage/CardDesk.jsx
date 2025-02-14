@@ -18,7 +18,7 @@ export default function CardDesk({ card }) {
         <TitleCard card={card} />
         <div className={cl.wrapOrder}>
           <ProductRating card={card} />
-          <LeaveFeedback />
+          <LeaveFeedback card={card} />
         </div>
 
         <div className={cl.wrapOrder}>

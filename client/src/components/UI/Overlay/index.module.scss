@@ -74,7 +74,7 @@
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background-color: #ff3d00;
+    background-color: #22211f;
     background-image: radial-gradient(circle 8px at 18px 18px, #fff 100%, transparent 0),
       radial-gradient(circle 4px at 18px 0px, #fff 100%, transparent 0),
       radial-gradient(circle 4px at 0px 18px, #fff 100%, transparent 0),
@@ -97,7 +97,7 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background-color: #ff3d00;
+    background-color: #22211f;
     background-image: radial-gradient(circle 5px at 12px 12px, #fff 100%, transparent 0),
       radial-gradient(circle 2.5px at 12px 0px, #fff 100%, transparent 0),
       radial-gradient(circle 2.5px at 0px 12px, #fff 100%, transparent 0),
@@ -119,22 +119,6 @@
     }
     100% {
       transform: rotate(-360deg);
-    }
-  }
-
-  .customLoader {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 3px;
-    background:
-      radial-gradient(farthest-side, #766df4 95%, #0000) 50% 0/12px 12px no-repeat,
-      radial-gradient(farthest-side, #0000 calc(100% - 5px), #766df4 calc(100% - 4px)) content-box;
-    animation: s6 2s infinite;
-  }
-  @keyframes s6 {
-    to {
-      transform: rotate(1turn);
     }
   }
 }

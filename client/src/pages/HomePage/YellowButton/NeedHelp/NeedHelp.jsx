@@ -2,6 +2,7 @@ import { useState } from 'react';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import CommunicationButtons from './CommunicationButtons/CommunicationButtons';
+
 const NeedHelp = ({ setShowMessagePopUp }) => {
   const [showHelpButtonCloseAnimation, setShowHelpButtonCloseAnimation] = useState(false);
   const [showNeedHelpButton, setShowNeedHelpButton] = useState(false);
