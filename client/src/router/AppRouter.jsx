@@ -13,9 +13,7 @@ import CookieTest from './testСomponents/Cookie';
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
 import FormTest from './testСomponents/FormTest';
-import Requests from './testСomponents/Requests';
-import Loading from '@components/UI/Overlay/Loading';
-import NotFound from '@components/helpers/NotFound';
+// import Requests from './testСomponents/Requests';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -59,7 +57,7 @@ const router = createBrowserRouter([
       { path: 'i18next', element: <I18next /> },
       { path: 'cookie', element: <CookieTest /> },
       { path: 'form', element: <FormTest /> },
-      { path: 'requests', element: <Requests /> },
+      // { path: 'requests', element: <Requests /> },
     ],
   },
   {

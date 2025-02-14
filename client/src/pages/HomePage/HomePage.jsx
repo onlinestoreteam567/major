@@ -3,11 +3,12 @@ import Catalog from './Catalog/Catalog';
 import Comments from './Comments/Comments';
 import MainBanner from './MainBanner/MainBanner';
 import MajorInfo from './MajorInfo/MajorInfo';
-import OurPartners from './OurPartners/OurPartners';
+// import OurPartners from './OurPartners/OurPartners';
 import WhyChooseUs from './WhyChooseUs/WhyChooseUs';
-import YellowButtonMainWrapper from './YellowButton/YellowButtonMainWrapper';
+import YellowButton from './YellowButton/YellowButton';
 import BestSellers from './MainSliders/BestSellers';
-// import CheaperTogether from './MainSliders/CheaperTogether';
+import Sets from './MainSliders/Sets';
+import Map from './OurPartners/Map/Map';
 
 const HomePage = () => {
   return (
@@ -16,14 +17,15 @@ const HomePage = () => {
         <MainBanner />
       </div>
       <div className={cl.page}>
-        <YellowButtonMainWrapper />
+        <YellowButton />
         <BestSellers />
-        {/* <CheaperTogether /> */}
+        <Sets />
         <Catalog />
         <MajorInfo />
         <WhyChooseUs />
         <Comments />
-        <OurPartners />
+        <Map />
+        {/* <OurPartners /> */}
       </div>
     </div>
   );

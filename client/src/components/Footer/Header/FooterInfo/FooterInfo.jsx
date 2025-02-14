@@ -1,21 +1,16 @@
-import useScreenSizes from '@hooks/useScreenSizes';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const FooterInfo = () => {
   const { getTranslation } = useTranslationNamespace('footer');
-  const { tablet, deskmin, deskmax } = useScreenSizes();
 
   return (
     <section className={cl.footerInfo}>
       <ul className={cl.ulWorkingHours}>
-        <h3 className={cl.titleWithIcon}>
-          {(tablet || deskmin || deskmax) && <img src="/svg/footer/calendar.svg" alt={getTranslation('calendarAlt')} />}
-          {getTranslation('workingHours')}
-        </h3>
         <section className={cl.workingHours}>
           {' '}
-          <li>
+          <li className={cl.liWithImg}>
+            <img src="/svg/footer/calendar.svg" alt={getTranslation('calendarAlt')} />
             <h3>{getTranslation('monFri')}</h3>
           </li>
           <li>
@@ -25,12 +20,9 @@ const FooterInfo = () => {
       </ul>
 
       <ul className={cl.ulPhoneNumber}>
-        {(tablet || deskmin || deskmax) && (
-          <img className={cl.phoneCallIcon} src="/svg/footer/phoneCall.svg" alt={getTranslation('phoneAlt')} />
-        )}{' '}
-        <h3>Номери телефонів</h3>
         <section>
-          <li>
+          <li className={cl.liWithImg}>
+            <img className={cl.phoneCallIcon} src="/svg/footer/phoneCall.svg" alt={getTranslation('phoneAlt')} />
             <h3 className={cl.titleWithIcon}>+38 (096) 327 77 34</h3>
           </li>
           <li>

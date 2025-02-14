@@ -1,31 +1,28 @@
-import Switch from '@components/form-components/Checkbox/Switch/Switch';
-import { FormGroup } from '@components/form-components';
+import Switch from '@UI/Switch/Switch';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import { fetchSwitch } from '@services/ProductListService';
+import { useDispatch } from 'react-redux';
 
 const switchItems = [
-  { icon: '/svg/catalogPage/new.svg', label: 'newItems' },
-  { icon: '/svg/catalogPage/fire.svg', label: 'bestSellers' },
-  { icon: '/svg/catalogPage/discount.svg', label: 'discounts' },
+  { icon: '/svg/catalogPage/new.svg', label: 'is_new' },
+  { icon: '/svg/catalogPage/fire.svg', label: 'is_best_seller' },
+  { icon: '/svg/catalogPage/discount.svg', label: 'is_discount' },
 ];
 
-const Switchs = ({ register, watch }) => {
+const Switchs = () => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
+  const dispatch = useDispatch();
+
+  const getSwitchs = (type) => {
+    dispatch(fetchSwitch(type));
+  };
 
   return (
-    <FormGroup name={'switch'}>
-      <>
-        {switchItems.map((item) => (
-          <Switch
-            key={item.label}
-            labelText={getTranslation(item.label)}
-            name={`switch.${item.label}`}
-            register={register}
-            watch={watch}
-            img={item.icon}
-          />
-        ))}
-      </>
-    </FormGroup>
+    <>
+      {switchItems.map((item) => (
+        <Switch item={item} key={item.label} onChange={getSwitchs} name="switchGroup" />
+      ))}
+    </>
   );
 };
 

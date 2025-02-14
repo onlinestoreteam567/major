@@ -19,7 +19,7 @@ export default function Card({ card }) {
           <ProductRating card={card} />
           <PriceCardCatalog card={card} />
         </div>
-        <AddToCartButton />
+        <AddToCartButton card={card} />
       </div>
     </div>
   );

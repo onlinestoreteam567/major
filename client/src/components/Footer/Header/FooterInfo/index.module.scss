@@ -49,6 +49,14 @@
     }
   }
 
+  .liWithImg {
+    position: relative;
+    img {
+      position: absolute;
+      left: -30px;
+    }
+  }
+
   ul {
     @include flexGap(16px, column);
 
