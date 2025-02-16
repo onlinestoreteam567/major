@@ -30,6 +30,7 @@ export const getProductById = createAsyncThunk('products/getById', async (id, th
   try {
     const endpoint = `${PRODUCT_LIST_ENDPOINT}/${id}`;
     const { data } = await apiClient.get(endpoint);
+    console.log(data);
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

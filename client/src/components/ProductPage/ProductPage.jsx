@@ -1,11 +1,11 @@
 import cl from './index.module.scss';
-import CardMobile from './CardMobile';
-import CardDesk from './CardDesk';
-import Description from '@components/UI/CardProduct/Descript/Description';
-import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
-import TopLink from '@components/UI/TopLink/TopLink';
+// import CardMobile from './CardMobile';
+// import CardDesk from './CardDesk';
+// import Description from '@components/UI/CardProduct/Descript/Description';
+// import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
+// import TopLink from '@components/UI/TopLink/TopLink';
 // import ProductOffer from './ProductOffer';
-import ProductSet from './ProductSet';
+// import ProductSet from './ProductSet';
 // import ProductLook from './ProductLook';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,15 +23,18 @@ export default function ProductPage() {
   const { i18n } = useTranslation();
   // const { card, status } = useSelector((state) => state.product);
   const location = useLocation();
-  const productId = location.pathname.split('/').pop();
+  const id = location.pathname.split('/').pop();
+  console.log(id);
 
   // const isLoading = useSelector(selectLoading);
   // const product = useSelector(selectProduct);
   // const errors = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(getProductById(productId));
-  }, [dispatch, i18n.language, productId]);
+    // if (!id) return;
+    console.log('HELLO');
+    dispatch(getProductById(id));
+  }, [dispatch, i18n.language, id]);
 
   const isLoading = useSelector(loadProductId);
   const card = useSelector(selectProductId);
@@ -55,7 +58,8 @@ export default function ProductPage() {
         <Loading />
       ) : (
         <>
-          <div className={cl.topCase}>
+          <h4>HELLO</h4>
+          {/* <div className={cl.topCase}>
             <TopLink card={card} />
             <div className={cl.wrapMobile}>
               <CardMobile card={card} />
@@ -65,10 +69,10 @@ export default function ProductPage() {
             </div>
           </div>
           <Description card={card} />
-          <ListReviewsCard card={card} />
+          <ListReviewsCard card={card} /> */}
           {/* <ProductOffer card={card} /> */}
 
-          <ProductSet card={card} />
+          {/* <ProductSet card={card} /> */}
           {/* <ProductLook /> */}
         </>
       )}
