@@ -3,26 +3,25 @@ import EmptyPage from '@components/helpers/EmptyPage';
 import CardCatalog from './Card/Card';
 import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
+import { selectProducts } from '../../../../redax/selectors';
 
 export default function CardsContainer() {
-  const { items, status, error } = useSelector((state) => state.productList);
+  // const { items, status, error } = useSelector((state) => state.productList);
 
-  if (status === 'loading') {
-    return <div style={{ color: 'black', fontSize: '50px' }}>Завантаження усіх товарів...</div>;
-  }
+  const items = useSelector(selectProducts);
 
-  if (status === 'failed') {
-    return <div style={{ color: 'black', fontSize: '50px' }}>Error: {error}</div>;
-  }
+  // if (status === 'loading') {
+  //   return <div style={{ color: 'black', fontSize: '50px' }}>Завантаження усіх товарів...</div>;
+  // }
 
-  // const isLoading = useSelector(selectLoading);
-  // const products = useSelector(selectProducts);
+  // if (status === 'failed') {
+  //   return <div style={{ color: 'black', fontSize: '50px' }}>Error: {error}</div>;
+  // }
 
   const showArr = Array.isArray(items) && items.length !== 0;
 
   return (
     <>
-      {/* {isLoading && <Loading />} */}
       {showArr ? (
         <ul className={cl.container}>
           {items.map((card) => (
@@ -32,7 +31,7 @@ export default function CardsContainer() {
           ))}
         </ul>
       ) : (
-        <EmptyPage />
+        <EmptyPage message="Не передбачувана помилка" />
       )}
     </>
   );

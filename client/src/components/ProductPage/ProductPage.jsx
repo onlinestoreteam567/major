@@ -11,14 +11,17 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import { fetchProduct } from '@services/productService';
+// import { fetchProduct } from '@../servicesold/productService';
+import { getProductById } from '../../redax/products/service';
+import { loadProductId, selectProductId } from '../../redax/selectors';
+import Loading from '@components/helpers/Loading';
 // import { selectError, selectLoading, selectProduct } from '../../redax/selectors';
 // import Loading from '@components/UI/Overlay/Loading';
 
 export default function ProductPage() {
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
-  const { card, status } = useSelector((state) => state.product);
+  // const { card, status } = useSelector((state) => state.product);
   const location = useLocation();
   const productId = location.pathname.split('/').pop();
 
@@ -27,9 +30,11 @@ export default function ProductPage() {
   // const errors = useSelector(selectError);
 
   useEffect(() => {
-    dispatch(fetchProduct(productId));
+    dispatch(getProductById(productId));
   }, [dispatch, i18n.language, productId]);
 
+  const isLoading = useSelector(loadProductId);
+  const card = useSelector(selectProductId);
   console.log(card);
 
   // if (status === 'loading') {
@@ -46,10 +51,9 @@ export default function ProductPage() {
 
   return (
     <section className={cl.cardPage}>
-      {/* {isLoading ? (
+      {isLoading ? (
         <Loading />
-      ) : ( */}
-      {status === 'succeeded' && (
+      ) : (
         <>
           <div className={cl.topCase}>
             <TopLink card={card} />

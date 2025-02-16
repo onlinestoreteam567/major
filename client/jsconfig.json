@@ -12,7 +12,7 @@
       "@hooks/*": ["src/hooks/*"],
       "@pages/*": ["src/pages/*"],
       "@router/*": ["src/router/*"],
-      "@services/*": ["src/services/*"],
+      "@services/*": ["src/servicesold/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
       "@validations/*": ["src/validations/*"],

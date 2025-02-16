@@ -1,5 +1,5 @@
 import cl from './index.module.scss';
-import Dropdown from '@UI/Dropdown/Dropdown';
+// import Dropdown from '@UI/Dropdown/Dropdown';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
 import Button from '@components/UI/Button/Button';
@@ -9,7 +9,7 @@ import useScreenSizes from '@hooks/useScreenSizes';
 import MobileSorting from './MobileSorting/MobileSorting';
 import { useState } from 'react';
 import TopLink from '@components/UI/TopLink/TopLink';
-import PurposeCategories from '../Aside/Purpose/PurposeCategories';
+// import PurposeCategories from '../Aside/Purpose/PurposeCategories';
 
 const Top = ({ setIsAsideMobile, setisHiddenAside }) => {
   const [isShowMobileSorting, setIsShowMobileSorting] = useState(false);

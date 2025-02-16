@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchBestSellers } from './servise';
+import { fetchBestSellers } from './service';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -10,7 +10,7 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-const bestsSlice = createSlice({
+const bestSellerSlice = createSlice({
   name: 'bests',
   initialState: {
     bests: [],
@@ -28,4 +28,4 @@ const bestsSlice = createSlice({
       .addCase(fetchBestSellers.rejected, handleRejected),
 });
 
-export const bestsReducer = bestsSlice.reducer;
+export const bestSellerReducer = bestSellerSlice.reducer;

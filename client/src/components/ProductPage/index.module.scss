@@ -8,9 +8,9 @@
   min-width: 320px;
   max-width: 380px;
   width: 100%;
-  padding: 32px 10px 96px 10px;
+  padding: 24px 10px 96px 10px;
   height: auto;
-  margin: 100px auto 0 auto;
+  margin: 82px auto 0 auto;
   @include tablet {
     gap: 56px;
     width: 768px;
@@ -28,12 +28,11 @@
   }
 }
 .wrapMobile {
-  position: relative;
-  display: block;
-  min-width: 300px;
-  max-width: 380px;
+  // position: relative;
+  @include flex(column, flex-start, center);
   width: 100%;
   height: 100%;
+
   @include tablet {
     display: none;
   }
@@ -46,9 +45,10 @@
   }
 }
 .topCase {
-  @include flexGap(38px, column);
+  @include flexGap(24px, column);
   width: 100%;
   @include tablet {
+    align-items: center;
     gap: 32px;
   }
   @include deskmin {
@@ -61,10 +61,13 @@
 // *** CardMobile  CardDesk ***
 .wrapItem {
   @include flexGap(24px, column);
-  width: 100%;
+  width: 300px;
   height: auto;
   padding: 0;
   margin: 0;
+  @include mobile {
+    width: 360px;
+  }
   @include tablet {
     @include flexGap(24px, row);
     width: 640px;

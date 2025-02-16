@@ -1,11 +1,5 @@
-import Loading from '@components/UI/Overlay/Loading';
-
 const BlogPage = () => {
-  return (
-    <div>
-      <Loading />
-    </div>
-  );
+  return <div>Hello</div>;
 };
 
 export default BlogPage;

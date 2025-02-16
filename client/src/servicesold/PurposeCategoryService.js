@@ -1,24 +1,24 @@
-import apiClient from '@config/apiClient';
-import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { handleApiError } from '@utils/handleApiError';
+// import apiClient from '@config/apiClient';
+// import { createAsyncThunk } from '@reduxjs/toolkit';
+// // import { handleApiError } from '@utils/handleApiError';
 
-// Ensure that the API category endpoint is correctly set in the environment
-const CATEGORY_ENDPOINT = import.meta.env.VITE_CATEGORY_ENDPOINT;
-if (!CATEGORY_ENDPOINT) {
-  console.error('VITE_CATEGORY_ENDPOINT is not defined! Check the configuration in the .env file.');
-}
+// // Ensure that the API category endpoint is correctly set in the environment
+// const CATEGORY_ENDPOINT = import.meta.env.VITE_CATEGORY_ENDPOINT;
+// if (!CATEGORY_ENDPOINT) {
+//   console.error('VITE_CATEGORY_ENDPOINT is not defined! Check the configuration in the .env file.');
+// }
 
-export const fetchPurposeCategories = createAsyncThunk(
-  'filters/fetchPurposeCategories',
-  async (_, { rejectWithValue }) => {
-    try {
-      const { data } = await apiClient.get(CATEGORY_ENDPOINT);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+// export const fetchPurposeCategories = createAsyncThunk(
+//   'filters/fetchPurposeCategories',
+//   async (_, { rejectWithValue }) => {
+//     try {
+//       const { data } = await apiClient.get(CATEGORY_ENDPOINT);
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 // const CategoryService = {
 //   async getCategories() {

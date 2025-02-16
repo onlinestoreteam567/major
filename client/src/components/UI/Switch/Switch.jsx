@@ -1,8 +1,8 @@
 import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 
-const checkedImg = '/svg/catalogPage/check.svg';
-const uncheckedImg = '/svg/catalogPage/uncheck.svg';
+// const checkedImg = '/svg/catalogPage/check.svg';
+// const uncheckedImg = '/svg/catalogPage/uncheck.svg';
 
 const Switch = ({ item, onChange, name }) => {
   return (

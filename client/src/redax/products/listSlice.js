@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchProductList } from './servise';
+import {
+  fetchProductsAll,
+  getProductsByCategory,
+  getProductsByPrice,
+  getProductsByStatus,
+  getProductsByTypes,
+} from './service';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -10,30 +16,55 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-const listSlice = createSlice({
+const productSlice = createSlice({
   name: 'products',
   initialState: {
     products: [],
     isLoading: false,
     error: null,
   },
+
   extraReducers: (builder) =>
     builder
-      .addCase(fetchProductList.pending, handlePending)
-      .addCase(fetchProductList.fulfilled, (state, action) => {
+      .addCase(fetchProductsAll.pending, handlePending)
+      .addCase(fetchProductsAll.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.products = action.payload;
       })
-      .addCase(fetchProductList.rejected, handleRejected),
+      .addCase(fetchProductsAll.rejected, handleRejected)
 
-  // .addCase(getFilterList.pending, handlePending)
-  // .addCase(getFilterList.fulfilled, (state, action) => {
-  //   state.isLoading = false;
-  //   state.error = null;
-  //   state.products = action.payload;
-  // })
-  // .addCase(getFilterList.rejected, handleRejected),
+      .addCase(getProductsByTypes.pending, handlePending)
+      .addCase(getProductsByTypes.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.products = action.payload;
+      })
+      .addCase(getProductsByTypes.rejected, handleRejected)
+
+      .addCase(getProductsByCategory.pending, handlePending)
+      .addCase(getProductsByCategory.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.products = action.payload;
+      })
+      .addCase(getProductsByCategory.rejected, handleRejected)
+
+      .addCase(getProductsByStatus.pending, handlePending)
+      .addCase(getProductsByStatus.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.products = action.payload;
+      })
+      .addCase(getProductsByStatus.rejected, handleRejected)
+
+      .addCase(getProductsByPrice.pending, handlePending)
+      .addCase(getProductsByPrice.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.products = action.payload;
+      })
+      .addCase(getProductsByPrice.rejected, handleRejected),
 });
 
-export const productsReducer = listSlice.reducer;
+export const productsReducer = productSlice.reducer;

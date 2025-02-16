@@ -13,6 +13,8 @@ import CookieTest from './testСomponents/Cookie';
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
 import FormTest from './testСomponents/FormTest';
+import NotFound from '@components/helpers/NotFound';
+import Loading from '@components/helpers/Loading';
 // import Requests from './testСomponents/Requests';
 
 // Lazy loading

@@ -1,62 +1,62 @@
-@import '@mixins';
+// @import '@mixins';
 
-.figure {
-  position: relative;
-  @include flex(row, center, center);
-  img {
-    width: 166px;
-    height: 136px;
-    object-fit: cover;
-    border-radius: $border-radius-small;
-    cursor: pointer;
-    transition: 0.5s;
-    &:hover {
-      filter: brightness(1.7);
-    }
-  }
-  figcaption {
-    position: absolute;
-    width: auto;
-    color: rgb(253, 253, 253);
-    font-family: $font-main;
-    font-size: $font-size-small;
-    font-weight: 500;
-    line-height: 1.22;
-    text-align: right;
-    padding: 4px;
-    bottom: 10px;
-    right: 0;
-    background-color: #22211f;
-    text-shadow: 2px 2px 4px #22211f;
-    pointer-events: none;
-  }
+// .figure {
+//   position: relative;
+//   @include flex(row, center, center);
+//   img {
+//     width: 166px;
+//     height: 136px;
+//     object-fit: cover;
+//     border-radius: $border-radius-small;
+//     cursor: pointer;
+//     transition: 0.5s;
+//     &:hover {
+//       filter: brightness(1.7);
+//     }
+//   }
+//   figcaption {
+//     position: absolute;
+//     width: auto;
+//     color: rgb(253, 253, 253);
+//     font-family: $font-main;
+//     font-size: $font-size-small;
+//     font-weight: 500;
+//     line-height: 1.22;
+//     text-align: right;
+//     padding: 4px;
+//     bottom: 10px;
+//     right: 0;
+//     background-color: #22211f;
+//     text-shadow: 2px 2px 4px #22211f;
+//     pointer-events: none;
+//   }
 
-  @include tablet {
-    img {
-      width: 306px;
-      height: 186px;
-    }
-  }
+//   @include tablet {
+//     img {
+//       width: 306px;
+//       height: 186px;
+//     }
+//   }
 
-  @include deskmin {
-    img {
-      width: 308px;
-      height: 222px;
-    }
-    figcaption {
-      font-size: $font-size-base;
-      padding: 6px;
-    }
-  }
+//   @include deskmin {
+//     img {
+//       width: 308px;
+//       height: 222px;
+//     }
+//     figcaption {
+//       font-size: $font-size-base;
+//       padding: 6px;
+//     }
+//   }
 
-  @include deskmax {
-    img {
-      width: 416px;
-      height: 352px;
-    }
-    figcaption {
-      font-size: $font-size-medium-plus;
-      padding: 8px;
-    }
-  }
-}
+//   @include deskmax {
+//     img {
+//       width: 416px;
+//       height: 352px;
+//     }
+//     figcaption {
+//       font-size: $font-size-medium-plus;
+//       padding: 8px;
+//     }
+//   }
+// }
