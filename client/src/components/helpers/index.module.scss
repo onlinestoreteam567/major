@@ -4,7 +4,7 @@
 .wrapEmpty {
   @include flex(column, center, center);
   gap: 20px;
-  width: 100%;
+  width: auto;
   height: 100%;
   background-color: #8f8f8f;
   padding: 40px;

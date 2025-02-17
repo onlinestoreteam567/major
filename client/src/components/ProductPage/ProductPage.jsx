@@ -28,17 +28,17 @@ export default function ProductPage() {
   console.log(id);
 
   useEffect(() => {
-    // if (!id) return;
-
     dispatch(getProductById(id));
   }, [dispatch, i18n.language, id]);
 
   const isLoading = useSelector(loadProductId);
   const card = useSelector(selectProductId);
-  const category = card.purpose_category || null;
-  console.log(category);
+  const categoryId = card.purpose_category || null;
+  console.log(categoryId);
 
   console.log(card);
+
+  const isObject = typeof card === 'object' && Object.keys(card).length > 0;
 
   return (
     <>
@@ -48,8 +48,8 @@ export default function ProductPage() {
         <section className={cl.cardPage}>
           <div className={cl.topCase}>
             <TopLink card={card} />
-            <div className={cl.wrapMobile}>{card ? <CardMobile card={card} /> : <EmptyPage />}</div>
-            <div className={cl.wrapDesk}>{card ? <CardDesk card={card} /> : <EmptyPage />}</div>
+            <div className={cl.wrapMobile}>{isObject ? <CardMobile card={card} /> : <EmptyPage />}</div>
+            <div className={cl.wrapDesk}>{isObject ? <CardDesk card={card} /> : <EmptyPage />}</div>
           </div>
           {/* <ProductsByCategory category={category} /> */}
           <BestSellers />
