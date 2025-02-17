@@ -8,26 +8,32 @@ import LeaveFeedback from '@components/UI/CardProduct/Review/LeaveFeedback';
 import Volume from '@components/UI/CardProduct/Volume/Volume';
 import cl from './index.module.scss';
 import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
+import Description from '@components/UI/CardProduct/Descript/Description';
+import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
 
 export default function CardDesk({ card }) {
   return (
-    <div className={cl.wrapItem}>
-      <ImgDesk card={card} />
-      <div className={cl.rightCase}>
-        <Article card={card} />
-        <TitleCard card={card} />
-        <div className={cl.wrapOrder}>
-          <ProductRating card={card} />
-          <LeaveFeedback card={card} />
-        </div>
+    <div className={cl.cardContainer}>
+      <div className={cl.wrapItem}>
+        <ImgDesk card={card} />
+        <div className={cl.rightCase}>
+          <Article card={card} />
+          <TitleCard card={card} />
+          <div className={cl.wrapOrder}>
+            <ProductRating card={card} />
+            <LeaveFeedback card={card} />
+          </div>
 
-        <div className={cl.wrapOrder}>
-          <Price card={card} />
-          <Counter />
-          <Volume card={card} />
+          <div className={cl.wrapOrder}>
+            <Price card={card} />
+            <Counter />
+            <Volume card={card} />
+          </div>
+          <AddToCartButton variant={'primary'} />
         </div>
-        <AddToCartButton variant={'primary'} />
       </div>
+      <Description card={card} />
+      <ListReviewsCard card={card} />
     </div>
   );
 }

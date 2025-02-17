@@ -152,7 +152,18 @@
   @include mobile {
     width: 356px;
   }
-
+  @include tablet {
+    width: 640px;
+  }
+  @include deskmin {
+    @include flex(row, flex-end, center);
+    gap: 20px;
+    width: 980px;
+  }
+  @include deskmax {
+    gap: 24px;
+    width: 1296px;
+  }
   button {
     @include flex(row, center, center);
     border: none;

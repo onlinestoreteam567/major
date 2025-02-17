@@ -9,6 +9,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { oneElement } from '@components/constants/settingSlider';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import EmptyPage from '@components/helpers/EmptyPage';
 
 export default function ListReviewsCard({ card }) {
   const [index, setIndex] = useState(1);
@@ -27,33 +28,39 @@ export default function ListReviewsCard({ card }) {
   const total = card.reviews.length || 0;
   const slidesData = card.reviews || [];
 
-  if (card.reviews.length === 0) {
-    return null;
-  }
+  // if (card.reviews.length === 0) {
+  //   return null;
+  // }
 
   return (
-    <div className={cl.wrapListReviewsCard}>
-      <div className={cl.wrapTitle}>
-        <Heading type="h2">{getTranslation('productReviews')}</Heading>
-        <Heading type="h2">{card.name}</Heading>
-      </div>
-      <div className={`slider-container ${cl.wrapSlider}`}>
-        <Slider ref={sliderRef} {...oneElement}>
-          {slidesData.map((slide, index) => (
-            <div key={index}>
-              <ReviewsCard review={slide} />
-            </div>
-          ))}
-        </Slider>
-      </div>
-      <div className={cl.wrapReviewBtn}>
-        <button type="button" disabled={index === 1} onClick={previous}>
-          <ArrowLeft />
-        </button>
-        <button type="button" disabled={index === total} onClick={next}>
-          <ArrowRight />
-        </button>
-      </div>
-    </div>
+    <>
+      {card ? (
+        <div className={cl.wrapListReviewsCard}>
+          <div className={cl.wrapTitle}>
+            <Heading type="h2">{getTranslation('productReviews')}</Heading>
+            <Heading type="h2">{card.name}</Heading>
+          </div>
+          <div className={`slider-container ${cl.wrapSlider}`}>
+            <Slider ref={sliderRef} {...oneElement}>
+              {slidesData.map((slide, index) => (
+                <div key={index}>
+                  <ReviewsCard review={slide} />
+                </div>
+              ))}
+            </Slider>
+          </div>
+          <div className={cl.wrapReviewBtn}>
+            <button type="button" disabled={index === 1} onClick={previous}>
+              <ArrowLeft />
+            </button>
+            <button type="button" disabled={index === total} onClick={next}>
+              <ArrowRight />
+            </button>
+          </div>
+        </div>
+      ) : (
+        <EmptyPage message="Відгуки відсутні" />
+      )}
+    </>
   );
 }

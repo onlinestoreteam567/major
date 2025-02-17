@@ -59,9 +59,31 @@
   }
 }
 // *** CardMobile  CardDesk ***
+.cardContainer {
+  @include flexGap(40px, column);
+  width: 300px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  @include mobile {
+    width: 360px;
+  }
+  @include tablet {
+    @include flexGap(60px, column);
+    width: 640px;
+  }
+  @include deskmin {
+    @include flexGap(64px, column);
+    width: 980px;
+  }
+  @include deskmax {
+    @include flexGap(72px, column);
+    width: 1296px;
+  }
+}
 .wrapItem {
   @include flexGap(24px, column);
-  width: 300px;
+  width: 100%;
   height: auto;
   padding: 0;
   margin: 0;
