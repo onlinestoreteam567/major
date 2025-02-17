@@ -105,7 +105,7 @@ export const mainSettings = {
 export const oneElement = {
   accessibility: true,
   dots: false,
-  infinite: false,
+  infinite: true,
   adaptiveHeight: true,
   arrows: true,
   speed: 300,
@@ -115,5 +115,4 @@ export const oneElement = {
   variableWidth: true,
   draggable: false,
   swipe: true,
-  // fade: true,
 };

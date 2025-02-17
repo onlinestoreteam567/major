@@ -13,6 +13,8 @@ import CookieTest from './testСomponents/Cookie';
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
 import FormTest from './testСomponents/FormTest';
+import NotFound from '@components/helpers/NotFound';
+import Loading from '@components/helpers/Loading';
 // import Requests from './testСomponents/Requests';
 
 // Lazy loading
@@ -62,13 +64,13 @@ const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <div style={{ color: 'black' }}>404 Not Found</div>,
+    element: <NotFound />,
   },
 ]);
 
 const AppRouter = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading />}>
       <RouterProvider router={router} />
     </Suspense>
   );

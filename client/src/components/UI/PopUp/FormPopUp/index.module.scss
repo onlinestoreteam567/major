@@ -1,0 +1,84 @@
+@import '@mixins';
+
+.messagePopUp {
+  @include flex(column, flex-start, center);
+  // min-width: 260px;
+  // max-width: 464px;
+  width: 100%;
+  height: auto;
+  gap: 32px;
+  background-color: $background-color-light;
+  color: $text-color-black;
+  font-family: $font-main;
+  padding: 24px 0 0 0;
+  box-sizing: border-box;
+  border-radius: $border-radius-small;
+
+  .form {
+    @include flex(column, flex-start, flex-start);
+    min-width: 260px;
+    max-width: 464px;
+    width: 100%;
+    height: auto;
+    gap: 4px;
+    .labelIt {
+      @include input(4px, 40px);
+    }
+    .labelTa {
+      @include input(4px, 120px);
+    }
+
+    .wrapRating {
+      @include flex(row, space-between, center);
+      width: inherit;
+      max-width: 316px;
+      height: auto;
+      padding-bottom: 16px;
+      p {
+        font-size: $font-size-base;
+        font-weight: $font-weight-base;
+        line-height: 1.36;
+        span {
+          color: red;
+        }
+      }
+      ul {
+        @include flex(row, center, center);
+        width: 136px;
+        height: 24px;
+        gap: 4px;
+        li {
+          @include flex(row, center, center);
+          position: relative;
+          width: 24px;
+          height: 24px;
+          input {
+            position: absolute;
+            appearance: none;
+            border: none;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+    .error {
+      @include flex(row, flex-start, center);
+      width: inherit;
+      height: 18px;
+      font-size: $font-size-small;
+      // letter-spacing: $letter-spacing-small;
+      color: red;
+    }
+
+    .btnWrap {
+      position: relative;
+      @include flex(row, center, center);
+      box-sizing: border-box;
+      width: 100%;
+      height: auto;
+      padding: 20px 0 0 0;
+    }
+  }
+}

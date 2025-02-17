@@ -1,5 +1,5 @@
-import ReviewPopUp from '@components/UI/PopUp/ReviewPopUp/ReviewPopUp';
-import WrapModal from '@components/UI/WrapModal/WrapModal';
+import ReviewPopUp from '@components/UI/PopUp/FormPopUp/ReviewPopUp';
+import WrapModal from '@components/UI/PopUp/WrapModal/WrapModal';
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 

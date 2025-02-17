@@ -2,11 +2,14 @@
 
 .wrapLinkBack {
   @include flex(row, flex-start, center);
-  width: 356px;
+  // width: 356px;
   height: 20px;
+  // min-width: 320px;
+  // max-width: 380px;
+  width: 100%;
   gap: 4px;
   padding: 0;
-  margin: 15px 0;
+  // margin: 15px 0;
 
   @include tablet {
     margin: 40px 0;
@@ -30,7 +33,7 @@
     }
   }
   .wrapLink:last-child {
-    width: 240px;
+    max-width: 240px;
     .link {
       display: block;
       color: $text-color-black;

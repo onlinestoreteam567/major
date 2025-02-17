@@ -24,8 +24,8 @@ export default function ListReviewsCard({ card }) {
     setIndex((prevIndex) => prevIndex - 1);
   };
 
-  const total = card.reviews.length;
-  const slidesData = card.reviews;
+  const total = card.reviews.length || 0;
+  const slidesData = card.reviews || [];
 
   if (card.reviews.length === 0) {
     return null;

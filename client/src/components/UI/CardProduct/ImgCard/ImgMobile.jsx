@@ -1,33 +1,56 @@
-import ArrowLeft from '@assets/svg/ArrowLeft';
+// import ArrowLeft from '@assets/svg/ArrowLeft';
 import cl from './index.module.scss';
 import { useRef, useState } from 'react';
-import ArrowRight from '@assets/svg/ArrowRight';
+// import ArrowRight from '@assets/svg/ArrowRight';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { oneElement } from '@components/constants/settingSlider';
+// import { oneElement } from '@components/constants/settingSlider';
 import LabelHit from '../Labels/LabelHit';
 import LabelNew from '../Labels/LabelNew';
 import LabelSale from '../Labels/LabelSale';
+import { createPortal } from 'react-dom';
+import SliderImgs from './SliderImgs';
+import Overlay from '@components/UI/Overlay/Overlay';
 
 export default function ImgMobile({ card }) {
-  const [index, setIndex] = useState(1);
+  const [isShow, setIsShow] = useState(false);
+
+  const openModal = () => {
+    setIsShow(true);
+  };
+  const closeModal = () => {
+    setIsShow(false);
+  };
+
   let sliderRef = useRef(null);
 
-  const next = () => {
-    sliderRef.current.slickNext();
-    setIndex((prevIndex) => Math.min(prevIndex + 1, card.images.length));
+  const oneElement = {
+    accessibility: true,
+    dots: true,
+    infinite: true,
+    adaptiveHeight: true,
+    arrows: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    lazyLoad: true,
+    variableWidth: true,
+    draggable: false,
+    swipe: true,
+    appendDots: (dots) => (
+      <div
+        style={{
+          margin: '-36px 0',
+        }}
+      >
+        <ul style={{ margin: '0px' }}> {dots} </ul>
+      </div>
+    ),
   };
-
-  const previous = () => {
-    sliderRef.current.slickPrev();
-    setIndex((prevIndex) => Math.max(prevIndex - 1, 1));
-  };
-
-  const total = card.images.length;
 
   return (
-    <div className={`slider-container ${cl.wrapSlider}`}>
+    <div className={`slider-container ${cl.wrapSliderMob}`}>
       <Slider ref={sliderRef} {...oneElement}>
         {card.images.map((slide) => (
           <div key={slide.id} className={cl.wrapImgMobCard}>
@@ -38,14 +61,16 @@ export default function ImgMobile({ card }) {
           </div>
         ))}
       </Slider>
-      <div className={cl.wrapImgBtn}>
-        <button type="button" disabled={index === 1} onClick={previous}>
-          <ArrowLeft />
-        </button>
-        <button type="button" disabled={index === total} onClick={next}>
-          <ArrowRight />
-        </button>
-      </div>
+      <button type="button" onClick={openModal} className={cl.btnMore}>
+        <img src="/svg/more.svg" />
+      </button>
+      {isShow &&
+        createPortal(
+          <Overlay>
+            <SliderImgs onClose={closeModal} card={card} />
+          </Overlay>,
+          document.body
+        )}
     </div>
   );
 }

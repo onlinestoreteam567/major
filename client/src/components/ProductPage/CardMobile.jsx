@@ -16,7 +16,7 @@ export default function CardMobile({ card }) {
       <TitleCard card={card} />
       <div className={cl.wrapOrder}>
         <ProductRating card={card} />
-        <LeaveFeedback />
+        <LeaveFeedback card={card} />
       </div>
       <Article card={card} />
       <div className={cl.wrapOrder}>

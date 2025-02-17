@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
 
-const Overlay = ({ handleClose }) => {
+const Overlay = ({ handleClose, children }) => {
   const [isCloseAnimation, setIsCloseAnimation] = useState(false);
 
   const handleCloseOverlay = () => {
@@ -10,7 +10,9 @@ const Overlay = ({ handleClose }) => {
   };
 
   return (
-    <div className={`${cl.overlay} ${isCloseAnimation ? cl.closeAnimation : ''}`} onClick={handleCloseOverlay}></div>
+    <div className={`${cl.overlay} ${isCloseAnimation ? cl.closeAnimation : ''}`} onClick={handleCloseOverlay}>
+      {children}
+    </div>
   );
 };
 export default Overlay;

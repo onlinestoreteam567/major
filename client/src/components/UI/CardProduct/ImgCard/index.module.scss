@@ -2,71 +2,46 @@
 
 // *** SliderBoxMain ***
 // *** ImgMobile of ProductCardPage ***
-.wrapSlider {
+.wrapSliderMob {
   position: relative;
   display: block;
   text-align: center;
-  width: 356px;
-  height: 356px;
+  width: 300px;
+  height: 320px;
+  @include mobile {
+    width: 360px;
+    height: 380px;
+  }
+
   .wrapImgMobCard {
     position: relative;
     @include flexGap(24px, column);
-    width: 356px;
-    height: 356px;
+    width: 100%;
     padding: 0;
+
     img {
-      width: 356px;
-      height: 356px;
+      width: 300px;
+      height: 300px;
       background-color: rgb(248, 248, 249);
       object-fit: cover;
       transition: opacity 0.5s ease;
       opacity: 1;
+      border-radius: 2px;
+      @include mobile {
+        width: 360px;
+        height: 360px;
+      }
     }
   }
-  .wrapImgBtn {
+  .btnMore {
     position: absolute;
-    top: 240px;
-    left: 0px;
-    @include flex(row, space-between, center);
-    width: 100%;
-    padding: 0;
-    button {
-      @include flex(row, center, center);
-      width: 48px;
-      height: 48px;
-      border: none;
-      outline: none;
-      background-color: transparent;
-      padding: 0;
-      cursor: pointer;
-      &:hover {
-        svg {
-          @include flex(row, center, center);
-          rect {
-            fill: rgb(34, 33, 31);
-            transition: fill 0.5s ease;
-          }
-          path {
-            stroke: #ffffff;
-            transition: stroke 0.5s ease;
-          }
-        }
-      }
-      &:disabled {
-        svg {
-          @include flex(row, center, center);
-          rect {
-            fill: #f8f8f9;
-            transition: fill 0.5s ease;
-          }
-          path {
-            stroke: #22211f;
-            transition: stroke 0.5s ease;
-          }
-        }
-      }
-    }
+    bottom: 20px;
+    right: 0;
+    @include flex(row, center, center);
+    width: 48px;
+    height: 48px;
   }
+
   @include tablet {
     display: none;
   }
@@ -78,6 +53,7 @@
     display: none;
   }
   @include tablet {
+    position: relative;
     @include flexGap(12px, column);
     width: 216px;
     padding: 0;
@@ -98,18 +74,37 @@
       width: 216px;
       height: 40px;
       list-style: none;
-      img {
+      .wrapImg {
+        @include flex(row, center, center);
         width: 40px;
         height: 40px;
         background-color: rgb(248, 248, 249);
         object-fit: cover;
         border-radius: $border-radius-small;
         cursor: pointer;
-        border-radius: 2px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 2px;
+        }
       }
+
       .selected {
         border: 1px solid $second-background-color-black;
         transition: box-shadow 200ms linear;
+        border-radius: 2px;
+      }
+    }
+    .btnMore {
+      position: absolute;
+      bottom: 60px;
+      right: 0;
+      @include flex(row, center, center);
+      width: 48px;
+      height: 48px;
+      @include deskmin {
+        bottom: 0;
       }
     }
   }
@@ -130,7 +125,7 @@
       @include flexGap(0, column);
       width: 56px;
       height: 296px;
-      img {
+      .wrapImg {
         width: 56px;
         height: 56px;
       }
@@ -151,12 +146,140 @@
     }
     .wrapSmallImg {
       @include flexGap(0, column);
-      width: 86px;
+      width: 76px;
       height: 416px;
-      img {
-        width: 86px;
-        height: 86px;
+      .wrapImg {
+        width: 76px;
+        height: 76px;
       }
+    }
+  }
+}
+
+// *** Slider Images ***
+.wrapImgPopUp {
+  position: relative;
+  @include flexGap(0, column);
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 320px;
+  height: auto;
+  padding: 0 10px 72px 10px;
+  background-color: rgb(255, 255, 255);
+  @include mobile {
+    width: 380px;
+  }
+  @include tablet {
+    width: 740px;
+  }
+
+  @include deskmin {
+    width: 1000px;
+  }
+  .btnClose {
+    @include flex(row, flex-end, center);
+    height: 48px;
+    width: 100%;
+    button {
+      text-align: center;
+      width: 40px;
+      height: 40px;
+      font-size: 22px;
+    }
+  }
+  .wrapContent {
+    @include flexGap(36px, column);
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .imgBox {
+    @include flexGap(36px, column);
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+
+    @include tablet {
+      @include flex(row-reverse, space-between, flex-start);
+      width: 300px;
+      height: 360px;
+    }
+
+    @include deskmin {
+      width: 480px;
+      height: 440px;
+    }
+  }
+  .wrapImgCase {
+    position: relative;
+
+    .imgBig {
+      width: 300px;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 2px;
+
+      @include mobile {
+        width: 360px;
+        height: 540px;
+      }
+
+      @include tablet {
+        width: 240px;
+        height: 360px;
+      }
+
+      @include deskmin {
+        width: 360px;
+        height: 440px;
+      }
+    }
+  }
+
+  .wrapSmallImg {
+    @include flex(row, space-between, center);
+    width: 300px;
+    height: auto;
+    list-style: none;
+
+    @include mobile {
+      width: 360px;
+    }
+
+    @include tablet {
+      @include flexGap(0, column);
+      height: 360px;
+    }
+    @include deskmin {
+      height: 440px;
+    }
+    .wrapImg {
+      @include flex(row, center, center);
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: $border-radius-small;
+      cursor: pointer;
+
+      @include mobile {
+        width: 68px;
+        height: 68px;
+      }
+
+      @include deskmin {
+        width: 80px;
+        height: 80px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+      }
+    }
+    .selected {
+      border: 1px solid $second-background-color-black;
+      transition: box-shadow 200ms linear;
     }
   }
 }
