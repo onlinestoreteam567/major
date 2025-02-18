@@ -5,13 +5,15 @@ import TopLink from '@components/UI/TopLink/TopLink';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { getProductById } from '../../redux/products/service';
+import { loadProductId, selectProductId } from '../../redux/selectors';
+
 import EmptyPage from '@components/helpers/EmptyPage';
 import ProductSet from './ProductSet';
 import BestSellers from '@pages/HomePage/MainSliders/BestSellers';
 import FitCategory from './FitCategory';
 import Spinner from '@components/helpers/Spinner';
-import { getProductById } from '@redux/products/service';
-import { loadProductId, selectProductId } from '@redux/selectors';
+import { clearFitCategory } from '@redux/products/fitCategorySlice';
 
 export default function ProductPage() {
   const dispatch = useDispatch();
@@ -22,6 +24,7 @@ export default function ProductPage() {
 
   useEffect(() => {
     dispatch(getProductById(id));
+    dispatch(clearFitCategory());
   }, [dispatch, id]);
 
   const isLoading = useSelector(loadProductId);
@@ -44,10 +47,10 @@ export default function ProductPage() {
             <div className={cl.wrapDesk}>
               {isObject ? <CardDesk card={card} /> : <EmptyPage message="Нічого не знайдено" />}
             </div>
+            {isObject && <FitCategory categoryId={categoryId} />}
           </>
         )}
       </div>
-      {isObject && <FitCategory categoryId={categoryId} />}
       <BestSellers />
       <ProductSet />
     </section>

@@ -7,6 +7,7 @@ import { productIdReducer } from '@redux/products/cardSlice';
 import { bestSellerReducer } from '@redux/products/bestSlice';
 import { categotyReducer } from '@redux/params/categorySlice';
 import { typesReducer } from '@redux/params/purposeSlice';
+import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   bests: bestSellerReducer,
   category: categotyReducer,
   types: typesReducer,
+  fitCategory: fitCategoryReducer,
 });
 
 export const store = configureStore({

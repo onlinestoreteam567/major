@@ -105,3 +105,12 @@ export const addReviewById = createAsyncThunk('products/addReview', async ({ id,
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const getFitCategory = createAsyncThunk('products/getFitCategory', async (id, thunkAPI) => {
+  try {
+    const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/?purpose_category=${id}`);
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

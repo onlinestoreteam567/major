@@ -14,6 +14,9 @@ export const selectSets = (state) => state.sets.sets;
 
 export const loadProducts = (state) => state.products.isLoading;
 export const selectProducts = (state) => state.products.products;
+
+export const selectFitCategory = (state) => state.fitCategory.fitCategory;
+export const loadFitCategory = (state) => state.fitCategory.isLoading;
 // export const selectFiltered = (state) => state.products.items;
 
 export const loadProductId = (state) => state.productId.isLoading;
