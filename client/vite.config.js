@@ -21,6 +21,7 @@ export default defineConfig({
       '@utils': path.resolve('/src/utils'),
       '@validations': path.resolve('/src/validations'),
       '@mixins': path.resolve('/src/styles/mixins.scss'),
+      '@redux': path.resolve('/src/redux'),
     },
   },
   plugins: [react()],

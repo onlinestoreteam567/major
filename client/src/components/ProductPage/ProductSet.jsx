@@ -2,22 +2,17 @@ import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
+import Spinner from '@components/helpers/Spinner';
+import { loadSets, selectSets } from '@redux/selectors';
 
 export default function ProductSet() {
-  const { items, status, error } = useSelector((state) => state.sets);
-
-  if (status === 'loading') {
-    return <div style={{ color: 'black', fontSize: '50px' }}>Завантаження разом дешевше... </div>;
-  }
-
-  if (status === 'failed') {
-    return <div style={{ color: 'black', fontSize: '50px' }}>Error: {error}</div>;
-  }
+  const isLoading = useSelector(loadSets);
+  const sets = useSelector(selectSets);
 
   return (
     <div className={cl.wrapProductOffer}>
       <Heading type="h2">Разом дешевше</Heading>
-      <SliderBoxMain slidesData={items} />
+      {isLoading ? <Spinner /> : <SliderBoxMain slidesData={sets} />}
     </div>
   );
 }

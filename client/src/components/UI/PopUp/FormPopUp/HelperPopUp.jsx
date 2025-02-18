@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 import Heading from '@components/UI/Texts/Heading/Heading';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputName from './InputName';
@@ -21,7 +21,6 @@ export default function HelperPopUp({ popUpData }) {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -30,6 +29,8 @@ export default function HelperPopUp({ popUpData }) {
   const onSubmit = (data) => {
     console.log(data);
   };
+  const phoneUser = register('phone');
+
   return (
     <div className={cl.messagePopUp} onClick={(e) => e.stopPropagation()}>
       <Subtitle>{getTranslation(popUpData.subtitle)}</Subtitle>
@@ -42,18 +43,12 @@ export default function HelperPopUp({ popUpData }) {
           register={register}
           errors={errors}
         />
-        <Controller
-          control={control}
-          name="phone"
-          render={({ field: { onChange, value } }) => (
-            <InputPhone
-              label={getTranslation('phoneNumber')}
-              onChange={onChange}
-              name="phone"
-              value={value}
-              errors={errors}
-            />
-          )}
+        <InputPhone
+          label="Номер телефону"
+          name={phoneUser.name}
+          onChange={phoneUser.onChange}
+          inputRef={phoneUser.ref}
+          errors={phoneUser.errors}
         />
         <InputTextArea
           label={getTranslation(popUpData.textAreaTitle)}

@@ -17,6 +17,7 @@
       "@utils/*": ["src/utils/*"],
       "@validations/*": ["src/validations/*"],
       "@mixins/*": ["src/styles/mixins/*"],
+      "@redux/*": ["src/redux/*"],
       "@../*": ["src/*"]
     }
   }

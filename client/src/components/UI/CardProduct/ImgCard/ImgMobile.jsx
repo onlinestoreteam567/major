@@ -52,12 +52,12 @@ export default function ImgMobile({ card }) {
   return (
     <div className={`slider-container ${cl.wrapSliderMob}`}>
       <Slider ref={sliderRef} {...oneElement}>
-        {card.images.map((slide) => (
+        {card.images.map((slide, i) => (
           <div key={slide.id} className={cl.wrapImgMobCard}>
             {card.is_best_seller && <LabelHit />}
             {card.is_new && <LabelNew />}
             {card.is_discount && <LabelSale card={card} />}
-            <img src={slide.image} alt={card.name} />
+            <img src={card.images[i].image} alt={card.name} />
           </div>
         ))}
       </Slider>

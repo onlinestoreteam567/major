@@ -4,7 +4,6 @@ import LabelNew from '../Labels/LabelNew';
 import LabelSale from '../Labels/LabelSale';
 import cl from './index.module.scss';
 import { useState } from 'react';
-import Overlay from '@components/UI/Overlay/Overlay';
 import SliderImgs from './SliderImgs';
 
 export default function ImgDesk({ card }) {
@@ -38,13 +37,7 @@ export default function ImgDesk({ card }) {
       <button type="button" onClick={openModal} className={cl.btnMore}>
         <img src="/svg/more.svg" />
       </button>
-      {isShow &&
-        createPortal(
-          <Overlay>
-            <SliderImgs onClose={closeModal} card={card} />
-          </Overlay>,
-          document.body
-        )}
+      {isShow && createPortal(<SliderImgs onClose={closeModal} card={card} />, document.body)}
     </div>
   );
 }

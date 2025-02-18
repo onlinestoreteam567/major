@@ -1,19 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import cartReducer from '@features/cart/cartSlice';
-// import bestSellersReducer from '@features/products/bestSellersSlice';
-// import setsReducer from '@features/products/setsSlice';
-// import productListReducer from '@features/products/productListSlice/productListSlice';
-// import productsReducer from '@features/products/productSlice';
-// import typesReducer from '@features/catalog/typesSlice';
-// import purposeCategoryReducer from '@features/catalog/purposeCategorySlice';
 import { loadFromStorage, saveToStorage } from '@utils/localStorage';
-
-import { bestSellerReducer } from '../redax/products/bestSlice';
-import { productsReducer } from '../redax/products/listSlice';
-import { categotyReducer } from '../redax/params/categorySlice';
-import { typesReducer } from '../redax/params/purposeSlice';
-import { setsReducer } from '../redax/products/setsSlice';
-import { productIdReducer } from '../redax/products/cardSlise';
+import { setsReducer } from '@redux/products/setsSlice';
+import { productsReducer } from '@redux/products/listSlice';
+import { productIdReducer } from '@redux/products/cardSlice';
+import { bestSellerReducer } from '@redux/products/bestSlice';
+import { categotyReducer } from '@redux/params/categorySlice';
+import { typesReducer } from '@redux/params/purposeSlice';
+import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -27,6 +21,7 @@ const rootReducer = combineReducers({
   bests: bestSellerReducer,
   category: categotyReducer,
   types: typesReducer,
+  fitCategory: fitCategoryReducer,
 });
 
 export const store = configureStore({

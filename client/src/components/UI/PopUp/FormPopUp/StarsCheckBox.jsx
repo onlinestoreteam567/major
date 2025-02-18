@@ -7,9 +7,9 @@ export default function StarsCheskBox({ onChange, name, value }) {
   const [checkboxStates, setCheckboxStates] = useState([false, false, false, false, false]);
 
   const getStars = (index) => {
-    value = checkboxStates.map((_, i) => i <= index);
-    setCheckboxStates(value);
-
+    const stars = checkboxStates.map((_, i) => i <= index);
+    setCheckboxStates(stars);
+    value = parseInt(index + 1);
     onChange(value);
   };
 

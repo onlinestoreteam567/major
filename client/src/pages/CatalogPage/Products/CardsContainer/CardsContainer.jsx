@@ -3,7 +3,7 @@ import EmptyPage from '@components/helpers/EmptyPage';
 import CardCatalog from './Card/Card';
 import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
-import { selectProducts } from '../../../../redax/selectors';
+import { selectProducts } from '@redux/selectors';
 
 export default function CardsContainer() {
   // const { items, status, error } = useSelector((state) => state.productList);

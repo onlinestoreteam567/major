@@ -30,6 +30,7 @@
   font-size: $font-size-base;
   font-weight: $font-weight-base;
   line-height: 1.36;
+
   span {
     color: red;
   }
@@ -45,6 +46,7 @@
     border-radius: 4px;
     background: rgb(247, 247, 247);
     padding: 12px;
+    outline: none;
     &::placeholder {
       color: rgb(103, 103, 103);
       font-family: $font-main;
@@ -65,6 +67,7 @@
     border-radius: 4px;
     background: rgb(247, 247, 247);
     padding: 12px;
+    outline: none;
     &::placeholder {
       color: rgb(103, 103, 103);
       font-family: $font-main;
