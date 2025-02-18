@@ -11,6 +11,7 @@ export default function FilterByCategory() {
   const items = useSelector(selectCategories);
 
   const getCategory = (value) => {
+    console.log(value);
     // console.dir(value);
     dispatch(getProductsByCategory(value));
   };

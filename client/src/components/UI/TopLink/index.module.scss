@@ -2,10 +2,7 @@
 
 .wrapLinkBack {
   @include flex(row, flex-start, center);
-  // width: 356px;
   height: 20px;
-  // min-width: 320px;
-  // max-width: 380px;
   width: 100%;
   gap: 4px;
   padding: 0;
@@ -45,7 +42,7 @@
   }
 
   @include tablet {
-    width: auto;
+    // width: auto;
     .wrapLink:last-child {
       width: auto;
     }

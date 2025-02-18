@@ -8,18 +8,22 @@ import StarsCheskBox from './StarsCheckBox';
 import BtnSubmit from '@components/UI/Button/BtnSubmit';
 import InputPhone from './InputPhone';
 import InputTextArea from './InputTextArea';
+import { useDispatch } from 'react-redux';
+import { addReviewById } from '@redux/products/service';
 
 const ReviewPopUp = ({ card }) => {
   const schema = yup.object({
     user_name: yup.string().required("поле обов'язкове"),
     phone: yup.string().required("поле обов'язкове"),
     review_text: yup.string().required("поле обов'язкове"),
-    stars: yup.array().of(yup.boolean()).default([false, false, false, false, false]).required("поле обов'язкове"),
+    stars: yup.number().min(0).max(5).required("поле обов'язкове"),
   });
 
-  const date = new Date();
-  const dateNow = date.toISOString();
-  const dateReview = dateNow.slice(0, 10);
+  // const date = new Date();
+  // const dateNow = date.toISOString();
+  // const dateReview = dateNow.slice(0, 10);
+
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -30,19 +34,19 @@ const ReviewPopUp = ({ card }) => {
     resolver: yupResolver(schema),
   });
 
+  const id = card.id;
+
   const onSubmit = (data) => {
     const newReview = {
-      product_id: card.id,
-      product_name: card.name,
       review_text: data.review_text,
       user_name: data.user_name,
-      data: dateReview,
-      stars: data.stars,
+      rating: data.stars,
     };
-
-    console.log(newReview);
+    dispatch(addReviewById({ id, newReview }));
   };
+
   const phoneUser = register('phone');
+
   return (
     <div className={cl.messagePopUp} onClick={(e) => e.stopPropagation()}>
       <Heading type="h3">Залиште відгук про наш товар</Heading>

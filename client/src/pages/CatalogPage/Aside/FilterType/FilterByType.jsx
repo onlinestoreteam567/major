@@ -16,6 +16,7 @@ export default function FilterByType() {
   const items = useSelector(selectTypes);
 
   const getTypes = (value) => {
+    console.log(value);
     dispatch(getProductsByTypes(value));
   };
   const showArr = Array.isArray(items) && items.length !== 0;

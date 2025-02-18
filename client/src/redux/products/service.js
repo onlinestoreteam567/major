@@ -43,7 +43,7 @@ export const fetchProductsAll = createAsyncThunk('products/getAll', async (_, th
 export const getProductsByTypes = createAsyncThunk('products/getByTypes', async (id, thunkAPI) => {
   try {
     const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/?type_category=${id}`);
-    console.log(data);
+
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -79,10 +79,26 @@ export const getProductsByPrice = createAsyncThunk('products/getByPrice', async 
   }
 });
 
+// *** PRODUCT_ID ***
+
 export const getProductById = createAsyncThunk('products/getById', async (id, thunkAPI) => {
   try {
     const endpoint = `${PRODUCT_LIST_ENDPOINT}/${id}`;
     const { data } = await apiClient.get(endpoint);
+
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+const REVIEW_ENDPOINT = import.meta.env.VITE_REVIEW_ENDPOINT;
+
+export const addReviewById = createAsyncThunk('products/addReview', async ({ id, newReview }, thunkAPI) => {
+  console.log(id, newReview);
+  try {
+    const endpoint = `${REVIEW_ENDPOINT}/${id}/reviews`;
+    const { data } = await apiClient.post(endpoint, newReview);
     console.log(data);
     return data;
   } catch (error) {
