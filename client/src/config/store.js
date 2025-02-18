@@ -1,11 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import cartReducer from '@features/cart/cartSlice';
-// import bestSellersReducer from '@features/products/bestSellersSlice';
-// import setsReducer from '@features/products/setsSlice';
-// import productListReducer from '@features/products/productListSlice/productListSlice';
-// import productsReducer from '@features/products/productSlice';
-// import typesReducer from '@features/catalog/typesSlice';
-// import purposeCategoryReducer from '@features/catalog/purposeCategorySlice';
 import { loadFromStorage, saveToStorage } from '@utils/localStorage';
 
 import { bestSellerReducer } from '../redax/products/bestSlice';

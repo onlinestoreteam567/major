@@ -5,8 +5,7 @@
   position: relative;
   text-align: center;
   width: 100%;
-  height: 570px;
-  // aspect-ratio: 1/1;
+  height: auto;
 
   .slider {
     display: flex;
@@ -54,7 +53,6 @@
   }
   @include tablet {
     width: 668px;
-    height: 600px;
     .slider {
       padding: 0 14px;
     }
@@ -72,7 +70,6 @@
   }
   @include deskmax {
     width: 1320px;
-    height: 520px;
     text-align: center;
     .slider {
       padding: 0 12px;
