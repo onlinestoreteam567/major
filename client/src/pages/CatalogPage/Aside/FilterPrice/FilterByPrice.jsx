@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
 import { useDispatch } from 'react-redux';
-import { getProductsByPrice } from '../../../../redux/products/service';
+import { getProductsByPrice } from '@redux/products/service';
 
 export default function FilterByPrice() {
   const [min, setMin] = useState('100');

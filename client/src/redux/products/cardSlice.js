@@ -10,7 +10,7 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-const poductIdSlice = createSlice({
+const productIdSlice = createSlice({
   name: 'productId',
   initialState: {
     productId: {},
@@ -29,4 +29,4 @@ const poductIdSlice = createSlice({
       .addCase(getProductById.rejected, handleRejected),
 });
 
-export const productIdReducer = poductIdSlice.reducer;
+export const productIdReducer = productIdSlice.reducer;

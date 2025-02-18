@@ -1,10 +1,9 @@
-import { loadCategories, selectCategories } from '../../../redux/selectors';
 import cl from './index.module.scss';
-
 import { useDispatch, useSelector } from 'react-redux';
 import EmptyPage from '@components/helpers/EmptyPage';
 import Spinner from '@components/helpers/Spinner';
-import { getProductsByCategory } from '../../../redux/products/service';
+import { loadCategories, selectCategories } from '@redux/selectors';
+import { getProductsByCategory } from '@redux/products/service';
 
 export default function FilterByCategory() {
   const dispatch = useDispatch();

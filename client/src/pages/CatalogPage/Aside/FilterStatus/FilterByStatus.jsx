@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 import { useDispatch } from 'react-redux';
 import Heading from '@components/UI/Texts/Heading/Heading';
-import { getProductsByStatus } from '../../../../redux/products/service';
+import { getProductsByStatus } from '@redux/products/service';
 
 const switchItems = [
   { icon: '/svg/catalogPage/new.svg', label: 'is_new' },

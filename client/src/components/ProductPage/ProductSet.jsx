@@ -2,8 +2,8 @@ import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
-import { loadSets, selectSets } from '../../redux/selectors';
 import Spinner from '@components/helpers/Spinner';
+import { loadSets, selectSets } from '@redux/selectors';
 
 export default function ProductSet() {
   const isLoading = useSelector(loadSets);
