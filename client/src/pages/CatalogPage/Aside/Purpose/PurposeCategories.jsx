@@ -1,5 +1,5 @@
-// import { loadCategories, selectCategories } from '../../../../redax/selectors';
-// // import { fetchProductListPurposeCategory } from '../redax/products/service';
+// import { loadCategories, selectCategories } from '../../../../redux/selectors';
+// // import { fetchProductListPurposeCategory } from '../redux/products/service';
 // import PurposeCategoryCard from '@components/UI/CatalogCard/CatalogCard';
 
 // import { useSelector } from 'react-redux';

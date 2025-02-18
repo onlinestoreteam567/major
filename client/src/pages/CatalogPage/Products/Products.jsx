@@ -1,5 +1,5 @@
 import Spinner from '@components/helpers/Spinner';
-import { loadProducts } from '../../../redax/selectors';
+import { loadProducts } from '../../../redux/selectors';
 import Bottom from './Bottom/Bottom';
 import CardsContainer from './CardsContainer/CardsContainer';
 import cl from './index.module.scss';

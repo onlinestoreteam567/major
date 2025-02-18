@@ -1,4 +1,4 @@
-import { loadSets, selectSets } from '../../../redax/selectors';
+import { loadSets, selectSets } from '../../../redux/selectors';
 import cl from './index.module.scss';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';

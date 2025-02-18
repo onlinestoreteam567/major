@@ -4,9 +4,9 @@ import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
 import Spinner from '@components/helpers/Spinner';
 import EmptyPage from '@components/helpers/EmptyPage';
 import { useEffect } from 'react';
-import { fetchProductsAll } from '../../redax/products/service';
+import { fetchProductsAll } from '../../redux/products/service';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadProducts, selectProducts } from '../../redax/selectors';
+import { loadProducts, selectProducts } from '../../redux/selectors';
 
 export default function FitCategory({ categoryId }) {
   const id = categoryId[0];

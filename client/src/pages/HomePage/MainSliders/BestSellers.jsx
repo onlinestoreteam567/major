@@ -3,7 +3,7 @@ import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
 import { useSelector } from 'react-redux';
-import { loadBestSeller, selectBestSeller } from '../../../redax/selectors';
+import { loadBestSeller, selectBestSeller } from '../../../redux/selectors';
 import Spinner from '@components/helpers/Spinner';
 import EmptyPage from '@components/helpers/EmptyPage';
 

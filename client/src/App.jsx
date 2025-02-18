@@ -7,8 +7,8 @@ import { useDispatch } from 'react-redux';
 // import { fetchTypes } from '@../servicesold/TypeService';
 // import { fetchSets } from './servicesold/SetsService';
 // import { fetchPurposeCategories } from '@../servicesold/PurposeCategoryService';
-import { fetchBestSellers, fetchProductsAll, fetchSets } from './redax/products/service';
-import { fetchCategories, fetchTypes } from './redax/params/service';
+import { fetchBestSellers, fetchProductsAll, fetchSets } from './redux/products/service';
+import { fetchCategories, fetchTypes } from './redux/params/service';
 
 function App() {
   const { i18n } = useTranslation();

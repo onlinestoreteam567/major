@@ -1,4 +1,4 @@
-// import { fetchSwitch } from '../redax/products/service';
+// import { fetchSwitch } from '../redux/products/service';
 // import Switch from '@UI/Switch/Switch';
 // // import useTranslationNamespace from '@hooks/useTranslationNamespace';
 // // import { fetchSwitch } from '@../servicesold/ProductListService';

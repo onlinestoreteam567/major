@@ -1,13 +1,21 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import cartReducer from '@features/cart/cartSlice';
 import { loadFromStorage, saveToStorage } from '@utils/localStorage';
+import { setsReducer } from '@redux/products/setsSlice';
+import { productsReducer } from '@redux/products/listSlice';
+import { productIdReducer } from '@redux/products/cardSlise';
+import { bestSellerReducer } from '@redux/products/bestSlice';
+import { categotyReducer } from '@redux/params/categorySlice';
+import { typesReducer } from '@redux/params/purposeSlice';
+// import { setsReducer } from '@../redax/products/setsSlice';
 
-import { bestSellerReducer } from '../redax/products/bestSlice';
-import { productsReducer } from '../redax/products/listSlice';
-import { categotyReducer } from '../redax/params/categorySlice';
-import { typesReducer } from '../redax/params/purposeSlice';
-import { setsReducer } from '../redax/products/setsSlice';
-import { productIdReducer } from '../redax/products/cardSlise';
+// import { bestSellerReducer } from '../redux/products/bestSlice';
+// import { productsReducer } from '../redux/products/listSlice';
+// import { categotyReducer } from '../redux/params/categorySlice';
+// import { typesReducer } from '../redux/params/purposeSlice';
+// import { setsReducer } from '../redux/products/setsSlice';
+// import { productIdReducer } from '../redux/products/cardSlise';
+// import { setsReducer } from '@/redux/products/setsSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,

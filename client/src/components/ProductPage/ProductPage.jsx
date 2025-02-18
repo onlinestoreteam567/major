@@ -5,8 +5,8 @@ import TopLink from '@components/UI/TopLink/TopLink';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { fetchProductsAll, getProductById } from '../../redax/products/service';
-import { loadProductId, selectProductId } from '../../redax/selectors';
+import { getProductById } from '../../redux/products/service';
+import { loadProductId, selectProductId } from '../../redux/selectors';
 
 import EmptyPage from '@components/helpers/EmptyPage';
 import ProductSet from './ProductSet';
@@ -23,7 +23,7 @@ export default function ProductPage() {
 
   useEffect(() => {
     dispatch(getProductById(id));
-    dispatch(fetchProductsAll());
+    // dispatch(fetchProductsAll());
   }, [dispatch, id]);
 
   const isLoading = useSelector(loadProductId);

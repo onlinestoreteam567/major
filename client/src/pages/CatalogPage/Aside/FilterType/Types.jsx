@@ -4,11 +4,11 @@
 // import CheckBox from '@UI/Checkbox/Checkbox';
 // import { FormGroup } from '@components/form-components';
 // import { useDispatch, useSelector } from 'react-redux';
-// // import { fetchProductListTypes } from '../redax/products/service';
-// import { loadTypes, selectTypes } from '../../../../redax/selectors';
+// // import { fetchProductListTypes } from '../redux/products/service';
+// import { loadTypes, selectTypes } from '../../../../redux/selectors';
 // import EmptyPage from '@components/helpers/EmptyPage';
 // import Spinner from '@components/helpers/Spinner';
-// import { getProductsByTypes } from '../../../../redax/products/service';
+// import { getProductsByTypes } from '../../../../redux/products/service';
 // // import Loading from '@components/helpers/Loading';
 
 // const Types = () => {

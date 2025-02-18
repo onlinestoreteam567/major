@@ -5,10 +5,10 @@ import Heading from '@UI/Texts/Heading/Heading';
 import { FormGroup } from '@components/form-components';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { loadTypes, selectTypes } from '../../../../redax/selectors';
+import { loadTypes, selectTypes } from '../../../../redux/selectors';
 import EmptyPage from '@components/helpers/EmptyPage';
 import Spinner from '@components/helpers/Spinner';
-import { getProductsByTypes } from '../../../../redax/products/service';
+import { getProductsByTypes } from '../../../../redux/products/service';
 
 export default function FilterByType() {
   const { getTranslation } = useTranslationNamespace('catalogPage');

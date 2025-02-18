@@ -2,7 +2,7 @@ import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
-import { loadSets, selectSets } from '../../redax/selectors';
+import { loadSets, selectSets } from '../../redux/selectors';
 import Spinner from '@components/helpers/Spinner';
 
 export default function ProductSet() {
