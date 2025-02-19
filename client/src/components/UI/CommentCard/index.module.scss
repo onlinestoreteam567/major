@@ -3,7 +3,7 @@
 .commentCard {
   @include flex(column, flex-start, flex-start);
   box-sizing: border-box;
-  width: 356px;
+  width: 296px;
   gap: 28px;
 
   .wrapReview {
@@ -40,6 +40,10 @@
     h4 {
       text-align: start;
     }
+  }
+
+  @include mobile {
+    width: 356px;
   }
 
   @include tablet {
