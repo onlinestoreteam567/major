@@ -9,7 +9,7 @@
 
   a {
     text-align: center;
-    width: 327px;
+    width: 296px;
     background-color: transparent;
     border-radius: $border-radius-medium;
     border: none;
@@ -24,6 +24,10 @@
     text-wrap: nowrap;
     transition: 300ms;
     cursor: pointer;
+
+    @include mobile {
+      width: 327px;
+    }
 
     &:hover {
       color: $text-color-light;
