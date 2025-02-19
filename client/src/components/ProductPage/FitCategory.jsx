@@ -35,17 +35,10 @@ export default function FitCategory({ categoryId }) {
       ) : (
         <div className={cl.wrapProductOffer}>
           <Heading type="h2">Вас можуть зацікавити</Heading>
-          {console.log(showArr)}
           {showArr ? (
-            <>
-              {console.log({ slidesData })}
-              <SliderBoxMain total={total} slidesData={slidesData} />
-            </>
+            <SliderBoxMain total={total} slidesData={slidesData} />
           ) : (
-            <>
-              {console.log('empty')}
-              <EmptyPage message="Нічого не знайдено" />
-            </>
+            <EmptyPage message="Нічого не знайдено" />
           )}
         </div>
       )}

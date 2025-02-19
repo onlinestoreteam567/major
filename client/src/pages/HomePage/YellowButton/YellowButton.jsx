@@ -3,9 +3,13 @@ import cl from './index.module.scss';
 import MainPopUp from '@UI/PopUp/MainPopUp/MainPopUp';
 import { popUpData } from '@components/constants/popUpData';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+// import { createPortal } from 'react-dom';
+// import WrapModal from '@components/UI/WrapModal/WrapModal';
+// import HelperPopUp from '@components/UI/PopUp/FormPopUp/HelperPopUp';
 
 const YellowButton = () => {
   const [showMessagePopUp, setShowMessagePopUp] = useState(false);
+
   const [showHelpButtonCloseAnimation, setShowHelpButtonCloseAnimation] = useState(false);
   const [showNeedHelpButton, setShowNeedHelpButton] = useState(false);
 
@@ -20,6 +24,17 @@ const YellowButton = () => {
       setShowNeedHelpButton(false);
     }, 275);
   };
+
+  // **********************************
+  // const [isShow, setIsShow] = useState(false);
+
+  // const openModal = () => {
+  //   setIsShow(true);
+  // };
+  // const closeModal = () => {
+  //   setIsShow(false);
+  // };
+  // **************************************
 
   const { getTranslation } = useTranslationNamespace('yellowButton');
 
@@ -45,11 +60,16 @@ const YellowButton = () => {
               <button onClick={handleShowMesssagePopUp}>
                 <img src="/svg/yellowCircle/communication.svg" alt="Open message pop-up" />
               </button>
+              {/* <button type="button" onClick={openModal}>
+                <img src="/svg/yellowCircle/communication.svg" alt="Open message pop-up" />
+              </button> */}
             </div>
           </div>
         )}
       </section>
       {showMessagePopUp && <MainPopUp setShowMessagePopUp={setShowMessagePopUp} popUpData={popUpData} />}
+      {/* {isShow &&
+        createPortal(<WrapModal isShow={isShow} closeModal={closeModal} content={<HelperPopUp />} />, document.body)} */}
     </>
   );
 };

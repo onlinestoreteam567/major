@@ -1,17 +1,14 @@
-// import ArrowLeft from '@assets/svg/ArrowLeft';
 import cl from './index.module.scss';
 import { useRef, useState } from 'react';
-// import ArrowRight from '@assets/svg/ArrowRight';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-// import { oneElement } from '@components/constants/settingSlider';
 import LabelHit from '../Labels/LabelHit';
 import LabelNew from '../Labels/LabelNew';
 import LabelSale from '../Labels/LabelSale';
 import { createPortal } from 'react-dom';
 import SliderImgs from './SliderImgs';
-import Overlay from '@components/UI/Overlay/Overlay';
+import WrapModal from '@components/UI/WrapModal/WrapModal';
 
 export default function ImgMobile({ card }) {
   const [isShow, setIsShow] = useState(false);
@@ -66,9 +63,7 @@ export default function ImgMobile({ card }) {
       </button>
       {isShow &&
         createPortal(
-          <Overlay>
-            <SliderImgs onClose={closeModal} card={card} />
-          </Overlay>,
+          <WrapModal isShow={isShow} closeModal={closeModal} content={<SliderImgs card={card} />} />,
           document.body
         )}
     </div>

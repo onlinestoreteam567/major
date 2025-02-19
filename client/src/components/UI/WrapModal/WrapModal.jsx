@@ -22,10 +22,12 @@ export default function WrapModal({ closeModal, isShow, content }) {
   return (
     <div className={`${cl.overlay} ${isClosing ? cl.close : ''}`}>
       <div className={cl.wrapContent}>
-        <button className={cl.btnClose} onClick={handleClose}>
-          {close}
-        </button>
-        <div className={cl.content}>{content}</div>
+        <div className={cl.wrapBtn}>
+          <button className={cl.btnClose} onClick={handleClose}>
+            {close}
+          </button>
+        </div>
+        <>{content}</>
       </div>
     </div>
   );
