@@ -171,13 +171,13 @@
     width: 340px;
   }
   @include tablet {
-    width: 740px;
+    width: 640px;
     height: auto;
     padding: 0 10px 72px 10px;
   }
 
   @include deskmin {
-    width: 1000px;
+    width: 980px;
   }
   .wrapContent {
     @include flexGap(20px, column);
@@ -196,7 +196,7 @@
 
     @include tablet {
       @include flex(row-reverse, space-between, flex-start);
-      width: 300px;
+      width: 400px;
       height: 360px;
     }
 
@@ -220,7 +220,7 @@
       }
 
       @include tablet {
-        width: 240px;
+        width: 300px;
         height: 360px;
       }
 
