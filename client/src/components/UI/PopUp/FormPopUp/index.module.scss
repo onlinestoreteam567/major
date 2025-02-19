@@ -2,17 +2,24 @@
 
 .messagePopUp {
   @include flex(column, flex-start, center);
-  // min-width: 260px;
-  // max-width: 464px;
-  width: 100%;
+  width: 280px;
   height: auto;
-  gap: 32px;
+  gap: 20px;
   background-color: $background-color-light;
   color: $text-color-black;
   font-family: $font-main;
-  padding: 24px 0 0 0;
+  padding: 20px 0 40px 0;
   box-sizing: border-box;
   border-radius: $border-radius-small;
+
+  @include mobile {
+    width: 320px;
+    padding: 20px 10px 40px 10px;
+  }
+  @include tablet {
+    width: 464px;
+    padding: 20px 20px 40px 20px;
+  }
 
   .form {
     @include flex(column, flex-start, flex-start);

@@ -5,6 +5,7 @@ import LabelSale from '../Labels/LabelSale';
 import cl from './index.module.scss';
 import { useState } from 'react';
 import SliderImgs from './SliderImgs';
+import WrapModal from '@components/UI/WrapModal/WrapModal';
 
 export default function ImgDesk({ card }) {
   const images = card.images || [];
@@ -37,7 +38,11 @@ export default function ImgDesk({ card }) {
       <button type="button" onClick={openModal} className={cl.btnMore}>
         <img src="/svg/more.svg" />
       </button>
-      {isShow && createPortal(<SliderImgs onClose={closeModal} card={card} />, document.body)}
+      {isShow &&
+        createPortal(
+          <WrapModal isShow={isShow} closeModal={closeModal} content={<SliderImgs card={card} />} />,
+          document.body
+        )}
     </div>
   );
 }
