@@ -22,6 +22,7 @@
 
   .wrapList {
     text-wrap: nowrap;
+    @include flex(row, space-between, null);
     width: 296px;
 
     @include mobile {
