@@ -8,14 +8,14 @@
   .wrapImges {
     @include flex(row, center, center);
     flex-wrap: wrap;
-    width: 356px;
+    width: 296px;
     gap: 22px;
     figure {
       position: relative;
       @include flex(row, center, center);
       img {
-        width: 166px;
-        height: 136px;
+        width: 136px;
+        height: 112px;
         object-fit: cover;
         border-radius: $border-radius-small;
         cursor: pointer;
@@ -42,6 +42,19 @@
       }
     }
   }
+
+  @include mobile {
+    .wrapImges {
+      width: 356px;
+      figure {
+        img {
+          width: 166px;
+          height: 136px;
+        }
+      }
+    }
+  }
+
   @include tablet {
     gap: 48px;
     .wrapImges {
