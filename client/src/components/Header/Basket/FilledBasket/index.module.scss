@@ -66,6 +66,7 @@
   }
 
   .orderButton {
+    text-wrap: wrap;
     min-width: 138px;
     width: 100%;
     height: 55px;
@@ -79,7 +80,6 @@
     font-size: $font-size-medium;
     font-weight: $font-weight-medium;
     line-height: 23.04px;
-    text-wrap: nowrap;
     transition: 0.3s ease-out;
 
     &:hover {
