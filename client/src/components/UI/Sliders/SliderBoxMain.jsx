@@ -1,5 +1,5 @@
 import Slider from 'react-slick';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import cl from './index.module.scss';
@@ -7,27 +7,53 @@ import CardCatalog from '../../../pages/CatalogPage/Products/CardsContainer/Card
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
 import { mainSettings } from '@components/constants/settingSlider';
+import useScreenSizes from '@hooks/useScreenSizes';
+let screenSizeTotal;
 
 const SliderBoxMain = ({ slidesData, total }) => {
-  const [slidesToShow, setSlidesToShow] = useState(4);
+  const { tablet, deskmin, deskmax } = useScreenSizes();
   const [index, setIndex] = useState(1);
   let sliderRef = useRef(null);
 
-  useEffect(() => {
-    if (!slidesData) return;
-    setSlidesToShow(total < 4 ? total : 4);
-  }, [slidesData, total]);
+  switch (true) {
+    case tablet:
+      screenSizeTotal = total - 1;
+      break;
+    case deskmin:
+      screenSizeTotal = total - 2;
+      break;
+    case deskmax:
+      screenSizeTotal = total - 3;
+      break;
+    default:
+      screenSizeTotal = total;
+      break;
+  }
 
   const settings = {
     ...mainSettings,
-    slidesToShow: slidesToShow,
+  };
+
+  const [clickDelay, setClickDelay] = useState(false);
+  const timer = useRef(null);
+
+  const clickWithDelay = () => {
+    setClickDelay(true);
+    timer.current = setTimeout(() => {
+      setClickDelay(false);
+    }, 300);
   };
 
   const next = () => {
+    if (clickDelay) return;
+    clickWithDelay();
     sliderRef.current.slickNext();
     setIndex((prevIndex) => prevIndex + 1);
   };
+
   const previous = () => {
+    if (clickDelay) return;
+    clickWithDelay();
     sliderRef.current.slickPrev();
     setIndex((prevIndex) => prevIndex - 1);
   };
@@ -38,7 +64,7 @@ const SliderBoxMain = ({ slidesData, total }) => {
         <button disabled={index === 1} onClick={previous}>
           <ArrowLeft />
         </button>
-        <button disabled={index === total} onClick={next}>
+        <button disabled={index === screenSizeTotal} onClick={next}>
           <ArrowRight />
         </button>
       </div>
