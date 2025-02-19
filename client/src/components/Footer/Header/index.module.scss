@@ -24,8 +24,12 @@
   }
 
   .wrapper {
-    @include flex(row, center, start);
+    @include flex(column, null, center);
     gap: 45px;
+
+    @include mobile {
+      @include flex(row, center, start);
+    }
 
     @include tablet {
       gap: 0;
