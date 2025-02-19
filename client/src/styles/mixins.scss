@@ -117,9 +117,13 @@
   & {
     box-sizing: border-box;
     padding: 0 12px 120px 12px;
+  }
+
+  @include mobile {
     min-width: 380px;
     max-width: 767px;
   }
+
   @include tablet {
     padding: 0 64px 120px 64px;
     min-width: 768px;
