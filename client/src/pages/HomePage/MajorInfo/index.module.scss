@@ -3,25 +3,24 @@
 .majorInfoWrapper {
   @include flex(column, flex-start, center);
   gap: 40px;
-  width: 356px;
+  width: 296px;
   .wrapItem {
     @include flex(column, flex-start, center);
     gap: 32px;
     .wrapImg {
       @include flex(row, center, center);
-      width: 356px;
-      height: 304px;
+      width: 296px;
+      height: 252px;
       img {
-        width: 356px;
-        height: 304px;
+        width: 296px;
+        height: 252px;
         border-radius: 2px 8px 8px 2px;
         object-fit: cover;
       }
     }
     .wrapInfo {
       @include flex(column, space-between, center);
-      width: 356px;
-      height: 314px;
+      width: 296px;
       .wrapText {
         @include flex(column, flex-start, center);
         gap: 24px;
@@ -36,6 +35,26 @@
         font-weight: $font-weight-medium;
         line-height: 1.22;
         text-decoration: underline;
+      }
+    }
+  }
+
+  @include mobile {
+    width: 356px;
+
+    .wrapItem {
+      .wrapImg {
+        width: 356px;
+        height: 304px;
+
+        img {
+          width: 356px;
+          height: 304px;
+        }
+      }
+
+      .wrapInfo {
+        width: 356px;
       }
     }
   }

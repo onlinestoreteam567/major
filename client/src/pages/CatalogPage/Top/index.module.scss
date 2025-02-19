@@ -26,18 +26,29 @@
   }
 
   h2 {
-    width: 356px;
+    width: 296px;
     text-align: start;
+    margin-top: 20px;
+
+    @include mobile {
+      width: 356px;
+    }
 
     @include tablet {
+      margin: 0;
+
       width: 636px;
     }
   }
 
   .sortSection {
     @include flex(row, space-between, center);
-    width: 356px;
+    width: 296px;
     margin-top: 20px;
+
+    @include mobile {
+      width: 356px;
+    }
 
     @include tablet {
       margin-top: 40px;
@@ -61,11 +72,15 @@
     button {
       @include flexGap(16px, row);
       height: 44px;
-      width: 165px;
+      width: 137px;
       font-size: 16px;
       font-weight: 300;
       line-height: 20.48px;
       border-radius: 2px;
+
+      @include mobile {
+        width: 165px;
+      }
 
       @include tablet {
         width: 308px;

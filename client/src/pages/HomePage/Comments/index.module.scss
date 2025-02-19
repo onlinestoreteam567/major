@@ -4,10 +4,10 @@
   @include flex(column, flex-start, center);
   box-sizing: border-box;
   gap: 40px;
-  width: 356px;
+  width: 296px;
   .wrapSlider {
     text-align: center;
-    width: 356px;
+    width: 296px;
     height: auto;
     .slider {
       display: flex;
@@ -16,7 +16,7 @@
     }
     .btnSlider {
       @include flex(row, center, center);
-      width: 356px;
+      width: 296px;
       gap: 16px;
       button {
         @include flex(row, center, center);
@@ -57,6 +57,19 @@
       }
     }
   }
+
+  @include mobile {
+    width: 356px;
+
+    .wrapSlider {
+      width: 356px;
+
+      .btnSlider {
+        width: 356px;
+      }
+    }
+  }
+
   @include tablet {
     width: 640px;
     gap: 48px;

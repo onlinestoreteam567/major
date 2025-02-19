@@ -21,8 +21,14 @@
   }
 
   .wrapList {
-    @include flexGap(24px, column);
     text-wrap: nowrap;
+    @include flex(row, space-between, null);
+    width: 296px;
+
+    @include mobile {
+      @include flexGap(24px, column);
+      width: auto;
+    }
 
     @include deskmax {
       flex-direction: row;

@@ -39,7 +39,7 @@ const YellowButton = () => {
             <span className={cl.questionSpan}>?</span>
             <div className={cl.needHelpButtons}>
               <p>{getTranslation('help')}</p>
-              <a href="https://example.com">
+              <a href="https://t.me/UA_National_Police" rel="nofollow" target="_blank">
                 <img src="/svg/yellowCircle/telegram.svg" alt="Telegram icon" />
               </a>
               <button onClick={handleShowMesssagePopUp}>
@@ -53,4 +53,5 @@ const YellowButton = () => {
     </>
   );
 };
+
 export default YellowButton;

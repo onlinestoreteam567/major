@@ -2,10 +2,11 @@
 
 .basketWrapper {
   @include flex(column, null, center);
-  height: $height-pop-up-header-mobile;
+  min-width: 320px;
   width: $width-pop-up-header-width;
+  height: $height-pop-up-header-mobile;
+  padding: 20px 12px;
   box-sizing: border-box;
-  padding: 20px 32px 15px 32px;
   position: absolute;
   right: 0;
   top: 0;
@@ -17,8 +18,13 @@
   color: black;
   z-index: 100;
 
+  @include mobile {
+    padding: 20px 12px 15px 12px;
+  }
+
   @include tablet {
     height: $height-pop-up-header-tablet;
+    padding: 20px 64px 15px 64px;
     max-height: 100vh;
     overflow: scroll;
   }
