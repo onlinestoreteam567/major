@@ -9,7 +9,7 @@ const SocialLinks = ({ black }) => {
       <h3 className={black ? cl.black : ''}>{getTranslation('socials')}</h3>
       <ul>
         <li>
-          <a href="">
+          <a href="https://t.me/UA_National_Police" rel="nofollow" target="_blank">
             <img src="/svg/footer/monochromeTelegram.svg" alt={getTranslation('telegramAlt')} />
           </a>
         </li>
