@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import cl from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsByPrice } from '@redux/products/service';
@@ -8,16 +8,9 @@ import { setPrice } from '@redux/filter/filterSlice';
 export default function FilterByPrice() {
   const dispatch = useDispatch();
   const newPrice = useSelector(filterPrice);
-  // console.log(price);
 
   const [min, setMin] = useState(newPrice.min);
   const [max, setMax] = useState(newPrice.max);
-  console.log('PRICE', min, max);
-
-  useEffect(() => {
-    setMin(newPrice.min);
-    setMax(newPrice.max);
-  }, [newPrice]);
 
   const handleMinChange = (event) => {
     setMin(Math.min(Number(event.target.value), max));

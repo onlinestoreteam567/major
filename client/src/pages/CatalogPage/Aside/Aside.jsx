@@ -6,6 +6,7 @@ import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import FilterByType from './FilterType/FilterByType';
 import FilterByStatus from './FilterStatus/FilterByStatus';
 import FilterByPrice from './FilterPrice/FilterByPrice';
+import PriceRange from './FilterPrice/PriceRange';
 
 const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
   const { deskmin, deskmax } = useScreenSizes();
@@ -24,6 +25,11 @@ const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
       )}
       <FilterByStatus />
       <FilterByPrice />
+      <br />
+      <br />
+      <br />
+      <br />
+      <PriceRange />
       <FilterByType />
     </aside>
   );
