@@ -22,3 +22,8 @@ export const loadFitCategory = (state) => state.fitCategory.isLoading;
 export const loadProductId = (state) => state.productId.isLoading;
 export const selectProductId = (state) => state.productId.productId;
 // export const selectIdItems = (state) => state.productId.items;
+
+export const filterCategory = (state) => state.filter.category;
+export const filterType = (state) => state.filter.type;
+export const filterStatus = (state) => state.filter.status;
+export const filterPrice = (state) => state.filter.price;

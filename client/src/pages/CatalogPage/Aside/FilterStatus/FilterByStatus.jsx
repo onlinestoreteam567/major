@@ -1,6 +1,8 @@
+import { useDispatch, useSelector } from 'react-redux';
 import cl from './index.module.scss';
-import { useDispatch } from 'react-redux';
 import Heading from '@components/UI/Texts/Heading/Heading';
+import { setStatus } from '@redux/filter/filterSlice';
+import { filterStatus } from '@redux/selectors';
 import { getProductsByStatus } from '@redux/products/service';
 
 const switchItems = [
@@ -12,9 +14,12 @@ const switchItems = [
 export default function FilterByStatus() {
   const dispatch = useDispatch();
 
+  const newStatus = useSelector(filterStatus);
+  console.log('STATUS', newStatus);
+
   const getStatus = (value) => {
-    // console.log(value);
     dispatch(getProductsByStatus(value));
+    dispatch(setStatus(value));
   };
 
   return (
@@ -25,7 +30,13 @@ export default function FilterByStatus() {
             <img src={item.icon} />
             <Heading type="h4">{item.label}</Heading>
             <label>
-              <input type="radio" name="status" value={item.label} onChange={(e) => getStatus(e.target.value)} />
+              <input
+                type="radio"
+                name="status"
+                value={item.label}
+                checked={newStatus === item.label}
+                onChange={(e) => getStatus(e.target.value)}
+              />
               <span className={cl.slider}></span>
             </label>
           </li>
