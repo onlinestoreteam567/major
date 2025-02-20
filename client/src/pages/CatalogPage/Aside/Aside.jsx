@@ -3,9 +3,6 @@ import cl from './index.module.scss';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import useScreenSizes from '@hooks/useScreenSizes';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
-// import Switch from '@components/UI/Switch/Switch';
-// import PurposeCategories from './Purpose/PurposeCategories';
-// import Types from './FilterType/Types';
 import FilterByType from './FilterType/FilterByType';
 import FilterByStatus from './FilterStatus/FilterByStatus';
 import FilterByPrice from './FilterPrice/FilterByPrice';
@@ -25,11 +22,6 @@ const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
           <ButtonClose onClick={() => handleCloseAside()} />
         </section>
       )}
-
-      {/* <Request /> */}
-      {/* <Switchs /> */}
-      {/* <PurposeCategories /> */}
-      {/* <Types /> */}
       <FilterByStatus />
       <FilterByPrice />
       <FilterByType />

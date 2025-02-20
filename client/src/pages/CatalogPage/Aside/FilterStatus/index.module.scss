@@ -1,63 +1,61 @@
 @import '@mixins';
 
-.switchWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  user-select: none;
-  height: 44px;
+.statusList {
   width: 100%;
-  border-bottom: 1px solid #c0c0c0;
 
-  label {
-    border: 1px solid;
-    border-radius: 15px;
-    position: relative;
-    display: inline-block;
-    width: 48px;
-    height: 24px;
-    cursor: pointer; /* Change cursor on hover */
+  li {
+    @include flex(row, space-between);
+    width: 100%;
+    height: 44px;
+    border-bottom: 1px solid #c0c0c0;
 
-    &.inactive {
-      border-color: #c0c0c0;
+    div {
+      @include flexGap(16px);
+
+      div {
+        @include flex();
+        width: 32px;
+      }
+
+      h4 {
+        @include flex();
+      }
     }
 
-    &.initial,
-    &.active {
-      border-color: $text-color-black;
-    }
-  }
+    label {
+      @include flex();
 
-  input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
 
-  .slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: transparent;
-    border-radius: 24px; /* Rounded corners */
-    transition: background-color 0.4s ease; /* Smooth background transition */
+      input:checked + span {
+        img {
+          transform: translateX(26px);
+        }
+      }
 
-    img {
-      position: absolute;
-      height: 16px;
-      width: 16px;
-      transition: transform 0.4s ease; /* Smooth movement of the image */
-      left: 3px; /* Starting position of the image */
-      top: 4px; /* Align with the bottom */
-    }
-  }
+      span {
+        position: relative;
+        background-color: transparent;
+        border-radius: 24px;
+        transition: background-color 0.3s ease;
+        display: block;
+        height: 24px;
+        width: 48px;
+        border: 1px solid #22211f;
 
-  input:checked + .slider {
-    img {
-      transform: translateX(26px);
+        img {
+          position: absolute;
+          height: 16px;
+          width: 16px;
+          transition: transform 0.3s ease;
+          left: 3px;
+          top: 4px;
+        }
+      }
     }
   }
 }
