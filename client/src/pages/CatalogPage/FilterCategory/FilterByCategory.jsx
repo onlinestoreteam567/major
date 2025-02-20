@@ -2,17 +2,20 @@ import cl from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import EmptyPage from '@components/helpers/EmptyPage';
 import Spinner from '@components/helpers/Spinner';
-import { loadCategories, selectCategories } from '@redux/selectors';
+import { filterCategory, loadCategories, selectCategories } from '@redux/selectors';
 import { getProductsByCategory } from '@redux/products/service';
+import { setCategory } from '@redux/filter/filterSlice';
 
 export default function FilterByCategory() {
   const dispatch = useDispatch();
   const isLoading = useSelector(loadCategories);
   const items = useSelector(selectCategories);
 
+  const category = useSelector(filterCategory);
+  console.log('CATEGORY', category);
+
   const getCategory = (value) => {
-    console.log(value);
-    // console.dir(value);
+    dispatch(setCategory(value));
     dispatch(getProductsByCategory(value));
   };
 
@@ -25,7 +28,7 @@ export default function FilterByCategory() {
         <ul className={cl.wrap}>
           {showArr ? (
             items.map((item) => (
-              <li key={item.id} value={item.id} onClick={(e) => getCategory(e.currentTarget.value)}>
+              <li key={item.id} id={item.id} onClick={(e) => getCategory(e.currentTarget.id)}>
                 <figure className={cl.catalogCardFigure}>
                   <img src="/logo.png" alt={item.name} />
                   <figcaption>{item.name}</figcaption>

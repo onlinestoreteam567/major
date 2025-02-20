@@ -1,23 +1,44 @@
 @import '@mixins';
 
-.checkboxLabel {
-  @include flex();
-  gap: 8px;
-  cursor: pointer;
+// .checkboxLabel {
+//   @include flex();
+//   gap: 8px;
+//   cursor: pointer;
 
-  input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
+//   input {
+//     opacity: 0;
+//     width: 0;
+//     height: 0;
+//   }
 
-  p {
-    font-family: $font-second;
-    font-size: $font-size-base;
-    font-weight: $font-weight-base;
+//   p {
+//     font-family: $font-second;
+//     font-size: $font-size-base;
+//     font-weight: $font-weight-base;
 
-    span {
-      color: #a2a2a2;
-    }
+//     span {
+//       color: #a2a2a2;
+//     }
+//   }
+// }
+// ******
+.types {
+  @include flex(row, flex-start, center);
+  width: 100px;
+  height: 20px;
+  gap: 16px;
+}
+.myInput {
+  position: relative;
+
+  appearance: none;
+  background-color: greenyellow;
+  border: 2px solid blue;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  &:checked {
+    background-color: red;
   }
 }
