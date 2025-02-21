@@ -16,15 +16,18 @@ const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
 
   return (
     <aside className={`${cl.aside} ${isHiddenAside ? cl.hiddenAnimation : ''}`}>
-      {!(deskmin || deskmax) && (
-        <section className={cl.topSection}>
-          <Heading type="h2">Фільтри</Heading>
-          <ButtonClose onClick={() => handleCloseAside()} />
-        </section>
-      )}
-      <FilterByStatus />
-      <PriceRange />
-      <FilterByType />
+      <div>
+        {' '}
+        {!(deskmin || deskmax) && (
+          <section className={cl.topSection}>
+            <Heading type="h2">Фільтри</Heading>
+            <ButtonClose onClick={() => handleCloseAside()} />
+          </section>
+        )}
+        <FilterByStatus />
+        <PriceRange />
+        <FilterByType />
+      </div>
     </aside>
   );
 };

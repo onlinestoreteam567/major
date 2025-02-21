@@ -6,7 +6,7 @@
   border-radius: 10px;
 
   .priceInput {
-    @include flex(row, space-between);
+    @include flex();
     gap: 15px;
     width: 100%;
     margin: 30px 0 35px;
