@@ -2,12 +2,18 @@ import { useState, useEffect, useRef } from 'react';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import RangeSlider from './RangeSlider';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductsByPrice } from '@redux/products/service';
+import { filterPrice } from '@redux/selectors';
+import { setPrice } from '@redux/filter/filterSlice';
 
 const PriceRange = () => {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(999);
+  const newPrice = useSelector(filterPrice);
+  const [minPrice, setMinPrice] = useState(newPrice.min);
+  const [maxPrice, setMaxPrice] = useState(newPrice.max);
   const priceGap = 1;
   const maxLimit = 999;
+  const dispatch = useDispatch();
 
   const progressRef = useRef(null);
 
@@ -30,6 +36,11 @@ const PriceRange = () => {
     if (value <= maxLimit && value - minPrice >= priceGap) {
       setMaxPrice(value);
     }
+  };
+
+  const getByPrice = () => {
+    dispatch(setPrice({ min: minPrice, max: maxPrice }));
+    dispatch(getProductsByPrice({ minPrice, maxPrice }));
   };
 
   const { getTranslation } = useTranslationNamespace('common');
@@ -58,7 +69,7 @@ const PriceRange = () => {
           <span>{getTranslation('to')}</span>
           <input type="number" value={maxPrice} onChange={handleMaxInputChange} />
         </div>
-        <button>{getTranslation('ok')}</button>
+        <button onClick={getByPrice}>{getTranslation('ok')}</button>
       </div>
     </div>
   );
