@@ -24,6 +24,7 @@
 
     label {
       @include flex();
+      cursor: pointer;
 
       input {
         opacity: 0;

@@ -24,7 +24,7 @@ export default function FilterByType() {
 
   const showArr = Array.isArray(items) && items.length !== 0;
   return (
-    <div>
+    <div className={cl.filterByTypeWrapper}>
       <Heading type="h4">{getTranslation('category')}</Heading>
       {isLoading ? (
         <Spinner />
@@ -33,17 +33,26 @@ export default function FilterByType() {
           {showArr ? (
             items.map((item) => (
               <li key={item.id}>
-                <input
-                  key={item.id}
-                  type="radio"
-                  name="type"
-                  value={item.id}
-                  checked={String(item.id) === String(newType)}
-                  onChange={(e) => getTypes(e.target.value)}
-                />
+                <label>
+                  <img
+                    src={
+                      String(item.id) === String(newType)
+                        ? '/svg/catalogPage/checkbox.svg'
+                        : '/svg/catalogPage/emptyCheckbox.svg'
+                    }
+                    alt={String(item.id) === String(newType) ? 'Checked' : 'Unchecked'}
+                  />
+                  <input
+                    key={item.id}
+                    type="radio"
+                    name="type"
+                    value={item.id}
+                    checked={String(item.id) === String(newType)}
+                    onChange={(e) => getTypes(e.target.value)}
+                  />
+                  <p>{item.name}</p>
+                </label>
                 {console.log(String(item.id) === String(newType))}
-                <p>{item.name}</p>
-                <span className={cl.slider}></span>
               </li>
             ))
           ) : (

@@ -5,7 +5,6 @@ import useScreenSizes from '@hooks/useScreenSizes';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import FilterByType from './FilterType/FilterByType';
 import FilterByStatus from './FilterStatus/FilterByStatus';
-import FilterByPrice from './FilterPrice/FilterByPrice';
 import PriceRange from './FilterPrice/PriceRange';
 
 const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
@@ -24,11 +23,6 @@ const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
         </section>
       )}
       <FilterByStatus />
-      {/* <FilterByPrice /> */}
-      {/* <br />
-      <br />
-      <br />
-      <br /> */}
       <PriceRange />
       <FilterByType />
     </aside>
