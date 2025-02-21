@@ -1,9 +1,9 @@
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import RangeSlider from './RangeSlider';
 
-const PriceRange = forwardRef(({ name, setValue, ...props }, ref) => {
+const PriceRange = ({ setValue }) => {
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(999);
   const priceGap = 1;
@@ -20,7 +20,7 @@ const PriceRange = forwardRef(({ name, setValue, ...props }, ref) => {
     // Update form values for react-hook-form
     setValue(`${name}.min`, minPrice);
     setValue(`${name}.max`, maxPrice);
-  }, [minPrice, maxPrice, name, setValue]);
+  }, [minPrice, maxPrice, setValue]);
 
   const handleMinInputChange = (e) => {
     const value = parseInt(e.target.value, 10);
@@ -39,16 +39,9 @@ const PriceRange = forwardRef(({ name, setValue, ...props }, ref) => {
   const { getTranslation } = useTranslationNamespace('common');
 
   const localRef = useRef(null);
-  useEffect(() => {
-    if (typeof ref === 'function') {
-      ref(localRef.current);
-    } else if (ref) {
-      ref.current = localRef.current;
-    }
-  }, [ref]);
 
   return (
-    <div className={cl.rangeWrapper} ref={localRef} {...props}>
+    <div className={cl.rangeWrapper} ref={localRef}>
       <div className={cl.slider}>
         <div className={cl.progress} ref={progressRef}></div>
       </div>
@@ -74,8 +67,6 @@ const PriceRange = forwardRef(({ name, setValue, ...props }, ref) => {
       </div>
     </div>
   );
-});
-
-PriceRange.displayName = 'PriceRange';
+};
 
 export default PriceRange;

@@ -24,11 +24,11 @@ const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
         </section>
       )}
       <FilterByStatus />
-      <FilterByPrice />
+      {/* <FilterByPrice /> */}
+      {/* <br />
       <br />
       <br />
-      <br />
-      <br />
+      <br /> */}
       <PriceRange />
       <FilterByType />
     </aside>
