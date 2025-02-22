@@ -1,7 +1,15 @@
 @import '@mixins';
 
 .categoryCard {
-  width: 306px;
+  width: 143px;
+
+  @include mobile {
+    width: 173px;
+  }
+
+  @include tablet {
+    width: 306px;
+  }
 
   figure {
     @include flex(row, center, center);

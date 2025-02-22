@@ -30,7 +30,7 @@
   }
 
   .topSection {
-    @include flex(row, space-between);
+    @include flex(row, space-between, end);
     width: 296px;
     max-width: 296px;
     margin-bottom: 25px;
