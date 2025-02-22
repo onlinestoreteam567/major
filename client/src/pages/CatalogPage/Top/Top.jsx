@@ -28,27 +28,20 @@ const Top = ({ setIsAsideMobile, setisHiddenAside }) => {
         <TopLink />
         <Heading type="h2">{getTranslation('catalog', 'common')}</Heading>
       </div>
-      <section className={cl.sortSection}>
-        {deskmin || deskmax ? (
-          // Deskmin and Deskmax
-          <>{(tablet || deskmin || deskmax) && <FilterByCategory />}</>
-        ) : (
-          <>
-            {(tablet || deskmin || deskmax) && <FilterByCategory />}
-            <br />
-            <div className={cl.buttonsWrapper}>
-              <Button variant="secondary" onClick={showAside}>
-                <Filters />
-                Фільтри
-              </Button>
-              <Button variant="secondary" onClick={showSorting}>
-                <Sorting />
-                Сортування
-              </Button>
-            </div>
-          </>
-        )}
-      </section>
+      <br />
+      {(tablet || deskmin || deskmax) && <FilterByCategory />}
+      {!(deskmin || deskmax) && (
+        <section className={cl.sortSection}>
+          <Button variant="secondary" onClick={showAside}>
+            <Filters />
+            Фільтри
+          </Button>
+          <Button variant="secondary" onClick={showSorting}>
+            <Sorting />
+            Сортування
+          </Button>
+        </section>
+      )}
       {isShowMobileSorting && (
         <>
           <MobileSorting setIsShowMobileSorting={setIsShowMobileSorting} />
