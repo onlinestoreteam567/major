@@ -19,7 +19,6 @@ export default function ImgDesk({ card }) {
   const closeModal = () => {
     setIsShow(false);
   };
-  console.log(images[3].image);
   return (
     <div className={cl.wrapImgDeskCard}>
       <div className={cl.wrapImgCase}>

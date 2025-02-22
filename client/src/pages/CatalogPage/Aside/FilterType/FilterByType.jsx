@@ -12,7 +12,6 @@ export default function FilterByType() {
   const { getTranslation } = useTranslationNamespace('catalogPage');
   const dispatch = useDispatch();
   const newType = useSelector(filterType);
-  console.log('TYPE', newType);
 
   const isLoading = useSelector(loadTypes);
   const items = useSelector(selectTypes);
@@ -52,7 +51,6 @@ export default function FilterByType() {
                   />
                   <p>{item.name}</p>
                 </label>
-                {console.log(String(item.id) === String(newType))}
               </li>
             ))
           ) : (

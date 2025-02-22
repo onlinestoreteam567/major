@@ -2,7 +2,7 @@ import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
 import EmptyPage from '@components/helpers/EmptyPage';
 import Spinner from '@components/helpers/Spinner';
-import { filterCategory, loadCategories, selectCategories } from '@redux/selectors';
+import { loadCategories, selectCategories } from '@redux/selectors';
 
 import useScreenSizes from '@hooks/useScreenSizes';
 import CategoryCard from './CategoryCard/CategoryCard';
@@ -12,9 +12,6 @@ export default function FilterByCategory() {
   const isLoading = useSelector(loadCategories);
   const items = useSelector(selectCategories);
   const { tablet, deskmin, deskmax } = useScreenSizes();
-  const category = useSelector(filterCategory);
-
-  console.log('CATEGORY', category);
 
   const showArr = Array.isArray(items) && items.length !== 0;
   const isSliderMode = tablet || deskmin || deskmax;
