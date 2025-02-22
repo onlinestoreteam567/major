@@ -7,26 +7,31 @@ import FilterByType from './FilterType/FilterByType';
 import FilterByStatus from './FilterStatus/FilterByStatus';
 import PriceRange from './FilterPrice/PriceRange';
 import FilterByCategory from '../FilterCategory/FilterByCategory';
+import { useDispatch } from 'react-redux';
+import { resetFilter } from '@redux/filter/filterSlice';
+import { fetchProductsAll } from '@redux/products/service';
 
 const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
   const { tablet, deskmin, deskmax } = useScreenSizes();
+  const dispatch = useDispatch();
 
-  const handleCloseAside = () => {
-    handleCloseWithDelay(setisHiddenAside, setIsAsideMobile);
+  const handleCloseAside = () => handleCloseWithDelay(setisHiddenAside, setIsAsideMobile);
+  const handleClearFilters = () => {
+    dispatch(fetchProductsAll());
+    dispatch(resetFilter());
   };
 
   return (
     <aside className={`${cl.aside} ${isHiddenAside ? cl.hiddenAnimation : ''}`}>
       <div>
-        {!(deskmin || deskmax) && (
-          <>
-            <section className={cl.topSection}>
-              <Heading type="h2">Фільтри</Heading>
-              <ButtonClose onClick={() => handleCloseAside()} />
-            </section>
-            {!tablet && <FilterByCategory />}
-          </>
-        )}
+        <section className={cl.topSection}>
+          <Heading type="h2">Фільтри</Heading>
+          <button className={cl.clearFiltersButton} onClick={() => handleClearFilters()}>
+            Зняти фільтри
+          </button>
+          {!(deskmin || deskmax) && <ButtonClose onClick={() => handleCloseAside()} />}
+        </section>
+        {!(tablet || deskmin || deskmax) && <FilterByCategory />}
         <FilterByStatus />
         <PriceRange />
         <FilterByType />

@@ -6,41 +6,6 @@ const initialState = {
   status: null,
   price: { min: 1, max: 999 },
 };
-//   name: 'filter',
-//   initialState,
-//   reducers: {
-//     setCategory: (state, action) => {
-//       return {
-//         ...initialState,
-//         category: action.payload,
-//       };
-//     },
-//     setType: (state, action) => {
-//       return {
-//         ...initialState,
-//         type: action.payload,
-//         // state.type = action.payload.type;
-//       };
-//     },
-//     setStatus: (state, action) => {
-//       return {
-//         ...initialState,
-//         status: action.payload,
-//       };
-//     },
-//     setPrice: (state, action) => {
-//       return {
-//         ...initialState,
-//         price: action.payload,
-//       };
-//     },
-//     resetFilter: (state, action) => {
-//       return {
-//         ...initialState,
-//       };
-//     },
-//   },
-// });
 
 const filterSlice = createSlice({
   name: 'filter',

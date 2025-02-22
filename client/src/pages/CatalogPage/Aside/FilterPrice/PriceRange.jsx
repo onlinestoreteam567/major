@@ -14,8 +14,16 @@ const PriceRange = () => {
   const priceGap = 1;
   const maxLimit = 999;
   const dispatch = useDispatch();
-
   const progressRef = useRef(null);
+
+  console.log(newPrice);
+  console.log(`minprice is ${minPrice}`);
+  console.log(`maxprice is ${maxPrice}`);
+
+  useEffect(() => {
+    setMinPrice(newPrice.min);
+    setMaxPrice(newPrice.max);
+  }, [newPrice]);
 
   useEffect(() => {
     if (progressRef.current) {

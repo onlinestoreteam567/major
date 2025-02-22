@@ -22,6 +22,7 @@
     padding: 34px 32px;
     position: static;
     animation: none;
+    overflow-y: hidden;
   }
 
   &.hiddenAnimation {
@@ -37,6 +38,20 @@
     @include mobile {
       width: 356px;
       max-width: 356px;
+    }
+
+    @include deskmin {
+      width: auto;
+      max-width: none;
+    }
+
+    .clearFiltersButton {
+      font-family: $font-main;
+      font-weight: $font-weight-small;
+      font-size: $font-size-base;
+      line-height: 20.48px;
+      text-decoration: underline;
+      color: #c0c0c0;
     }
   }
 }
