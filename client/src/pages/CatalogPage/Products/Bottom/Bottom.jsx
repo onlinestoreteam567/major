@@ -7,12 +7,9 @@ import Showing from '@pages/CatalogPage/Showing/Showing';
 const numberFromBackend = 0;
 
 const Bottom = () => {
-  const { getTranslation } = useTranslationNamespace('catalogPage');
-
   return (
     <section className={cl.bottom}>
       <Showing numberFromBackend={numberFromBackend} />
-      <Button variant="secondary">{getTranslation('loadMore')}</Button>
     </section>
   );
 };
