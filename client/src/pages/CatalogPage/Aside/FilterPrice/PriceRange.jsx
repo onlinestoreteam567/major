@@ -16,6 +16,7 @@ const PriceRange = () => {
   const dispatch = useDispatch();
   const progressRef = useRef(null);
 
+  console.log(newPrice);
   useEffect(() => {
     setMinPrice(newPrice.min);
     setMaxPrice(newPrice.max);
@@ -44,7 +45,7 @@ const PriceRange = () => {
 
   const getByPrice = () => {
     dispatch(setPrice({ min: minPrice, max: maxPrice }));
-    dispatch(getProductsByPrice({ minPrice, maxPrice }));
+    dispatch(getProductsByPrice({ min: minPrice, max: maxPrice }));
   };
 
   const { getTranslation } = useTranslationNamespace('common');
