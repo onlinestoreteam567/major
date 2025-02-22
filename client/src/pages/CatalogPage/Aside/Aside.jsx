@@ -10,8 +10,10 @@ import FilterByCategory from '../FilterCategory/FilterByCategory';
 import { useDispatch } from 'react-redux';
 import { resetFilter } from '@redux/filter/filterSlice';
 import { fetchProductsAll } from '@redux/products/service';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
+  const { getTranslation } = useTranslationNamespace('catalogPage');
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const dispatch = useDispatch();
 
@@ -25,9 +27,9 @@ const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
     <aside className={`${cl.aside} ${isHiddenAside ? cl.hiddenAnimation : ''}`}>
       <div>
         <section className={cl.topSection}>
-          <Heading type="h2">Фільтри</Heading>
+          <Heading type="h2">{getTranslation('filters')}</Heading>
           <button className={cl.clearFiltersButton} onClick={() => handleClearFilters()}>
-            Зняти фільтри
+            {getTranslation('reset')}
           </button>
           {!(deskmin || deskmax) && <ButtonClose onClick={() => handleCloseAside()} />}
         </section>

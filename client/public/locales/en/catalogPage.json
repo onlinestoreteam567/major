@@ -5,6 +5,7 @@
   "sortByPriceAsc": "cheaper first",
   "sortByPriceDesc": "expensive first",
   "selectAnOption": "by popularity",
+  "reset": "Reset filters",
 
   "is_new": "New Items",
   "is_best_seller": "Best Sellers",
