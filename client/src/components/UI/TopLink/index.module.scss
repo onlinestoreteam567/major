@@ -6,7 +6,6 @@
   width: 100%;
   gap: 4px;
   padding: 0;
-  // margin: 15px 0;
 
   @include tablet {
     margin: 40px 0;
@@ -42,7 +41,6 @@
   }
 
   @include tablet {
-    // width: auto;
     .wrapLink:last-child {
       width: auto;
     }

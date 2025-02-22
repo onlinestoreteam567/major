@@ -12,10 +12,6 @@ const useScreenSizes = () => {
   const isDeskmin = useMediaQuery('(min-width: 1024px) and (max-width: 1439px)');
   const isDeskmax = useMediaQuery('(min-width: 1440px)');
 
-  // const isTablet = useMediaQuery('(min-width: 768px)');
-  // const isDeskmin = useMediaQuery('(min-width: 1024px)');
-  // const isDeskmax = useMediaQuery('(min-width: 1440px)');
-
   useEffect(() => {
     setScreenSizes({
       tablet: isTablet,

@@ -6,7 +6,6 @@ import WrapModal from '@components/UI/WrapModal/WrapModal';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export default function LeaveFeedback({ card }) {
-  // console.log(card);
   const [isShow, setIsShow] = useState(false);
 
   const openModal = () => {

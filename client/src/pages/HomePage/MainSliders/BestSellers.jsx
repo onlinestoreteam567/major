@@ -9,21 +9,11 @@ import EmptyPage from '@components/helpers/EmptyPage';
 import { loadBestSeller, selectBestSeller } from '@redux/selectors';
 
 const BestSellers = () => {
-  // const { items, status, error } = useSelector((state) => state.bestSellers);
   const { getTranslation } = useTranslationNamespace('common');
   const isLoading = useSelector(loadBestSeller);
   const items = useSelector(selectBestSeller);
   const total = items.length || 0;
 
-  // const isLoading = useSelector(selectLoading);
-
-  // if (status === 'loading') {
-  //   return <div style={{ color: 'black', fontSize: '50px' }}>Завантаження хітів продажу...</div>;
-  // }
-
-  // if (status === 'failed') {
-  //   return <div style={{ color: 'black', fontSize: '50px' }}>Error: {error}</div>;
-  // }
   const showArr = Array.isArray(items) && items.length !== 0;
   return (
     <>

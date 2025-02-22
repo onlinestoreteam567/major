@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
@@ -36,14 +35,4 @@ const PartnerInfo = ({ informationAboutPartner, setPartnerInteractionState }) =>
   );
 };
 
-// PartnerInfo.propTypes = {
-//   setPartnerInteractionState: PropTypes.func.isRequired,
-//   informationAboutPartner: PropTypes.shape({
-//     title: PropTypes.string.isRequired,
-//     workSchedule: PropTypes.string.isRequired,
-//     workSchedule1: PropTypes.string.isRequired,
-//     address: PropTypes.string.isRequired,
-//     googleMapAddress: PropTypes.string.isRequired,
-//   }),
-// };
 export default PartnerInfo;

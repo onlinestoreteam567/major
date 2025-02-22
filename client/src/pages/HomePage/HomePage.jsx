@@ -3,7 +3,6 @@ import Catalog from './Catalog/Catalog';
 import Comments from './Comments/Comments';
 import MainBanner from './MainBanner/MainBanner';
 import MajorInfo from './MajorInfo/MajorInfo';
-// import OurPartners from './OurPartners/OurPartners';
 import WhyChooseUs from './WhyChooseUs/WhyChooseUs';
 import YellowButton from './YellowButton/YellowButton';
 import BestSellers from './MainSliders/BestSellers';

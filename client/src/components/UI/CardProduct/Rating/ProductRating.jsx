@@ -14,10 +14,6 @@ export default function ProductRating({ card }) {
     }
   }, [card]);
 
-  // if (!card) {
-  //   return <p>awdawddwa</p>;
-  // }
-
   return (
     <div className={cl.wrapRating}>
       <ul className={cl.arrStar}>

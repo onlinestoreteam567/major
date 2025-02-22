@@ -11,14 +11,10 @@ function App() {
 
   // Make a request to the server whevenever  the component mounts or the language changes
   useEffect(() => {
-    // Product list
     dispatch(fetchProductsAll());
-
     dispatch(fetchBestSellers());
     dispatch(fetchSets());
-
     dispatch(fetchTypes());
-    // dispatch(fetchPurposeCategories());
     dispatch(fetchCategories());
   }, [i18n.language, dispatch]);
 
