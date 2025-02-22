@@ -1,6 +1,8 @@
 @import '@mixins';
 
 .categoryCard {
+  width: 306px;
+
   figure {
     @include flex(row, center, center);
     position: relative;

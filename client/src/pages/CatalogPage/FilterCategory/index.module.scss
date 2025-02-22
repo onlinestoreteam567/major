@@ -1,6 +1,14 @@
 @import '@mixins';
 
 .wrap {
+  @include tablet {
+    margin-left: -16px;
+  }
+
+  @include deskmin {
+    margin-left: -12px;
+  }
+
   ul {
     @include flexGap(10px, row);
     flex-wrap: wrap;
