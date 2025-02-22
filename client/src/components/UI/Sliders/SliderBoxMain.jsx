@@ -8,9 +8,10 @@ import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
 import { mainSettings } from '@components/constants/settingSlider';
 import useScreenSizes from '@hooks/useScreenSizes';
+import CategoryCard from '@pages/CatalogPage/FilterCategory/CategoryCard/CategoryCard';
 let screenSizeTotal;
 
-const SliderBoxMain = ({ slidesData, total }) => {
+const SliderBoxMain = ({ slidesData, total, isCatalog }) => {
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const [index, setIndex] = useState(1);
   let sliderRef = useRef(null);
@@ -70,11 +71,17 @@ const SliderBoxMain = ({ slidesData, total }) => {
       </div>
 
       <Slider ref={sliderRef} {...settings}>
-        {slidesData.map((slide, index) => (
-          <div key={index} className={cl.slider}>
-            <CardCatalog key={index} card={slide} />
-          </div>
-        ))}
+        {!isCatalog
+          ? slidesData.map((slide, index) => (
+              <div key={index} className={cl.slider}>
+                <CardCatalog key={index} card={slide} />
+              </div>
+            ))
+          : slidesData.map((slide, index) => (
+              <div key={index} className={cl.slider}>
+                <CategoryCard item={slide} key={index} />
+              </div>
+            ))}
       </Slider>
     </div>
   );

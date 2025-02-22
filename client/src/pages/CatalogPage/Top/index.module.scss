@@ -69,25 +69,30 @@
       gap: 35px;
     }
 
-    button {
-      @include flexGap(16px, row);
-      height: 44px;
-      width: 137px;
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 20.48px;
-      border-radius: 2px;
+    .buttonsWrapper {
+      @include flex(row, space-between);
+      width: 100%;
 
-      @include mobile {
-        width: 165px;
-      }
+      button {
+        @include flexGap(16px, row);
+        height: 44px;
+        width: 137px;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 20.48px;
+        border-radius: 2px;
 
-      @include tablet {
-        width: 308px;
-      }
+        @include mobile {
+          width: 165px;
+        }
 
-      @include deskmin {
-        width: 206px;
+        @include tablet {
+          width: 308px;
+        }
+
+        @include deskmin {
+          width: 206px;
+        }
       }
     }
 

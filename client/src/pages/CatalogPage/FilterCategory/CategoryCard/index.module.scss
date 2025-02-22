@@ -1,0 +1,59 @@
+@import '@mixins';
+
+.categoryCard {
+  figure {
+    @include flex(row, center, center);
+    position: relative;
+    width: fit-content;
+    img {
+      width: 143px;
+      object-fit: cover;
+      border-radius: $border-radius-small;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        filter: brightness(1.7);
+      }
+
+      @include mobile {
+        width: 173px;
+      }
+    }
+    figcaption {
+      position: absolute;
+      width: auto;
+      color: rgb(253, 253, 253);
+      font-family: $font-main;
+      font-size: $font-size-small;
+      font-weight: 500;
+      line-height: 1.22;
+      text-align: right;
+      padding: 4px;
+      bottom: 10px;
+      right: 0;
+      background-color: #22211f;
+      text-shadow: 2px 2px 4px #22211f;
+      pointer-events: none;
+    }
+
+    @include tablet {
+      img {
+        width: 306px;
+      }
+    }
+
+    @include deskmin {
+      figcaption {
+        font-size: $font-size-base;
+        padding: 6px;
+      }
+    }
+
+    @include deskmax {
+      figcaption {
+        font-size: $font-size-medium-plus;
+        padding: 8px;
+      }
+    }
+  }
+}
