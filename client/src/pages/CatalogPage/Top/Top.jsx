@@ -34,11 +34,11 @@ const Top = ({ setIsAsideMobile, setisHiddenAside }) => {
         <section className={cl.sortSection}>
           <Button variant="secondary" onClick={showAside}>
             <Filters />
-            Фільтри
+            {getTranslation('filters')}
           </Button>
           <Button variant="secondary" onClick={showSorting}>
             <Sorting />
-            Сортування
+            {getTranslation('sorting')}
           </Button>
         </section>
       )}
