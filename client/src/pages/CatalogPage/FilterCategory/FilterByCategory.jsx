@@ -25,11 +25,11 @@ export default function FilterByCategory() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <ul className={cl.wrap}>
+        <ul>
           {showArr ? (
             items.map((item) => (
               <li key={item.id} id={item.id} onClick={(e) => getCategory(e.currentTarget.id)}>
-                <figure className={cl.catalogCardFigure}>
+                <figure>
                   <img src="/logo.png" alt={item.name} />
                   <figcaption>{item.name}</figcaption>
                 </figure>

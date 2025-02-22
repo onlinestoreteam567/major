@@ -6,32 +6,17 @@ import Products from './Products/Products';
 
 import { useState } from 'react';
 import FilterByCategory from './FilterCategory/FilterByCategory';
+import useScreenSizes from '@hooks/useScreenSizes';
 
 const CatalogPage = () => {
   const [isAsideMobile, setIsAsideMobile] = useState(false);
   const [isHiddenAside, setisHiddenAside] = useState(false);
-
-  // if (getValues().category) {
-  //   const filteredCategories = Object.entries(getValues().category)
-  //     .filter(([, value]) => value)
-  //     .map(([key]) => key);
-
-  //   if (filteredCategories.length > 0) {
-  //     const fetchProductsWithParams = (id) => {
-  //       dispatch(setFetchType('withParams'));
-  //       dispatch(fetchProductListWithParams(id));
-  //     };
-  //     fetchProductsWithParams(filteredCategories[0].match(/\d+/)?.[0]);
-  //   } else {
-  //     dispatch(setFetchType('default'));
-  //     dispatch(fetchProductList());
-  //   }
-  // }
+  const { tablet, deskmin, deskmax } = useScreenSizes();
 
   return (
     <div className={cl.catalogWrapper}>
+      {(tablet || deskmin || deskmax) && <FilterByCategory />}
       <Top setIsAsideMobile={setIsAsideMobile} setisHiddenAside={setisHiddenAside} />
-      <FilterByCategory />
       <section className={cl.mainWrapper}>
         <div className={`${cl.wrapAside} ${isAsideMobile ? cl.asideMobile : ''}`}>
           <Aside

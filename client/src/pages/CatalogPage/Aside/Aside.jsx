@@ -6,9 +6,10 @@ import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import FilterByType from './FilterType/FilterByType';
 import FilterByStatus from './FilterStatus/FilterByStatus';
 import PriceRange from './FilterPrice/PriceRange';
+import FilterByCategory from '../FilterCategory/FilterByCategory';
 
 const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
-  const { deskmin, deskmax } = useScreenSizes();
+  const { tablet, deskmin, deskmax } = useScreenSizes();
 
   const handleCloseAside = () => {
     handleCloseWithDelay(setisHiddenAside, setIsAsideMobile);
@@ -17,12 +18,14 @@ const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
   return (
     <aside className={`${cl.aside} ${isHiddenAside ? cl.hiddenAnimation : ''}`}>
       <div>
-        {' '}
         {!(deskmin || deskmax) && (
-          <section className={cl.topSection}>
-            <Heading type="h2">Фільтри</Heading>
-            <ButtonClose onClick={() => handleCloseAside()} />
-          </section>
+          <>
+            <section className={cl.topSection}>
+              <Heading type="h2">Фільтри</Heading>
+              <ButtonClose onClick={() => handleCloseAside()} />
+            </section>
+            {!tablet && <FilterByCategory />}
+          </>
         )}
         <FilterByStatus />
         <PriceRange />
