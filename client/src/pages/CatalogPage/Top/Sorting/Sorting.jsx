@@ -11,7 +11,6 @@ import { setSorting } from '@redux/filter/filterSlice';
 
 const Sorting = ({ setIsShowMobileSorting }) => {
   const sortingOption = useSelector(sorting);
-  console.log(sortingOption);
   const [isHiddenMobileSorting, setisHiddenMobileSorting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(sortingOption);
