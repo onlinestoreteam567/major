@@ -8,6 +8,7 @@ import points from './points.json';
 import cl from './index.module.scss';
 import ZoomOut from '@assets/svg/ZoomOut';
 import ZoomIn from '@assets/svg/ZoomIn';
+import { useTranslation } from 'react-i18next';
 
 const Map = () => {
   const [scale, setScale] = useState(1);
@@ -17,6 +18,8 @@ const Map = () => {
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const animationFrameRef = useRef(null);
+  const { i18n } = useTranslation();
+  const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.png' : '/images/ourPartners/mapUa.png';
 
   return (
     <div
@@ -52,7 +55,7 @@ const Map = () => {
         <img
           ref={imageRef}
           className={cl.map}
-          src="/images/ourPartners/mapUa.png"
+          src={mapImage}
           alt="Map"
           draggable="false"
           onMouseDown={(e) => {
