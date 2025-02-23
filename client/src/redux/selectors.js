@@ -23,3 +23,4 @@ export const filterCategory = (state) => state.filter.category;
 export const filterType = (state) => state.filter.type;
 export const filterStatus = (state) => state.filter.status;
 export const filterPrice = (state) => state.filter.price;
+export const sorting = (state) => state.filter.sorting;
