@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { resetFilter } from '@redux/filter/filterSlice';
 import { fetchProductsAll } from '@redux/products/service';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import Sorting from '../Top/Sorting/Sorting';
 
 const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
@@ -34,6 +35,7 @@ const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
           {!(deskmin || deskmax) && <ButtonClose onClick={() => handleCloseAside()} />}
         </section>
         {!(tablet || deskmin || deskmax) && <FilterByCategory />}
+        {(deskmin || deskmax) && <Sorting />}
         <FilterByStatus />
         <PriceRange />
         <FilterByType />

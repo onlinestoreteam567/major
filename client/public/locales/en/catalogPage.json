@@ -1,10 +1,9 @@
 {
   "filters": "Filters",
   "sorting": "Sorting",
-  "sortByPopularity": "by popularity",
-  "sortByPriceAsc": "cheaper first",
-  "sortByPriceDesc": "expensive first",
-  "selectAnOption": "by popularity",
+  "asc": "cheaper first",
+  "desc": "expensive first",
+  "selectAnOption": "sort by",
   "reset": "Reset filters",
 
   "is_new": "New Items",

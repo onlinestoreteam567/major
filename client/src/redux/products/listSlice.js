@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import {
   fetchProductsAll,
   getProductsByCategory,
@@ -18,10 +19,17 @@ const handleRejected = (state, action) => {
 
 const productSlice = createSlice({
   name: 'products',
+
   initialState: {
     products: [],
     isLoading: false,
     error: null,
+  },
+
+  reducers: {
+    setProducts: (state, action) => {
+      state.products = action.payload;
+    },
   },
 
   extraReducers: (builder) =>
@@ -67,4 +75,5 @@ const productSlice = createSlice({
       .addCase(getProductsByPrice.rejected, handleRejected),
 });
 
+export const { setProducts } = productSlice.actions;
 export const productsReducer = productSlice.reducer;
