@@ -10,6 +10,9 @@ import ZoomOut from '@assets/svg/ZoomOut';
 import ZoomIn from '@assets/svg/ZoomIn';
 import { useTranslation } from 'react-i18next';
 import PartnerInfo from '../PartnerInfo/PartnerInfo';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import Heading from '@components/UI/Texts/Heading/Heading';
+import Button from '@components/UI/Button/Button';
 
 const Map = () => {
   const [scale, setScale] = useState(1);
@@ -24,65 +27,69 @@ const Map = () => {
   const { i18n } = useTranslation();
   const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.png' : '/images/ourPartners/mapUa.png';
 
+  const { getTranslation } = useTranslationNamespace('ourPartners');
   return (
-    <div
-      ref={containerRef}
-      className={cl.mainMapContainer}
-      onMouseMove={(e) =>
-        handleMove(e, isDragging, containerRef, imageRef, animationFrameRef, dragStart, scale, setPosition)
-      }
-      onMouseUp={() => handleEnd(setIsDragging)}
-      onMouseLeave={() => handleEnd(setIsDragging)}
-      onTouchMove={(e) =>
-        handleMove(e, isDragging, containerRef, imageRef, animationFrameRef, dragStart, scale, setPosition)
-      }
-      onTouchEnd={() => handleEnd(setIsDragging)}
-    >
-      <div className={cl.zoomButtonsWrapper}>
-        <button onClick={() => handleZoomIn(setScale)}>
-          <ZoomIn />
-        </button>
-        <button onClick={() => handleZoomOut(setScale, setPosition)}>
-          <ZoomOut />
-        </button>
-      </div>
-
+    <section className={cl.ourPartners}>
+      <Heading type="h2">{getTranslation('ourPartners')}</Heading>
       <div
-        className={cl.containerWithMap}
-        style={{
-          transform: `translate(-50%, -50%) scale(${scale}) translate(${position.x / scale}px, ${position.y / scale}px)`,
-          transformOrigin: 'center',
-          transition: isDragging ? 'none' : 'transform 0.2s ease-out',
-        }}
+        ref={containerRef}
+        className={cl.mainMapContainer}
+        onMouseMove={(e) =>
+          handleMove(e, isDragging, containerRef, imageRef, animationFrameRef, dragStart, scale, setPosition)
+        }
+        onMouseUp={() => handleEnd(setIsDragging)}
+        onMouseLeave={() => handleEnd(setIsDragging)}
+        onTouchMove={(e) =>
+          handleMove(e, isDragging, containerRef, imageRef, animationFrameRef, dragStart, scale, setPosition)
+        }
+        onTouchEnd={() => handleEnd(setIsDragging)}
       >
-        <img
-          ref={imageRef}
-          className={cl.map}
-          src={mapImage}
-          alt="Map"
-          draggable="false"
-          onMouseDown={(e) => {
-            handleStart(e, scale, setIsDragging, setDragStart, position);
-          }}
-          onTouchStart={(e) => {
-            handleStart(e, scale, setIsDragging, setDragStart, position);
-          }}
-        />
-
-        {points.map((point) => (
-          <button
-            key={point.id}
-            className={cl.mark}
-            style={{
-              top: `${point.y}%`,
-              left: `${point.x}%`,
-            }}
-            title={point.label}
-            onClick={() => setInformationAboutPartner(point)}
-          >
-            <img src="/svg/ourPartners/point.svg" alt="" />
+        <div className={cl.zoomButtonsWrapper}>
+          <button onClick={() => handleZoomIn(setScale)}>
+            <ZoomIn />
           </button>
-        ))}
+          <button onClick={() => handleZoomOut(setScale, setPosition)}>
+            <ZoomOut />
+          </button>
+        </div>
+
+        <div
+          className={cl.containerWithMap}
+          style={{
+            transform: `translate(-50%, -50%) scale(${scale}) translate(${position.x / scale}px, ${position.y / scale}px)`,
+            transformOrigin: 'center',
+            transition: isDragging ? 'none' : 'transform 0.2s ease-out',
+          }}
+        >
+          <img
+            ref={imageRef}
+            className={cl.map}
+            src={mapImage}
+            alt="Map"
+            draggable="false"
+            onMouseDown={(e) => {
+              handleStart(e, scale, setIsDragging, setDragStart, position);
+            }}
+            onTouchStart={(e) => {
+              handleStart(e, scale, setIsDragging, setDragStart, position);
+            }}
+          />
+
+          {points.map((point) => (
+            <button
+              key={point.id}
+              className={cl.mark}
+              style={{
+                top: `${point.y}%`,
+                left: `${point.x}%`,
+              }}
+              title={point.label}
+              onClick={() => setInformationAboutPartner(point)}
+            >
+              <img src="/svg/ourPartners/point.svg" alt="" />
+            </button>
+          ))}
+        </div>
         {informationAboutPartner && (
           <PartnerInfo
             informationAboutPartner={informationAboutPartner}
@@ -90,7 +97,10 @@ const Map = () => {
           />
         )}
       </div>
-    </div>
+      <div className={cl.buttonWrapper}>
+        <Button>{getTranslation('becomePartner')}</Button>
+      </div>
+    </section>
   );
 };
 

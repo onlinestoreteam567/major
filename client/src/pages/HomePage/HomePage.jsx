@@ -24,7 +24,6 @@ const HomePage = () => {
         <WhyChooseUs />
         <Comments />
         <Map />
-        {/* <OurPartners /> */}
       </div>
     </div>
   );

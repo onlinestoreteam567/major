@@ -1,5 +1,17 @@
 @import '@mixins';
 
+.ourPartners {
+  @include flexGap(35px, column);
+
+  .buttonWrapper {
+    @include flex();
+
+    button {
+      width: 306px;
+    }
+  }
+}
+
 .mainMapContainer {
   position: relative;
   overflow: hidden;
