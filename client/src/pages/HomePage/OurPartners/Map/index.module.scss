@@ -58,7 +58,7 @@
     left: 50%;
     transform-origin: center;
 
-    img {
+    .map {
       width: 296px;
       display: block;
 
@@ -81,12 +81,11 @@
 
     .mark {
       position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: red;
-      border-radius: 50%;
       transform: translate(-50% -50%);
-      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.5);
+      }
     }
   }
 }

@@ -51,6 +51,7 @@ const Map = () => {
       >
         <img
           ref={imageRef}
+          className={cl.map}
           src="/images/ourPartners/mapUa.png"
           alt="Map"
           draggable="false"
@@ -63,7 +64,7 @@ const Map = () => {
         />
 
         {points.map((point) => (
-          <div
+          <button
             key={point.id}
             className={cl.mark}
             style={{
@@ -72,7 +73,9 @@ const Map = () => {
             }}
             title={point.label}
             onClick={() => alert(`Clicked on ${point.label}`)}
-          />
+          >
+            <img src="/svg/ourPartners/point.svg" alt="" />
+          </button>
         ))}
       </div>
     </div>
