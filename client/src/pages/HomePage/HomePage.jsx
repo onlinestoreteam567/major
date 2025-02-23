@@ -7,7 +7,7 @@ import WhyChooseUs from './WhyChooseUs/WhyChooseUs';
 import YellowButton from './YellowButton/YellowButton';
 import BestSellers from './MainSliders/BestSellers';
 import Sets from './MainSliders/Sets';
-import Map from './OurPartners/Map/Map';
+import OurPartners from './OurPartners/OurPartners';
 
 const HomePage = () => {
   return (
@@ -23,7 +23,7 @@ const HomePage = () => {
         <MajorInfo />
         <WhyChooseUs />
         <Comments />
-        <Map />
+        <OurPartners />
       </div>
     </div>
   );
