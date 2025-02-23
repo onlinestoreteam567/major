@@ -1,18 +1,13 @@
 @import '@mixins';
 
-.ourPartnersWrapper {
-  user-select: none;
-  @include flex(column, center, center);
-  position: relative;
-  width: 100%;
-  box-sizing: border-box;
+.ourPartners {
+  @include flexGap(35px, column);
 
-  button {
-    margin-top: 25px;
-    width: 306px;
+  .buttonWrapper {
+    @include flex();
+
+    button {
+      width: 306px;
+    }
   }
-}
-
-.closeAnimation > aside {
-  @include showCloseAnimation('close', 250%);
 }

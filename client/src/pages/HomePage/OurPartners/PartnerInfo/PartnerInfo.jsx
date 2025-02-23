@@ -1,26 +1,23 @@
-// import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
 import Button from '@UI/Button/Button';
-const PartnerInfo = ({ informationAboutPartner, setPartnerInteractionState }) => {
-  const handleUnmountComponent = () => {
-    clearTimeout();
-    setPartnerInteractionState((prev) => ({ ...prev, closeAnimation: true, activePartner: null }));
-    setTimeout(() => {
-      setPartnerInteractionState((prev) => ({ ...prev, showInformationAboutPartner: false }));
-    }, 275);
-  };
+import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
+import { useState } from 'react';
+const PartnerInfo = ({ informationAboutPartner, setInformationAboutPartner }) => {
+  const [isHiddenAnimation, setIsHiddenAnimation] = useState();
 
   const { getTranslation } = useTranslationNamespace('ourPartners');
 
+  const handleClose = () => handleCloseWithDelay(setIsHiddenAnimation, setInformationAboutPartner);
+
   return (
-    <aside onMouseLeave={handleUnmountComponent} className={cl.partnerInfo}>
-      <Heading type="h2">{informationAboutPartner.title}</Heading>
+    <aside className={`${cl.partnerInfo} ${isHiddenAnimation ? cl.hiddenAnimation : ''}`} onMouseLeave={handleClose}>
+      <Heading type="h2">{informationAboutPartner.name}</Heading>
       <section className={cl.workScheduleSection}>
         <Heading type="h3">{getTranslation('workingHours')}</Heading>
-        <Heading type="h4">{informationAboutPartner.workSchedule}</Heading>
-        <Heading type="h4">{informationAboutPartner.workSchedule1}</Heading>
+        <Heading type="h4">{informationAboutPartner.workScheduleWeekdays}</Heading>
+        <Heading type="h4">{informationAboutPartner.workScheduleWeekends}</Heading>
       </section>
       <section>
         <Heading type="h3">{getTranslation('address')}</Heading>
@@ -28,7 +25,7 @@ const PartnerInfo = ({ informationAboutPartner, setPartnerInteractionState }) =>
         <Heading type="h4">{informationAboutPartner.address}</Heading>
       </section>
       <Button variant="secondary">
-        <a href={informationAboutPartner.googleMapAddress}>
+        <a href={informationAboutPartner.googleMapAddress} rel="nofollow" target="_blank">
           <Heading type="h3">{getTranslation('openGoogleMap')}</Heading>
         </a>
       </Button>
@@ -36,14 +33,4 @@ const PartnerInfo = ({ informationAboutPartner, setPartnerInteractionState }) =>
   );
 };
 
-// PartnerInfo.propTypes = {
-//   setPartnerInteractionState: PropTypes.func.isRequired,
-//   informationAboutPartner: PropTypes.shape({
-//     title: PropTypes.string.isRequired,
-//     workSchedule: PropTypes.string.isRequired,
-//     workSchedule1: PropTypes.string.isRequired,
-//     address: PropTypes.string.isRequired,
-//     googleMapAddress: PropTypes.string.isRequired,
-//   }),
-// };
 export default PartnerInfo;

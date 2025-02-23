@@ -37,21 +37,3 @@ store.subscribe(() => {
   const { cart } = store.getState();
   saveToStorage('cart', cart);
 });
-
-// const store = configureStore({
-//   reducer: {
-//     cart: cartReducer,
-//     // productList: productsReducer,
-//     // bestSellers: bestSellersReducer,
-//     sets: setsReducer,
-//     products: productsReducer,
-//     bestSellers: bestSellerReducer,
-//     category: categotyReducer,
-//     types: typesReducer,
-//   },
-//   preloadedState,
-// });
-
-// Save only the cart slice when it changes
-
-// export default store;

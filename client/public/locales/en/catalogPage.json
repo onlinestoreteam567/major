@@ -1,9 +1,10 @@
 {
+  "filters": "Filters",
   "sorting": "Sorting",
-  "sortByPopularity": "by popularity",
-  "sortByPriceAsc": "cheaper first",
-  "sortByPriceDesc": "expensive first",
-  "selectAnOption": "by popularity",
+  "asc": "cheaper first",
+  "desc": "expensive first",
+  "selectAnOption": "sort by",
+  "reset": "Reset filters",
 
   "is_new": "New Items",
   "is_best_seller": "Best Sellers",
@@ -21,6 +22,5 @@
   "mask": "Mask",
 
   "showingFirst": "Showing:",
-  "showingSecond": " items out of",
-  "loadMore": "Load more"
+  "showingSecond": " items out of"
 }

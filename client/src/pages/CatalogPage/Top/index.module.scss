@@ -2,17 +2,22 @@
 
 .catalogSection {
   @include flex(column, null, center);
-  margin-bottom: 25px;
+  width: 296px;
+  margin: 0 auto 25px;
+
+  @include mobile {
+    width: 356px;
+  }
 
   @include tablet {
     width: 636px;
     margin: 0 auto 40px;
+    flex-direction: column;
+    align-items: start;
   }
 
   @include deskmin {
     width: 980px;
-    flex-direction: row;
-    justify-content: space-between;
   }
 
   @include deskmax {
@@ -52,7 +57,7 @@
 
     @include tablet {
       margin-top: 40px;
-      width: 636px;
+      width: 640px;
     }
 
     @include deskmin {
@@ -69,6 +74,9 @@
       gap: 35px;
     }
 
+    @include flex(row, space-between);
+    width: 100%;
+
     button {
       @include flexGap(16px, row);
       height: 44px;
@@ -83,7 +91,7 @@
       }
 
       @include tablet {
-        width: 308px;
+        width: 306px;
       }
 
       @include deskmin {

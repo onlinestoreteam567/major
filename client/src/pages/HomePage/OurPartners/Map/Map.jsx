@@ -6,15 +6,23 @@ import handleZoomIn from './eventHandlers/handleZoomIn';
 import handleZoomOut from './eventHandlers/handleZoomOut';
 import points from './points.json';
 import cl from './index.module.scss';
+import ZoomOut from '@assets/svg/ZoomOut';
+import ZoomIn from '@assets/svg/ZoomIn';
+import { useTranslation } from 'react-i18next';
+import PartnerInfo from '../PartnerInfo/PartnerInfo';
 
 const Map = () => {
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
+  const [informationAboutPartner, setInformationAboutPartner] = useState(null);
+  console.log(informationAboutPartner);
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const animationFrameRef = useRef(null);
+  const { i18n } = useTranslation();
+  const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.png' : '/images/ourPartners/mapUa.png';
 
   return (
     <div
@@ -30,8 +38,14 @@ const Map = () => {
       }
       onTouchEnd={() => handleEnd(setIsDragging)}
     >
-      <button onClick={() => handleZoomIn(setScale)}>+</button>
-      <button onClick={() => handleZoomOut(setScale, setPosition)}>-</button>
+      <div className={cl.zoomButtonsWrapper}>
+        <button onClick={() => handleZoomIn(setScale)}>
+          <ZoomIn />
+        </button>
+        <button onClick={() => handleZoomOut(setScale, setPosition)}>
+          <ZoomOut />
+        </button>
+      </div>
 
       <div
         className={cl.containerWithMap}
@@ -43,7 +57,8 @@ const Map = () => {
       >
         <img
           ref={imageRef}
-          src="/images/ourPartners/mapUa.png"
+          className={cl.map}
+          src={mapImage}
           alt="Map"
           draggable="false"
           onMouseDown={(e) => {
@@ -55,7 +70,7 @@ const Map = () => {
         />
 
         {points.map((point) => (
-          <div
+          <button
             key={point.id}
             className={cl.mark}
             style={{
@@ -63,10 +78,18 @@ const Map = () => {
               left: `${point.x}%`,
             }}
             title={point.label}
-            onClick={() => alert(`Clicked on ${point.label}`)}
-          />
+            onClick={() => setInformationAboutPartner(point)}
+          >
+            <img src="/svg/ourPartners/point.svg" alt="" />
+          </button>
         ))}
       </div>
+      {informationAboutPartner && (
+        <PartnerInfo
+          informationAboutPartner={informationAboutPartner}
+          setInformationAboutPartner={setInformationAboutPartner}
+        />
+      )}
     </div>
   );
 };

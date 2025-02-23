@@ -16,7 +16,6 @@ import { loadProductId, selectProductId } from '@redux/selectors';
 
 export default function ProductPage() {
   const dispatch = useDispatch();
-  // const { i18n } = useTranslation();
 
   const location = useLocation();
   const id = location.pathname.split('/').pop();

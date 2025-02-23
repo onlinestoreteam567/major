@@ -7,7 +7,11 @@
   border-radius: $border-radius-small;
   padding: 34px 12px;
   height: fit-content;
-  @include absolute();
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+  height: 100vh;
   z-index: 10;
   background-color: #ffffff;
   width: 100%;
@@ -18,6 +22,7 @@
     padding: 34px 32px;
     position: static;
     animation: none;
+    height: auto;
   }
 
   &.hiddenAnimation {
@@ -25,68 +30,28 @@
   }
 
   .topSection {
-    @include flex(row, space-between);
-    width: 354px;
-    max-width: 354px;
+    @include flex(row, space-between, end);
+    width: 296px;
+    max-width: 296px;
     margin-bottom: 25px;
-  }
 
-  form {
-    width: 100%;
-    max-width: 354px;
-  }
-
-  .switchBox {
-    user-select: none;
-    li {
-      @include flex(row, space-between, center);
-      border-bottom: 1px solid #c0c0c0;
-      padding-bottom: 15px;
-      margin-bottom: 15px;
-      width: 236px;
-      text-align: left;
-
-      span {
-        font-family: $font-main;
-        font-size: $font-size-medium;
-        font-weight: $font-weight-medium;
-        line-height: 23.04px;
-        text-align: left;
-        display: inline-block;
-        width: 115px;
-      }
+    @include mobile {
+      width: 356px;
+      max-width: 356px;
     }
-  }
 
-  h4 {
-    font-family: $font-main;
-    font-size: $font-size-medium;
-    font-weight: $font-weight-medium;
-    line-height: 23.04px;
-  }
-
-  .checkboxesWrapper {
-    margin-top: 45px;
-    gap: 8px;
-    @include flex(column, null, start);
     @include deskmin {
-      max-width: 212px;
+      width: auto;
+      max-width: none;
     }
 
-    label {
-      @include flex();
-      user-select: none;
-      cursor: pointer;
-
-      p {
-        font-family: $font-second;
-        font-size: $font-size-base;
-        font-weight: $font-weight-base;
-
-        span {
-          color: #a2a2a2;
-        }
-      }
+    .clearFiltersButton {
+      font-family: $font-main;
+      font-weight: $font-weight-small;
+      font-size: $font-size-base;
+      line-height: 20.48px;
+      text-decoration: underline;
+      color: #c0c0c0;
     }
   }
 }

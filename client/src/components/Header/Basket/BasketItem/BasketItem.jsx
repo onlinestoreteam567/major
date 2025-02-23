@@ -21,7 +21,6 @@ const BasketItem = ({ item }) => {
   };
 
   const { getTranslation } = useTranslationNamespace('common');
-  console.log(item);
   return (
     <li className={cl.basketItem}>
       <img src={item.images[0].image} className={cl.basketItemImg} alt={item.name} />

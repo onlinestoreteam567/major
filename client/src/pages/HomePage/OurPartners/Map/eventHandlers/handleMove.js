@@ -1,6 +1,6 @@
 const handleMove = (e, isDragging, containerRef, imageRef, animationFrameRef, dragStart, scale, setPosition) => {
   if (!isDragging || !containerRef.current || !imageRef.current) return;
-  e.preventDefault(); // Prevent scrolling while dragging on mobile
+  e.preventDefault();
 
   if (animationFrameRef.current) {
     cancelAnimationFrame(animationFrameRef.current);

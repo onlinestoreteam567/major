@@ -70,7 +70,7 @@ export const getProductsByStatus = createAsyncThunk('products/getByStatus', asyn
 });
 
 export const getProductsByPrice = createAsyncThunk('products/getByPrice', async ({ min, max }, thunkAPI) => {
-  console.log({ min, max });
+  // console.log({ min, max });
   try {
     const endpoint = `${PRODUCT_LIST_ENDPOINT}/?price_min=${min}&price_max=${max}`;
     const { data } = await apiClient.get(endpoint);
@@ -100,7 +100,7 @@ export const addReviewById = createAsyncThunk('products/addReview', async ({ id,
   try {
     const endpoint = `${REVIEW_ENDPOINT}/${id}/reviews`;
     const { data } = await apiClient.post(endpoint, newReview);
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     console.log(error.message);

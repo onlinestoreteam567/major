@@ -1,5 +1,3 @@
-// import { createSelector } from '@reduxjs/toolkit';
-
 export const loadTypes = (state) => state.types.isLoading;
 export const selectTypes = (state) => state.types.types;
 
@@ -17,13 +15,12 @@ export const selectProducts = (state) => state.products.products;
 
 export const selectFitCategory = (state) => state.fitCategory.fitCategory;
 export const loadFitCategory = (state) => state.fitCategory.isLoading;
-// export const selectFiltered = (state) => state.products.items;
 
 export const loadProductId = (state) => state.productId.isLoading;
 export const selectProductId = (state) => state.productId.productId;
-// export const selectIdItems = (state) => state.productId.items;
 
 export const filterCategory = (state) => state.filter.category;
 export const filterType = (state) => state.filter.type;
 export const filterStatus = (state) => state.filter.status;
 export const filterPrice = (state) => state.filter.price;
+export const sorting = (state) => state.filter.sorting;

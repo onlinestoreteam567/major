@@ -1,54 +1,56 @@
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import RangeSlider from './RangeSlider';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductsByPrice } from '@redux/products/service';
+import { filterPrice } from '@redux/selectors';
+import { setPrice } from '@redux/filter/filterSlice';
 
-const PriceRange = forwardRef(({ name, setValue, ...props }, ref) => {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(999);
+const PriceRange = () => {
+  const newPrice = useSelector(filterPrice);
+  const [minPrice, setMinPrice] = useState(newPrice.min);
+  const [maxPrice, setMaxPrice] = useState(newPrice.max);
   const priceGap = 1;
   const maxLimit = 999;
-
+  const dispatch = useDispatch();
   const progressRef = useRef(null);
+
+  useEffect(() => {
+    setMinPrice(newPrice.min);
+    setMaxPrice(newPrice.max);
+  }, [newPrice]);
 
   useEffect(() => {
     if (progressRef.current) {
       progressRef.current.style.left = (minPrice / maxLimit) * 100 + '%';
       progressRef.current.style.right = 100 - (maxPrice / maxLimit) * 100 + '%';
     }
-
-    // Update form values for react-hook-form
-    setValue(`${name}.min`, minPrice);
-    setValue(`${name}.max`, maxPrice);
-  }, [minPrice, maxPrice, name, setValue]);
+  }, [minPrice, maxPrice]);
 
   const handleMinInputChange = (e) => {
-    const value = parseInt(e.target.value, 10);
+    const value = parseInt(e.target.value);
     if (value <= maxLimit && maxPrice - value >= priceGap) {
       setMinPrice(value);
     }
   };
 
   const handleMaxInputChange = (e) => {
-    const value = parseInt(e.target.value, 10);
+    const value = parseInt(e.target.value);
     if (value <= maxLimit && value - minPrice >= priceGap) {
       setMaxPrice(value);
     }
   };
 
+  const getByPrice = () => {
+    dispatch(setPrice({ min: minPrice, max: maxPrice }));
+    dispatch(getProductsByPrice({ min: minPrice, max: maxPrice }));
+  };
+
   const { getTranslation } = useTranslationNamespace('common');
 
-  const localRef = useRef(null);
-  useEffect(() => {
-    if (typeof ref === 'function') {
-      ref(localRef.current);
-    } else if (ref) {
-      ref.current = localRef.current;
-    }
-  }, [ref]);
-
   return (
-    <div className={cl.rangeWrapper} ref={localRef} {...props}>
+    <div className={cl.rangeWrapper}>
       <div className={cl.slider}>
         <div className={cl.progress} ref={progressRef}></div>
       </div>
@@ -65,17 +67,16 @@ const PriceRange = forwardRef(({ name, setValue, ...props }, ref) => {
       <div className={cl.priceInput}>
         <div className={cl.field}>
           <span>{getTranslation('from')}</span>
-          <input type="number" value={minPrice} onChange={handleMinInputChange} name={`${name}.min`} />
+          <input type="number" value={minPrice} onChange={handleMinInputChange} />
         </div>
         <div className={cl.field}>
           <span>{getTranslation('to')}</span>
-          <input type="number" value={maxPrice} onChange={handleMaxInputChange} name={`${name}.max`} />
+          <input type="number" value={maxPrice} onChange={handleMaxInputChange} />
         </div>
+        <button onClick={getByPrice}>{getTranslation('ok')}</button>
       </div>
     </div>
   );
-});
-
-PriceRange.displayName = 'PriceRange';
+};
 
 export default PriceRange;

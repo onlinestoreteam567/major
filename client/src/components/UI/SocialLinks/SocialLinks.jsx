@@ -14,12 +14,12 @@ const SocialLinks = ({ black }) => {
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="https://www.instagram.com/major.proficare/" rel="nofollow" target="_blank">
             <img src="/svg/footer/monochromeInstagram.svg" alt={getTranslation('instagramAlt')} />
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="mailto:major.your.cosmetic@gmail.com" rel="nofollow">
             <img className={cl.mailIcon} src="/svg/footer/monochromeMail.svg" alt={getTranslation('mailAlt')} />
           </a>
         </li>
