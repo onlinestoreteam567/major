@@ -9,12 +9,15 @@ import cl from './index.module.scss';
 import ZoomOut from '@assets/svg/ZoomOut';
 import ZoomIn from '@assets/svg/ZoomIn';
 import { useTranslation } from 'react-i18next';
+import PartnerInfo from '../PartnerInfo/PartnerInfo';
 
 const Map = () => {
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
+  const [informationAboutPartner, setInformationAboutPartner] = useState(null);
+  console.log(informationAboutPartner);
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const animationFrameRef = useRef(null);
@@ -75,11 +78,17 @@ const Map = () => {
               left: `${point.x}%`,
             }}
             title={point.label}
-            onClick={() => alert(`Clicked on ${point.label}`)}
+            onClick={() => setInformationAboutPartner(point)}
           >
             <img src="/svg/ourPartners/point.svg" alt="" />
           </button>
         ))}
+        {informationAboutPartner && (
+          <PartnerInfo
+            informationAboutPartner={informationAboutPartner}
+            setInformationAboutPartner={setInformationAboutPartner}
+          />
+        )}
       </div>
     </div>
   );

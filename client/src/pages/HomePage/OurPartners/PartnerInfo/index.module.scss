@@ -27,6 +27,11 @@
   @include deskmax {
     top: 115px;
   }
+
+  &.hiddenAnimation {
+    @include showCloseAnimation('close');
+  }
+
   .workScheduleSection {
     @include flexGap(8px, column);
   }
@@ -50,6 +55,7 @@
       border: none;
 
       a {
+        width: 100%;
         h3 {
           color: $text-color-black;
         }

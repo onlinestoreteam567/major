@@ -3,18 +3,30 @@
     "id": 1,
     "x": 33,
     "y": 40,
-    "label": "Вінниця, вул. 600-річчя 21, ТЦ Грош, Anneti"
+    "address": "Вінниця, вул. 600-річчя 21, ТЦ Грош, Anneti",
+    "name": "Назва партнера",
+    "workScheduleWeekdays": "Пн - Пт: 8:00 - 20:00",
+    "workScheduleWeekends": "Сб - Нд: 9:00 - 18:00",
+    "googleMapAddress": "https://maps.app.goo.gl/11ZdQLH3fo6FT9LC6"
   },
   {
     "id": 2,
     "x": 10,
     "y": 20,
-    "label": "Нововолинськ, бульвар Шевченка, 23, ТЦ Forest"
+    "address": "Нововолинськ, бульвар Шевченка, 23, ТЦ Forest",
+    "name": "Назва партнера",
+    "workScheduleWeekdays": "Пн - Пт: 8:00 - 20:00",
+    "workScheduleWeekends": "Сб - Нд: 9:00 - 18:00",
+    "googleMapAddress": "https://maps.app.goo.gl/ZL1HcSjHWasJ3ns46"
   },
   {
     "id": 3,
     "x": 16,
     "y": 32,
-    "label": "Тернопіль, вул. Злуки 45б, Ester"
+    "address": "Тернопіль, вул. Злуки 45б, Ester",
+    "name": "Назва партнера",
+    "workScheduleWeekdays": "Пн - Пт: 8:00 - 20:00",
+    "workScheduleWeekends": "Сб - Нд: 9:00 - 18:00",
+    "googleMapAddress": "https://g.co/kgs/QiFN97F"
   }
 ]
