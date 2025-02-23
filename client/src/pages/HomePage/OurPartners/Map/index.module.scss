@@ -3,7 +3,6 @@
 .mainMapContainer {
   position: relative;
   overflow: hidden;
-  border: 2px solid black;
   margin: auto;
   touch-action: none;
   width: 296px;
@@ -29,18 +28,27 @@
     height: 880px;
   }
 
-  button {
+  .zoomButtonsWrapper {
     position: absolute;
-    top: 20;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    z-index: 10;
-    left: 100px;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    @include flexGap(16px);
 
-    &:first-of-type {
-      left: 200px;
+    svg {
+      box-sizing: border-box;
+      transition: 0.3s ease all;
+      border: 1px solid $second-background-color-black;
+      &:hover,
+      &:active {
+        border: none;
+        rect {
+          fill: $second-background-color-black;
+        }
+        path {
+          stroke: white;
+        }
+      }
     }
   }
 

@@ -6,6 +6,8 @@ import handleZoomIn from './eventHandlers/handleZoomIn';
 import handleZoomOut from './eventHandlers/handleZoomOut';
 import points from './points.json';
 import cl from './index.module.scss';
+import ZoomOut from '@assets/svg/ZoomOut';
+import ZoomIn from '@assets/svg/ZoomIn';
 
 const Map = () => {
   const [scale, setScale] = useState(1);
@@ -30,8 +32,14 @@ const Map = () => {
       }
       onTouchEnd={() => handleEnd(setIsDragging)}
     >
-      <button onClick={() => handleZoomIn(setScale)}>+</button>
-      <button onClick={() => handleZoomOut(setScale, setPosition)}>-</button>
+      <div className={cl.zoomButtonsWrapper}>
+        <button onClick={() => handleZoomIn(setScale)}>
+          <ZoomIn />
+        </button>
+        <button onClick={() => handleZoomOut(setScale, setPosition)}>
+          <ZoomOut />
+        </button>
+      </div>
 
       <div
         className={cl.containerWithMap}
