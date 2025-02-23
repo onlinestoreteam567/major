@@ -6,7 +6,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import InputName from './InputName';
 import StarsCheskBox from './StarsCheckBox';
 import BtnSubmit from '@components/UI/Button/BtnSubmit';
-import InputPhone from './InputPhone';
 import InputTextArea from './InputTextArea';
 import { useDispatch } from 'react-redux';
 import { addReviewById } from '@redux/products/service';
@@ -45,8 +44,6 @@ const ReviewPopUp = ({ card }) => {
     dispatch(addReviewById({ id, newReview }));
   };
 
-  const phoneUser = register('phone');
-
   return (
     <div className={cl.messagePopUp} onClick={(e) => e.stopPropagation()}>
       <Heading type="h3">Залиште відгук про наш товар</Heading>
@@ -58,13 +55,7 @@ const ReviewPopUp = ({ card }) => {
           register={register}
           errors={errors}
         />
-        <InputPhone
-          label="Номер телефону"
-          name={phoneUser.name}
-          onChange={phoneUser.onChange}
-          inputRef={phoneUser.ref}
-          errors={phoneUser.errors}
-        />
+
         <div className={cl.wrapRating}>
           <p>
             Оцініть товар <span>*</span>
