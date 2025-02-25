@@ -2,37 +2,31 @@
 
 .messagePopUp {
   @include flex(column, null, center);
-  height: 702px;
-  width: 507px;
+  height: 100vh;
+  width: 300px;
+  padding: 20px;
   position: fixed;
-  top: 7%;
-  left: 33%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
   background-color: $background-color-light;
   color: #000000;
-  font-family: $font-main;
   z-index: 100;
-  padding: 44px 40px 90px 37px;
   box-sizing: border-box;
-  border-radius: $border-radius-small;
+  overflow-y: auto;
+  border-radius: $border-radius-medium;
 
-  svg {
+  @include mobile {
+    width: 356px;
+  }
+
+  button:first-of-type {
     align-self: end;
   }
 
-  h2 {
-    margin-top: 20px;
-    font-size: $font-size-medium-extra;
-    font-weight: $font-weight-bold;
-    line-height: 28.8px;
-    letter-spacing: $letter-spacing-base;
-  }
-
-  h3 {
-    font-size: $font-size-medium-plus;
-    margin-top: 10px;
-    font-weight: $font-weight-medium;
-    line-height: $line-height-base;
+  p:first-of-type {
     text-align: center;
+    margin-top: 16px;
   }
 
   form {

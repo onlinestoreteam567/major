@@ -3,7 +3,7 @@ import cl from '../index.module.scss';
 import { handleInputCursorPosition, handleInputChange, handleKeyDown, handleInputDelete } from './eventHandlers';
 
 export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant, ...props }, ref) => {
-  const [inputsValue, setInputsValue] = useState('+38 (0__)  __ __ ___');
+  const [inputsValue, setInputsValue] = useState(null);
   const inputRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -15,6 +15,9 @@ export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant
     setValue('phone', inputsValue);
 
     if (isFocused) {
+      if (!inputsValue) {
+        setInputsValue('+38 (0__)  __ __ ___');
+      }
       const firstUnderscoreIndex = inputRef.current.value.indexOf('_');
       if (firstUnderscoreIndex !== -1) {
         // Set the cursor position to one character after the first underscore
@@ -38,7 +41,6 @@ export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant
       <input
         {...props}
         id={name}
-        placeholder={inputsValue}
         value={inputsValue}
         autoComplete="tel"
         ref={inputRef}

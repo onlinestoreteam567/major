@@ -4,6 +4,7 @@ import MainPopUp from '@UI/PopUp/MainPopUp/MainPopUp';
 import { popUpData } from '@components/constants/popUpData';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
+import Heading from '@components/UI/Texts/Heading/Heading';
 
 const YellowButton = () => {
   const [showMessagePopUp, setShowMessagePopUp] = useState(false);
@@ -33,7 +34,7 @@ const YellowButton = () => {
           >
             <span className={cl.questionSpan}>?</span>
             <div className={cl.buttonsWrapper}>
-              <p>{getTranslation('title')}</p>
+              <Heading type="h3">{getTranslation('title')}</Heading>
               <a href="https://t.me/UA_National_Police" rel="nofollow" target="_blank">
                 <img src="/svg/yellowCircle/telegram.svg" alt="Telegram icon" />
               </a>

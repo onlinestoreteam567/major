@@ -3,12 +3,12 @@ import Overlay from '@UI/Overlay/Overlay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@UI/Button/Button';
 import Subtitle from '@UI/Texts/Subtitle/Subtitle';
-import Heading from '@UI/Texts/Heading/Heading';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { needHelpSchema } from '@validations/needHelpSchema';
 import { Input, PhoneNumberInput, Textarea } from '@components/form-components';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 
 const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
   const { getTranslation } = useTranslationNamespace('yellowButton');
@@ -27,15 +27,9 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
         <ButtonClose onClick={handleCloseMessagePopUp} />
 
         <Subtitle>{getTranslation(popUpData.subtitle)}</Subtitle>
-        <Heading type="h3">{getTranslation(popUpData.heading)}</Heading>
+        <Paragraph type="body2">{getTranslation(popUpData.heading)}</Paragraph>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            labelText={getTranslation('nameAndSurname')}
-            name="fullName"
-            placeholder={getTranslation('nameAndSurname')}
-            variant="popUp"
-            register={register}
-          />
+          <Input labelText={getTranslation('name')} name="fullName" variant="popUp" register={register} />
 
           <PhoneNumberInput
             setValue={setValue}
@@ -48,8 +42,8 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
           <Textarea
             labelText={getTranslation(popUpData.textAreaTitle)}
             name="question"
-            placeholder={getTranslation(popUpData.textAreaPlaceholder)}
             register={register}
+            variant={'popUp'}
           />
 
           <Button variant="secondary" submit={true}>
