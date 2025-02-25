@@ -13,7 +13,6 @@ import { addReviewById } from '@redux/products/service';
 const ReviewPopUp = ({ card }) => {
   const schema = yup.object({
     user_name: yup.string().required("поле обов'язкове"),
-    phone: yup.string().required("поле обов'язкове"),
     review_text: yup.string().required("поле обов'язкове"),
     stars: yup.number().min(0).max(5).required("поле обов'язкове"),
   });
