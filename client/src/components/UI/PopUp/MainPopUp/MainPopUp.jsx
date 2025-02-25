@@ -26,35 +26,36 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
       <div className={cl.messagePopUp}>
         <ButtonClose onClick={handleCloseMessagePopUp} />
 
-        <div>
-          <Heading type="h2">{getTranslation(popUpData.subtitle)}</Heading>
-          <Paragraph type="body2">{getTranslation(popUpData.heading)}</Paragraph>
+        <div className={cl.overflowWrap}>
+          <div>
+            <Heading type="h2">{getTranslation(popUpData.subtitle)}</Heading>
+            <Paragraph type="body2">{getTranslation(popUpData.heading)}</Paragraph>
+          </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div>
+              <Input labelText={getTranslation('name')} name="fullName" variant="popUp" register={register} />
+
+              <PhoneNumberInput
+                setValue={setValue}
+                variant="popUp"
+                register={'phone'}
+                name="phone"
+                labelText={getTranslation('phoneNumber')}
+              />
+            </div>
+
+            <div>
+              <Textarea
+                labelText={getTranslation(popUpData.textAreaTitle)}
+                name="question"
+                register={register}
+                variant={'popUp'}
+              />
+
+              <Button submit={true}>{getTranslation(popUpData.buttonText)}</Button>
+            </div>
+          </form>
         </div>
-
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <Input labelText={getTranslation('name')} name="fullName" variant="popUp" register={register} />
-
-            <PhoneNumberInput
-              setValue={setValue}
-              variant="popUp"
-              register={'phone'}
-              name="phone"
-              labelText={getTranslation('phoneNumber')}
-            />
-          </div>
-
-          <div>
-            <Textarea
-              labelText={getTranslation(popUpData.textAreaTitle)}
-              name="question"
-              register={register}
-              variant={'popUp'}
-            />
-
-            <Button submit={true}>{getTranslation(popUpData.buttonText)}</Button>
-          </div>
-        </form>
       </div>
     </>
   );

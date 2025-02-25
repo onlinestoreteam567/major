@@ -3,7 +3,7 @@ import cl from '../index.module.scss';
 import { handleInputCursorPosition, handleInputChange, handleKeyDown, handleInputDelete } from './eventHandlers';
 
 export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant, ...props }, ref) => {
-  const [inputsValue, setInputsValue] = useState(null);
+  const [inputsValue, setInputsValue] = useState('');
   const inputRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -37,23 +37,26 @@ export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant
 
   return (
     <>
-      <label htmlFor={name}>{labelText}</label>
-      <input
-        {...props}
-        id={name}
-        value={inputsValue}
-        autoComplete="tel"
-        ref={inputRef}
-        onChange={(e) => handleInputChange(e, setInputsValue)}
-        onFocus={handleInputFocus}
-        onBlur={handleInputBlur}
-        onKeyDown={(e) => {
-          handleInputDelete(e, inputsValue, setInputsValue);
-          handleKeyDown(e);
-        }}
-        onMouseDown={(e) => handleInputCursorPosition(e, isFocused, inputRef)}
-        className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]}`}
-      />
+      <label htmlFor={name}>
+        {labelText}
+
+        <input
+          {...props}
+          id={name}
+          value={inputsValue}
+          autoComplete="tel"
+          ref={inputRef}
+          onChange={(e) => handleInputChange(e, setInputsValue)}
+          onFocus={handleInputFocus}
+          onBlur={handleInputBlur}
+          onKeyDown={(e) => {
+            handleInputDelete(e, inputsValue, setInputsValue);
+            handleKeyDown(e);
+          }}
+          onMouseDown={(e) => handleInputCursorPosition(e, isFocused, inputRef)}
+          className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]}`}
+        />
+      </label>
     </>
   );
 });
