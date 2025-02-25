@@ -4,6 +4,7 @@
   resize: none;
   box-sizing: border-box;
   padding: 12px;
+  margin: 0;
   font-family: $font-main;
   letter-spacing: $letter-spacing-small;
   line-height: $line-height-small;
@@ -16,7 +17,6 @@
 }
 
 .popUp {
-  height: 131px;
   border-radius: $border-radius-base;
   border: 1px solid #676767;
 

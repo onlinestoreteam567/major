@@ -1,5 +1,4 @@
 export const popUpData = {
-  type: 'hasQuestion',
   heading: 'heading',
   subtitle: 'subtitle',
   textAreaTitle: 'textAreaTitle',
