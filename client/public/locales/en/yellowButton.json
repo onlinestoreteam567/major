@@ -1,11 +1,10 @@
 {
-  "help": "Need help?",
-  "subtitle": "Has a question?",
-  "heading": "Leave your phone number and we will call you back!",
-  "nameAndSurname": "Name and Surname",
-  "phoneNumber": "Phone number",
-  "textAreaTitle": "Question",
-  "buttonText": "Send message",
-  "textAreaPlaceholder": "Write your question to us",
+  "title": "Free consultation",
+  "subtitle": "Need help?",
+  "heading": "We are always in touch with you, leave your contact details and we will call you back!",
+  "name": "Your name*",
+  "phoneNumber": "Phone number*",
+  "textAreaTitle": "Message*2",
+  "buttonText": "Send",
   "crossAlt": "Close"
 }

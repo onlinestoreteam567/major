@@ -2,90 +2,217 @@
 
 .messagePopUp {
   @include flex(column, null, center);
-  height: 702px;
-  width: 507px;
+  width: 300px;
+  padding: 20px;
+  height: 80vh;
+  max-height: 523px;
   position: fixed;
-  top: 7%;
-  left: 33%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: $background-color-light;
   color: #000000;
-  font-family: $font-main;
   z-index: 100;
-  padding: 44px 40px 90px 37px;
   box-sizing: border-box;
-  border-radius: $border-radius-small;
+  border-radius: $border-radius-medium;
 
-  svg {
+  & > button:first-of-type {
     align-self: end;
   }
 
-  h2 {
-    margin-top: 20px;
-    font-size: $font-size-medium-extra;
-    font-weight: $font-weight-bold;
-    line-height: 28.8px;
-    letter-spacing: $letter-spacing-base;
+  .overflowWrap {
+    overflow-y: auto;
+
+    & > div:first-of-type {
+      p {
+        text-align: center;
+        margin-top: 16px;
+      }
+    }
+
+    form {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      label {
+        @include flexGap(10px, column);
+        font-size: $font-size-medium;
+        font-weight: $font-weight-medium;
+        line-height: 23.04px;
+        user-select: none;
+      }
+
+      div {
+        @include flexGap(16px, column);
+      }
+
+      input {
+        width: 100%;
+      }
+    }
   }
 
-  h3 {
-    font-size: $font-size-medium-plus;
-    margin-top: 10px;
-    font-weight: $font-weight-medium;
-    line-height: $line-height-base;
-    text-align: center;
+  @include mobile {
+    width: 356px;
+    max-height: 506px;
   }
 
-  form {
-    margin-top: 25px;
-    display: flex;
+  // .wrapRating {
+  //   @include flex(row, space-between, center);
+  //   ul {
+  //     @include flex(row, center, center);
+  //     width: 136px;
+  //     height: 24px;
+  //     gap: 4px;
+  //     li {
+  //       @include flex(row, center, center);
+  //       position: relative;
+  //       width: 24px;
+  //       height: 24px;
+  //       input {
+  //         position: absolute;
+  //         appearance: none;
+  //         border: none;
+  //         padding: 0;
+  //         width: 24px;
+  //         height: 24px;
+  //       }
+  //     }
+  //   }
+  // }
+
+  @include tablet {
+    width: 640px;
+    padding: 42px;
+    max-height: 430px;
+
+    .overflowWrap {
+      & > div:first-of-type {
+        align-self: start;
+
+        h2 {
+          text-align: start;
+        }
+
+        p {
+          text-align: start;
+          width: 330px;
+        }
+      }
+
+      form {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+
+        div:first-of-type {
+          @include flexGap(10px, column);
+          width: 278px;
+
+          input {
+            width: 100%;
+          }
+        }
+
+        div:last-of-type {
+          @include flexGap(10px, column);
+          width: 278px;
+
+          textarea {
+            width: 100%;
+            height: 123px;
+          }
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 980px;
+    padding: 20px 70px 70px;
     flex-direction: column;
-    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 438px;
 
-    label {
-      font-size: $font-size-medium;
-      font-weight: $font-weight-medium;
-      line-height: 23.04px;
-      display: block;
-      user-select: none;
+    & > button:first-of-type {
+      align-self: end;
     }
 
-    .additionalText {
-      @include flex(row, space-between, center);
+    .overflowWrap {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
 
-      img {
-        height: 20px;
-        width: 20px;
+      & > div:first-of-type {
+        height: 329px;
+        width: 300px;
+
+        p {
+          width: 224px;
+        }
       }
-    }
 
-    .buttonWrapper {
-      @include flex();
+      form {
+        width: fit-content;
+        margin: 0;
+        flex-direction: column;
 
-      button {
-        width: 95%;
+        div:first-of-type {
+          width: fit-content;
+          flex-direction: row;
+          gap: 30px;
+
+          label {
+            gap: 16px;
+
+            input {
+              width: 203px;
+            }
+          }
+        }
+
+        div:last-of-type {
+          width: 438px;
+          gap: 16px;
+
+          button {
+            width: 210px;
+            align-self: end;
+          }
+        }
       }
     }
   }
 
-  .wrapRating {
-    @include flex(row, space-between, center);
-    ul {
-      @include flex(row, center, center);
-      width: 136px;
-      height: 24px;
-      gap: 4px;
-      li {
-        @include flex(row, center, center);
-        position: relative;
-        width: 24px;
-        height: 24px;
-        input {
-          position: absolute;
-          appearance: none;
-          border: none;
-          padding: 0;
-          width: 24px;
-          height: 24px;
+  @include deskmax {
+    width: 1296px;
+    padding: 26px 95px 95px;
+    max-height: 480px;
+
+    .overflowWrap {
+      & > div:first-of-type {
+        width: 408px;
+
+        p {
+          width: initial;
+        }
+      }
+
+      form {
+        width: fit-content;
+
+        div:first-of-type {
+          label {
+            input {
+              width: 274px;
+            }
+          }
+        }
+        div:last-of-type {
+          width: 578px;
         }
       }
     }

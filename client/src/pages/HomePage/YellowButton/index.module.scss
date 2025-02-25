@@ -6,10 +6,6 @@
   right: 0;
   z-index: 3;
 
-  .closeAnimation {
-    @include showCloseAnimation('close', 375%);
-  }
-
   .questionButton,
   .questionSpan {
     @include flex();
@@ -27,22 +23,22 @@
     margin-right: -1px;
   }
 
-  .closeAnimation {
-    @include showCloseAnimation('close');
-  }
-
-  .needHelpButtonsWrapper {
+  .additionalInfoWrapper {
     @include flex();
     position: absolute;
     top: 0;
     right: 0;
     @include showCloseAnimation();
 
-    .needHelpButtons {
+    &.closeAnimation {
+      @include showCloseAnimation('close');
+    }
+
+    .buttonsWrapper {
       @include flex();
       gap: 7px;
       text-wrap: nowrap;
-      width: 235px;
+      width: auto;
       height: 44px;
       font-family: $font-second;
       font-size: $font-size-small;

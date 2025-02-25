@@ -3,73 +3,49 @@ import cl from './index.module.scss';
 import MainPopUp from '@UI/PopUp/MainPopUp/MainPopUp';
 import { popUpData } from '@components/constants/popUpData';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-// import { createPortal } from 'react-dom';
-// import WrapModal from '@components/UI/WrapModal/WrapModal';
-// import HelperPopUp from '@components/UI/PopUp/FormPopUp/HelperPopUp';
+import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
+import Heading from '@components/UI/Texts/Heading/Heading';
 
 const YellowButton = () => {
   const [showMessagePopUp, setShowMessagePopUp] = useState(false);
+  const [isShowAdditionalInfoCloseAnimation, setIsShowAdditionalInfoCloseAnimation] = useState(false);
+  const [isShowAdditionalInfo, setIsShowAdditionalInfo] = useState(false);
 
-  const [showHelpButtonCloseAnimation, setShowHelpButtonCloseAnimation] = useState(false);
-  const [showNeedHelpButton, setShowNeedHelpButton] = useState(false);
-
-  const showNeedHelpButtonFnc = () => setShowNeedHelpButton(true);
+  const showAdditionalInfo = () => setIsShowAdditionalInfo(true);
   const handleShowMesssagePopUp = () => setShowMessagePopUp(true);
 
-  const closeHelpButtonAnimation = () => {
-    setShowHelpButtonCloseAnimation(true);
-    clearTimeout();
-    setTimeout(() => {
-      setShowHelpButtonCloseAnimation(false);
-      setShowNeedHelpButton(false);
-    }, 275);
-  };
-
-  // **********************************
-  // const [isShow, setIsShow] = useState(false);
-
-  // const openModal = () => {
-  //   setIsShow(true);
-  // };
-  // const closeModal = () => {
-  //   setIsShow(false);
-  // };
-  // **************************************
+  const closeAdditionalInfo = () =>
+    handleCloseWithDelay(setIsShowAdditionalInfoCloseAnimation, setIsShowAdditionalInfo);
 
   const { getTranslation } = useTranslationNamespace('yellowButton');
 
   return (
     <>
       <section className={cl.yellowButtonWrapper}>
-        <button className={cl.questionButton} onClick={showNeedHelpButtonFnc} onMouseEnter={showNeedHelpButtonFnc}>
+        <button className={cl.questionButton} onClick={showAdditionalInfo} onMouseEnter={showAdditionalInfo}>
           ?
         </button>
 
-        {showNeedHelpButton && (
+        {isShowAdditionalInfo && (
           <div
-            className={`${cl.needHelpButtonsWrapper} ${showHelpButtonCloseAnimation ? cl.closeAnimation : ''}`}
-            onMouseLeave={closeHelpButtonAnimation}
-            onClick={closeHelpButtonAnimation}
+            className={`${cl.additionalInfoWrapper} ${isShowAdditionalInfoCloseAnimation ? cl.closeAnimation : ''}`}
+            onMouseLeave={closeAdditionalInfo}
+            onClick={closeAdditionalInfo}
           >
             <span className={cl.questionSpan}>?</span>
-            <div className={cl.needHelpButtons}>
-              <p>{getTranslation('help')}</p>
+            <div className={cl.buttonsWrapper}>
+              <Heading type="h3">{getTranslation('title')}</Heading>
               <a href="https://t.me/UA_National_Police" rel="nofollow" target="_blank">
                 <img src="/svg/yellowCircle/telegram.svg" alt="Telegram icon" />
               </a>
               <button onClick={handleShowMesssagePopUp}>
                 <img src="/svg/yellowCircle/communication.svg" alt="Open message pop-up" />
               </button>
-              {/* <button type="button" onClick={openModal}>
-                <img src="/svg/yellowCircle/communication.svg" alt="Open message pop-up" />
-              </button> */}
             </div>
           </div>
         )}
       </section>
       {showMessagePopUp && <MainPopUp setShowMessagePopUp={setShowMessagePopUp} popUpData={popUpData} />}
-      {/* {isShow &&
-        createPortal(<WrapModal isShow={isShow} closeModal={closeModal} content={<HelperPopUp />} />, document.body)} */}
     </>
   );
 };

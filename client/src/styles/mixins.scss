@@ -116,7 +116,7 @@
 @mixin layout {
   & {
     box-sizing: border-box;
-    padding: 0 12px 120px 12px;
+    padding: 0 10px 120px 10px;
   }
 
   @include mobile {

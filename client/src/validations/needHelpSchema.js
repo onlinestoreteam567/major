@@ -1,17 +1,9 @@
 import * as yup from 'yup';
 
 export const needHelpSchema = yup.object().shape({
-  fullName: yup
-    .string()
-    .trim()
-    .min(5, 'Full name must be at least 5 characters long')
-    .required('Full name is required'),
+  fullName: yup.string().trim().required('Full name is required'),
 
-  phone: yup.string().trim(),
+  phone: yup.string().trim().notOneOf(['+38 (0__)  __ __ ___'], 'This number is not allowed'),
 
-  question: yup
-    .string()
-    .trim()
-    .min(10, 'Question must be at least 10 characters long')
-    .required('Question is required'),
+  question: yup.string().trim().required('Question is required'),
 });
