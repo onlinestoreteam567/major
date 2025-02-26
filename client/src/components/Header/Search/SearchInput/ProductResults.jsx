@@ -1,16 +1,26 @@
 import { loadSearch, selectSearch } from '@redux/selectors';
 import cl from './index.module.scss';
 import Spinner from '@components/helpers/Spinner';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import NotFound from './NotFound';
 import { Link } from 'react-router-dom';
+import { resetFilter } from '@redux/filter/filterSlice';
+import { setProducts } from '@redux/products/listSlice';
 
 const ProductResults = ({ handleCloseInput }) => {
   const isLoading = useSelector(loadSearch);
   const products = useSelector(selectSearch);
+  const dispatch = useDispatch();
 
   if (products === null) return;
+
   const showOnlyFirstThree = products.slice(0, 3);
+
+  const addSearchResultsToCatalog = () => {
+    dispatch(resetFilter());
+    dispatch(setProducts(products));
+    handleCloseInput();
+  };
 
   return (
     <div>
@@ -41,9 +51,9 @@ const ProductResults = ({ handleCloseInput }) => {
             </ul>
           )}
           {products.length >= 3 && (
-            <a className={cl.showAll} href="#">
+            <Link className={cl.showAll} to="/catalog" onClick={() => addSearchResultsToCatalog()}>
               Показати всі результати пошуку
-            </a>
+            </Link>
           )}
         </section>
       )}

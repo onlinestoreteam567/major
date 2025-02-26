@@ -47,7 +47,7 @@ function SearchInput({ setIsShowInput, isDesktop }) {
 
   return (
     <>
-      {isDesktop && <Overlay handleClose={() => handleCloseInput} />}
+      {isDesktop && <Overlay handleClose={handleCloseInput} />}
 
       <search className={isHiddenInputAnimation ? cl.hiddenInput : ''}>
         <div className={searchTerm && cl.activeSearch}>
@@ -58,7 +58,7 @@ function SearchInput({ setIsShowInput, isDesktop }) {
             onChange={handleChange}
             onFocus={handleInputFocus}
             ref={inputRef}
-            value={searchTerm} // Add value prop to input to control its value
+            value={searchTerm}
           />
 
           {searchTerm && <ButtonClose onClick={handleClearInputValue} />}
