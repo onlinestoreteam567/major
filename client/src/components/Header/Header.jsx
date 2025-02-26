@@ -19,7 +19,6 @@ const Header = () => {
   const [isShowInput, setIsShowInput] = useState(false);
   const [isShowBasket, setIsShowBasket] = useState(false);
   const [isShowNavDrawer, setIsShowNavDrawer] = useState(false);
-  const [inputValue, setInputValue] = useState('');
 
   const handleShowInput = () => setIsShowInput(true);
   const handleShowNavDrawer = () => setIsShowNavDrawer(true);
@@ -39,12 +38,7 @@ const Header = () => {
         {(deskmin || deskmax) && <Navigation />}
 
         {(deskmin || deskmax) && isShowInput && (
-          <SearchInput
-            setIsShowInput={setIsShowInput}
-            inputValue={inputValue}
-            setInputValue={setInputValue}
-            isDesktop={deskmin || deskmax}
-          />
+          <SearchInput setIsShowInput={setIsShowInput} isDesktop={deskmin || deskmax} />
         )}
 
         <RightHeaderControls
@@ -56,12 +50,7 @@ const Header = () => {
       </div>
 
       {!deskmin && !deskmax && isShowInput && (
-        <MobileSearchWrapper
-          setIsShowInput={setIsShowInput}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-          isDesktop={deskmin}
-        />
+        <MobileSearchWrapper setIsShowInput={setIsShowInput} isDesktop={deskmin} />
       )}
 
       {isShowNavDrawer && <NavDrawer setIsShowNavDrawer={setIsShowNavDrawer} />}

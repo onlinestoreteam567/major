@@ -9,6 +9,7 @@ import { categotyReducer } from '@redux/params/categorySlice';
 import { typesReducer } from '@redux/params/purposeSlice';
 import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
 import { filterReducer } from '@redux/filter/filterSlice';
+import { searchReducer } from '@redux/products/searchSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   types: typesReducer,
   fitCategory: fitCategoryReducer,
   filter: filterReducer,
+  search: searchReducer,
 });
 
 export const store = configureStore({

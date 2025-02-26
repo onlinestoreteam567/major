@@ -4,20 +4,16 @@ import SearchInput from './SearchInput/SearchInput';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
-const MobileSearchWrapper = ({ setIsShowInput, inputValue, setInputValue, isDesktop }) => {
+const MobileSearchWrapper = ({ setIsShowInput, isDesktop }) => {
   const [IsHiddenSearchAnimation, setIsHiddenSearchAnimation] = useState(false);
 
   return (
     <div className={`${cl.searchWrapper} ${IsHiddenSearchAnimation && cl.closeAnimation}`}>
       <div className={cl.top}>
         <img src="/svg/header/searchLogo.svg" alt="" />
-        <ButtonClose
-          onClick={() => {
-            handleCloseWithDelay(setIsHiddenSearchAnimation, setIsShowInput);
-          }}
-        />
+        <ButtonClose onClick={() => handleCloseWithDelay(setIsHiddenSearchAnimation, setIsShowInput)} />
       </div>
-      <SearchInput inputValue={inputValue} setInputValue={setInputValue} isDesktop={isDesktop} />
+      <SearchInput isDesktop={isDesktop} setIsShowInput={setIsShowInput} />
     </div>
   );
 };

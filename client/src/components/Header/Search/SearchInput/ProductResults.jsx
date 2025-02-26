@@ -1,31 +1,64 @@
+import { loadSearch, selectSearch } from '@redux/selectors';
 import cl from './index.module.scss';
+import Spinner from '@components/helpers/Spinner';
+import { useDispatch, useSelector } from 'react-redux';
+import NotFound from './NotFound';
+import { Link } from 'react-router-dom';
+import { resetFilter } from '@redux/filter/filterSlice';
+import { setProducts } from '@redux/products/listSlice';
 
-const ProductResults = ({ products }) => (
-  <section className={cl.searchResultsSection}>
-    <hr />
-    <ul>
-      {products.map((product) => (
-        <li key={product.id} className={cl.searchResultItem}>
-          <a href=" ">
-            <img src={product.urlImg} alt={product.name} />
-          </a>
-          <section className={cl.searchResultInfo}>
-            <a href="">
-              <p className={cl.productName}>{product.name}</p>
-            </a>
-            <p className={cl.productPrice}>
-              {product.price} <img src="/svg/hryvnia.svg" alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
-            </p>
-          </section>
-        </li>
-      ))}
-    </ul>
-    {products.length >= 3 && (
-      <a className={cl.showAll} href=" ">
-        Показати всі результати пошуку
-      </a>
-    )}
-  </section>
-);
+const ProductResults = ({ handleCloseInput }) => {
+  const isLoading = useSelector(loadSearch);
+  const products = useSelector(selectSearch);
+  const dispatch = useDispatch();
+
+  if (products === null) return;
+
+  const showOnlyFirstThree = products.slice(0, 3);
+
+  const addSearchResultsToCatalog = () => {
+    dispatch(resetFilter());
+    dispatch(setProducts(products));
+    handleCloseInput();
+  };
+
+  return (
+    <div>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <section className={cl.searchResultsSection}>
+          <hr />
+          {products.length === 0 ? (
+            <NotFound />
+          ) : (
+            <ul>
+              {showOnlyFirstThree.map((product) => (
+                <li key={product.id} className={cl.searchResultItem}>
+                  <Link to={`/catalog/${product.id}`} onClick={handleCloseInput}>
+                    <img src={product.images[0].image} alt={product.name} />
+                  </Link>
+                  <section className={cl.searchResultInfo}>
+                    <a href="#">
+                      <p className={cl.productName}>{product.name}</p>
+                    </a>
+                    <p className={cl.productPrice}>
+                      {product.price} <img src="/svg/hryvnia.svg" alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
+                    </p>
+                  </section>
+                </li>
+              ))}
+            </ul>
+          )}
+          {products.length >= 3 && (
+            <Link className={cl.showAll} to="/catalog" onClick={() => addSearchResultsToCatalog()}>
+              Показати всі результати пошуку
+            </Link>
+          )}
+        </section>
+      )}
+    </div>
+  );
+};
 
 export default ProductResults;
