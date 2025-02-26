@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import Overlay from '@UI/Overlay/Overlay';
 import ProductResults from './ProductResults';
@@ -9,6 +8,7 @@ import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import debouce from 'lodash.debounce';
 import { useDispatch } from 'react-redux';
 import { getSearch } from '@redux/products/service';
+import { clearSearchResults } from '@redux/products/searchSlice';
 
 function SearchInput({ setIsShowInput, isDesktop }) {
   const [isInputFocus, setIsInputFocus] = useState(false);
@@ -21,28 +21,28 @@ function SearchInput({ setIsShowInput, isDesktop }) {
     setSearchTerm(e.target.value);
   };
 
-  useEffect(() => {
-    const debouncedSearch = debouce(() => {
-      if (searchTerm.trim() !== '') {
-        dispatch(getSearch(searchTerm.trim()));
-      }
-    }, 1000);
-
-    debouncedSearch();
-
-    return () => {
-      debouncedSearch.cancel();
-    };
-  }, [searchTerm, dispatch]);
-
   const handleInputFocus = () => setIsInputFocus(true);
-
   const handleClearInputValue = () => {
     setSearchTerm('');
+    dispatch(clearSearchResults()); // Clear search results when input is cleared
     inputRef.current.focus();
   };
 
   const { getTranslation } = useTranslationNamespace('header');
+
+  useEffect(() => {
+    const debouncedSearch = debouce(() => {
+      if (searchTerm.trim() !== '') {
+        dispatch(getSearch(searchTerm.trim()));
+      } else {
+        dispatch(clearSearchResults());
+      }
+    }, 1000);
+    debouncedSearch();
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [searchTerm, dispatch]);
 
   return (
     <>
@@ -57,20 +57,16 @@ function SearchInput({ setIsShowInput, isDesktop }) {
             onChange={handleChange}
             onFocus={handleInputFocus}
             ref={inputRef}
+            value={searchTerm} // Add value prop to input to control its value
           />
 
           {searchTerm && <ButtonClose onClick={handleClearInputValue} />}
 
-          <ProductResults />
+          {searchTerm && <ProductResults />}
         </div>
       </search>
     </>
   );
 }
-
-SearchInput.propTypes = {
-  inputValue: PropTypes.string.isRequired,
-  setInputValue: PropTypes.func.isRequired,
-};
 
 export default SearchInput;

@@ -103,6 +103,7 @@ search {
     box-sizing: border-box;
 
     ul {
+      @include flexGap(5px, column);
       margin-top: 27px;
       box-sizing: border-box;
       padding-left: 7px;
@@ -110,11 +111,17 @@ search {
       li {
         display: flex;
         height: 64px;
-        margin-bottom: 25px;
+
+        & > a:first-of-type {
+          width: 64px;
+
+          img {
+            height: 100%;
+            aspect-ratio: 1 / 1;
+          }
+        }
 
         .searchResultInfo {
-          margin-left: 10px;
-
           .productName {
             font-family: $font-second;
             font-weight: $font-weight-base;
@@ -127,7 +134,6 @@ search {
           }
 
           .productPrice {
-            margin-top: 10px;
             font-family: $font-main;
             font-size: $font-size-base;
             font-weight: $font-weight-small;

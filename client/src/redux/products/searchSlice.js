@@ -3,20 +3,25 @@ import { getSearch } from './service';
 
 const handlePending = (state) => {
   state.isLoading = true;
+  state.searchResults = [];
 };
 
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
-  state.searchResults = [];
 };
 
 const searchSlice = createSlice({
   name: 'search',
   initialState: {
-    searchResults: [],
+    searchResults: null,
     isLoading: false,
     error: null,
+  },
+  reducers: {
+    clearSearchResults: (state) => {
+      state.searchResults = null;
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -29,4 +34,5 @@ const searchSlice = createSlice({
       .addCase(getSearch.rejected, handleRejected),
 });
 
+export const { clearSearchResults } = searchSlice.actions;
 export const searchReducer = searchSlice.reducer;

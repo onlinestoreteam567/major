@@ -1,13 +1,16 @@
 import { loadSearch, selectSearch } from '@redux/selectors';
 import cl from './index.module.scss';
 import Spinner from '@components/helpers/Spinner';
-import EmptyPage from '@components/helpers/EmptyPage';
 import { useSelector } from 'react-redux';
 import NotFound from './NotFound';
 
 const ProductResults = () => {
+  console.log('render');
   const isLoading = useSelector(loadSearch);
   const products = useSelector(selectSearch);
+
+  if (products === null) return;
+  const showOnlyFirstThree = products.slice(0, 3);
 
   return (
     <div>
@@ -20,10 +23,10 @@ const ProductResults = () => {
             <NotFound />
           ) : (
             <ul>
-              {products.map((product) => (
+              {showOnlyFirstThree.map((product) => (
                 <li key={product.id} className={cl.searchResultItem}>
                   <a href="#">
-                    <img src={product.urlImg} alt={product.name} />
+                    <img src={product.images[0].image} alt={product.name} />
                   </a>
                   <section className={cl.searchResultInfo}>
                     <a href="#">

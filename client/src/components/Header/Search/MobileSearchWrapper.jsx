@@ -4,7 +4,7 @@ import SearchInput from './SearchInput/SearchInput';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
-const MobileSearchWrapper = ({ setIsShowInput, inputValue, setInputValue, isDesktop }) => {
+const MobileSearchWrapper = ({ setIsShowInput, isDesktop }) => {
   const [IsHiddenSearchAnimation, setIsHiddenSearchAnimation] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ const MobileSearchWrapper = ({ setIsShowInput, inputValue, setInputValue, isDesk
           }}
         />
       </div>
-      <SearchInput inputValue={inputValue} setInputValue={setInputValue} isDesktop={isDesktop} />
+      <SearchInput isDesktop={isDesktop} />
     </div>
   );
 };
