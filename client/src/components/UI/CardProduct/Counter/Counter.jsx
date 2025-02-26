@@ -1,11 +1,8 @@
 import cl from './index.module.scss';
-import { useState } from 'react';
 import ButtonMinus from '@assets/svg/ButtonMinus';
 import ButtonPlus from '@assets/svg/ButtonPlus';
 
-export default function Counter() {
-  const [count, setCount] = useState(1);
-
+export default function Counter({ count, setCount }) {
   const handleIncrement = () => {
     setCount(count + 1);
   };
