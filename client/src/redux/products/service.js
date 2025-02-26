@@ -40,9 +40,11 @@ export const fetchProductsAll = createAsyncThunk('products/getAll', async (_, th
   }
 });
 
-export const getProductsByTypes = createAsyncThunk('products/getByTypes', async (id, thunkAPI) => {
+export const getProductsByTypes = createAsyncThunk('products/getByTypes', async (ids, thunkAPI) => {
   try {
-    const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/?type_category=${id}`);
+    const typeParam = Array.isArray(ids) && ids.length > 1 ? ids.map((id) => `type=${id}`).join('&') : `type=${ids}`;
+
+    const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/?${typeParam}`);
 
     return data;
   } catch (error) {

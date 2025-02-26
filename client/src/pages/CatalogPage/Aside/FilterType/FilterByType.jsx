@@ -1,27 +1,45 @@
+import { useState, useEffect } from 'react';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
 import { useDispatch, useSelector } from 'react-redux';
 import EmptyPage from '@components/helpers/EmptyPage';
 import Spinner from '@components/helpers/Spinner';
-import { filterType, loadTypes, selectTypes } from '@redux/selectors';
-import { getProductsByTypes } from '@redux/products/service';
-import { setType } from '@redux/filter/filterSlice';
+import { loadTypes, selectTypes } from '@redux/selectors';
+import { fetchProductsAll, getProductsByTypes } from '@redux/products/service';
 
 export default function FilterByType() {
   const { getTranslation } = useTranslationNamespace('catalogPage');
-  const dispatch = useDispatch();
-  const newType = useSelector(filterType);
-
   const isLoading = useSelector(loadTypes);
   const items = useSelector(selectTypes);
+  const dispatch = useDispatch();
+  const [selectedTypes, setSelectedTypes] = useState(null);
 
-  const getTypes = (value) => {
-    dispatch(getProductsByTypes(value));
-    dispatch(setType(value));
+  useEffect(() => {
+    if (selectedTypes === null) return;
+
+    if (selectedTypes.length > 0) {
+      dispatch(getProductsByTypes(selectedTypes));
+    } else {
+      dispatch(fetchProductsAll());
+    }
+  }, [selectedTypes, dispatch]);
+
+  const handleCheckboxChange = (id) => {
+    setSelectedTypes((prev) => {
+      if (prev === null) {
+        return [id];
+      }
+      if (prev.includes(id)) {
+        return prev.filter((item) => item !== id);
+      } else {
+        return [...prev, id];
+      }
+    });
   };
 
   const showArr = Array.isArray(items) && items.length !== 0;
+
   return (
     <div className={cl.filterByTypeWrapper}>
       <Heading type="h4">{getTranslation('category')}</Heading>
@@ -35,19 +53,18 @@ export default function FilterByType() {
                 <label>
                   <img
                     src={
-                      String(item.id) === String(newType)
+                      selectedTypes && selectedTypes.includes(String(item.id))
                         ? '/svg/catalogPage/checkbox.svg'
                         : '/svg/catalogPage/emptyCheckbox.svg'
                     }
-                    alt={String(item.id) === String(newType) ? 'Checked' : 'Unchecked'}
+                    alt={selectedTypes && selectedTypes.includes(String(item.id)) ? 'Checked' : 'Unchecked'}
                   />
                   <input
-                    key={item.id}
-                    type="radio"
+                    type="checkbox"
                     name="type"
                     value={item.id}
-                    checked={String(item.id) === String(newType)}
-                    onChange={(e) => getTypes(e.target.value)}
+                    checked={selectedTypes && selectedTypes.includes(String(item.id))}
+                    onChange={() => handleCheckboxChange(String(item.id))}
                   />
                   <p>{item.name}</p>
                 </label>
