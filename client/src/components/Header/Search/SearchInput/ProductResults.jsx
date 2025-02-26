@@ -3,9 +3,9 @@ import cl from './index.module.scss';
 import Spinner from '@components/helpers/Spinner';
 import { useSelector } from 'react-redux';
 import NotFound from './NotFound';
+import { Link } from 'react-router-dom';
 
-const ProductResults = () => {
-  console.log('render');
+const ProductResults = ({ handleCloseInput }) => {
   const isLoading = useSelector(loadSearch);
   const products = useSelector(selectSearch);
 
@@ -25,9 +25,9 @@ const ProductResults = () => {
             <ul>
               {showOnlyFirstThree.map((product) => (
                 <li key={product.id} className={cl.searchResultItem}>
-                  <a href="#">
+                  <Link to={`/catalog/${product.id}`} onClick={handleCloseInput}>
                     <img src={product.images[0].image} alt={product.name} />
-                  </a>
+                  </Link>
                   <section className={cl.searchResultInfo}>
                     <a href="#">
                       <p className={cl.productName}>{product.name}</p>

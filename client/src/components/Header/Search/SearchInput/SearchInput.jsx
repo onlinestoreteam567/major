@@ -22,6 +22,7 @@ function SearchInput({ setIsShowInput, isDesktop }) {
   };
 
   const handleInputFocus = () => setIsInputFocus(true);
+  const handleCloseInput = () => handleCloseWithDelay(setIsHiddenInputAnimation, setIsShowInput);
   const handleClearInputValue = () => {
     setSearchTerm('');
     dispatch(clearSearchResults()); // Clear search results when input is cleared
@@ -46,7 +47,7 @@ function SearchInput({ setIsShowInput, isDesktop }) {
 
   return (
     <>
-      {isDesktop && <Overlay handleClose={() => handleCloseWithDelay(setIsHiddenInputAnimation, setIsShowInput)} />}
+      {isDesktop && <Overlay handleClose={() => handleCloseInput} />}
 
       <search className={isHiddenInputAnimation ? cl.hiddenInput : ''}>
         <div className={searchTerm && cl.activeSearch}>
@@ -62,7 +63,7 @@ function SearchInput({ setIsShowInput, isDesktop }) {
 
           {searchTerm && <ButtonClose onClick={handleClearInputValue} />}
 
-          {searchTerm && <ProductResults />}
+          {searchTerm && <ProductResults handleCloseInput={handleCloseInput} />}
         </div>
       </search>
     </>
