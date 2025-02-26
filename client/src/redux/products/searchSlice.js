@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchBestSellers, getSearch } from './service';
+import { getSearch } from './service';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -8,6 +8,7 @@ const handlePending = (state) => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+  state.searchResults = [];
 };
 
 const searchSlice = createSlice({

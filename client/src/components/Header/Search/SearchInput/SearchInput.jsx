@@ -1,8 +1,8 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import Overlay from '@UI/Overlay/Overlay';
-// import ProductResults from './ProductResults';
+import ProductResults from './ProductResults';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
@@ -17,26 +17,39 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
   const [query, setQuery] = useState('');
   const dispatch = useDispatch();
 
+  // Debounced search function
   const handleSearch = useCallback(
     debounce((value) => {
+      if (value.trim() === '') return;
       dispatch(getSearch(value));
     }, 500),
-    []
+    [dispatch]
   );
+
+  // Trigger search only if query is not empty
+  useEffect(() => {
+    if (query.trim() === '') {
+      handleSearch.cancel(); // Cancel pending debounce calls
+      return;
+    }
+    handleSearch(query);
+  }, [query, handleSearch]);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
-    handleSearch(e.target.value);
   };
 
   const handleInputFocus = () => setIsInputFocus(true);
 
   const handleClearInputValue = () => {
+    setQuery('');
     setInputValue('');
+    handleSearch.cancel(); // Cancel debounce immediately when clearing input
     inputRef.current.focus();
   };
 
   const { getTranslation } = useTranslationNamespace('header');
+
   return (
     <>
       {isDesktop && <Overlay handleClose={() => handleCloseWithDelay(setIsHiddenInputAnimation, setIsShowInput)} />}
@@ -47,15 +60,15 @@ function SearchInput({ inputValue, setInputValue, setIsShowInput, isDesktop }) {
             className={`${cl.searchInput} ${inputValue && cl.activeSearchInput} ${isInputFocus && cl.inputFocus}`}
             type="text"
             placeholder={getTranslation('searchInputPlaceholder')}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             value={query}
             onFocus={handleInputFocus}
             ref={inputRef}
           />
 
-          {inputValue && <ButtonClose onClick={handleClearInputValue} />}
+          {query && <ButtonClose onClick={handleClearInputValue} />}
 
-          {/* <ProductResults /> */}
+          <ProductResults />
         </div>
       </search>
     </>
