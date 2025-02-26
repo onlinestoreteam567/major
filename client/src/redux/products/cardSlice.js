@@ -28,11 +28,11 @@ const productIdSlice = createSlice({
       })
       .addCase(getProductById.rejected, handleRejected)
 
-      .addCase(addReviewById.pending, handlePending)
+      // .addCase(addReviewById.pending, handlePending)
       .addCase(addReviewById.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.productId = action.payload;
+        // state.productId = action.payload;
       })
       .addCase(addReviewById.rejected, handleRejected),
 });
