@@ -10,8 +10,11 @@ import cl from './index.module.scss';
 import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
 import Description from '@components/UI/CardProduct/Descript/Description';
 import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
+import { useState } from 'react';
 
 export default function CardDesk({ card }) {
+  const [count, setCount] = useState(1);
+
   return (
     <div className={cl.cardContainer}>
       <div className={cl.wrapItem}>
@@ -26,10 +29,10 @@ export default function CardDesk({ card }) {
 
           <div className={cl.wrapOrder}>
             <Price card={card} />
-            <Counter />
+            <Counter count={count} setCount={setCount} />
             <Volume card={card} />
           </div>
-          <AddToCartButton variant={'primary'} />
+          <AddToCartButton count={count} card={card} variant={'primary'} />
         </div>
       </div>
       <Description card={card} />

@@ -4,7 +4,8 @@ import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
-  const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  console.log(cartItems);
+  const totalPrice = cartItems.reduce((sum, item) => sum + item.price_with_discount * item.quantity, 0);
   const { getTranslation } = useTranslationNamespace('basket');
 
   return (
