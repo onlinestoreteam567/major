@@ -116,3 +116,12 @@ export const getFitCategory = createAsyncThunk('products/getFitCategory', async 
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const getSearch = createAsyncThunk('products/getSearch', async (query, thunkAPI) => {
+  try {
+    const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/?search=${query}`);
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

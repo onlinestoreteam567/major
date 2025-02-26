@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 
-const ProductResults = ({ products }) => (
+const ProductResults = () => (
   <section className={cl.searchResultsSection}>
     <hr />
     <ul>
