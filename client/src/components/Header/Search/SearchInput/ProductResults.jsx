@@ -3,6 +3,7 @@ import cl from './index.module.scss';
 import Spinner from '@components/helpers/Spinner';
 import EmptyPage from '@components/helpers/EmptyPage';
 import { useSelector } from 'react-redux';
+import NotFound from './NotFound';
 
 const ProductResults = () => {
   const isLoading = useSelector(loadSearch);
@@ -16,7 +17,7 @@ const ProductResults = () => {
         <section className={cl.searchResultsSection}>
           <hr />
           {products.length === 0 ? (
-            <EmptyPage message="No products found" />
+            <NotFound />
           ) : (
             <ul>
               {products.map((product) => (
