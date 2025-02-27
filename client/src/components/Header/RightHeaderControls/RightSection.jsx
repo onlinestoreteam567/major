@@ -5,11 +5,13 @@ import UaIcon from '@assets/svg/Header/UaIcon';
 import BagIcon from '@assets/svg/Header/BagIcon';
 import EnIcon from '@assets/svg/Header/EnIcon';
 import useScreenSizes from '@hooks/useScreenSizes';
+import { useSelector } from 'react-redux';
 
 const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) => {
   const { deskmin, deskmax } = useScreenSizes();
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
-
+  const cartItems = useSelector((state) => state.cart.items);
+  console.log(cartItems.length);
   return (
     <div className={cl.rightSection}>
       <i onClick={handleShowInput}>
@@ -27,6 +29,7 @@ const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) 
 
       <i onClick={handleShowBasket}>
         <BagIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
+        <span>{cartItems.length}</span>
       </i>
     </div>
   );
