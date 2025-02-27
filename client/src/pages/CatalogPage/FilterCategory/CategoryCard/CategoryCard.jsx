@@ -13,7 +13,7 @@ const CategoryCard = ({ item }) => {
   return (
     <li className={cl.categoryCard} id={item.id} onClick={(e) => getCategory(e.currentTarget.id)}>
       <figure>
-        <img src="/logo.png" alt={item.name} />
+        <img src={item.image} alt={item.name} />
         <figcaption>{item.name}</figcaption>
       </figure>
     </li>
