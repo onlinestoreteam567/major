@@ -10,16 +10,12 @@ import { useState } from 'react';
 import TopLink from '@components/UI/TopLink/TopLink';
 import FilterByCategory from '../FilterCategory/FilterByCategory';
 
-const Top = ({ setIsAsideMobile, setisHiddenAside }) => {
+const Top = ({ setIsShowAside }) => {
   const [isShowMobileSorting, setIsShowMobileSorting] = useState(false);
-
-  const showAside = () => {
-    setIsAsideMobile(true);
-    setisHiddenAside(false);
-  };
-  const showSorting = () => setIsShowMobileSorting(true);
-
   const { deskmin, deskmax, tablet } = useScreenSizes();
+
+  const showAside = () => setIsShowAside(true);
+  const showSorting = () => setIsShowMobileSorting(true);
 
   const { getTranslation } = useTranslationNamespace('catalogPage');
   return (
@@ -42,11 +38,7 @@ const Top = ({ setIsAsideMobile, setisHiddenAside }) => {
           </Button>
         </section>
       )}
-      {isShowMobileSorting && (
-        <>
-          <MobileSorting setIsShowMobileSorting={setIsShowMobileSorting} />
-        </>
-      )}
+      {isShowMobileSorting && <MobileSorting setIsShowMobileSorting={setIsShowMobileSorting} />}
     </section>
   );
 };

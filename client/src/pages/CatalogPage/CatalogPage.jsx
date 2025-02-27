@@ -4,23 +4,16 @@ import Top from './Top/Top';
 import Container from '@pages/CatalogPage/Products/CardsContainer/CardsContainer';
 import Products from './Products/Products';
 import { useState } from 'react';
+import useScreenSizes from '@hooks/useScreenSizes';
 
 const CatalogPage = () => {
-  const [isAsideMobile, setIsAsideMobile] = useState(false);
-  const [isHiddenAside, setisHiddenAside] = useState(false);
-
+  const { deskmin, deskmax } = useScreenSizes();
+  const [isShowAside, setIsShowAside] = useState(deskmin);
   return (
     <div className={cl.catalogWrapper}>
-      <Top setIsAsideMobile={setIsAsideMobile} setisHiddenAside={setisHiddenAside} />
+      <Top setIsShowAside={setIsShowAside} />
       <section className={cl.mainWrapper}>
-        <div className={`${cl.wrapAside} ${isAsideMobile ? cl.asideMobile : ''}`}>
-          <Aside
-            setIsAsideMobile={setIsAsideMobile}
-            isHiddenAside={isHiddenAside}
-            setisHiddenAside={setisHiddenAside}
-          ></Aside>
-        </div>
-
+        {(isShowAside || deskmin || deskmax) && <Aside setIsShowAside={setIsShowAside} />}
         <Products>
           <Container />
         </Products>

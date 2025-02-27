@@ -28,7 +28,7 @@ const BasketItem = ({ item }) => {
         <Heading type="h4">{item.name}</Heading>
         <div className={cl.priceWrap}>
           <Heading type="h4">
-            {item.price_with_discount || item.price} <img src="svg/hryvnia.svg" alt="" className={cl.hryvniaIcon} />
+            {item.price_with_discount || item.price} {hryvnia}
           </Heading>
           {item.is_discount && (
             <div className={cl.oldPrice}>

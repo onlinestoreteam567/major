@@ -49,9 +49,9 @@ const cartSlice = createSlice({
       const itemId = action.payload;
       const existingItem = state.items.find((item) => item.id === itemId);
       if (existingItem && existingItem.quantity > 1) {
-        existingItem.quantity -= 1; // Decrease the quantity by 1 if it's greater than 1
+        existingItem.quantity -= 1;
       } else if (existingItem && existingItem.quantity === 1) {
-        state.items = state.items.filter((item) => item.id !== itemId); // Remove item if quantity reaches 0
+        existingItem.quantity = 1;
       }
     },
 

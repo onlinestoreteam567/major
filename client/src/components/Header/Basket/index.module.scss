@@ -2,8 +2,7 @@
 
 .basketWrapper {
   @include flex(column, null, center);
-  min-width: 320px;
-  width: $width-pop-up-header-width;
+  width: 320px;
   height: $height-pop-up-header-mobile;
   padding: 20px 12px;
   box-sizing: border-box;
@@ -20,18 +19,18 @@
 
   @include mobile {
     padding: 20px 12px 15px 12px;
+    width: 380px;
   }
 
   @include tablet {
     height: $height-pop-up-header-tablet;
-    padding: 20px 64px 15px 64px;
     max-height: 100vh;
-    overflow: scroll;
+    width: 610px;
+    overflow: auto;
+    padding: 40px 32px 20px 32px;
   }
 
   @include deskmin {
-    padding: 40px 32px 20px 32px;
-    width: 609px;
     height: 100vh;
   }
 

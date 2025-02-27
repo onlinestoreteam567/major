@@ -20,12 +20,22 @@ const filterSlice = createSlice({
       state.sorting = null;
     },
     setType: (state, action) => {
-      state.type = action.payload;
+      const typeId = action.payload;
+
+      if (state.type === null) {
+        state.type = [typeId];
+      } else if (state.type.includes(typeId)) {
+        state.type = state.type.filter((id) => id !== typeId);
+      } else {
+        state.type = [...state.type, typeId];
+      }
+
       state.category = null;
       state.status = null;
       state.price = initialState.price;
       state.sorting = null;
     },
+
     setStatus: (state, action) => {
       state.status = action.payload;
       state.category = null;

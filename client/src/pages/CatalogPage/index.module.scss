@@ -31,16 +31,6 @@
   }
 }
 
-.wrapAside {
-  display: none;
-
-  @include deskmin {
-    display: block;
-    padding: 0;
-    margin: 0;
-  }
-}
-
 .asideMobile {
   display: contents;
 }

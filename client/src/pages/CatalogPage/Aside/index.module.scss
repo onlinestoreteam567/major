@@ -5,24 +5,34 @@
   box-sizing: border-box;
   border: 1px solid #cccccc;
   border-radius: $border-radius-small;
-  padding: 34px 12px;
-  height: fit-content;
+  padding: 10px 12px;
   position: fixed;
   top: 0;
   left: 0;
-  overflow-y: scroll;
-  height: 100vh;
-  z-index: 10;
+  width: 320px;
+  z-index: 200;
   background-color: #ffffff;
-  width: 100%;
-  @include showCloseAnimation('show', -100%);
+  max-height: 690px;
+  height: 100vh;
+
+  @include showCloseAnimation('show', 100%);
+
+  @include mobile {
+    width: 380px;
+  }
+
+  @include tablet {
+    max-height: 600px;
+  }
 
   @include deskmin {
     width: 308px;
     padding: 34px 32px;
     position: static;
+    z-index: 1;
     animation: none;
-    height: auto;
+    height: fit-content;
+    max-height: fit-content;
   }
 
   &.hiddenAnimation {
@@ -33,7 +43,7 @@
     @include flex(row, space-between, end);
     width: 296px;
     max-width: 296px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 
     @include mobile {
       width: 356px;
@@ -45,13 +55,25 @@
       max-width: none;
     }
 
-    .clearFiltersButton {
+    button {
       font-family: $font-main;
       font-weight: $font-weight-small;
       font-size: $font-size-base;
       line-height: 20.48px;
       text-decoration: underline;
-      color: #c0c0c0;
+      color: #22211f;
+    }
+  }
+
+  .overflowWrap {
+    min-height: 260px;
+    height: 70vh;
+    max-height: 630px;
+    overflow-y: auto;
+
+    @include deskmin {
+      height: fit-content;
+      max-height: fit-content;
     }
   }
 }

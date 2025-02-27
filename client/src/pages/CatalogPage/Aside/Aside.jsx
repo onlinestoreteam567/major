@@ -12,35 +12,42 @@ import { resetFilter } from '@redux/filter/filterSlice';
 import { fetchProductsAll } from '@redux/products/service';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Sorting from '../Top/Sorting/Sorting';
+import Overlay from '@components/UI/Overlay/Overlay';
+import { useState } from 'react';
 
-const Aside = ({ setIsAsideMobile, isHiddenAside, setisHiddenAside }) => {
+const Aside = ({ setIsShowAside }) => {
+  const [closeAnimation, setCloseAnimation] = useState();
+
   const { getTranslation } = useTranslationNamespace('catalogPage');
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const dispatch = useDispatch();
 
-  const handleCloseAside = () => handleCloseWithDelay(setisHiddenAside, setIsAsideMobile);
+  const handleCloseAside = () => handleCloseWithDelay(setCloseAnimation, setIsShowAside);
   const handleClearFilters = () => {
     dispatch(fetchProductsAll());
     dispatch(resetFilter());
   };
 
   return (
-    <aside className={`${cl.aside} ${isHiddenAside ? cl.hiddenAnimation : ''}`}>
-      <div>
-        <section className={cl.topSection}>
-          <Heading type="h2">{getTranslation('filters')}</Heading>
-          <button className={cl.clearFiltersButton} onClick={() => handleClearFilters()}>
-            {getTranslation('reset')}
-          </button>
-          {!(deskmin || deskmax) && <ButtonClose onClick={() => handleCloseAside()} />}
-        </section>
-        {!(tablet || deskmin || deskmax) && <FilterByCategory />}
-        {(deskmin || deskmax) && <Sorting />}
-        <FilterByStatus />
-        <PriceRange />
-        <FilterByType />
-      </div>
-    </aside>
+    <>
+      {!(deskmin || deskmax) && <Overlay handleClose={handleCloseAside} />}
+      <aside className={`${cl.aside} ${closeAnimation ? cl.hiddenAnimation : ''}`}>
+        <div>
+          <section className={cl.topSection}>
+            <Heading type="h2">{getTranslation('filters')}</Heading>
+            <button onClick={() => handleClearFilters()}>{getTranslation('reset')}</button>
+            {!(deskmin || deskmax) && <ButtonClose onClick={() => handleCloseAside()} />}
+          </section>
+          <div className={cl.overflowWrap}>
+            {!(tablet || deskmin || deskmax) && <FilterByCategory />}
+            {(deskmin || deskmax) && <Sorting />}
+            <FilterByStatus />
+            <PriceRange />
+            <FilterByType />
+          </div>
+        </div>
+      </aside>
+    </>
   );
 };
 

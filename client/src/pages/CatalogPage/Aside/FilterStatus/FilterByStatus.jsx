@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import cl from './index.module.scss';
 import Heading from '@components/UI/Texts/Heading/Heading';
-import { setStatus } from '@redux/filter/filterSlice';
+import { setStatus, resetFilter } from '@redux/filter/filterSlice';
 import { filterStatus } from '@redux/selectors';
-import { getProductsByStatus } from '@redux/products/service';
+import { getProductsByStatus, fetchProductsAll } from '@redux/products/service';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const statusItems = [
@@ -21,8 +21,13 @@ export default function FilterByStatus() {
   const newStatus = useSelector(filterStatus);
 
   const getStatus = (value) => {
-    dispatch(getProductsByStatus(value));
-    dispatch(setStatus(value));
+    if (newStatus === value) {
+      dispatch(resetFilter());
+      dispatch(fetchProductsAll());
+    } else {
+      dispatch(getProductsByStatus(value));
+      dispatch(setStatus(value));
+    }
   };
 
   return (
@@ -37,7 +42,7 @@ export default function FilterByStatus() {
           </div>
           <label>
             <input
-              type="radio"
+              type="checkbox"
               name="status"
               value={item.label}
               checked={newStatus === item.label}

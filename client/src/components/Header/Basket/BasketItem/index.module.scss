@@ -19,11 +19,6 @@
     line-height: 23.04px;
   }
 
-  .hryvniaIcon {
-    height: 15px;
-    width: 10px;
-  }
-
   section:first-of-type {
     @include flex(column, space-between, null);
     width: 100%;
@@ -144,14 +139,9 @@
         font-weight: $font-weight-small;
         line-height: 20.48px;
         padding: 0;
-        color: #676767;
-        border-bottom: 1px solid #676767;
+        color: #22211f;
+        border-bottom: 1px solid #22211f;
         transition: 0.3s ease-out;
-
-        &:hover {
-          color: #7e57c2;
-          border: none;
-        }
       }
     }
   }

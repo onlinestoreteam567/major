@@ -5,7 +5,7 @@
   width: 100%;
   gap: 40px;
   box-sizing: border-box;
-  .wrapImges {
+  ul {
     @include flex(row, center, center);
     flex-wrap: wrap;
     width: 296px;
@@ -44,7 +44,7 @@
   }
 
   @include mobile {
-    .wrapImges {
+    ul {
       width: 356px;
       figure {
         img {
@@ -57,7 +57,7 @@
 
   @include tablet {
     gap: 48px;
-    .wrapImges {
+    ul {
       width: 640px;
       gap: 28px;
       figure {
@@ -69,7 +69,7 @@
     }
   }
   @include deskmin {
-    .wrapImges {
+    ul {
       width: 980px;
       gap: 28px;
       figure {
@@ -86,7 +86,7 @@
   }
   @include deskmax {
     gap: 72px;
-    .wrapImges {
+    ul {
       width: 1296px;
       gap: 24px;
       figure {
