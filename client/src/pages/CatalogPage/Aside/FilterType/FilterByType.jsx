@@ -1,19 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
 import { useDispatch, useSelector } from 'react-redux';
 import EmptyPage from '@components/helpers/EmptyPage';
 import Spinner from '@components/helpers/Spinner';
-import { loadTypes, selectTypes } from '@redux/selectors';
+import { filterType, loadTypes, selectTypes } from '@redux/selectors';
 import { fetchProductsAll, getProductsByTypes } from '@redux/products/service';
+import { setType } from '@redux/filter/filterSlice';
 
 export default function FilterByType() {
   const { getTranslation } = useTranslationNamespace('catalogPage');
   const isLoading = useSelector(loadTypes);
   const items = useSelector(selectTypes);
+  const selectedTypes = useSelector(filterType);
   const dispatch = useDispatch();
-  const [selectedTypes, setSelectedTypes] = useState(null);
 
   useEffect(() => {
     if (selectedTypes === null) return;
@@ -25,18 +26,7 @@ export default function FilterByType() {
     }
   }, [selectedTypes, dispatch]);
 
-  const handleCheckboxChange = (id) => {
-    setSelectedTypes((prev) => {
-      if (prev === null) {
-        return [id];
-      }
-      if (prev.includes(id)) {
-        return prev.filter((item) => item !== id);
-      } else {
-        return [...prev, id];
-      }
-    });
-  };
+  const handleCheckboxChange = (id) => dispatch(setType(id));
 
   const showArr = Array.isArray(items) && items.length !== 0;
 
@@ -63,7 +53,7 @@ export default function FilterByType() {
                     type="checkbox"
                     name="type"
                     value={item.id}
-                    checked={selectedTypes && selectedTypes.includes(String(item.id))}
+                    checked={Array.isArray(selectedTypes) && selectedTypes.includes(String(item.id))}
                     onChange={() => handleCheckboxChange(String(item.id))}
                   />
                   <p>{item.name}</p>
