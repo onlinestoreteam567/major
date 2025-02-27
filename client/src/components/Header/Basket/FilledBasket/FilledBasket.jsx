@@ -4,9 +4,9 @@ import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
-  console.log(cartItems);
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price_with_discount * item.quantity, 0);
   const { getTranslation } = useTranslationNamespace('basket');
+  const hryvnia = '\u20B4';
 
   return (
     <>
@@ -23,7 +23,7 @@ const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
         <Heading type="h3">
           <span>{getTranslation('totalPrice')}</span>
           <span>
-            {totalPrice} <img src="/svg/hryvnia.svg" alt="" className={cl.hryvniaIcon} />
+            {totalPrice} {hryvnia}
           </span>
         </Heading>
       </section>

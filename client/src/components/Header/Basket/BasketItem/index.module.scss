@@ -19,11 +19,6 @@
     line-height: 23.04px;
   }
 
-  .hryvniaIcon {
-    height: 15px;
-    width: 10px;
-  }
-
   section:first-of-type {
     @include flex(column, space-between, null);
     width: 100%;
