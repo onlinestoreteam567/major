@@ -2,6 +2,7 @@ import Heading from '@components/UI/Texts/Heading/Heading';
 import BasketItem from '../BasketItem/BasketItem';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import Button from '@components/UI/Button/Button';
 
 const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price_with_discount * item.quantity, 0);
@@ -28,10 +29,10 @@ const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
         </Heading>
       </section>
       <section className={cl.buttonsSection}>
-        <button className={cl.continueShoppingButtonSecond} onClick={onClick}>
+        <Button variant="secondary" onClick={onClick}>
           {getTranslation('continueShopping')}
-        </button>
-        <button className={cl.orderButton}>{getTranslation('placeOrder')}</button>
+        </Button>
+        <Button>{getTranslation('placeOrder')}</Button>
       </section>
     </>
   );

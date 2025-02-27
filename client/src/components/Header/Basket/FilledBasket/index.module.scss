@@ -46,44 +46,4 @@
   display: flex;
   gap: 20px;
   width: 100%;
-
-  .continueShoppingButtonSecond {
-    min-width: 138px;
-    width: 100%;
-    height: 55px;
-    box-sizing: border-box;
-    padding: 0;
-    border-radius: $border-radius-medium;
-    border: 1px solid #22211f;
-    transition: 0.3s ease-out;
-    background-color: #f8f8f9;
-
-    &:hover {
-      border: none;
-      background-color: #676767;
-      color: #f8f8f9;
-    }
-  }
-
-  .orderButton {
-    text-wrap: wrap;
-    min-width: 138px;
-    width: 100%;
-    height: 55px;
-    box-sizing: border-box;
-    border-radius: $border-radius-medium;
-    border: none;
-    padding: 0;
-    background-color: $second-background-color-black;
-    color: #f8f8f9;
-    font-family: $font-main;
-    font-size: $font-size-medium;
-    font-weight: $font-weight-medium;
-    line-height: 23.04px;
-    transition: 0.3s ease-out;
-
-    &:hover {
-      background-color: #7e57c2;
-    }
-  }
 }
