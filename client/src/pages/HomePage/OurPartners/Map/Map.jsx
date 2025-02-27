@@ -10,6 +10,7 @@ import ZoomOut from '@assets/svg/ZoomOut';
 import ZoomIn from '@assets/svg/ZoomIn';
 import { useTranslation } from 'react-i18next';
 import PartnerInfo from '../PartnerInfo/PartnerInfo';
+import handleWheel from './eventHandlers/handleWheel';
 
 const Map = () => {
   const [scale, setScale] = useState(1);
@@ -28,6 +29,7 @@ const Map = () => {
     <div
       ref={containerRef}
       className={cl.mainMapContainer}
+      onWheel={(e) => handleWheel(e, scale, setScale, setPosition, position, containerRef)}
       onMouseMove={(e) =>
         handleMove(e, isDragging, containerRef, imageRef, animationFrameRef, dragStart, scale, setPosition)
       }
