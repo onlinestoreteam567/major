@@ -33,7 +33,7 @@
     bottom: 0;
     left: 0;
     z-index: 2;
-    @include flexGap(16px);
+    @include flexGap(10px);
 
     svg {
       box-sizing: border-box;

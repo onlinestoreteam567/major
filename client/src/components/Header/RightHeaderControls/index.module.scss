@@ -16,4 +16,25 @@
   .languageButtons {
     margin-bottom: 3px;
   }
+
+  i:last-of-type {
+    position: relative;
+
+    span {
+      @include flex();
+      position: absolute;
+      top: 12px;
+      right: -5px;
+      color: black;
+      background-color: white;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      font-family: $font-main;
+      font-weight: $font-weight-medium;
+      font-size: 10px;
+      line-height: 13.6px;
+      letter-spacing: 8%;
+    }
+  }
 }
