@@ -29,7 +29,7 @@ const Map = () => {
     <div
       ref={containerRef}
       className={cl.mainMapContainer}
-      onWheel={(e) => handleWheel(e, scale, setScale, setPosition, position, containerRef)}
+      onWheel={(e) => handleWheel(e, scale, setScale, setPosition, containerRef)}
       onMouseMove={(e) =>
         handleMove(e, isDragging, containerRef, imageRef, animationFrameRef, dragStart, scale, setPosition)
       }
