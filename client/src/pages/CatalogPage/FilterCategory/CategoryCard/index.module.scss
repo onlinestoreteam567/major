@@ -22,6 +22,7 @@
     position: relative;
     width: fit-content;
     img {
+      aspect-ratio: 1.18 / 1;
       width: 143px;
       object-fit: cover;
       border-radius: $border-radius-small;
