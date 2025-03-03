@@ -3,7 +3,7 @@
 .navDrawer {
   @include flexGap(25px, column);
   @include absolute();
-  z-index: 11;
+  z-index: $z-index-pop-up;
   height: $height-pop-up-header-mobile;
   width: $width-pop-up-header-width;
   box-sizing: border-box;

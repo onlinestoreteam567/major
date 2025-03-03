@@ -12,7 +12,7 @@ search {
     position: absolute;
     top: 27px;
     left: 17%;
-    z-index: 100;
+    z-index: $z-index-pop-up;
     width: 69%;
     @include showCloseAnimation();
   }
