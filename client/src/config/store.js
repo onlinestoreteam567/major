@@ -11,6 +11,8 @@ import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
 import { filterReducer } from '@redux/filter/filterSlice';
 import { searchReducer } from '@redux/products/searchSlice';
 
+import { authReducer } from '../admin/redux/authSlice';
+
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
 };
@@ -26,6 +28,8 @@ const rootReducer = combineReducers({
   fitCategory: fitCategoryReducer,
   filter: filterReducer,
   search: searchReducer,
+
+  auth: authReducer,
 });
 
 export const store = configureStore({

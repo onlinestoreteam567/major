@@ -15,6 +15,7 @@ import ErrorBoundary from './error/ErrorBoundary'; // A component to handle erro
 import FormTest from './testСomponents/FormTest';
 import NotFound from '@components/helpers/NotFound';
 import Loading from '@components/helpers/Loading';
+import AdminLayout from './layouts/AdminLayout';
 // import Requests from './testСomponents/Requests';
 
 // Lazy loading
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       { path: 'contact', element: <Contact /> },
       { path: 'cooperation', element: <Cooperation /> },
     ],
+  },
+  {
+    path: '/admin',
+    element: <AdminLayout />,
   },
   {
     element: <AuthLayout />,
