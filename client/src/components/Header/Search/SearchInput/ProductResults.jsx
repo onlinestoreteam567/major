@@ -6,14 +6,15 @@ import NotFound from './NotFound';
 import { Link } from 'react-router-dom';
 import { resetFilter } from '@redux/filter/filterSlice';
 import { setProducts } from '@redux/products/listSlice';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const ProductResults = ({ handleCloseInput }) => {
   const isLoading = useSelector(loadSearch);
   const products = useSelector(selectSearch);
   const dispatch = useDispatch();
+  const { getTranslation } = useTranslationNamespace('search');
 
   if (products === null) return;
-
   const showOnlyFirstThree = products.slice(0, 3);
 
   const addSearchResultsToCatalog = () => {
@@ -50,14 +51,14 @@ const ProductResults = ({ handleCloseInput }) => {
           )}
           {products.length <= 3 && products.length > 0 && (
             <Link className={cl.showAll} to="/catalog" onClick={() => addSearchResultsToCatalog()}>
-              Це всі результати пошуку,
+              {getTranslation('searchResultsComplete')}
               <br /> <br />
-              Перейти в каталог
+              {getTranslation('goToCatalog')}
             </Link>
           )}
           {products.length > 3 && (
             <Link className={cl.showAll} to="/catalog" onClick={() => addSearchResultsToCatalog()}>
-              Показати всі результати пошуку
+              {getTranslation('showAll')}
             </Link>
           )}
         </section>
