@@ -39,9 +39,7 @@ const ProductResults = ({ handleCloseInput }) => {
                     <img src={product.images[0].image} alt={product.name} />
                   </Link>
                   <section className={cl.searchResultInfo}>
-                    <a href="#">
-                      <p className={cl.productName}>{product.name}</p>
-                    </a>
+                    <p className={cl.productName}>{product.name}</p>
                     <p className={cl.productPrice}>
                       {product.price} <img src="/svg/hryvnia.svg" alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
                     </p>
@@ -50,7 +48,14 @@ const ProductResults = ({ handleCloseInput }) => {
               ))}
             </ul>
           )}
-          {products.length >= 3 && (
+          {products.length <= 3 && products.length > 0 && (
+            <Link className={cl.showAll} to="/catalog" onClick={() => addSearchResultsToCatalog()}>
+              Це всі результати пошуку,
+              <br /> <br />
+              Перейти в каталог
+            </Link>
+          )}
+          {products.length > 3 && (
             <Link className={cl.showAll} to="/catalog" onClick={() => addSearchResultsToCatalog()}>
               Показати всі результати пошуку
             </Link>

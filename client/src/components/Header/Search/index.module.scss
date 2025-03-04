@@ -8,12 +8,12 @@
   background-color: #f8f8f9;
   width: $width-pop-up-header-width;
   height: 100vh;
+  max-height: 425px;
   box-sizing: border-box;
+  overflow: auto;
 
   @include tablet {
     height: $height-pop-up-header-tablet;
-    max-height: 100vh;
-    overflow: scroll;
   }
 
   @include showCloseAnimation('show', -100%);
