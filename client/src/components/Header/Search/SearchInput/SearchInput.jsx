@@ -33,13 +33,15 @@ function SearchInput({ setIsShowInput, isDesktop }) {
 
   useEffect(() => {
     const debouncedSearch = debouce(() => {
-      if (searchTerm.trim() !== '') {
+      if (searchTerm.trim().length >= 3) {
         dispatch(getSearch(searchTerm.trim()));
       } else {
         dispatch(clearSearchResults());
       }
     }, 1000);
+
     debouncedSearch();
+
     return () => {
       debouncedSearch.cancel();
     };

@@ -19,10 +19,10 @@ const SortingButtons = ({ handleSelect }) => {
     const sorted = [...items].sort((a, b) => {
       if (type === 'asc') {
         setActiveSorting('asc');
-        return a.price - b.price;
+        return a.price_with_discount - b.price_with_discount;
       } else {
         setActiveSorting('desc');
-        return b.price - a.price;
+        return b.price_with_discount - a.price_with_discount;
       }
     });
 

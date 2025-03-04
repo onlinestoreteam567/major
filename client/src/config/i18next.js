@@ -29,6 +29,7 @@ i18n
       'whyChooseUs',
       'ourPartners',
       'basket',
+      'search',
     ],
     defaultNS: 'common',
     interpolation: {

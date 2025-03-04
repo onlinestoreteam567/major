@@ -1,5 +1,25 @@
 @import '@mixins';
 
+.mainBanner {
+  position: relative;
+
+  & > button {
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    top: 0;
+    z-index: $z-index-local-1;
+  }
+
+  & > button:first-of-type {
+    left: 0;
+  }
+
+  & > button:last-of-type {
+    right: 0;
+  }
+}
+
 .wrapBackground {
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,8 +42,6 @@
   margin: 0 auto;
   background-size: cover;
   background-repeat: no-repeat;
-  position: relative;
-  z-index: 10;
 
   @include flex();
   @include layout();
@@ -75,8 +93,6 @@
   section {
     height: 100%;
     width: 100%;
-    position: relative;
-    z-index: 10;
 
     @include flex(column, space-between, null);
 
@@ -98,6 +114,8 @@
       backdrop-filter: blur(7.199999809265137px);
       align-items: center;
       @include flexGap(16px, column);
+      z-index: $z-index-pop-up;
+      position: relative;
 
       @include tablet {
         @include flexGap(50px, column);

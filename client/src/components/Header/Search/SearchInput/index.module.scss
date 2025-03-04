@@ -12,7 +12,7 @@ search {
     position: absolute;
     top: 27px;
     left: 17%;
-    z-index: 100;
+    z-index: $z-index-pop-up;
     width: 69%;
     @include showCloseAnimation();
   }
@@ -90,30 +90,29 @@ search {
     color: #c0c0c0;
     border-top: 1px;
     width: 100%;
+    margin: 0;
   }
 
   .searchResultsSection {
-    padding: 0 12px 12px 12px;
+    padding: 0 12px;
     font-family: $font-main;
     font-size: $font-size-small;
     font-weight: $font-weight-base;
-    line-height: $line-height-small;
-    letter-spacing: $letter-spacing-small;
     color: $text-color-black;
     box-sizing: border-box;
 
     ul {
       @include flexGap(5px, column);
-      margin-top: 27px;
+      margin-top: 10px;
       box-sizing: border-box;
-      padding-left: 7px;
 
       li {
         display: flex;
-        height: 64px;
+        height: 75px;
+        gap: 10px;
 
         & > a:first-of-type {
-          width: 64px;
+          width: 75px;
 
           img {
             height: 100%;
@@ -122,11 +121,18 @@ search {
         }
 
         .searchResultInfo {
+          @include flex(column, space-between, null);
           .productName {
             font-family: $font-second;
             font-weight: $font-weight-base;
             font-size: $font-size-base;
-            line-height: 23.04px;
+            line-height: 15px;
+            height: 48px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
           }
 
           p {
@@ -157,8 +163,8 @@ search {
       line-height: 23.04px;
       color: #a2a2a2;
       transition: 0.6s;
-      padding-bottom: 25px;
       cursor: pointer;
+      margin: 10px 0;
 
       &:hover {
         color: $text-color-black;
@@ -169,7 +175,7 @@ search {
     @include flex(column);
     gap: 30px;
     height: auto;
-    padding: 0 12px 25px 12px;
+    padding: 12px;
     font-family: $font-main;
     font-size: $font-size-small;
     font-weight: $font-weight-small;
