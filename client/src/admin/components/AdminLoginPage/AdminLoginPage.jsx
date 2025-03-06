@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux';
 import { fetchAuthToken } from '../../redux/service';
 
 const AdminLoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('super@gmail.com');
+  const [password, setPassword] = useState('super');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {

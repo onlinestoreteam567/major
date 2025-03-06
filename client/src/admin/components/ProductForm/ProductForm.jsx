@@ -1,32 +1,34 @@
 import { useState } from 'react';
-import axios from 'axios';
-import { useSelector } from 'react-redux';
-import { selectAccessToken } from '../../redux/selectors';
+import { createProduct } from '../../redux/service';
+import { useDispatch } from 'react-redux';
 
 const ProductForm = () => {
-  const auth = useSelector(selectAccessToken);
-
   const [formData, setFormData] = useState({
-    article: '',
+    article: '10',
     available: true,
-    product_name_uk: '',
-    product_name_en: '',
-    price: '',
-    opt_price: '',
-    dropshipper_price: '',
-    small_opt_price: '',
-    discount: '',
-    description_uk: '',
-    description_en: '',
-    volume_ml: '',
-    purpose_category: [],
-    type_category: '',
+    product_name_uk: '10',
+    product_name_en: '10',
+    price: '10',
+    opt_price: '10',
+    dropshipper_price: '10',
+    small_opt_price: '10',
+    discount: '10',
+    description_uk: '10',
+    description_en: '10',
+    volume_ml: '10',
+    purpose_category: [1],
+    type_category: '1',
     is_new: true,
     is_best_seller: true,
-    ingredients: '',
-    application_uk: '',
-    application_en: '',
+    ingredients: '1010',
+    application_uk: '10',
+    application_en: '10',
   });
+  const dispatch = useDispatch();
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -46,6 +48,9 @@ const ProductForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
+    setSuccess('');
 
     // Validate required fields
     if (
@@ -56,7 +61,8 @@ const ProductForm = () => {
       !formData.application_en ||
       !formData.type_category
     ) {
-      console.error('Please fill in all required fields');
+      setError('Please fill in all required fields');
+      setLoading(false);
       return;
     }
 
@@ -64,31 +70,13 @@ const ProductForm = () => {
     const integerFields = ['opt_price', 'dropshipper_price', 'small_opt_price', 'volume_ml'];
     for (let field of integerFields) {
       if (isNaN(formData[field]) || formData[field] === '') {
-        console.error(`${field} must be a valid integer`);
+        setError(`${field} must be a valid number`);
+        setLoading(false);
         return;
       }
     }
 
-    // Ensure purpose_category is an array
-    if (!Array.isArray(formData.purpose_category)) {
-      console.error('purpose_category must be an array');
-      return;
-    }
-
-    const PRODUCT_LIST_ENDPOINT = import.meta.env.VITE_PRODUCT_LIST_ENDPOINT;
-    const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-
-    try {
-      const response = await axios.post(`${VITE_API_BASE_URL}${PRODUCT_LIST_ENDPOINT}/`, formData, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${auth}`,
-        },
-      });
-      console.log('Product created:', response.data);
-    } catch (error) {
-      console.error('Error creating product:', error);
-    }
+    dispatch(createProduct(formData));
   };
 
   return (
@@ -184,7 +172,12 @@ const ProductForm = () => {
         <textarea name="application_en" value={formData.application_en} onChange={handleChange} />
       </label>
 
-      <button type="submit">Create Product</button>
+      <button type="submit" disabled={loading}>
+        {loading ? 'Creating...' : 'Create Product'}
+      </button>
+
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {success && <p style={{ color: 'green' }}>{success}</p>}
     </form>
   );
 };
