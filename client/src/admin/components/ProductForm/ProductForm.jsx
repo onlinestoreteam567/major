@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { createProduct } from '../../redux/service';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { errorCreateProduct, loadCteateProduct, responseCreateProduct } from '../../redux/selectors';
 
 const ProductForm = () => {
   const [formData, setFormData] = useState({
@@ -25,10 +26,9 @@ const ProductForm = () => {
     application_en: '10',
   });
   const dispatch = useDispatch();
-
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const isLoading = useSelector(loadCteateProduct);
+  const response = useSelector(responseCreateProduct);
+  const errorPost = useSelector(errorCreateProduct);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -48,9 +48,6 @@ const ProductForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError('');
-    setSuccess('');
 
     // Validate required fields
     if (
@@ -61,8 +58,6 @@ const ProductForm = () => {
       !formData.application_en ||
       !formData.type_category
     ) {
-      setError('Please fill in all required fields');
-      setLoading(false);
       return;
     }
 
@@ -70,8 +65,6 @@ const ProductForm = () => {
     const integerFields = ['opt_price', 'dropshipper_price', 'small_opt_price', 'volume_ml'];
     for (let field of integerFields) {
       if (isNaN(formData[field]) || formData[field] === '') {
-        setError(`${field} must be a valid number`);
-        setLoading(false);
         return;
       }
     }
@@ -172,12 +165,30 @@ const ProductForm = () => {
         <textarea name="application_en" value={formData.application_en} onChange={handleChange} />
       </label>
 
-      <button type="submit" disabled={loading}>
-        {loading ? 'Creating...' : 'Create Product'}
+      <button type="submit" disabled={isLoading}>
+        {isLoading ? 'Creating...' : 'Create Product'}
       </button>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {success && <p style={{ color: 'green' }}>{success}</p>}
+      {/* {errorPost && <p style={{ color: 'red' }}>{errorPost}</p>} */}
+      {/* {response && <p style={{ color: 'green' }}>{response}</p>} */}
+
+      {errorPost &&
+        Object.keys(errorPost).map((key) => (
+          <div key={key} style={{ color: 'red' }}>
+            <strong>{key}:</strong>
+            <ul>
+              {Array.isArray(errorPost[key]) ? (
+                errorPost[key].map((message, index) => <li key={index}>{message}</li>)
+              ) : (
+                <li>{errorPost[key]}</li>
+              )}
+            </ul>
+          </div>
+        ))}
+
+      {response && <p style={{ color: 'green' }}>продукт доданиииий</p>}
+
+      {console.log(response)}
     </form>
   );
 };

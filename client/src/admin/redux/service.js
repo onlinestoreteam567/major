@@ -13,13 +13,12 @@ export const fetchAuthToken = createAsyncThunk('auth/fetchToken', async ({ email
   }
 });
 
-export const createProduct = createAsyncThunk('createProduct/post', async (formData, { rejectWithValue }) => {
+export const createProduct = createAsyncThunk('createProduct/post', async (formData, thunkAPI) => {
   try {
     const response = await apiClient.post(`${PRODUCT_LIST_ENDPOINT}/`, formData);
     console.log('Product created:', response.data);
     return response.data;
   } catch (error) {
-    console.error('Error creating product:', error);
-    return rejectWithValue(error.response?.data || error.message);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });

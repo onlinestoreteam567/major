@@ -3,9 +3,12 @@ import { createProduct } from './service';
 
 const handlePending = (state) => {
   state.isLoading = true;
+  state.error = null;
+  state.response = null;
 };
 
 const handleRejected = (state, action) => {
+  state.response = null;
   state.isLoading = false;
   state.error = action.payload;
 };
@@ -13,7 +16,7 @@ const handleRejected = (state, action) => {
 const createProductSlice = createSlice({
   name: 'createProduct',
   initialState: {
-    response: '',
+    response: null,
     isLoading: false,
     error: null,
   },
