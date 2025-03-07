@@ -2,9 +2,9 @@ import { createProduct } from '../../redux/service';
 import { useDispatch, useSelector } from 'react-redux';
 import { errorCreateProduct, loadCteateProduct, responseCreateProduct } from '../../redux/selectors';
 import { useForm } from 'react-hook-form';
-import { productSchema } from '../../validations/productSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input } from '@components/form-components';
+import { productSchema } from '../../validations/productSchema';
 
 const ProductForm = () => {
   const {
@@ -13,7 +13,7 @@ const ProductForm = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(productSchema),
-    mode: 'onChange', // Ensures validation runs on change
+    mode: 'onChange',
     defaultValues: {
       article: '10',
       available: true,
@@ -42,7 +42,6 @@ const ProductForm = () => {
   const response = useSelector(responseCreateProduct);
   const errorPost = useSelector(errorCreateProduct);
 
-  // Handle form submission
   const onSubmit = (values) => {
     const formattedValues = {
       ...values,
@@ -65,57 +64,36 @@ const ProductForm = () => {
 
       {/* Available Checkbox */}
       <label>
-        Available:
+        В наявності
         <input type="checkbox" {...register('available')} />
       </label>
 
       {/* Product Name (UK) Input */}
-      <label>
-        Product Name (UK):
-        <input type="text" {...register('product_name_uk')} />
-      </label>
+      <Input labelText="Product Name (UK):" name="product_name_uk" register={register} />
       {errors.product_name_uk && <p style={{ color: 'red' }}>{errors.product_name_uk.message}</p>}
 
       {/* Product Name (EN) Input */}
-      <label>
-        Product Name (EN):
-        <input type="text" {...register('product_name_en')} />
-      </label>
+      <Input labelText="Product Name (EN):" name="product_name_en" register={register} />
       {errors.product_name_en && <p style={{ color: 'red' }}>{errors.product_name_en.message}</p>}
 
       {/* Price Input */}
-      <label>
-        Price:
-        <input type="number" {...register('price')} />
-      </label>
+      <Input labelText="Price:" name="price" register={register} />
       {errors.price && <p style={{ color: 'red' }}>{errors.price.message}</p>}
 
       {/* Opt Price Input */}
-      <label>
-        Opt Price:
-        <input type="number" {...register('opt_price')} />
-      </label>
+      <Input labelText="Opt Price:" name="opt_price" register={register} />
       {errors.opt_price && <p style={{ color: 'red' }}>{errors.opt_price.message}</p>}
 
       {/* Dropshipper Price Input */}
-      <label>
-        Dropshipper Price:
-        <input type="number" {...register('dropshipper_price')} />
-      </label>
+      <Input labelText="Dropshipper Price:" name="dropshipper_price" register={register} />
       {errors.dropshipper_price && <p style={{ color: 'red' }}>{errors.dropshipper_price.message}</p>}
 
       {/* Small Opt Price Input */}
-      <label>
-        Small Opt Price:
-        <input type="number" {...register('small_opt_price')} />
-      </label>
+      <Input labelText="Small Opt Price:" name="small_opt_price" register={register} />
       {errors.small_opt_price && <p style={{ color: 'red' }}>{errors.small_opt_price.message}</p>}
 
       {/* Discount Input */}
-      <label>
-        Discount:
-        <input type="number" {...register('discount')} />
-      </label>
+      <Input labelText="Discount:" name="discount" register={register} />
       {errors.discount && <p style={{ color: 'red' }}>{errors.discount.message}</p>}
 
       {/* Description (UK) Textarea */}
@@ -133,24 +111,15 @@ const ProductForm = () => {
       {errors.description_en && <p style={{ color: 'red' }}>{errors.description_en.message}</p>}
 
       {/* Volume (ml) Input */}
-      <label>
-        Volume (ml):
-        <input type="number" {...register('volume_ml')} />
-      </label>
+      <Input labelText="Volume (ml):" name="volume_ml" register={register} />
       {errors.volume_ml && <p style={{ color: 'red' }}>{errors.volume_ml.message}</p>}
 
       {/* Purpose Category Input */}
-      <label>
-        Purpose Category:
-        <input type="text" {...register('purpose_category')} placeholder="Enter categories separated by commas" />
-      </label>
+      <Input labelText="Purpose Category:" name="purpose_category" register={register} />
       {errors.purpose_category && <p style={{ color: 'red' }}>{errors.purpose_category.message}</p>}
 
       {/* Type Category Input */}
-      <label>
-        Type Category:
-        <input type="text" {...register('type_category')} />
-      </label>
+      <Input labelText="Type Category:" name="type_category" register={register} />
       {errors.type_category && <p style={{ color: 'red' }}>{errors.type_category.message}</p>}
 
       {/* Ingredients Textarea */}
