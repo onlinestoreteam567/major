@@ -8,7 +8,7 @@ export const productSchema = yup.object({
     .max(20, 'Артикул повинен мати не більше 20 символів')
     .trim(),
 
-  available: yup.boolean(),
+  available: yup.boolean().required('Наявність обов’язкова'),
 
   product_name_uk: yup.string().required('Назва продукту (укр) обов’язкова'),
   product_name_en: yup.string().required('Назва продукту (англ) обов’язкова'),
@@ -30,16 +30,13 @@ export const productSchema = yup.object({
     .min(0, 'Об’єм не може бути від’ємним')
     .max(Number.MAX_SAFE_INTEGER, 'Завелике значення'),
 
-  upload_images: yup
-    .array()
-    // .of(yup.string().url('Зображення повинно бути у форматі URL'))
-    .required('Потрібно завантажити хоча б одне зображення')
-    .min(1, 'Потрібно завантажити хоча б одне зображення'),
+  // upload_images: yup
+  // .array()
+  // .of(yup.string().url('Зображення повинно бути у форматі URL'))
+  // .required('Потрібно завантажити хоча б одне зображення')
+  // .min(1, 'Потрібно завантажити хоча б одне зображення'),
 
-  purpose_category: yup
-    .array()
-    .of(yup.number().integer().min(0, 'Невірна категорія'))
-    .required('Категорія призначення обов’язкова'),
+  purpose_category: yup.number().integer().required('Категорія за призначенням обовязкова'),
 
   type_category: yup.number().integer().required('Тип категорії обов’язковий'),
 
