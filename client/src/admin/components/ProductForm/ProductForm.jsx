@@ -143,6 +143,11 @@ const ProductForm = () => {
       </label>
       {errors.application_en && <p style={{ color: 'red' }}>{errors.application_en.message}</p>}
 
+      <label>
+        Picture
+        <input type="file" {...register('upload_images')} />
+      </label>
+
       <button type="submit" disabled={isLoading}>
         {isLoading ? 'Creating...' : 'Create Product'}
       </button>
