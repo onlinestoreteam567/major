@@ -40,8 +40,8 @@ export const productSchema = yup.object({
 
   type_category: yup.number().integer().required('Тип категорії обов’язковий'),
 
-  is_new: yup.boolean(),
-  is_best_seller: yup.boolean(),
+  is_new: yup.boolean().required('Новинка обов’язкова'),
+  is_best_seller: yup.boolean().required("Хіт обов'язковий"),
 
   ingredients: yup.string().required('Інгредієнти обов’язкові'),
   application_uk: yup.string().required('Застосування (укр) обов’язкове'),

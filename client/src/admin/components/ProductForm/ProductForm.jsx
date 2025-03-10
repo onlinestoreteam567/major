@@ -19,10 +19,12 @@ const ProductForm = () => {
       available: true,
       product_name_uk: '10',
       product_name_en: '10',
-      price: '10',
+
       opt_price: '10',
       dropshipper_price: '10',
       small_opt_price: '10',
+
+      price: '10',
       discount: '10',
       description_uk: '10',
       description_en: '10',
@@ -68,6 +70,17 @@ const ProductForm = () => {
         <input type="checkbox" {...register('available')} />
       </label>
 
+      {/* Hit Checkbox */}
+      <label>
+        Хіт продажу
+        <input type="checkbox" {...register('is_best_seller')} />
+      </label>
+
+      <label>
+        Новинка
+        <input type="checkbox" {...register('is_new')} />
+      </label>
+
       {/* Product Name (UK) Input */}
       <Input labelText="Product Name (UK):" name="product_name_uk" register={register} />
       {errors.product_name_uk && <p style={{ color: 'red' }}>{errors.product_name_uk.message}</p>}
@@ -79,18 +92,6 @@ const ProductForm = () => {
       {/* Price Input */}
       <Input labelText="Price:" name="price" register={register} />
       {errors.price && <p style={{ color: 'red' }}>{errors.price.message}</p>}
-
-      {/* Opt Price Input */}
-      <Input labelText="Opt Price:" name="opt_price" register={register} />
-      {errors.opt_price && <p style={{ color: 'red' }}>{errors.opt_price.message}</p>}
-
-      {/* Dropshipper Price Input */}
-      <Input labelText="Dropshipper Price:" name="dropshipper_price" register={register} />
-      {errors.dropshipper_price && <p style={{ color: 'red' }}>{errors.dropshipper_price.message}</p>}
-
-      {/* Small Opt Price Input */}
-      <Input labelText="Small Opt Price:" name="small_opt_price" register={register} />
-      {errors.small_opt_price && <p style={{ color: 'red' }}>{errors.small_opt_price.message}</p>}
 
       {/* Discount Input */}
       <Input labelText="Discount:" name="discount" register={register} />
