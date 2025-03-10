@@ -82,8 +82,7 @@ const ProductForm = () => {
       </label>
 
       {/* Product Name (UK) Input */}
-      <Input labelText="Product Name (UK):" name="product_name_uk" register={register} />
-      {errors.product_name_uk && <p style={{ color: 'red' }}>{errors.product_name_uk.message}</p>}
+      <Input labelText="Product Name (UK):" name="product_name_uk" register={register} errors={errors} />
 
       {/* Product Name (EN) Input */}
       <Input labelText="Product Name (EN):" name="product_name_en" register={register} />
