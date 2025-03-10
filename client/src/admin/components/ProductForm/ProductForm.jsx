@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input } from '@components/form-components';
 import { productSchema } from '../../validations/productSchema';
+import CheckBox from '@components/form-components/Checkbox/Checkbox';
 
 const ProductForm = () => {
   const {
@@ -62,22 +63,11 @@ const ProductForm = () => {
     <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
       <Input labelText="Article:" name="article" register={register} errors={errors} />
 
-      {/* Available Checkbox */}
-      <label>
-        В наявності
-        <input type="checkbox" {...register('available')} />
-      </label>
+      <CheckBox labelText="В наявності" name="available" register={register} />
 
-      {/* Hit Checkbox */}
-      <label>
-        Хіт продажу
-        <input type="checkbox" {...register('is_best_seller')} />
-      </label>
+      <CheckBox labelText="Хіт продажу" name="is_best_seller" register={register} />
 
-      <label>
-        Новинка
-        <input type="checkbox" {...register('is_new')} />
-      </label>
+      <CheckBox labelText="Новинка" name="is_new" register={register} />
 
       {/* Product Name (UK) Input */}
       <Input labelText="Product Name (UK):" name="product_name_uk" register={register} errors={errors} />
