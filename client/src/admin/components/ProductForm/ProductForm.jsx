@@ -60,9 +60,7 @@ const ProductForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
-      {/* Article Input */}
-      <Input labelText="Article:" name="article" register={register} />
-      {errors.article && <p style={{ color: 'red' }}>{errors.article.message}</p>}
+      <Input labelText="Article:" name="article" register={register} errors={errors} />
 
       {/* Available Checkbox */}
       <label>
@@ -85,16 +83,13 @@ const ProductForm = () => {
       <Input labelText="Product Name (UK):" name="product_name_uk" register={register} errors={errors} />
 
       {/* Product Name (EN) Input */}
-      <Input labelText="Product Name (EN):" name="product_name_en" register={register} />
-      {errors.product_name_en && <p style={{ color: 'red' }}>{errors.product_name_en.message}</p>}
+      <Input labelText="Product Name (EN):" name="product_name_en" register={register} errors={errors} />
 
       {/* Price Input */}
-      <Input labelText="Price:" name="price" register={register} />
-      {errors.price && <p style={{ color: 'red' }}>{errors.price.message}</p>}
+      <Input type="number" labelText="Price:" name="price" register={register} errors={errors} />
 
       {/* Discount Input */}
-      <Input labelText="Discount:" name="discount" register={register} />
-      {errors.discount && <p style={{ color: 'red' }}>{errors.discount.message}</p>}
+      <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
 
       {/* Description (UK) Textarea */}
       <label>
@@ -111,16 +106,13 @@ const ProductForm = () => {
       {errors.description_en && <p style={{ color: 'red' }}>{errors.description_en.message}</p>}
 
       {/* Volume (ml) Input */}
-      <Input labelText="Volume (ml):" name="volume_ml" register={register} />
-      {errors.volume_ml && <p style={{ color: 'red' }}>{errors.volume_ml.message}</p>}
+      <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
 
       {/* Purpose Category Input */}
-      <Input labelText="Purpose Category:" name="purpose_category" register={register} />
-      {errors.purpose_category && <p style={{ color: 'red' }}>{errors.purpose_category.message}</p>}
+      <Input labelText="Purpose Category:" name="purpose_category" register={register} errors={errors} />
 
       {/* Type Category Input */}
-      <Input labelText="Type Category:" name="type_category" register={register} />
-      {errors.type_category && <p style={{ color: 'red' }}>{errors.type_category.message}</p>}
+      <Input labelText="Type Category:" name="type_category" register={register} errors={errors} />
 
       {/* Ingredients Textarea */}
       <label>
