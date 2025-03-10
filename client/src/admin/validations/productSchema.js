@@ -36,7 +36,7 @@ export const productSchema = yup.object({
   // .required('Потрібно завантажити хоча б одне зображення')
   // .min(1, 'Потрібно завантажити хоча б одне зображення'),
 
-  purpose_category: yup.number().integer().required('Категорія за призначенням обовязкова'),
+  // purpose_category: yup.number().integer().required('Категорія за призначенням обовязкова'),
 
   type_category: yup.number().integer().required('Тип категорії обов’язковий'),
 
