@@ -47,18 +47,35 @@ const ProductForm = () => {
   const errorPost = useSelector(errorCreateProduct);
 
   const onSubmit = (values) => {
-    console.log(values);
-    const formattedValues = {
-      ...values,
-      purpose_category:
-        typeof values.purpose_category === 'string'
-          ? values.purpose_category.split(',').map(Number)
-          : Array.isArray(values.purpose_category)
-            ? values.purpose_category
-            : [],
-    };
+    const formData = new FormData();
 
-    dispatch(createProduct(formattedValues));
+    if (values.upload_images && values.upload_images.length > 0) {
+      values.upload_images.forEach((file) => {
+        formData.append(`upload_images`, file);
+      });
+    }
+
+    Object.keys(values).forEach((key) => {
+      if (key !== 'upload_images') {
+        let value = values[key];
+
+        // Transform purpose_category input into an array
+        if (key === 'purpose_category' && typeof value === 'string') {
+          value = value
+            .split(',')
+            .map((v) => parseInt(v.trim(), 10))
+            .filter(Number.isFinite);
+        }
+
+        if (Array.isArray(value)) {
+          value.forEach((val) => formData.append(key, val));
+        } else {
+          formData.append(key, value);
+        }
+      }
+    });
+
+    dispatch(createProduct(formData));
   };
 
   return (
@@ -129,23 +146,22 @@ const ProductForm = () => {
 
       <Controller
         control={control}
-        name={'upload_images'}
-        render={({ field: { value, onChange, ...field } }) => {
-          return (
-            <label>
-              Picture
-              <input
-                {...field}
-                value={value?.fileName}
-                onChange={(event) => {
-                  onChange(event.target.files[0]);
-                }}
-                type="file"
-                id="upload_images"
-              />
-            </label>
-          );
-        }}
+        name="upload_images"
+        render={({ field: { value, onChange, ...field } }) => (
+          <label>
+            Picture
+            <input
+              {...field}
+              multiple
+              type="file"
+              id="upload_images"
+              onChange={(event) => {
+                const files = Array.from(event.target.files);
+                onChange(files);
+              }}
+            />
+          </label>
+        )}
       />
 
       <button type="submit" disabled={isLoading}>
