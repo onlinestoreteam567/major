@@ -1,12 +1,7 @@
 import * as yup from 'yup';
 
 export const productSchema = yup.object({
-  article: yup
-    .string()
-    .required(`Артикул обов'язковий`)
-    .min(3, 'Артикул повинен мати щонайменше 3 символи')
-    .max(20, 'Артикул повинен мати не більше 20 символів')
-    .trim(),
+  article: yup.string().required(`Артикул обов'язковий`).max(20, 'Артикул повинен мати не більше 20 символів').trim(),
 
   available: yup.boolean().required('Наявність обов’язкова'),
 

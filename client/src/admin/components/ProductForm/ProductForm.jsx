@@ -1,7 +1,7 @@
 import { createProduct } from '../../redux/service';
 import { useDispatch, useSelector } from 'react-redux';
 import { errorCreateProduct, loadCteateProduct, responseCreateProduct } from '../../redux/selectors';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input } from '@components/form-components';
 import { productSchema } from '../../validations/productSchema';
@@ -12,6 +12,7 @@ const ProductForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm({
     resolver: yupResolver(productSchema),
     mode: 'onChange',
@@ -46,6 +47,7 @@ const ProductForm = () => {
   const errorPost = useSelector(errorCreateProduct);
 
   const onSubmit = (values) => {
+    console.log(values);
     const formattedValues = {
       ...values,
       purpose_category:
@@ -125,10 +127,26 @@ const ProductForm = () => {
       </label>
       {errors.application_en && <p style={{ color: 'red' }}>{errors.application_en.message}</p>}
 
-      <label>
-        Picture
-        <input type="file" {...register('upload_images')} />
-      </label>
+      <Controller
+        control={control}
+        name={'upload_images'}
+        render={({ field: { value, onChange, ...field } }) => {
+          return (
+            <label>
+              Picture
+              <input
+                {...field}
+                value={value?.fileName}
+                onChange={(event) => {
+                  onChange(event.target.files[0]);
+                }}
+                type="file"
+                id="upload_images"
+              />
+            </label>
+          );
+        }}
+      />
 
       <button type="submit" disabled={isLoading}>
         {isLoading ? 'Creating...' : 'Create Product'}
