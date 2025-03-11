@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { errorCreateProduct, loadCteateProduct, responseCreateProduct } from '../../redux/selectors';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Input } from '@components/form-components';
+import { Input, Textarea } from '@components/form-components';
 import { productSchema } from '../../validations/productSchema';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
 
@@ -100,19 +100,9 @@ const ProductForm = () => {
       {/* Discount Input */}
       <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
 
-      {/* Description (UK) Textarea */}
-      <label>
-        Description (UK):
-        <textarea {...register('description_uk')} />
-      </label>
-      {errors.description_uk && <p style={{ color: 'red' }}>{errors.description_uk.message}</p>}
+      <Textarea labelText="Description (UK):" name="description_uk" register={register} errors={errors} />
 
-      {/* Description (EN) Textarea */}
-      <label>
-        Description (EN):
-        <textarea {...register('description_en')} />
-      </label>
-      {errors.description_en && <p style={{ color: 'red' }}>{errors.description_en.message}</p>}
+      <Textarea labelText="Description (EN):" name="description_en" register={register} errors={errors} />
 
       {/* Volume (ml) Input */}
       <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
@@ -123,26 +113,11 @@ const ProductForm = () => {
       {/* Type Category Input */}
       <Input labelText="Type Category:" name="type_category" register={register} errors={errors} />
 
-      {/* Ingredients Textarea */}
-      <label>
-        Ingredients:
-        <textarea {...register('ingredients')} />
-      </label>
-      {errors.ingredients && <p style={{ color: 'red' }}>{errors.ingredients.message}</p>}
+      <Textarea labelText="Ingredients::" name="ingredients" register={register} errors={errors} />
 
-      {/* Application (UK) Textarea */}
-      <label>
-        Application (UK):
-        <textarea {...register('application_uk')} />
-      </label>
-      {errors.application_uk && <p style={{ color: 'red' }}>{errors.application_uk.message}</p>}
+      <Textarea labelText="Application (UK):" name="application_uk" register={register} errors={errors} />
 
-      {/* Application (EN) Textarea */}
-      <label>
-        Application (EN):
-        <textarea {...register('application_en')} />
-      </label>
-      {errors.application_en && <p style={{ color: 'red' }}>{errors.application_en.message}</p>}
+      <Textarea labelText="Application (EN):" name="application_en" register={register} errors={errors} />
 
       <Controller
         control={control}
