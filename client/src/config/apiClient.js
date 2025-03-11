@@ -10,7 +10,6 @@ if (!API_BASE_URL) {
 // Axios instance with base settings
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
-  // timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -21,23 +20,23 @@ const defaultLanguage = 'ua';
 apiClient.interceptors.request.use(
   (config) => {
     config.headers['Accept-Language'] = i18n.language || defaultLanguage;
+
+    const username = 'admin@gmail.com';
+    const password = 'admin';
+    const base64Credentials = btoa(`${username}:${password}`);
+    config.headers['Authorization'] = `Basic ${base64Credentials}`;
+
     return config;
   },
   (error) => Promise.reject(error)
 );
 
-const username = 'admin@gmail.com';
-const password = 'admin';
-
-apiClient.defaults.headers.common['Authorization'] = `Basic ${btoa(`${username}:${password}`)}`;
-
 apiClient.interceptors.request.use(
   (config) => {
-    // example for future code
-    // const token = localStorage.getItem('token');
-    // if (token) {
-    //     config.headers.Authorization = `Bearer ${token}`;
-    // }
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      config.headers['Authorization'] = `Bearer ${accessToken}`;
+    }
     return config;
   },
   (error) => Promise.reject(error)
@@ -47,7 +46,6 @@ apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response) {
-      // Handle errors with a response from the server
       console.error('API Error:', {
         status: error.response.status,
         data: error.response.data,
@@ -55,7 +53,6 @@ apiClient.interceptors.response.use(
         method: error.config?.method,
       });
 
-      // Specific error handling based on HTTP status codes
       switch (error.response.status) {
         case 401:
           console.warn('Unauthorized access - consider redirecting to login.');

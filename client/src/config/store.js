@@ -16,6 +16,12 @@ import { createProductReducer } from '../admin/redux/createProductSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
+  auth: {
+    accessToken: loadFromStorage('accessToken') || null,
+    refreshToken: loadFromStorage('refreshToken') || null,
+    isLoading: false,
+    error: null,
+  },
 };
 
 const rootReducer = combineReducers({
@@ -42,6 +48,8 @@ export const store = configureStore({
 });
 
 store.subscribe(() => {
-  const { cart } = store.getState();
+  const { cart, auth } = store.getState();
   saveToStorage('cart', cart);
+  saveToStorage('accessToken', auth.accessToken);
+  saveToStorage('refreshToken', auth.refreshToken);
 });
