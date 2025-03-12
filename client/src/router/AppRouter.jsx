@@ -16,6 +16,8 @@ import FormTest from './testСomponents/FormTest';
 import NotFound from '@components/helpers/NotFound';
 import Loading from '@components/helpers/Loading';
 import AdminLayout from './layouts/AdminLayout';
+import ProtectedRoute from './layouts/ProtectedRoute';
+import AdminLoginPage from '../admin/components/AdminLoginPage/AdminLoginPage';
 // import Requests from './testСomponents/Requests';
 
 // Lazy loading
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
-    errorElement: <ErrorBoundary />, // Error boundary for MainLayout
+    errorElement: <ErrorBoundary />,
     children: [
       { index: true, element: <Home /> },
       { path: 'profile', element: <ProfilePage /> },
@@ -49,22 +51,18 @@ const router = createBrowserRouter([
   },
   {
     path: '/admin',
-    element: <AdminLayout />,
+    element: <ProtectedRoute />, // Protect admin routes
+    children: [{ index: true, element: <AdminLayout /> }],
   },
+  { path: '/admin/login', element: <AdminLoginPage /> },
   {
     element: <AuthLayout />,
-    errorElement: <ErrorBoundary />, // Error boundary for AuthLayout
+    errorElement: <ErrorBoundary />,
     children: [
-      // Uncomment and add routes as needed
-      // { path: 'login', element: <Login /> },
-      // { path: 'register', element: <Register /> },
-
-      // test-components
       { path: 'redux', element: <Redux /> },
       { path: 'i18next', element: <I18next /> },
       { path: 'cookie', element: <CookieTest /> },
       { path: 'form', element: <FormTest /> },
-      // { path: 'requests', element: <Requests /> },
     ],
   },
   {
