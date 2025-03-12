@@ -10,17 +10,23 @@ export const productSchema = yup.object({
 
   price: yup
     .number()
+    .typeError('Будь ласка, напишіть число')
     .required('Ціна обов’язкова')
     .min(0, 'Ціна не може бути від’ємною')
     .max(Number.MAX_SAFE_INTEGER, 'Завелике значення'),
 
-  discount: yup.number().min(0, 'Знижка не може бути від’ємною').max(100, 'Знижка не може бути більше ніж 100%'),
+  discount: yup
+    .number()
+    .typeError('Будь ласка, напишіть число')
+    .min(0, 'Знижка не може бути від’ємною')
+    .max(100, 'Знижка не може бути більше ніж 100%'),
 
   description_uk: yup.string().required('Опис (укр) обов’язковий'),
   description_en: yup.string().required('Опис (англ) обов’язковий'),
 
   volume_ml: yup
     .number()
+    .typeError('Будь ласка, напишіть число')
     .required('Об’єм обов’язковий')
     .min(0, 'Об’єм не може бути від’ємним')
     .max(Number.MAX_SAFE_INTEGER, 'Завелике значення'),
