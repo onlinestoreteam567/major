@@ -8,29 +8,31 @@ import SliderImgs from './SliderImgs';
 import WrapModal from '@components/UI/WrapModal/WrapModal';
 
 export default function ImgDesk({ card }) {
-  const images = card.images || [];
+  const placeholderImage = '/images/placeholder.webp';
+  const images = card.images?.length ? card.images : [{ image: placeholderImage, id: 'placeholder' }];
 
   const [isShow, setIsShow] = useState(false);
-  const [bigImage, setBigImage] = useState(images[0].image);
+  const [bigImage, setBigImage] = useState(images[0].image || placeholderImage);
 
-  const openModal = () => {
-    setIsShow(true);
-  };
-  const closeModal = () => {
-    setIsShow(false);
-  };
+  const openModal = () => setIsShow(true);
+  const closeModal = () => setIsShow(false);
+
   return (
     <div className={cl.wrapImgDeskCard}>
       <div className={cl.wrapImgCase}>
         {card.is_best_seller && <LabelHit />}
         {card.is_new && <LabelNew />}
         {card.is_discount && <LabelSale card={card} />}
-        <img src={bigImage} alt={card.name} className={cl.imgBig} />
+        <img src={bigImage} alt={card.name || 'Placeholder'} className={cl.imgBig} />
       </div>
       <ul className={cl.wrapSmallImg}>
-        {card.images.map((img, i) => (
+        {images.map((img, i) => (
           <li key={img.id} onClick={() => setBigImage(images[i].image)} className={cl.wrapImg}>
-            <img src={img.image} alt={card.name} className={bigImage === images[i].image ? cl.selected : ''} />
+            <img
+              src={img.image}
+              alt={card.name || 'Placeholder'}
+              className={bigImage === images[i].image ? cl.selected : ''}
+            />
           </li>
         ))}
       </ul>

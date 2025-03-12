@@ -11,7 +11,6 @@ const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) 
   const { deskmin, deskmax } = useScreenSizes();
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
   const cartItems = useSelector((state) => state.cart.items);
-  console.log(cartItems.length);
   return (
     <div className={cl.rightSection}>
       <i onClick={handleShowInput}>
