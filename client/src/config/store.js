@@ -13,6 +13,7 @@ import { searchReducer } from '@redux/products/searchSlice';
 
 import { authReducer } from '../admin/redux/authSlice';
 import { createProductReducer } from '../admin/redux/createProductSlice';
+import { createPurposeCategoryReducer } from '../admin/redux/createPurposeCategorySlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
 
   auth: authReducer,
   createProduct: createProductReducer,
+  createPurposeCategory: createPurposeCategoryReducer,
 });
 
 export const store = configureStore({
