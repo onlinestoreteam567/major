@@ -1,0 +1,5 @@
+@import '@mixins';
+
+.categories {
+  @include flexGap(20px);
+}

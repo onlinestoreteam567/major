@@ -14,14 +14,13 @@ import { searchReducer } from '@redux/products/searchSlice';
 import { authReducer } from '../admin/redux/authSlice';
 import { createProductReducer } from '../admin/redux/createProductSlice';
 import { createPurposeCategoryReducer } from '../admin/redux/createPurposeCategorySlice';
+import { createTypeCategoryReducer } from '../admin/redux/createTypeCategorySlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
   auth: {
     accessToken: loadFromStorage('accessToken') || null,
     refreshToken: loadFromStorage('refreshToken') || null,
-    isLoading: false,
-    error: null,
   },
 };
 
@@ -40,6 +39,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   createProduct: createProductReducer,
   createPurposeCategory: createPurposeCategoryReducer,
+  createTypeCategory: createTypeCategoryReducer,
 });
 
 export const store = configureStore({

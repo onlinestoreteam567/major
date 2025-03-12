@@ -4,6 +4,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 const VITE_AUTH_TOKEN_ENDPOINT = import.meta.env.VITE_AUTH_TOKEN_ENDPOINT;
 const PRODUCT_LIST_ENDPOINT = import.meta.env.VITE_PRODUCT_LIST_ENDPOINT;
 const CATEGORY_ENDPOINT = import.meta.env.VITE_CATEGORY_ENDPOINT;
+const TYPE_ENDPOINT = import.meta.env.VITE_TYPE_ENDPOINT;
 
 export const fetchAuthToken = createAsyncThunk('auth/fetchToken', async ({ email, password }, thunkAPI) => {
   try {
@@ -38,6 +39,17 @@ export const createPurposeCategory = createAsyncThunk('createPurposeCategory/pos
       },
     });
 
+    console.log('Product created:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in creating product:', error);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});
+
+export const createTypeCategory = createAsyncThunk('createTypeCategory/post', async (formData, thunkAPI) => {
+  try {
+    const response = await apiClient.post(`${TYPE_ENDPOINT}/`, formData);
     console.log('Product created:', response.data);
     return response.data;
   } catch (error) {
