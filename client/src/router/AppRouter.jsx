@@ -15,10 +15,11 @@ import ErrorBoundary from './error/ErrorBoundary'; // A component to handle erro
 import FormTest from './testСomponents/FormTest';
 import NotFound from '@components/helpers/NotFound';
 import Loading from '@components/helpers/Loading';
-import AdminLayout from './layouts/AdminLayout';
 import ProtectedRoute from './layouts/ProtectedRoute';
 import AdminLoginPage from '../admin/components/AdminLoginPage/AdminLoginPage';
-// import Requests from './testСomponents/Requests';
+import AdminPage from '../admin/components/AdminPage/AdminPage';
+import ProductForm from '../admin/components/ProductForm/ProductForm';
+import CategoriesPage from '../admin/components/CategoriesPage/CategoriesPage';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -51,8 +52,12 @@ const router = createBrowserRouter([
   },
   {
     path: '/admin',
-    element: <ProtectedRoute />, // Protect admin routes
-    children: [{ index: true, element: <AdminLayout /> }],
+    element: <ProtectedRoute />,
+    children: [
+      { index: true, element: <AdminPage /> },
+      { path: 'products', element: <ProductForm /> },
+      { path: 'categories', element: <CategoriesPage /> },
+    ],
   },
   { path: '/admin/login', element: <AdminLoginPage /> },
   {
