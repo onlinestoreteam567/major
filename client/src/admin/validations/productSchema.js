@@ -33,7 +33,11 @@ export const productSchema = yup.object({
 
   // purpose_category: yup.number().integer().required('Категорія за призначенням обовязкова'),
 
-  type_category: yup.number().integer().required('Тип категорії обов’язковий'),
+  type_category: yup
+    .number()
+    .typeError('Будь ласка, оберіть категорію за типом')
+    .integer('Будь ласка, введіть ціле число')
+    .required('Категорія за типом обов’язкова'),
 
   is_new: yup.boolean().required('Новинка обов’язкова'),
   is_best_seller: yup.boolean().required("Хіт обов'язковий"),

@@ -6,6 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Input, Textarea } from '@components/form-components';
 import { productSchema } from '../../validations/productSchema';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
+import PurposeCategorySelect from './PurposeCategorySelect';
+import TypeCategorySelect from './TypeCategorySelect';
 
 const ProductForm = () => {
   const {
@@ -31,8 +33,6 @@ const ProductForm = () => {
       description_uk: '10',
       description_en: '10',
       volume_ml: '10',
-      purpose_category: '1',
-      type_category: '1',
       is_new: true,
       is_best_seller: true,
       ingredients: '1010',
@@ -58,14 +58,6 @@ const ProductForm = () => {
     Object.keys(values).forEach((key) => {
       if (key !== 'upload_images') {
         let value = values[key];
-
-        // Transform purpose_category input into an array
-        if (key === 'purpose_category' && typeof value === 'string') {
-          value = value
-            .split(',')
-            .map((v) => parseInt(v.trim(), 10))
-            .filter(Number.isFinite);
-        }
 
         if (Array.isArray(value)) {
           value.forEach((val) => formData.append(key, val));
@@ -107,11 +99,12 @@ const ProductForm = () => {
       {/* Volume (ml) Input */}
       <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
 
-      {/* Purpose Category Input */}
-      <Input labelText="Purpose Category:" name="purpose_category" register={register} errors={errors} />
+      <PurposeCategorySelect register={register} errors={errors} />
+
+      <TypeCategorySelect register={register} errors={errors} />
 
       {/* Type Category Input */}
-      <Input labelText="Type Category:" name="type_category" register={register} errors={errors} />
+      {/* <Input labelText="Type Category:" name="type_category" register={register} errors={errors} /> */}
 
       <Textarea labelText="Ingredients::" name="ingredients" register={register} errors={errors} />
 
