@@ -18,8 +18,9 @@ import Loading from '@components/helpers/Loading';
 import ProtectedRoute from './layouts/ProtectedRoute';
 import AdminLoginPage from '../admin/components/AdminLoginPage/AdminLoginPage';
 import AdminPage from '../admin/components/AdminPage/AdminPage';
-import ProductForm from '../admin/components/ProductForm/ProductForm';
 import CategoriesPage from '../admin/components/CategoriesPage/CategoriesPage';
+import ProductManagement from '../admin/components/ProductPage/ProductManagement';
+import ProductForm from '../admin/components/ProductPage/ProductForm/ProductForm';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -55,7 +56,11 @@ const router = createBrowserRouter([
     element: <ProtectedRoute />,
     children: [
       { index: true, element: <AdminPage /> },
-      { path: 'products', element: <ProductForm /> },
+
+      { path: 'products', element: <ProductManagement /> },
+      { path: 'products/create', element: <ProductForm /> },
+      { path: 'products/:id', element: <ProductForm /> },
+
       { path: 'categories', element: <CategoriesPage /> },
     ],
   },

@@ -29,14 +29,14 @@ const PurposeForm = () => {
   const onSubmit = (values) => {
     const formData = new FormData();
 
-    if (values.upload_images && values.upload_images.length > 0) {
-      values.upload_images.forEach((file) => {
-        formData.append(`upload_images`, file);
+    if (values.upload_image && values.upload_image.length > 0) {
+      values.upload_image.forEach((file) => {
+        formData.append(`upload_image`, file);
       });
     }
 
     Object.keys(values).forEach((key) => {
-      if (key !== 'upload_images') {
+      if (key !== 'upload_image') {
         let value = values[key];
 
         if (Array.isArray(value)) {
@@ -55,7 +55,7 @@ const PurposeForm = () => {
       <Input labelText="Назва категорії (en):" name="category_name_en" register={register} errors={errors} />
       <Controller
         control={control}
-        name="upload_images"
+        name="upload_image"
         render={({ field: { value, onChange, ...field } }) => (
           <label>
             Picture
@@ -63,7 +63,7 @@ const PurposeForm = () => {
               {...field}
               multiple
               type="file"
-              id="upload_images"
+              id="upload_image"
               onChange={(event) => {
                 const files = Array.from(event.target.files);
                 onChange(files);
