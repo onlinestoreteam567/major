@@ -13,6 +13,7 @@ import { searchReducer } from '@redux/products/searchSlice';
 
 import { authReducer } from '../admin/redux/authSlice';
 import { createProductReducer } from '../admin/redux/createProductSlice';
+import { editProductReducer } from '../admin/redux/editProductSlice';
 import { createPurposeCategoryReducer } from '../admin/redux/createPurposeCategorySlice';
 import { createTypeCategoryReducer } from '../admin/redux/createTypeCategorySlice';
 
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
 
   auth: authReducer,
   createProduct: createProductReducer,
+  editProduct: editProductReducer,
   createPurposeCategory: createPurposeCategoryReducer,
   createTypeCategory: createTypeCategoryReducer,
 });

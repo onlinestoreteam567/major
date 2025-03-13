@@ -1,6 +1,5 @@
 import { createProduct } from '../../../redux/service';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductById } from '@redux/products/service';
 import { errorCreateProduct, loadCreateProduct, responseCreateProduct } from '../../../redux/selectors';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,41 +8,23 @@ import { productSchema } from '../../../validations/productSchema';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
 import PurposeCategorySelect from './PurposeCategorySelect';
 import TypeCategorySelect from './TypeCategorySelect';
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import { loadProductId, selectProductId } from '@redux/selectors';
 
-const ProductForm = () => {
-  const location = useLocation();
-  const id = location.pathname.split('/').pop(); // Extract ID from URL
-
+const ProductCreate = () => {
   const dispatch = useDispatch();
-
-  // Fetch product data for editing
-  useEffect(() => {
-    if (id) {
-      dispatch(getProductById(id));
-    }
-  }, [dispatch, id]);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     control,
-    setValue, // You can use this to set the form values if needed
   } = useForm({
     resolver: yupResolver(productSchema),
     mode: 'onSubmit',
   });
 
-  // Loading, Response, and Error from Redux
   const isLoading = useSelector(loadCreateProduct);
   const response = useSelector(responseCreateProduct);
   const errorPost = useSelector(errorCreateProduct);
-
-  const isLoadingP = useSelector(loadProductId);
-  const responseP = useSelector(selectProductId);
 
   const onSubmit = (values) => {
     const formData = new FormData();
@@ -70,28 +51,6 @@ const ProductForm = () => {
     // Dispatch create product action
     dispatch(createProduct(formData));
   };
-
-  // Pre-fill form with fetched product data (if editing an existing product)
-  useEffect(() => {
-    if (id && responseP) {
-      setValue('article', responseP.article);
-      setValue('available', responseP.available);
-      setValue('is_best_seller', responseP.is_best_seller);
-      setValue('is_new', responseP.is_new);
-      setValue('product_name_uk', responseP.product_name_uk);
-      setValue('product_name_en', responseP.product_name_en);
-      setValue('price', responseP.price);
-      setValue('discount', responseP.discount);
-      setValue('volume_ml', responseP.volume_ml);
-      // setValue('purpose_category', responseP.purpose_category);
-      // setValue('type_category', responseP.type_category);
-      setValue('description_uk', responseP.description_uk);
-      setValue('description_en', responseP.description_en);
-      setValue('ingredients', responseP.ingredients);
-      setValue('application_uk', responseP.application_uk);
-      setValue('application_en', responseP.application_en);
-    }
-  }, [responseP, id, setValue]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
@@ -156,4 +115,4 @@ const ProductForm = () => {
   );
 };
 
-export default ProductForm;
+export default ProductCreate;
