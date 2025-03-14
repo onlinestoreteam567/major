@@ -22,13 +22,12 @@ const defaultLanguage = 'ua';
 apiClient.interceptors.request.use(
   (config) => {
     config.headers['Accept-Language'] = i18n.language || defaultLanguage;
-
     return config;
   },
   (error) => Promise.reject(error)
 );
 
-//  Add Authorization header with Bearer token for requests to /admin path except for the refresh token endpoint
+// Add Authorization header with Bearer token for requests to /admin path except for the refresh token endpoint
 apiClient.interceptors.request.use(
   (config) => {
     // Don't add Authorization header for the refresh token endpoint
@@ -54,8 +53,19 @@ apiClient.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Handle expired access tokens by refreshing them using the refresh token. If the refresh token is also invalid, log the user out.
+// Queue to store pending requests while token refresh is in progress
 let isRefreshing = false;
+let refreshSubscribers = [];
+
+const onRefreshed = (accessToken) => {
+  refreshSubscribers.forEach((callback) => callback(accessToken));
+};
+
+const addRefreshSubscriber = (callback) => {
+  refreshSubscribers.push(callback);
+};
+
+// Handle expired access tokens by refreshing them using the refresh token. If the refresh token is also invalid, log the user out.
 apiClient.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -66,7 +76,12 @@ apiClient.interceptors.response.use(
 
       // Prevent multiple refresh token requests at the same time
       if (isRefreshing) {
-        return Promise.reject(error); // Reject if already refreshing
+        return new Promise((resolve) => {
+          addRefreshSubscriber((accessToken) => {
+            originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
+            resolve(apiClient(originalRequest)); // Retry the request with new access token
+          });
+        });
       }
 
       isRefreshing = true;
@@ -77,8 +92,14 @@ apiClient.interceptors.response.use(
         const response = await apiClient.post('/auth/token/refresh/', { refresh: refreshToken });
         store.dispatch(fetchAuthToken.fulfilled(response.data));
 
+        // Store the new access token
+        const newAccessToken = response.data.access;
+
+        // Update the queued requests with the new token
+        onRefreshed(newAccessToken);
+
         // Add the new access token to the original request
-        originalRequest.headers['Authorization'] = `Bearer ${response.data.access}`;
+        originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
 
         isRefreshing = false;
 
