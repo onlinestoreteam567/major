@@ -21,10 +21,10 @@ apiClient.interceptors.request.use(
   (config) => {
     config.headers['Accept-Language'] = i18n.language || defaultLanguage;
 
-    const username = 'admin@gmail.com';
-    const password = 'admin';
-    const base64Credentials = btoa(`${username}:${password}`);
-    config.headers['Authorization'] = `Basic ${base64Credentials}`;
+    // const username = 'admin@gmail.com';
+    // const password = 'admin';
+    // const base64Credentials = btoa(`${username}:${password}`);
+    // config.headers['Authorization'] = `Basic ${base64Credentials}`;
 
     return config;
   },
@@ -33,10 +33,17 @@ apiClient.interceptors.request.use(
 
 apiClient.interceptors.request.use(
   (config) => {
-    const accessToken = localStorage.getItem('accessToken');
-    if (accessToken) {
-      config.headers['Authorization'] = `Bearer ${accessToken}`;
+    let accessToken = localStorage.getItem('accessToken');
+
+    if (window.location.href.includes('/admin')) {
+      if (accessToken && accessToken.trim() !== '' && accessToken !== 'null') {
+        accessToken = accessToken.replace(/^"(.*)"$/, '$1');
+        config.headers['Authorization'] = `Bearer ${accessToken}`;
+      } else {
+        console.log('Token is invalid or missing, no token sent for /admin');
+      }
     }
+
     return config;
   },
   (error) => Promise.reject(error)
