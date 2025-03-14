@@ -35,6 +35,7 @@ const ProductEdit = () => {
     formState: { errors },
     control,
     setValue,
+    getValues,
   } = useForm({
     resolver: yupResolver(productSchema),
     mode: 'onSubmit',
@@ -159,6 +160,7 @@ const ProductEdit = () => {
           {responseEdit && <p style={{ color: 'green' }}>Product added successfully!</p>}
         </form>
       )}
+      <button onClick={() => console.log(getValues())}>Значення форм</button>
     </>
   );
 };
