@@ -8,13 +8,15 @@ import { Input, Textarea } from '@components/form-components';
 import { productSchema } from '../../../validations/productSchema';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
 import PurposeCategorySelect from './PurposeCategorySelect';
-import TypeCategorySelect from './TypeCategorySelect';
+// import TypeCategorySelect from './TypeCategorySelect';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { loadProductId, selectProductId } from '@redux/selectors';
+import { loadProductId, selectCategories, selectProductId } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
 
 const ProductEdit = () => {
+  const purposeCategories = useSelector(selectCategories);
+
   const location = useLocation();
   const id = location.pathname.split('/').pop(); // Extract ID from URL
 
@@ -32,7 +34,7 @@ const ProductEdit = () => {
     handleSubmit,
     formState: { errors },
     control,
-    setValue, // You can use this to set the form values if needed
+    setValue,
   } = useForm({
     resolver: yupResolver(productSchema),
     mode: 'onSubmit',
@@ -71,7 +73,7 @@ const ProductEdit = () => {
   };
 
   useEffect(() => {
-    if (id && responseGet) {
+    if (purposeCategories.length > 0 && id && responseGet) {
       setValue('article', responseGet.article);
       setValue('available', responseGet.available);
       setValue('is_best_seller', responseGet.is_best_seller);
@@ -81,7 +83,8 @@ const ProductEdit = () => {
       setValue('price', responseGet.price);
       setValue('discount', responseGet.discount);
       setValue('volume_ml', responseGet.volume_ml);
-      // setValue('purpose_category', responseGet.purpose_category);
+      console.log(responseGet.purpose_category);
+      setValue('purpose_category', responseGet.purpose_category);
       // setValue('type_category', responseGet.type_category);
       setValue('description_uk', responseGet.description_uk);
       setValue('description_en', responseGet.description_en);
@@ -89,7 +92,7 @@ const ProductEdit = () => {
       setValue('application_uk', responseGet.application_uk);
       setValue('application_en', responseGet.application_en);
     }
-  }, [responseGet, id, setValue]);
+  }, [purposeCategories, responseGet, id, setValue]);
 
   return (
     <>
@@ -106,8 +109,8 @@ const ProductEdit = () => {
           <Input type="number" labelText="Price:" name="price" register={register} errors={errors} />
           <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
           <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
-          <PurposeCategorySelect register={register} errors={errors} />
-          <TypeCategorySelect register={register} errors={errors} />
+          <PurposeCategorySelect items={purposeCategories} register={register} errors={errors} />
+          {/* <TypeCategorySelect register={register} errors={errors} /> */}
           <Textarea labelText="Description (UK):" name="description_uk" register={register} errors={errors} />
           <Textarea labelText="Description (EN):" name="description_en" register={register} errors={errors} />
           <Textarea labelText="Ingredients:" name="ingredients" register={register} errors={errors} />

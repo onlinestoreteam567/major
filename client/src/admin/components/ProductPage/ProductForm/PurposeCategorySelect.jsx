@@ -2,12 +2,11 @@
 
 import { Select } from '@components/form-components';
 import Spinner from '@components/helpers/Spinner';
-import { loadCategories, selectCategories } from '@redux/selectors';
+import { loadCategories } from '@redux/selectors';
 import { useSelector } from 'react-redux';
 
-const PurposeCategorySelect = ({ register, errors }) => {
+const PurposeCategorySelect = ({ items, register, errors }) => {
   const isLoading = useSelector(loadCategories);
-  const items = useSelector(selectCategories);
 
   return (
     <>
