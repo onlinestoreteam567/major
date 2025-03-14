@@ -18,6 +18,14 @@ const authSlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearTokens: (state) => {
+      state.accessToken = null;
+      state.refreshToken = null;
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('refreshToken');
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAuthToken.pending, handlePending)
@@ -29,5 +37,7 @@ const authSlice = createSlice({
       .addCase(fetchAuthToken.rejected, handleRejected);
   },
 });
+
+export const { clearTokens } = authSlice.actions;
 
 export const authReducer = authSlice.reducer;

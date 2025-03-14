@@ -1,5 +1,7 @@
 import axios from 'axios';
 import i18n from 'i18next';
+import { fetchAuthToken } from '../admin/redux/service';
+import { clearTokens } from '../admin/redux/authSlice';
 
 // Check if the environment variable is defined
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -21,26 +23,29 @@ apiClient.interceptors.request.use(
   (config) => {
     config.headers['Accept-Language'] = i18n.language || defaultLanguage;
 
-    // const username = 'admin@gmail.com';
-    // const password = 'admin';
-    // const base64Credentials = btoa(`${username}:${password}`);
-    // config.headers['Authorization'] = `Basic ${base64Credentials}`;
-
     return config;
   },
   (error) => Promise.reject(error)
 );
 
+//  Add Authorization header with Bearer token for requests to /admin path except for the refresh token endpoint
 apiClient.interceptors.request.use(
   (config) => {
-    let accessToken = localStorage.getItem('accessToken');
+    // Don't add Authorization header for the refresh token endpoint
+    if (config.url.includes('/auth/token/refresh/')) {
+      delete config.headers['Authorization'];
+    } else {
+      let accessToken = localStorage.getItem('accessToken');
 
-    if (window.location.href.includes('/admin')) {
-      if (accessToken && accessToken.trim() !== '' && accessToken !== 'null') {
-        accessToken = accessToken.replace(/^"(.*)"$/, '$1');
-        config.headers['Authorization'] = `Bearer ${accessToken}`;
-      } else {
-        console.log('Token is invalid or missing, no token sent for /admin');
+      // Only add Authorization header for /admin path
+      if (window.location.href.includes('/admin')) {
+        if (accessToken && accessToken.trim() !== '' && accessToken !== 'null') {
+          // Remove quotes from the token
+          accessToken = accessToken.replace(/^"(.*)"$/, '$1');
+          config.headers['Authorization'] = `Bearer ${accessToken}`;
+        } else {
+          console.log('Token is invalid or missing, no token sent for /admin');
+        }
       }
     }
 
@@ -49,6 +54,50 @@ apiClient.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
+// Handle expired access tokens by refreshing them using the refresh token. If the refresh token is also invalid, log the user out.
+let isRefreshing = false;
+apiClient.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const originalRequest = error.config;
+
+    if (error.response && error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+
+      // Prevent multiple refresh token requests at the same time
+      if (isRefreshing) {
+        return Promise.reject(error); // Reject if already refreshing
+      }
+
+      isRefreshing = true;
+
+      try {
+        const { store } = await import('./store');
+        const { refreshToken } = store.getState().auth;
+        const response = await apiClient.post('/auth/token/refresh/', { refresh: refreshToken });
+        store.dispatch(fetchAuthToken.fulfilled(response.data));
+
+        // Add the new access token to the original request
+        originalRequest.headers['Authorization'] = `Bearer ${response.data.access}`;
+
+        isRefreshing = false;
+
+        // Replay the original request with the new access token
+        return apiClient(originalRequest);
+      } catch (refreshError) {
+        // If the refresh token is also invalid, log the user out
+        const { store } = await import('./store');
+        store.dispatch(clearTokens());
+        isRefreshing = false;
+        return Promise.reject(refreshError);
+      }
+    }
+
+    return Promise.reject(error);
+  }
+);
+
+// Logging and network error handling
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
