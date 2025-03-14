@@ -1,4 +1,4 @@
-import { createProduct } from '../../../redux/service';
+import { editProduct } from '../../../redux/service';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductById } from '@redux/products/service';
 import { errorEditProduct, loadEditProduct, responseEditProduct } from '../../../redux/selectors';
@@ -67,11 +67,9 @@ const ProductEdit = () => {
       }
     });
 
-    // Dispatch create product action
-    dispatch(createProduct(formData));
+    dispatch(editProduct({ formData, id }));
   };
 
-  // Pre-fill form with fetched product data (if editing an existing product)
   useEffect(() => {
     if (id && responseGet) {
       setValue('article', responseGet.article);

@@ -31,7 +31,8 @@ export const createProduct = createAsyncThunk('createProduct/post', async (formD
   }
 });
 
-export const editProduct = createAsyncThunk('product/edit', async (formData, id, thunkAPI) => {
+export const editProduct = createAsyncThunk('product/edit', async ({ formData, id }, thunkAPI) => {
+  // Receive an object with formData and id
   try {
     const response = await apiClient.patch(`${PRODUCT_LIST_ENDPOINT}/${id}/`, formData, {
       headers: {
@@ -42,7 +43,7 @@ export const editProduct = createAsyncThunk('product/edit', async (formData, id,
     console.log('Product edited:', response.data);
     return response.data;
   } catch (error) {
-    console.error('Error in creating product:', error);
+    console.error('Error in editing product:', error);
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
