@@ -7,15 +7,16 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Input, Textarea } from '@components/form-components';
 import { productSchema } from '../../../validations/productSchema';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
-import PurposeCategorySelect from './PurposeCategorySelect';
+// import PurposeCategorySelect from './PurposeCategorySelect';
 // import TypeCategorySelect from './TypeCategorySelect';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { loadProductId, selectCategories, selectProductId } from '@redux/selectors';
+import { loadProductId, selectCategories, selectProductId, selectTypes } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
 
 const ProductEdit = () => {
   const purposeCategories = useSelector(selectCategories);
+  const typeCategories = useSelector(selectTypes);
 
   const location = useLocation();
   const id = location.pathname.split('/').pop(); // Extract ID from URL
@@ -110,7 +111,53 @@ const ProductEdit = () => {
           <Input type="number" labelText="Price:" name="price" register={register} errors={errors} />
           <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
           <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
-          <PurposeCategorySelect items={purposeCategories} register={register} errors={errors} />
+          <Controller
+            control={control}
+            name="purpose_category"
+            defaultValue={responseGet && responseGet.purpose_category}
+            render={({ field: { value, onChange, ...field } }) => (
+              <select
+                {...field}
+                id="purpose_category"
+                multiple
+                onChange={(event) => {
+                  const selectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
+                  onChange(selectedValues);
+                }}
+              >
+                {purposeCategories.map((value, idx) => (
+                  <option
+                    key={idx}
+                    value={value.id}
+                    selected={responseGet && responseGet.purpose_category.includes(value.id)}
+                  >
+                    {value.name} id: {value.id}
+                  </option>
+                ))}
+              </select>
+            )}
+          />
+          <Controller
+            control={control}
+            name="type_category"
+            defaultValue={responseGet && responseGet.type_category}
+            render={({ field: { value, onChange, ...field } }) => (
+              <select
+                {...field}
+                id="type_category"
+                onChange={(event) => {
+                  const selectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
+                  onChange(selectedValues);
+                }}
+              >
+                {typeCategories.map((value, idx) => (
+                  <option key={idx} value={value.id} selected={responseGet && responseGet.type_category === value.id}>
+                    {value.name} id: {value.id}
+                  </option>
+                ))}
+              </select>
+            )}
+          />
           {/* <TypeCategorySelect register={register} errors={errors} /> */}
           <Textarea labelText="Description (UK):" name="description_uk" register={register} errors={errors} />
           <Textarea labelText="Description (EN):" name="description_en" register={register} errors={errors} />
@@ -136,11 +183,9 @@ const ProductEdit = () => {
               </label>
             )}
           />
-
           <button type="submit" disabled={isLoadingEdit}>
             {isLoadingEdit ? 'Зміна...' : 'Змінити'}
           </button>
-
           {/* Error handling */}
           {errorEdit &&
             Object.keys(errorEdit).map((key) => (
@@ -155,7 +200,6 @@ const ProductEdit = () => {
                 </ul>
               </div>
             ))}
-
           {/* Success response */}
           {responseEdit && <p style={{ color: 'green' }}>Product added successfully!</p>}
         </form>
