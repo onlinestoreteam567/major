@@ -120,17 +120,14 @@ const ProductEdit = () => {
                 {...field}
                 id="purpose_category"
                 multiple
+                value={value}
                 onChange={(event) => {
                   const selectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
                   onChange(selectedValues);
                 }}
               >
                 {purposeCategories.map((value, idx) => (
-                  <option
-                    key={idx}
-                    value={value.id}
-                    selected={responseGet && responseGet.purpose_category.includes(value.id)}
-                  >
+                  <option key={idx} value={value.id}>
                     {value.name} id: {value.id}
                   </option>
                 ))}
@@ -146,12 +143,11 @@ const ProductEdit = () => {
                 {...field}
                 id="type_category"
                 onChange={(event) => {
-                  const selectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
-                  onChange(selectedValues);
+                  onChange(event.target.value);
                 }}
               >
                 {typeCategories.map((value, idx) => (
-                  <option key={idx} value={value.id} selected={responseGet && responseGet.type_category === value.id}>
+                  <option key={idx} value={value.id}>
                     {value.name} id: {value.id}
                   </option>
                 ))}
