@@ -7,17 +7,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Input, Textarea } from '@components/form-components';
 import { productSchema } from '../../../validations/productSchema';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
-// import PurposeCategorySelect from './PurposeCategorySelect';
-// import TypeCategorySelect from './TypeCategorySelect';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { loadProductId, selectProductId, selectTypes } from '@redux/selectors';
+import { loadProductId, selectProductId } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
 import PurposeCategorySelect from './PurposeCategorySelect';
+import TypeCategorySelect from './TypeCategorySelect';
 
 const ProductEdit = () => {
-  const typeCategories = useSelector(selectTypes);
-
   const location = useLocation();
   const id = location.pathname.split('/').pop(); // Extract ID from URL
 
@@ -124,22 +121,10 @@ const ProductEdit = () => {
             name="type_category"
             defaultValue={responseGet && responseGet.type_category}
             render={({ field: { value, onChange, ...field } }) => (
-              <select
-                {...field}
-                id="type_category"
-                onChange={(event) => {
-                  onChange(event.target.value);
-                }}
-              >
-                {typeCategories.map((value, idx) => (
-                  <option key={idx} value={value.id}>
-                    {value.name} id: {value.id}
-                  </option>
-                ))}
-              </select>
+              <TypeCategorySelect field={field} onChange={onChange} />
             )}
           />
-          {/* <TypeCategorySelect register={register} errors={errors} /> */}
+
           <Textarea labelText="Description (UK):" name="description_uk" register={register} errors={errors} />
           <Textarea labelText="Description (EN):" name="description_en" register={register} errors={errors} />
           <Textarea labelText="Ingredients:" name="ingredients" register={register} errors={errors} />
