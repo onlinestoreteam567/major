@@ -1,12 +1,16 @@
 // import cl from './index.module.scss';
 
-import { selectTypes } from '@redux/selectors';
+import Spinner from '@components/helpers/Spinner';
+import { loadTypes, selectTypes } from '@redux/selectors';
 import { useSelector } from 'react-redux';
 
 const TypeCategorySelect = ({ field, onChange, errors }) => {
   const items = useSelector(selectTypes);
+  const isLoading = useSelector(loadTypes);
 
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <>
       <select
         {...field}

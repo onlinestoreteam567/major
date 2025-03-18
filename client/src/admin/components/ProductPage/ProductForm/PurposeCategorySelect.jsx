@@ -1,10 +1,14 @@
-import { selectCategories } from '@redux/selectors';
+import Spinner from '@components/helpers/Spinner';
+import { loadCategories, selectCategories } from '@redux/selectors';
 import { useSelector } from 'react-redux';
 
 const PurposeCategorySelect = ({ field, value, onChange, errors }) => {
+  const isLoading = useSelector(loadCategories);
   const purposeCategories = useSelector(selectCategories);
 
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <>
       <select
         {...field}
@@ -26,4 +30,5 @@ const PurposeCategorySelect = ({ field, value, onChange, errors }) => {
     </>
   );
 };
+
 export default PurposeCategorySelect;
