@@ -63,8 +63,19 @@ const ProductCreate = () => {
       <Input type="number" labelText="Price:" name="price" register={register} errors={errors} />
       <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
       <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
-      {/* <PurposeCategorySelect register={register} errors={errors} />
-      <TypeCategorySelect register={register} errors={errors} /> */}
+      <Controller
+        control={control}
+        name="purpose_category"
+        render={({ field: { value, onChange, ...field } }) => (
+          <PurposeCategorySelect field={field} value={value} onChange={onChange} />
+        )}
+      />
+      <Controller
+        control={control}
+        name="type_category"
+        render={({ field: { value, onChange, ...field } }) => <TypeCategorySelect field={field} onChange={onChange} />}
+      />
+
       <Textarea labelText="Description (UK):" name="description_uk" register={register} errors={errors} />
       <Textarea labelText="Description (EN):" name="description_en" register={register} errors={errors} />
       <Textarea labelText="Ingredients:" name="ingredients" register={register} errors={errors} />
