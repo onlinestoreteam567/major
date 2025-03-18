@@ -67,13 +67,15 @@ const ProductCreate = () => {
         control={control}
         name="purpose_category"
         render={({ field: { value, onChange, ...field } }) => (
-          <PurposeCategorySelect field={field} value={value} onChange={onChange} />
+          <PurposeCategorySelect field={field} value={value} onChange={onChange} errors={errors} />
         )}
       />
       <Controller
         control={control}
         name="type_category"
-        render={({ field: { value, onChange, ...field } }) => <TypeCategorySelect field={field} onChange={onChange} />}
+        render={({ field: { value, onChange, ...field } }) => (
+          <TypeCategorySelect field={field} onChange={onChange} errors={errors} />
+        )}
       />
 
       <Textarea labelText="Description (UK):" name="description_uk" register={register} errors={errors} />

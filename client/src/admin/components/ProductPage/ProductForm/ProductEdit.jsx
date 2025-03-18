@@ -113,7 +113,7 @@ const ProductEdit = () => {
             name="purpose_category"
             defaultValue={responseGet && responseGet.purpose_category}
             render={({ field: { value, onChange, ...field } }) => (
-              <PurposeCategorySelect field={field} value={value} onChange={onChange} />
+              <PurposeCategorySelect field={field} value={value} onChange={onChange} errors={errors} />
             )}
           />
           <Controller
@@ -121,7 +121,7 @@ const ProductEdit = () => {
             name="type_category"
             defaultValue={responseGet && responseGet.type_category}
             render={({ field: { value, onChange, ...field } }) => (
-              <TypeCategorySelect field={field} onChange={onChange} />
+              <TypeCategorySelect field={field} onChange={onChange} errors={errors} />
             )}
           />
 
