@@ -63,8 +63,8 @@ const ProductCreate = () => {
       <Input type="number" labelText="Price:" name="price" register={register} errors={errors} />
       <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
       <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
-      <PurposeCategorySelect register={register} errors={errors} />
-      <TypeCategorySelect register={register} errors={errors} />
+      {/* <PurposeCategorySelect register={register} errors={errors} />
+      <TypeCategorySelect register={register} errors={errors} /> */}
       <Textarea labelText="Description (UK):" name="description_uk" register={register} errors={errors} />
       <Textarea labelText="Description (EN):" name="description_en" register={register} errors={errors} />
       <Textarea labelText="Ingredients:" name="ingredients" register={register} errors={errors} />

@@ -11,11 +11,11 @@ import CheckBox from '@components/form-components/Checkbox/Checkbox';
 // import TypeCategorySelect from './TypeCategorySelect';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { loadProductId, selectCategories, selectProductId, selectTypes } from '@redux/selectors';
+import { loadProductId, selectProductId, selectTypes } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
+import PurposeCategorySelect from './PurposeCategorySelect';
 
 const ProductEdit = () => {
-  const purposeCategories = useSelector(selectCategories);
   const typeCategories = useSelector(selectTypes);
 
   const location = useLocation();
@@ -75,7 +75,7 @@ const ProductEdit = () => {
   };
 
   useEffect(() => {
-    if (purposeCategories.length > 0 && id && responseGet) {
+    if (id && responseGet) {
       setValue('article', responseGet.article);
       setValue('available', responseGet.available);
       setValue('is_best_seller', responseGet.is_best_seller);
@@ -87,14 +87,14 @@ const ProductEdit = () => {
       setValue('volume_ml', responseGet.volume_ml);
       console.log(responseGet.purpose_category);
       setValue('purpose_category', responseGet.purpose_category);
-      // setValue('type_category', responseGet.type_category);
+      setValue('type_category', responseGet.type_category);
       setValue('description_uk', responseGet.description_uk);
       setValue('description_en', responseGet.description_en);
       setValue('ingredients', responseGet.ingredients);
       setValue('application_uk', responseGet.application_uk);
       setValue('application_en', responseGet.application_en);
     }
-  }, [purposeCategories, responseGet, id, setValue]);
+  }, [responseGet, id, setValue]);
 
   return (
     <>
@@ -116,22 +116,7 @@ const ProductEdit = () => {
             name="purpose_category"
             defaultValue={responseGet && responseGet.purpose_category}
             render={({ field: { value, onChange, ...field } }) => (
-              <select
-                {...field}
-                id="purpose_category"
-                multiple
-                value={value}
-                onChange={(event) => {
-                  const selectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
-                  onChange(selectedValues);
-                }}
-              >
-                {purposeCategories.map((value, idx) => (
-                  <option key={idx} value={value.id}>
-                    {value.name} id: {value.id}
-                  </option>
-                ))}
-              </select>
+              <PurposeCategorySelect field={field} value={value} onChange={onChange} />
             )}
           />
           <Controller
