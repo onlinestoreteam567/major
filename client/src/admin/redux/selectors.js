@@ -13,6 +13,14 @@ export const loadCreatePurposeCategory = (state) => state.createPurposeCategory.
 export const responseCreatePurposeCategory = (state) => state.createPurposeCategory.response;
 export const errorCreatePurposeCategory = (state) => state.createPurposeCategory.error;
 
+export const loadPurposeById = (state) => state.purposeCategoryById.isLoading;
+export const responsePurposeById = (state) => state.purposeCategoryById.categoryId;
+export const errorPurposeById = (state) => state.purposeCategoryById.error;
+
+export const loadPurposeEdit = (state) => state.purposeEdit.isLoading;
+export const responsePurposeEdit = (state) => state.purposeEdit.response;
+export const errorPurposeEdit = (state) => state.purposeEdit.error;
+
 export const loadCreateTypeCategory = (state) => state.createTypeCategory.isLoading;
 export const responseCreateTypeCategory = (state) => state.createTypeCategory.response;
 export const errorCreateTypeCategory = (state) => state.createTypeCategory.error;

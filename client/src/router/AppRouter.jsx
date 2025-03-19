@@ -18,10 +18,12 @@ import Loading from '@components/helpers/Loading';
 import ProtectedRoute from './layouts/ProtectedRoute';
 import AdminLoginPage from '../admin/components/AdminLoginPage/AdminLoginPage';
 import AdminPage from '../admin/components/AdminPage/AdminPage';
-import CategoriesPage from '../admin/components/CategoriesPage/CategoriesPage';
 import ProductManagement from '../admin/components/ProductPage/ProductManagement';
 import ProductCreate from '../admin/components/ProductPage/ProductForm/ProductCreate';
 import ProductEdit from '../admin/components/ProductPage/ProductForm/ProductEdit';
+import CategoriesManagement from '../admin/components/CategoriesPage/CategoriesManagement';
+import CategoryCreate from '../admin/components/CategoriesPage/CategoryCreate';
+import PurposeEdit from '../admin/components/CategoriesPage/PurposeEdit';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -62,7 +64,9 @@ const router = createBrowserRouter([
       { path: 'products/create', element: <ProductCreate /> },
       { path: 'products/:id', element: <ProductEdit /> },
 
-      { path: 'categories', element: <CategoriesPage /> },
+      { path: 'categories', element: <CategoriesManagement /> },
+      { path: 'categories/create', element: <CategoryCreate /> },
+      { path: 'purpose-categories/:id', element: <PurposeEdit /> },
     ],
   },
   { path: '/admin/login', element: <AdminLoginPage /> },

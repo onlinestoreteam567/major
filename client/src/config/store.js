@@ -16,6 +16,8 @@ import { createProductReducer } from '../admin/redux/createProductSlice';
 import { editProductReducer } from '../admin/redux/editProductSlice';
 import { createPurposeCategoryReducer } from '../admin/redux/createPurposeCategorySlice';
 import { createTypeCategoryReducer } from '../admin/redux/createTypeCategorySlice';
+import { purposeCategoryByIdReducer } from '../admin/redux/purposeCategoryByIdSlice';
+import { purposeEditReducer } from '../admin/redux/purposeEditSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -42,6 +44,8 @@ const rootReducer = combineReducers({
   editProduct: editProductReducer,
   createPurposeCategory: createPurposeCategoryReducer,
   createTypeCategory: createTypeCategoryReducer,
+  purposeCategoryById: purposeCategoryByIdReducer,
+  purposeEdit: purposeEditReducer,
 });
 
 export const store = configureStore({

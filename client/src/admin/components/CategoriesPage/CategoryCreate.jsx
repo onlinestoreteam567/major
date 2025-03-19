@@ -2,7 +2,7 @@ import cl from './index.module.scss';
 import PurposeForm from './PurposeForm';
 import TypeForm from './TypeForm';
 
-const CategoriesPage = () => {
+const CategoryCreate = () => {
   return (
     <div className={cl.categories}>
       <PurposeForm />
@@ -10,4 +10,4 @@ const CategoriesPage = () => {
     </div>
   );
 };
-export default CategoriesPage;
+export default CategoryCreate;
