@@ -36,3 +36,7 @@ export const errorTypeById = (state) => state.typeById.error;
 export const loadTypeEdit = (state) => state.typeEdit.isLoading;
 export const responseTypeEdit = (state) => state.typeEdit.response;
 export const errorTypeEdit = (state) => state.typeEdit.error;
+
+export const loadTypeDelete = (state) => state.typeDelete.isLoading;
+export const responseTypeDelete = (state) => state.typeDelete.response;
+export const errorTypeDelete = (state) => state.typeDelete.error;

@@ -21,6 +21,7 @@ import { purposeEditReducer } from '../admin/redux/purposeEditSlice';
 import { purposeDeleteReducer } from '../admin/redux/purposeDeleteSlice';
 import { typeByIdReducer } from '../admin/redux/typeByIdSlice';
 import { typeEditReducer } from '../admin/redux/typeEditSlice';
+import { typeDeleteReducer } from '../admin/redux/typeDeleteSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -52,6 +53,7 @@ const rootReducer = combineReducers({
   purposeDelete: purposeDeleteReducer,
   typeById: typeByIdReducer,
   typeEdit: typeEditReducer,
+  typeDelete: typeDeleteReducer,
 });
 
 export const store = configureStore({

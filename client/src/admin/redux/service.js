@@ -134,3 +134,15 @@ export const editType = createAsyncThunk('type/edit', async ({ formData, id }, t
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
+
+export const deleteType = createAsyncThunk('type/delete', async (id, thunkAPI) => {
+  try {
+    const response = await apiClient.delete(`${TYPE_ENDPOINT}/${id}/`);
+
+    console.log('type deleted:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in deleting type:', error);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});
