@@ -91,6 +91,17 @@ export const editPurpose = createAsyncThunk('purpose/edit', async ({ formData, i
   }
 });
 
+export const deletePurpose = createAsyncThunk('purpose/delete', async (id, thunkAPI) => {
+  try {
+    const response = await apiClient.delete(`${CATEGORY_ENDPOINT}/${id}/`);
+
+    console.log('purpose deleted:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in deleting purpose:', error);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});
 export const createTypeCategory = createAsyncThunk('createTypeCategory/post', async (formData, thunkAPI) => {
   try {
     const response = await apiClient.post(`${TYPE_ENDPOINT}/`, formData);

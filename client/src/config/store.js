@@ -18,6 +18,7 @@ import { createPurposeCategoryReducer } from '../admin/redux/createPurposeCatego
 import { createTypeCategoryReducer } from '../admin/redux/createTypeCategorySlice';
 import { purposeCategoryByIdReducer } from '../admin/redux/purposeCategoryByIdSlice';
 import { purposeEditReducer } from '../admin/redux/purposeEditSlice';
+import { purposeDeleteReducer } from '../admin/redux/purposeDeleteSlice';
 import { typeByIdReducer } from '../admin/redux/typeByIdSlice';
 import { typeEditReducer } from '../admin/redux/typeEditSlice';
 
@@ -48,6 +49,7 @@ const rootReducer = combineReducers({
   createTypeCategory: createTypeCategoryReducer,
   purposeCategoryById: purposeCategoryByIdReducer,
   purposeEdit: purposeEditReducer,
+  purposeDelete: purposeDeleteReducer,
   typeById: typeByIdReducer,
   typeEdit: typeEditReducer,
 });
