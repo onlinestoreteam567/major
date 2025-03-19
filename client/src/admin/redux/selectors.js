@@ -24,3 +24,11 @@ export const errorPurposeEdit = (state) => state.purposeEdit.error;
 export const loadCreateTypeCategory = (state) => state.createTypeCategory.isLoading;
 export const responseCreateTypeCategory = (state) => state.createTypeCategory.response;
 export const errorCreateTypeCategory = (state) => state.createTypeCategory.error;
+
+export const loadTypeById = (state) => state.typeById.isLoading;
+export const responseTypeById = (state) => state.typeById.categoryId;
+export const errorTypeById = (state) => state.typeById.error;
+
+export const loadTypeEdit = (state) => state.typeEdit.isLoading;
+export const responseTypeEdit = (state) => state.typeEdit.response;
+export const errorTypeEdit = (state) => state.typeEdit.error;

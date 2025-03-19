@@ -101,3 +101,25 @@ export const createTypeCategory = createAsyncThunk('createTypeCategory/post', as
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
+
+export const getTypeCategoryById = createAsyncThunk('typeCategory/getById', async (id, thunkAPI) => {
+  try {
+    const endpoint = `${TYPE_ENDPOINT}/${id}`;
+    const { data } = await apiClient.get(endpoint);
+
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const editType = createAsyncThunk('type/edit', async ({ formData, id }, thunkAPI) => {
+  try {
+    const response = await apiClient.patch(`${TYPE_ENDPOINT}/${id}/`, formData);
+    console.log('edited:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in editing :', error);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});

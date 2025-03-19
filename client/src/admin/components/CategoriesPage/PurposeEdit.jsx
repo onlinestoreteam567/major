@@ -6,7 +6,7 @@ import {
   responsePurposeById,
   responsePurposeEdit,
 } from '../../redux/selectors';
-import { createPurposeCategory, getPurposeCategoryById } from '../../redux/service';
+import { editPurpose, getPurposeCategoryById } from '../../redux/service';
 import { categorySchema } from '../../validations/categorySchema';
 import { Input } from '@components/form-components';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -72,7 +72,9 @@ const PurposeEdit = () => {
       }
     });
 
-    dispatch(createPurposeCategory(formData));
+    console.log(formData);
+
+    dispatch(editPurpose({ formData, id }));
   };
   return isLoadingGet ? (
     <Spinner />
@@ -101,7 +103,7 @@ const PurposeEdit = () => {
       />
 
       <button type="submit" disabled={isLoadingEdit}>
-        {isLoadingEdit ? 'Створення категорії за призначенням...' : 'Створити категорію за призначенням'}
+        {isLoadingEdit ? 'Редагування категорії за призначенням...' : 'Редагувати категорію за призначенням'}
       </button>
       {errorEdit &&
         Object.keys(errorEdit).map((key) => (

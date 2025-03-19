@@ -14,10 +14,10 @@ const TypeList = () => {
         <Spinner />
       ) : (
         <ul className={cl.list}>
-          {items.map((card) => (
-            <li key={card.id}>
-              <p>{card.name}</p>
-              <Link to={`/admin/products/${card.id}`}>Редагувати</Link>
+          {items.map((type) => (
+            <li key={type.id}>
+              <p>{type.name}</p>
+              <Link to={`/admin/type/${type.id}`}>Редагувати</Link>
             </li>
           ))}
         </ul>

@@ -22,19 +22,9 @@ const TypeForm = () => {
   const errorPost = useSelector(errorCreateTypeCategory);
 
   const onSubmit = (values) => {
-    const formData = new FormData();
-    dispatch(createTypeCategory(formData));
-
-    Object.keys(values).forEach((key) => {
-      let value = values[key];
-
-      if (Array.isArray(value)) {
-        value.forEach((val) => formData.append(key, val));
-      } else {
-        formData.append(key, value);
-      }
-    });
+    dispatch(createTypeCategory(values));
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
       <Input labelText="Назва категорії (uk):" name="type_name_uk" register={register} errors={errors} />
