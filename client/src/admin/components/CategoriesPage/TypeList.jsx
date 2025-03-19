@@ -4,13 +4,14 @@ import { loadTypes, selectTypes } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteType } from '../../redux/service';
-import { responseTypeDelete } from '../../redux/selectors';
+import { loadTypeDelete, responseTypeDelete } from '../../redux/selectors';
 import { useEffect } from 'react';
 import { fetchTypes } from '@redux/params/service';
 
 const TypeList = () => {
   const items = useSelector(selectTypes);
   const isLoading = useSelector(loadTypes);
+  const isLoadingDelete = useSelector(loadTypeDelete);
   const dispatch = useDispatch();
   const deleteResponse = useSelector(responseTypeDelete);
 
@@ -28,7 +29,7 @@ const TypeList = () => {
 
   return (
     <>
-      {isLoading ? (
+      {isLoading || isLoadingDelete ? (
         <Spinner />
       ) : (
         <ul className={cl.list}>

@@ -4,13 +4,14 @@ import { loadCategories, selectCategories } from '@redux/selectors';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { deletePurpose } from '../../redux/service';
-import { responsePurposeDelete } from '../../redux/selectors';
+import { loadPurposeDelete, responsePurposeDelete } from '../../redux/selectors';
 import { useEffect } from 'react';
 import { fetchCategories } from '@redux/params/service';
 
 const PurposeList = () => {
   const items = useSelector(selectCategories);
   const isLoading = useSelector(loadCategories);
+  const isLoadingDelete = useSelector(loadPurposeDelete);
   const deleteResponse = useSelector(responsePurposeDelete);
   const dispatch = useDispatch();
 
@@ -28,7 +29,7 @@ const PurposeList = () => {
 
   return (
     <>
-      {isLoading ? (
+      {isLoading || isLoadingDelete ? (
         <Spinner />
       ) : (
         <ul className={cl.list}>
