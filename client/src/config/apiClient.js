@@ -59,6 +59,7 @@ let refreshSubscribers = [];
 
 const onRefreshed = (accessToken) => {
   refreshSubscribers.forEach((callback) => callback(accessToken));
+  refreshSubscribers = [];
 };
 
 const addRefreshSubscriber = (callback) => {
