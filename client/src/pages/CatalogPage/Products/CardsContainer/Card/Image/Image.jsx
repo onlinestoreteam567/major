@@ -4,12 +4,16 @@ import LabelSale from '../../../../../../components/UI/CardProduct/Labels/LabelS
 import cl from './index.module.scss';
 
 export default function Image({ card }) {
+  const placeholderImage = '/images/placeholder.webp'; // Update the path to your actual placeholder image
+  const hasImages = card.images && card.images.length > 0;
+  const imageSrc = hasImages ? card.images[0].image : placeholderImage;
+
   return (
     <div className={cl.wrapImg}>
-      {card.is_best_seller ? <LabelHit /> : ''}
-      {card.is_new ? <LabelNew /> : ''}
-      {card.is_discount ? <LabelSale card={card} /> : ''}
-      <img src={card.images[0].image} alt="" />
+      {card.is_best_seller && <LabelHit />}
+      {card.is_new && <LabelNew />}
+      {card.is_discount && <LabelSale card={card} />}
+      <img src={imageSrc} alt={card.name || 'Placeholder'} />
     </div>
   );
 }

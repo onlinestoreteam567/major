@@ -11,8 +11,24 @@ import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
 import { filterReducer } from '@redux/filter/filterSlice';
 import { searchReducer } from '@redux/products/searchSlice';
 
+import { authReducer } from '../admin/redux/authSlice';
+import { createProductReducer } from '../admin/redux/createProductSlice';
+import { editProductReducer } from '../admin/redux/editProductSlice';
+import { createPurposeCategoryReducer } from '../admin/redux/createPurposeCategorySlice';
+import { createTypeCategoryReducer } from '../admin/redux/createTypeCategorySlice';
+import { purposeCategoryByIdReducer } from '../admin/redux/purposeCategoryByIdSlice';
+import { purposeEditReducer } from '../admin/redux/purposeEditSlice';
+import { purposeDeleteReducer } from '../admin/redux/purposeDeleteSlice';
+import { typeByIdReducer } from '../admin/redux/typeByIdSlice';
+import { typeEditReducer } from '../admin/redux/typeEditSlice';
+import { typeDeleteReducer } from '../admin/redux/typeDeleteSlice';
+
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
+  auth: {
+    accessToken: loadFromStorage('accessToken') || null,
+    refreshToken: loadFromStorage('refreshToken') || null,
+  },
 };
 
 const rootReducer = combineReducers({
@@ -26,6 +42,18 @@ const rootReducer = combineReducers({
   fitCategory: fitCategoryReducer,
   filter: filterReducer,
   search: searchReducer,
+
+  auth: authReducer,
+  createProduct: createProductReducer,
+  editProduct: editProductReducer,
+  createPurposeCategory: createPurposeCategoryReducer,
+  createTypeCategory: createTypeCategoryReducer,
+  purposeCategoryById: purposeCategoryByIdReducer,
+  purposeEdit: purposeEditReducer,
+  purposeDelete: purposeDeleteReducer,
+  typeById: typeByIdReducer,
+  typeEdit: typeEditReducer,
+  typeDelete: typeDeleteReducer,
 });
 
 export const store = configureStore({
@@ -36,6 +64,8 @@ export const store = configureStore({
 });
 
 store.subscribe(() => {
-  const { cart } = store.getState();
+  const { cart, auth } = store.getState();
   saveToStorage('cart', cart);
+  saveToStorage('accessToken', auth.accessToken);
+  saveToStorage('refreshToken', auth.refreshToken);
 });

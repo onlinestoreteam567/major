@@ -11,14 +11,12 @@ import SliderImgs from './SliderImgs';
 import WrapModal from '@components/UI/WrapModal/WrapModal';
 
 export default function ImgMobile({ card }) {
-  const [isShow, setIsShow] = useState(false);
+  const placeholderImage = '/images/placeholder.webp';
+  const images = card.images?.length ? card.images : [{ image: placeholderImage, id: 'placeholder' }];
 
-  const openModal = () => {
-    setIsShow(true);
-  };
-  const closeModal = () => {
-    setIsShow(false);
-  };
+  const [isShow, setIsShow] = useState(false);
+  const openModal = () => setIsShow(true);
+  const closeModal = () => setIsShow(false);
 
   let sliderRef = useRef(null);
 
@@ -36,12 +34,8 @@ export default function ImgMobile({ card }) {
     draggable: false,
     swipe: true,
     appendDots: (dots) => (
-      <div
-        style={{
-          margin: '-36px 0',
-        }}
-      >
-        <ul style={{ margin: '0px' }}> {dots} </ul>
+      <div style={{ margin: '-36px 0' }}>
+        <ul style={{ margin: '0px' }}>{dots}</ul>
       </div>
     ),
   };
@@ -49,12 +43,12 @@ export default function ImgMobile({ card }) {
   return (
     <div className={`slider-container ${cl.wrapSliderMob}`}>
       <Slider ref={sliderRef} {...oneElement}>
-        {card.images.map((slide, i) => (
+        {images.map((slide) => (
           <div key={slide.id} className={cl.wrapImgMobCard}>
             {card.is_best_seller && <LabelHit />}
             {card.is_new && <LabelNew />}
             {card.is_discount && <LabelSale card={card} />}
-            <img src={card.images[i].image} alt={card.name} />
+            <img src={slide.image} alt={card.name || 'Placeholder'} />
           </div>
         ))}
       </Slider>

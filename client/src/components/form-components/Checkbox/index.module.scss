@@ -11,6 +11,18 @@
     height: 0;
   }
 
+  & > span:first-of-type {
+    height: 24px;
+    width: 24px;
+    background-image: url('/svg/catalogPage/emptyCheckbox.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  input:checked ~ span {
+    background-image: url('/svg/catalogPage/checkbox.svg');
+  }
+
   p {
     font-family: $font-second;
     font-size: $font-size-base;
