@@ -31,7 +31,9 @@ const authSlice = createSlice({
       .addCase(fetchAuthToken.pending, handlePending)
       .addCase(fetchAuthToken.fulfilled, (state, action) => {
         state.accessToken = action.payload.access;
-        state.refreshToken = action.payload.refresh;
+        if (!state.refreshToken) {
+          state.refreshToken = action.payload.refresh;
+        }
         state.isLoading = false;
       })
       .addCase(fetchAuthToken.rejected, handleRejected);
