@@ -65,6 +65,11 @@ const addRefreshSubscriber = (callback) => {
   refreshSubscribers.push(callback);
 };
 
+const VITE_AUTH_TOKEN_ENDPOINT = import.meta.env.VITE_AUTH_TOKEN_ENDPOINT;
+if (!VITE_AUTH_TOKEN_ENDPOINT) {
+  console.error('VITE_AUTH_TOKEN_ENDPOINT is not defined! Check the configuration in the .env file.');
+}
+
 // Handle expired access tokens by refreshing them using the refresh token. If the refresh token is also invalid, log the user out.
 apiClient.interceptors.response.use(
   (response) => response,
@@ -89,7 +94,7 @@ apiClient.interceptors.response.use(
       try {
         const { store } = await import('./store');
         const { refreshToken } = store.getState().auth;
-        const response = await apiClient.post('/auth/token/refresh/', { refresh: refreshToken });
+        const response = await apiClient.post(`${VITE_AUTH_TOKEN_ENDPOINT}refresh/`, { refresh: refreshToken });
         store.dispatch(fetchAuthToken.fulfilled(response.data));
 
         // Store the new access token
