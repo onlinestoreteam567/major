@@ -12,7 +12,13 @@ import Heading from '@components/UI/Texts/Heading/Heading';
 
 const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
   const { getTranslation } = useTranslationNamespace('yellowButton');
-  const { setValue, register, handleSubmit } = useForm({
+  const {
+    setValue,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: 'onSubmit',
     resolver: yupResolver(needHelpSchema),
   });
 
@@ -33,7 +39,13 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
-              <Input labelText={getTranslation('name')} name="fullName" variant="popUp" register={register} />
+              <Input
+                labelText={getTranslation('name')}
+                name="fullName"
+                variant="popUp"
+                register={register}
+                errors={errors}
+              />
 
               <PhoneNumberInput
                 setValue={setValue}
@@ -41,6 +53,7 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
                 register={'phone'}
                 name="phone"
                 labelText={getTranslation('phoneNumber')}
+                errors={errors}
               />
             </div>
 
@@ -50,6 +63,7 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
                 name="question"
                 register={register}
                 variant={'popUp'}
+                errors={errors}
               />
 
               <Button submit={true}>{getTranslation(popUpData.buttonText)}</Button>
