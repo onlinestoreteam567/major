@@ -11,7 +11,8 @@ import { loadProductId, selectProductId } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
 import cl from './index.module.scss';
 import ErrorText from '../../ErrorText/ErrorText';
-import ProductForm from './ProductForm';
+import ProductForm from '../ProductForm/ProductForm';
+import UploadedImages from './UploadedImages.jsx/UploadedImages';
 
 const ProductEdit = () => {
   const location = useLocation();
@@ -98,26 +99,9 @@ const ProductEdit = () => {
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
           <ProductForm register={register} errors={errors} control={control} />
+
           {responseGet && responseGet.images && responseGet.images.length > 0 && (
-            <ul className={cl.images}>
-              Images
-              {responseGet.images.map((image, index) => (
-                <li key={index}>
-                  <img src={image.image} alt={`Image ${index}`} />
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setValue(
-                        'remove_images',
-                        getValues('remove_images') ? [...getValues('remove_images'), image.id] : [image.id]
-                      );
-                    }}
-                  >
-                    Видалити
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <UploadedImages images={responseGet.images} setValue={setValue} getValues={getValues} />
           )}
 
           <button type="submit" disabled={isLoadingEdit}>

@@ -20,7 +20,7 @@ import AdminLoginPage from '../admin/components/AdminLoginPage/AdminLoginPage';
 import AdminPage from '../admin/components/AdminPage/AdminPage';
 import ProductManagement from '../admin/components/ProductPage/ProductManagement';
 import ProductCreate from '../admin/components/ProductPage/ProductForm/ProductCreate';
-import ProductEdit from '../admin/components/ProductPage/ProductForm/ProductEdit';
+import ProductEdit from '../admin/components/ProductPage/ProductEdit/ProductEdit';
 import CategoriesManagement from '../admin/components/CategoriesPage/CategoriesManagement';
 import CategoryCreate from '../admin/components/CategoriesPage/CategoryCreate';
 import PurposeEdit from '../admin/components/CategoriesPage/PurposeEdit';
