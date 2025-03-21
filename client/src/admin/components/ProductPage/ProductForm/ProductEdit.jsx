@@ -13,6 +13,7 @@ import { loadProductId, selectProductId } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
 import PurposeCategorySelect from './PurposeCategorySelect';
 import TypeCategorySelect from './TypeCategorySelect';
+import cl from './index.module.scss';
 
 const ProductEdit = () => {
   const location = useLocation();
@@ -82,7 +83,6 @@ const ProductEdit = () => {
       setValue('price', responseGet.price);
       setValue('discount', responseGet.discount);
       setValue('volume_ml', responseGet.volume_ml);
-      console.log(responseGet.purpose_category);
       setValue('purpose_category', responseGet.purpose_category);
       setValue('type_category', responseGet.type_category);
       setValue('description_uk', responseGet.description_uk);
@@ -149,6 +149,27 @@ const ProductEdit = () => {
               </label>
             )}
           />
+          {responseGet && responseGet.images && responseGet.images.length > 0 && (
+            <ul className={cl.images}>
+              Images
+              {responseGet.images.map((image, index) => (
+                <li key={index}>
+                  <img src={image.image} alt={`Image ${index}`} />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setValue(
+                        'remove_images',
+                        getValues('remove_images') ? [...getValues('remove_images'), image.id] : [image.id]
+                      );
+                    }}
+                  >
+                    Видалити
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
           <button type="submit" disabled={isLoadingEdit}>
             {isLoadingEdit ? 'Зміна...' : 'Змінити'}
           </button>

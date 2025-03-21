@@ -72,8 +72,6 @@ const PurposeEdit = () => {
       }
     });
 
-    console.log(formData);
-
     dispatch(editPurpose({ formData, id }));
   };
   return isLoadingGet ? (
