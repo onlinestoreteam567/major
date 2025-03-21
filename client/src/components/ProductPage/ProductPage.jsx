@@ -4,7 +4,6 @@ import CardDesk from './CardDesk';
 import TopLink from '@components/UI/TopLink/TopLink';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 import EmptyPage from '@components/helpers/EmptyPage';
 import ProductSet from './ProductSet';
 import BestSellers from '@pages/HomePage/MainSliders/BestSellers';
@@ -13,12 +12,11 @@ import Spinner from '@components/helpers/Spinner';
 import { clearFitCategory } from '@redux/products/fitCategorySlice';
 import { getProductById } from '@redux/products/service';
 import { loadProductId, selectProductId } from '@redux/selectors';
+import useIdFromUrl from '@hooks/useId';
 
 export default function ProductPage() {
   const dispatch = useDispatch();
-
-  const location = useLocation();
-  const id = location.pathname.split('/').pop();
+  const id = useIdFromUrl();
 
   useEffect(() => {
     dispatch(getProductById(id));

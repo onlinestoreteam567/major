@@ -6,8 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 import { typeSchema } from '../../validations/typeSchema';
+import useIdFromUrl from '@hooks/useId';
 
 const TypeEdit = () => {
   const {
@@ -20,9 +20,7 @@ const TypeEdit = () => {
     mode: 'onSubmit',
   });
 
-  const location = useLocation();
-  const id = location.pathname.split('/').pop();
-
+  const id = useIdFromUrl();
   const dispatch = useDispatch();
 
   useEffect(() => {
