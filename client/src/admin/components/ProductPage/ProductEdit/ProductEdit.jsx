@@ -52,24 +52,20 @@ const ProductEdit = () => {
     dispatch(editProduct({ formData, id }));
   };
 
-  return (
-    <>
-      {isLoadingGet ? (
-        <Spinner />
-      ) : (
-        <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
-          <ProductForm register={register} errors={errors} control={control} />
-          {responseGet && responseGet.images && responseGet.images.length > 0 && (
-            <UploadedImages images={responseGet.images} setValue={setValue} getValues={getValues} />
-          )}
-          <button type="submit" disabled={isLoadingEdit}>
-            {isLoadingEdit ? 'Зміна...' : 'Змінити'}
-          </button>
-          {errorEdit && <ErrorText error={errorEdit} />}
-          {responseEdit && <p style={{ color: 'green' }}>Товар успішно відредаговано!</p>}
-        </form>
+  return isLoadingGet ? (
+    <Spinner />
+  ) : (
+    <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
+      <ProductForm register={register} errors={errors} control={control} />
+      {responseGet && responseGet.images && responseGet.images.length > 0 && (
+        <UploadedImages images={responseGet.images} setValue={setValue} getValues={getValues} />
       )}
-    </>
+      <button type="submit" disabled={isLoadingEdit}>
+        {isLoadingEdit ? 'Зміна...' : 'Змінити'}
+      </button>
+      {errorEdit && <ErrorText error={errorEdit} />}
+      {responseEdit && <p style={{ color: 'green' }}>Товар успішно відредаговано!</p>}
+    </form>
   );
 };
 
