@@ -1,13 +1,14 @@
 import { createProduct } from '../../../redux/service';
 import { useDispatch, useSelector } from 'react-redux';
 import { errorCreateProduct, loadCreateProduct, responseCreateProduct } from '../../../redux/selectors';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input, Textarea } from '@components/form-components';
 import { productSchema } from '../../../validations/productSchema';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
-import TypeCategorySelect from './TypeCategorySelect';
 import CategorySelect from './CategorySelect';
+import TypeSelect from './TypeSelect';
+import ImageUpload from './ImageUpload';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -68,34 +69,9 @@ const ProductCreate = () => {
       <Textarea labelText="Ingredients:" name="ingredients" register={register} errors={errors} />
       <Textarea labelText="Application (UK):" name="application_uk" register={register} errors={errors} />
       <Textarea labelText="Application (EN):" name="application_en" register={register} errors={errors} />
-
       <CategorySelect control={control} errors={errors} />
-      <Controller
-        control={control}
-        name="type_category"
-        render={({ field: { value, onChange, ...field } }) => (
-          <TypeCategorySelect field={field} onChange={onChange} errors={errors} />
-        )}
-      />
-      <Controller
-        control={control}
-        name="upload_images"
-        render={({ field: { value, onChange, ...field } }) => (
-          <label>
-            Picture
-            <input
-              {...field}
-              multiple
-              type="file"
-              id="upload_images"
-              onChange={(event) => {
-                const files = Array.from(event.target.files);
-                onChange(files);
-              }}
-            />
-          </label>
-        )}
-      />
+      <TypeSelect control={control} errors={errors} />
+      <ImageUpload control={control} />
 
       <button type="submit" disabled={isLoading}>
         {isLoading ? 'Creating...' : 'Create Product'}

@@ -2,7 +2,7 @@ import { editProduct } from '../../../redux/service';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductById } from '@redux/products/service';
 import { errorEditProduct, loadEditProduct, responseEditProduct } from '../../../redux/selectors';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Input, Textarea } from '@components/form-components';
 import { productSchema } from '../../../validations/productSchema';
@@ -11,9 +11,10 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { loadProductId, selectProductId } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
-import TypeCategorySelect from './TypeCategorySelect';
 import cl from './index.module.scss';
 import CategorySelect from './CategorySelect';
+import TypeSelect from './TypeSelect';
+import ImageUpload from './ImageUpload';
 
 const ProductEdit = () => {
   const location = useLocation();
@@ -108,40 +109,16 @@ const ProductEdit = () => {
           <Input type="number" labelText="Price:" name="price" register={register} errors={errors} />
           <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
           <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
-          <CategorySelect control={control} errors={errors} />
-          <Controller
-            control={control}
-            name="type_category"
-            defaultValue={responseGet && responseGet.type_category}
-            render={({ field: { value, onChange, ...field } }) => (
-              <TypeCategorySelect field={field} onChange={onChange} errors={errors} />
-            )}
-          />
-
           <Textarea labelText="Description (UK):" name="description_uk" register={register} errors={errors} />
           <Textarea labelText="Description (EN):" name="description_en" register={register} errors={errors} />
           <Textarea labelText="Ingredients:" name="ingredients" register={register} errors={errors} />
           <Textarea labelText="Application (UK):" name="application_uk" register={register} errors={errors} />
           <Textarea labelText="Application (EN):" name="application_en" register={register} errors={errors} />
-          <Controller
-            control={control}
-            name="upload_images"
-            render={({ field: { value, onChange, ...field } }) => (
-              <label>
-                Picture
-                <input
-                  {...field}
-                  multiple
-                  type="file"
-                  id="upload_images"
-                  onChange={(event) => {
-                    const files = Array.from(event.target.files);
-                    onChange(files);
-                  }}
-                />
-              </label>
-            )}
-          />
+
+          <CategorySelect control={control} errors={errors} />
+          <TypeSelect control={control} errors={errors} />
+          <ImageUpload control={control} />
+
           {responseGet && responseGet.images && responseGet.images.length > 0 && (
             <ul className={cl.images}>
               Images
