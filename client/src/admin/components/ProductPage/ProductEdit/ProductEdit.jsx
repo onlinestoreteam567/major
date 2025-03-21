@@ -5,7 +5,6 @@ import { errorEditProduct, loadEditProduct, responseEditProduct } from '../../..
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { productSchema } from '../../../validations/productSchema';
-import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { loadProductId, selectProductId } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
@@ -14,18 +13,9 @@ import ProductForm from '../ProductForm/ProductForm';
 import UploadedImages from './UploadedImages.jsx/UploadedImages';
 import handleFormData from './helpers/handleFormData';
 import setFormValues from './helpers/setFormValues';
+import useIdFromUrl from '@hooks/useId';
 
 const ProductEdit = () => {
-  const location = useLocation();
-  const id = location.pathname.split('/').pop();
-
-  const dispatch = useDispatch();
-
-  // Fetch product data for editing
-  useEffect(() => {
-    dispatch(getProductById(id));
-  }, [dispatch, id]);
-
   const {
     register,
     handleSubmit,
@@ -38,23 +28,29 @@ const ProductEdit = () => {
     mode: 'onSubmit',
   });
 
+  const id = useIdFromUrl();
+  const dispatch = useDispatch();
   const isLoadingGet = useSelector(loadProductId);
   const responseGet = useSelector(selectProductId);
-
   const isLoadingEdit = useSelector(loadEditProduct);
   const responseEdit = useSelector(responseEditProduct);
   const errorEdit = useSelector(errorEditProduct);
 
-  const onSubmit = (values) => {
-    const formData = handleFormData(values);
-    dispatch(editProduct({ formData, id }));
-  };
+  // Fetch product data for editing
+  useEffect(() => {
+    dispatch(getProductById(id));
+  }, [dispatch, id]);
 
   useEffect(() => {
     if (responseGet) {
       setFormValues(setValue, responseGet);
     }
   }, [responseGet, setValue]);
+
+  const onSubmit = (values) => {
+    const formData = handleFormData(values);
+    dispatch(editProduct({ formData, id }));
+  };
 
   return (
     <>

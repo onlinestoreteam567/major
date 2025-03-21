@@ -13,7 +13,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import useIdFromUrl from '@hooks/useId';
 
 const PurposeEdit = () => {
   const {
@@ -27,9 +27,7 @@ const PurposeEdit = () => {
     mode: 'onSubmit',
   });
 
-  const location = useLocation();
-  const id = location.pathname.split('/').pop();
-
+  const id = useIdFromUrl();
   const dispatch = useDispatch();
 
   useEffect(() => {
