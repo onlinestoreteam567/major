@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useRef, useState } from 'react';
 import cl from '../index.module.scss';
 import { handleInputCursorPosition, handleInputChange, handleKeyDown, handleInputDelete } from './eventHandlers';
 
-export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant, ...props }, ref) => {
+export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant, errors, ...props }, ref) => {
   const [inputsValue, setInputsValue] = useState('');
   const inputRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -57,6 +57,7 @@ export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant
           className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]}`}
         />
       </label>
+      {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
     </>
   );
 });

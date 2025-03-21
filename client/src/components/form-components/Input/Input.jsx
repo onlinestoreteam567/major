@@ -7,7 +7,7 @@ export function Input({ labelText, type = 'text', name, variant, register, error
 
       <input id={name} className={`${cl.input} ${cl[variant]}`} {...register(name)} type={type} {...rest} />
 
-      {errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
+      {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
     </label>
   );
 }

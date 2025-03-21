@@ -5,7 +5,7 @@ export function Textarea({ labelText, errors, name, variant, register, ...rest }
     <>
       <label htmlFor={name}>{labelText}</label>
       <textarea className={`${cl.textarea} ${cl[variant]}`} {...register(name)} {...rest} id={name} />
-      {errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
+      {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
     </>
   );
 }
