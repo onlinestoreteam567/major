@@ -11,9 +11,9 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { loadProductId, selectProductId } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
-import PurposeCategorySelect from './PurposeCategorySelect';
 import TypeCategorySelect from './TypeCategorySelect';
 import cl from './index.module.scss';
+import CategorySelect from './CategorySelect';
 
 const ProductEdit = () => {
   const location = useLocation();
@@ -108,14 +108,7 @@ const ProductEdit = () => {
           <Input type="number" labelText="Price:" name="price" register={register} errors={errors} />
           <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
           <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
-          <Controller
-            control={control}
-            name="purpose_category"
-            defaultValue={responseGet && responseGet.purpose_category}
-            render={({ field: { value, onChange, ...field } }) => (
-              <PurposeCategorySelect field={field} value={value} onChange={onChange} errors={errors} />
-            )}
-          />
+          <CategorySelect control={control} errors={errors} />
           <Controller
             control={control}
             name="type_category"

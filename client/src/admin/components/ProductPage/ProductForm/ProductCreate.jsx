@@ -6,8 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Input, Textarea } from '@components/form-components';
 import { productSchema } from '../../../validations/productSchema';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
-import PurposeCategorySelect from './PurposeCategorySelect';
 import TypeCategorySelect from './TypeCategorySelect';
+import CategorySelect from './CategorySelect';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -63,13 +63,13 @@ const ProductCreate = () => {
       <Input type="number" labelText="Price:" name="price" register={register} errors={errors} />
       <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
       <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
-      <Controller
-        control={control}
-        name="purpose_category"
-        render={({ field: { value, onChange, ...field } }) => (
-          <PurposeCategorySelect field={field} value={value} onChange={onChange} errors={errors} />
-        )}
-      />
+      <Textarea labelText="Description (UK):" name="description_uk" register={register} errors={errors} />
+      <Textarea labelText="Description (EN):" name="description_en" register={register} errors={errors} />
+      <Textarea labelText="Ingredients:" name="ingredients" register={register} errors={errors} />
+      <Textarea labelText="Application (UK):" name="application_uk" register={register} errors={errors} />
+      <Textarea labelText="Application (EN):" name="application_en" register={register} errors={errors} />
+
+      <CategorySelect control={control} errors={errors} />
       <Controller
         control={control}
         name="type_category"
@@ -77,12 +77,6 @@ const ProductCreate = () => {
           <TypeCategorySelect field={field} onChange={onChange} errors={errors} />
         )}
       />
-
-      <Textarea labelText="Description (UK):" name="description_uk" register={register} errors={errors} />
-      <Textarea labelText="Description (EN):" name="description_en" register={register} errors={errors} />
-      <Textarea labelText="Ingredients:" name="ingredients" register={register} errors={errors} />
-      <Textarea labelText="Application (UK):" name="application_uk" register={register} errors={errors} />
-      <Textarea labelText="Application (EN):" name="application_en" register={register} errors={errors} />
       <Controller
         control={control}
         name="upload_images"
