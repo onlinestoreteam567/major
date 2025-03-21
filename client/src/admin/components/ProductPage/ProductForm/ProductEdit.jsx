@@ -15,6 +15,7 @@ import cl from './index.module.scss';
 import CategorySelect from './CategorySelect';
 import TypeSelect from './TypeSelect';
 import ImageUpload from './ImageUpload';
+import ErrorText from '../../ErrorText/ErrorText';
 
 const ProductEdit = () => {
   const location = useLocation();
@@ -140,23 +141,13 @@ const ProductEdit = () => {
               ))}
             </ul>
           )}
+
           <button type="submit" disabled={isLoadingEdit}>
             {isLoadingEdit ? 'Зміна...' : 'Змінити'}
           </button>
           {/* Error handling */}
-          {errorEdit &&
-            Object.keys(errorEdit).map((key) => (
-              <div key={key} style={{ color: 'red' }}>
-                <strong>{key}:</strong>
-                <ul>
-                  {Array.isArray(errorEdit[key]) ? (
-                    errorEdit[key].map((message, index) => <li key={index}>{message}</li>)
-                  ) : (
-                    <li>{errorEdit[key]}</li>
-                  )}
-                </ul>
-              </div>
-            ))}
+          {errorEdit && <ErrorText error={errorEdit} />}
+
           {/* Success response */}
           {responseEdit && <p style={{ color: 'green' }}>Product added successfully!</p>}
         </form>

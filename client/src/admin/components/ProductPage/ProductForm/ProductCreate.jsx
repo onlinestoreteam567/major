@@ -9,6 +9,7 @@ import CheckBox from '@components/form-components/Checkbox/Checkbox';
 import CategorySelect from './CategorySelect';
 import TypeSelect from './TypeSelect';
 import ImageUpload from './ImageUpload';
+import ErrorText from '../../ErrorText/ErrorText';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -77,20 +78,7 @@ const ProductCreate = () => {
         {isLoading ? 'Creating...' : 'Create Product'}
       </button>
 
-      {/* Error handling */}
-      {errorPost &&
-        Object.keys(errorPost).map((key) => (
-          <div key={key} style={{ color: 'red' }}>
-            <strong>{key}:</strong>
-            <ul>
-              {Array.isArray(errorPost[key]) ? (
-                errorPost[key].map((message, index) => <li key={index}>{message}</li>)
-              ) : (
-                <li>{errorPost[key]}</li>
-              )}
-            </ul>
-          </div>
-        ))}
+      {errorPost && <ErrorText error={errorPost}></ErrorText>}
 
       {/* Success response */}
       {response && <p style={{ color: 'green' }}>Product added successfully!</p>}
