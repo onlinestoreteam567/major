@@ -14,6 +14,7 @@ import { searchReducer } from '@redux/products/searchSlice';
 import { authReducer } from '../admin/redux/authSlice';
 import { createProductReducer } from '../admin/redux/createProductSlice';
 import { editProductReducer } from '../admin/redux/editProductSlice';
+import { productDeleteReducer } from '../admin/redux/productDeleteSlice';
 import { createPurposeCategoryReducer } from '../admin/redux/createPurposeCategorySlice';
 import { createTypeCategoryReducer } from '../admin/redux/createTypeCategorySlice';
 import { purposeCategoryByIdReducer } from '../admin/redux/purposeCategoryByIdSlice';
@@ -46,6 +47,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   createProduct: createProductReducer,
   editProduct: editProductReducer,
+  productDelete: productDeleteReducer,
   createPurposeCategory: createPurposeCategoryReducer,
   createTypeCategory: createTypeCategoryReducer,
   purposeCategoryById: purposeCategoryByIdReducer,

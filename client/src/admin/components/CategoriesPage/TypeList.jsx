@@ -9,10 +9,10 @@ import { useEffect } from 'react';
 import { fetchTypes } from '@redux/params/service';
 
 const TypeList = () => {
+  const dispatch = useDispatch();
   const items = useSelector(selectTypes);
   const isLoading = useSelector(loadTypes);
   const isLoadingDelete = useSelector(loadTypeDelete);
-  const dispatch = useDispatch();
   const deleteResponse = useSelector(responseTypeDelete);
 
   useEffect(() => {

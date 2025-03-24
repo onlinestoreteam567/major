@@ -9,6 +9,10 @@ export const loadEditProduct = (state) => state.editProduct.isLoading;
 export const responseEditProduct = (state) => state.editProduct.response;
 export const errorEditProduct = (state) => state.editProduct.error;
 
+export const loadProductDelete = (state) => state.productDelete.isLoading;
+export const responseProductDelete = (state) => state.productDelete.response;
+export const errorProductDelete = (state) => state.productDelete.error;
+
 export const loadCreatePurposeCategory = (state) => state.createPurposeCategory.isLoading;
 export const responseCreatePurposeCategory = (state) => state.createPurposeCategory.response;
 export const errorCreatePurposeCategory = (state) => state.createPurposeCategory.error;
