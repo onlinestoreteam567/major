@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { promocodeSchema } from '../../validations/promocodeSchema';
+import ErrorText from '../ErrorText/ErrorText';
 
 const PromocodeCreate = () => {
   const {
@@ -31,20 +32,7 @@ const PromocodeCreate = () => {
       <button type="submit" disabled={isLoading}>
         {isLoading ? 'Створення промокоду...' : 'Створити промокод'}
       </button>
-
-      {errorPost &&
-        Object.keys(errorPost).map((key) => (
-          <div key={key} style={{ color: 'red' }}>
-            <strong>{key}:</strong>
-            <ul>
-              {Array.isArray(errorPost[key]) ? (
-                errorPost[key].map((message, index) => <li key={index}>{message}</li>)
-              ) : (
-                <li>{errorPost[key]}</li>
-              )}
-            </ul>
-          </div>
-        ))}
+      {errorPost && <ErrorText error={errorPost} />}
       {response && <p style={{ color: 'green' }}>Промокод усішно створено!</p>}
     </form>
   );

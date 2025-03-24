@@ -14,6 +14,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import useIdFromUrl from '@hooks/useId';
 import { promocodeSchema } from '../../validations/promocodeSchema';
+import ErrorText from '../ErrorText/ErrorText';
 
 const PromocodeEdit = () => {
   const {
@@ -65,20 +66,7 @@ const PromocodeEdit = () => {
       <button type="submit" disabled={isLoadingEdit}>
         {isLoadingEdit ? 'Редагування категорії за типом...' : 'Редагувати категорію за типом'}
       </button>
-      {errorEdit &&
-        Object.keys(errorEdit).map((key) => (
-          <div key={key} style={{ color: 'red' }}>
-            <strong>{key}:</strong>
-            <ul>
-              {Array.isArray(errorEdit[key]) ? (
-                errorEdit[key].map((message, index) => <li key={index}>{message}</li>)
-              ) : (
-                <li>{errorEdit[key]}</li>
-              )}
-            </ul>
-          </div>
-        ))}
-
+      {errorEdit && <ErrorText error={errorEdit} />}
       {responseEdit && <p style={{ color: 'green' }}>Product added successfully!</p>}
     </form>
   );
