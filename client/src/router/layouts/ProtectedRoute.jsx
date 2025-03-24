@@ -24,13 +24,7 @@ const ProtectedRoute = () => {
     }
   }, [auth, i18n.language, dispatch]);
 
-  return auth ? (
-    <section className="ro">
-      <Outlet />
-    </section>
-  ) : (
-    <Navigate to="/admin/login" replace />
-  );
+  return auth ? <Outlet /> : <Navigate to="/admin/login" replace />;
 };
 
 export default ProtectedRoute;
