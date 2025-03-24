@@ -25,6 +25,7 @@ import CategoriesManagement from '../admin/components/CategoriesPage/CategoriesM
 import CategoryCreate from '../admin/components/CategoriesPage/CategoryCreate';
 import PurposeEdit from '../admin/components/CategoriesPage/PurposeEdit';
 import TypeEdit from '../admin/components/CategoriesPage/TypeEdit';
+import PromocodeManagement from '../admin/components/PromocodeManagement/PromocodeManagement';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -69,6 +70,8 @@ const router = createBrowserRouter([
       { path: 'categories/create', element: <CategoryCreate /> },
       { path: 'type/:id', element: <TypeEdit /> },
       { path: 'purpose-categories/:id', element: <PurposeEdit /> },
+
+      { path: 'promocodes', element: <PromocodeManagement /> },
     ],
   },
   { path: '/admin/login', element: <AdminLoginPage /> },

@@ -5,6 +5,7 @@ const AdminPage = () => {
     <nav style={{ color: 'black' }}>
       <NavLink to={`/admin/products`}>Товари</NavLink>
       <NavLink to={`/admin/categories`}>Категорії</NavLink>
+      <NavLink to={`/admin/promocodes`}>Промокоди</NavLink>
     </nav>
   );
 };

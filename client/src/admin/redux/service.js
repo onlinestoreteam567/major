@@ -5,6 +5,7 @@ const VITE_AUTH_TOKEN_ENDPOINT = import.meta.env.VITE_AUTH_TOKEN_ENDPOINT;
 const PRODUCT_LIST_ENDPOINT = import.meta.env.VITE_PRODUCT_LIST_ENDPOINT;
 const CATEGORY_ENDPOINT = import.meta.env.VITE_CATEGORY_ENDPOINT;
 const TYPE_ENDPOINT = import.meta.env.VITE_TYPE_ENDPOINT;
+const PROMOCODE_ENDPOINT = import.meta.env.VITE_PROMOCODE_ENDPOINT;
 
 export const fetchAuthToken = createAsyncThunk('auth/fetchToken', async ({ email, password }, thunkAPI) => {
   try {
@@ -144,5 +145,15 @@ export const deleteType = createAsyncThunk('type/delete', async (id, thunkAPI) =
   } catch (error) {
     console.error('Error in deleting type:', error);
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});
+
+export const fetchPromocode = createAsyncThunk('promocode/getAll', async (_, thunkAPI) => {
+  try {
+    const { data } = await apiClient.get(PROMOCODE_ENDPOINT);
+    return data;
+  } catch (error) {
+    // console.log(error.message);
+    return thunkAPI.rejectWithValue(error.message);
   }
 });

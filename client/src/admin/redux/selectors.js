@@ -40,3 +40,7 @@ export const errorTypeEdit = (state) => state.typeEdit.error;
 export const loadTypeDelete = (state) => state.typeDelete.isLoading;
 export const responseTypeDelete = (state) => state.typeDelete.response;
 export const errorTypeDelete = (state) => state.typeDelete.error;
+
+export const loadPromocodeList = (state) => state.promocodeList.isLoading;
+export const responsePromocodeList = (state) => state.promocodeList.response;
+export const errorPromocodeList = (state) => state.promocodeList.error;
