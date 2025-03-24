@@ -188,3 +188,15 @@ export const editPromocode = createAsyncThunk('promocode/edit', async ({ formDat
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
+
+export const deletePromocode = createAsyncThunk('promocode/delete', async (id, thunkAPI) => {
+  try {
+    const response = await apiClient.delete(`${PROMOCODE_ENDPOINT}/${id}/`);
+
+    console.log('type deleted:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in deleting type:', error);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});

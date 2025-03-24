@@ -56,3 +56,7 @@ export const errorPromocodeById = (state) => state.promocodeById.error;
 export const loadPromocodeEdit = (state) => state.promocodeEdit.isLoading;
 export const responsePromocodeEdit = (state) => state.promocodeEdit.response;
 export const errorPromocodeEdit = (state) => state.promocodeEdit.error;
+
+export const loadPromocodeDelete = (state) => state.promocodeDelete.isLoading;
+export const responsePromocodeDelete = (state) => state.promocodeDelete.response;
+export const errorPromocodeDelete = (state) => state.promocodeDelete.error;
