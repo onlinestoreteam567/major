@@ -28,7 +28,7 @@ const PromocodeCreate = () => {
     <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
       <Input labelText="Промокод:" name="code" register={register} errors={errors} />
       <Input type="number" labelText="Знижка:" name="discount_percent" register={register} errors={errors} />
-      <input type="date" name="expires_at" {...register('expires_at')} />
+      <Input type="date" labelText="Термін дії до:" name="expires_at" register={register} errors={errors} />
       <button type="submit" disabled={isLoading}>
         {isLoading ? 'Створення промокоду...' : 'Створити промокод'}
       </button>
