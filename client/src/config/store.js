@@ -22,6 +22,11 @@ import { purposeDeleteReducer } from '../admin/redux/purposeDeleteSlice';
 import { typeByIdReducer } from '../admin/redux/typeByIdSlice';
 import { typeEditReducer } from '../admin/redux/typeEditSlice';
 import { typeDeleteReducer } from '../admin/redux/typeDeleteSlice';
+import { promocodeListReducer } from '../admin/redux/promocodeListSlice';
+import { promocodeCreateReducer } from '../admin/redux/promocodeCreateSlice';
+import { promocodeByIdReducer } from '../admin/redux/promocodeByIdSlice';
+import { promocodeEditReducer } from '../admin/redux/promocodeEditSlice';
+import { promocodeDeleteReducer } from '../admin/redux/promocodeDeleteSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -54,6 +59,11 @@ const rootReducer = combineReducers({
   typeById: typeByIdReducer,
   typeEdit: typeEditReducer,
   typeDelete: typeDeleteReducer,
+  promocodeList: promocodeListReducer,
+  promocodeCreate: promocodeCreateReducer,
+  promocodeById: promocodeByIdReducer,
+  promocodeEdit: promocodeEditReducer,
+  promocodeDelete: promocodeDeleteReducer,
 });
 
 export const store = configureStore({

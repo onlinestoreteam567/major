@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { fetchBestSellers, fetchProductsAll, fetchSets } from '@redux/products/service';
 import { fetchCategories, fetchTypes } from '@redux/params/service';
+import { fetchPromocode } from '../../admin/redux/service';
 
 const ProtectedRoute = () => {
   const auth = useSelector(selectAccessToken);
@@ -19,6 +20,7 @@ const ProtectedRoute = () => {
       dispatch(fetchSets());
       dispatch(fetchTypes());
       dispatch(fetchCategories());
+      dispatch(fetchPromocode());
     }
   }, [auth, i18n.language, dispatch]);
 

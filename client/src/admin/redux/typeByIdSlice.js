@@ -11,7 +11,7 @@ const handleRejected = (state, action) => {
 };
 
 const typeByIdSlice = createSlice({
-  name: 'purposeById',
+  name: 'typeById',
   initialState: {
     categoryId: {},
     isLoading: false,
