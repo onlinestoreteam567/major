@@ -24,6 +24,8 @@ import { typeEditReducer } from '../admin/redux/typeEditSlice';
 import { typeDeleteReducer } from '../admin/redux/typeDeleteSlice';
 import { promocodeListReducer } from '../admin/redux/promocodeListSlice';
 import { promocodeCreateReducer } from '../admin/redux/promocodeCreateSlice';
+import { promocodeByIdReducer } from '../admin/redux/promocodeByIdSlice';
+import { promocodeEditReducer } from '../admin/redux/promocodeEditSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -58,6 +60,8 @@ const rootReducer = combineReducers({
   typeDelete: typeDeleteReducer,
   promocodeList: promocodeListReducer,
   promocodeCreate: promocodeCreateReducer,
+  promocodeById: promocodeByIdReducer,
+  promocodeEdit: promocodeEditReducer,
 });
 
 export const store = configureStore({

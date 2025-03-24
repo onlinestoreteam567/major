@@ -1,34 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { editType } from './service';
+import { getPromocodeById } from './service';
 
 const handlePending = (state) => {
   state.isLoading = true;
-  state.error = null;
-  state.response = null;
 };
 
 const handleRejected = (state, action) => {
-  state.response = null;
   state.isLoading = false;
   state.error = action.payload;
 };
 
-const typeEditSlice = createSlice({
-  name: 'typeEdit',
+const promocodeByIdSlice = createSlice({
+  name: 'promocodeById',
   initialState: {
     response: null,
     isLoading: false,
     error: null,
   },
+
   extraReducers: (builder) =>
     builder
-      .addCase(editType.pending, handlePending)
-      .addCase(editType.fulfilled, (state, action) => {
+      .addCase(getPromocodeById.pending, handlePending)
+      .addCase(getPromocodeById.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.response = action.payload;
       })
-      .addCase(editType.rejected, handleRejected),
+      .addCase(getPromocodeById.rejected, handleRejected),
 });
 
-export const typeEditReducer = typeEditSlice.reducer;
+export const promocodeByIdReducer = promocodeByIdSlice.reducer;

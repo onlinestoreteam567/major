@@ -21,7 +21,7 @@ const List = () => {
                 <p>Відсоток знижки: {promocode.discount_percent}</p>
                 <p>Термін дії закінчиться: {promocode.expires_at}</p>
                 <p>Чи активний {promocode.is_active ? 'Так' : 'Ні'}</p>
-                <Link to={`/admin/products/${promocode.id}`}>Редагувати</Link>
+                <Link to={`/admin/promocodes/${promocode.id}`}>Редагувати</Link>
               </li>
             ))}
         </ul>

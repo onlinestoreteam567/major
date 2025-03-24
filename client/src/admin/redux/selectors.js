@@ -48,3 +48,11 @@ export const errorPromocodeList = (state) => state.promocodeList.error;
 export const loadPromocodeCreate = (state) => state.promocodeCreate.isLoading;
 export const responsePromocodeCreate = (state) => state.promocodeCreate.response;
 export const errorPromocodeCreate = (state) => state.promocodeCreate.error;
+
+export const loadPromocodeById = (state) => state.promocodeById.isLoading;
+export const responsePromocodeById = (state) => state.promocodeById.response;
+export const errorPromocodeById = (state) => state.promocodeById.error;
+
+export const loadPromocodeEdit = (state) => state.promocodeEdit.isLoading;
+export const responsePromocodeEdit = (state) => state.promocodeEdit.response;
+export const errorPromocodeEdit = (state) => state.promocodeEdit.error;
