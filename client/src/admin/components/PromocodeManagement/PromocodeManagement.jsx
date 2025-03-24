@@ -6,7 +6,7 @@ const PromocodeManagement = () => {
   return (
     <div className={cl.promocodeManagement}>
       <div>
-        <Link to={`/admin/promocode/create`}>+</Link>
+        <Link to={`/admin/promocodes/create`}>+</Link>
       </div>
       <List />
     </div>

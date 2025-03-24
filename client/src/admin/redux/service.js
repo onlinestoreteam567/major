@@ -153,7 +153,17 @@ export const fetchPromocode = createAsyncThunk('promocode/getAll', async (_, thu
     const { data } = await apiClient.get(PROMOCODE_ENDPOINT);
     return data;
   } catch (error) {
-    // console.log(error.message);
     return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const createPromocode = createAsyncThunk('promocode/post', async (formData, thunkAPI) => {
+  try {
+    const response = await apiClient.post(`${PROMOCODE_ENDPOINT}/`, formData);
+    console.log('Promocode created:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in creating product:', error);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
