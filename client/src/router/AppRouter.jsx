@@ -15,6 +15,8 @@ import ErrorBoundary from './error/ErrorBoundary'; // A component to handle erro
 import FormTest from './testСomponents/FormTest';
 import NotFound from '@components/helpers/NotFound';
 import Loading from '@components/helpers/Loading';
+
+// Protected Route (Admin)
 import ProtectedRoute from './layouts/ProtectedRoute';
 import AdminLoginPage from '../admin/components/AdminLoginPage/AdminLoginPage';
 import AdminPage from '../admin/components/AdminPage/AdminPage';
@@ -25,6 +27,9 @@ import CategoriesManagement from '../admin/components/CategoriesPage/CategoriesM
 import CategoryCreate from '../admin/components/CategoriesPage/CategoryCreate';
 import PurposeEdit from '../admin/components/CategoriesPage/PurposeEdit';
 import TypeEdit from '../admin/components/CategoriesPage/TypeEdit';
+import PromocodeManagement from '../admin/components/PromocodeManagement/PromocodeManagement';
+import PromocodeCreate from '../admin/components/PromocodeManagement/PromocodeCreate';
+import PromocodeEdit from '../admin/components/PromocodeManagement/PromocodeEdit';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -69,6 +74,10 @@ const router = createBrowserRouter([
       { path: 'categories/create', element: <CategoryCreate /> },
       { path: 'type/:id', element: <TypeEdit /> },
       { path: 'purpose-categories/:id', element: <PurposeEdit /> },
+
+      { path: 'promocodes', element: <PromocodeManagement /> },
+      { path: 'promocodes/create', element: <PromocodeCreate /> },
+      { path: 'promocodes/:id', element: <PromocodeEdit /> },
     ],
   },
   { path: '/admin/login', element: <AdminLoginPage /> },

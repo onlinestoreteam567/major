@@ -1,0 +1,10 @@
+@import '@mixins';
+
+.list {
+  @include flexGap(20px, row);
+  color: black;
+
+  li {
+    @include flexGap(20px, column);
+  }
+}

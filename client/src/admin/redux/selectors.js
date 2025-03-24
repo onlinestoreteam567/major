@@ -44,3 +44,23 @@ export const errorTypeEdit = (state) => state.typeEdit.error;
 export const loadTypeDelete = (state) => state.typeDelete.isLoading;
 export const responseTypeDelete = (state) => state.typeDelete.response;
 export const errorTypeDelete = (state) => state.typeDelete.error;
+
+export const loadPromocodeList = (state) => state.promocodeList.isLoading;
+export const responsePromocodeList = (state) => state.promocodeList.response;
+export const errorPromocodeList = (state) => state.promocodeList.error;
+
+export const loadPromocodeCreate = (state) => state.promocodeCreate.isLoading;
+export const responsePromocodeCreate = (state) => state.promocodeCreate.response;
+export const errorPromocodeCreate = (state) => state.promocodeCreate.error;
+
+export const loadPromocodeById = (state) => state.promocodeById.isLoading;
+export const responsePromocodeById = (state) => state.promocodeById.response;
+export const errorPromocodeById = (state) => state.promocodeById.error;
+
+export const loadPromocodeEdit = (state) => state.promocodeEdit.isLoading;
+export const responsePromocodeEdit = (state) => state.promocodeEdit.response;
+export const errorPromocodeEdit = (state) => state.promocodeEdit.error;
+
+export const loadPromocodeDelete = (state) => state.promocodeDelete.isLoading;
+export const responsePromocodeDelete = (state) => state.promocodeDelete.response;
+export const errorPromocodeDelete = (state) => state.promocodeDelete.error;
