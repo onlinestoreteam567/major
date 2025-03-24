@@ -1,5 +1,5 @@
 import cl from './index.module.scss';
-import List from './List/List.jsx';
+import List from './PromocodeList/PromocodeList.jsx';
 import { Link } from 'react-router-dom';
 
 const PromocodeManagement = () => {
