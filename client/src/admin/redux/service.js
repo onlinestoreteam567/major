@@ -49,6 +49,17 @@ export const editProduct = createAsyncThunk('product/edit', async ({ formData, i
   }
 });
 
+export const deleteProduct = createAsyncThunk('product/delete', async (id, thunkAPI) => {
+  try {
+    const response = await apiClient.delete(`${PRODUCT_LIST_ENDPOINT}/${id}/`);
+    console.log('product deleted:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in deleting product:', error);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});
+
 export const getPurposeCategoryById = createAsyncThunk('purposeCategory/getById', async (id, thunkAPI) => {
   try {
     const endpoint = `${CATEGORY_ENDPOINT}/${id}`;
