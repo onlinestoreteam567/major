@@ -1,10 +1,10 @@
 import { Controller } from 'react-hook-form';
 
-const ImageUpload = ({ control }) => {
+const ImageUpload = ({ control, name }) => {
   return (
     <Controller
       control={control}
-      name="upload_images"
+      name={name}
       render={({ field: { value, onChange, ...field } }) => (
         <label>
           Фото
@@ -12,7 +12,7 @@ const ImageUpload = ({ control }) => {
             {...field}
             multiple
             type="file"
-            id="upload_images"
+            id={name}
             onChange={(event) => {
               const files = Array.from(event.target.files);
               onChange(files);

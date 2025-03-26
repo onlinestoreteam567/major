@@ -24,7 +24,7 @@ const ProductForm = ({ register, errors, control }) => {
 
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
-      <ImageUpload control={control} />
+      <ImageUpload control={control} name="upload_images" />
     </>
   );
 };

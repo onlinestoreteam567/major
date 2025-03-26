@@ -25,7 +25,7 @@ import ProductCreate from '../admin/components/ProductPage/ProductCreate/Product
 import ProductEdit from '../admin/components/ProductPage/ProductEdit/ProductEdit';
 import CategoriesManagement from '../admin/components/CategoriesPage/CategoriesManagement';
 import CategoryCreate from '../admin/components/CategoriesPage/CategoryCreate';
-import PurposeEdit from '../admin/components/CategoriesPage/PurposeEdit';
+import PurposeEdit from '../admin/components/CategoriesPage/PurposeEdit/PurposeEdit';
 import TypeEdit from '../admin/components/CategoriesPage/TypeEdit';
 import PromocodeManagement from '../admin/components/PromocodeManagement/PromocodeManagement';
 import PromocodeCreate from '../admin/components/PromocodeManagement/PromocodeCreate';

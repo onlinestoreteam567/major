@@ -10,7 +10,7 @@ import { loadProductId, selectProductId } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
 import ErrorText from '../../ErrorText/ErrorText';
 import ProductForm from '../ProductForm/ProductForm';
-import UploadedImages from './UploadedImages.jsx/UploadedImages';
+import UploadedImages from '../../UploadedImages/UploadedImages';
 import handleFormData from './helpers/handleFormData';
 import setFormValues from './helpers/setFormValues';
 import useIdFromUrl from '@hooks/useId';
