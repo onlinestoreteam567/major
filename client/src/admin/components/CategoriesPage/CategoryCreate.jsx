@@ -1,12 +1,12 @@
 import cl from './index.module.scss';
 import PurposeCreate from './PurposeCreate/PurposeCreate';
-import TypeForm from './TypeForm';
+import TypeCreate from './TypeCreate/TypeCreate';
 
 const CategoryCreate = () => {
   return (
     <div className={cl.categories}>
       <PurposeCreate />
-      <TypeForm />
+      <TypeCreate />
     </div>
   );
 };
