@@ -7,7 +7,7 @@ const ImageUpload = ({ control }) => {
       name="upload_images"
       render={({ field: { value, onChange, ...field } }) => (
         <label>
-          Picture
+          Фото
           <input
             {...field}
             multiple

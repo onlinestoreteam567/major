@@ -14,6 +14,9 @@ import UploadedImages from './UploadedImages.jsx/UploadedImages';
 import handleFormData from './helpers/handleFormData';
 import setFormValues from './helpers/setFormValues';
 import useIdFromUrl from '@hooks/useId';
+import SuccessMessage from '../../SuccessMessage/SuccessMessage';
+import LoadingButton from '../../LoadingButton/LoadingButton';
+import cl from './index.module.scss';
 
 const ProductEdit = () => {
   const {
@@ -40,11 +43,8 @@ const ProductEdit = () => {
   useEffect(() => {
     dispatch(getProductById(id));
   }, [dispatch, id]);
-
   useEffect(() => {
-    if (responseGet) {
-      setFormValues(setValue, responseGet);
-    }
+    if (responseGet) setFormValues(setValue, responseGet);
   }, [responseGet, setValue]);
 
   const onSubmit = (values) => {
@@ -55,16 +55,14 @@ const ProductEdit = () => {
   return isLoadingGet ? (
     <Spinner />
   ) : (
-    <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
+    <form className={cl.productEdit} onSubmit={handleSubmit(onSubmit)}>
       <ProductForm register={register} errors={errors} control={control} />
       {responseGet && responseGet.images && responseGet.images.length > 0 && (
         <UploadedImages images={responseGet.images} setValue={setValue} getValues={getValues} />
       )}
-      <button type="submit" disabled={isLoadingEdit}>
-        {isLoadingEdit ? 'Зміна...' : 'Змінити'}
-      </button>
+      <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити" />
       {errorEdit && <ErrorText error={errorEdit} />}
-      {responseEdit && <p style={{ color: 'green' }}>Товар успішно відредаговано!</p>}
+      {responseEdit && <SuccessMessage>Товар успішно відредаговано!</SuccessMessage>}
     </form>
   );
 };

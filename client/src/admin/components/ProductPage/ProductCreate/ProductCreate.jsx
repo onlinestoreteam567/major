@@ -5,7 +5,10 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { productSchema } from '../../../validations/productSchema';
 import ErrorText from '../../ErrorText/ErrorText';
-import ProductForm from './ProductForm';
+import ProductForm from '../ProductForm/ProductForm';
+import cl from './index.module.scss';
+import LoadingButton from '../../LoadingButton/LoadingButton';
+import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -50,13 +53,11 @@ const ProductCreate = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
+    <form onSubmit={handleSubmit(onSubmit)} className={cl.productCreate}>
       <ProductForm register={register} errors={errors} control={control} />
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? 'Creating...' : 'Create Product'}
-      </button>
+      <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити товар" />
       {errorPost && <ErrorText error={errorPost}></ErrorText>}
-      {response && <p style={{ color: 'green' }}>Успішно створено товар!</p>}
+      {response && <SuccessMessage>Товар успішно створено!</SuccessMessage>}
     </form>
   );
 };

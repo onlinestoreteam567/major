@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.productEdit {
+.productCreate {
   @include flex(column, null, null);
   color: black;
 }
