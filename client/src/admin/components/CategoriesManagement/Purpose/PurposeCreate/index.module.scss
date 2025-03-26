@@ -1,0 +1,6 @@
+@import '@mixins';
+
+.purposeCreate {
+  @include flex(column, null, null);
+  color: black;
+}

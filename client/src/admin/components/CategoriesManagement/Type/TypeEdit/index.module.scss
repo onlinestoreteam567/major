@@ -1,0 +1,6 @@
+@import '@mixins';
+
+.typeEdit {
+  @include flex(column, null, null);
+  color: black;
+}

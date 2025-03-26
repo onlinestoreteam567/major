@@ -1,0 +1,6 @@
+@import '@mixins';
+
+.promocodeCreate {
+  @include flex(column, null, null);
+  color: black;
+}

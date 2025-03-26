@@ -1,0 +1,6 @@
+@import '@mixins';
+
+.purposeEdit {
+  @include flex(column, null, null);
+  color: black;
+}

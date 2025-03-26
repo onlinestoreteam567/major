@@ -1,0 +1,6 @@
+@import '@mixins';
+
+.productCreate {
+  @include flex(column, null, null);
+  color: black;
+}
