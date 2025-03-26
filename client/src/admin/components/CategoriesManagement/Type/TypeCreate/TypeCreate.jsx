@@ -1,14 +1,18 @@
-import { typeSchema } from '../../../validations/typeSchema';
-import { errorCreateTypeCategory, loadCreateTypeCategory, responseCreateTypeCategory } from '../../../redux/selectors';
-import { createTypeCategory } from '../../../redux/service';
+import { typeSchema } from '../../../../validations/typeSchema';
+import {
+  errorCreateTypeCategory,
+  loadCreateTypeCategory,
+  responseCreateTypeCategory,
+} from '../../../../redux/selectors';
+import { createTypeCategory } from '../../../../redux/service';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import cl from './index.module.scss';
 import TypeForm from '../TypeForm';
-import LoadingButton from '../../LoadingButton/LoadingButton';
-import ErrorText from '../../ErrorText/ErrorText';
-import SuccessMessage from '../../SuccessMessage/SuccessMessage';
+import LoadingButton from '../../../LoadingButton/LoadingButton';
+import ErrorText from '../../../ErrorText/ErrorText';
+import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
 
 const TypeCreate = () => {
   const {

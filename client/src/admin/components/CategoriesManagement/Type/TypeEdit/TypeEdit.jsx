@@ -5,17 +5,17 @@ import {
   loadTypeEdit,
   responseTypeById,
   responseTypeEdit,
-} from '../../../redux/selectors';
-import { editType, getTypeCategoryById } from '../../../redux/service';
+} from '../../../../redux/selectors';
+import { editType, getTypeCategoryById } from '../../../../redux/service';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { typeSchema } from '../../../validations/typeSchema';
+import { typeSchema } from '../../../../validations/typeSchema';
 import useIdFromUrl from '@hooks/useId';
-import SuccessMessage from '../../SuccessMessage/SuccessMessage';
-import ErrorText from '../../ErrorText/ErrorText';
-import LoadingButton from '../../LoadingButton/LoadingButton';
+import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
+import ErrorText from '../../../ErrorText/ErrorText';
+import LoadingButton from '../../../LoadingButton/LoadingButton';
 import TypeForm from '../TypeForm';
 import cl from './index.module.scss';
 

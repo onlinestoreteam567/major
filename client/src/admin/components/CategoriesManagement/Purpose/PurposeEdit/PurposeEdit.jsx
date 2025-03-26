@@ -5,20 +5,20 @@ import {
   loadPurposeEdit,
   responsePurposeById,
   responsePurposeEdit,
-} from '../../../redux/selectors';
-import { editPurpose, getPurposeCategoryById } from '../../../redux/service';
-import { categorySchema } from '../../../validations/categorySchema';
+} from '../../../../redux/selectors';
+import { editPurpose, getPurposeCategoryById } from '../../../../redux/service';
+import { categorySchema } from '../../../../validations/categorySchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import useIdFromUrl from '@hooks/useId';
 import cl from './index.module.scss';
-import SuccessMessage from '../../SuccessMessage/SuccessMessage';
-import ErrorText from '../../ErrorText/ErrorText';
-import LoadingButton from '../../LoadingButton/LoadingButton';
+import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
+import ErrorText from '../../../ErrorText/ErrorText';
+import LoadingButton from '../../../LoadingButton/LoadingButton';
 import PurposeForm from '../PurposeForm';
-import UploadedImage from '../../UploadedImage/UploadedImage';
+import UploadedImage from '../../../UploadedImage/UploadedImage';
 
 const PurposeEdit = () => {
   const {

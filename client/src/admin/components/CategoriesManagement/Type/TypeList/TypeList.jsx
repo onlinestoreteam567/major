@@ -3,8 +3,8 @@ import cl from './index.module.scss';
 import { loadTypes, selectTypes } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteType } from '../../redux/service';
-import { loadTypeDelete, responseTypeDelete } from '../../redux/selectors';
+import { deleteType } from '../../../../redux/service';
+import { loadTypeDelete, responseTypeDelete } from '../../../../redux/selectors';
 import { useEffect } from 'react';
 import { fetchTypes } from '@redux/params/service';
 
@@ -32,7 +32,7 @@ const TypeList = () => {
       {isLoading || isLoadingDelete ? (
         <Spinner />
       ) : (
-        <ul className={cl.list}>
+        <ul className={cl.typeList}>
           {items.map((type) => (
             <li key={type.id}>
               <p>{type.name}</p>

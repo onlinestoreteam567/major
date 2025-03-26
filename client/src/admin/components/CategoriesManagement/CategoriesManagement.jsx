@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 import { Link } from 'react-router-dom';
-import PurposeList from './PurposeList';
-import TypeList from './TypeList';
+import PurposeList from './Purpose/PurposeList/PurposeList';
+import TypeList from './Type/TypeList/TypeList';
 
 const CategoriesManagement = () => {
   // todo Implement logic to fetch both categories for production version

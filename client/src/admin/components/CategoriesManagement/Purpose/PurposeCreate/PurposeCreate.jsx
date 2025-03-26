@@ -2,15 +2,15 @@ import {
   errorCreatePurposeCategory,
   loadCreatePurposeCategory,
   responseCreatePurposeCategory,
-} from '../../../redux/selectors';
-import { createPurposeCategory } from '../../../redux/service';
-import { categorySchema } from '../../../validations/categorySchema';
+} from '../../../../redux/selectors';
+import { createPurposeCategory } from '../../../../redux/service';
+import { categorySchema } from '../../../../validations/categorySchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import SuccessMessage from '../../SuccessMessage/SuccessMessage';
-import ErrorText from '../../ErrorText/ErrorText';
-import LoadingButton from '../../LoadingButton/LoadingButton';
+import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
+import ErrorText from '../../../ErrorText/ErrorText';
+import LoadingButton from '../../../LoadingButton/LoadingButton';
 import PurposeForm from '../PurposeForm';
 import cl from './index.module.scss';
 

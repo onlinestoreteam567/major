@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
-import PurposeCreate from './PurposeCreate/PurposeCreate';
-import TypeCreate from './TypeCreate/TypeCreate';
+import PurposeCreate from './Purpose/PurposeCreate/PurposeCreate';
+import TypeCreate from './Type/TypeCreate/TypeCreate';
 
 const CategoryCreate = () => {
   return (

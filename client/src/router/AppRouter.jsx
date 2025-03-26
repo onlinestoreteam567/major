@@ -20,16 +20,16 @@ import Loading from '@components/helpers/Loading';
 import ProtectedRoute from './layouts/ProtectedRoute';
 import AdminLoginPage from '../admin/components/AdminLoginPage/AdminLoginPage';
 import AdminPage from '../admin/components/AdminPage/AdminPage';
-import ProductManagement from '../admin/components/ProductPage/ProductManagement';
-import ProductCreate from '../admin/components/ProductPage/ProductCreate/ProductCreate';
-import ProductEdit from '../admin/components/ProductPage/ProductEdit/ProductEdit';
-import CategoriesManagement from '../admin/components/CategoriesPage/CategoriesManagement';
-import CategoryCreate from '../admin/components/CategoriesPage/CategoryCreate';
-import PurposeEdit from '../admin/components/CategoriesPage/PurposeEdit/PurposeEdit';
-import TypeEdit from '../admin/components/CategoriesPage/TypeEdit/TypeEdit';
+import ProductManagement from '../admin/components/ProductManagement/ProductManagement';
+import ProductCreate from '../admin/components/ProductManagement/ProductCreate/ProductCreate';
+import ProductEdit from '../admin/components/ProductManagement/ProductEdit/ProductEdit';
+import CategoriesManagement from '../admin/components/CategoriesManagement/CategoriesManagement';
+import CategoryCreate from '../admin/components/CategoriesManagement/CategoryCreate';
+import PurposeEdit from '../admin/components/CategoriesManagement/Purpose/PurposeEdit/PurposeEdit';
+import TypeEdit from '../admin/components/CategoriesManagement/Type/TypeEdit/TypeEdit';
 import PromocodeManagement from '../admin/components/PromocodeManagement/PromocodeManagement';
-import PromocodeCreate from '../admin/components/PromocodeManagement/PromocodeCreate';
-import PromocodeEdit from '../admin/components/PromocodeManagement/PromocodeEdit';
+import PromocodeCreate from '../admin/components/PromocodeManagement/PromocodeCreate/PromocodeCreate';
+import PromocodeEdit from '../admin/components/PromocodeManagement/PromocodeEdit/PromocodeEdit';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));

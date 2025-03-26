@@ -5,16 +5,19 @@ import {
   loadPromocodeEdit,
   responsePromocodeById,
   responsePromocodeEdit,
-} from '../../redux/selectors';
-import { editPromocode, getPromocodeById } from '../../redux/service';
-import { Input } from '@components/form-components';
+} from '../../../redux/selectors';
+import { editPromocode, getPromocodeById } from '../../../redux/service';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import useIdFromUrl from '@hooks/useId';
-import { promocodeSchema } from '../../validations/promocodeSchema';
-import ErrorText from '../ErrorText/ErrorText';
+import { promocodeSchema } from '../../../validations/promocodeSchema';
+import ErrorText from '../../ErrorText/ErrorText';
+import LoadingButton from '../../LoadingButton/LoadingButton';
+import PromocodeForm from '../PromocodeForm';
+import cl from './index.module.scss';
+import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 
 const PromocodeEdit = () => {
   const {
@@ -51,23 +54,23 @@ const PromocodeEdit = () => {
     }
   }, [responseGet, id, setValue]);
 
-  const onSubmit = (formData) => {
-    dispatch(editPromocode({ formData, id }));
-  };
+  const onSubmit = (formData) => dispatch(editPromocode({ formData, id }));
 
   return isLoadingGet ? (
     <Spinner />
   ) : (
-    <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
-      <Input labelText="Промокод:" name="code" register={register} errors={errors} />
-      <Input type="number" labelText="Знижка:" name="discount_percent" register={register} errors={errors} />
-      <input type="date" name="expires_at" {...register('expires_at')} />
-
+    <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeEdit}>
+      <PromocodeForm register={register} errors={errors} />
+      <LoadingButton
+        isLoading={isLoadingEdit}
+        loadingText="Редагування категорії за типом..."
+        defaultText="Редагувати категорію за типом"
+      />
       <button type="submit" disabled={isLoadingEdit}>
         {isLoadingEdit ? 'Редагування категорії за типом...' : 'Редагувати категорію за типом'}
       </button>
       {errorEdit && <ErrorText error={errorEdit} />}
-      {responseEdit && <p style={{ color: 'green' }}>Product added successfully!</p>}
+      {responseEdit && <SuccessMessage>Промокод успішно змінено!</SuccessMessage>}
     </form>
   );
 };
