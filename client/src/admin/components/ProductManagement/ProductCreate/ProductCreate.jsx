@@ -18,7 +18,6 @@ const ProductCreate = () => {
     handleSubmit,
     formState: { errors },
     control,
-    getValues,
   } = useForm({
     resolver: yupResolver(productSchema),
     mode: 'onSubmit',
@@ -59,7 +58,6 @@ const ProductCreate = () => {
       <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити товар" />
       {errorPost && <ErrorText error={errorPost}></ErrorText>}
       {response && <SuccessMessage>Товар успішно створено!</SuccessMessage>}
-      <button onClick={() => console.log(getValues())}>getvalues</button>
     </form>
   );
 };
