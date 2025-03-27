@@ -1,0 +1,36 @@
+.cropperContainer {
+  height: 400px;
+  width: 100%;
+}
+
+.croppedImageContainer {
+  display: flex;
+  margin-top: 10px;
+
+  div {
+    position: relative;
+    margin-right: 10px;
+
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+    }
+  }
+}
