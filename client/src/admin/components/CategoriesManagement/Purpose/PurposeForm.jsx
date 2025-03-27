@@ -1,5 +1,5 @@
 import { Input } from '@components/form-components';
-import ImageUpload from '../../ProductManagement/ProductForm/ImageUpload';
+import ImageUpload from '../../ProductManagement/ProductForm/ImageUpload/ImageUpload';
 
 const PurposeForm = ({ register, errors, control }) => {
   return (

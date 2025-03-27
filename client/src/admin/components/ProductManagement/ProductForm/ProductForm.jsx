@@ -2,7 +2,7 @@ import { Input, Textarea } from '@components/form-components';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
 import CategorySelect from './CategorySelect';
 import TypeSelect from './TypeSelect';
-import ImageUpload from './ImageUpload';
+import ImageUpload from './ImageUpload/ImageUpload';
 
 const ProductForm = ({ register, errors, control }) => {
   return (
