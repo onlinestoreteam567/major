@@ -4,16 +4,16 @@ import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
 
 const ImageUpload = ({ control, name }) => {
-  const [image, setImage] = useState(null); // Current selected image for cropping
-  const [croppedImages, setCroppedImages] = useState([]); // Array of cropped images
+  const [image, setImage] = useState(null);
+  const [croppedImages, setCroppedImages] = useState([]);
   const cropperRef = createRef();
 
-  // Handle file selection
+  // Handle file input change event
   const onFileChange = (event) => {
-    const files = Array.from(event.target.files); // Convert FileList to array
+    const files = Array.from(event.target.files);
     if (files.length > 0) {
       const reader = new FileReader();
-      reader.onload = () => setImage(reader.result); // Load first image for cropping
+      reader.onload = () => setImage(reader.result);
       reader.readAsDataURL(files[0]);
     }
   };
@@ -26,19 +26,20 @@ const ImageUpload = ({ control, name }) => {
           const croppedFile = new File([blob], `cropped-image-${croppedImages.length + 1}.png`, {
             type: 'image/png',
           });
-
-          // Update state with new cropped image
           const updatedImages = [...croppedImages, croppedFile];
           setCroppedImages(updatedImages);
-
-          // Pass the updated array to react-hook-form
           onChange(updatedImages);
-
-          // Reset image to allow selection of the next one
           setImage(null);
         }
       }, 'image/png');
     }
+  };
+
+  // Delete a cropped image by index
+  const deleteCroppedImage = (index, onChange) => {
+    const updatedImages = croppedImages.filter((_, i) => i !== index);
+    setCroppedImages(updatedImages);
+    onChange(updatedImages);
   };
 
   return (
@@ -52,7 +53,6 @@ const ImageUpload = ({ control, name }) => {
             <input type="file" accept="image/*" multiple onChange={onFileChange} />
           </label>
 
-          {/* Show cropper only if an image is selected */}
           {image && (
             <div>
               <Cropper
@@ -73,20 +73,22 @@ const ImageUpload = ({ control, name }) => {
                 guides={true}
               />
               <button type="button" onClick={() => getCroppedImage(onChange)}>
-                Crop & Add
+                Обрізати & Додати
               </button>
             </div>
           )}
 
-          {/* Show all cropped images */}
-          <div>
+          {/* Display cropped images with delete button */}
+          <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: '10px' }}>
             {croppedImages.map((img, index) => (
-              <img
-                key={index}
-                src={URL.createObjectURL(img)}
-                alt={`Cropped ${index + 1}`}
-                style={{ width: '100px', marginRight: '10px' }}
-              />
+              <div key={index} style={{ position: 'relative', marginRight: '10px' }}>
+                <img
+                  src={URL.createObjectURL(img)}
+                  alt={`Cropped ${index + 1}`}
+                  style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '5px' }}
+                />
+                <button onClick={() => deleteCroppedImage(index, onChange)}>Видалити</button>
+              </div>
             ))}
           </div>
         </div>
