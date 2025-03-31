@@ -63,6 +63,9 @@ const ProductEdit = () => {
       <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити" />
       {errorEdit && <ErrorText error={errorEdit} />}
       {responseEdit && <SuccessMessage>Товар успішно відредаговано!</SuccessMessage>}
+      <button type="button" onClick={() => console.log(getValues())}>
+        д
+      </button>
     </form>
   );
 };
