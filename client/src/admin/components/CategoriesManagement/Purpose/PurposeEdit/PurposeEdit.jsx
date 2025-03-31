@@ -57,13 +57,22 @@ const PurposeEdit = () => {
   const onSubmit = (values) => {
     const formData = new FormData();
 
-    Object.keys(values).forEach((key) => {
-      let value = values[key];
+    // Handle image if any
+    if (values.image && values.image.length > 0) {
+      values.image.forEach((file) => {
+        formData.append(`image`, file);
+      });
+    }
 
-      if (Array.isArray(value)) {
-        value.forEach((val) => formData.append(key, val));
-      } else {
-        formData.append(key, value);
+    // Append all form data except image
+    Object.keys(values).forEach((key) => {
+      if (key !== 'image') {
+        let value = values[key];
+        if (Array.isArray(value)) {
+          value.forEach((val) => formData.append(key, val));
+        } else {
+          formData.append(key, value);
+        }
       }
     });
 
