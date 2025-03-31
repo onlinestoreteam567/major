@@ -3,6 +3,8 @@ import CheckBox from '@components/form-components/Checkbox/Checkbox';
 import CategorySelect from './CategorySelect';
 import TypeSelect from './TypeSelect';
 import ImageUpload from './ImageUpload/ImageUpload';
+import { Controller } from 'react-hook-form';
+import TipTap from '@components/form-components/TipTap/TipTap';
 
 const ProductForm = ({ register, errors, control }) => {
   return (
@@ -20,7 +22,13 @@ const ProductForm = ({ register, errors, control }) => {
       <Textarea labelText="Description (EN):" name="description_en" register={register} errors={errors} />
       <Textarea labelText="Ingredients:" name="ingredients" register={register} errors={errors} />
       <Textarea labelText="Application (UK):" name="application_uk" register={register} errors={errors} />
-      <Textarea labelText="Application (EN):" name="application_en" register={register} errors={errors} />
+      {/* <Textarea labelText="Application (EN):" name="application_en" register={register} errors={errors} /> */}
+      <Controller
+        name="application_en"
+        control={control}
+        render={({ field }) => <TipTap value={field.value} onChange={field.onChange} />}
+      />
+      {/* <Tiptap labelText="Application (EN):" name="application_en" control={control} errors={errors} /> */}
 
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
