@@ -49,8 +49,8 @@ const PurposeEdit = () => {
 
   useEffect(() => {
     if (id && responseGet) {
-      setValue('category_name_uk', responseGet.name);
-      // setValue('category_name_en', responseGet.name);
+      setValue('category_name_uk', responseGet.category_name_uk);
+      setValue('category_name_en', responseGet.category_name_en);
     }
   }, [responseGet, id, setValue]);
 

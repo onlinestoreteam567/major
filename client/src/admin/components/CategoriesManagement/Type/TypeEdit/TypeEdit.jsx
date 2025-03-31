@@ -45,8 +45,8 @@ const TypeEdit = () => {
 
   useEffect(() => {
     if (id && responseGet) {
-      setValue('type_name_uk', responseGet.name);
-      // setValue('type_name_en', responseGet.name);
+      setValue('type_name_uk', responseGet.type_name_uk);
+      setValue('type_name_en', responseGet.type_name_en);
     }
   }, [responseGet, id, setValue]);
 
