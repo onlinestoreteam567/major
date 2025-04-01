@@ -5,3 +5,4 @@ export { Select } from './Select/Select.jsx';
 export { ErrorMessage } from './Error/ErrorMessage.jsx';
 export { PhoneNumberInput } from './Input/PhoneNumberInput/PhoneNumberInput.jsx';
 export { Textarea } from './Textarea/Textarea.jsx';
+export { TextareaAdmin } from './TextareaAdmin/TextareaAdmin.jsx/';

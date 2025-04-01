@@ -1,10 +1,8 @@
-import { Input, Textarea } from '@components/form-components';
+import { Input, TextareaAdmin } from '@components/form-components';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
 import CategorySelect from './CategorySelect';
 import TypeSelect from './TypeSelect';
 import ImageUpload from './ImageUpload/ImageUpload';
-import { Controller } from 'react-hook-form';
-import TipTap from '@components/form-components/TipTap/TipTap';
 
 const ProductForm = ({ register, errors, control }) => {
   return (
@@ -18,18 +16,11 @@ const ProductForm = ({ register, errors, control }) => {
       <Input type="number" labelText="Price:" name="price" register={register} errors={errors} />
       <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
       <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
-      <Textarea labelText="Description (UK):" name="description_uk" register={register} errors={errors} />
-      <Textarea labelText="Description (EN):" name="description_en" register={register} errors={errors} />
-      <Textarea labelText="Ingredients:" name="ingredients" register={register} errors={errors} />
-      <Textarea labelText="Application (UK):" name="application_uk" register={register} errors={errors} />
-      {/* <Textarea labelText="Application (EN):" name="application_en" register={register} errors={errors} /> */}
-      <Controller
-        name="application_en"
-        control={control}
-        render={({ field }) => <TipTap value={field.value} onChange={field.onChange} />}
-      />
-      {/* <Tiptap labelText="Application (EN):" name="application_en" control={control} errors={errors} /> */}
-
+      <TextareaAdmin name="description_uk" labelText="Опис (укр):" errors={errors} control={control} />
+      <TextareaAdmin name="description_en" labelText="Опис (англ):" errors={errors} control={control} />
+      <TextareaAdmin name="ingredients" labelText="Інгредієнти:" errors={errors} control={control} />
+      <TextareaAdmin name="application_uk" labelText="Застосування (укр):" errors={errors} control={control} />
+      <TextareaAdmin name="application_en" labelText="Застосування (англ):" errors={errors} control={control} />
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
       <ImageUpload control={control} name="upload_images" />

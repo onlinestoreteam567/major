@@ -21,9 +21,6 @@ export const productSchema = yup.object({
     .min(0, 'Знижка не може бути від’ємною')
     .max(100, 'Знижка не може бути більше ніж 100%'),
 
-  description_uk: yup.string().required('Опис (укр) обов’язковий'),
-  description_en: yup.string().required('Опис (англ) обов’язковий'),
-
   volume_ml: yup
     .number()
     .typeError('Будь ласка, напишіть число')
@@ -48,7 +45,27 @@ export const productSchema = yup.object({
   is_new: yup.boolean().required('Новинка обов’язкова'),
   is_best_seller: yup.boolean().required("Хіт обов'язковий"),
 
-  ingredients: yup.string().required('Інгредієнти обов’язкові'),
-  application_uk: yup.string().required('Застосування (укр) обов’язкове'),
-  application_en: yup.string().required('Застосування (англ) обов’язкове'),
+  description_uk: yup
+    .string()
+    .test('is-not-empty-p-tag', 'Опис (укр) обов’язковий', (value) => value !== '<p></p>')
+    .required('Опис (укр) обов’язковий'),
+  description_en: yup
+    .string()
+    .test('is-not-empty-p-tag', 'Опис (англ) обов’язковий', (value) => value !== '<p></p>')
+    .required('Опис (англ) обов’язковий'),
+
+  ingredients: yup
+    .string()
+    .test('is-not-empty-p-tag', 'Інгредієнти обов’язкові', (value) => value !== '<p></p>')
+    .required('Інгредієнти обов’язкові'),
+
+  application_uk: yup
+    .string()
+    .test('is-not-empty-p-tag', 'Застосування (укр) обов’язкове', (value) => value !== '<p></p>')
+    .required('Застосування (укр) обов’язкове'),
+
+  application_en: yup
+    .string()
+    .test('is-not-empty-p-tag', 'Застосування (англ) обов’язкове', (value) => value !== '<p></p>')
+    .required('Застосування (англ) обов’язкове'),
 });
