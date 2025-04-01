@@ -3,6 +3,7 @@ import BasketItem from '../BasketItem/BasketItem';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@components/UI/Button/Button';
+import { Link } from 'react-router-dom';
 
 const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price_with_discount * item.quantity, 0);
@@ -32,7 +33,7 @@ const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
         <Button variant="secondary" onClick={onClick}>
           {getTranslation('continueShopping')}
         </Button>
-        <Button>{getTranslation('placeOrder')}</Button>
+        <Link to="/checkout">{getTranslation('placeOrder')}</Link>
       </section>
     </>
   );

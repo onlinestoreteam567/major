@@ -27,3 +27,6 @@ export const sorting = (state) => state.filter.sorting;
 
 export const loadSearch = (state) => state.search.isLoading;
 export const selectSearch = (state) => state.search.searchResults;
+
+export const loadPromocode = (state) => state.promocode.isLoading;
+export const selectPromocode = (state) => state.promocode.response;

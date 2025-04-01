@@ -6,6 +6,7 @@ import { productsReducer } from '@redux/products/listSlice';
 import { productIdReducer } from '@redux/products/cardSlice';
 import { bestSellerReducer } from '@redux/products/bestSlice';
 import { categotyReducer } from '@redux/params/categorySlice';
+import { promocodeReducer } from '@redux/promocode/promocodeSlice';
 import { typesReducer } from '@redux/params/purposeSlice';
 import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
 import { filterReducer } from '@redux/filter/filterSlice';
@@ -48,6 +49,7 @@ const rootReducer = combineReducers({
   fitCategory: fitCategoryReducer,
   filter: filterReducer,
   search: searchReducer,
+  promocode: promocodeReducer,
 
   auth: authReducer,
   createProduct: createProductReducer,

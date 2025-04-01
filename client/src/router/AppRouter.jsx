@@ -39,6 +39,7 @@ const Blog = lazy(() => import('@pages/BlogPage'));
 const Contact = lazy(() => import('@pages/ContactPage'));
 const Cooperation = lazy(() => import('@pages/СooperationPage'));
 const ProductPage = lazy(() => import('@components/ProductPage/ProductPage'));
+const CheckoutPage = lazy(() => import('@pages/CheckoutPage/CheckoutPage'));
 
 // Example for future features
 // const Login = lazy(() => import('@pages/Login'));
@@ -58,6 +59,7 @@ const router = createBrowserRouter([
       { path: 'blog', element: <Blog /> },
       { path: 'contact', element: <Contact /> },
       { path: 'cooperation', element: <Cooperation /> },
+      { path: 'checkout', element: <CheckoutPage /> },
     ],
   },
   {
