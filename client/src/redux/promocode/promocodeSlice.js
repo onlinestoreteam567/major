@@ -8,6 +8,7 @@ const handlePending = (state) => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
+  state.response = null;
 };
 
 const promocodeSlice = createSlice({
@@ -23,7 +24,7 @@ const promocodeSlice = createSlice({
       .addCase(fetchPromocode.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.bests = action.payload;
+        state.response = action.payload;
       })
       .addCase(fetchPromocode.rejected, handleRejected),
 });

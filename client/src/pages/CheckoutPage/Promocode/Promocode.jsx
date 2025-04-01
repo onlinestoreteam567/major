@@ -9,7 +9,6 @@ const Promocode = () => {
   const dispatch = useDispatch();
   const onSubmit = (e) => {
     e.preventDefault();
-
     dispatch(fetchPromocode(promocode));
   };
 
