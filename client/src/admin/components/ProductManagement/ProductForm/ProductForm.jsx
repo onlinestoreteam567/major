@@ -16,11 +16,11 @@ const ProductForm = ({ register, errors, control }) => {
       <Input type="number" labelText="Price:" name="price" register={register} errors={errors} />
       <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
       <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
-      <TextareaAdmin name="description_uk" errors={errors} control={control} />
-      <TextareaAdmin name="description_en" errors={errors} control={control} />
-      <TextareaAdmin name="ingredients" errors={errors} control={control} />
-      <TextareaAdmin name="application_uk" errors={errors} control={control} />
-      <TextareaAdmin name="application_en" errors={errors} control={control} />
+      <TextareaAdmin name="description_uk" labelText="Опис (укр):" errors={errors} control={control} />
+      <TextareaAdmin name="description_en" labelText="Опис (англ):" errors={errors} control={control} />
+      <TextareaAdmin name="ingredients" labelText="Інгредієнти:" errors={errors} control={control} />
+      <TextareaAdmin name="application_uk" labelText="Застосування (укр):" errors={errors} control={control} />
+      <TextareaAdmin name="application_en" labelText="Застосування (англ):" errors={errors} control={control} />
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
       <ImageUpload control={control} name="upload_images" />

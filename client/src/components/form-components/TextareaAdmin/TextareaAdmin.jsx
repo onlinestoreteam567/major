@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
-import { useEditor, EditorContent } from '@tiptap/react';
-import StarterKit from '@tiptap/starter-kit';
 import Underline from '@tiptap/extension-underline';
-import cl from './index.module.scss';
+import { EditorContent, useEditor } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
+import { useEffect } from 'react';
 import { Controller } from 'react-hook-form';
-const TipTap = ({ value, onChange }) => {
+import cl from './index.module.scss';
+
+const TipTap = ({ value, onChange, labelText, name, errors }) => {
   const editor = useEditor({
     extensions: [StarterKit, Underline],
     content: value || '',
@@ -25,6 +26,7 @@ const TipTap = ({ value, onChange }) => {
 
   return (
     <div className={cl.textAreaAdmin}>
+      <label htmlFor={name}>{labelText}</label>
       <div className={cl.formatting}>
         <button type="button" onClick={handleBold}>
           Bold
@@ -37,16 +39,19 @@ const TipTap = ({ value, onChange }) => {
       <div className={cl.tipTapWrapper}>
         <EditorContent editor={editor} />
       </div>
+      {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
     </div>
   );
 };
 
-export function TextareaAdmin({ control, name }) {
+export function TextareaAdmin({ control, name, labelText, errors }) {
   return (
     <Controller
       name={name}
       control={control}
-      render={({ field }) => <TipTap value={field.value} onChange={field.onChange} />}
+      render={({ field }) => (
+        <TipTap value={field.value} onChange={field.onChange} labelText={labelText} name={name} errors={errors} />
+      )}
     />
   );
 }
