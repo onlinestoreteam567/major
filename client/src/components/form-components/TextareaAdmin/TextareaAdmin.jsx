@@ -3,6 +3,7 @@ import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Underline from '@tiptap/extension-underline';
 import cl from './index.module.scss';
+import { Controller } from 'react-hook-form';
 const TipTap = ({ value, onChange }) => {
   const editor = useEditor({
     extensions: [StarterKit, Underline],
@@ -19,35 +20,33 @@ const TipTap = ({ value, onChange }) => {
     }
   }, [value, editor]);
 
-  const handleBold = () => {
-    editor?.chain().focus().toggleBold().run();
-  };
-
-  const handleItalic = () => {
-    editor?.chain().focus().toggleItalic().run();
-  };
-
-  const handleUnderline = () => {
-    editor?.chain().focus().toggleUnderline().run();
-  };
+  const handleBold = () => editor?.chain().focus().toggleBold().run();
+  const handleUnderline = () => editor?.chain().focus().toggleUnderline().run();
 
   return (
-    <div>
+    <div className={cl.textAreaAdmin}>
       <div className={cl.formatting}>
         <button type="button" onClick={handleBold}>
           Bold
-        </button>
-        <button type="button" onClick={handleItalic}>
-          Italic
         </button>
         <button type="button" onClick={handleUnderline}>
           Underline
         </button>
       </div>
 
-      <EditorContent editor={editor} />
+      <div className={cl.tipTapWrapper}>
+        <EditorContent editor={editor} />
+      </div>
     </div>
   );
 };
 
-export default TipTap;
+export function TextareaAdmin({ control, name }) {
+  return (
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => <TipTap value={field.value} onChange={field.onChange} />}
+    />
+  );
+}
