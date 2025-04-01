@@ -46,4 +46,30 @@
   display: flex;
   gap: 20px;
   width: 100%;
+
+  a {
+    @include flex(row, center, center);
+    background-color: $second-background-color-black;
+    color: white;
+    border: 2px solid $second-background-color-black;
+    width: 100%;
+    height: 56px;
+    font-size: $font-size-medium;
+    font-family: $font-main;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-base;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    border-radius: $border-radius-medium;
+    transition:
+      background-color 300ms ease-out,
+      color 300ms ease-out;
+
+    &:hover {
+      background-color: transparent;
+      color: $text-color-black;
+    }
+  }
 }
