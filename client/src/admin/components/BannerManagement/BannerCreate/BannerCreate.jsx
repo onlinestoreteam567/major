@@ -9,6 +9,8 @@ import { bannerSchema } from '../../../validations/bannerSchema';
 import { errorBannerCreate, loadBannerCreate, responseBannerCreate } from '@redux/selectors';
 import { createBanner } from '@redux/banner/service';
 import BannerForm from '../BannerForm/BannerForm';
+import handleImageUpload from '@utils/handleImageUpload';
+import appendFormData from '@utils/appendFormData';
 
 const BannerCreate = () => {
   const dispatch = useDispatch();
@@ -18,7 +20,6 @@ const BannerCreate = () => {
     handleSubmit,
     formState: { errors },
     control,
-    getValues,
   } = useForm({
     resolver: yupResolver(bannerSchema),
     mode: 'onSubmit',
@@ -29,32 +30,11 @@ const BannerCreate = () => {
   const errorPost = useSelector(errorBannerCreate);
 
   const onSubmit = (values) => {
-    const formData = new FormData();
+    let formData = new FormData();
 
-    console.log(formData);
-    // Handle file uploads if any
-    if (values.image && values.image.length > 0) {
-      values.image.forEach((file) => {
-        formData.append(`image`, file);
-      });
-    }
-    if (values.background_image && values.background_image.length > 0) {
-      values.background_image.forEach((file) => {
-        formData.append(`background_image`, file);
-      });
-    }
-
-    // Append other form data
-    Object.keys(values).forEach((key) => {
-      if (key !== 'background_image' && key !== 'image') {
-        let value = values[key];
-        if (Array.isArray(value)) {
-          value.forEach((val) => formData.append(key, val));
-        } else {
-          formData.append(key, value);
-        }
-      }
-    });
+    formData = handleImageUpload(formData, values, 'image');
+    formData = handleImageUpload(formData, values, 'background_image');
+    appendFormData(formData, values, ['background_image', 'image']);
 
     dispatch(createBanner(formData));
   };
@@ -65,9 +45,6 @@ const BannerCreate = () => {
       <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити товар" />
       {errorPost && <ErrorText error={errorPost}></ErrorText>}
       {response && <SuccessMessage>Товар успішно створено!</SuccessMessage>}
-      <button type="button" onClick={() => console.log(getValues())}>
-        123
-      </button>
     </form>
   );
 };
