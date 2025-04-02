@@ -14,6 +14,8 @@ import { searchReducer } from '@redux/products/searchSlice';
 import { bannerReducer } from '@redux/banner/bannerSlice';
 import { bannerDeleteReducer } from '@redux/banner/bannerDeleteSlice';
 import { bannerCreateReducer } from '@redux/banner/bannerCreateSlice';
+import { bannerByIdReducer } from '@redux/banner/bannerByIdSlice';
+import { bannerEditReducer } from '@redux/banner/bannerEditSlice';
 
 import { authReducer } from '../admin/redux/authSlice';
 import { createProductReducer } from '../admin/redux/createProductSlice';
@@ -56,6 +58,8 @@ const rootReducer = combineReducers({
   banner: bannerReducer,
   bannerDelete: bannerDeleteReducer,
   bannerCreate: bannerCreateReducer,
+  bannerById: bannerByIdReducer,
+  bannerEdit: bannerEditReducer,
 
   auth: authReducer,
   createProduct: createProductReducer,

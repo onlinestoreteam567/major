@@ -37,3 +37,30 @@ export const createBanner = createAsyncThunk('banner/create', async (formData, t
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
+
+export const getBannerById = createAsyncThunk('banner/getById', async (id, thunkAPI) => {
+  try {
+    const endpoint = `${BANNER_ENDPOINT}/${id}`;
+    const { data } = await apiClient.get(endpoint);
+
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const editBanner = createAsyncThunk('banner/edit', async ({ formData, id }, thunkAPI) => {
+  try {
+    const response = await apiClient.patch(`${BANNER_ENDPOINT}/${id}/`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    console.log('Product edited:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in editing product:', error);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});

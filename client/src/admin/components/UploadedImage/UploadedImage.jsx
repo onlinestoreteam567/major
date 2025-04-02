@@ -1,9 +1,9 @@
 import cl from './index.module.scss';
 
-const UploadedImage = ({ image }) => {
+const UploadedImage = ({ image, labelText = 'Завантажене зображення:' }) => {
   return (
     <>
-      <span>Завантажене зображення:</span>
+      <span>{labelText}</span>
       <img src={image} className={cl.uploadedImage} />
     </>
   );
