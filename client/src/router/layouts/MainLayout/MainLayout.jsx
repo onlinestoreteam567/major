@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { fetchBestSellers, fetchProductsAll, fetchSets } from '@redux/products/service';
 import { fetchCategories, fetchTypes } from '@redux/params/service';
+import { fetchBanner } from '@redux/banner/service';
 
 const MainLayout = () => {
   useScrollToTop();
@@ -22,6 +23,7 @@ const MainLayout = () => {
     dispatch(fetchSets());
     dispatch(fetchTypes());
     dispatch(fetchCategories());
+    dispatch(fetchBanner());
   }, [i18n.language, dispatch]);
 
   return (

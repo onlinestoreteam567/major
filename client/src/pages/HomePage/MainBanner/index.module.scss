@@ -110,12 +110,14 @@
       gap: 50px;
     }
     .label {
-      width: fit-content;
-      padding: 10px 20px 10px 20px;
-      border-radius: $border-radius-base;
-      box-sizing: border-box;
-      color: #3a3a3a;
-      border: 1px solid #3a3a3a;
+      p {
+        width: fit-content;
+        padding: 10px 20px 10px 20px;
+        border-radius: $border-radius-base;
+        box-sizing: border-box;
+        color: #3a3a3a;
+        border: 1px solid #3a3a3a;
+      }
     }
 
     .bottomWrapper {
