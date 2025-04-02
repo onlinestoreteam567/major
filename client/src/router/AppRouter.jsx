@@ -31,6 +31,7 @@ import PromocodeManagement from '../admin/components/PromocodeManagement/Promoco
 import PromocodeCreate from '../admin/components/PromocodeManagement/PromocodeCreate/PromocodeCreate';
 import PromocodeEdit from '../admin/components/PromocodeManagement/PromocodeEdit/PromocodeEdit';
 import BannerManagement from '../admin/components/BannerManagement/BannerManagement';
+import BannerCreate from '../admin/components/BannerManagement/BannerCreate/BannerCreate';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -83,7 +84,7 @@ const router = createBrowserRouter([
       { path: 'promocodes/:id', element: <PromocodeEdit /> },
 
       { path: 'banners', element: <BannerManagement /> },
-      { path: 'banners/create', element: <PromocodeCreate /> },
+      { path: 'banners/create', element: <BannerCreate /> },
       { path: 'banners/:id', element: <PromocodeEdit /> },
     ],
   },

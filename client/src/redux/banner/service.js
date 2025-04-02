@@ -21,3 +21,19 @@ export const deleteBanner = createAsyncThunk('banner/delete', async (id, thunkAP
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
+
+export const createBanner = createAsyncThunk('banner/create', async (formData, thunkAPI) => {
+  try {
+    const response = await apiClient.post(`${BANNER_ENDPOINT}/`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    console.log('Product created:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error in creating product:', error);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});

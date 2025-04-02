@@ -36,3 +36,7 @@ export const selectBanner = (state) => state.banner.slides;
 
 export const loadBannerDelete = (state) => state.bannerDelete.isLoading;
 export const selectBannerDelete = (state) => state.bannerDelete.slides;
+
+export const loadBannerCreate = (state) => state.bannerCreate.isLoading;
+export const responseBannerCreate = (state) => state.bannerCreate.response;
+export const errorBannerCreate = (state) => state.bannerCreate.error;
