@@ -11,11 +11,11 @@
     z-index: $z-index-local-1;
 
     @include tablet {
-      height: 515px;
+      height: 420px;
     }
 
     @include deskmin {
-      height: 490px;
+      height: 460px;
     }
   }
 

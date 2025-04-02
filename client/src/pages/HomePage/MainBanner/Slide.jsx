@@ -1,8 +1,8 @@
-import Button from '@UI/Button/Button';
 import cl from './index.module.scss';
 import Heading from '@UI/Texts/Heading/Heading';
 import AccentText from '@UI/Texts/AccentText/AccentText';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
 
 const Slide = ({ slide }) => {
   const { getTranslation } = useTranslationNamespace('mainBanner');
@@ -32,7 +32,7 @@ const Slide = ({ slide }) => {
 
           <div className={cl.bottomWrapper}>
             <Heading type="h1">{getTranslation(slide.product.name)}</Heading>
-            <Button>{getTranslation('addToCart', 'common')}</Button>
+            <AddToCartButton variant="primary" card={slide.product} />
           </div>
         </section>
         {!slide.left && <img src={slide.image_url} alt="" />}
