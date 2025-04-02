@@ -3,10 +3,10 @@
 .typeList {
   @include flexGap(20px, column);
   color: black;
+  margin-bottom: 60px;
 
   li {
     @include flexGap(20px);
   }
 
-  margin-bottom: 60px;
 }
