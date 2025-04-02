@@ -33,3 +33,6 @@ export const selectPromocode = (state) => state.promocode.response;
 
 export const loadBanner = (state) => state.banner.isLoading;
 export const selectBanner = (state) => state.banner.slides;
+
+export const loadBannerDelete = (state) => state.bannerDelete.isLoading;
+export const selectBannerDelete = (state) => state.bannerDelete.slides;

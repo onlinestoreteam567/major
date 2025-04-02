@@ -11,3 +11,13 @@ export const fetchBanner = createAsyncThunk('banner/getBanner', async (id, thunk
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const deleteBanner = createAsyncThunk('banner/delete', async (id, thunkAPI) => {
+  try {
+    const response = await apiClient.delete(`${BANNER_ENDPOINT}/${id}/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error in deleting type:', error);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});
