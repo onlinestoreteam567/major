@@ -20,6 +20,7 @@ const BannerCreate = () => {
     handleSubmit,
     formState: { errors },
     control,
+    getValues,
   } = useForm({
     resolver: yupResolver(bannerSchema),
     mode: 'onSubmit',
@@ -40,11 +41,14 @@ const BannerCreate = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={cl.productCreate}>
+    <form onSubmit={handleSubmit(onSubmit)} className={cl.bannerCreate}>
       <BannerForm register={register} errors={errors} control={control} />
       <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити товар" />
       {errorPost && <ErrorText error={errorPost}></ErrorText>}
       {response && <SuccessMessage>Товар успішно створено!</SuccessMessage>}
+      <button type="button" onClick={() => console.log(getValues())}>
+        123
+      </button>
     </form>
   );
 };

@@ -24,6 +24,7 @@ const ProductSelect = ({ control, errors }) => {
               onChange(event.target.value);
             }}
           >
+            <option value="">Оберіть товар для банеру</option>
             {items.map((value, idx) => (
               <option key={idx} value={value.id}>
                 {value.name} id: {value.id}
@@ -36,4 +37,5 @@ const ProductSelect = ({ control, errors }) => {
     />
   );
 };
+
 export default ProductSelect;
