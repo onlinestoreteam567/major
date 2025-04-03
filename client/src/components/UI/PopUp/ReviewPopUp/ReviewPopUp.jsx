@@ -5,62 +5,64 @@ import Button from '@UI/Button/Button';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { needHelpSchema } from '@validations/needHelpSchema';
-import { Input, PhoneNumberInput, Textarea } from '@components/form-components';
+import { Input, Textarea } from '@components/form-components';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
-import Heading from '@components/UI/Texts/Heading/Heading';
+import { addReviewById } from '@redux/products/service';
+import { useDispatch } from 'react-redux';
+import StarsCheckBox from './StarsCheckBox';
 
-const MainPopUp = ({ setShowMessagePopUp }) => {
+const ReviewPopUp = ({ id, setIsShowReviewPopUp }) => {
   const {
-    setValue,
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm({
     mode: 'onSubmit',
     resolver: yupResolver(needHelpSchema),
   });
 
-  const { getTranslation } = useTranslationNamespace('yellowButton');
-  const handleCloseMessagePopUp = () => setShowMessagePopUp(false);
-  const onSubmit = (data) => console.log(data);
+  const dispatch = useDispatch();
+  const { getTranslation } = useTranslationNamespace('reviewPopUp');
+
+  const handleCloseReviewPopUp = () => setIsShowReviewPopUp(false);
+  const onSubmit = (formData) => dispatch(addReviewById({ formData, id }));
 
   return (
     <>
-      <Overlay handleClose={handleCloseMessagePopUp} />
+      <Overlay handleClose={handleCloseReviewPopUp} />
 
       <div className={cl.messagePopUp}>
-        <ButtonClose onClick={handleCloseMessagePopUp} />
+        <ButtonClose onClick={handleCloseReviewPopUp} />
 
         <div className={cl.overflowWrap}>
           <div>
-            <Heading type="h2">{getTranslation('subtitle')}</Heading>
             <Paragraph type="body2">{getTranslation('heading')}</Paragraph>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <Input
                 labelText={getTranslation('name')}
-                name="fullName"
+                name="user_name"
                 variant="popUp"
                 register={register}
                 errors={errors}
               />
+            </div>
 
-              <PhoneNumberInput
-                setValue={setValue}
-                variant="popUp"
-                register={'phone'}
-                name="phone"
-                labelText={getTranslation('phoneNumber')}
-                errors={errors}
-              />
+            <div className={cl.wrapRating}>
+              <p>
+                Оцініть товар <span>*</span>
+              </p>
+
+              <StarsCheckBox control={control} name="rating" />
             </div>
 
             <div>
               <Textarea
                 labelText={getTranslation('textAreaTitle')}
-                name="question"
+                name="review_text"
                 register={register}
                 variant={'popUp'}
                 errors={errors}
@@ -75,4 +77,4 @@ const MainPopUp = ({ setShowMessagePopUp }) => {
   );
 };
 
-export default MainPopUp;
+export default ReviewPopUp;

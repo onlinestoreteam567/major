@@ -22,6 +22,7 @@ i18n
 
       // Components
       'yellowButton',
+      'reviewPopUp',
 
       // Modules/Sections
       'mainBanner',

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
 import MainPopUp from '@UI/PopUp/MainPopUp/MainPopUp';
-import { popUpData } from '@components/constants/popUpData';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import Heading from '@components/UI/Texts/Heading/Heading';
@@ -10,14 +9,13 @@ const YellowButton = () => {
   const [showMessagePopUp, setShowMessagePopUp] = useState(false);
   const [isShowAdditionalInfoCloseAnimation, setIsShowAdditionalInfoCloseAnimation] = useState(false);
   const [isShowAdditionalInfo, setIsShowAdditionalInfo] = useState(false);
+  const { getTranslation } = useTranslationNamespace('yellowButton');
 
   const showAdditionalInfo = () => setIsShowAdditionalInfo(true);
   const handleShowMesssagePopUp = () => setShowMessagePopUp(true);
 
   const closeAdditionalInfo = () =>
     handleCloseWithDelay(setIsShowAdditionalInfoCloseAnimation, setIsShowAdditionalInfo);
-
-  const { getTranslation } = useTranslationNamespace('yellowButton');
 
   return (
     <>
@@ -45,7 +43,7 @@ const YellowButton = () => {
           </div>
         )}
       </section>
-      {showMessagePopUp && <MainPopUp setShowMessagePopUp={setShowMessagePopUp} popUpData={popUpData} />}
+      {showMessagePopUp && <MainPopUp setShowMessagePopUp={setShowMessagePopUp} />}
     </>
   );
 };

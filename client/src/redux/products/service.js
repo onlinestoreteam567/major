@@ -97,12 +97,12 @@ export const getProductById = createAsyncThunk('products/getById', async (id, th
 
 const REVIEW_ENDPOINT = import.meta.env.VITE_REVIEW_ENDPOINT;
 
-export const addReviewById = createAsyncThunk('products/addReview', async ({ id, newReview }, thunkAPI) => {
-  // console.log(id, newReview);
+export const addReviewById = createAsyncThunk('products/addReview', async ({ formData, id }, thunkAPI) => {
+  console.log(formData);
+
   try {
     const endpoint = `${REVIEW_ENDPOINT}/${id}/`;
-    const { data } = await apiClient.post(endpoint, newReview);
-    // console.log(data);
+    const { data } = await apiClient.post(endpoint, formData);
     return data;
   } catch (error) {
     console.log(error.message);
