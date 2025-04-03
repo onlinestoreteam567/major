@@ -17,26 +17,7 @@ import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 import UploadedImages from '../../UploadedImages/UploadedImages';
 import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
-import setFormValues from '@utils/setFormValue';
-
-const formValues = [
-  'article',
-  'available',
-  'is_best_seller',
-  'is_new',
-  'product_name_uk',
-  'product_name_en',
-  'price',
-  'discount',
-  'volume_ml',
-  'purpose_category',
-  'type_category',
-  'description_uk',
-  'description_en',
-  'ingredients',
-  'application_uk',
-  'application_en',
-];
+import setFormValues from './helpers/setFormValues';
 
 const ProductEdit = () => {
   const {
@@ -64,7 +45,7 @@ const ProductEdit = () => {
   }, [dispatch, id]);
 
   useEffect(() => {
-    responseGet && setFormValues(setValue, responseGet, formValues);
+    responseGet && setFormValues(setValue, responseGet);
   }, [responseGet, setValue]);
 
   const onSubmit = (values) => {
@@ -86,6 +67,7 @@ const ProductEdit = () => {
       <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити" />
       {errorEdit && <ErrorText error={errorEdit} />}
       {responseEdit && <SuccessMessage>Товар успішно відредаговано!</SuccessMessage>}
+      <button onClick={() => console.log(getValues())}>123</button>
     </form>
   );
 };

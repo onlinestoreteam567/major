@@ -8,9 +8,7 @@ export const bannerSchema = yup.object({
     .positive('Помилка: число повинно бути більше нуля')
     .integer('Помилка: число повинно бути цілим числом'),
 
-  background_image: yup
-    .mixed() // mixed дозволяє буrдь-який тип даних
-    .test('is-not-undefined', "Фон обов'язковий", (value) => value !== undefined),
+  background_image: yup.mixed().test('is-not-undefined', "Фон обов'язковий", (value) => value !== undefined),
 
   image: yup.mixed().test('is-not-undefined', "Зображення обов'язкове", (value) => value !== undefined),
 });

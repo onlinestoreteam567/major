@@ -28,11 +28,9 @@ export const productSchema = yup.object({
     .min(0, 'Об’єм не може бути від’ємним')
     .max(Number.MAX_SAFE_INTEGER, 'Завелике значення'),
 
-  // upload_images: yup
-  // .array()
-  // .of(yup.string().url('Зображення повинно бути у форматі URL'))
-  // .required('Потрібно завантажити хоча б одне зображення')
-  // .min(1, 'Потрібно завантажити хоча б одне зображення'),
+  upload_images: yup
+    .mixed()
+    .test('is-not-undefined', 'Завантажте щонайменше 1 зображення', (value) => value !== undefined),
 
   // purpose_category: yup.number().integer().required('Категорія за призначенням обовязкова'),
 

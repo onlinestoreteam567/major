@@ -23,7 +23,7 @@ import PurposeForm from '../PurposeForm';
 import cl from './index.module.scss';
 import handleImageUpload from '@utils/handleImageUpload';
 
-const formValues = ['category_name_uk', 'category_name_en'];
+const formValues = ['category_name_uk', 'category_name_en', 'image'];
 
 const PurposeEdit = () => {
   const {
@@ -50,7 +50,7 @@ const PurposeEdit = () => {
   }, [dispatch, id]);
 
   useEffect(() => {
-    if (responseGet) setFormValues(setValue, responseGet, formValues);
+    responseGet && setFormValues(setValue, responseGet, formValues);
   }, [responseGet, setValue]);
 
   const onSubmit = (values) => {
