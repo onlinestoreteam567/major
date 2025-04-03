@@ -23,7 +23,7 @@ const ProductForm = ({ register, errors, control }) => {
       <TextareaAdmin name="application_en" labelText="Застосування (англ):" errors={errors} control={control} />
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
-      <ImageUpload control={control} name="upload_images" />
+      <ImageUpload control={control} name="upload_images" errors={errors} />
     </>
   );
 };

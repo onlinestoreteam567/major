@@ -1,4 +1,10 @@
 import Spinner from '@components/helpers/Spinner';
+import { yupResolver } from '@hookform/resolvers/yup';
+import useIdFromUrl from '@hooks/useId';
+import setFormValues from '@utils/setFormValue';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   errorTypeById,
   loadTypeById,
@@ -7,17 +13,14 @@ import {
   responseTypeEdit,
 } from '../../../../redux/selectors';
 import { editType, getTypeCategoryById } from '../../../../redux/service';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
 import { typeSchema } from '../../../../validations/typeSchema';
-import useIdFromUrl from '@hooks/useId';
-import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
 import ErrorText from '../../../ErrorText/ErrorText';
 import LoadingButton from '../../../LoadingButton/LoadingButton';
+import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
 import TypeForm from '../TypeForm';
 import cl from './index.module.scss';
+
+const formValues = ['type_name_uk', 'type_name_en'];
 
 const TypeEdit = () => {
   const {
@@ -32,11 +35,6 @@ const TypeEdit = () => {
 
   const id = useIdFromUrl();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (id) dispatch(getTypeCategoryById(id));
-  }, [dispatch, id]);
-
   const errorEdit = useSelector(errorTypeById);
   const isLoadingEdit = useSelector(loadTypeEdit);
   const responseEdit = useSelector(responseTypeEdit);
@@ -44,11 +42,12 @@ const TypeEdit = () => {
   const responseGet = useSelector(responseTypeById);
 
   useEffect(() => {
-    if (id && responseGet) {
-      setValue('type_name_uk', responseGet.type_name_uk);
-      setValue('type_name_en', responseGet.type_name_en);
-    }
-  }, [responseGet, id, setValue]);
+    dispatch(getTypeCategoryById(id));
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    responseGet && setFormValues(setValue, responseGet, formValues);
+  }, [responseGet, setValue]);
 
   const onSubmit = (formData) => dispatch(editType({ formData, id }));
 

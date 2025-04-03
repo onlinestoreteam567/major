@@ -1,27 +1,41 @@
-import Button from '@UI/Button/Button';
 import cl from './index.module.scss';
 import Heading from '@UI/Texts/Heading/Heading';
 import AccentText from '@UI/Texts/AccentText/AccentText';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
 
 const Slide = ({ slide }) => {
   const { getTranslation } = useTranslationNamespace('mainBanner');
+  const getLabelText = () => {
+    if (slide.product.is_best_seller) {
+      return 'Best Seller';
+    }
+    if (slide.product.is_discount) {
+      return 'Discount';
+    }
+    if (slide.product.is_new) {
+      return 'New';
+    }
+    return null;
+  };
 
+  const labelText = getLabelText();
+
+  console.log(slide);
   return (
-    <div style={{ backgroundImage: `url(${slide.background})` }} className={cl.wrapBackground}>
+    <div style={{ backgroundImage: `url(${slide.background_image_url})` }} className={cl.wrapBackground}>
       <img src="/images/banners/mainBanner/background.png" alt="" className={cl.flowersBackground} />
       <div className={`${cl.slide} ${slide.left ? cl.right : ''}`}>
-        {slide.left && <img src={slide.image} alt="" />}
+        {slide.left && <img src={slide.image_url} alt="" />}
         <section>
-          <div className={cl.label}>
-            <AccentText>{getTranslation(slide.labelText)}</AccentText>
-          </div>
+          <div className={cl.label}>{labelText && <AccentText>{getTranslation(labelText)}</AccentText>}</div>
+
           <div className={cl.bottomWrapper}>
-            <Heading type="h1">{getTranslation(slide.title)}</Heading>
-            <Button>{getTranslation('addToCart', 'common')}</Button>
+            <Heading type="h1">{getTranslation(slide.product.name)}</Heading>
+            <AddToCartButton variant="primary" card={slide.product} />
           </div>
         </section>
-        {!slide.left && <img src={slide.image} alt="" />}
+        {!slide.left && <img src={slide.image_url} alt="" />}
       </div>
     </div>
   );

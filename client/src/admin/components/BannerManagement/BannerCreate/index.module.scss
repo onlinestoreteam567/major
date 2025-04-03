@@ -1,0 +1,6 @@
+@import '@mixins';
+
+.bannerCreate {
+  @include flex(column, null, null);
+  color: black;
+}

@@ -7,7 +7,7 @@ import handleImageUpload from './helpers/handleImageUpload';
 import handleCroppedImage from './helpers/handleCroppedImage';
 import deleteCroppedImage from './helpers/deleteCroppedImage';
 
-const ImageUpload = ({ control, name }) => {
+const ImageUpload = ({ control, name, errors, labelText = 'Фото' }) => {
   const [image, setImage] = useState(null);
   const [croppedImages, setCroppedImages] = useState([]);
   const cropperRef = createRef();
@@ -19,7 +19,7 @@ const ImageUpload = ({ control, name }) => {
       render={({ field: { onChange } }) => (
         <div>
           <label>
-            Фото
+            {labelText}
             <input type="file" accept="image/*" onChange={(event) => handleImageUpload(event, setImage)} />
           </label>
 
@@ -59,6 +59,8 @@ const ImageUpload = ({ control, name }) => {
               </div>
             ))}
           </div>
+
+          {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
         </div>
       )}
     />

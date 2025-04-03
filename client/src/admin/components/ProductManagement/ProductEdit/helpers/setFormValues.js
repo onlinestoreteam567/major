@@ -15,6 +15,7 @@ const setFormValues = (setValue, responseGet) => {
   setValue('ingredients', responseGet.ingredients);
   setValue('application_uk', responseGet.application_uk);
   setValue('application_en', responseGet.application_en);
+  setValue('upload_images', responseGet.images);
 };
 
 export default setFormValues;

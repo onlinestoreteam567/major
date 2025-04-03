@@ -1,22 +1,23 @@
-import { editProduct } from '../../../redux/service';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProductById } from '@redux/products/service';
-import { errorEditProduct, loadEditProduct, responseEditProduct } from '../../../redux/selectors';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { productSchema } from '../../../validations/productSchema';
-import { useEffect } from 'react';
-import { loadProductId, selectProductId } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
-import ErrorText from '../../ErrorText/ErrorText';
-import ProductForm from '../ProductForm/ProductForm';
-import UploadedImages from '../../UploadedImages/UploadedImages';
-import handleFormData from './helpers/handleFormData';
-import setFormValues from './helpers/setFormValues';
+import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useId';
-import SuccessMessage from '../../SuccessMessage/SuccessMessage';
+import { getProductById } from '@redux/products/service';
+import { loadProductId, selectProductId } from '@redux/selectors';
+import appendFormData from '@utils/appendFormData';
+import handleImageUpload from '@utils/handleImageUpload';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { errorEditProduct, loadEditProduct, responseEditProduct } from '../../../redux/selectors';
+import { editProduct } from '../../../redux/service';
+import { productSchema } from '../../../validations/productSchema';
+import ErrorText from '../../ErrorText/ErrorText';
 import LoadingButton from '../../LoadingButton/LoadingButton';
+import SuccessMessage from '../../SuccessMessage/SuccessMessage';
+import UploadedImages from '../../UploadedImages/UploadedImages';
+import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
+import setFormValues from './helpers/setFormValues';
 
 const ProductEdit = () => {
   const {
@@ -39,16 +40,19 @@ const ProductEdit = () => {
   const responseEdit = useSelector(responseEditProduct);
   const errorEdit = useSelector(errorEditProduct);
 
-  // Fetch product data for editing
   useEffect(() => {
     dispatch(getProductById(id));
   }, [dispatch, id]);
+
   useEffect(() => {
-    if (responseGet) setFormValues(setValue, responseGet);
+    responseGet && setFormValues(setValue, responseGet);
   }, [responseGet, setValue]);
 
   const onSubmit = (values) => {
-    const formData = handleFormData(values);
+    let formData = new FormData();
+    formData = handleImageUpload(formData, values, 'upload_images');
+    appendFormData(formData, values, ['upload_images']);
+
     dispatch(editProduct({ formData, id }));
   };
 
@@ -63,9 +67,7 @@ const ProductEdit = () => {
       <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити" />
       {errorEdit && <ErrorText error={errorEdit} />}
       {responseEdit && <SuccessMessage>Товар успішно відредаговано!</SuccessMessage>}
-      <button type="button" onClick={() => console.log(getValues())}>
-        д
-      </button>
+      <button onClick={() => console.log(getValues())}>123</button>
     </form>
   );
 };

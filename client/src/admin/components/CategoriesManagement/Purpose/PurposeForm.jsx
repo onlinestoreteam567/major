@@ -6,7 +6,7 @@ const PurposeForm = ({ register, errors, control }) => {
     <>
       <Input labelText="Назва категорії (uk):" name="category_name_uk" register={register} errors={errors} />
       <Input labelText="Назва категорії (en):" name="category_name_en" register={register} errors={errors} />
-      <ImageUpload control={control} name="image" />
+      <ImageUpload control={control} name="image" errors={errors} />
     </>
   );
 };

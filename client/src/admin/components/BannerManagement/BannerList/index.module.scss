@@ -1,0 +1,15 @@
+@import '@mixins';
+
+.list {
+  @include flexGap(20px, column);
+  color: black;
+
+  li {
+    @include flexGap(20px);
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}

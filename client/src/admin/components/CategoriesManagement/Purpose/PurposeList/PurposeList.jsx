@@ -7,6 +7,7 @@ import { deletePurpose } from '../../../../redux/service';
 import { loadPurposeDelete, responsePurposeDelete } from '../../../../redux/selectors';
 import { useEffect } from 'react';
 import { fetchCategories } from '@redux/params/service';
+import handleDeleteItem from '@utils/handleDeleteItem';
 
 const PurposeList = () => {
   const items = useSelector(selectCategories);
@@ -16,16 +17,10 @@ const PurposeList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (deleteResponse === 204) {
-      dispatch(fetchCategories());
-    }
+    deleteResponse === 204 && dispatch(fetchCategories());
   }, [dispatch, deleteResponse]);
 
-  const handleDelete = (id) => {
-    if (confirm('Are you sure you want to delete this category?')) {
-      dispatch(deletePurpose(id));
-    }
-  };
+  const handleDelete = (id) => handleDeleteItem(dispatch, deletePurpose, id);
 
   return (
     <>

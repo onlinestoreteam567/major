@@ -11,6 +11,11 @@ import { typesReducer } from '@redux/params/purposeSlice';
 import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
 import { filterReducer } from '@redux/filter/filterSlice';
 import { searchReducer } from '@redux/products/searchSlice';
+import { bannerReducer } from '@redux/banner/bannerSlice';
+import { bannerDeleteReducer } from '@redux/banner/bannerDeleteSlice';
+import { bannerCreateReducer } from '@redux/banner/bannerCreateSlice';
+import { bannerByIdReducer } from '@redux/banner/bannerByIdSlice';
+import { bannerEditReducer } from '@redux/banner/bannerEditSlice';
 
 import { authReducer } from '../admin/redux/authSlice';
 import { createProductReducer } from '../admin/redux/createProductSlice';
@@ -50,6 +55,11 @@ const rootReducer = combineReducers({
   filter: filterReducer,
   search: searchReducer,
   promocode: promocodeReducer,
+  banner: bannerReducer,
+  bannerDelete: bannerDeleteReducer,
+  bannerCreate: bannerCreateReducer,
+  bannerById: bannerByIdReducer,
+  bannerEdit: bannerEditReducer,
 
   auth: authReducer,
   createProduct: createProductReducer,

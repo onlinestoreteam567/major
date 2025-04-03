@@ -4,12 +4,15 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import settings from './settings.js';
 import Slide from './Slide';
-import slideData from './slideData';
 import cl from './index.module.scss';
+import { useSelector } from 'react-redux';
+import { loadBanner, selectBanner } from '@redux/selectors.js';
+import Spinner from '@components/helpers/Spinner.jsx';
 
 const MainBanner = () => {
   const sliderRef = useRef(null);
-
+  const slideData = useSelector(selectBanner);
+  const isLoading = useSelector(loadBanner);
   const [clickDelay, setClickDelay] = useState(false);
   const timer = useRef(null);
 
@@ -32,7 +35,9 @@ const MainBanner = () => {
     sliderRef.current.slickPrev();
   };
 
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <div className={`slider-container ${cl.mainBanner}`}>
       <button onClick={previous} />
       <Slider ref={sliderRef} {...settings}>
