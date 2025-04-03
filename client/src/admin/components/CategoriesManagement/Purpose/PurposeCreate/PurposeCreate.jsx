@@ -13,6 +13,7 @@ import ErrorText from '../../../ErrorText/ErrorText';
 import LoadingButton from '../../../LoadingButton/LoadingButton';
 import PurposeForm from '../PurposeForm';
 import cl from './index.module.scss';
+import appendFormData from '@utils/appendFormData';
 
 const PurposeCreate = () => {
   const {
@@ -32,15 +33,7 @@ const PurposeCreate = () => {
 
   const onSubmit = (values) => {
     const formData = new FormData();
-
-    Object.keys(values).forEach((key) => {
-      let value = values[key];
-      if (Array.isArray(value)) {
-        value.forEach((val) => formData.append(key, val));
-      } else {
-        formData.append(key, value);
-      }
-    });
+    appendFormData(formData, values);
 
     dispatch(createPurposeCategory(formData));
   };

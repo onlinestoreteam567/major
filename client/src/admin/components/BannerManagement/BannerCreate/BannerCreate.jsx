@@ -1,16 +1,16 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { createBanner } from '@redux/banner/service';
+import { errorBannerCreate, loadBannerCreate, responseBannerCreate } from '@redux/selectors';
+import appendFormData from '@utils/appendFormData';
+import handleImageUpload from '@utils/handleImageUpload';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { bannerSchema } from '../../../validations/bannerSchema';
 import ErrorText from '../../ErrorText/ErrorText';
-import cl from './index.module.scss';
 import LoadingButton from '../../LoadingButton/LoadingButton';
 import SuccessMessage from '../../SuccessMessage/SuccessMessage';
-import { bannerSchema } from '../../../validations/bannerSchema';
-import { errorBannerCreate, loadBannerCreate, responseBannerCreate } from '@redux/selectors';
-import { createBanner } from '@redux/banner/service';
 import BannerForm from '../BannerForm/BannerForm';
-import handleImageUpload from '@utils/handleImageUpload';
-import appendFormData from '@utils/appendFormData';
+import cl from './index.module.scss';
 
 const BannerCreate = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,6 @@ const BannerCreate = () => {
     handleSubmit,
     formState: { errors },
     control,
-    getValues,
   } = useForm({
     resolver: yupResolver(bannerSchema),
     mode: 'onSubmit',
@@ -32,7 +31,6 @@ const BannerCreate = () => {
 
   const onSubmit = (values) => {
     let formData = new FormData();
-
     formData = handleImageUpload(formData, values, 'image');
     formData = handleImageUpload(formData, values, 'background_image');
     appendFormData(formData, values, ['background_image', 'image']);
@@ -46,9 +44,6 @@ const BannerCreate = () => {
       <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити слайд" />
       {errorPost && <ErrorText error={errorPost}></ErrorText>}
       {response && <SuccessMessage>Слайд успішно створено!</SuccessMessage>}
-      <button type="button" onClick={() => console.log(getValues())}>
-        123
-      </button>
     </form>
   );
 };

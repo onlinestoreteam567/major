@@ -1,4 +1,11 @@
 import Spinner from '@components/helpers/Spinner';
+import { yupResolver } from '@hookform/resolvers/yup';
+import useIdFromUrl from '@hooks/useId';
+import appendFormData from '@utils/appendFormData';
+import setFormValues from '@utils/setFormValue';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   errorPurposeEdit,
   loadPurposeById,
@@ -8,17 +15,14 @@ import {
 } from '../../../../redux/selectors';
 import { editPurpose, getPurposeCategoryById } from '../../../../redux/service';
 import { categorySchema } from '../../../../validations/categorySchema';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import useIdFromUrl from '@hooks/useId';
-import cl from './index.module.scss';
-import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
 import ErrorText from '../../../ErrorText/ErrorText';
 import LoadingButton from '../../../LoadingButton/LoadingButton';
-import PurposeForm from '../PurposeForm';
+import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
 import UploadedImage from '../../../UploadedImage/UploadedImage';
+import PurposeForm from '../PurposeForm';
+import cl from './index.module.scss';
+
+const formValues = ['category_name_uk', 'category_name_en'];
 
 const PurposeEdit = () => {
   const {
@@ -34,13 +38,6 @@ const PurposeEdit = () => {
 
   const id = useIdFromUrl();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (id) {
-      dispatch(getPurposeCategoryById(id));
-    }
-  }, [dispatch, id]);
-
   const errorEdit = useSelector(errorPurposeEdit);
   const isLoadingEdit = useSelector(loadPurposeEdit);
   const responseEdit = useSelector(responsePurposeEdit);
@@ -48,36 +45,20 @@ const PurposeEdit = () => {
   const responseGet = useSelector(responsePurposeById);
 
   useEffect(() => {
-    if (id && responseGet) {
-      setValue('category_name_uk', responseGet.category_name_uk);
-      setValue('category_name_en', responseGet.category_name_en);
-    }
-  }, [responseGet, id, setValue]);
+    dispatch(getPurposeCategoryById(id));
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    if (responseGet) setFormValues(setValue, responseGet, formValues);
+  }, [responseGet, setValue]);
 
   const onSubmit = (values) => {
     const formData = new FormData();
-
-    // Handle image if any
-    if (values.image && values.image.length > 0) {
-      values.image.forEach((file) => {
-        formData.append(`image`, file);
-      });
-    }
-
-    // Append all form data except image
-    Object.keys(values).forEach((key) => {
-      if (key !== 'image') {
-        let value = values[key];
-        if (Array.isArray(value)) {
-          value.forEach((val) => formData.append(key, val));
-        } else {
-          formData.append(key, value);
-        }
-      }
-    });
+    appendFormData(formData, values);
 
     dispatch(editPurpose({ formData, id }));
   };
+
   return isLoadingGet ? (
     <Spinner />
   ) : (

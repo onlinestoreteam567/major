@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useForm } from 'react-hook-form';
+import Spinner from '@components/helpers/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useEffect } from 'react';
+import useIdFromUrl from '@hooks/useId';
+import { editBanner, getBannerById } from '@redux/banner/service';
 import {
   errorBannerEdit,
   loadBannerById,
@@ -9,19 +9,18 @@ import {
   responseBannerById,
   responseBannerEdit,
 } from '@redux/selectors';
-import Spinner from '@components/helpers/Spinner';
-import ErrorText from '../../ErrorText/ErrorText';
-import setFormValues from './helpers/setFormValues';
-import useIdFromUrl from '@hooks/useId';
-import SuccessMessage from '../../SuccessMessage/SuccessMessage';
-import LoadingButton from '../../LoadingButton/LoadingButton';
-import cl from './index.module.scss';
-import { bannerSchema } from '../../../validations/bannerSchema';
-import { editBanner, getBannerById } from '@redux/banner/service';
-import handleImageUpload from '@utils/handleImageUpload';
 import appendFormData from '@utils/appendFormData';
-import BannerForm from '../BannerForm/BannerForm';
+import handleImageUpload from '@utils/handleImageUpload';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { bannerSchema } from '../../../validations/bannerSchema';
+import ErrorText from '../../ErrorText/ErrorText';
+import LoadingButton from '../../LoadingButton/LoadingButton';
+import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 import UploadedImage from '../../UploadedImage/UploadedImage';
+import BannerForm from '../BannerForm/BannerForm';
+import cl from './index.module.scss';
 
 const BannerEdit = () => {
   const {
@@ -30,7 +29,6 @@ const BannerEdit = () => {
     formState: { errors },
     control,
     setValue,
-    getValues,
   } = useForm({
     resolver: yupResolver(bannerSchema),
     mode: 'onSubmit',
@@ -50,16 +48,20 @@ const BannerEdit = () => {
   }, [dispatch, id]);
 
   useEffect(() => {
-    if (responseGet) setFormValues(setValue, responseGet);
+    if (responseGet) {
+      setValue('left', responseGet.left);
+      setValue('product_id', responseGet.product?.id);
+      setValue('image', responseGet.image_url);
+      setValue('background_image', responseGet.background_image_url);
+    }
   }, [responseGet, setValue]);
 
   const onSubmit = (values) => {
     let formData = new FormData();
-
     formData = handleImageUpload(formData, values, 'image_url');
     formData = handleImageUpload(formData, values, 'background_image_url');
-
     appendFormData(formData, values, ['background_image', 'image']);
+
     dispatch(editBanner({ formData, id }));
   };
 
@@ -68,28 +70,13 @@ const BannerEdit = () => {
   ) : (
     <form className={cl.bannerEdit} onSubmit={handleSubmit(onSubmit)}>
       <BannerForm register={register} errors={errors} control={control} />
-      {responseGet && responseGet.image_url && (
-        <UploadedImage
-          labelText="Завантажене зображення товару:"
-          image={responseGet.image_url}
-          setValue={setValue}
-          getValues={getValues}
-        />
+      {responseGet && <UploadedImage labelText="Завантажене зображення товару:" image={responseGet.image_url} />}
+      {responseGet && (
+        <UploadedImage labelText="Завантажене зображення фону слайду:" image={responseGet.background_image_url} />
       )}
-      {responseGet && responseGet.background_image_url && (
-        <UploadedImage
-          labelText="Завантажене зображення фону слайду:"
-          image={responseGet.background_image_url}
-          setValue={setValue}
-          getValues={getValues}
-        />
-      )}
-      <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити" />
+      <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити слайд" />
       {errorEdit && <ErrorText error={errorEdit} />}
       {responseEdit && <SuccessMessage>Слайд успішно відредаговано!</SuccessMessage>}
-      <button type="button" onClick={() => console.log(getValues())}>
-        д
-      </button>
     </form>
   );
 };

@@ -1,21 +1,21 @@
-import { editProduct } from '../../../redux/service';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProductById } from '@redux/products/service';
-import { errorEditProduct, loadEditProduct, responseEditProduct } from '../../../redux/selectors';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { productSchema } from '../../../validations/productSchema';
-import { useEffect } from 'react';
-import { loadProductId, selectProductId } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner';
+import { yupResolver } from '@hookform/resolvers/yup';
+import useIdFromUrl from '@hooks/useId';
+import { getProductById } from '@redux/products/service';
+import { loadProductId, selectProductId } from '@redux/selectors';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { errorEditProduct, loadEditProduct, responseEditProduct } from '../../../redux/selectors';
+import { editProduct } from '../../../redux/service';
+import { productSchema } from '../../../validations/productSchema';
 import ErrorText from '../../ErrorText/ErrorText';
-import ProductForm from '../ProductForm/ProductForm';
+import LoadingButton from '../../LoadingButton/LoadingButton';
+import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 import UploadedImages from '../../UploadedImages/UploadedImages';
+import ProductForm from '../ProductForm/ProductForm';
 import handleFormData from './helpers/handleFormData';
 import setFormValues from './helpers/setFormValues';
-import useIdFromUrl from '@hooks/useId';
-import SuccessMessage from '../../SuccessMessage/SuccessMessage';
-import LoadingButton from '../../LoadingButton/LoadingButton';
 import cl from './index.module.scss';
 
 const ProductEdit = () => {
@@ -39,12 +39,12 @@ const ProductEdit = () => {
   const responseEdit = useSelector(responseEditProduct);
   const errorEdit = useSelector(errorEditProduct);
 
-  // Fetch product data for editing
   useEffect(() => {
     dispatch(getProductById(id));
   }, [dispatch, id]);
+
   useEffect(() => {
-    if (responseGet) setFormValues(setValue, responseGet);
+    responseGet && setFormValues(setValue, responseGet);
   }, [responseGet, setValue]);
 
   const onSubmit = (values) => {

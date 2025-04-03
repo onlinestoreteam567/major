@@ -1,14 +1,15 @@
-import { createProduct } from '../../../redux/service';
+import { yupResolver } from '@hookform/resolvers/yup';
+import appendFormData from '@utils/appendFormData';
+import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { errorCreateProduct, loadCreateProduct, responseCreateProduct } from '../../../redux/selectors';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { createProduct } from '../../../redux/service';
 import { productSchema } from '../../../validations/productSchema';
 import ErrorText from '../../ErrorText/ErrorText';
-import ProductForm from '../ProductForm/ProductForm';
-import cl from './index.module.scss';
 import LoadingButton from '../../LoadingButton/LoadingButton';
 import SuccessMessage from '../../SuccessMessage/SuccessMessage';
+import ProductForm from '../ProductForm/ProductForm';
+import cl from './index.module.scss';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -29,25 +30,7 @@ const ProductCreate = () => {
 
   const onSubmit = (values) => {
     const formData = new FormData();
-
-    // Handle file uploads if any
-    if (values.upload_images && values.upload_images.length > 0) {
-      values.upload_images.forEach((file) => {
-        formData.append(`upload_images`, file);
-      });
-    }
-
-    // Append other form data
-    Object.keys(values).forEach((key) => {
-      if (key !== 'upload_images') {
-        let value = values[key];
-        if (Array.isArray(value)) {
-          value.forEach((val) => formData.append(key, val));
-        } else {
-          formData.append(key, value);
-        }
-      }
-    });
+    appendFormData(formData, values);
 
     dispatch(createProduct(formData));
   };
