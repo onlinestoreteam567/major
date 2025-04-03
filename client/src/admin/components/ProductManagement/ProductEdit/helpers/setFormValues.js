@@ -1,7 +1,4 @@
 const setFormValues = (setValue, responseGet) => {
-  console.log(responseGet);
-  console.log(123);
-
   setValue('article', responseGet.article);
   setValue('available', responseGet.available);
   setValue('is_best_seller', responseGet.is_best_seller);
