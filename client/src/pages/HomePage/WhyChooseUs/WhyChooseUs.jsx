@@ -9,28 +9,28 @@ const WhyChooseUs = () => {
       <Heading type="h2">{getTranslation('whyChooseUs')}</Heading>
       <div className={cl.figuresWrapper}>
         <figure>
-          <img src="/images/whyChooseUs/discount.png" alt={getTranslation('firstAlt')} />
+          <img src="/images/whyChooseUs/discount.webp" alt={getTranslation('firstAlt')} />
           <figcaption>
             <Heading type="h3">{getTranslation('firstTitle')}</Heading>
             <Paragraph type="body2">{getTranslation('firstParagraph')}</Paragraph>
           </figcaption>
         </figure>
         <figure>
-          <img src="/images/whyChooseUs/fastDelivery.png" alt={getTranslation('secondAlt')} />
+          <img src="/images/whyChooseUs/fastDelivery.webp" alt={getTranslation('secondAlt')} />
           <figcaption>
             <Heading type="h3">{getTranslation('secondTitle')}</Heading>
             <Paragraph type="body2">{getTranslation('secondParagraph')}</Paragraph>
           </figcaption>
         </figure>
         <figure>
-          <img src="/images/whyChooseUs/quality.png" alt={getTranslation('thirdAlt')} />
+          <img src="/images/whyChooseUs/quality.webp" alt={getTranslation('thirdAlt')} />
           <figcaption>
             <Heading type="h3">{getTranslation('thirdTitle')}</Heading>
             <Paragraph type="body2">{getTranslation('thirdParagraph')}</Paragraph>
           </figcaption>
         </figure>
         <figure>
-          <img src={'/images/whyChooseUs/thumbUp.png'} alt={getTranslation('fourthAlt')} />
+          <img src={'/images/whyChooseUs/thumbUp.webp'} alt={getTranslation('fourthAlt')} />
           <figcaption>
             <Heading type="h3">{getTranslation('fourthTitle')}</Heading>
             <Paragraph type="body2">{getTranslation('fourthParagraph')}</Paragraph>
