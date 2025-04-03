@@ -1,0 +1,146 @@
+@import '@mixins';
+
+.wrapBackground {
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .flowersBackground {
+    width: 1440px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include deskmax {
+      width: 100%;
+    }
+  }
+
+  .slide {
+    height: 620px;
+    margin: 0 auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+    @include flex();
+    @include layout();
+    & {
+      padding: 60px 15px 40px 15px;
+  
+      @include tablet {
+        padding: 75px 64px 0 64px;
+        height: 704px;
+  
+        &.right {
+          gap: 100px;
+        }
+      }
+  
+      @include deskmin {
+        padding: 96px 24px 0 24px;
+      }
+  
+      @include deskmax {
+        padding: 96px 72px 0 72px;
+  
+        &.right {
+          gap: 345px;
+        }
+      }
+    }
+  
+    img {
+      position: absolute;
+      top: 105px;
+      height: 424px;
+      @include tablet {
+        position: relative;
+        top: 16px;
+      }
+  
+      @include deskmin {
+        height: 562px;
+        top: 24px;
+      }
+  
+      @include tablet {
+        height: 642px;
+        top: 0px;
+      }
+    }
+  
+    section {
+      height: 100%;
+      width: 100%;
+  
+      @include flex(column, space-between, null);
+  
+      @include tablet {
+        justify-content: center;
+        align-items: start;
+        gap: 50px;
+      }
+      .label {
+        p {
+          width: fit-content;
+          padding: 10px 20px 10px 20px;
+          border-radius: $border-radius-base;
+          box-sizing: border-box;
+          color: #3a3a3a;
+          border: 1px solid #3a3a3a;
+        }
+      }
+  
+      .bottomWrapper {
+        backdrop-filter: blur(7.199999809265137px);
+        align-items: center;
+        @include flexGap(16px, column);
+        z-index: $z-index-pop-up;
+        position: relative;
+  
+        @include tablet {
+          @include flexGap(50px, column);
+          align-items: start;
+          backdrop-filter: none;
+  
+          h1 {
+            text-align: start;
+          }
+        }
+  
+        button {
+          font-size: $font-size-medium;
+          font-weight: $font-weight-medium;
+          width: 296px;
+          height: 54px;
+  
+          @include mobile {
+            width: 331px;
+          }
+  
+          &:hover {
+            background-color: $background-color-light;
+            color: $text-color-black;
+          }
+  
+          @include tablet {
+            height: 58px;
+            width: 241px;
+            font-weight: $font-weight-bold;
+            line-height: $letter-spacing-base;
+            letter-spacing: $letter-spacing-base;
+            color: $text-color-light;
+          }
+  
+          @include deskmax {
+            height: 77px;
+            font-size: $font-size-medium-extra;
+            font-weight: $font-weight-bold;
+            letter-spacing: $letter-spacing-base;
+          }
+        }
+      }
+    }
+  }
+}
+
