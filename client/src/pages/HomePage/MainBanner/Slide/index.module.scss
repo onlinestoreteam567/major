@@ -53,19 +53,21 @@
       position: absolute;
       top: 105px;
       height: 424px;
+      aspect-ratio: 1 / 1.6;
+      
+      @include mobile {
+        aspect-ratio: 1 / 1.45;
+      }
+
       @include tablet {
         position: relative;
-        top: 16px;
+        height: 642px;
+        top: 0px;
       }
   
       @include deskmin {
         height: 562px;
         top: 24px;
-      }
-  
-      @include tablet {
-        height: 642px;
-        top: 0px;
       }
     }
   
