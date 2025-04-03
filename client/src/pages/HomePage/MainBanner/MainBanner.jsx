@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import settings from './settings.js';
-import Slide from './Slide';
+import Slide from './Slide/Slide.jsx';
 import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
 import { loadBanner, selectBanner } from '@redux/selectors.js';
