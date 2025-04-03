@@ -12,7 +12,7 @@ const MajorInfo = () => {
       <Heading type="h2">{getTranslation('title')}</Heading>
       <div className={cl.wrapItem}>
         <div className={cl.wrapImg}>
-          <img src="/images/majorInfo/1.png" alt={getTranslation('imgAlt')} />
+          <img src="/images/majorInfo/1.webp" alt={getTranslation('imgAlt')} />
         </div>
         <div className={cl.wrapInfo}>
           <div className={cl.wrapText}>

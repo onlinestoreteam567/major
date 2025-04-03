@@ -24,7 +24,7 @@ const Slide = ({ slide }) => {
   console.log(slide);
   return (
     <div style={{ backgroundImage: `url(${slide.background_image_url})` }} className={cl.wrapBackground}>
-      <img src="/images/banners/mainBanner/background.png" alt="" className={cl.flowersBackground} />
+      <img src="/images/banners/mainBanner/background.webp" alt="" className={cl.flowersBackground} />
       <div className={`${cl.slide} ${slide.left ? cl.right : ''}`}>
         {slide.left && <img src={slide.image_url} alt="" />}
         <section>

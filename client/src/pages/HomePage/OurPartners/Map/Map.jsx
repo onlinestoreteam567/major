@@ -23,7 +23,7 @@ const Map = () => {
   const imageRef = useRef(null);
   const animationFrameRef = useRef(null);
   const { i18n } = useTranslation();
-  const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.png' : '/images/ourPartners/mapUa.png';
+  const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.webp' : '/images/ourPartners/mapUa.webp';
 
   return (
     <div
