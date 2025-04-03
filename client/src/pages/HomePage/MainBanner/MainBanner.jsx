@@ -7,7 +7,7 @@ import Slide from './Slide';
 import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
 import { loadBanner, selectBanner } from '@redux/selectors.js';
-import Spinner from '@components/helpers/Spinner.jsx';
+import Skeleton from '@components/UI/Skeleton/Skeleton.jsx';
 
 const MainBanner = () => {
   const sliderRef = useRef(null);
@@ -36,7 +36,7 @@ const MainBanner = () => {
   };
 
   return isLoading ? (
-    <Spinner />
+    <Skeleton heights={{ extraMobile: 620, mobile: 620, tablet: 720, deskmin: 720, deskmax: 720 }} />
   ) : (
     <div className={`slider-container ${cl.mainBanner}`}>
       <button onClick={previous} />
