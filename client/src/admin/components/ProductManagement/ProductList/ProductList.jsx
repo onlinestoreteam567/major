@@ -7,6 +7,7 @@ import { deleteProduct } from '../../../redux/service';
 import { loadProductDelete, responseProductDelete } from '../../../redux/selectors';
 import { useEffect } from 'react';
 import { fetchProductsAll } from '@redux/products/service';
+import handleDeleteItem from '@utils/handleDeleteItem';
 
 const List = () => {
   const items = useSelector(selectProducts);
@@ -16,16 +17,10 @@ const List = () => {
   const deleteResponse = useSelector(responseProductDelete);
 
   useEffect(() => {
-    if (deleteResponse === 204) {
-      dispatch(fetchProductsAll());
-    }
+    deleteResponse === 204 && dispatch(fetchProductsAll());
   }, [dispatch, deleteResponse]);
 
-  const handleDelete = (id) => {
-    if (confirm('Are you sure you want to delete this category?')) {
-      dispatch(deleteProduct(id));
-    }
-  };
+  const handleDelete = (id) => handleDeleteItem(dispatch, deleteProduct, id);
 
   return (
     <>

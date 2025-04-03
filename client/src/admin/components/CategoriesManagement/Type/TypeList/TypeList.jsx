@@ -7,6 +7,7 @@ import { deleteType } from '../../../../redux/service';
 import { loadTypeDelete, responseTypeDelete } from '../../../../redux/selectors';
 import { useEffect } from 'react';
 import { fetchTypes } from '@redux/params/service';
+import handleDeleteItem from '@utils/handleDeleteItem';
 
 const TypeList = () => {
   const dispatch = useDispatch();
@@ -16,16 +17,10 @@ const TypeList = () => {
   const deleteResponse = useSelector(responseTypeDelete);
 
   useEffect(() => {
-    if (deleteResponse === 204) {
-      dispatch(fetchTypes());
-    }
+    deleteResponse === 204 && dispatch(fetchTypes());
   }, [dispatch, deleteResponse]);
 
-  const handleDelete = (id) => {
-    if (confirm('Are you sure you want to delete this category?')) {
-      dispatch(deleteType(id));
-    }
-  };
+  const handleDelete = (id) => handleDeleteItem(dispatch, deleteType, id);
 
   return (
     <>

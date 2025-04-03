@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { deleteBanner, fetchBanner } from '@redux/banner/service';
+import handleDeleteItem from '@utils/handleDeleteItem';
 
 const List = () => {
   const items = useSelector(selectBanner);
@@ -14,17 +15,11 @@ const List = () => {
   const deleteResponse = useSelector(selectBannerDelete);
 
   useEffect(() => {
-    if (deleteResponse === 204) {
-      dispatch(fetchBanner());
-    }
+    deleteResponse === 204 && dispatch(fetchBanner());
   }, [dispatch, deleteResponse]);
 
-  const handleDelete = (id) => {
-    if (confirm('Are you sure you want to delete this category?')) {
-      dispatch(deleteBanner(id));
-    }
-  };
-  console.log(items);
+  const handleDelete = (id) => handleDeleteItem(dispatch, deleteBanner, id);
+
   return (
     <>
       {isLoading || isLoadingDelete ? (

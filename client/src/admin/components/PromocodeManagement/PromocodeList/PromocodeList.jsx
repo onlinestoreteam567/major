@@ -10,6 +10,7 @@ import {
 } from '../../../redux/selectors';
 import { deletePromocode, fetchPromocode } from '../../../redux/service';
 import { useEffect } from 'react';
+import handleDeleteItem from '@utils/handleDeleteItem';
 
 const List = () => {
   const items = useSelector(responsePromocodeList);
@@ -19,16 +20,10 @@ const List = () => {
   const deleteResponse = useSelector(responsePromocodeDelete);
 
   useEffect(() => {
-    if (deleteResponse === 204) {
-      dispatch(fetchPromocode());
-    }
+    deleteResponse === 204 && dispatch(fetchPromocode());
   }, [dispatch, deleteResponse]);
 
-  const handleDelete = (id) => {
-    if (confirm('Ви впевнені, що хочете видалити цей промокод?')) {
-      dispatch(deletePromocode(id));
-    }
-  };
+  const handleDelete = (id) => handleDeleteItem(dispatch, deletePromocode, id);
 
   return (
     <>
