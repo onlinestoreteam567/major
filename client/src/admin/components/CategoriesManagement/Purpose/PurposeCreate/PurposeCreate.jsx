@@ -1,3 +1,8 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import appendFormData from '@utils/appendFormData';
+import handleImageUpload from '@utils/handleImageUpload';
+import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   errorCreatePurposeCategory,
   loadCreatePurposeCategory,
@@ -5,15 +10,11 @@ import {
 } from '../../../../redux/selectors';
 import { createPurposeCategory } from '../../../../redux/service';
 import { categorySchema } from '../../../../validations/categorySchema';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
 import ErrorText from '../../../ErrorText/ErrorText';
 import LoadingButton from '../../../LoadingButton/LoadingButton';
+import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
 import PurposeForm from '../PurposeForm';
 import cl from './index.module.scss';
-import appendFormData from '@utils/appendFormData';
 
 const PurposeCreate = () => {
   const {
@@ -32,8 +33,9 @@ const PurposeCreate = () => {
   const errorPost = useSelector(errorCreatePurposeCategory);
 
   const onSubmit = (values) => {
-    const formData = new FormData();
-    appendFormData(formData, values);
+    let formData = new FormData();
+    formData = handleImageUpload(formData, values, 'image');
+    appendFormData(formData, values, ['image']);
 
     dispatch(createPurposeCategory(formData));
   };

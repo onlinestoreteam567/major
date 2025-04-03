@@ -10,6 +10,7 @@ import LoadingButton from '../../LoadingButton/LoadingButton';
 import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
+import handleImageUpload from '@utils/handleImageUpload';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -29,8 +30,9 @@ const ProductCreate = () => {
   const errorPost = useSelector(errorCreateProduct);
 
   const onSubmit = (values) => {
-    const formData = new FormData();
-    appendFormData(formData, values);
+    let formData = new FormData();
+    formData = handleImageUpload(formData, values, 'upload_images');
+    appendFormData(formData, values, ['upload_images']);
 
     dispatch(createProduct(formData));
   };

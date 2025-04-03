@@ -3,6 +3,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useId';
 import { getProductById } from '@redux/products/service';
 import { loadProductId, selectProductId } from '@redux/selectors';
+import appendFormData from '@utils/appendFormData';
+import handleImageUpload from '@utils/handleImageUpload';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,9 +16,27 @@ import LoadingButton from '../../LoadingButton/LoadingButton';
 import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 import UploadedImages from '../../UploadedImages/UploadedImages';
 import ProductForm from '../ProductForm/ProductForm';
-import handleFormData from './helpers/handleFormData';
-import setFormValues from './helpers/setFormValues';
 import cl from './index.module.scss';
+import setFormValues from '@utils/setFormValue';
+
+const formValues = [
+  'article',
+  'available',
+  'is_best_seller',
+  'is_new',
+  'product_name_uk',
+  'product_name_en',
+  'price',
+  'discount',
+  'volume_ml',
+  'purpose_category',
+  'type_category',
+  'description_uk',
+  'description_en',
+  'ingredients',
+  'application_uk',
+  'application_en',
+];
 
 const ProductEdit = () => {
   const {
@@ -44,11 +64,14 @@ const ProductEdit = () => {
   }, [dispatch, id]);
 
   useEffect(() => {
-    responseGet && setFormValues(setValue, responseGet);
+    responseGet && setFormValues(setValue, responseGet, formValues);
   }, [responseGet, setValue]);
 
   const onSubmit = (values) => {
-    const formData = handleFormData(values);
+    let formData = new FormData();
+    formData = handleImageUpload(formData, values, 'upload_images');
+    appendFormData(formData, values, ['upload_images']);
+
     dispatch(editProduct({ formData, id }));
   };
 
@@ -63,9 +86,6 @@ const ProductEdit = () => {
       <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити" />
       {errorEdit && <ErrorText error={errorEdit} />}
       {responseEdit && <SuccessMessage>Товар успішно відредаговано!</SuccessMessage>}
-      <button type="button" onClick={() => console.log(getValues())}>
-        д
-      </button>
     </form>
   );
 };

@@ -21,6 +21,7 @@ import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
 import UploadedImage from '../../../UploadedImage/UploadedImage';
 import PurposeForm from '../PurposeForm';
 import cl from './index.module.scss';
+import handleImageUpload from '@utils/handleImageUpload';
 
 const formValues = ['category_name_uk', 'category_name_en'];
 
@@ -53,8 +54,9 @@ const PurposeEdit = () => {
   }, [responseGet, setValue]);
 
   const onSubmit = (values) => {
-    const formData = new FormData();
-    appendFormData(formData, values);
+    let formData = new FormData();
+    formData = handleImageUpload(formData, values, 'image');
+    appendFormData(formData, values, ['image']);
 
     dispatch(editPurpose({ formData, id }));
   };
