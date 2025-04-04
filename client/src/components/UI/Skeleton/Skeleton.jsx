@@ -14,7 +14,7 @@ const Skeleton = ({ width = '100%', heights = { extraMobile, mobile, tablet, des
   };
 
   return (
-    <div className={cl.skeleton} style={{ width, height: getHeight() }} >
+    <div className={cl.skeleton} style={{ width, height: 704 }}>
       <Spinner />
     </div>
   );
