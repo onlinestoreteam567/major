@@ -1,7 +1,0 @@
-@import '@mixins';
-
-.skeleton {
-  @include flex(row, center, center);
-  border-radius: 4px;
-  overflow: hidden;
-} 

@@ -5,6 +5,26 @@
   width: 100%;
   gap: 40px;
   box-sizing: border-box;
+  min-height: 445px;
+  height: 445px;
+
+  @include mobile {
+    min-height: 517px;
+    height: 517px;
+  }
+  @include tablet {
+    min-height: 692px;
+    height: 692px;
+  }
+  @include deskmin {
+    min-height: 555px;
+    height: 555px;
+  }
+  @include deskmax {
+    min-height: 840px;
+    height: 840px;
+  }
+
   ul {
     @include flex(row, center, center);
     flex-wrap: wrap;
