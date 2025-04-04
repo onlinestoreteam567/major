@@ -3,12 +3,14 @@ import { Controller } from 'react-hook-form';
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
 import cl from './index.module.scss';
+
 import handleImageUpload from './helpers/handleImageUpload';
 import handleCroppedImage from './helpers/handleCroppedImage';
 import deleteCroppedImage from './helpers/deleteCroppedImage';
 
 const ImageUpload = ({ control, name, errors, labelText = 'Фото' }) => {
   const [image, setImage] = useState(null);
+  const [originalFile, setOriginalFile] = useState(null);
   const [croppedImages, setCroppedImages] = useState([]);
   const cropperRef = createRef();
 
@@ -20,7 +22,11 @@ const ImageUpload = ({ control, name, errors, labelText = 'Фото' }) => {
         <div>
           <label>
             {labelText}
-            <input type="file" accept="image/*" onChange={(event) => handleImageUpload(event, setImage)} />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(event) => handleImageUpload(event, setImage, setOriginalFile)}
+            />
           </label>
 
           {image && (
@@ -44,7 +50,17 @@ const ImageUpload = ({ control, name, errors, labelText = 'Фото' }) => {
               />
               <button
                 type="button"
-                onClick={() => handleCroppedImage(onChange, cropperRef, croppedImages, setCroppedImages, setImage)}
+                onClick={() =>
+                  handleCroppedImage(
+                    onChange,
+                    cropperRef,
+                    croppedImages,
+                    setCroppedImages,
+                    setImage,
+                    originalFile,
+                    setOriginalFile
+                  )
+                }
               >
                 Обрізати & Додати
               </button>
@@ -55,7 +71,12 @@ const ImageUpload = ({ control, name, errors, labelText = 'Фото' }) => {
             {croppedImages.map((img, index) => (
               <div key={index}>
                 <img src={URL.createObjectURL(img)} alt={`Cropped ${index + 1}`} />
-                <button onClick={() => deleteCroppedImage(index, onChange, croppedImages, setCroppedImages)}>X</button>
+                <button
+                  type="button"
+                  onClick={() => deleteCroppedImage(index, onChange, croppedImages, setCroppedImages)}
+                >
+                  X
+                </button>
               </div>
             ))}
           </div>
