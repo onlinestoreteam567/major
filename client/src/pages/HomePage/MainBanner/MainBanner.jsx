@@ -36,7 +36,7 @@ const MainBanner = () => {
   };
 
   return isLoading ? (
-    <Skeleton heights={{ extraMobile: 620, mobile: 620, tablet: 720, deskmin: 720, deskmax: 720 }} />
+    <Skeleton heights={{ extraMobile: 620, mobile: 620, tablet: 704, deskmin: 704, deskmax: 704 }} />
   ) : (
     <div className={`slider-container ${cl.mainBanner}`}>
       <button onClick={previous} />
