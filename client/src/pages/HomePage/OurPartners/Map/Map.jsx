@@ -11,6 +11,8 @@ import ZoomIn from '@assets/svg/ZoomIn';
 import { useTranslation } from 'react-i18next';
 import PartnerInfo from '../PartnerInfo/PartnerInfo';
 import handleWheel from './eventHandlers/handleWheel';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
 
 const Map = () => {
   const [scale, setScale] = useState(1);
@@ -18,11 +20,12 @@ const Map = () => {
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [informationAboutPartner, setInformationAboutPartner] = useState(null);
-  console.log(informationAboutPartner);
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const animationFrameRef = useRef(null);
   const { i18n } = useTranslation();
+  const { getTranslation } = useTranslationNamespace('ourPartners');
+
   const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.webp' : '/images/ourPartners/mapUa.webp';
 
   return (
@@ -41,12 +44,12 @@ const Map = () => {
       onTouchEnd={() => handleEnd(setIsDragging)}
     >
       <div className={cl.zoomButtonsWrapper}>
-        <button onClick={() => handleZoomIn(setScale)}>
+        <ButtonAriaLabel al={getTranslation('ariaLableZoomIn')} onClick={() => handleZoomIn(setScale)}>
           <ZoomIn />
-        </button>
-        <button onClick={() => handleZoomOut(setScale, setPosition)}>
+        </ButtonAriaLabel>
+        <ButtonAriaLabel al={getTranslation('ariaLableZoomOut')} onClick={() => handleZoomOut(setScale, setPosition)}>
           <ZoomOut />
-        </button>
+        </ButtonAriaLabel>
       </div>
 
       <div
@@ -81,6 +84,8 @@ const Map = () => {
             }}
             title={point.label}
             onClick={() => setInformationAboutPartner(point)}
+            type="button"
+            aria-label={getTranslation('ariaLabelPoint')}
           >
             <img src="/svg/ourPartners/point.svg" alt="" />
           </button>

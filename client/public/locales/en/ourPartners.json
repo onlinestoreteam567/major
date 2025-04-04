@@ -6,5 +6,9 @@
 
   "workingHours": "Working Hours",
   "address": "Address",
-  "openGoogleMap": "Open Google Map"
+  "openGoogleMap": "Open Google Map",
+
+  "ariaLabelPoint": "Show partner location",
+  "ariaLableZoomIn": "Zoom in map",
+  "ariaLableZoomOut": "Zoom out map"
 }

@@ -12,7 +12,7 @@ const EmptyBasket = ({ onClick }) => {
         <Paragraph type="body1">{getTranslation('emptyBasket')}</Paragraph>
       </div>
       <div className={cl.emptyBasketButtonWrapper}>
-        <Button variant="secondary" onClick={onClick}>
+        <Button variant="secondary" onClick={onClick} ariaLabel={getTranslation('basketButtonAriaLabel')}>
           {getTranslation('continueShopping')}
         </Button>
       </div>

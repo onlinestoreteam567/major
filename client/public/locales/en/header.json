@@ -4,5 +4,8 @@
   "blog": "BLOG",
   "cooperation": "COOPERATION",
   "contact": "CONTACTS",
-  "searchInputPlaceholder": "I'm looking for..."
+  "searchInputPlaceholder": "I'm looking for...",
+  "ariaLabelBurger": "Open menu",
+  "ariaLabelSwitchToUa": "Switch to Ukrainian language",
+  "ariaLabelSwitchToEn": "Switch to English language"
 }

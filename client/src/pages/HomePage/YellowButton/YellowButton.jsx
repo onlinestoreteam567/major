@@ -5,6 +5,7 @@ import { popUpData } from '@components/constants/popUpData';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import Heading from '@components/UI/Texts/Heading/Heading';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
 
 const YellowButton = () => {
   const [showMessagePopUp, setShowMessagePopUp] = useState(false);
@@ -13,7 +14,6 @@ const YellowButton = () => {
 
   const showAdditionalInfo = () => setIsShowAdditionalInfo(true);
   const handleShowMesssagePopUp = () => setShowMessagePopUp(true);
-
   const closeAdditionalInfo = () =>
     handleCloseWithDelay(setIsShowAdditionalInfoCloseAnimation, setIsShowAdditionalInfo);
 
@@ -22,9 +22,9 @@ const YellowButton = () => {
   return (
     <>
       <section className={cl.yellowButtonWrapper}>
-        <button className={cl.questionButton} onClick={showAdditionalInfo} onMouseEnter={showAdditionalInfo}>
+        <ButtonAriaLabel al="openHelpInfo" onClick={showAdditionalInfo} onMouseEnter={showAdditionalInfo}>
           ?
-        </button>
+        </ButtonAriaLabel>
 
         {isShowAdditionalInfo && (
           <div
@@ -35,12 +35,17 @@ const YellowButton = () => {
             <span className={cl.questionSpan}>?</span>
             <div className={cl.buttonsWrapper}>
               <Heading type="h3">{getTranslation('title')}</Heading>
-              <a href="https://t.me/UA_National_Police" rel="nofollow" target="_blank">
+              <a
+                href="https://t.me/UA_National_Police"
+                rel="nofollow"
+                target="_blank"
+                aria-label={getTranslation('openTelegram')}
+              >
                 <img src="/svg/yellowCircle/telegram.svg" alt="Telegram icon" />
               </a>
-              <button onClick={handleShowMesssagePopUp}>
+              <ButtonAriaLabel al="openMessageForm" onClick={handleShowMesssagePopUp}>
                 <img src="/svg/yellowCircle/communication.svg" alt="Open message pop-up" />
-              </button>
+              </ButtonAriaLabel>
             </div>
           </div>
         )}

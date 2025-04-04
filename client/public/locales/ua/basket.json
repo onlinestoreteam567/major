@@ -4,5 +4,6 @@
   "continueShopping": "Продовжити покупки",
   "numberOfItems": "Кількість товарів",
   "totalPrice": "Загалом",
-  "placeOrder": "Оформити замовлення"
+  "placeOrder": "Оформити замовлення",
+  "basketButtonAriaLabel": "Закрити кошик і продовжити покупки"
 }

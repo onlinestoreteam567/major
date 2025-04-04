@@ -25,7 +25,7 @@ const Slide = ({ slide }) => {
     <div style={{ backgroundImage: `url(${slide.background_image_url})` }} className={cl.wrapBackground}>
       <img src="/images/banners/mainBanner/background.webp" alt="" className={cl.flowersBackground} />
       <div className={`${cl.slide} ${slide.left ? cl.right : ''}`}>
-        {slide.left && <img src={slide.image_url}  alt="" />}
+        {slide.left && <img src={slide.image_url} alt="" />}
         <section>
           <div className={cl.label}>{labelText && <AccentText>{getTranslation(labelText)}</AccentText>}</div>
 
@@ -34,7 +34,7 @@ const Slide = ({ slide }) => {
             <AddToCartButton variant="primary" card={slide.product} />
           </div>
         </section>
-        {!slide.left && <img src={slide.image_url}  alt="" />}
+        {!slide.left && <img src={slide.image_url} alt="" />}
       </div>
     </div>
   );

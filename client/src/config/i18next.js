@@ -22,6 +22,8 @@ i18n
 
       // Components
       'yellowButton',
+      'buttonClose',
+      'buttonAriaLable',
 
       // Modules/Sections
       'mainBanner',

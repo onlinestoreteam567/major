@@ -10,7 +10,7 @@ const Header = ({ onClick }) => {
     <section className={cl.basketHeaderSection}>
       <Heading type="h2">{getTranslation('basket')}</Heading>
 
-      <ButtonClose onClick={onClick} />
+      <ButtonClose onClick={onClick} ariaLabel="ariaLabelBasket" />
     </section>
   );
 };

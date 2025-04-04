@@ -18,7 +18,7 @@ const MobileSearchWrapper = ({ setIsShowInput, isDesktop }) => {
       <div className={`${cl.searchWrapper} ${IsHiddenSearchAnimation && cl.closeAnimation}`}>
         <div className={cl.top}>
           <img src="/svg/header/searchLogo.svg" alt="" />
-          <ButtonClose onClick={() => closeAnimation()} />
+          <ButtonClose onClick={() => closeAnimation()} ariaLabel="ariaLabelMobileSearchWrapper" />
         </div>
         <SearchInput isDesktop={isDesktop} setIsShowInput={setIsShowInput} />
       </div>

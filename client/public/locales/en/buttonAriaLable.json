@@ -1,0 +1,16 @@
+{
+  "openSearchInput": "Open search input",
+  "openBasket": "Open basket",
+  "previous": "Show previous slide",
+  "next": "Show next slide",
+  "previousProducts": "Show previous products",
+  "nextProducts": "Show next products",
+  "previousReviews": "Show previous reviews",
+  "nextReviews": "Show next reviews",
+  "decreaseQuantity": "Decrease quantity of product",
+  "increaseQuantity": "Increase quantity of product",
+  "removeItem": "Remove product from basket",
+  "openHelpInfo": "Learn more about free consultation",
+  "openTelegram": "Go to Telegram and open chatbot",
+  "openMessageForm": "Open form for callback"
+}

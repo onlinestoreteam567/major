@@ -11,7 +11,7 @@ const OurPartners = () => {
       <Heading type="h2">{getTranslation('ourPartners')}</Heading>
       <Map />
       <div className={cl.buttonWrapper}>
-        <Button>{getTranslation('becomePartner')}</Button>
+        <Button ariaLabel={getTranslation('becomePartner')}>{getTranslation('becomePartner')}</Button>
       </div>
     </section>
   );

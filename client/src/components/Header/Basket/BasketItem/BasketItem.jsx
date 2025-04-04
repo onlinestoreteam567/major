@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addItem, removeItem, decrementItemQuantity, setItemQuantity } from '@features/cart/cartSlice.js/';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
 
 const hryvnia = '\u20B4';
 
@@ -39,17 +40,17 @@ const BasketItem = ({ item }) => {
         </div>
         <section className={cl.basketItemCounterAndDeleteSection}>
           <section>
-            <button onClick={handleDecrementItem}>
+            <ButtonAriaLabel al="decreaseQuantity" onClick={handleDecrementItem}>
               <Minus />
-            </button>
+            </ButtonAriaLabel>
             <input type="number" value={item.quantity} onChange={handleQuantityChange} />
-            <button onClick={handleAddToCart}>
+            <ButtonAriaLabel al="increaseQuantity" onClick={handleAddToCart}>
               <Plus />
-            </button>
+            </ButtonAriaLabel>
           </section>
-          <button className={cl.deleteButton} onClick={handleRemoveItem}>
+          <ButtonAriaLabel al="removeItem" onClick={handleRemoveItem} className={cl.deleteButton}>
             {getTranslation('delete')}
-          </button>
+          </ButtonAriaLabel>
         </section>
       </section>
     </li>

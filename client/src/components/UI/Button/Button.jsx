@@ -7,23 +7,18 @@ export default function Button({
   purpose = 'default',
   onMouseEnter,
   onMouseLeave,
-  submit,
+  ariaLabel,
 }) {
-  const handleClick = (e) => {
-    // If it's a submit button, let the form handle the submission
-    if (submit) return;
-
-    // Otherwise, execute the onClick handler
-    if (onClick) onClick(e);
-  };
+  const handleClick = (e) => onClick(e);
 
   return (
     <button
       className={`${cl.button} ${cl[variant]} ${cl[purpose]}`}
-      type={submit ? 'submit' : 'button'}
+      type="button"
       onClick={handleClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      aria-label={ariaLabel}
     >
       {children}
     </button>

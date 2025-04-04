@@ -4,5 +4,8 @@
   "blog": "БЛОГ",
   "cooperation": "СПІВПРАЦЯ",
   "contact": "КОНТАКТИ",
-  "searchInputPlaceholder": "Я шукаю..."
+  "searchInputPlaceholder": "Я шукаю...",
+  "ariaLabelBurger": "Відкрити меню",
+  "ariaLabelSwitchToUa": "Перейти на українську мову",
+  "ariaLabelSwitchToEn": "Перейти на англійську мову"
 }

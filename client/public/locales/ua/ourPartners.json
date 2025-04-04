@@ -6,5 +6,9 @@
 
   "workingHours": "Графік роботи",
   "address": "Адреса",
-  "openGoogleMap": "Відкрити Google Map"
+  "openGoogleMap": "Відкрити Google Map",
+
+  "ariaLabelPoint": "Показати місцезнаходження партнера",
+  "ariaLableZoomIn": "Приблизити мапу",
+  "ariaLableZoomOut": "Віддалати мапу"
 }
