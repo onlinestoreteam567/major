@@ -4,7 +4,7 @@ import LabelSale from '../../../../../../components/UI/CardProduct/Labels/LabelS
 import cl from './index.module.scss';
 
 export default function Image({ card }) {
-  const placeholderImage = '/images/placeholder.webp'; // Update the path to your actual placeholder image
+  const placeholderImage = '/images/placeholder.webp';
   const hasImages = card.images && card.images.length > 0;
   const imageSrc = hasImages ? card.images[0].image : placeholderImage;
 
