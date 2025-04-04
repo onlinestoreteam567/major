@@ -12,7 +12,7 @@ import Skeleton from '@components/UI/Skeleton/Skeleton.jsx';
 const MainBanner = () => {
   const sliderRef = useRef(null);
   const slideData = useSelector(selectBanner);
-  const isLoading = useSelector(loadBanner);
+  const isLoading = true;
   const [clickDelay, setClickDelay] = useState(false);
   const timer = useRef(null);
 

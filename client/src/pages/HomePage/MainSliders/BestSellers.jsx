@@ -9,7 +9,7 @@ import { loadBestSeller, selectBestSeller } from '@redux/selectors';
 
 const BestSellers = () => {
   const { getTranslation } = useTranslationNamespace('common');
-  const isLoading = useSelector(loadBestSeller);
+  const isLoading = true;
   const items = useSelector(selectBestSeller);
   const total = items.length || 0;
 
