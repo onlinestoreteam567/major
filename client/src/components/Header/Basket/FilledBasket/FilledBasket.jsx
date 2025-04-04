@@ -30,10 +30,18 @@ const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
         </Heading>
       </section>
       <section className={cl.buttonsSection}>
-        <Button variant="secondary" onClick={onClick}>
+        <Button variant="secondary" onClick={onClick} ariaLabel={getTranslation('basketButtonAriaLabel')}>
           {getTranslation('continueShopping')}
         </Button>
-        <Link to="/checkout">{getTranslation('placeOrder')}</Link>
+        <Link
+          to="/checkout"
+          role="button"
+          aria-label={getTranslation('placeOrder')}
+          className={cl.checkoutButton}
+          onClick={onClick}
+        >
+          {getTranslation('placeOrder')}
+        </Link>
       </section>
     </>
   );

@@ -6,5 +6,8 @@
   "previousProducts": "Show previous products",
   "nextProducts": "Show next products",
   "previousReviews": "Show previous reviews",
-  "nextReviews": "Show next reviews"
+  "nextReviews": "Show next reviews",
+  "decreaseQuantity": "Decrease quantity of product",
+  "increaseQuantity": "Increase quantity of product",
+  "removeItem": "Remove product from basket"
 }

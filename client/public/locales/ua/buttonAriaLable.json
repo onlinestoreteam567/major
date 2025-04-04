@@ -6,5 +6,8 @@
   "previousProducts": "Показати попередні товари",
   "nextProducts": "Показати наступні товари",
   "previousReviews": "Показати попередні відгуки",
-  "nextReviews": "Показати наступні відгуки"
+  "nextReviews": "Показати наступні відгуки",
+  "decreaseQuantity": "Зменшити кількість товару",
+  "increaseQuantity": "Збільшити кількість товару",
+  "removeItem": "Видалити товар з кошика"
 }

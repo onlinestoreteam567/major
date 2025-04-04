@@ -4,5 +4,6 @@
   "continueShopping": "Continue shopping",
   "numberOfItems": "Number of items",
   "totalPrice": "Total price",
-  "placeOrder": "Place order"
+  "placeOrder": "Place order",
+  "basketButtonAriaLabel": "Close basket and continue shopping"
 }
