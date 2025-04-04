@@ -6,6 +6,13 @@
   .banner {
     position: relative;
     display: block;
+    min-height: 620px;
+    height: 620px;
+
+    @include tablet {
+      min-height: 704px;
+      height: 704px;
+    }
   }
   .page {
     @include flexGap(72px, column);
