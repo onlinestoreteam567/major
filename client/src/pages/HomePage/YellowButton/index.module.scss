@@ -6,7 +6,7 @@
   right: 0;
   z-index: $z-index-pop-up;
 
-  .questionButton,
+  & > button:first-of-type,
   .questionSpan {
     @include flex();
     background-color: #f9ae1a;

@@ -9,5 +9,8 @@
   "nextReviews": "Show next reviews",
   "decreaseQuantity": "Decrease quantity of product",
   "increaseQuantity": "Increase quantity of product",
-  "removeItem": "Remove product from basket"
+  "removeItem": "Remove product from basket",
+  "openHelpInfo": "Learn more about free consultation",
+  "openTelegram": "Go to Telegram and open chatbot",
+  "openMessageForm": "Open form for callback"
 }
