@@ -10,9 +10,7 @@ import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 const NavDrawer = ({ setIsShowNavDrawer }) => {
   const [hiddenNavDrawer, setHiddenNavDrawer] = useState(false);
 
-  const handleCloseNavDrawer = () => {
-    handleCloseWithDelay(setHiddenNavDrawer, setIsShowNavDrawer);
-  };
+  const handleCloseNavDrawer = () => handleCloseWithDelay(setHiddenNavDrawer, setIsShowNavDrawer);
 
   return (
     <div className={`${cl.navDrawer} ${hiddenNavDrawer ? cl.closeAnimation : ''}`}>
@@ -20,7 +18,7 @@ const NavDrawer = ({ setIsShowNavDrawer }) => {
         <LangSwitcher />
         <LogoIcon fillColor={'black'} />
         <div>
-          <ButtonClose onClick={handleCloseNavDrawer} />
+          <ButtonClose onClick={handleCloseNavDrawer} ariaLabel="ariaLabelCloseNavDrawer" />
         </div>
       </div>
       <Navigation onClick={handleCloseNavDrawer} />

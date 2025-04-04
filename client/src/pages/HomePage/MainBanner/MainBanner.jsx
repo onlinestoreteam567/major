@@ -8,6 +8,7 @@ import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
 import { loadBanner, selectBanner } from '@redux/selectors.js';
 import Spinner from '@components/helpers/Spinner.jsx';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel.jsx';
 
 const MainBanner = () => {
   const sliderRef = useRef(null);
@@ -39,13 +40,13 @@ const MainBanner = () => {
     <Spinner />
   ) : (
     <div className={`slider-container ${cl.mainBanner}`}>
-      <button onClick={previous} />
+      <ButtonAriaLabel al="previous" onClick={previous} />
       <Slider ref={sliderRef} {...settings}>
         {slideData.map((slide, index) => (
           <Slide key={index} slide={slide} />
         ))}
       </Slider>
-      <button onClick={next} />
+      <ButtonAriaLabel al="next" onClick={next} />
     </div>
   );
 };

@@ -17,7 +17,7 @@ const AddToCartButton = ({ card, variant = 'secondary', count }) => {
   };
 
   return (
-    <Button onClick={handleAddToCart} variant={variant}>
+    <Button ariaLabel={getTranslation('addToCart')} onClick={handleAddToCart} variant={variant}>
       {getTranslation('addToCart')}
     </Button>
   );

@@ -11,6 +11,7 @@ import { commentsSettings } from '@components/constants/settingSlider';
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
 import useScreenSizes from '@hooks/useScreenSizes';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
 
 let screenSizeTotal;
 
@@ -71,12 +72,12 @@ const Comments = () => {
     <section className={cl.comments}>
       <Heading type="h2">{getTranslation('reviewsAboutProducts')}</Heading>
       <div className={cl.btnSlider}>
-        <button disabled={index === 1} onClick={previous}>
+        <ButtonAriaLabel al="previousReviews" disabled={index === 1} onClick={previous}>
           <ArrowLeft />
-        </button>
-        <button disabled={index === screenSizeTotal} onClick={next}>
+        </ButtonAriaLabel>
+        <ButtonAriaLabel al="nextReviews" disabled={index === screenSizeTotal} onClick={next}>
           <ArrowRight />
-        </button>
+        </ButtonAriaLabel>
       </div>
       <div className={`slider-container ${cl.wrapSlider}`}>
         <Slider ref={sliderRef} {...settings}>

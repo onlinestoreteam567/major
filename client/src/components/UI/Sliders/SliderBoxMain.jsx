@@ -9,6 +9,7 @@ import ArrowRight from '@assets/svg/ArrowRight';
 import { mainSettings } from '@components/constants/settingSlider';
 import useScreenSizes from '@hooks/useScreenSizes';
 import CategoryCard from '@pages/CatalogPage/FilterCategory/CategoryCard/CategoryCard';
+import ButtonAriaLabel from '../Button/ButtonAriaLabel/ButtonAriaLabel';
 let screenSizeTotal;
 
 const SliderBoxMain = ({ slidesData, total, isCatalog }) => {
@@ -62,12 +63,12 @@ const SliderBoxMain = ({ slidesData, total, isCatalog }) => {
   return (
     <div className={`slider-container ${cl.wrapSlider}`}>
       <div className={cl.btnSlider}>
-        <button disabled={index === 1} onClick={previous}>
+        <ButtonAriaLabel al={'previousProducts'} disabled={index === 1} onClick={previous}>
           <ArrowLeft />
-        </button>
-        <button disabled={index === screenSizeTotal} onClick={next}>
+        </ButtonAriaLabel>
+        <ButtonAriaLabel al={'nextProducts'} disabled={index === screenSizeTotal} onClick={next}>
           <ArrowRight />
-        </button>
+        </ButtonAriaLabel>
       </div>
 
       <Slider ref={sliderRef} {...settings}>

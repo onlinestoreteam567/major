@@ -30,7 +30,7 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
       <Overlay handleClose={handleCloseMessagePopUp} />
 
       <div className={cl.messagePopUp}>
-        <ButtonClose onClick={handleCloseMessagePopUp} />
+        <ButtonClose onClick={handleCloseMessagePopUp} ariaLabel="ariaLabelMainPopUp" />
 
         <div className={cl.overflowWrap}>
           <div>

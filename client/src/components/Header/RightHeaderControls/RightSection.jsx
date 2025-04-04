@@ -6,6 +6,7 @@ import BagIcon from '@assets/svg/Header/BagIcon';
 import EnIcon from '@assets/svg/Header/EnIcon';
 import useScreenSizes from '@hooks/useScreenSizes';
 import { useSelector } from 'react-redux';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
 
 const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) => {
   const { deskmin, deskmax } = useScreenSizes();
@@ -13,9 +14,9 @@ const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) 
   const cartItems = useSelector((state) => state.cart.items);
   return (
     <div className={cl.rightSection}>
-      <i onClick={handleShowInput}>
+      <ButtonAriaLabel al="openSearchInput" onClick={handleShowInput}>
         <SearchIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
-      </i>
+      </ButtonAriaLabel>
 
       <i className={cl.languageButtons}>
         {(deskmin || deskmax) &&
@@ -26,10 +27,10 @@ const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) 
           ))}
       </i>
 
-      <i onClick={handleShowBasket}>
+      <ButtonAriaLabel al="openBasket" onClick={handleShowBasket}>
         <BagIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
         <span>{cartItems.length}</span>
-      </i>
+      </ButtonAriaLabel>
     </div>
   );
 };

@@ -3,9 +3,4 @@
 .langSwitcher {
   @include flex(row, center, center);
   gap: 8px;
-
-  /* Styles for UA and EN icons */
-  svg:nth-child(odd):not(:nth-child(2)) {
-    cursor: pointer;
-  }
 }

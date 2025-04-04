@@ -36,7 +36,7 @@ const Aside = ({ setIsShowAside }) => {
           <section className={cl.topSection}>
             <Heading type="h2">{getTranslation('filters')}</Heading>
             <button onClick={() => handleClearFilters()}>{getTranslation('reset')}</button>
-            {!(deskmin || deskmax) && <ButtonClose onClick={() => handleCloseAside()} />}
+            {!(deskmin || deskmax) && <ButtonClose onClick={() => handleCloseAside()} ariaLabel="ariaLabelAside" />}
           </section>
           <div className={cl.overflowWrap}>
             {!(tablet || deskmin || deskmax) && <FilterByCategory />}

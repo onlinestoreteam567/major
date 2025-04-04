@@ -63,7 +63,7 @@ function SearchInput({ setIsShowInput, isDesktop }) {
             value={searchTerm}
           />
 
-          {searchTerm && <ButtonClose onClick={handleClearInputValue} />}
+          {searchTerm && <ButtonClose onClick={handleClearInputValue} ariaLabel="ariaLabelSearchInput" />}
 
           {searchTerm && <ProductResults handleCloseInput={handleCloseInput} />}
         </div>

@@ -28,8 +28,8 @@ const Header = () => {
     <header className={`${isScrolled ? cl.headerScrolled : ''}`}>
       <div className={cl.mainWrapper}>
         {!deskmin && !deskmax && (
-          <div onClick={handleShowNavDrawer} className={cl.burgerWrapper}>
-            <BurgerIcon fillColor={isScrolled ? 'white' : 'black'} />
+          <div className={cl.burgerWrapper}>
+            <BurgerIcon onClick={handleShowNavDrawer} fillColor={isScrolled ? 'white' : 'black'} />
           </div>
         )}
 
