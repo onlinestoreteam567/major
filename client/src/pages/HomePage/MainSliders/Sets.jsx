@@ -9,7 +9,7 @@ import { loadSets, selectSets } from '@redux/selectors';
 
 const Sets = () => {
   const { getTranslation } = useTranslationNamespace('common');
-  const isLoading = true;
+  const isLoading = useSelector(loadSets);
   const items = useSelector(selectSets);
   const total = items.length || 0;
 
