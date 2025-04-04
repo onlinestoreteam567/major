@@ -58,8 +58,8 @@ const BannerEdit = () => {
 
   const onSubmit = (values) => {
     let formData = new FormData();
-    formData = handleImageUpload(formData, values, 'image_url');
-    formData = handleImageUpload(formData, values, 'background_image_url');
+    formData = handleImageUpload(formData, values, 'image');
+    formData = handleImageUpload(formData, values, 'background_image');
     appendFormData(formData, values, ['background_image', 'image']);
 
     dispatch(editBanner({ formData, id }));

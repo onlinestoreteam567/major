@@ -1,7 +1,8 @@
 const deleteCroppedImage = (index, onChange, croppedImages, setCroppedImages) => {
-  const updatedImages = croppedImages.filter((_, i) => i !== index);
-  setCroppedImages(updatedImages);
-  onChange(updatedImages);
+  const updated = [...croppedImages];
+  updated.splice(index, 1);
+  setCroppedImages(updated);
+  onChange(updated); // update form state
 };
 
 export default deleteCroppedImage;
