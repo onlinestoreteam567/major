@@ -1,5 +1,5 @@
 import Slider from 'react-slick';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import cl from './index.module.scss';
@@ -32,8 +32,21 @@ const SliderBoxMain = ({ slidesData, total, isCatalog }) => {
       break;
   }
 
+  const handleSlideVisibility = () => {
+    Array.from(document.querySelectorAll('.slick-slide')).forEach((slide) => {
+      const isActive = slide.classList.contains('slick-active');
+      slide.style.visibility = isActive ? 'visible' : 'hidden';
+    });
+  };
+
   const settings = {
     ...mainSettings,
+    beforeChange: () => {
+      Array.from(document.querySelectorAll('.slick-slide')).forEach((slide) => {
+        slide.style.visibility = 'visible';
+      });
+    },
+    afterChange: handleSlideVisibility,
   };
 
   const [clickDelay, setClickDelay] = useState(false);
@@ -59,6 +72,11 @@ const SliderBoxMain = ({ slidesData, total, isCatalog }) => {
     sliderRef.current.slickPrev();
     setIndex((prevIndex) => prevIndex - 1);
   };
+
+  useEffect(() => {
+    // Initial setup
+    handleSlideVisibility();
+  }, []);
 
   return (
     <div className={`slider-container ${cl.wrapSlider}`}>
