@@ -10,5 +10,6 @@
 
   "ariaLabelPoint": "Показати місцезнаходження партнера",
   "ariaLableZoomIn": "Приблизити мапу",
-  "ariaLableZoomOut": "Віддалати мапу"
+  "ariaLableZoomOut": "Віддалати мапу",
+  "ariaLabelOpenGoogleMap": "Відкрити Google Map з розсташуванням партнера"
 }

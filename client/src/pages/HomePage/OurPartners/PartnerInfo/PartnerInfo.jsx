@@ -6,9 +6,7 @@ import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import { useState } from 'react';
 const PartnerInfo = ({ informationAboutPartner, setInformationAboutPartner }) => {
   const [isHiddenAnimation, setIsHiddenAnimation] = useState();
-
   const { getTranslation } = useTranslationNamespace('ourPartners');
-
   const handleClose = () => handleCloseWithDelay(setIsHiddenAnimation, setInformationAboutPartner);
 
   return (
@@ -25,7 +23,12 @@ const PartnerInfo = ({ informationAboutPartner, setInformationAboutPartner }) =>
         <Heading type="h4">{informationAboutPartner.address}</Heading>
       </section>
       <Button variant="secondary">
-        <a href={informationAboutPartner.googleMapAddress} rel="nofollow" target="_blank">
+        <a
+          href={informationAboutPartner.googleMapAddress}
+          rel="nofollow"
+          target="_blank"
+          aria-label={getTranslation('ariaLabelOpenGoogleMap')}
+        >
           <Heading type="h3">{getTranslation('openGoogleMap')}</Heading>
         </a>
       </Button>
