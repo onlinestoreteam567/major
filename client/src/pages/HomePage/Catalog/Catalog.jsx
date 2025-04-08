@@ -29,14 +29,19 @@ const Catalog = () => {
           <Heading type="h2">{getTranslation('catalog')}</Heading>
           <ul>
             {firstSixItems.map((item, index) => (
-              <Link key={index} to={`/catalog`}>
-                <li id={item.id} onClick={(e) => getCategory(e.currentTarget.id)}>
+              <li
+                key={index}
+                id={item.id}
+                onClick={(e) => getCategory(e.currentTarget.id)}
+                aria-label={`${getTranslation('catalogAriaLabel')}${item.name}`}
+              >
+                <Link to={`/catalog`}>
                   <figure>
                     <img src={item.image} alt="" />
-                    <figcaption>{getTranslation(item.name)}</figcaption>
+                    <figcaption>{item.name}</figcaption>
                   </figure>
-                </li>
-              </Link>
+                </Link>
+              </li>
             ))}
           </ul>
         </>

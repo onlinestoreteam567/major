@@ -20,7 +20,7 @@ const MajorInfo = () => {
             <Paragraph>{getTranslation('text2')}</Paragraph>
             <Paragraph>{getTranslation('text3')}</Paragraph>
           </div>
-          <Link to="/about" className={cl.link}>
+          <Link to="/about" className={cl.link} aria-label={getTranslation('ariaLabelMore')}>
             {getTranslation('more')}
           </Link>
         </div>

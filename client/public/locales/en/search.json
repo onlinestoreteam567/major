@@ -1,6 +1,8 @@
 {
   "showAll": "Show all search results",
+  "ariaLabelShowAll": "Go to catalog page with search results",
   "searchResultsComplete": "This is all search results",
   "notFound1": "No products found",
-  "goToCatalog": "Go to catalog"
+  "goToCatalog": "Go to catalog",
+  "ariaLabelProduct": "Go to product page:"
 }

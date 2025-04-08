@@ -13,7 +13,6 @@ const ProductResults = ({ handleCloseInput }) => {
   const products = useSelector(selectSearch);
   const dispatch = useDispatch();
   const { getTranslation } = useTranslationNamespace('search');
-
   if (products === null) return;
   const showOnlyFirstThree = products.slice(0, 3);
 
@@ -36,7 +35,11 @@ const ProductResults = ({ handleCloseInput }) => {
             <ul>
               {showOnlyFirstThree.map((product) => (
                 <li key={product.id} className={cl.searchResultItem}>
-                  <Link to={`/catalog/${product.id}`} onClick={handleCloseInput}>
+                  <Link
+                    to={`/catalog/${product.id}`}
+                    aria-label={`${getTranslation('ariaLabelProduct')} ${product.name}`}
+                    onClick={handleCloseInput}
+                  >
                     <img src={product.images[0].image} alt={product.name} />
                   </Link>
                   <section className={cl.searchResultInfo}>
@@ -50,14 +53,24 @@ const ProductResults = ({ handleCloseInput }) => {
             </ul>
           )}
           {products.length <= 3 && products.length > 0 && (
-            <Link className={cl.showAll} to="/catalog" onClick={() => addSearchResultsToCatalog()}>
+            <Link
+              className={cl.showAll}
+              to="/catalog"
+              aria-label={getTranslation('goToCatalog')}
+              onClick={() => addSearchResultsToCatalog()}
+            >
               {getTranslation('searchResultsComplete')}
               <br /> <br />
               {getTranslation('goToCatalog')}
             </Link>
           )}
           {products.length > 3 && (
-            <Link className={cl.showAll} to="/catalog" onClick={() => addSearchResultsToCatalog()}>
+            <Link
+              className={cl.showAll}
+              to="/catalog"
+              aria-label={getTranslation('ariaLabelShowAll')}
+              onClick={() => addSearchResultsToCatalog()}
+            >
               {getTranslation('showAll')}
             </Link>
           )}

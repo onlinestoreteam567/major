@@ -2,17 +2,21 @@ import PropTypes from 'prop-types';
 import cl from './index.module.scss';
 import { Link } from 'react-router-dom';
 
-const NavLink = ({ children, type, to }) => {
+const NavLink = ({ children, type, to, ariaLabel }) => {
   return (
     <>
       {type === 'header' && (
         <li className={cl.header}>
-          <Link to={to}>{children}</Link>
+          <Link to={to} aria-label={ariaLabel}>
+            {children}
+          </Link>
         </li>
       )}
       {type === 'footer' && (
         <li className={cl.footer}>
-          <Link to={to}>{children}</Link>
+          <Link to={to} aria-label={ariaLabel}>
+            {children}
+          </Link>
         </li>
       )}
     </>

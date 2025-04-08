@@ -8,12 +8,7 @@
   },
 
   "catalog": "Catalog",
-  "normalHair": "For normal hair",
-  "coloredHair": "For colored hair",
-  "thinHair": "For thin hair",
-  "damagedHair": "For damaged hair",
-  "deepConditioning": "Deep cleansing",
-  "hairGrowth": "For hair growth",
+  "catalogAriaLabel": "Go to catalog page, with active filter: ",
 
   "from": "from",
   "to": "to",

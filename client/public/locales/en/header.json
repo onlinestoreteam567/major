@@ -7,5 +7,11 @@
   "searchInputPlaceholder": "I'm looking for...",
   "ariaLabelBurger": "Open menu",
   "ariaLabelSwitchToUa": "Switch to Ukrainian language",
-  "ariaLabelSwitchToEn": "Switch to English language"
+  "ariaLabelSwitchToEn": "Switch to English language",
+  "ariaLabelLogo": "Go to home page",
+  "ariaLabelcatalog": "Go to catalog page",
+  "ariaLabelabout": "Go to about page",
+  "ariaLabelblog": "Go to blog page",
+  "ariaLabelcooperation": "Go to cooperation page",
+  "ariaLabelcontact": "Go to contact page"
 }
