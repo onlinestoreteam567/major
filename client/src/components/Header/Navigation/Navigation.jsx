@@ -15,6 +15,7 @@ const Navigation = ({ onClick }) => {
           to={`/${text}`}
           className={({ isActive }) => (isActive ? cl.activeLink : '')}
           onClick={onClick}
+          aria-label={getTranslation(`ariaLabel${text}`)}
         >
           {getTranslation(text)}
         </NavLink>

@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const LogoIcon = ({ fillColor }) => {
+  const { getTranslation } = useTranslationNamespace('header');
+
   return (
-    <Link to="/">
+    <Link to="/" aria-label={getTranslation('ariaLabelLogo')}>
       <svg
         className={cl.headerLogo}
         width="114"

@@ -7,5 +7,11 @@
   "searchInputPlaceholder": "Я шукаю...",
   "ariaLabelBurger": "Відкрити меню",
   "ariaLabelSwitchToUa": "Перейти на українську мову",
-  "ariaLabelSwitchToEn": "Перейти на англійську мову"
+  "ariaLabelSwitchToEn": "Перейти на англійську мову",
+  "ariaLabelLogo": "Перейти на головну сторінку",
+  "ariaLabelcatalog": "Перейти на сторінку каталогу",
+  "ariaLabelabout": "Перейти на сторінку про нас",
+  "ariaLabelblog": "Перейти на сторінку блогу",
+  "ariaLabelcooperation": "Перейти на сторінку співпраці",
+  "ariaLabelcontact": "Перейти на сторінку контактів"
 }
