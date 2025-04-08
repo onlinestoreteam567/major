@@ -1,0 +1,27 @@
+@import '@mixins';
+
+.filterByTypeWrapper {
+  @include flexGap(8px, column);
+  user-select: none;
+  width: 100%;
+  ul {
+    li {
+      @include flex(row, start);
+      label {
+        @include flex();
+        cursor: pointer;
+        input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        p {
+          font-family: $font-second;
+          font-size: $font-size-base;
+          font-weight: $font-weight-base;
+        }
+      }
+    }
+  }
+}

@@ -74,7 +74,7 @@ export const getProductsByStatus = createAsyncThunk('products/getByStatus', asyn
 export const getProductsByPrice = createAsyncThunk('products/getByPrice', async ({ min, max }, thunkAPI) => {
   // console.log({ min, max });
   try {
-    const endpoint = `${PRODUCT_LIST_ENDPOINT}/?price_min=${min}&price_max=${max}`;
+    const endpoint = `${PRODUCT_LIST_ENDPOINT}/?min_price=${min}&max_price=${max}`;
     const { data } = await apiClient.get(endpoint);
     return data;
   } catch (error) {
