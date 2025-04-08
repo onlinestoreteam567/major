@@ -36,10 +36,10 @@ const List = () => {
               <li key={promocode.id}>
                 <p>Назва: {promocode.code}</p>
                 <p>Відсоток знижки: {promocode.discount_percent}</p>
-                <p>Термін дії закінчиться: {promocode.expires_at}</p>
+                <p>Термін дії почався: {promocode.started_at.slice(0, 10)}</p>
+                <p>Термін дії закінчиться: {promocode.expires_at.slice(0, 10)}</p>
                 <p>Чи активний {promocode.is_active ? 'Так' : 'Ні'}</p>
                 <Link to={`/admin/promocodes/${promocode.id}`}>Редагувати</Link>
-                button
                 <button onClick={() => handleDelete(promocode.id)}>Видалити</button>
               </li>
             ))}

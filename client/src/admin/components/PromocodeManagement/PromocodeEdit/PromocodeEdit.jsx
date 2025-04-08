@@ -42,7 +42,6 @@ const PromocodeEdit = () => {
   const errorEdit = useSelector(errorPromocodeEdit);
   const isLoadingEdit = useSelector(loadPromocodeEdit);
   const responseEdit = useSelector(responsePromocodeEdit);
-
   const isLoadingGet = useSelector(loadPromocodeById);
   const responseGet = useSelector(responsePromocodeById);
 
@@ -50,6 +49,7 @@ const PromocodeEdit = () => {
     if (id && responseGet) {
       setValue('code', responseGet.code);
       setValue('discount_percent', responseGet.discount_percent);
+      setValue('started_at', responseGet.started_at.slice(0, 10));
       setValue('expires_at', responseGet.expires_at.slice(0, 10));
     }
   }, [responseGet, id, setValue]);
@@ -66,9 +66,6 @@ const PromocodeEdit = () => {
         loadingText="Редагування категорії за типом..."
         defaultText="Редагувати категорію за типом"
       />
-      <button type="submit" disabled={isLoadingEdit}>
-        {isLoadingEdit ? 'Редагування категорії за типом...' : 'Редагувати категорію за типом'}
-      </button>
       {errorEdit && <ErrorText error={errorEdit} />}
       {responseEdit && <SuccessMessage>Промокод успішно змінено!</SuccessMessage>}
     </form>
