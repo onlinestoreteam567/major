@@ -42,23 +42,25 @@
     color: white;
   }
 
-  button {
+  a {
+    @include flex(row, center, center);
+    width: 100%;
     min-height: 56px;
-    transition: 0.5s ease-out;
-    border: 2px solid $text-color-light;
     color: $text-color-light;
-    transition: 300ms ease-out;
+    transition:
+      background-color 300ms ease-out,
+      color 300ms ease-out;
+    border: 1px solid $text-color-light;
+    border-radius: $border-radius-medium;
+    box-sizing: border-box;
 
-    &:hover {
+    &:hover,
+    &:active {
       background-color: $background-color-light;
-      color: $text-color-black;
       border: none;
 
-      a {
-        width: 100%;
-        h3 {
-          color: $text-color-black;
-        }
+      h3 {
+        color: $text-color-black;
       }
     }
   }
