@@ -30,10 +30,14 @@ const Catalog = () => {
           <ul>
             {firstSixItems.map((item, index) => (
               <Link key={index} to={`/catalog`}>
-                <li id={item.id} onClick={(e) => getCategory(e.currentTarget.id)}>
+                <li
+                  id={item.id}
+                  onClick={(e) => getCategory(e.currentTarget.id)}
+                  aria-label={`${getTranslation('catalogAriaLabel')}${item.name}`}
+                >
                   <figure>
                     <img src={item.image} alt="" />
-                    <figcaption>{getTranslation(item.name)}</figcaption>
+                    <figcaption>{item.name}</figcaption>
                   </figure>
                 </li>
               </Link>

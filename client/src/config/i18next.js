@@ -32,6 +32,7 @@ i18n
       'ourPartners',
       'basket',
       'search',
+      'card',
     ],
     defaultNS: 'common',
     interpolation: {
