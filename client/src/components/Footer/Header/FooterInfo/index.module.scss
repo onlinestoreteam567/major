@@ -65,7 +65,7 @@
       position: relative;
     }
 
-    section {
+    ul {
       @include flexGap(8px, column);
     }
 
