@@ -6,7 +6,7 @@ const FooterInfo = () => {
 
   return (
     <section className={cl.footerInfo}>
-      <ul className={cl.ulWorkingHours}>
+      <ul className={`${cl.workingHoursWrapper} ${cl.wrapper}`}>
         <section className={cl.workingHours}>
           {' '}
           <li className={cl.liWithImg}>
@@ -19,7 +19,7 @@ const FooterInfo = () => {
         </section>
       </ul>
 
-      <ul className={cl.ulPhoneNumber}>
+      <ul className={`${cl.phoneNumberWrapper} ${cl.wrapper}`}>
         <section>
           <li className={cl.liWithImg}>
             <img className={cl.phoneCallIcon} src="/svg/footer/phoneCall.svg" alt={getTranslation('phoneAlt')} />

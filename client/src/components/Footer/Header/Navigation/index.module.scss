@@ -38,7 +38,7 @@
       margin-bottom: 23px;
     }
 
-    .wrapLinks {
+    ul {
       @include flexGap(24px, column);
     }
   }
