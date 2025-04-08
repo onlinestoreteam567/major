@@ -78,10 +78,12 @@ apiClient.interceptors.response.use(
     const originalRequest = error.config;
 
     if (error.response && error.response.status === 401 && !originalRequest._retry) {
+      console.log('401 error detected, starting refresh flow');
       originalRequest._retry = true;
 
       // Prevent multiple refresh token requests at the same time
       if (isRefreshing) {
+        console.log('Refresh already in progress, adding to queue');
         return new Promise((resolve) => {
           addRefreshSubscriber((accessToken) => {
             originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
@@ -91,15 +93,38 @@ apiClient.interceptors.response.use(
       }
 
       isRefreshing = true;
+      console.log('Starting refresh token process');
 
       try {
         const { store } = await import('./store');
         const { refreshToken } = store.getState().auth;
-        const response = await apiClient.post(`${VITE_AUTH_TOKEN_ENDPOINT}refresh/`, { refresh: refreshToken });
+
+        if (!refreshToken) {
+          console.log('No refresh token available, logging out');
+          store.dispatch(clearTokens());
+          isRefreshing = false;
+          window.location.href = '/admin/login';
+          return Promise.reject(error);
+        }
+
+        console.log('Attempting to refresh token with:', refreshToken);
+        console.log('Making refresh request to:', `${VITE_AUTH_TOKEN_ENDPOINT}refresh/`);
+
+        // Create a new axios instance for the refresh request to avoid interceptors
+        const refreshClient = axios.create({
+          baseURL: API_BASE_URL,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        const response = await refreshClient.post(`${VITE_AUTH_TOKEN_ENDPOINT}refresh/`, { refresh: refreshToken });
+        console.log('Refresh response received:', response.status);
         store.dispatch(fetchAuthToken.fulfilled(response.data));
 
         // Store the new access token
         const newAccessToken = response.data.access;
+        console.log('New access token received');
 
         // Update the queued requests with the new token
         onRefreshed(newAccessToken);
@@ -108,14 +133,26 @@ apiClient.interceptors.response.use(
         originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
 
         isRefreshing = false;
+        console.log('Refresh process completed successfully');
 
         // Replay the original request with the new access token
         return apiClient(originalRequest);
       } catch (refreshError) {
+        console.log('Refresh token error caught');
+        console.log('Error object:', refreshError);
+        console.log('Error response:', refreshError.response);
+        console.log('Error status:', refreshError.response?.status);
+        console.log('Error data:', refreshError.response?.data);
+        console.log('Error message:', refreshError.message);
+        console.log('Error stack:', refreshError.stack);
+
         // If the refresh token is also invalid, log the user out
         const { store } = await import('./store');
+        console.log('Dispatching clearTokens');
         store.dispatch(clearTokens());
         isRefreshing = false;
+        console.log('Redirecting to login page');
+        window.location.href = '/admin/login';
         return Promise.reject(refreshError);
       }
     }
