@@ -1,21 +1,22 @@
 {
   "socials": "We are on social networks",
-  "main": "Main",
-  "catalog": "Catalog",
-  "about": "About us",
-  "blog": "Blog",
   "cooperation": "Cooperation",
+  "ariaLabelCooperation": "Go to Cooperation page",
   "publicOffer": "Public offer",
+  "ariaLabelPublicOffer": "Go to Public offer page",
   "exchangeAndReturn": "Exchange and return",
+  "ariaLabelExchangeAndReturn": "Go to Exchange and return page",
   "paymentAndDelivery": "Payment and delivery",
+  "ariaLabelPaymentAndDelivery": "Go to Payment and delivery page",
+
   "workingHours": "Working Hours",
   "monFri": "Mon - Fri: 8:00 AM - 8:00 PM",
   "satSun": "Sat - Sun: 10:00 AM - 3:00 PM",
   "copyright": "© Major.com.ua, 2024-2025, Online Store. All rights reserved.",
+
   "logoAlt": "Go to Home Page",
   "telegramAlt": "Visit our Telegram channel",
   "instagramAlt": "Visit our Instagram profile",
-  "facebookAlt": "Visit our Facebook page",
   "mailAlt": "Send us an email",
   "calendarAlt": "Calendar icon",
   "phoneAlt": "Phone icon"

@@ -1,21 +1,22 @@
 {
   "socials": "Ми на зв'язку з Вами:",
-  "main": "Головна",
-  "catalog": "Каталог",
-  "about": "Про нас",
-  "blog": "Блог",
   "cooperation": "Співпраця",
+  "ariaLabelCooperation": "Перейти на сторінку співпраці",
   "publicOffer": "Публічна оферта",
+  "ariaLabelPublicOffer": "Перейти на сторінку публічної оферти",
   "exchangeAndReturn": "Обмін та повернення",
+  "ariaLabelExchangeAndReturn": "Перейти на сторінку обміну та повернення",
   "paymentAndDelivery": "Оплата та доставка",
+  "ariaLabelPaymentAndDelivery": "Перейти на сторінку оплати та доставки",
+
   "workingHours": "Режим роботи",
   "monFri": "Пн - Пт: 8:00 - 20:00",
   "satSun": "Сб - Нд: 10:00 - 15:00",
   "copyright": "© Major.com.ua, 2024-2025, Інтернет-магазин. Всі права захищені.",
+
   "logoAlt": "Перейти на головну сторінку",
   "telegramAlt": "Відвідати наш канал у Telegram",
   "instagramAlt": "Відвідати наш профіль в Instagram",
-  "facebookAlt": "Відвідати нашу сторінку на Facebook",
   "mailAlt": "Надіслати нам електронного листа",
   "calendarAlt": "Іконка календаря",
   "phoneAlt": "Іконка телефону"
