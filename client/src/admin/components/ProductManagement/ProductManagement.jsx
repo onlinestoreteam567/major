@@ -5,7 +5,7 @@ import List from './ProductList/ProductList';
 // import { fetchProductsAll } from '@redux/products/service';
 import { Link } from 'react-router-dom';
 // import ProductForm from './ProductForm/ProductForm';
-
+import ProductFilters from './ProductFilters/ProductFilters';
 const ProductManagement = () => {
   // const dispatch = useDispatch();
 
@@ -19,6 +19,7 @@ const ProductManagement = () => {
         <Link to={`/admin/products/create`}>+</Link>
       </div>
       <List />
+      <ProductFilters />
     </div>
   );
 };

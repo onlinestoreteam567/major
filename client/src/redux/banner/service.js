@@ -17,7 +17,7 @@ export const deleteBanner = createAsyncThunk('banner/delete', async (id, thunkAP
     const response = await apiClient.delete(`${BANNER_ENDPOINT}/${id}/`);
     return response.data;
   } catch (error) {
-    console.error('Error in deleting type:', error);
+    console.error('Error in deleting banner:', error);
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
@@ -33,7 +33,7 @@ export const createBanner = createAsyncThunk('banner/create', async (formData, t
     console.log('Product created:', response.data);
     return response.data;
   } catch (error) {
-    console.error('Error in creating product:', error);
+    console.error('Error in creating banner:', error);
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
@@ -60,7 +60,7 @@ export const editBanner = createAsyncThunk('banner/edit', async ({ formData, id 
     console.log('Product edited:', response.data);
     return response.data;
   } catch (error) {
-    console.error('Error in editing product:', error);
+    console.error('Error in editing banner:', error);
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
