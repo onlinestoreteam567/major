@@ -7,15 +7,9 @@ import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/Add
 const Slide = ({ slide }) => {
   const { getTranslation } = useTranslationNamespace('mainBanner');
   const getLabelText = () => {
-    if (slide.product.is_best_seller) {
-      return 'Best Seller';
-    }
-    if (slide.product.is_discount) {
-      return 'Discount';
-    }
-    if (slide.product.is_new) {
-      return 'New';
-    }
+    if (slide.product.is_best_seller) return 'lableTextBestseller';
+    if (slide.product.is_discount) return 'lableTextDiscount';
+    if (slide.product.is_new) return 'lableTextNew';
     return null;
   };
 

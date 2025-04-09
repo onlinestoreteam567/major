@@ -56,12 +56,12 @@ export default function ListReviewsCard({ card }) {
                 ))}
               </Slider>
             ) : (
-              <EmptyPage message="Відгуки відсутні" />
+              <EmptyPage message={getTranslation('reviewsAreMissing')} />
             )}
           </div>
         </div>
       ) : (
-        <EmptyPage message="Відгуки відсутні" />
+        <EmptyPage message={getTranslation('reviewsAreMissing')} />
       )}
     </>
   );

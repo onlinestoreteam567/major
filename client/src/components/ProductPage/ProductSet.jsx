@@ -4,14 +4,16 @@ import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
 import Spinner from '@components/helpers/Spinner';
 import { loadSets, selectSets } from '@redux/selectors';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export default function ProductSet() {
   const isLoading = useSelector(loadSets);
   const sets = useSelector(selectSets);
+  const { getTranslation } = useTranslationNamespace('common');
 
   return (
     <div className={cl.wrapProductOffer}>
-      <Heading type="h2">Разом дешевше</Heading>
+      <Heading type="h2">{getTranslation('cheaperTogether')}</Heading>
       {isLoading ? <Spinner /> : <SliderBoxMain slidesData={sets} />}
     </div>
   );
