@@ -30,5 +30,8 @@
   "description": "Description",
   "use": "Use",
   "ingredients": "Ingredients",
-  "productReviews": "Product reviews"
+  "productReviews": "Product reviews",
+
+  "youMayBeInterestedIn": "You may be interested in",
+  "reviewsAreMissing": "Reviews are missing"
 }

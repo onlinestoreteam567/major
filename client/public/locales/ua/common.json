@@ -30,5 +30,8 @@
   "description": "Опис товару",
   "use": "Застосування",
   "ingredients": "Склад",
-  "productReviews": "Відгуки про товар"
+  "productReviews": "Відгуки про товар",
+
+  "youMayBeInterestedIn": "Вас можуть зацікавити",
+  "reviewsAreMissing": "Відгуки відсутні"
 }
