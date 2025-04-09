@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { reviewsByProductId } from './service';
+import { reviewsByProductId, deleteReview, approveReview, rejectReview } from './service';
 
 const initialState = {
   reviews: [],
@@ -14,7 +14,11 @@ const handlePending = (state) => {
 const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
-  state.reviews = [];
+};
+
+const handleFulfilled = (state) => {
+  state.isLoading = false;
+  state.error = null;
 };
 
 const ReviewsSlice = createSlice({
@@ -28,7 +32,19 @@ const ReviewsSlice = createSlice({
         state.error = null;
         state.reviews = action.payload;
       })
-      .addCase(reviewsByProductId.rejected, handleRejected),
+      .addCase(reviewsByProductId.rejected, handleRejected)
+
+      .addCase(deleteReview.pending, handlePending)
+      .addCase(deleteReview.fulfilled, handleFulfilled)
+      .addCase(deleteReview.rejected, handleRejected)
+
+      .addCase(approveReview.pending, handlePending)
+      .addCase(approveReview.fulfilled, handleFulfilled)
+      .addCase(approveReview.rejected, handleRejected)
+
+      .addCase(rejectReview.pending, handlePending)
+      .addCase(rejectReview.fulfilled, handleFulfilled)
+      .addCase(rejectReview.rejected, handleRejected),
 });
 
 export const reviewReducer = ReviewsSlice.reducer;
