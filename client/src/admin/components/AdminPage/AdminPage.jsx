@@ -7,6 +7,7 @@ const AdminPage = () => {
       <NavLink to={`/admin/categories`}>Категорії</NavLink>
       <NavLink to={`/admin/promocodes`}>Промокоди</NavLink>
       <NavLink to={`/admin/banners`}>Банери</NavLink>
+      <NavLink to={`/admin/reviews`}>Відгуки</NavLink>
     </nav>
   );
 };

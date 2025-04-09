@@ -47,3 +47,6 @@ export const responseBannerById = (state) => state.bannerById.slide;
 export const loadBannerEdit = (state) => state.bannerEdit.isLoading;
 export const responseBannerEdit = (state) => state.bannerEdit.response;
 export const errorBannerEdit = (state) => state.bannerEdit.error;
+
+export const loadReviews = (state) => state.reviews.isLoading;
+export const selectReviews = (state) => state.reviews.reviews;

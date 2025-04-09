@@ -34,6 +34,7 @@ import { promocodeCreateReducer } from '../admin/redux/promocodeCreateSlice';
 import { promocodeByIdReducer } from '../admin/redux/promocodeByIdSlice';
 import { promocodeEditReducer } from '../admin/redux/promocodeEditSlice';
 import { promocodeDeleteReducer } from '../admin/redux/promocodeDeleteSlice';
+import { reviewReducer } from '../redux/reviews/reviewsSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -78,6 +79,7 @@ const rootReducer = combineReducers({
   promocodeById: promocodeByIdReducer,
   promocodeEdit: promocodeEditReducer,
   promocodeDelete: promocodeDeleteReducer,
+  reviews: reviewReducer,
 });
 
 export const store = configureStore({
