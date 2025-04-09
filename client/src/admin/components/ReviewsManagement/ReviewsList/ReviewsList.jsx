@@ -2,7 +2,6 @@ import Spinner from '@components/helpers/Spinner';
 import cl from './index.module.scss';
 import { loadReviews, selectReviews } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import handleDeleteItem from '@utils/handleDeleteItem';
 import { approveReview, deleteReview, rejectReview } from '@redux/reviews/service';
 
 const ReviewsList = () => {
@@ -10,7 +9,7 @@ const ReviewsList = () => {
   const reviews = useSelector(selectReviews);
   const isLoading = useSelector(loadReviews);
 
-  const handleDelete = (id) => handleDeleteItem(dispatch, deleteReview, id);
+  const handleDelete = (productId, reviewId) => dispatch(deleteReview({ productId, reviewId }));
   const handleApprove = (productId, reviewId) => dispatch(approveReview({ productId, reviewId }));
   const handleReject = (productId, reviewId) => dispatch(rejectReview({ productId, reviewId }));
 
@@ -35,7 +34,7 @@ const ReviewsList = () => {
                 <p>{review.is_approved ? 'Ухвалено' : 'Не ухвалено'}</p>
                 <button onClick={() => handleApprove(review.product_id, review.id)}>Ухвалити</button>
                 <button onClick={() => handleReject(review.product_id, review.id)}>Відхилити</button>
-                <button onClick={() => handleDelete(review.id)}>Видалити</button>
+                <button onClick={() => handleDelete(review.product_id, review.id)}>Видалити</button>
               </li>
             ))
           )}

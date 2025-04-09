@@ -13,9 +13,9 @@ export const reviewsByProductId = createAsyncThunk('reviews/reviewsByProductId',
   }
 });
 
-export const deleteReview = createAsyncThunk('review/delete', async (id, thunkAPI) => {
+export const deleteReview = createAsyncThunk('review/delete', async ({ productId, reviewId }, thunkAPI) => {
   try {
-    const response = await apiClient.delete(`${REVIEW_ENDPOINT}/${id}/`);
+    const response = await apiClient.delete(`${REVIEW_ENDPOINT}/${productId}/${reviewId}/`);
     return response.data;
   } catch (error) {
     console.error('Error in deleting review:', error);
