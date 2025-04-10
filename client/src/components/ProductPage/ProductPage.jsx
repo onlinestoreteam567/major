@@ -13,15 +13,17 @@ import { clearFitCategory } from '@redux/products/fitCategorySlice';
 import { getProductById } from '@redux/products/service';
 import { loadProductId, selectProductId } from '@redux/selectors';
 import useIdFromUrl from '@hooks/useId';
+import { useTranslation } from 'react-i18next';
 
 export default function ProductPage() {
   const dispatch = useDispatch();
   const id = useIdFromUrl();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     dispatch(getProductById(id));
     dispatch(clearFitCategory());
-  }, [dispatch, id]);
+  }, [dispatch, id, i18n.language]);
 
   const isLoading = useSelector(loadProductId);
   const card = useSelector(selectProductId);
