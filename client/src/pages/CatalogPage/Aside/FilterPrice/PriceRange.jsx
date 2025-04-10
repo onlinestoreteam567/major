@@ -53,9 +53,8 @@ const PriceRange = () => {
   }, [minPrice, maxPrice, maxLimit]);
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter')
       getByPrice(minPrice, maxPrice, priceGap, setMinPrice, setMaxPrice, setMinInputValue, setMaxInputValue, dispatch);
-    }
   };
 
   const { getTranslation } = useTranslationNamespace('common');

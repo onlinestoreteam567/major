@@ -71,14 +71,33 @@ export const getProductsByStatus = createAsyncThunk('products/getByStatus', asyn
   }
 });
 
-export const getProductsByPrice = createAsyncThunk('products/getByPrice', async ({ min, max }, thunkAPI) => {
-  // console.log({ min, max });
+export const getFilteredProducts = createAsyncThunk('products/getFiltered', async (_, thunkAPI) => {
   try {
-    const endpoint = `${PRODUCT_LIST_ENDPOINT}/?min_price=${min}&max_price=${max}`;
+    const state = thunkAPI.getState();
+    const filters = state.filter;
+
+    const params = new URLSearchParams();
+
+    if (typeof filters?.price?.min === 'number' && !isNaN(filters.price.min)) {
+      params.append('min_price', filters.price.min.toString());
+    }
+    if (typeof filters?.price?.max === 'number' && !isNaN(filters.price.max) && filters.price.max > 0) {
+      params.append('max_price', filters.price.max.toString());
+    }
+
+    if (filters?.category) params.append('category', filters.category);
+    if (filters?.type) params.append('type', filters.type);
+    if (filters?.status) params.append('status', filters.status);
+
+    const queryString = params.toString();
+    const endpoint = `${PRODUCT_LIST_ENDPOINT}${queryString ? `?${queryString}` : ''}`;
+
     const { data } = await apiClient.get(endpoint);
     return data;
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    console.error('Error fetching filtered products:', error);
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    return thunkAPI.rejectWithValue(message);
   }
 });
 

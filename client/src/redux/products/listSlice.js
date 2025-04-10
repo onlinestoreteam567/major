@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import {
   fetchProductsAll,
+  getFilteredProducts,
   getProductsByCategory,
-  getProductsByPrice,
   getProductsByStatus,
   getProductsByTypes,
 } from './service';
@@ -66,13 +66,13 @@ const productSlice = createSlice({
       })
       .addCase(getProductsByStatus.rejected, handleRejected)
 
-      .addCase(getProductsByPrice.pending, handlePending)
-      .addCase(getProductsByPrice.fulfilled, (state, action) => {
+      .addCase(getFilteredProducts.pending, handlePending)
+      .addCase(getFilteredProducts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.products = action.payload;
       })
-      .addCase(getProductsByPrice.rejected, handleRejected),
+      .addCase(getFilteredProducts.rejected, handleRejected),
 });
 
 export const { setProducts } = productSlice.actions;

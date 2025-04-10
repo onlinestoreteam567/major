@@ -1,4 +1,4 @@
-import { getProductsByPrice } from '@redux/products/service';
+import { getFilteredProducts } from '@redux/products/service';
 import { setPrice } from '@redux/filter/filterSlice';
 
 export const getByPrice = (
@@ -20,5 +20,5 @@ export const getByPrice = (
   setMaxInputValue(validMaxPrice.toString());
 
   dispatch(setPrice({ min: validMinPrice, max: validMaxPrice }));
-  dispatch(getProductsByPrice({ min: validMinPrice, max: validMaxPrice }));
+  dispatch(getFilteredProducts({ min: validMinPrice, max: validMaxPrice }));
 };

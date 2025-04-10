@@ -42,10 +42,6 @@ const filterSlice = createSlice({
     },
     setPrice: (state, action) => {
       state.price = action.payload;
-      state.category = null;
-      state.type = null;
-      state.status = null;
-      state.sorting = null;
     },
     resetFilter: (state) => {
       state.status = null;
