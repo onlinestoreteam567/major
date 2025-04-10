@@ -53,8 +53,13 @@ const PriceRange = () => {
   }, [minPrice, maxPrice, maxLimit]);
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter')
+    const isMinInputValid = !isNaN(minInputValue) && minInputValue.trim() !== '';
+    const isMaxInputValid = !isNaN(maxInputValue) && maxInputValue.trim() !== '';
+    const isPriceValid = parseFloat(minInputValue) <= parseFloat(maxInputValue);
+
+    if (e.key === 'Enter' && isMinInputValid && isMaxInputValid && isPriceValid) {
       getByPrice(minPrice, maxPrice, priceGap, setMinPrice, setMaxPrice, setMinInputValue, setMaxInputValue, dispatch);
+    }
   };
 
   const { getTranslation } = useTranslationNamespace('common');
@@ -80,7 +85,7 @@ const PriceRange = () => {
           <input
             type="text"
             value={minInputValue}
-            onChange={(e) => handleMinInputChange(e, setMinInputValue, setMinPrice, maxPrice, minPrice)}
+            onChange={(e) => handleMinInputChange(e, setMinInputValue, setMinPrice, minPrice)}
             onKeyDown={handleKeyPress}
           />
         </div>
@@ -89,7 +94,7 @@ const PriceRange = () => {
           <input
             type="text"
             value={maxInputValue}
-            onChange={(e) => handleMaxInputChange(e, setMaxInputValue, setMaxPrice, minPrice)}
+            onChange={(e) => handleMaxInputChange(e, setMaxInputValue, setMaxPrice)}
             onKeyDown={handleKeyPress}
           />
         </div>
@@ -105,6 +110,14 @@ const PriceRange = () => {
               setMaxInputValue,
               dispatch
             )
+          }
+          disabled={
+            minInputValue.trim() === '' ||
+            maxInputValue.trim() === '' ||
+            isNaN(minInputValue) ||
+            isNaN(maxInputValue) ||
+            parseFloat(minInputValue) > parseFloat(maxInputValue) ||
+            parseFloat(maxInputValue) < parseFloat(minInputValue)
           }
         >
           {getTranslation('ok')}

@@ -61,6 +61,11 @@
       font-size: $font-size-medium;
       font-weight: $font-weight-medium;
       line-height: 23.04px;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
     }
   }
 
