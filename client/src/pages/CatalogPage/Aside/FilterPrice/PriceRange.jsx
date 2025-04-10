@@ -13,6 +13,8 @@ const PriceRange = () => {
   const [minPrice, setMinPrice] = useState(newPrice.min);
   const [maxPrice, setMaxPrice] = useState(newPrice.max);
   const [maxLimit, setMaxLimit] = useState(999);
+  const [minInputValue, setMinInputValue] = useState(newPrice.min.toString());
+  const [maxInputValue, setMaxInputValue] = useState(newPrice.max.toString());
   const priceGap = 1;
   const dispatch = useDispatch();
   const progressRef = useRef(null);
@@ -30,12 +32,16 @@ const PriceRange = () => {
       setMinPrice(Math.floor(minProductPrice));
       setMaxPrice(Math.ceil(maxProductPrice));
       setMaxLimit(Math.ceil(maxProductPrice));
+      setMinInputValue(Math.floor(minProductPrice).toString());
+      setMaxInputValue(Math.ceil(maxProductPrice).toString());
     }
   }, [products]);
 
   useEffect(() => {
     setMinPrice(newPrice.min);
     setMaxPrice(newPrice.max);
+    setMinInputValue(newPrice.min.toString());
+    setMaxInputValue(newPrice.max.toString());
   }, [newPrice]);
 
   useEffect(() => {
@@ -46,16 +52,31 @@ const PriceRange = () => {
   }, [minPrice, maxPrice, maxLimit]);
 
   const handleMinInputChange = (e) => {
-    const value = parseInt(e.target.value);
-    if (value <= maxLimit && maxPrice - value >= priceGap) {
-      setMinPrice(value);
+    const value = e.target.value;
+    if (value === '') {
+      setMinInputValue('');
+      setMinPrice(0);
+    } else if (!isNaN(value)) {
+      const numValue = parseInt(value);
+      if (numValue <= maxPrice) {
+        setMinInputValue(value);
+        if (minPrice === 0) {
+          setMinPrice(numValue);
+        } else {
+          setMinPrice(numValue);
+        }
+      }
     }
   };
 
   const handleMaxInputChange = (e) => {
-    const value = parseInt(e.target.value);
-    if (value <= maxLimit && value - minPrice >= priceGap) {
-      setMaxPrice(value);
+    const value = e.target.value;
+    setMaxInputValue(value);
+    if (value === '') {
+      setMaxPrice(0);
+    } else if (!isNaN(value)) {
+      const numValue = parseInt(value);
+      setMaxPrice(numValue);
     }
   };
 
@@ -66,8 +87,26 @@ const PriceRange = () => {
   };
 
   const getByPrice = () => {
-    dispatch(setPrice({ min: minPrice, max: maxPrice }));
-    dispatch(getProductsByPrice({ min: minPrice, max: maxPrice }));
+    const validMinPrice = Math.max(0, Math.min(minPrice, maxPrice - priceGap));
+    const validMaxPrice = Math.max(validMinPrice + priceGap, maxPrice);
+
+    setMinPrice(validMinPrice);
+    setMaxPrice(validMaxPrice);
+    setMinInputValue(validMinPrice.toString());
+    setMaxInputValue(validMaxPrice.toString());
+
+    dispatch(setPrice({ min: validMinPrice, max: validMaxPrice }));
+    dispatch(getProductsByPrice({ min: validMinPrice, max: validMaxPrice }));
+  };
+
+  const handleSliderMinChange = (value) => {
+    setMinPrice(value);
+    setMinInputValue(value.toString());
+  };
+
+  const handleSliderMaxChange = (value) => {
+    setMaxPrice(value);
+    setMaxInputValue(value.toString());
   };
 
   const { getTranslation } = useTranslationNamespace('common');
@@ -80,9 +119,9 @@ const PriceRange = () => {
 
       <RangeSlider
         minPrice={minPrice}
-        setMinPrice={setMinPrice}
+        setMinPrice={handleSliderMinChange}
         maxPrice={maxPrice}
-        setMaxPrice={setMaxPrice}
+        setMaxPrice={handleSliderMaxChange}
         maxLimit={maxLimit}
         priceGap={priceGap}
       />
@@ -90,11 +129,11 @@ const PriceRange = () => {
       <div className={cl.priceInput}>
         <div className={cl.field}>
           <span>{getTranslation('from')}</span>
-          <input type="number" value={minPrice} onChange={handleMinInputChange} onKeyDown={handleKeyPress} />
+          <input type="text" value={minInputValue} onChange={handleMinInputChange} onKeyDown={handleKeyPress} />
         </div>
         <div className={cl.field}>
           <span>{getTranslation('to')}</span>
-          <input type="number" value={maxPrice} onChange={handleMaxInputChange} onKeyDown={handleKeyPress} />
+          <input type="text" value={maxInputValue} onChange={handleMaxInputChange} onKeyDown={handleKeyPress} />
         </div>
         <button onClick={getByPrice}>{getTranslation('ok')}</button>
       </div>
