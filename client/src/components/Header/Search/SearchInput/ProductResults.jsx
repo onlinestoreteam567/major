@@ -7,12 +7,26 @@ import { Link } from 'react-router-dom';
 import { resetFilter } from '@redux/filter/filterSlice';
 import { setProducts } from '@redux/products/listSlice';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import { useEffect, useRef } from 'react';
 
 const ProductResults = ({ handleCloseInput }) => {
   const isLoading = useSelector(loadSearch);
   const products = useSelector(selectSearch);
   const dispatch = useDispatch();
   const { getTranslation } = useTranslationNamespace('search');
+  const showAllLinkRef = useRef(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Enter' && products && products.length > 3 && showAllLinkRef.current) {
+        showAllLinkRef.current.click();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [products]);
+
   if (products === null) return;
   const showOnlyFirstThree = products.slice(0, 3);
 
@@ -66,6 +80,7 @@ const ProductResults = ({ handleCloseInput }) => {
           )}
           {products.length > 3 && (
             <Link
+              ref={showAllLinkRef}
               className={cl.showAll}
               to="/catalog"
               aria-label={getTranslation('ariaLabelShowAll')}
