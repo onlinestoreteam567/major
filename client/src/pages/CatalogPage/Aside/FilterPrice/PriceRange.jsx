@@ -56,8 +56,9 @@ const PriceRange = () => {
     // Check if inputs are clean (not numbers)
     const isMinInputValid = !isNaN(minInputValue) && minInputValue.trim() !== '';
     const isMaxInputValid = !isNaN(maxInputValue) && maxInputValue.trim() !== '';
+    const isPriceValid = parseFloat(minInputValue) <= parseFloat(maxInputValue);
 
-    if (e.key === 'Enter' && isMinInputValid && isMaxInputValid) {
+    if (e.key === 'Enter' && isMinInputValid && isMaxInputValid && isPriceValid) {
       getByPrice(minPrice, maxPrice, priceGap, setMinPrice, setMaxPrice, setMinInputValue, setMaxInputValue, dispatch);
     }
   };
@@ -112,7 +113,12 @@ const PriceRange = () => {
             )
           }
           disabled={
-            minInputValue.trim() === '' || maxInputValue.trim() === '' || isNaN(minInputValue) || isNaN(maxInputValue)
+            minInputValue.trim() === '' ||
+            maxInputValue.trim() === '' ||
+            isNaN(minInputValue) ||
+            isNaN(maxInputValue) ||
+            parseFloat(minInputValue) > parseFloat(maxInputValue) ||
+            parseFloat(maxInputValue) < parseFloat(minInputValue)
           }
         >
           {getTranslation('ok')}
