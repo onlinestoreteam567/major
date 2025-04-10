@@ -16,7 +16,6 @@ const filterSlice = createSlice({
       state.category = action.payload;
       state.type = null;
       state.status = null;
-      state.price = initialState.price;
       state.sorting = null;
     },
     setType: (state, action) => {
@@ -32,7 +31,6 @@ const filterSlice = createSlice({
 
       state.category = null;
       state.status = null;
-      state.price = initialState.price;
       state.sorting = null;
     },
 
@@ -40,15 +38,10 @@ const filterSlice = createSlice({
       state.status = action.payload;
       state.category = null;
       state.type = null;
-      state.price = initialState.price;
       state.sorting = null;
     },
     setPrice: (state, action) => {
       state.price = action.payload;
-      state.category = null;
-      state.type = null;
-      state.status = null;
-      state.sorting = null;
     },
     resetFilter: (state) => {
       state.status = null;
