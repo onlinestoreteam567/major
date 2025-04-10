@@ -3,9 +3,13 @@ import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import RangeSlider from './RangeSlider';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductsByPrice } from '@redux/products/service';
 import { filterPrice, selectProducts } from '@redux/selectors';
 import { setPrice } from '@redux/filter/filterSlice';
+import { handleSliderMinChange } from './helpers/handleSliderMinChange';
+import { handleSliderMaxChange } from './helpers/handleSliderMaxChange';
+import { handleMinInputChange } from './helpers/handleMinInputChange';
+import { handleMaxInputChange } from './helpers/handleMaxInputChange';
+import { getByPrice } from './helpers/getByPrice';
 
 const PriceRange = () => {
   const newPrice = useSelector(filterPrice);
@@ -29,20 +33,17 @@ const PriceRange = () => {
       });
       const minProductPrice = Math.min(...pricesWithDiscounts);
       const maxProductPrice = Math.max(...pricesWithDiscounts);
-      setMinPrice(Math.floor(minProductPrice));
-      setMaxPrice(Math.ceil(maxProductPrice));
-      setMaxLimit(Math.ceil(maxProductPrice));
-      setMinInputValue(Math.floor(minProductPrice).toString());
-      setMaxInputValue(Math.ceil(maxProductPrice).toString());
-    }
-  }, [products]);
+      const newMinPrice = Math.floor(minProductPrice);
+      const newMaxPrice = Math.ceil(maxProductPrice);
 
-  useEffect(() => {
-    setMinPrice(newPrice.min);
-    setMaxPrice(newPrice.max);
-    setMinInputValue(newPrice.min.toString());
-    setMaxInputValue(newPrice.max.toString());
-  }, [newPrice]);
+      setMinPrice(newMinPrice);
+      setMaxPrice(newMaxPrice);
+      setMaxLimit(newMaxPrice);
+      setMinInputValue(newMinPrice.toString());
+      setMaxInputValue(newMaxPrice.toString());
+      dispatch(setPrice({ min: newMinPrice, max: newMaxPrice }));
+    }
+  }, [products, dispatch]);
 
   useEffect(() => {
     if (progressRef.current) {
@@ -51,62 +52,10 @@ const PriceRange = () => {
     }
   }, [minPrice, maxPrice, maxLimit]);
 
-  const handleMinInputChange = (e) => {
-    const value = e.target.value;
-    if (value === '') {
-      setMinInputValue('');
-      setMinPrice(0);
-    } else if (!isNaN(value)) {
-      const numValue = parseInt(value);
-      if (numValue <= maxPrice) {
-        setMinInputValue(value);
-        if (minPrice === 0) {
-          setMinPrice(numValue);
-        } else {
-          setMinPrice(numValue);
-        }
-      }
-    }
-  };
-
-  const handleMaxInputChange = (e) => {
-    const value = e.target.value;
-    setMaxInputValue(value);
-    if (value === '') {
-      setMaxPrice(0);
-    } else if (!isNaN(value)) {
-      const numValue = parseInt(value);
-      setMaxPrice(numValue);
-    }
-  };
-
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      getByPrice();
+      getByPrice(minPrice, maxPrice, priceGap, setMinPrice, setMaxPrice, setMinInputValue, setMaxInputValue, dispatch);
     }
-  };
-
-  const getByPrice = () => {
-    const validMinPrice = Math.max(0, Math.min(minPrice, maxPrice - priceGap));
-    const validMaxPrice = Math.max(validMinPrice + priceGap, maxPrice);
-
-    setMinPrice(validMinPrice);
-    setMaxPrice(validMaxPrice);
-    setMinInputValue(validMinPrice.toString());
-    setMaxInputValue(validMaxPrice.toString());
-
-    dispatch(setPrice({ min: validMinPrice, max: validMaxPrice }));
-    dispatch(getProductsByPrice({ min: validMinPrice, max: validMaxPrice }));
-  };
-
-  const handleSliderMinChange = (value) => {
-    setMinPrice(value);
-    setMinInputValue(value.toString());
-  };
-
-  const handleSliderMaxChange = (value) => {
-    setMaxPrice(value);
-    setMaxInputValue(value.toString());
   };
 
   const { getTranslation } = useTranslationNamespace('common');
@@ -119,9 +68,9 @@ const PriceRange = () => {
 
       <RangeSlider
         minPrice={minPrice}
-        setMinPrice={handleSliderMinChange}
+        setMinPrice={(value) => handleSliderMinChange(value, setMinPrice, setMinInputValue)}
         maxPrice={maxPrice}
-        setMaxPrice={handleSliderMaxChange}
+        setMaxPrice={(value) => handleSliderMaxChange(value, setMaxPrice, setMaxInputValue)}
         maxLimit={maxLimit}
         priceGap={priceGap}
       />
@@ -129,13 +78,38 @@ const PriceRange = () => {
       <div className={cl.priceInput}>
         <div className={cl.field}>
           <span>{getTranslation('from')}</span>
-          <input type="text" value={minInputValue} onChange={handleMinInputChange} onKeyDown={handleKeyPress} />
+          <input
+            type="text"
+            value={minInputValue}
+            onChange={(e) => handleMinInputChange(e, setMinInputValue, setMinPrice, maxPrice, minPrice)}
+            onKeyDown={handleKeyPress}
+          />
         </div>
         <div className={cl.field}>
           <span>{getTranslation('to')}</span>
-          <input type="text" value={maxInputValue} onChange={handleMaxInputChange} onKeyDown={handleKeyPress} />
+          <input
+            type="text"
+            value={maxInputValue}
+            onChange={(e) => handleMaxInputChange(e, setMaxInputValue, setMaxPrice, minPrice)}
+            onKeyDown={handleKeyPress}
+          />
         </div>
-        <button onClick={getByPrice}>{getTranslation('ok')}</button>
+        <button
+          onClick={() =>
+            getByPrice(
+              minPrice,
+              maxPrice,
+              priceGap,
+              setMinPrice,
+              setMaxPrice,
+              setMinInputValue,
+              setMaxInputValue,
+              dispatch
+            )
+          }
+        >
+          {getTranslation('ok')}
+        </button>
       </div>
     </div>
   );
