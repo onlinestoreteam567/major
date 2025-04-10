@@ -53,7 +53,6 @@ const PriceRange = () => {
   }, [minPrice, maxPrice, maxLimit]);
 
   const handleKeyPress = (e) => {
-    // Check if inputs are clean (not numbers)
     const isMinInputValid = !isNaN(minInputValue) && minInputValue.trim() !== '';
     const isMaxInputValid = !isNaN(maxInputValue) && maxInputValue.trim() !== '';
     const isPriceValid = parseFloat(minInputValue) <= parseFloat(maxInputValue);
@@ -86,7 +85,7 @@ const PriceRange = () => {
           <input
             type="text"
             value={minInputValue}
-            onChange={(e) => handleMinInputChange(e, setMinInputValue, setMinPrice, maxPrice, minPrice)}
+            onChange={(e) => handleMinInputChange(e, setMinInputValue, setMinPrice, minPrice)}
             onKeyDown={handleKeyPress}
           />
         </div>
@@ -95,7 +94,7 @@ const PriceRange = () => {
           <input
             type="text"
             value={maxInputValue}
-            onChange={(e) => handleMaxInputChange(e, setMaxInputValue, setMaxPrice, minPrice)}
+            onChange={(e) => handleMaxInputChange(e, setMaxInputValue, setMaxPrice)}
             onKeyDown={handleKeyPress}
           />
         </div>
