@@ -3,6 +3,8 @@ export const handleMinInputChange = (e, setMinInputValue, setMinPrice, minPrice)
   if (value === '') {
     setMinInputValue('');
     setMinPrice(0);
+  } else if (value === '0') {
+    setMinInputValue('');
   } else if (!isNaN(value)) {
     const numValue = parseInt(value);
     setMinInputValue(value);
