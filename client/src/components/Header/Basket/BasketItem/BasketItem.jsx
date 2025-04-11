@@ -6,20 +6,48 @@ import { addItem, removeItem, decrementItemQuantity, setItemQuantity } from '@fe
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
+import { useEffect, useState } from 'react';
 
 const hryvnia = '\u20B4';
+const digitRegex = /^\d*$/;
 
 const BasketItem = ({ item }) => {
   const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(item.quantity);
+
   const handleAddToCart = () => dispatch(addItem(item));
   const handleRemoveItem = () => dispatch(removeItem(item.id));
   const handleDecrementItem = () => dispatch(decrementItemQuantity(item.id));
   const handleQuantityChange = (e) => {
-    const newQuantity = parseInt(e.target.value, 10);
-    if (!isNaN(newQuantity) && newQuantity >= 1) {
-      dispatch(setItemQuantity({ id: item.id, quantity: newQuantity }));
+    const value = e.target.value;
+
+    if (digitRegex.test(value)) {
+      setQuantity(value);
+
+      if (value === '') {
+        dispatch(setItemQuantity({ id: item.id, quantity: 0 }));
+      } else {
+        const parsedQuantity = parseInt(value, 10);
+        if (!isNaN(parsedQuantity) && parsedQuantity >= 1) {
+          dispatch(setItemQuantity({ id: item.id, quantity: parsedQuantity }));
+        }
+      }
     }
   };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      handleAddToCart();
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      handleDecrementItem();
+    }
+  };
+
+  useEffect(() => {
+    item.quantity !== 0 && setQuantity(item.quantity);
+  }, [item.quantity]);
 
   const { getTranslation } = useTranslationNamespace('common');
   return (
@@ -43,7 +71,7 @@ const BasketItem = ({ item }) => {
             <ButtonAriaLabel al="decreaseQuantity" onClick={handleDecrementItem}>
               <Minus />
             </ButtonAriaLabel>
-            <input type="number" value={item.quantity} onChange={handleQuantityChange} />
+            <input type="text" value={quantity} onChange={handleQuantityChange} onKeyDown={handleKeyDown} />
             <ButtonAriaLabel al="increaseQuantity" onClick={handleAddToCart}>
               <Plus />
             </ButtonAriaLabel>
