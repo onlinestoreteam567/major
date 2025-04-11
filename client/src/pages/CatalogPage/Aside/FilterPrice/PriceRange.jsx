@@ -85,7 +85,7 @@ const PriceRange = () => {
           <input
             type="text"
             value={minInputValue}
-            onChange={(e) => handleMinInputChange(e, setMinInputValue, setMinPrice, minPrice)}
+            onChange={(e) => handleMinInputChange(e, setMinInputValue, setMinPrice)}
             onKeyDown={handleKeyPress}
           />
         </div>
