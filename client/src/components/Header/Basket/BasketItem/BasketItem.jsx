@@ -22,6 +22,8 @@ const BasketItem = ({ item }) => {
     const value = e.target.value;
 
     if (digitRegex.test(value)) {
+      if (value === '0') return;
+
       setQuantity(value);
 
       if (value === '') {
