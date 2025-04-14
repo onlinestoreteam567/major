@@ -8,8 +8,8 @@ import Spinner from '@components/helpers/Spinner';
 import { useNavigate } from 'react-router-dom';
 
 const AdminLoginPage = () => {
-  const [email, setEmail] = useState('super@gmail.com');
-  const [password, setPassword] = useState('super');
+  const [email, setEmail] = useState('admin@gmail.com');
+  const [password, setPassword] = useState('admin');
   const dispatch = useDispatch();
   const isLoading = useSelector(loadAuth);
   const authToken = useSelector(selectAccessToken);
