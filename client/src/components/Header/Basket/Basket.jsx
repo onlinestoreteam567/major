@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import Overlay from '@UI/Overlay/Overlay';
 import cl from './index.module.scss';
 import { useState, useEffect } from 'react';
@@ -38,10 +37,6 @@ const Basket = ({ setIsShowBasket }) => {
       </div>
     </>
   );
-};
-
-Basket.propTypes = {
-  setIsShowBasket: PropTypes.func.isRequired,
 };
 
 export default Basket;
