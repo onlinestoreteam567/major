@@ -4,7 +4,7 @@ const initialState = {
   category: null,
   type: null,
   status: null,
-  price: { min: 1, max: 999 },
+  price: { min: 0, max: 1 },
   sorting: null,
 };
 
