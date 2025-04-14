@@ -10,10 +10,9 @@ const AddToCartButton = ({ card, variant = 'secondary', count }) => {
   const handleAddToCart = () => {
     if (count) {
       dispatch(addItemWithQuantity({ item: card, quantity: count }));
-      console.log(123);
       return;
     }
-    dispatch(addItem(card));
+    dispatch(addItem(card.id));
   };
 
   return (

@@ -14,7 +14,7 @@ const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
     <>
       <ul className={cl.basketItems}>
         {cartItems.map((item) => (
-          <BasketItem key={item.id} item={item} />
+          <BasketItem key={item.id} item={item} onClick={onClick} />
         ))}
       </ul>
       <section className={cl.totalSection}>

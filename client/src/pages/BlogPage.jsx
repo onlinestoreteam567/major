@@ -1,11 +1,5 @@
-import Loading from '@components/helpers/Loading';
-
 const BlogPage = () => {
-  return (
-    <div>
-      <Loading />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default BlogPage;

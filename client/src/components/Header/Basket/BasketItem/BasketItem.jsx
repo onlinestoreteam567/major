@@ -2,20 +2,22 @@ import cl from './index.module.scss';
 import Plus from '@assets/svg/ButtonPlus';
 import Minus from '@assets/svg/ButtonMinus';
 import { useDispatch } from 'react-redux';
-import { addItem, removeItem, decrementItemQuantity, setItemQuantity } from '@features/cart/cartSlice.js/';
+import { removeItem, decrementItemQuantity, setItemQuantity } from '@features/cart/cartSlice.js/';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
 import { useEffect, useState } from 'react';
+import { incrementItemQuantity } from '@features/cart/cartSlice';
+import { Link } from 'react-router-dom';
 
 const hryvnia = '\u20B4';
 const digitRegex = /^\d*$/;
 
-const BasketItem = ({ item }) => {
+const BasketItem = ({ item, onClick }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(item.quantity);
 
-  const handleAddToCart = () => dispatch(addItem(item));
+  const handleAddToCart = () => dispatch(incrementItemQuantity(item.id));
   const handleRemoveItem = () => dispatch(removeItem(item.id));
   const handleDecrementItem = () => dispatch(decrementItemQuantity(item.id));
   const handleQuantityChange = (e) => {
@@ -27,7 +29,7 @@ const BasketItem = ({ item }) => {
       setQuantity(value);
 
       if (value === '') {
-        dispatch(setItemQuantity({ id: item.id, quantity: 0 }));
+        dispatch(setItemQuantity({ id: item.id, quantity: 1 }));
       } else {
         const parsedQuantity = parseInt(value, 10);
         if (!isNaN(parsedQuantity) && parsedQuantity >= 1) {
@@ -54,7 +56,9 @@ const BasketItem = ({ item }) => {
   const { getTranslation } = useTranslationNamespace('common');
   return (
     <li className={cl.basketItem}>
-      <img src={item.images[0].image} className={cl.basketItemImg} alt={item.name} />
+      <Link onClick={onClick} to={`/catalog/${item.id}`}>
+        <img src={item.images[0].image} className={cl.basketItemImg} alt={item.name} />
+      </Link>
       <section>
         <Heading type="h4">{item.name}</Heading>
         <div className={cl.priceWrap}>
