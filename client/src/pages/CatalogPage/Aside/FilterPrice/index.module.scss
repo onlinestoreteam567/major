@@ -16,27 +16,14 @@
       display: flex;
       height: 45px;
       align-items: center;
-      position: relative;
       box-sizing: border-box;
-
-      span {
-        position: absolute;
-        top: 25%;
-        left: 10px;
-        font-family: $font-main;
-        font-size: $font-size-base;
-        font-weight: $font-weight-small;
-        line-height: 20.48px;
-        color: #a2a2a2;
-      }
 
       input {
         outline: none;
-        text-align: end;
-        padding-right: 10px;
-        padding-left: 30px;
+        text-align: start;
         appearance: textfield;
         box-sizing: border-box;
+        padding-left: 10px;
 
         font-family: $font-main;
         font-size: $font-size-base;

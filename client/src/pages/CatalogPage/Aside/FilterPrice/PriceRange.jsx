@@ -81,7 +81,6 @@ const PriceRange = () => {
 
       <div className={cl.priceInput}>
         <div className={cl.field}>
-          <span>{getTranslation('from')}</span>
           <input
             type="text"
             value={minInputValue}
@@ -90,7 +89,6 @@ const PriceRange = () => {
           />
         </div>
         <div className={cl.field}>
-          <span>{getTranslation('to')}</span>
           <input
             type="text"
             value={maxInputValue}
