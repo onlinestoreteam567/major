@@ -3,7 +3,7 @@ import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import RangeSlider from './RangeSlider';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterPrice, selectProducts } from '@redux/selectors';
+import { filterPrice, loadProducts, selectProducts } from '@redux/selectors';
 import { setPrice } from '@redux/filter/filterSlice';
 import { handleSliderMinChange } from './helpers/handleSliderMinChange';
 import { handleSliderMaxChange } from './helpers/handleSliderMaxChange';
@@ -12,11 +12,13 @@ import { handleMaxInputChange } from './helpers/handleMaxInputChange';
 import { getByPrice } from './helpers/getByPrice';
 
 const PriceRange = () => {
+  const { getTranslation } = useTranslationNamespace('common');
   const newPrice = useSelector(filterPrice);
   const products = useSelector(selectProducts);
+  const isLoading = useSelector(loadProducts);
   const [minPrice, setMinPrice] = useState(newPrice.min);
   const [maxPrice, setMaxPrice] = useState(newPrice.max);
-  const [maxLimit, setMaxLimit] = useState(999);
+  const [maxLimit, setMaxLimit] = useState(1);
   const [minInputValue, setMinInputValue] = useState(newPrice.min.toString());
   const [maxInputValue, setMaxInputValue] = useState(newPrice.max.toString());
   const priceGap = 1;
@@ -36,14 +38,14 @@ const PriceRange = () => {
       const newMinPrice = Math.floor(minProductPrice);
       const newMaxPrice = Math.ceil(maxProductPrice);
 
+      if (maxLimit === 1) setMaxLimit(newMaxPrice);
       setMinPrice(newMinPrice);
       setMaxPrice(newMaxPrice);
-      setMaxLimit(newMaxPrice);
       setMinInputValue(newMinPrice.toString());
       setMaxInputValue(newMaxPrice.toString());
       dispatch(setPrice({ min: newMinPrice, max: newMaxPrice }));
     }
-  }, [products, dispatch]);
+  }, [products, maxLimit, dispatch]);
 
   useEffect(() => {
     if (progressRef.current) {
@@ -62,8 +64,6 @@ const PriceRange = () => {
     }
   };
 
-  const { getTranslation } = useTranslationNamespace('common');
-
   return (
     <div className={cl.rangeWrapper}>
       <div className={cl.slider}>
@@ -81,7 +81,6 @@ const PriceRange = () => {
 
       <div className={cl.priceInput}>
         <div className={cl.field}>
-          <span>{getTranslation('from')}</span>
           <input
             type="text"
             value={minInputValue}
@@ -90,7 +89,6 @@ const PriceRange = () => {
           />
         </div>
         <div className={cl.field}>
-          <span>{getTranslation('to')}</span>
           <input
             type="text"
             value={maxInputValue}
@@ -117,7 +115,8 @@ const PriceRange = () => {
             isNaN(minInputValue) ||
             isNaN(maxInputValue) ||
             parseFloat(minInputValue) > parseFloat(maxInputValue) ||
-            parseFloat(maxInputValue) < parseFloat(minInputValue)
+            parseFloat(maxInputValue) < parseFloat(minInputValue) ||
+            isLoading
           }
         >
           {getTranslation('ok')}
