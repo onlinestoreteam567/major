@@ -27,7 +27,7 @@ const BasketItem = ({ item }) => {
       setQuantity(value);
 
       if (value === '') {
-        dispatch(setItemQuantity({ id: item.id, quantity: 0 }));
+        dispatch(setItemQuantity({ id: item.id, quantity: 1 }));
       } else {
         const parsedQuantity = parseInt(value, 10);
         if (!isNaN(parsedQuantity) && parsedQuantity >= 1) {
