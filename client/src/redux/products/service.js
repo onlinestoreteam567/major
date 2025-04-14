@@ -146,3 +146,15 @@ export const getSearch = createAsyncThunk('products/getSearch', async (query, th
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const getProductsByIds = createAsyncThunk('products/getProductsByIds', async (ids, thunkAPI) => {
+  try {
+    console.log(123);
+
+    const idsString = ids.join(',');
+    const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/?id=${idsString}`);
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

@@ -1,26 +1,34 @@
 import Overlay from '@UI/Overlay/Overlay';
 import cl from './index.module.scss';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import EmptyBasket from './EmptyBasket/EmptyBasket';
-import FilledBusket from './FilledBasket/FilledBasket';
 import Header from './Header/Header';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
+import { getProductsByIds } from '@redux/products/service';
+import { loadCart, selectCart, selectCartSavedIds } from '@redux/selectors';
+import Spinner from '@components/helpers/Spinner';
+import FilledBusket from './FilledBasket/FilledBasket';
+import { useTranslation } from 'react-i18next';
 
 const Basket = ({ setIsShowBasket }) => {
+  const dispatch = useDispatch();
+  const { i18n } = useTranslation();
+
   const [hiddenBasket, setHiddenBasket] = useState(false);
-  const [isEmptyBasket, setIsEmptyBasket] = useState(false);
+  const savedIds = useSelector(selectCartSavedIds);
+  const isLoading = useSelector(loadCart);
+  const cartItems = useSelector(selectCart);
 
-  const cartItems = useSelector((state) => state.cart.items);
-  console.log(cartItems);
-  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
-  const handleCloseBasket = () => handleCloseWithDelay(setHiddenBasket, setIsShowBasket);
-
-  // Check if basket is empty
   useEffect(() => {
-    cartItems.length === 0 ? setIsEmptyBasket(true) : setIsEmptyBasket(false);
-  }, [cartItems]);
+    if (savedIds && savedIds.length > 0) {
+      dispatch(getProductsByIds(savedIds.map((item) => item.id)));
+    }
+  }, [i18n.language]);
+
+  const totalQuantity = savedIds.reduce((sum, item) => sum + item.quantity, 0);
+  const isEmptyBasket = cartItems.length === 0;
+  const handleCloseBasket = () => handleCloseWithDelay(setHiddenBasket, setIsShowBasket);
 
   return (
     <>
@@ -29,10 +37,16 @@ const Basket = ({ setIsShowBasket }) => {
       <div className={`${cl.basketWrapper} ${hiddenBasket && cl.closeBasket} ${!isEmptyBasket && cl.emptyBasket}`}>
         <Header onClick={handleCloseBasket} />
 
-        {isEmptyBasket ? (
-          <EmptyBasket onClick={handleCloseBasket} />
+        {isLoading ? (
+          <Spinner />
         ) : (
-          <FilledBusket cartItems={cartItems} totalQuantity={totalQuantity} onClick={handleCloseBasket} />
+          <>
+            {isEmptyBasket ? (
+              <EmptyBasket onClick={handleCloseBasket} />
+            ) : (
+              <FilledBusket cartItems={cartItems} totalQuantity={totalQuantity} onClick={handleCloseBasket} />
+            )}
+          </>
         )}
       </div>
     </>
