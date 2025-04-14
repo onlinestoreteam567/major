@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { reviewsByProductId, deleteReview, approveReview, rejectReview } from './service';
+import { reviewsByProductId, deleteReview, approveReview, reviewsGetAll, reviewsGetByStatus } from './service';
 
 const initialState = {
   reviews: [],
@@ -26,6 +26,22 @@ const ReviewsSlice = createSlice({
   initialState,
   extraReducers: (builder) =>
     builder
+      .addCase(reviewsGetAll.pending, handlePending)
+      .addCase(reviewsGetAll.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.reviews = action.payload;
+      })
+      .addCase(reviewsGetAll.rejected, handleRejected)
+
+      .addCase(reviewsGetByStatus.pending, handlePending)
+      .addCase(reviewsGetByStatus.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.reviews = action.payload;
+      })
+      .addCase(reviewsGetByStatus.rejected, handleRejected)
+
       .addCase(reviewsByProductId.pending, handlePending)
       .addCase(reviewsByProductId.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -40,11 +56,7 @@ const ReviewsSlice = createSlice({
 
       .addCase(approveReview.pending, handlePending)
       .addCase(approveReview.fulfilled, handleFulfilled)
-      .addCase(approveReview.rejected, handleRejected)
-
-      .addCase(rejectReview.pending, handlePending)
-      .addCase(rejectReview.fulfilled, handleFulfilled)
-      .addCase(rejectReview.rejected, handleRejected),
+      .addCase(approveReview.rejected, handleRejected),
 });
 
 export const reviewReducer = ReviewsSlice.reducer;

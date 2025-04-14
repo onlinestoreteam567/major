@@ -3,6 +3,26 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const REVIEW_ENDPOINT = import.meta.env.VITE_REVIEW_ENDPOINT;
 
+export const reviewsGetAll = createAsyncThunk('reviews/getAll', async (_, thunkAPI) => {
+  try {
+    const endpoint = `${REVIEW_ENDPOINT}/`;
+    const { data } = await apiClient.get(endpoint);
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const reviewsGetByStatus = createAsyncThunk('reviews/getByStatus', async (status, thunkAPI) => {
+  try {
+    const endpoint = `${REVIEW_ENDPOINT}/?is_approved=${status}`;
+    const { data } = await apiClient.get(endpoint);
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
 export const reviewsByProductId = createAsyncThunk('reviews/reviewsByProductId', async (id, _, thunkAPI) => {
   try {
     const endpoint = `${REVIEW_ENDPOINT}/${id}/`;
@@ -29,16 +49,6 @@ export const approveReview = createAsyncThunk('review/approve', async ({ product
     return response.data;
   } catch (error) {
     console.error('Error in approving review:', error);
-    return thunkAPI.rejectWithValue(error.response?.data || error.message);
-  }
-});
-
-export const rejectReview = createAsyncThunk('review/reject', async ({ productId, reviewId }, thunkAPI) => {
-  try {
-    const response = await apiClient.post(`${REVIEW_ENDPOINT}/${productId}/${reviewId}/reject/`);
-    return response.data;
-  } catch (error) {
-    console.error('Error in rejecting review:', error);
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });

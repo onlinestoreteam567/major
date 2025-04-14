@@ -1,11 +1,13 @@
 import ProductSelect from './ProductSelect/ProductSelect';
 import ReviewsList from './ReviewsList/ReviewsList';
+import ReviewsSelect from './ReviewsSelect/ReviewsSelect';
 
 const ReviewsManagement = () => {
   return (
     <div>
-      <ReviewsList />
       <ProductSelect />
+      <ReviewsSelect />
+      <ReviewsList />
     </div>
   );
 };

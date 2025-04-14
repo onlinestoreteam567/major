@@ -8,6 +8,7 @@ import { fetchBestSellers, fetchProductsAll, fetchSets } from '@redux/products/s
 import { fetchCategories, fetchTypes } from '@redux/params/service';
 import { fetchPromocode } from '../../admin/redux/service';
 import { fetchBanner } from '@redux/banner/service';
+import { reviewsGetAll } from '@redux/reviews/service';
 
 const ProtectedRoute = () => {
   const auth = useSelector(selectAccessToken);
@@ -23,6 +24,7 @@ const ProtectedRoute = () => {
       dispatch(fetchCategories());
       dispatch(fetchPromocode());
       dispatch(fetchBanner());
+      dispatch(reviewsGetAll());
     }
   }, [auth, i18n.language, dispatch]);
 
