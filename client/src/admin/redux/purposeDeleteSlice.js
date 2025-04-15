@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { editPurpose } from '../../admin/redux/service';
+import { deletePurpose } from './service';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -13,8 +13,8 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-const purposeEditSlice = createSlice({
-  name: 'purposeEdit',
+const purposeDeleteSlice = createSlice({
+  name: 'purposeDelete',
   initialState: {
     response: null,
     isLoading: false,
@@ -22,13 +22,13 @@ const purposeEditSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      .addCase(editPurpose.pending, handlePending)
-      .addCase(editPurpose.fulfilled, (state, action) => {
+      .addCase(deletePurpose.pending, handlePending)
+      .addCase(deletePurpose.fulfilled, (state) => {
         state.isLoading = false;
         state.error = null;
-        state.response = action.payload;
+        state.response = 204;
       })
-      .addCase(editPurpose.rejected, handleRejected),
+      .addCase(deletePurpose.rejected, handleRejected),
 });
 
-export const purposeEditReducer = purposeEditSlice.reducer;
+export const purposeDeleteReducer = purposeDeleteSlice.reducer;

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getPurposeCategoryById } from '../../admin/redux/service';
+import { getPurposeCategoryById } from './service';
 
 const handlePending = (state) => {
   state.isLoading = true;
