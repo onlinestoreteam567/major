@@ -18,6 +18,7 @@ import LoadingButton from '../../LoadingButton/LoadingButton';
 import PromocodeForm from '../PromocodeForm';
 import cl from './index.module.scss';
 import SuccessMessage from '../../SuccessMessage/SuccessMessage';
+import ReturnButton from '../../ReturnButton/ReturnButton';
 
 const PromocodeEdit = () => {
   const {
@@ -56,19 +57,24 @@ const PromocodeEdit = () => {
 
   const onSubmit = (formData) => dispatch(editPromocode({ formData, id }));
 
-  return isLoadingGet ? (
-    <Spinner />
-  ) : (
-    <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeEdit}>
-      <PromocodeForm register={register} errors={errors} />
-      <LoadingButton
-        isLoading={isLoadingEdit}
-        loadingText="Редагування категорії за типом..."
-        defaultText="Редагувати категорію за типом"
-      />
-      {errorEdit && <ErrorText error={errorEdit} />}
-      {responseEdit && <SuccessMessage>Промокод успішно змінено!</SuccessMessage>}
-    </form>
+  return (
+    <>
+      <ReturnButton />
+      {isLoadingGet ? (
+        <Spinner />
+      ) : (
+        <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeEdit}>
+          <PromocodeForm register={register} errors={errors} />
+          <LoadingButton
+            isLoading={isLoadingEdit}
+            loadingText="Редагування категорії за типом..."
+            defaultText="Редагувати категорію за типом"
+          />
+          {errorEdit && <ErrorText error={errorEdit} />}
+          {responseEdit && <SuccessMessage>Промокод успішно змінено!</SuccessMessage>}
+        </form>
+      )}
+    </>
   );
 };
 export default PromocodeEdit;

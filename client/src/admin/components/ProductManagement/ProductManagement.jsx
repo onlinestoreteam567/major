@@ -6,6 +6,7 @@ import List from './ProductList/ProductList';
 import { Link } from 'react-router-dom';
 // import ProductForm from './ProductForm/ProductForm';
 import ProductFilters from './ProductFilters/ProductFilters';
+import ReturnButton from '../ReturnButton/ReturnButton';
 const ProductManagement = () => {
   // const dispatch = useDispatch();
 
@@ -17,6 +18,7 @@ const ProductManagement = () => {
     <div className={cl.productManagement}>
       <div>
         <Link to={`/admin/products/create`}>+</Link>
+        <ReturnButton />;
       </div>
       <List />
       <ProductFilters />

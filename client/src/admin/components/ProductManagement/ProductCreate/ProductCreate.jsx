@@ -11,6 +11,7 @@ import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
 import handleImageUpload from '@utils/handleImageUpload';
+import ReturnButton from '../../ReturnButton/ReturnButton';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -38,12 +39,15 @@ const ProductCreate = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={cl.productCreate}>
-      <ProductForm register={register} errors={errors} control={control} />
-      <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити товар" />
-      {errorPost && <ErrorText error={errorPost}></ErrorText>}
-      {response && <SuccessMessage>Товар успішно створено!</SuccessMessage>}
-    </form>
+    <>
+      <ReturnButton to="/admin/products" />
+      <form onSubmit={handleSubmit(onSubmit)} className={cl.productCreate}>
+        <ProductForm register={register} errors={errors} control={control} />
+        <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити товар" />
+        {errorPost && <ErrorText error={errorPost}></ErrorText>}
+        {response && <SuccessMessage>Товар успішно створено!</SuccessMessage>}
+      </form>
+    </>
   );
 };
 
