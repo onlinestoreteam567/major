@@ -22,6 +22,7 @@ import UploadedImage from '../../../UploadedImage/UploadedImage';
 import PurposeForm from '../PurposeForm';
 import cl from './index.module.scss';
 import handleImageUpload from '@utils/handleImageUpload';
+import ReturnButton from '../../../ReturnButton/ReturnButton';
 
 const formValues = ['category_name_uk', 'category_name_en', 'image'];
 
@@ -61,20 +62,25 @@ const PurposeEdit = () => {
     dispatch(editPurpose({ formData, id }));
   };
 
-  return isLoadingGet ? (
-    <Spinner />
-  ) : (
-    <form onSubmit={handleSubmit(onSubmit)} className={cl.purposeEdit}>
-      <PurposeForm register={register} errors={errors} control={control} />
-      {responseGet && responseGet.image && <UploadedImage image={responseGet.image} />}
-      <LoadingButton
-        isLoading={isLoadingEdit}
-        loadingText="Редагування категорії за призначенням..."
-        defaultText="Редагувати категорію за призначенням"
-      />
-      {errorEdit && <ErrorText error={errorEdit}></ErrorText>}
-      {responseEdit && <SuccessMessage>Категорія за призначенням успішно відредагована</SuccessMessage>}
-    </form>
+  return (
+    <>
+      <ReturnButton to="/admin/categories" />
+      {isLoadingGet ? (
+        <Spinner />
+      ) : (
+        <form onSubmit={handleSubmit(onSubmit)} className={cl.purposeEdit}>
+          <PurposeForm register={register} errors={errors} control={control} />
+          {responseGet && responseGet.image && <UploadedImage image={responseGet.image} />}
+          <LoadingButton
+            isLoading={isLoadingEdit}
+            loadingText="Редагування категорії за призначенням..."
+            defaultText="Редагувати категорію за призначенням"
+          />
+          {errorEdit && <ErrorText error={errorEdit}></ErrorText>}
+          {responseEdit && <SuccessMessage>Категорія за призначенням успішно відредагована</SuccessMessage>}
+        </form>
+      )}
+    </>
   );
 };
 export default PurposeEdit;
