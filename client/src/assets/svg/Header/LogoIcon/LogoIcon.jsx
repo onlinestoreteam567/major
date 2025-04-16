@@ -6,8 +6,15 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const LogoIcon = ({ fillColor }) => {
   const { getTranslation } = useTranslationNamespace('header');
 
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
-    <Link to="/" aria-label={getTranslation('ariaLabelLogo')}>
+    <Link to="/" aria-label={getTranslation('ariaLabelLogo')} onClick={handleScrollToTop}>
       <svg
         className={cl.headerLogo}
         width="114"
