@@ -13,6 +13,7 @@ import PartnerInfo from '../PartnerInfo/PartnerInfo';
 import handleWheel from './eventHandlers/handleWheel';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
+import useScreenSizes from '@hooks/useScreenSizes';
 
 const Map = () => {
   const [scale, setScale] = useState(1);
@@ -25,8 +26,37 @@ const Map = () => {
   const animationFrameRef = useRef(null);
   const { i18n } = useTranslation();
   const { getTranslation } = useTranslationNamespace('ourPartners');
+  const { mobile, tablet, deskmin, deskmax } = useScreenSizes();
 
   const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.webp' : '/images/ourPartners/mapUa.webp';
+
+  const getMarkerOffsets = () => {
+    let topPostitionCorrection = 9.5;
+    let leftPostitionCorrection = 3.5;
+
+    switch (true) {
+      case mobile:
+        topPostitionCorrection = 8;
+        leftPostitionCorrection = 2.5;
+        break;
+      case tablet:
+        topPostitionCorrection = 2.3;
+        leftPostitionCorrection = 1;
+        break;
+      case deskmin:
+        topPostitionCorrection = 0;
+        leftPostitionCorrection = 0;
+        break;
+      case deskmax:
+        topPostitionCorrection = -1;
+        leftPostitionCorrection = 0;
+        break;
+    }
+
+    return { topPostitionCorrection, leftPostitionCorrection };
+  };
+
+  const { topPostitionCorrection, leftPostitionCorrection } = getMarkerOffsets();
 
   return (
     <div
@@ -79,8 +109,8 @@ const Map = () => {
             key={point.id}
             className={cl.mark}
             style={{
-              top: `${point.y}%`,
-              left: `${point.x}%`,
+              top: `${point.y - topPostitionCorrection}%`,
+              left: `${point.x - leftPostitionCorrection}%`,
             }}
             title={point.label}
             onClick={() => setInformationAboutPartner(point)}
