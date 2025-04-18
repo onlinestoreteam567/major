@@ -31,32 +31,32 @@ const Map = () => {
   const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.webp' : '/images/ourPartners/mapUa.webp';
 
   const getMarkerOffsets = () => {
-    let minusTop = 9.5;
-    let minusLeft = 3.5;
+    let topPostitionCorrection = 9.5;
+    let leftPostitionCorrection = 3.5;
 
     switch (true) {
       case mobile:
-        minusTop = 8;
-        minusLeft = 2.5;
+        topPostitionCorrection = 8;
+        leftPostitionCorrection = 2.5;
         break;
       case tablet:
-        minusTop = 2.3;
-        minusLeft = 1;
+        topPostitionCorrection = 2.3;
+        leftPostitionCorrection = 1;
         break;
       case deskmin:
-        minusTop = 0;
-        minusLeft = 0;
+        topPostitionCorrection = 0;
+        leftPostitionCorrection = 0;
         break;
       case deskmax:
-        minusTop = -1;
-        minusLeft = 0;
+        topPostitionCorrection = -1;
+        leftPostitionCorrection = 0;
         break;
     }
 
-    return { minusTop, minusLeft };
+    return { topPostitionCorrection, leftPostitionCorrection };
   };
 
-  const { minusTop, minusLeft } = getMarkerOffsets();
+  const { topPostitionCorrection, leftPostitionCorrection } = getMarkerOffsets();
 
   return (
     <div
@@ -109,8 +109,8 @@ const Map = () => {
             key={point.id}
             className={cl.mark}
             style={{
-              top: `${point.y - minusTop}%`,
-              left: `${point.x - minusLeft}%`,
+              top: `${point.y - topPostitionCorrection}%`,
+              left: `${point.x - leftPostitionCorrection}%`,
             }}
             title={point.label}
             onClick={() => setInformationAboutPartner(point)}
@@ -118,8 +118,6 @@ const Map = () => {
             aria-label={getTranslation('ariaLabelPoint')}
           >
             <img src="/svg/ourPartners/point.svg" alt="" />
-            {console.log(minusTop)}
-            {console.log(minusLeft)}
           </button>
         ))}
       </div>
