@@ -13,6 +13,7 @@ import PartnerInfo from '../PartnerInfo/PartnerInfo';
 import handleWheel from './eventHandlers/handleWheel';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
+import useScreenSizes from '@hooks/useScreenSizes';
 
 const Map = () => {
   const [scale, setScale] = useState(1);
@@ -25,8 +26,37 @@ const Map = () => {
   const animationFrameRef = useRef(null);
   const { i18n } = useTranslation();
   const { getTranslation } = useTranslationNamespace('ourPartners');
+  const { mobile, tablet, deskmin, deskmax } = useScreenSizes();
 
   const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.webp' : '/images/ourPartners/mapUa.webp';
+
+  const getMarkerOffsets = () => {
+    let minusTop = 9.5;
+    let minusLeft = 3.5;
+
+    switch (true) {
+      case mobile:
+        minusTop = 8;
+        minusLeft = 2.5;
+        break;
+      case tablet:
+        minusTop = 2.3;
+        minusLeft = 1;
+        break;
+      case deskmin:
+        minusTop = 0;
+        minusLeft = 0;
+        break;
+      case deskmax:
+        minusTop = -1;
+        minusLeft = 0;
+        break;
+    }
+
+    return { minusTop, minusLeft };
+  };
+
+  const { minusTop, minusLeft } = getMarkerOffsets();
 
   return (
     <div
@@ -79,8 +109,8 @@ const Map = () => {
             key={point.id}
             className={cl.mark}
             style={{
-              top: `${point.y}%`,
-              left: `${point.x}%`,
+              top: `${point.y - minusTop}%`,
+              left: `${point.x - minusLeft}%`,
             }}
             title={point.label}
             onClick={() => setInformationAboutPartner(point)}
@@ -88,6 +118,8 @@ const Map = () => {
             aria-label={getTranslation('ariaLabelPoint')}
           >
             <img src="/svg/ourPartners/point.svg" alt="" />
+            {console.log(minusTop)}
+            {console.log(minusLeft)}
           </button>
         ))}
       </div>
