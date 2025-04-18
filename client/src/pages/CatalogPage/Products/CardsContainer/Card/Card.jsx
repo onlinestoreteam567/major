@@ -18,7 +18,9 @@ export default function Card({ card }) {
         <ImgCardCatalog card={card} />
       </Link>
       <div className={cl.wrapInfo}>
-        <TitleCardCatalog card={card} />
+        <Link to={`/catalog/${id}`} aria-label={translation}>
+          <TitleCardCatalog card={card} />
+        </Link>
         <div>
           <ProductRating card={card} />
           <PriceCardCatalog card={card} />
