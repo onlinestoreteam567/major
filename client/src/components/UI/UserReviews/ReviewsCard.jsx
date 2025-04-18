@@ -11,7 +11,7 @@ export default function ReviewsCard({ review }) {
           <Heading type="h4">{review.user_name}</Heading>
           <UserRating review={review} />
         </div>
-        <p>{review.data}</p>
+        <p>{review.date}</p>
       </div>
       <UserMessage review={review} />
     </div>
