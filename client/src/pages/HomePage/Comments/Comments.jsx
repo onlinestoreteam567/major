@@ -1,5 +1,5 @@
 import cl from './index.module.scss';
-import commentsData from './data';
+// import commentsData from './data';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import CommentCard from '@components/UI/CommentCard/CommentCard';
@@ -13,15 +13,30 @@ import ArrowRight from '@assets/svg/ArrowRight';
 import useScreenSizes from '@hooks/useScreenSizes';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
 
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { reviewsGetLatest } from '@redux/reviews/service';
+import { selectReviews } from '@redux/selectors';
+
 let screenSizeTotal;
 
 const Comments = () => {
+  const dispatch = useDispatch();
+  const reviews = useSelector(selectReviews);
+
+  useEffect(() => {
+    dispatch(reviewsGetLatest());
+  }, [dispatch]);
+
   const [index, setIndex] = useState(1);
   const { tablet, deskmin, deskmax } = useScreenSizes();
 
   const sliderRef = useRef(null);
-  const slidesData = commentsData;
+  const slidesData = Array.isArray(reviews) ? [...reviews].reverse().slice(0, 6) : [];
   const total = slidesData.length;
+
+  console.log('Slides data from server:', slidesData);
+  console.log('Total reviews received:', slidesData.length);
 
   switch (true) {
     case tablet:
