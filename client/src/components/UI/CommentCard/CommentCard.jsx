@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import Paragraph from '../Texts/Paragraph/Paragraph';
 
 const CommentCard = ({ cardData }) => {
-  console.log('cardData:', cardData);
   return (
     <div className={cl.commentCard}>
       <div className={cl.wrapReview}>
@@ -19,7 +18,7 @@ const CommentCard = ({ cardData }) => {
           <br />
           {cardData.date}
         </Heading>
-        <Link to={`/products/${cardData.product_id}`}>Перейти</Link>
+        <Link to={`/catalog/${cardData.product_id}`}>Перейти</Link>
       </div>
     </div>
   );
