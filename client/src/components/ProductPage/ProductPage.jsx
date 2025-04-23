@@ -8,7 +8,7 @@ import EmptyPage from '@components/helpers/EmptyPage';
 import ProductSet from './ProductSet';
 import BestSellers from '@pages/HomePage/MainSliders/BestSellers';
 import FitCategory from './FitCategory';
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import { clearFitCategory } from '@redux/products/fitCategorySlice';
 import { getProductById } from '@redux/products/service';
 import { loadProductId, selectProductId } from '@redux/selectors';

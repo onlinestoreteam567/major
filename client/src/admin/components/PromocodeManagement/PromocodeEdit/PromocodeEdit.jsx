@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import {
   errorPromocodeEdit,
   loadPromocodeById,

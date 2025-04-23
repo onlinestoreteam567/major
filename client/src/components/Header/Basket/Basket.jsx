@@ -7,7 +7,7 @@ import Header from './Header/Header';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import { getProductsByIds } from '@redux/products/service';
 import { loadCart, selectCart, selectCartSavedIds } from '@redux/selectors';
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import FilledBusket from './FilledBasket/FilledBasket';
 import { useTranslation } from 'react-i18next';
 

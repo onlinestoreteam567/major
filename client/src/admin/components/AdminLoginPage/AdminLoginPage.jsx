@@ -4,7 +4,7 @@ import cl from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuthToken } from '../../redux/service';
 import { loadAuth, selectAccessToken } from '../../redux/selectors';
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import { useNavigate } from 'react-router-dom';
 
 const AdminLoginPage = () => {

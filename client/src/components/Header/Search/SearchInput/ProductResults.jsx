@@ -1,6 +1,6 @@
 import { loadSearch, selectSearch } from '@redux/selectors';
 import cl from './index.module.scss';
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import NotFound from './NotFound';
 import { Link } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import { reviewsByProductId } from '@redux/reviews/service';
 import { loadProducts, selectProducts } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';

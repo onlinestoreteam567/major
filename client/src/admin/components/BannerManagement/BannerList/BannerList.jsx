@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import cl from './index.module.scss';
 import { loadBanner, loadBannerDelete, selectBanner, selectBannerDelete } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';

@@ -5,7 +5,7 @@ import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
 import { useSelector } from 'react-redux';
 import EmptyPage from '@components/helpers/EmptyPage';
 import { loadSets, selectSets } from '@redux/selectors';
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 
 const Sets = () => {
   const { getTranslation } = useTranslationNamespace('common');

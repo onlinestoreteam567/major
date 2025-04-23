@@ -7,7 +7,7 @@ import Slide from './Slide/Slide.jsx';
 import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
 import { loadBanner, selectBanner } from '@redux/selectors.js';
-import Spinner from '@components/helpers/Spinner.jsx';
+import Spinner from '@components/helpers/Spinner/Spinner.jsx';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel.jsx';
 
 const MainBanner = () => {

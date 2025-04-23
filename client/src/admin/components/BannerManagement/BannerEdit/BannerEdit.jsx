@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useId';
 import { editBanner, getBannerById } from '@redux/banner/service';
