@@ -9,7 +9,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { oneElement } from '@components/constants/settingSlider';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import EmptyPage from '@components/helpers/EmptyPage';
 import ReviewsNotFound from './ReviewsNotFound/ReviewsNotFound';
 
 export default function ListReviewsCard({ card }) {
@@ -29,37 +28,49 @@ export default function ListReviewsCard({ card }) {
   const total = card.reviews.length || 0;
   const slidesData = card.reviews || [];
 
+  const isSingleReview = slidesData.length === 1;
   const showArr = Array.isArray(slidesData) && slidesData.length !== 0;
 
   return (
     <>
       {card ? (
         <div className={cl.wrapListReviewsCard}>
-          <div className={cl.wrapTitle}>
-            <Heading type="h2">{getTranslation('productReviews')}</Heading>
-            <Heading type="h2">{card.name}</Heading>
-          </div>
-          <div className={cl.wrapReviewBtn}>
-            <button type="button" disabled={index === 1} onClick={previous}>
-              <ArrowLeft />
-            </button>
-            <button type="button" disabled={index === total} onClick={next}>
-              <ArrowRight />
-            </button>
-          </div>
-          <div className={`slider-container ${cl.wrapSlider}`}>
-            {showArr ? (
-              <Slider ref={sliderRef} {...oneElement}>
-                {slidesData.map((slide, index) => (
-                  <div key={index}>
-                    <ReviewsCard review={slide} />
+          {showArr && (
+            <div className={cl.wrapTitle}>
+              <Heading type="h2">{getTranslation('productReviews')}</Heading>
+              <Heading type="h2">{card.name}</Heading>
+            </div>
+          )}
+
+          {isSingleReview ? (
+            <ReviewsCard review={slidesData[0]} />
+          ) : (
+            <>
+              {showArr ? (
+                <>
+                  <div className={cl.wrapReviewBtn}>
+                    <button type="button" disabled={index === 1} onClick={previous}>
+                      <ArrowLeft />
+                    </button>
+                    <button type="button" disabled={index === total} onClick={next}>
+                      <ArrowRight />
+                    </button>
                   </div>
-                ))}
-              </Slider>
-            ) : (
-              <ReviewsNotFound card={card} />
-            )}
-          </div>
+                  <div className={`slider-container ${cl.wrapSlider}`}>
+                    <Slider ref={sliderRef} {...oneElement}>
+                      {slidesData.map((slide, index) => (
+                        <div key={index}>
+                          <ReviewsCard review={slide} />
+                        </div>
+                      ))}
+                    </Slider>
+                  </div>
+                </>
+              ) : (
+                <ReviewsNotFound card={card} />
+              )}
+            </>
+          )}
         </div>
       ) : (
         <ReviewsNotFound card={card} />
