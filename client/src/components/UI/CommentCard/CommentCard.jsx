@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import Paragraph from '../Texts/Paragraph/Paragraph';
 
 const CommentCard = ({ cardData }) => {
-  console.log('cardData:', cardData);
   return (
     <div className={cl.commentCard}>
       <div className={cl.wrapReview}>
