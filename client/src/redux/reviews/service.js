@@ -55,7 +55,7 @@ export const approveReview = createAsyncThunk('review/approve', async ({ product
 
 export const reviewsGetLatest = createAsyncThunk('reviews/getLatest', async (_, thunkAPI) => {
   try {
-    const endpoint = `${REVIEW_ENDPOINT}/?is_approved=true&limit=6&ordering=-date`;
+    const endpoint = `${REVIEW_ENDPOINT}/?is_approved=true`;
     const { data } = await apiClient.get(endpoint);
     return data;
   } catch (error) {

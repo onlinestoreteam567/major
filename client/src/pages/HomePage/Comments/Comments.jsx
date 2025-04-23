@@ -1,5 +1,4 @@
 import cl from './index.module.scss';
-// import commentsData from './data';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import CommentCard from '@components/UI/CommentCard/CommentCard';
@@ -18,8 +17,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { reviewsGetLatest } from '@redux/reviews/service';
 import { selectReviews } from '@redux/selectors';
 
-let screenSizeTotal;
-
 const Comments = () => {
   const dispatch = useDispatch();
   const reviews = useSelector(selectReviews);
@@ -29,22 +26,24 @@ const Comments = () => {
   }, [dispatch]);
 
   const [index, setIndex] = useState(1);
-  const { tablet, deskmin, deskmax } = useScreenSizes();
-
+  const [clickDelay, setClickDelay] = useState(false);
+  const timer = useRef(null);
   const sliderRef = useRef(null);
+
+  const { tablet, deskmin, deskmax } = useScreenSizes();
+  const { getTranslation } = useTranslationNamespace('common');
+
   const slidesData = Array.isArray(reviews) ? [...reviews].reverse().slice(0, 6) : [];
   const total = slidesData.length;
 
-  console.log('Slides data from server:', slidesData);
-  console.log('Total reviews received:', slidesData.length);
+  if (total === 0) return null;
 
+  let screenSizeTotal;
   switch (true) {
     case tablet:
       screenSizeTotal = total - 1;
       break;
     case deskmin:
-      screenSizeTotal = total - 2;
-      break;
     case deskmax:
       screenSizeTotal = total - 2;
       break;
@@ -55,10 +54,8 @@ const Comments = () => {
 
   const settings = {
     ...commentsSettings,
+    lazyLoad: false,
   };
-
-  const [clickDelay, setClickDelay] = useState(false);
-  const timer = useRef(null);
 
   const clickWithDelay = () => {
     setClickDelay(true);
@@ -80,8 +77,6 @@ const Comments = () => {
     sliderRef.current.slickPrev();
     setIndex((prevIndex) => prevIndex - 1);
   };
-
-  const { getTranslation } = useTranslationNamespace('common');
 
   return (
     <section className={cl.comments}>
