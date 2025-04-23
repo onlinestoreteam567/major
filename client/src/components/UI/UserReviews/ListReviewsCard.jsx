@@ -10,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { oneElement } from '@components/constants/settingSlider';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import EmptyPage from '@components/helpers/EmptyPage';
+import ReviewsNotFound from './ReviewsNotFound/ReviewsNotFound';
 
 export default function ListReviewsCard({ card }) {
   const [index, setIndex] = useState(1);
@@ -56,12 +57,12 @@ export default function ListReviewsCard({ card }) {
                 ))}
               </Slider>
             ) : (
-              <EmptyPage message={getTranslation('reviewsAreMissing')} />
+              <ReviewsNotFound card={card} />
             )}
           </div>
         </div>
       ) : (
-        <EmptyPage message={getTranslation('reviewsAreMissing')} />
+        <ReviewsNotFound card={card} />
       )}
     </>
   );

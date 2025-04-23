@@ -1,10 +1,10 @@
 @import '@mixins';
 
 .wrapFeedback {
-  @include flex(row, flex-end, center);
+  @include flex(row, flex-end);
 
   button {
-    @include flex(row, senter, center);
+    @include flex();
     color: #a2a2a2;
     font-family: $font-second;
     font-size: $font-size-base;
