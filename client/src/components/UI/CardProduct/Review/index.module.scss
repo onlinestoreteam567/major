@@ -5,22 +5,9 @@
 
   button {
     @include flex();
-    color: #a2a2a2;
-    font-family: $font-second;
-    font-size: $font-size-base;
-    font-weight: $font-weight-base;
-    line-height: 1.44;
-    cursor: pointer;
-    &:hover {
-      color: $text-color-black;
-      transition:
-        color 0.5s ease,
-        box-shadow 0.5s ease;
-    }
-  }
-  @include tablet {
-    p {
-      font-size: $font-size-base;
+
+    h3 {
+      text-decoration: underline;
     }
   }
 }

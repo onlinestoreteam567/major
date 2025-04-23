@@ -10,7 +10,6 @@ import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/Add
 import Description from '@components/UI/CardProduct/Descript/Description';
 import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
 import { useState } from 'react';
-import LeaveReview from '@components/UI/CardProduct/Review/LeaveReview';
 
 export default function CardMobile({ card }) {
   const [count, setCount] = useState(1);
@@ -20,9 +19,8 @@ export default function CardMobile({ card }) {
       <div className={cl.wrapItem}>
         <ImgMobile card={card} />
         <TitleCard card={card} />
-        <div className={cl.wrapOrder}>
+        <div>
           <ProductRating card={card} />
-          <LeaveReview card={card} />
         </div>
         <Article card={card} />
         <div className={cl.wrapOrder}>

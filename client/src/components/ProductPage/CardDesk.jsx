@@ -10,7 +10,6 @@ import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/Add
 import Description from '@components/UI/CardProduct/Descript/Description';
 import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
 import { useState } from 'react';
-import LeaveReview from '@components/UI/CardProduct/Review/LeaveReview';
 
 export default function CardDesk({ card }) {
   const [count, setCount] = useState(1);
@@ -22,9 +21,8 @@ export default function CardDesk({ card }) {
         <div className={cl.rightCase}>
           <Article card={card} />
           <TitleCard card={card} />
-          <div className={cl.wrapOrder}>
+          <div>
             <ProductRating card={card} />
-            <LeaveReview card={card} />
           </div>
 
           <div className={cl.wrapOrder}>
