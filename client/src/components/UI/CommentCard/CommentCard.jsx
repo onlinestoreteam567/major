@@ -19,7 +19,7 @@ const CommentCard = ({ cardData }) => {
           <br />
           {cardData.date}
         </Heading>
-        <Link to={`/products/${cardData.product_id}`}>Перейти</Link>
+        <Link to={`/catalog/${cardData.product_id}`}>Перейти</Link>
       </div>
     </div>
   );
