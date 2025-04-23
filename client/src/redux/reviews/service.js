@@ -52,3 +52,13 @@ export const approveReview = createAsyncThunk('review/approve', async ({ product
     return thunkAPI.rejectWithValue(error.response?.data || error.message);
   }
 });
+
+export const reviewsGetLatest = createAsyncThunk('reviews/getLatest', async (_, thunkAPI) => {
+  try {
+    const endpoint = `${REVIEW_ENDPOINT}/?is_approved=true`;
+    const { data } = await apiClient.get(endpoint);
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

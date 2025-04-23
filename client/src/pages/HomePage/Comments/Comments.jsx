@@ -1,5 +1,4 @@
 import cl from './index.module.scss';
-import commentsData from './data';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import CommentCard from '@components/UI/CommentCard/CommentCard';
@@ -13,23 +12,38 @@ import ArrowRight from '@assets/svg/ArrowRight';
 import useScreenSizes from '@hooks/useScreenSizes';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
 
-let screenSizeTotal;
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { reviewsGetLatest } from '@redux/reviews/service';
+import { selectReviews } from '@redux/selectors';
 
 const Comments = () => {
-  const [index, setIndex] = useState(1);
-  const { tablet, deskmin, deskmax } = useScreenSizes();
+  const dispatch = useDispatch();
+  const reviews = useSelector(selectReviews);
 
+  useEffect(() => {
+    dispatch(reviewsGetLatest());
+  }, [dispatch]);
+
+  const [index, setIndex] = useState(1);
+  const [clickDelay, setClickDelay] = useState(false);
+  const timer = useRef(null);
   const sliderRef = useRef(null);
-  const slidesData = commentsData;
+
+  const { tablet, deskmin, deskmax } = useScreenSizes();
+  const { getTranslation } = useTranslationNamespace('common');
+
+  const slidesData = Array.isArray(reviews) ? [...reviews].reverse().slice(0, 6) : [];
   const total = slidesData.length;
 
+  if (total === 0) return null;
+
+  let screenSizeTotal;
   switch (true) {
     case tablet:
       screenSizeTotal = total - 1;
       break;
     case deskmin:
-      screenSizeTotal = total - 2;
-      break;
     case deskmax:
       screenSizeTotal = total - 2;
       break;
@@ -40,10 +54,8 @@ const Comments = () => {
 
   const settings = {
     ...commentsSettings,
+    lazyLoad: false,
   };
-
-  const [clickDelay, setClickDelay] = useState(false);
-  const timer = useRef(null);
 
   const clickWithDelay = () => {
     setClickDelay(true);
@@ -65,8 +77,6 @@ const Comments = () => {
     sliderRef.current.slickPrev();
     setIndex((prevIndex) => prevIndex - 1);
   };
-
-  const { getTranslation } = useTranslationNamespace('common');
 
   return (
     <section className={cl.comments}>
