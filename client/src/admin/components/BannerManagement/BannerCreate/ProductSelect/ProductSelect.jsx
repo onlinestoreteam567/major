@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import { loadProducts, selectProducts } from '@redux/selectors';
 import { Controller } from 'react-hook-form';
 import { useSelector } from 'react-redux';

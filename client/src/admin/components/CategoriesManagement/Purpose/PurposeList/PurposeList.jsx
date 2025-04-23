@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import cl from './index.module.scss';
 import { loadCategories, selectCategories } from '@redux/selectors';
 import { Link } from 'react-router-dom';

@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import cl from './index.module.scss';
 import { loadTypes, selectTypes } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';

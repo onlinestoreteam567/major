@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
-import Spinner from '@components/helpers/Spinner';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import EmptyPage from '@components/helpers/EmptyPage';
 import { useEffect } from 'react';
 import { getFitCategory } from '../../redux/products/service';
