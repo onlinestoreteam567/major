@@ -1,7 +1,6 @@
 import ImgMobile from '@components/UI/CardProduct/ImgCard/ImgMobile';
 import TitleCard from '@components/UI/CardProduct/Title/TitleCard';
 import ProductRating from '@components/UI/CardProduct/Rating/ProductRating';
-import LeaveFeedback from '@components/UI/CardProduct/Review/LeaveFeedback';
 import Article from '@components/UI/CardProduct/Article/Article';
 import Price from '@components/UI/CardProduct/Price/Price';
 import Counter from '@components/UI/CardProduct/Counter/Counter';
@@ -20,9 +19,8 @@ export default function CardMobile({ card }) {
       <div className={cl.wrapItem}>
         <ImgMobile card={card} />
         <TitleCard card={card} />
-        <div className={cl.wrapOrder}>
+        <div>
           <ProductRating card={card} />
-          <LeaveFeedback card={card} />
         </div>
         <Article card={card} />
         <div className={cl.wrapOrder}>

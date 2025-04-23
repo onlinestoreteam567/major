@@ -4,7 +4,6 @@ import ImgDesk from '@components/UI/CardProduct/ImgCard/ImgDesk';
 import Price from '@components/UI/CardProduct/Price/Price';
 import TitleCard from '@components/UI/CardProduct/Title/TitleCard';
 import ProductRating from '@components/UI/CardProduct/Rating/ProductRating';
-import LeaveFeedback from '@components/UI/CardProduct/Review/LeaveFeedback';
 import Volume from '@components/UI/CardProduct/Volume/Volume';
 import cl from './index.module.scss';
 import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
@@ -22,9 +21,8 @@ export default function CardDesk({ card }) {
         <div className={cl.rightCase}>
           <Article card={card} />
           <TitleCard card={card} />
-          <div className={cl.wrapOrder}>
+          <div>
             <ProductRating card={card} />
-            <LeaveFeedback card={card} />
           </div>
 
           <div className={cl.wrapOrder}>

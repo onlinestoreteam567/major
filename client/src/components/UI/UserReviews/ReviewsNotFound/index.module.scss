@@ -1,0 +1,28 @@
+@import '@mixins';
+
+.reviewsNotFound {
+  @include flex(row, space-between);
+  position: relative;
+  margin-bottom: 25px;
+
+  p {
+    font-size: $font-size-base;
+    font-family: $font-second;
+    font-weight: $font-weight-base;
+    line-height: 144%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #a2a2a2;
+    width: 100%;
+  }
+
+  div {
+    position: absolute;
+    right: 0;
+    top: 40px;
+
+    @include tablet {
+      top: 1px;
+    }
+  }
+}
