@@ -2,7 +2,6 @@ export const commentsSettings = {
   accessibility: true,
   dots: false,
   infinite: false,
-  adaptiveHeight: true,
   variableWidth: true,
   arrows: true,
   speed: 300,
