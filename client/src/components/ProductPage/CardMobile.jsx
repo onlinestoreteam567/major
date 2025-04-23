@@ -1,7 +1,6 @@
 import ImgMobile from '@components/UI/CardProduct/ImgCard/ImgMobile';
 import TitleCard from '@components/UI/CardProduct/Title/TitleCard';
 import ProductRating from '@components/UI/CardProduct/Rating/ProductRating';
-import LeaveFeedback from '@components/UI/CardProduct/Review/LeaveFeedback';
 import Article from '@components/UI/CardProduct/Article/Article';
 import Price from '@components/UI/CardProduct/Price/Price';
 import Counter from '@components/UI/CardProduct/Counter/Counter';
@@ -11,6 +10,7 @@ import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/Add
 import Description from '@components/UI/CardProduct/Descript/Description';
 import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
 import { useState } from 'react';
+import LeaveReview from '@components/UI/CardProduct/Review/LeaveReview';
 
 export default function CardMobile({ card }) {
   const [count, setCount] = useState(1);
@@ -22,7 +22,7 @@ export default function CardMobile({ card }) {
         <TitleCard card={card} />
         <div className={cl.wrapOrder}>
           <ProductRating card={card} />
-          <LeaveFeedback card={card} />
+          <LeaveReview card={card} />
         </div>
         <Article card={card} />
         <div className={cl.wrapOrder}>

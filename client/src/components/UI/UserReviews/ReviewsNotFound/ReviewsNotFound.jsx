@@ -1,6 +1,6 @@
-import LeaveFeedback from '@components/UI/CardProduct/Review/LeaveFeedback';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import LeaveReview from '@components/UI/CardProduct/Review/LeaveReview';
 
 const ReviewsNotFound = ({ card }) => {
   const { getTranslation } = useTranslationNamespace('common');
@@ -8,7 +8,7 @@ const ReviewsNotFound = ({ card }) => {
   return (
     <div className={cl.reviewsNotFound}>
       <p>{getTranslation('reviewsNotFound')}</p>
-      <LeaveFeedback card={card} />
+      <LeaveReview card={card} />
     </div>
   );
 };

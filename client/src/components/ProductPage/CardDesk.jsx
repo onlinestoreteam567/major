@@ -4,13 +4,13 @@ import ImgDesk from '@components/UI/CardProduct/ImgCard/ImgDesk';
 import Price from '@components/UI/CardProduct/Price/Price';
 import TitleCard from '@components/UI/CardProduct/Title/TitleCard';
 import ProductRating from '@components/UI/CardProduct/Rating/ProductRating';
-import LeaveFeedback from '@components/UI/CardProduct/Review/LeaveFeedback';
 import Volume from '@components/UI/CardProduct/Volume/Volume';
 import cl from './index.module.scss';
 import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
 import Description from '@components/UI/CardProduct/Descript/Description';
 import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
 import { useState } from 'react';
+import LeaveReview from '@components/UI/CardProduct/Review/LeaveReview';
 
 export default function CardDesk({ card }) {
   const [count, setCount] = useState(1);
@@ -24,7 +24,7 @@ export default function CardDesk({ card }) {
           <TitleCard card={card} />
           <div className={cl.wrapOrder}>
             <ProductRating card={card} />
-            <LeaveFeedback card={card} />
+            <LeaveReview card={card} />
           </div>
 
           <div className={cl.wrapOrder}>
