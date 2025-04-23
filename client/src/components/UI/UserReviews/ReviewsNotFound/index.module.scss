@@ -3,7 +3,8 @@
 .reviewsNotFound {
   @include flex(row, space-between);
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 45px;
+  width: 100%;
 
   p {
     font-size: $font-size-base;
