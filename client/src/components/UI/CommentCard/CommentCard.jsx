@@ -19,6 +19,7 @@ const CommentCard = ({ cardData }) => {
           {cardData.date}
         </Heading>
         {/* <Link to="/catalog">Перейти</Link> */}
+        <p>gfgfg</p>
       </div>
     </div>
   );
