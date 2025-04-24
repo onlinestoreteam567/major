@@ -5,10 +5,8 @@ import Warehouses from './Warehouses';
 const NovaPost = () => {
   return (
     <div className={cl.novaPost}>
-      <label htmlFor="">
-        <Settlement />
-        <Warehouses />
-      </label>
+      <Settlement />
+      <Warehouses />
     </div>
   );
 };
