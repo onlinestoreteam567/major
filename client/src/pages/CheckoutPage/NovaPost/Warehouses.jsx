@@ -16,8 +16,8 @@ const Warehouses = () => {
     setSearchTerm('');
   }, [allWarehouses]);
 
-  const handleInputChange = (event) => {
-    const term = event.target.value;
+  const handleInputChange = (e) => {
+    const term = e.target.value;
     setSearchTerm(term);
     const filtered = allWarehouses.filter((warehouse) => warehouse.address.toLowerCase().includes(term.toLowerCase()));
     setFilteredWarehouses(filtered);

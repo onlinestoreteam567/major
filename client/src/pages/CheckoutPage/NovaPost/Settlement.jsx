@@ -16,8 +16,8 @@ const Settlement = () => {
   const settlements = useSelector(selectSettlements);
 
   const cityChange = (e) => {
-    setIsCitySelected(false);
     setCity(e.target.value);
+    setIsCitySelected(false);
     dispatch(clearWarehouses());
   };
 
@@ -31,6 +31,7 @@ const Settlement = () => {
 
   useEffect(() => {
     if (city === '' || isCitySelected) return;
+
     const debouncedSearch = debouce(() => {
       dispatch(fetchSettlements(city.trim()));
     }, 1000);
