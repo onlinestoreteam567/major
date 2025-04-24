@@ -1,19 +1,19 @@
 import Spinner from '@components/helpers/Spinner/Spinner';
-import { loadWarehouses, selectWarehouses } from '@redux/selectors';
-import { useDispatch, useSelector } from 'react-redux';
+import { isDisabledWarehouses, loadWarehouses, selectWarehouses } from '@redux/selectors';
+import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { clearWarehouses } from '@redux/novaPost/warehousesSlice';
 import cl from './index.module.scss';
 
 const Warehouses = () => {
-  const dispatch = useDispatch();
   const isLoading = useSelector(loadWarehouses);
   const allWarehouses = useSelector(selectWarehouses);
+  const isDisabled = useSelector(isDisabledWarehouses);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredWarehouses, setFilteredWarehouses] = useState([]);
 
   useEffect(() => {
     setFilteredWarehouses([...allWarehouses]);
+    setSearchTerm('');
   }, [allWarehouses]);
 
   const handleInputChange = (event) => {
@@ -26,7 +26,6 @@ const Warehouses = () => {
   const handleListItemClick = (address) => {
     setFilteredWarehouses([]);
     setSearchTerm(address);
-    dispatch(clearWarehouses());
   };
 
   return (
@@ -36,6 +35,7 @@ const Warehouses = () => {
         placeholder="Введіть адресу або номер відділення"
         value={searchTerm}
         onChange={handleInputChange}
+        disabled={isDisabled}
       />
       <ul>
         {isLoading ? (

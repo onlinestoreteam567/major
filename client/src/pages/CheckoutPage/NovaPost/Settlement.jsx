@@ -6,6 +6,7 @@ import { clearSettlements } from '@redux/novaPost/settlementsSlice';
 import { useEffect, useState } from 'react';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import cl from './index.module.scss';
+import { clearWarehouses, setDisabled } from '@redux/novaPost/warehousesSlice';
 
 const Settlement = () => {
   const [city, setCity] = useState('');
@@ -17,6 +18,7 @@ const Settlement = () => {
   const cityChange = (e) => {
     setIsCitySelected(false);
     setCity(e.target.value);
+    dispatch(clearWarehouses());
   };
 
   const selectCity = (e, cityRef) => {
@@ -24,6 +26,7 @@ const Settlement = () => {
     setCity(e.target.innerHTML);
     dispatch(clearSettlements());
     dispatch(fetchWarehouses(cityRef));
+    dispatch(setDisabled(false));
   };
 
   useEffect(() => {

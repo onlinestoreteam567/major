@@ -63,3 +63,4 @@ export const selectSettlements = (state) => state.settlements.settlements;
 
 export const loadWarehouses = (state) => state.warehouses.isLoading;
 export const selectWarehouses = (state) => state.warehouses.warehouses;
+export const isDisabledWarehouses = (state) => state.warehouses.isDisabled;

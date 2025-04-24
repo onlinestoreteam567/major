@@ -13,6 +13,7 @@ const handleRejected = (state, action) => {
 const warehousesSlice = createSlice({
   name: 'warehouses',
   initialState: {
+    isDisabled: true,
     warehouses: [],
     isLoading: false,
     error: null,
@@ -20,8 +21,12 @@ const warehousesSlice = createSlice({
   reducers: {
     clearWarehouses: (state) => {
       state.warehouses = [];
+      state.isDisabled = true;
       state.isLoading = false;
       state.error = null;
+    },
+    setDisabled: (state, action) => {
+      state.isDisabled = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -36,5 +41,5 @@ const warehousesSlice = createSlice({
   },
 });
 
-export const { clearWarehouses } = warehousesSlice.actions;
+export const { clearWarehouses, setDisabled } = warehousesSlice.actions;
 export const warehousesReducer = warehousesSlice.reducer;
