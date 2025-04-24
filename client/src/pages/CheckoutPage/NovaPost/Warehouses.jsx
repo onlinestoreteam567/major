@@ -3,6 +3,7 @@ import { loadWarehouses, selectWarehouses } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { clearWarehouses } from '@redux/novaPost/warehousesSlice';
+import cl from './index.module.scss';
 
 const Warehouses = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const Warehouses = () => {
   };
 
   return (
-    <label htmlFor="">
+    <label className={cl.warehouses}>
       <input
         type="text"
         placeholder="Введіть адресу або номер відділення"

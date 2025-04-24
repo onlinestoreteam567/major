@@ -5,6 +5,7 @@ import { loadSettlements, selectSettlements } from '@redux/selectors';
 import { clearSettlements } from '@redux/novaPost/settlementsSlice';
 import { useEffect, useState } from 'react';
 import Spinner from '@components/helpers/Spinner/Spinner';
+import cl from './index.module.scss';
 
 const Settlement = () => {
   const [city, setCity] = useState('');
@@ -39,7 +40,7 @@ const Settlement = () => {
   }, [isCitySelected, city, dispatch]);
 
   return (
-    <label htmlFor="">
+    <label className={cl.settlement}>
       <input type="text" value={city} onChange={cityChange} placeholder="Вибіріть своє місто" />
       <div>
         <ul>
