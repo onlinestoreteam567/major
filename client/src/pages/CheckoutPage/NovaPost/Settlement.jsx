@@ -1,6 +1,6 @@
 import debouce from 'lodash.debounce';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSettlements } from '@redux/novaPost/service';
+import { fetchSettlements, fetchWarehouses } from '@redux/novaPost/service';
 import { loadSettlements, selectSettlements } from '@redux/selectors';
 import { clearSettlements } from '@redux/novaPost/settlementsSlice';
 import { useEffect, useState } from 'react';
@@ -18,10 +18,11 @@ const Settlement = () => {
     setCity(e.target.value);
   };
 
-  const selectCity = (e) => {
+  const selectCity = (e, cityRef) => {
     setIsCitySelected(true);
     setCity(e.target.innerHTML);
     dispatch(clearSettlements());
+    dispatch(fetchWarehouses(cityRef));
   };
 
   useEffect(() => {
@@ -46,7 +47,7 @@ const Settlement = () => {
             <Spinner />
           ) : (
             settlements.map((settlement, i) => (
-              <li key={i} onClick={selectCity}>
+              <li key={i} onClick={(e) => selectCity(e, settlement.ref)}>
                 Місто {settlement.name} - {settlement.Oblast} обл., {settlement.Raion} р-н.
               </li>
             ))

@@ -60,3 +60,6 @@ export const selectCartSavedIds = (state) => state.cart.savedIds;
 
 export const loadSettlements = (state) => state.settlements.isLoading;
 export const selectSettlements = (state) => state.settlements.settlements;
+
+export const loadWarehouses = (state) => state.warehouses.isLoading;
+export const selectWarehouses = (state) => state.warehouses.warehouses;
