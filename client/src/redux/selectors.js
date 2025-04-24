@@ -57,3 +57,6 @@ export const responseReviewDelete = (state) => state.reviewDelete.response;
 export const loadCart = (state) => state.cart.isLoading;
 export const selectCart = (state) => state.cart.items;
 export const selectCartSavedIds = (state) => state.cart.savedIds;
+
+export const loadSettlements = (state) => state.settlements.isLoading;
+export const selectSettlements = (state) => state.settlements.settlements;

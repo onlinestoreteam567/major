@@ -16,6 +16,7 @@ import { bannerDeleteReducer } from '@redux/banner/bannerDeleteSlice';
 import { bannerCreateReducer } from '@redux/banner/bannerCreateSlice';
 import { bannerByIdReducer } from '@redux/banner/bannerByIdSlice';
 import { bannerEditReducer } from '@redux/banner/bannerEditSlice';
+import { settlementsReducer } from '@redux/novaPost/settlementsSlice';
 
 import { authReducer } from '../admin/redux/authSlice';
 import { createProductReducer } from '../admin/redux/createProductSlice';
@@ -61,6 +62,7 @@ const rootReducer = combineReducers({
   bannerCreate: bannerCreateReducer,
   bannerById: bannerByIdReducer,
   bannerEdit: bannerEditReducer,
+  settlements: settlementsReducer,
 
   auth: authReducer,
   createProduct: createProductReducer,
