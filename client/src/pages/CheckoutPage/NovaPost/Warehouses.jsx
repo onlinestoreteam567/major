@@ -10,6 +10,7 @@ const Warehouses = () => {
   const isDisabled = useSelector(isDisabledWarehouses);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredWarehouses, setFilteredWarehouses] = useState([]);
+  const [isCanDisplayNothingFound, setIsCanDisplayNothingFound] = useState(false);
 
   useEffect(() => {
     setFilteredWarehouses([...allWarehouses]);
@@ -21,11 +22,13 @@ const Warehouses = () => {
     setSearchTerm(term);
     const filtered = allWarehouses.filter((warehouse) => warehouse.address.toLowerCase().includes(term.toLowerCase()));
     setFilteredWarehouses(filtered);
+    setIsCanDisplayNothingFound(true);
   };
 
   const handleListItemClick = (address) => {
     setFilteredWarehouses([]);
     setSearchTerm(address);
+    setIsCanDisplayNothingFound(false);
   };
 
   return (
@@ -40,13 +43,14 @@ const Warehouses = () => {
       <ul>
         {isLoading ? (
           <Spinner />
-        ) : (
-          filteredWarehouses.length > 0 &&
+        ) : filteredWarehouses.length > 0 ? (
           filteredWarehouses.map((warehouse, i) => (
             <li onClick={() => handleListItemClick(warehouse.address)} key={i}>
               {warehouse.address}
             </li>
           ))
+        ) : (
+          isCanDisplayNothingFound && <p>Нічого не знайдено</p>
         )}
       </ul>
     </label>
