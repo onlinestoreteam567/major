@@ -1,0 +1,89 @@
+@import '@mixins';
+
+.cardContainer {
+  @include flexGap(40px, column);
+  width: 300px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+
+  @include mobile {
+    width: 360px;
+  }
+
+  @include tablet {
+    @include flexGap(60px, column);
+    width: 640px;
+  }
+
+  @include deskmin {
+    @include flexGap(64px, column);
+    width: 980px;
+  }
+
+  @include deskmax {
+    @include flexGap(72px, column);
+    width: 1296px;
+  }
+
+  .wrapItem {
+    @include flexGap(24px, column);
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+
+    @include mobile {
+      width: 360px;
+    }
+
+    @include tablet {
+      @include flexGap(24px, row);
+      width: 640px;
+    }
+
+    @include deskmin {
+      width: 980px;
+    }
+
+    @include deskmax {
+      @include flexGap(134px, row);
+      width: 1296px;
+    }
+
+    .wrapOrder {
+      @include flex(row, space-between, center);
+    }
+
+    .rightCase {
+      @include tablet {
+        @include flexGap(0, column);
+        justify-content: space-between;
+        width: 456px;
+        height: 288px;
+        button {
+          width: 200px;
+          height: 46px;
+        }
+      }
+
+      @include deskmin {
+        width: 536px;
+        height: 296px;
+        button {
+          width: 220px;
+          height: 48px;
+        }
+      }
+
+      @include deskmax {
+        width: 638px;
+        height: 416px;
+        button {
+          width: 248px;
+          height: 56px;
+        }
+      }
+    }
+  }
+}

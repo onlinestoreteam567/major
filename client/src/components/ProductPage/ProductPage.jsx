@@ -1,6 +1,4 @@
 import cl from './index.module.scss';
-import CardMobile from './CardMobile';
-import CardDesk from './CardDesk';
 import TopLink from '@components/UI/TopLink/TopLink';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,6 +12,7 @@ import { getProductById } from '@redux/products/service';
 import { loadProductId, selectProductId } from '@redux/selectors';
 import useIdFromUrl from '@hooks/useId';
 import { useTranslation } from 'react-i18next';
+import Card from './Card/Card';
 
 export default function ProductPage() {
   const dispatch = useDispatch();
@@ -32,19 +31,15 @@ export default function ProductPage() {
 
   const isObject = typeof card === 'object' && Object.keys(card).length > 0;
   return (
-    <section className={cl.cardPage}>
+    <div className={cl.cardPage}>
       <div className={cl.topCase}>
         <TopLink card={card} />
         {isLoading ? (
           <Spinner />
         ) : (
           <>
-            <div className={cl.wrapMobile}>
-              {isObject ? <CardMobile card={card} /> : <EmptyPage message="Нічого не знайдено" />}
-            </div>
-            <div className={cl.wrapDesk}>
-              {isObject ? <CardDesk card={card} /> : <EmptyPage message="Нічого не знайдено" />}
-            </div>
+            {isObject ? <Card card={card} /> : <EmptyPage message="Нічого не знайдено" />}
+
             {isObject && <FitCategory categoryId={categoryId} />}
           </>
         )}
@@ -52,6 +47,6 @@ export default function ProductPage() {
 
       <BestSellers />
       <ProductSet />
-    </section>
+    </div>
   );
 }
