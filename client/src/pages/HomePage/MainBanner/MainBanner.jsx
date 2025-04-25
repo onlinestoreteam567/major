@@ -4,11 +4,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import settings from './settings.js';
 import Slide from './Slide/Slide.jsx';
-import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
 import { loadBanner, selectBanner } from '@redux/selectors.js';
 import Spinner from '@components/helpers/Spinner/Spinner.jsx';
-import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel.jsx';
 
 const MainBanner = () => {
   const sliderRef = useRef(null);
@@ -39,14 +37,12 @@ const MainBanner = () => {
   return isLoading ? (
     <Spinner />
   ) : (
-    <div className={`slider-container ${cl.mainBanner}`}>
-      <ButtonAriaLabel al="previous" onClick={previous} />
+    <div className="slider-container">
       <Slider ref={sliderRef} {...settings}>
         {slideData.map((slide, index) => (
-          <Slide key={index} slide={slide} />
+          <Slide key={index} slide={slide} next={next} previous={previous} />
         ))}
       </Slider>
-      <ButtonAriaLabel al="next" onClick={next} />
     </div>
   );
 };
