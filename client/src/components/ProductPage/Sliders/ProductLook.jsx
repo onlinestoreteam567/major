@@ -5,7 +5,7 @@ import cards from './cards_one.json';
 
 export default function ProductLook() {
   return (
-    <div className={cl.wrapProductOffer}>
+    <div className={cl.slider}>
       <Heading type="h2">Ви переглядали</Heading>
       <SliderBoxMain slidesData={cards} />
     </div>

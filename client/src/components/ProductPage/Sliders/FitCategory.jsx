@@ -4,9 +4,9 @@ import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import EmptyPage from '@components/helpers/EmptyPage';
 import { useEffect } from 'react';
-import { getFitCategory } from '../../redux/products/service';
+import { getFitCategory } from '../../../redux/products/service';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadFitCategory, selectFitCategory } from '../../redux/selectors';
+import { loadFitCategory, selectFitCategory } from '../../../redux/selectors';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export default function FitCategory({ categoryId }) {
@@ -33,7 +33,7 @@ export default function FitCategory({ categoryId }) {
       {isLoading ? (
         <Spinner />
       ) : (
-        <div className={cl.wrapProductOffer}>
+        <div className={cl.slider}>
           <Heading type="h2">{getTranslation('youMayBeInterestedIn')}</Heading>
           {showArr ? (
             <SliderBoxMain total={total} slidesData={slidesData} />

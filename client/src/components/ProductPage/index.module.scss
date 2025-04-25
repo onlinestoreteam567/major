@@ -1,6 +1,5 @@
 @import '@mixins';
 
-// *** ProductCardPage ***
 .cardPage {
   @include flex(column, flex-start, center);
   box-sizing: border-box;
@@ -45,23 +44,5 @@
   }
   @include deskmax {
     gap: 72px;
-  }
-}
-// *** CardMobile  CardDesk ***
-
-.wrapProductOffer {
-  @include flex(column, flex-start, center);
-  box-sizing: border-box;
-  gap: 40px;
-  width: 100%;
-  height: auto;
-  @include tablet {
-    width: 640px;
-  }
-  @include deskmin {
-    width: 980px;
-  }
-  @include deskmax {
-    width: 1296px;
   }
 }
