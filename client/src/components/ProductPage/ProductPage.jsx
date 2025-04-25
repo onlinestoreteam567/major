@@ -18,14 +18,13 @@ export default function ProductPage() {
   const dispatch = useDispatch();
   const id = useIdFromUrl();
   const { i18n } = useTranslation();
+  const isLoading = useSelector(loadProductId);
+  const card = useSelector(selectProductId);
 
   useEffect(() => {
     dispatch(getProductById(id));
     dispatch(clearFitCategory());
   }, [dispatch, id, i18n.language]);
-
-  const isLoading = useSelector(loadProductId);
-  const card = useSelector(selectProductId);
 
   const categoryId = card.purpose_category || null;
 
@@ -34,12 +33,12 @@ export default function ProductPage() {
     <div className={cl.cardPage}>
       <div className={cl.topCase}>
         <TopLink card={card} />
+
         {isLoading ? (
           <Spinner />
         ) : (
           <>
             {isObject ? <Card card={card} /> : <EmptyPage message="Нічого не знайдено" />}
-
             {isObject && <FitCategory categoryId={categoryId} />}
           </>
         )}
