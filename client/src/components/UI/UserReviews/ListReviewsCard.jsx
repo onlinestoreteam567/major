@@ -39,7 +39,7 @@ export default function ListReviewsCard({ card }) {
           {showArr && (
             <div className={cl.wrapTitle}>
               <Heading type="h3">
-                {getTranslation('productReviews')} {card.name}
+                {getTranslation('productReviews')} {card.name} <span>{total >= 1 && `(${total})`}</span>
               </Heading>
               <LeaveReview card={card} />
             </div>
