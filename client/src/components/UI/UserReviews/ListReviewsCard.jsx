@@ -48,7 +48,6 @@ export default function ListReviewsCard({ card }) {
           {isSingleReview ? (
             <>
               <ReviewsCard review={slidesData[0]} />
-              <LeaveReview />
             </>
           ) : (
             <>
