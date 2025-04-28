@@ -7,8 +7,8 @@ import ProductSet from './Sliders/ProductSet';
 import FitCategory from './Sliders/FitCategory';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { clearFitCategory } from '@redux/products/fitCategorySlice';
-import { getProductById, getProductsByViewedProductsIds } from '@redux/products/service';
-import { loadProductId, selectProductId, selectViewedProducts } from '@redux/selectors';
+import { getProductById } from '@redux/products/service';
+import { loadProductId, selectProductId } from '@redux/selectors';
 import useIdFromUrl from '@hooks/useId';
 import { useTranslation } from 'react-i18next';
 import Card from './Card/Card';
@@ -21,16 +21,14 @@ export default function ProductPage() {
   const { i18n } = useTranslation();
   const isLoading = useSelector(loadProductId);
   const card = useSelector(selectProductId);
-  const viewedProducts = useSelector(selectViewedProducts);
 
   const isObject = typeof card === 'object' && Object.keys(card).length > 0;
 
   useEffect(() => {
     dispatch(getProductById(id));
     dispatch(clearFitCategory());
-    dispatch(getProductsByViewedProductsIds(viewedProducts.map((item) => item)));
     dispatch(addViewedProduct(id));
-  }, [dispatch, id, i18n.language, isObject, viewedProducts]);
+  }, [dispatch, id, i18n.language]);
 
   const categoryId = card.purpose_category || null;
   return (

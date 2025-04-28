@@ -1,0 +1,6 @@
+@import '@mixins';
+
+.productList {
+  @include flexGap(24px);
+  width: 100%;
+}
