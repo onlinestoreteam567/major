@@ -10,7 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { oneElement } from '@components/constants/settingSlider';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ReviewsNotFound from './ReviewsNotFound/ReviewsNotFound';
-import LeaveReview from '../ProductDetails/Review/LeaveReview';
+import LeaveReview from '../ProductDetails/LeaveReview/LeaveReview';
 
 export default function ListReviewsCard({ card }) {
   const [index, setIndex] = useState(1);
