@@ -1,6 +1,6 @@
-import LabelHit from '../../../../../../components/UI/CardProduct/Labels/LabelHit';
-import LabelNew from '../../../../../../components/UI/CardProduct/Labels/LabelNew';
-import LabelSale from '../../../../../../components/UI/CardProduct/Labels/LabelSale';
+import LabelHit from '../../../../../ProductPage/Card/ProductDetails/Labels/LabelHit';
+import LabelNew from '../../../../../ProductPage/Card/ProductDetails/Labels/LabelNew';
+import LabelSale from '../../../../../ProductPage/Card/ProductDetails/Labels/LabelSale';
 import cl from './index.module.scss';
 
 export default function Image({ card }) {

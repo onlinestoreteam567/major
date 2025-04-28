@@ -1,4 +1,4 @@
-import Description from '@components/UI/CardProduct/Descript/Description';
+import Description from '@pages/ProductPage/Card/ProductDetails/Descript/Description';
 import ListReviewsCard from '@pages/ProductPage/Card/Reviews/Reviews';
 import useScreenSizes from '@hooks/useScreenSizes';
 import { useState } from 'react';

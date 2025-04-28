@@ -1,11 +1,11 @@
 import cl from './index.module.scss';
-import ImgDesk from '@components/UI/CardProduct/ImgCard/ImgDesk';
-import TitleCard from '@components/UI/CardProduct/Title/TitleCard';
-import ProductRating from '@components/UI/CardProduct/Rating/ProductRating';
-import Article from '@components/UI/CardProduct/Article/Article';
-import Price from '@components/UI/CardProduct/Price/Price';
-import Counter from '@components/UI/CardProduct/Counter/Counter';
-import Volume from '@components/UI/CardProduct/Volume/Volume';
+import ImgDesk from '@pages/ProductPage/Card/ProductDetails/ImgCard/ImgDesk';
+import TitleCard from '@pages/ProductPage/Card/ProductDetails/Title/TitleCard';
+import ProductRating from '@pages/ProductPage/Card/ProductDetails/Rating/ProductRating';
+import Article from '@pages/ProductPage/Card/ProductDetails/Article/Article';
+import Price from '@pages/ProductPage/Card/ProductDetails/Price/Price';
+import Counter from '@pages/ProductPage/Card/ProductDetails/Counter/Counter';
+import Volume from '@pages/ProductPage/Card/ProductDetails/Volume/Volume';
 import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
 
 const DesktopView = ({ card, count, setCount }) => {
