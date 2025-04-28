@@ -4,15 +4,16 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import EmptyPage from '@components/helpers/EmptyPage';
 import ProductSet from './Sliders/ProductSet';
-import BestSellers from '@pages/HomePage/MainSliders/BestSellers';
 import FitCategory from './Sliders/FitCategory';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { clearFitCategory } from '@redux/products/fitCategorySlice';
-import { getProductById } from '@redux/products/service';
-import { loadProductId, selectProductId } from '@redux/selectors';
+import { getProductById, getProductsByViewedProductsIds } from '@redux/products/service';
+import { loadProductId, selectProductId, selectViewedProducts } from '@redux/selectors';
 import useIdFromUrl from '@hooks/useId';
 import { useTranslation } from 'react-i18next';
 import Card from './Card/Card';
+import { addViewedProduct } from '@redux/products/viewedProductsSlice';
+import ProductLook from './Sliders/ProductLook';
 
 export default function ProductPage() {
   const dispatch = useDispatch();
@@ -20,15 +21,18 @@ export default function ProductPage() {
   const { i18n } = useTranslation();
   const isLoading = useSelector(loadProductId);
   const card = useSelector(selectProductId);
+  const viewedProducts = useSelector(selectViewedProducts);
+
+  const isObject = typeof card === 'object' && Object.keys(card).length > 0;
 
   useEffect(() => {
     dispatch(getProductById(id));
     dispatch(clearFitCategory());
-  }, [dispatch, id, i18n.language]);
+    dispatch(getProductsByViewedProductsIds(viewedProducts.map((item) => item)));
+    dispatch(addViewedProduct(id));
+  }, [dispatch, id, i18n.language, isObject, viewedProducts]);
 
   const categoryId = card.purpose_category || null;
-
-  const isObject = typeof card === 'object' && Object.keys(card).length > 0;
   return (
     <div className={cl.cardPage}>
       <div className={cl.topCase}>
@@ -44,7 +48,7 @@ export default function ProductPage() {
         )}
       </div>
 
-      <BestSellers />
+      <ProductLook />
       <ProductSet />
     </div>
   );

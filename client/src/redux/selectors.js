@@ -57,3 +57,7 @@ export const responseReviewDelete = (state) => state.reviewDelete.response;
 export const loadCart = (state) => state.cart.isLoading;
 export const selectCart = (state) => state.cart.items;
 export const selectCartSavedIds = (state) => state.cart.savedIds;
+
+export const selectViewedProducts = (state) => state.viewedProducts.viewedProducts;
+export const selectFetchedViewedProducts = (state) => state.viewedProducts.fechedViewedProducts;
+export const loadViewedProducts = (state) => state.viewedProducts.isLoading;
