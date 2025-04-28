@@ -11,7 +11,6 @@ import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/Add
 const DesktopView = ({ card, count, setCount }) => {
   return (
     <>
-      {console.log(123)}
       <ImgDesk card={card} />
       <div className={cl.rightCase}>
         <Article card={card} />
