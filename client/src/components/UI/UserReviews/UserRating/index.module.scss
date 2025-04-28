@@ -1,0 +1,19 @@
+@import '@mixins';
+
+.wrapRating {
+  @include flex(row, flex-start, center);
+
+  ul {
+    @include flex(row, flex-start, center);
+    height: 24px;
+    gap: 4px;
+    padding: 0px;
+    list-style: none;
+
+    li {
+      @include flex(row, center, center);
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

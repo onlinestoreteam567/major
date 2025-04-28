@@ -1,5 +1,5 @@
 import cl from './index.module.scss';
-import ReviewsCard from './ReviewsCard';
+import ReviewsCard from './ReviewsCard/ReviewsCard';
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
 import Heading from '../Texts/Heading/Heading';
@@ -28,7 +28,6 @@ export default function ListReviewsCard({ card }) {
 
   const total = card.reviews.length || 0;
   const slidesData = card.reviews || [];
-
   const isSingleReview = slidesData.length === 1;
   const showArr = Array.isArray(slidesData) && slidesData.length !== 0;
 

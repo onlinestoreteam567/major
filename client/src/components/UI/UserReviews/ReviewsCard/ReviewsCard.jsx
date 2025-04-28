@@ -1,7 +1,7 @@
-import Heading from '../Texts/Heading/Heading';
+import Heading from '../../Texts/Heading/Heading';
 import cl from './index.module.scss';
-import UserMessage from './UserMessage';
-import UserRating from './UserRating';
+import UserRating from '../UserRating/UserRating';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 
 export default function ReviewsCard({ review }) {
   return (
@@ -13,7 +13,11 @@ export default function ReviewsCard({ review }) {
         </div>
         <p>{review.date}</p>
       </div>
-      <UserMessage review={review} />
+      <div className={cl.wrapMessage}>
+        <Paragraph type="body2" className={cl.title}>
+          {review.review_text}
+        </Paragraph>
+      </div>
     </div>
   );
 }

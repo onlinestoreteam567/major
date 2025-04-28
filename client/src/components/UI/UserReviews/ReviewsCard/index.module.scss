@@ -1,0 +1,102 @@
+@import '@mixins';
+
+.wrapReviewsCard {
+  @include flexGap(16px, column);
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  width: 300px;
+
+  .wrapUser {
+    @include flex(row, space-between, flex-start);
+    width: 100%;
+    padding: 0 6px;
+
+    .case {
+      @include flex(column, flex-start, flex-start);
+      gap: 16px;
+    }
+
+    p {
+      @include flex(row, flex-end, center);
+      color: rgb(162, 162, 162);
+      font-family: $font-main;
+      font-size: $font-size-small;
+      font-weight: $font-weight-base;
+      line-height: 1.44;
+    }
+  }
+
+  .wrapMessage {
+    @include flex(row, flex-start, center);
+
+    p {
+      @include flex(row, flex-start, flex-start);
+      padding-right: 8px;
+      overflow: hidden;
+      overflow-y: auto;
+      width: 100%;
+      height: 180px;
+      text-align: left;
+
+      &::-webkit-scrollbar {
+        width: 4px;
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #a2a2a2;
+        border-radius: $border-radius-base;
+        cursor: pointer;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+    }
+  }
+
+  @include mobile {
+    gap: 16px;
+    width: 356px;
+  }
+
+  @include tablet {
+    width: 640px;
+    padding: 16px 0;
+
+    .wrapUser {
+      @include tablet {
+        .case {
+          @include flex(row, flex-start, center);
+          gap: 28px;
+        }
+      }
+    }
+
+    .wrapMessage {
+      @include tablet {
+        p {
+          height: 116px;
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 980px;
+    height: 168px;
+
+    .wrapMessage {
+      @include deskmin {
+        p {
+          height: 80px;
+        }
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 1296px;
+  }
+}
