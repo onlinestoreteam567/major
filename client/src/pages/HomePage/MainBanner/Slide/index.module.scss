@@ -4,6 +4,30 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+  & > button {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    top: 0;
+    z-index: $z-index-local-1;
+
+    @include tablet {
+      height: 100%;
+    }
+
+    @include deskmin {
+      height: 100%;
+    }
+  }
+
+  & > button:first-of-type {
+    left: 0;
+  }
+
+  & > button:last-of-type {
+    right: 0;
+  }
+
   .flowersBackground {
     width: 1440px;
     height: 100%;
@@ -21,40 +45,40 @@
     margin: 0 auto;
     background-size: cover;
     background-repeat: no-repeat;
-  
+
     @include flex();
     @include layout();
     & {
       padding: 60px 15px 40px 15px;
-  
+
       @include tablet {
         padding: 75px 64px 0 64px;
         height: 704px;
-  
+
         &.right {
           gap: 100px;
         }
       }
-  
+
       @include deskmin {
         padding: 96px 24px 0 24px;
       }
-  
+
       @include deskmax {
         padding: 96px 72px 0 72px;
-  
+
         &.right {
           gap: 345px;
         }
       }
     }
-  
+
     img {
       position: absolute;
       top: 105px;
       height: 424px;
       aspect-ratio: 1 / 1.6;
-      
+
       @include mobile {
         aspect-ratio: 1 / 1.45;
       }
@@ -64,19 +88,19 @@
         height: 642px;
         top: 0px;
       }
-  
+
       @include deskmin {
         height: 562px;
         top: 24px;
       }
     }
-  
+
     section {
       height: 100%;
       width: 100%;
-  
+
       @include flex(column, space-between, null);
-  
+
       @include tablet {
         justify-content: center;
         align-items: start;
@@ -92,39 +116,39 @@
           border: 1px solid #3a3a3a;
         }
       }
-  
+
       .bottomWrapper {
         backdrop-filter: blur(7.199999809265137px);
         align-items: center;
         @include flexGap(16px, column);
-        z-index: $z-index-pop-up;
         position: relative;
-  
+        z-index: $z-index-local-2;
+
         @include tablet {
           @include flexGap(50px, column);
           align-items: start;
           backdrop-filter: none;
-  
+
           h1 {
             text-align: start;
           }
         }
-  
+
         button {
           font-size: $font-size-medium;
           font-weight: $font-weight-medium;
           width: 296px;
           height: 54px;
-  
+
           @include mobile {
             width: 331px;
           }
-  
+
           &:hover {
             background-color: $background-color-light;
             color: $text-color-black;
           }
-  
+
           @include tablet {
             height: 58px;
             width: 241px;
@@ -133,7 +157,7 @@
             letter-spacing: $letter-spacing-base;
             color: $text-color-light;
           }
-  
+
           @include deskmax {
             height: 77px;
             font-size: $font-size-medium-extra;
@@ -145,4 +169,3 @@
     }
   }
 }
-

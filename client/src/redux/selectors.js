@@ -61,3 +61,11 @@ export const selectCartSavedIds = (state) => state.cart.savedIds;
 export const selectViewedProducts = (state) => state.viewedProducts.viewedProducts;
 export const selectFetchedViewedProducts = (state) => state.viewedProducts.fechedViewedProducts;
 export const loadViewedProducts = (state) => state.viewedProducts.isLoading;
+
+export const loadSettlements = (state) => state.settlements.isLoading;
+export const selectSettlements = (state) => state.settlements.settlements;
+export const showNothingSettlements = (state) => state.settlements.isShowNothing;
+
+export const loadWarehouses = (state) => state.warehouses.isLoading;
+export const selectWarehouses = (state) => state.warehouses.warehouses;
+export const isDisabledWarehouses = (state) => state.warehouses.isDisabled;
