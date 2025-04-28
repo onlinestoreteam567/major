@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.wrapListReviewsCard {
+.reviewsWrapper {
   @include flex(column, flex-start, center);
   box-sizing: border-box;
   width: 300px;
@@ -71,34 +71,26 @@
   @include mobile {
     width: 356px;
 
-    .wrapListReviewsCard {
+    .wrapSlider {
       width: 356px;
+    }
 
-      .wrapSlider {
-        width: 356px;
-      }
-
-      .wrapReviewBtn {
-        width: 356px;
-      }
+    .wrapReviewBtn {
+      width: 356px;
     }
   }
 
   @include tablet {
     width: 640px;
+    .wrapTitle {
+      @include flex(row, space-between);
 
-    .wrapListReviewsCard {
-      width: 640px;
-      .wrapTitle {
-        @include flex(row, space-between);
-
-        h3 {
-          text-wrap: wrap;
-          max-width: 320px;
-          width: fit-content;
-          text-align: start;
-          margin-bottom: 0;
-        }
+      h3 {
+        text-wrap: wrap;
+        max-width: 320px;
+        width: fit-content;
+        text-align: start;
+        margin-bottom: 0;
       }
 
       .wrapSlider {
@@ -114,13 +106,9 @@
   @include deskmin {
     width: 980px;
 
-    .wrapListReviewsCard {
-      width: 980px;
-
-      .wrapTitle {
-        h3 {
-          max-width: 540px;
-        }
+    .wrapTitle {
+      h3 {
+        max-width: 540px;
       }
 
       .wrapSlider {
@@ -138,12 +126,8 @@
   @include deskmax {
     width: 1296px;
 
-    .wrapListReviewsCard {
+    .wrapSlider {
       width: 1296px;
-
-      .wrapSlider {
-        width: 1296px;
-      }
 
       .wrapReviewBtn {
         @include deskmax {

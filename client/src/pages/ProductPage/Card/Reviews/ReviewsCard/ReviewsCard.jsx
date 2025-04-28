@@ -1,4 +1,4 @@
-import Heading from '../../Texts/Heading/Heading';
+import Heading from '../../../../../components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import UserRating from '../UserRating/UserRating';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';

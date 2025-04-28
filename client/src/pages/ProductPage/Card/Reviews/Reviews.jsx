@@ -2,7 +2,7 @@ import cl from './index.module.scss';
 import ReviewsCard from './ReviewsCard/ReviewsCard';
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
-import Heading from '../Texts/Heading/Heading';
+import Heading from '../../../../components/UI/Texts/Heading/Heading';
 import { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -10,7 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { oneElement } from '@components/constants/settingSlider';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ReviewsNotFound from './ReviewsNotFound/ReviewsNotFound';
-import LeaveReview from '../CardProduct/Review/LeaveReview';
+import LeaveReview from '../../../../components/UI/CardProduct/Review/LeaveReview';
 
 export default function ListReviewsCard({ card }) {
   const [index, setIndex] = useState(1);
@@ -34,7 +34,7 @@ export default function ListReviewsCard({ card }) {
   return (
     <>
       {card ? (
-        <div className={cl.wrapListReviewsCard}>
+        <div className={cl.reviewsWrapper}>
           {showArr && (
             <div className={cl.wrapTitle}>
               <Heading type="h3">

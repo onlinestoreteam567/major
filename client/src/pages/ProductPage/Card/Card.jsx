@@ -1,5 +1,5 @@
 import Description from '@components/UI/CardProduct/Descript/Description';
-import ListReviewsCard from '@components/UI/UserReviews/ListReviewsCard';
+import ListReviewsCard from '@pages/ProductPage/Card/Reviews/Reviews';
 import useScreenSizes from '@hooks/useScreenSizes';
 import { useState } from 'react';
 import cl from './index.module.scss';
