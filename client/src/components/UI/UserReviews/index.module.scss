@@ -3,30 +3,40 @@
 .wrapListReviewsCard {
   @include flex(column, flex-start, center);
   box-sizing: border-box;
-  gap: 32px;
   width: 300px;
+
   .wrapTitle {
-    @include flex(column, center, center);
-    gap: 8px;
+    width: 100%;
+
+    h3 {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 25px;
+    }
   }
+
   @include mobile {
     width: 356px;
   }
+
   @include tablet {
     width: 640px;
   }
+
   @include deskmin {
     width: 980px;
   }
+
   @include deskmax {
     width: 1296px;
   }
 }
-// *** SliderBoxMain ***
 .wrapSlider {
   text-align: center;
   width: 300px;
   height: auto;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #c0c0c0;
 
   @include mobile {
     width: 356px;
@@ -48,8 +58,6 @@
   align-items: center;
   box-sizing: border-box;
   width: 300px;
-  border-top: 2px solid rgb(162, 162, 162);
-  padding: 24px 0;
 
   @include mobile {
     gap: 16px;
@@ -149,6 +157,7 @@
 .wrapReviewBtn {
   @include flex(row, space-between, center);
   width: 300px;
+  margin-top: 10px;
   @include mobile {
     width: 356px;
   }

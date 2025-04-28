@@ -10,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { oneElement } from '@components/constants/settingSlider';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ReviewsNotFound from './ReviewsNotFound/ReviewsNotFound';
+import LeaveReview from '../CardProduct/Review/LeaveReview';
 
 export default function ListReviewsCard({ card }) {
   const [index, setIndex] = useState(1);
@@ -37,25 +38,22 @@ export default function ListReviewsCard({ card }) {
         <div className={cl.wrapListReviewsCard}>
           {showArr && (
             <div className={cl.wrapTitle}>
-              <Heading type="h2">{getTranslation('productReviews')}</Heading>
-              <Heading type="h2">{card.name}</Heading>
+              <Heading type="h3">
+                {getTranslation('productReviews')} {card.name}
+              </Heading>
+              <LeaveReview card={card} />
             </div>
           )}
 
           {isSingleReview ? (
-            <ReviewsCard review={slidesData[0]} />
+            <>
+              <ReviewsCard review={slidesData[0]} />
+              <LeaveReview />
+            </>
           ) : (
             <>
               {showArr ? (
                 <>
-                  <div className={cl.wrapReviewBtn}>
-                    <button type="button" disabled={index === 1} onClick={previous}>
-                      <ArrowLeft />
-                    </button>
-                    <button type="button" disabled={index === total} onClick={next}>
-                      <ArrowRight />
-                    </button>
-                  </div>
                   <div className={`slider-container ${cl.wrapSlider}`}>
                     <Slider ref={sliderRef} {...oneElement}>
                       {slidesData.map((slide, index) => (
@@ -64,6 +62,14 @@ export default function ListReviewsCard({ card }) {
                         </div>
                       ))}
                     </Slider>
+                  </div>
+                  <div className={cl.wrapReviewBtn}>
+                    <button type="button" disabled={index === 1} onClick={previous}>
+                      <ArrowLeft />
+                    </button>
+                    <button type="button" disabled={index === total} onClick={next}>
+                      <ArrowRight />
+                    </button>
                   </div>
                 </>
               ) : (
