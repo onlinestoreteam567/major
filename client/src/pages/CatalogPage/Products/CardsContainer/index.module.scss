@@ -26,3 +26,55 @@
     margin: 0;
   }
 }
+
+.emptyWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+
+  h4 {
+    color: rgb(162, 162, 162);
+    font-family: $font-main;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 124%;
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include tablet {
+      margin-bottom: 32px;
+    }
+
+    @include deskmin {
+      margin-bottom: 40px;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    color: #22211f;
+    border: 1px solid #22211f;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 296px;
+    height: 54px;
+
+    @media (min-width: 380px) {
+      width: 356px;
+      height: 54px;
+    }
+
+    @include tablet {
+      width: 221px;
+      height: 48px;
+    }
+
+    @include deskmin {
+      width: 221px;
+      height: 48px;
+    }
+  }
+}
