@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import LeaveReview from '@components/UI/CardProduct/Review/LeaveReview';
+import LeaveReview from '@pages/ProductPage/Card/ProductDetails/LeaveReview/LeaveReview';
 
 const ReviewsNotFound = ({ card }) => {
   const { getTranslation } = useTranslationNamespace('common');

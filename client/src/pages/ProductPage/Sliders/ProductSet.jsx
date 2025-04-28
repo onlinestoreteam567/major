@@ -12,7 +12,7 @@ export default function ProductSet() {
   const { getTranslation } = useTranslationNamespace('common');
 
   return (
-    <div className={cl.wrapProductOffer}>
+    <div className={cl.slider}>
       <Heading type="h2">{getTranslation('cheaperTogether')}</Heading>
       {isLoading ? <Spinner /> : <SliderBoxMain slidesData={sets} />}
     </div>

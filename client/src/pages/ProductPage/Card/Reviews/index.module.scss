@@ -1,0 +1,140 @@
+@import '@mixins';
+
+.reviewsWrapper {
+  @include flex(column, flex-start, center);
+  box-sizing: border-box;
+  width: 300px;
+
+  .wrapTitle {
+    width: 100%;
+
+    h3 {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 25px;
+
+      span {
+        color: #a2a2a2;
+      }
+    }
+  }
+
+  .wrapSlider {
+    text-align: center;
+    width: 300px;
+    height: auto;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #c0c0c0;
+  }
+
+  .wrapReviewBtn {
+    @include flex(row, space-between, center);
+    width: 300px;
+    margin-top: 10px;
+
+    button {
+      @include flex(row, center, center);
+      border: none;
+      outline: none;
+      background-color: transparent;
+      padding: 0;
+      cursor: pointer;
+      &:hover {
+        svg {
+          @include flex(row, center, center);
+          rect {
+            fill: rgb(34, 33, 31);
+            transition: fill 0.5s ease;
+          }
+          path {
+            stroke: #ffffff;
+            transition: stroke 0.5s ease;
+          }
+        }
+      }
+      &:disabled {
+        svg {
+          @include flex(row, center, center);
+          rect {
+            fill: #f8f8f9;
+            transition: fill 0.5s ease;
+          }
+          path {
+            stroke: #22211f;
+            transition: stroke 0.5s ease;
+          }
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    width: 356px;
+
+    .wrapSlider {
+      width: 356px;
+    }
+
+    .wrapReviewBtn {
+      width: 356px;
+    }
+  }
+
+  @include tablet {
+    width: 640px;
+    .wrapTitle {
+      @include flex(row, space-between);
+
+      h3 {
+        text-wrap: wrap;
+        max-width: 320px;
+        width: fit-content;
+        text-align: start;
+        margin-bottom: 0;
+      }
+
+      .wrapSlider {
+        width: 640px;
+      }
+
+      .wrapReviewBtn {
+        width: 640px;
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 980px;
+
+    .wrapTitle {
+      h3 {
+        max-width: 540px;
+      }
+
+      .wrapSlider {
+        width: 980px;
+      }
+
+      .wrapReviewBtn {
+        @include flex(row, flex-end, center);
+        gap: 20px;
+        width: 980px;
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 1296px;
+
+    .wrapSlider {
+      width: 1296px;
+
+      .wrapReviewBtn {
+        @include deskmax {
+          gap: 24px;
+          width: 1296px;
+        }
+      }
+    }
+  }
+}

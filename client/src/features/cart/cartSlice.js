@@ -1,4 +1,4 @@
-import { getProductsByIds } from '@redux/products/service';
+import { getProductsByCartIds } from '@redux/products/service';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -105,9 +105,9 @@ const cartSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(getProductsByIds.pending, handlePending);
-    builder.addCase(getProductsByIds.fulfilled, handleFulfilled);
-    builder.addCase(getProductsByIds.rejected, handleRejected);
+    builder.addCase(getProductsByCartIds.pending, handlePending);
+    builder.addCase(getProductsByCartIds.fulfilled, handleFulfilled);
+    builder.addCase(getProductsByCartIds.rejected, handleRejected);
   },
 });
 

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import EmptyBasket from './EmptyBasket/EmptyBasket';
 import Header from './Header/Header';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
-import { getProductsByIds } from '@redux/products/service';
+import { getProductsByCartIds } from '@redux/products/service';
 import { loadCart, selectCart, selectCartSavedIds } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import FilledBusket from './FilledBasket/FilledBasket';
@@ -22,7 +22,7 @@ const Basket = ({ setIsShowBasket }) => {
 
   useEffect(() => {
     if (savedIds && savedIds.length > 0) {
-      dispatch(getProductsByIds(savedIds.map((item) => item.id)));
+      dispatch(getProductsByCartIds(savedIds.map((item) => item.id)));
     }
   }, [i18n.language]);
 

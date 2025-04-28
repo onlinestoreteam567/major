@@ -16,6 +16,7 @@ import { bannerDeleteReducer } from '@redux/banner/bannerDeleteSlice';
 import { bannerCreateReducer } from '@redux/banner/bannerCreateSlice';
 import { bannerByIdReducer } from '@redux/banner/bannerByIdSlice';
 import { bannerEditReducer } from '@redux/banner/bannerEditSlice';
+import { viewedProductsReducer } from '@redux/products/viewedProductsSlice';
 import { settlementsReducer } from '@redux/novaPost/settlementsSlice';
 import { warehousesReducer } from '@redux/novaPost/warehousesSlice';
 
@@ -44,6 +45,9 @@ const preloadedState = {
     accessToken: loadFromStorage('accessToken') || null,
     refreshToken: loadFromStorage('refreshToken') || null,
   },
+  viewedProducts: {
+    viewedProducts: loadFromStorage('viewedProducts') || [],
+  },
 };
 
 const rootReducer = combineReducers({
@@ -63,8 +67,9 @@ const rootReducer = combineReducers({
   bannerCreate: bannerCreateReducer,
   bannerById: bannerByIdReducer,
   bannerEdit: bannerEditReducer,
-  settlements: settlementsReducer,
-  warehouses: warehousesReducer,
+viewedProducts: viewedProductsReducer,
+settlements: settlementsReducer,
+warehouses: warehousesReducer,
 
   auth: authReducer,
   createProduct: createProductReducer,
@@ -94,8 +99,9 @@ export const store = configureStore({
 });
 
 store.subscribe(() => {
-  const { cart, auth } = store.getState();
+  const { cart, auth, viewedProducts } = store.getState();
   saveToStorage('cart', cart);
   saveToStorage('accessToken', auth.accessToken);
   saveToStorage('refreshToken', auth.refreshToken);
+  saveToStorage('viewedProducts', viewedProducts.viewedProducts);
 });

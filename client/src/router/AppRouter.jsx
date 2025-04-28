@@ -42,7 +42,7 @@ const About = lazy(() => import('@pages/AboutPage'));
 const Blog = lazy(() => import('@pages/BlogPage'));
 const Contact = lazy(() => import('@pages/ContactPage'));
 const Cooperation = lazy(() => import('@pages/СooperationPage'));
-const ProductPage = lazy(() => import('@components/ProductPage/ProductPage'));
+const ProductPage = lazy(() => import('@pages/ProductPage/ProductPage'));
 const CheckoutPage = lazy(() => import('@pages/CheckoutPage/CheckoutPage'));
 
 // Example for future features

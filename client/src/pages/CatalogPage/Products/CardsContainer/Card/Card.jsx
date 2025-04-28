@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import AddToCartButton from './AddToCartButton/AddToCardButton';
-import ProductRating from '../../../../../components/UI/CardProduct/Rating/ProductRating';
+import ProductRating from '../../../../ProductPage/Card/ProductDetails/Rating/ProductRating';
 import ImgCardCatalog from './Image/Image';
 import cl from './index.module.scss';
 import PriceCardCatalog from './Price/Price';
