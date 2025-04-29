@@ -1,6 +1,20 @@
 .textAreaAdmin {
   border: 1px solid gray;
   margin: 25px 0;
+
+  ul,
+  ol {
+    padding: 20px;
+    li {
+      list-style-type: inherit;
+    }
+  }
+
+  a {
+    text-decoration: inherit;
+    color: purple;
+  }
+
   .formatting {
     button {
       background-color: black;
