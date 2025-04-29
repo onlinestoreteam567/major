@@ -22,5 +22,10 @@
   "mask": "Mask",
 
   "showingFirst": "Showing:",
-  "showingSecond": " items out of"
-}
+  "showingSecond": " items out of",
+
+  "notFoundImageAlt": "Image: no results found for the selected filters",
+  "continueSearching": "Continue searching",
+  "notFoundParagraph": "Try changing your filter settings"
+
+ }

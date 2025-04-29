@@ -6,8 +6,11 @@ import { resetFilter } from '@redux/filter/filterSlice';
 import { fetchProductsAll } from '@redux/products/service';
 import Button from '@components/UI/Button/Button';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export default function CardsContainer() {
+  const { getTranslation } = useTranslationNamespace('catalogPage');
+
   const dispatch = useDispatch();
   const items = useSelector(selectProducts);
 
@@ -30,10 +33,10 @@ export default function CardsContainer() {
         </ul>
       ) : (
         <div className={cl.emptyWrap}>
-          <img src="/X.png" alt="X" />
-          <Paragraph type="body2">Спробуйте змінити налаштування фільтрів</Paragraph>
-          <Button onClick={handleClearFilters} variant="secondary">
-            Продовжити пошук
+          <img src="/images/X.webp" alt={getTranslation('notFoundImageAlt')} />
+          <Paragraph type="body2">{getTranslation('continueSearching')}</Paragraph>
+          <Button onClick={handleClearFilters} variant="secondary" ariaLabel={getTranslation('continueSearching')}>
+            {getTranslation('continueSearching')}
           </Button>
         </div>
       )}
