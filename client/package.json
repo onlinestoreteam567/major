@@ -15,7 +15,6 @@
     "@tiptap/extension-underline": "^2.11.7",
     "@tiptap/pm": "^2.11.7",
     "@tiptap/react": "^2.11.7",
-    "@tiptap/starter-kit": "^2.11.7",
     "axios": "^1.7.5",
     "dotenv": "^16.4.5",
     "i18next": "^23.16.0",
