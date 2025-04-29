@@ -1,4 +1,3 @@
-import EmptyPage from '@components/helpers/EmptyPage';
 import CardCatalog from './Card/Card';
 import cl from './index.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
@@ -6,6 +5,7 @@ import { selectProducts } from '@redux/selectors';
 import { resetFilter } from '@redux/filter/filterSlice';
 import { fetchProductsAll } from '@redux/products/service';
 import Button from '@components/UI/Button/Button';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 
 export default function CardsContainer() {
   const dispatch = useDispatch();
@@ -30,8 +30,11 @@ export default function CardsContainer() {
         </ul>
       ) : (
         <div className={cl.emptyWrap}>
-          <EmptyPage message="Спробуйте змінити налаштування фільтрів" />
-          <Button onClick={handleClearFilters}>Продовжити пошук</Button>
+          <img src="/X.png" alt="X" />
+          <Paragraph type="body2">Спробуйте змінити налаштування фільтрів</Paragraph>
+          <Button onClick={handleClearFilters} variant="secondary">
+            Продовжити пошук
+          </Button>
         </div>
       )}
     </>
