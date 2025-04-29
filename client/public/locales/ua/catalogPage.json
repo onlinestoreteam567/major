@@ -22,5 +22,10 @@
   "mask": "Маска",
 
   "showingFirst": "Показано:",
-  "showingSecond": " товарів з"
+  "showingSecond": " товарів з",
+
+  "notFoundImageAlt": "Зображення: немає результатів за заданими фільтрами",
+  "continueSearching": "Продовжити пошук",
+  "notFoundParagraph": "Спробуйте змінити налаштування фільтрів"
+
 }
