@@ -1,3 +1,226 @@
+@import '@mixins';
+
 .adminLoginPage {
+  @include flex(column);
   color: black;
+  font-family: Mulish;
+  font-weight: $font-weight-base;
+  line-height: 136%;
+  height: 100vh;
+
+  header {
+    @include flex();
+    width: 100%;
+    height: 77px;
+    background-color: #323232;
+
+    svg {
+      width: 66px;
+      height: 31px;
+    }
+  }
+
+  form {
+    @include flex(column, space-between);
+    margin: auto 0;
+    gap: 40px;
+    box-sizing: border-box;
+    border: 1px solid #c0c0c0;
+    border-radius: 16px;
+    background-color: #f8f8f9;
+    height: 470px;
+    width: 286px;
+    padding: 32px 0;
+    position: relative;
+
+    h1 {
+      @include flex(row, null);
+      gap: 16px;
+      font-size: 24px;
+      width: 230px;
+      color: #323232;
+
+      img {
+        height: 32px;
+        width: 32px;
+      }
+    }
+
+    label {
+      @include flexGap(8px, column);
+      font-size: 18px;
+      color: #323232;
+
+      input {
+        box-sizing: border-box;
+        height: 46px;
+        width: 230px;
+        color: #a2a2a2;
+        border: 1px solid #a2a2a2;
+        border-radius: 6px;
+        padding: 12px 32px;
+        font-size: 16px;
+
+        &::placeholder {
+          color: #a2a2a2;
+        }
+
+        &:hover {
+          border-color: #676767;
+        }
+
+        &:focus {
+          color: #676767;
+          border-color: #676767;
+        }
+
+        &:focus-visible {
+          outline: none;
+        }
+
+        &.error {
+          border-color: #e31a1a;
+        }
+      }
+    }
+
+    p {
+      @include absolute(335px, 28px);
+      font-size: 14px;
+      color: #e31a1a;
+      width: 230px;
+    }
+
+    button {
+      color: #f8f8f9;
+      font-family: Mulish;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 136%;
+      width: 230px;
+      height: 56px;
+      background-color: #22211f;
+      border-radius: 8px;
+
+      &:hover {
+        background-color: #3b3c37;
+      }
+
+      &:active,
+      :focus {
+        background-color: #000000;
+      }
+
+      &:disabled {
+        background-color: #a2a2a2;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  @include mobile {
+    form {
+      height: 446px;
+      width: 316px;
+
+      p {
+        top: 320px;
+        left: 44px;
+      }
+    }
+  }
+
+  @include tablet {
+    header {
+      height: 120px;
+
+      svg {
+        height: 48px;
+        width: 104px;
+      }
+    }
+
+    form {
+      height: 512px;
+      width: 540px;
+      padding: 40px 0;
+      justify-content: initial;
+      gap: 0;
+
+      h1 {
+        justify-content: center;
+        width: initial;
+        font-size: 32px;
+        margin-bottom: 40px;
+
+        img {
+          height: 40px;
+          width: 40px;
+        }
+      }
+
+      label {
+        font-size: 20px;
+
+        input {
+          padding: 12px 48px;
+          font-size: 20px;
+          width: 382px;
+          margin-bottom: 26px;
+        }
+      }
+
+      p {
+        font-size: 16px;
+        top: 300px;
+        left: 80px;
+      }
+
+      button {
+        width: 382px;
+        height: 65px;
+        margin-top: 14px;
+      }
+    }
+  }
+
+  @include deskmin {
+    header {
+      height: 144px;
+
+      svg {
+        height: 71px;
+        width: 154px;
+      }
+    }
+
+    form {
+      height: 538px;
+      width: 696px;
+
+      h1 {
+        margin-bottom: 80px;
+      }
+
+      p {
+        top: 340px;
+        left: 160px;
+      }
+
+      button {
+        margin-top: 22px;
+      }
+    }
+  }
+
+  @include deskmax {
+    form {
+      height: 594px;
+      width: 900px;
+
+      p {
+        left: 260px;
+      }
+    }
+  }
 }
