@@ -1,11 +1,9 @@
 import { createPortal } from 'react-dom';
-import LabelHit from '../Labels/LabelHit';
-import LabelNew from '../Labels/LabelNew';
-import LabelSale from '../Labels/LabelSale';
 import cl from './index.module.scss';
 import { useState } from 'react';
 import SliderImgs from './SliderImgs';
 import WrapModal from '@components/UI/WrapModal/WrapModal';
+import CardLabels from './CardLabels';
 
 export default function ImgDesk({ card }) {
   const placeholderImage = '/images/placeholder.webp';
@@ -20,9 +18,7 @@ export default function ImgDesk({ card }) {
   return (
     <div className={cl.wrapImgDeskCard}>
       <div className={cl.wrapImgCase}>
-        {card.is_best_seller && <LabelHit />}
-        {card.is_new && <LabelNew />}
-        {card.is_discount && <LabelSale card={card} />}
+        <CardLabels card={card} />
         <img src={bigImage} alt={card.name || 'Placeholder'} className={cl.imgBig} />
       </div>
       <ul className={cl.wrapSmallImg}>
