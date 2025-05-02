@@ -3,16 +3,18 @@ import { useRef, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import LabelHit from '../Labels/LabelHit';
-import LabelNew from '../Labels/LabelNew';
-import LabelSale from '../Labels/LabelSale';
 import { createPortal } from 'react-dom';
 import SliderImgs from './SliderImgs';
 import WrapModal from '@components/UI/WrapModal/WrapModal';
+import CardLabels from './CardLabels';
 
 export default function ImgMobile({ card }) {
   const placeholderImage = '/images/placeholder.webp';
-  const images = card.images?.length ? card.images : [{ image: placeholderImage, id: 'placeholder' }];
+
+  const isOnlyPlaceholder =
+    !card.images?.length || (card.images.length === 1 && card.images[0].image === placeholderImage);
+
+  let images = isOnlyPlaceholder ? [] : card.images;
 
   const [isShow, setIsShow] = useState(false);
   const openModal = () => setIsShow(true);
@@ -29,7 +31,6 @@ export default function ImgMobile({ card }) {
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
-    lazyLoad: true,
     variableWidth: true,
     draggable: false,
     swipe: true,
@@ -42,19 +43,35 @@ export default function ImgMobile({ card }) {
 
   return (
     <div className={`slider-container ${cl.wrapSliderMob}`}>
-      <Slider ref={sliderRef} {...oneElement}>
-        {images.map((slide) => (
-          <div key={slide.id} className={cl.wrapImgMobCard}>
-            {card.is_best_seller && <LabelHit />}
-            {card.is_new && <LabelNew />}
-            {card.is_discount && <LabelSale card={card} />}
-            <img src={slide.image} alt={card.name || 'Placeholder'} />
-          </div>
-        ))}
-      </Slider>
-      <button type="button" onClick={openModal} className={cl.btnMore}>
-        <img src="/svg/more.svg" />
-      </button>
+      {images.length > 1 && (
+        <>
+          <Slider ref={sliderRef} {...oneElement}>
+            {images.map((slide) => (
+              <div key={slide.id} className={cl.wrapImgMobCard}>
+                <CardLabels card={card} />
+                <img src={slide.image} alt={card.name || 'Image'} />
+              </div>
+            ))}
+          </Slider>
+          <button type="button" onClick={openModal} className={cl.btnMore}>
+            <img src="/svg/more.svg" />
+          </button>
+        </>
+      )}
+
+      {images.length === 1 && (
+        <div className={cl.wrapImgMobCard}>
+          <CardLabels card={card} />
+          <img src={images[0].image} alt={card.name || 'Image'} />
+        </div>
+      )}
+
+      {!images.length && (
+        <div className={cl.wrapImgMobCard}>
+          <img src={placeholderImage} alt="Placeholder" />
+        </div>
+      )}
+
       {isShow &&
         createPortal(
           <WrapModal isShow={isShow} closeModal={closeModal} content={<SliderImgs card={card} />} />,
