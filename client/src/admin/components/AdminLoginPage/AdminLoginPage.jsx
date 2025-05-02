@@ -3,7 +3,6 @@ import cl from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuthToken } from '../../redux/service';
 import { errorAuth, loadAuth, selectAccessToken } from '../../redux/selectors';
-import Spinner from '@components/helpers/Spinner/Spinner';
 import { useNavigate } from 'react-router-dom';
 import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
 import { clearTokens } from '../../redux/authSlice';
@@ -27,7 +26,7 @@ const AdminLoginPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (error) {
-      dispatch(clearTokens()); // Clear error when user changes input
+      dispatch(clearTokens());
     }
   };
 
@@ -38,50 +37,46 @@ const AdminLoginPage = () => {
 
   return (
     <>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <div className={cl.adminLoginPage}>
-          <header>
-            <LogoIcon fillColor="#FFFFFF" />
-          </header>
+      <div className={cl.adminLoginPage}>
+        <header>
+          <LogoIcon fillColor="#FFFFFF" />
+        </header>
 
-          <form onSubmit={handleSubmit}>
-            <h1>
-              <img src="/svg/admin/login.svg" />
-              Введіть дані для входу
-            </h1>
-            <label>
-              Email
-              <input
-                className={error ? cl.error : ''}
-                placeholder="email"
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
-            <label>
-              Password
-              <input
-                className={error ? cl.error : ''}
-                placeholder="password"
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
-            {error && <p>Введені дані неправильні</p>}
-            <button type="submit" disabled={!!error}>
-              Увійти
-            </button>
-          </form>
-        </div>
-      )}
+        <form onSubmit={handleSubmit}>
+          <h1>
+            <img src="/svg/admin/login.svg" />
+            Введіть дані для входу
+          </h1>
+          <label>
+            Email
+            <input
+              className={error ? cl.error : ''}
+              placeholder="email"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+          <label>
+            Password
+            <input
+              className={error ? cl.error : ''}
+              placeholder="password"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+          {error && <p>Введені дані неправильні</p>}
+          <button type="submit" disabled={!!error || isLoading}>
+            Увійти
+          </button>
+        </form>
+      </div>
     </>
   );
 };
