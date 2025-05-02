@@ -25,7 +25,7 @@ const Header = () => {
   const handleShowBasket = () => setIsShowBasket(true);
 
   return (
-    <header className={`${isScrolled ? cl.headerScrolled : ''}`}>
+    <header className={`${cl.header} ${isScrolled ? cl.headerScrolled : ''}`}>
       <div className={cl.mainWrapper}>
         {!deskmin && !deskmax && (
           <div className={cl.burgerWrapper}>

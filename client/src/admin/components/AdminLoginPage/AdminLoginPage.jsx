@@ -1,4 +1,3 @@
-import Heading from '@components/UI/Texts/Heading/Heading';
 import { useState, useEffect } from 'react';
 import cl from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,6 +5,8 @@ import { fetchAuthToken } from '../../redux/service';
 import { loadAuth, selectAccessToken } from '../../redux/selectors';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { useNavigate } from 'react-router-dom';
+import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
+import BtnSubmit from '@components/UI/Button/BtnSubmit';
 
 const AdminLoginPage = () => {
   const [email, setEmail] = useState('admin@gmail.com');
@@ -32,17 +33,24 @@ const AdminLoginPage = () => {
         <Spinner />
       ) : (
         <div className={cl.adminLoginPage}>
-          <Heading type="h1">Admin Login</Heading>
+          <header>
+            <LogoIcon fillColor="#FFFFFF" />
+          </header>
+
           <form onSubmit={handleSubmit}>
-            <div>
-              <label>Email:</label>
+            <h1>
+              <img src="/svg/admin/login.svg" />
+              Введіть дані для входу
+            </h1>
+            <label>
+              Email
               <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </div>
-            <div>
-              <label>Password:</label>
+            </label>
+            <label>
+              Password
               <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            </div>
-            <button type="submit">Login</button>
+            </label>
+            <BtnSubmit>Увійти</BtnSubmit>
           </form>
         </div>
       )}
