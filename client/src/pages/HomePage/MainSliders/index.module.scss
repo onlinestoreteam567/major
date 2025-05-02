@@ -7,6 +7,10 @@
   width: 296px;
   min-height: 685px;
   height: 685px;
+  h3 {
+    text-align: start;
+    width: 100%;
+  }
 
   @include mobile {
     width: 356px;

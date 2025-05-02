@@ -1,13 +1,13 @@
-import cl from './index.module.scss';
-import Heading from '@components/UI/Texts/Heading/Heading';
 import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Heading from '@components/UI/Texts/Heading/Heading';
 import EmptyPage from '@components/helpers/EmptyPage';
-import { useEffect } from 'react';
-import { getFitCategory } from '../../redux/products/service';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadFitCategory, selectFitCategory } from '../../redux/selectors';
+import Spinner from '@components/helpers/Spinner/Spinner';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFitCategory } from '../../redux/products/service';
+import { loadFitCategory, selectFitCategory } from '../../redux/selectors';
+import cl from './index.module.scss';
 
 export default function FitCategory({ categoryId }) {
   const id = categoryId[0];
@@ -34,7 +34,7 @@ export default function FitCategory({ categoryId }) {
         <Spinner />
       ) : (
         <div className={cl.wrapProductOffer}>
-          <Heading type="h2">{getTranslation('youMayBeInterestedIn')}</Heading>
+          <Heading type="h3">{getTranslation('youMayBeInterestedIn')}</Heading>
           {showArr ? (
             <SliderBoxMain total={total} slidesData={slidesData} />
           ) : (

@@ -150,6 +150,10 @@
   gap: 40px;
   width: 100%;
   height: auto;
+  h3 {
+    text-align: start;
+    width: 100%;
+  }
   @include tablet {
     width: 640px;
   }
@@ -160,3 +164,4 @@
     width: 1296px;
   }
 }
+

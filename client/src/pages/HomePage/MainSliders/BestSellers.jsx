@@ -20,7 +20,7 @@ const BestSellers = () => {
         <Spinner />
       ) : (
         <>
-          <Heading type="h2">{getTranslation('bestSellers')}</Heading>
+          <Heading type="h3">{getTranslation('bestSellers')}</Heading>
           {showArr ? (
             <SliderBoxMain total={total} slidesData={items} />
           ) : (

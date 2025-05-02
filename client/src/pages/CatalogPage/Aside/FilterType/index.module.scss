@@ -20,6 +20,9 @@
           font-family: $font-second;
           font-size: $font-size-base;
           font-weight: $font-weight-base;
+          span {
+            color: #676767;
+          }
         }
       }
     }
