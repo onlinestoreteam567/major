@@ -1,8 +1,8 @@
 @import '@mixins';
 
 .adminLoginPage {
-  color: black;
   @include flex(column);
+  color: black;
   font-family: Mulish;
   font-weight: $font-weight-base;
   line-height: 136%;
@@ -147,6 +147,13 @@
       button {
         margin-top: 22px;
       }
+    }
+  }
+
+  @include deskmax {
+    form {
+      height: 594px;
+      width: 900px;
     }
   }
 }
