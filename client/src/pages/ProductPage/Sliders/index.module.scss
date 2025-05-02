@@ -3,7 +3,6 @@
 .slider {
   @include flex(column, flex-start, center);
   box-sizing: border-box;
-  gap: 40px;
   width: 100%;
   height: auto;
 

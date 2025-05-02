@@ -56,7 +56,9 @@ export default function FilterByType() {
                     checked={Array.isArray(selectedTypes) && selectedTypes.includes(String(item.id))}
                     onChange={() => handleCheckboxChange(String(item.id))}
                   />
-                  <p>{item.name}</p>
+                  <p>
+                    {item.name} <span>({item.product_count})</span>
+                  </p>
                 </label>
               </li>
             ))
