@@ -93,12 +93,12 @@
       height: 512px;
       width: 540px;
       padding: 40px 0;
-      justify-content: inherit;
+      justify-content: initial;
       gap: 0;
 
       h1 {
         justify-content: center;
-        width: inherit;
+        width: initial;
         font-size: 32px;
         margin-bottom: 40px;
 
@@ -122,6 +122,30 @@
       button {
         width: 382px;
         margin-top: 14px;
+      }
+    }
+  }
+
+  @include deskmin {
+    header {
+      height: 144px;
+
+      svg {
+        height: 71px;
+        width: 154px;
+      }
+    }
+
+    form {
+      height: 538px;
+      width: 696px;
+
+      h1 {
+        margin-bottom: 80px;
+      }
+
+      button {
+        margin-top: 22px;
       }
     }
   }
