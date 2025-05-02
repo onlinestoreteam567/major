@@ -6,6 +6,9 @@
   width: 100%;
   height: auto;
 
+  & > h3 {
+    width: 100%;
+  }
   @include tablet {
     width: 640px;
   }
