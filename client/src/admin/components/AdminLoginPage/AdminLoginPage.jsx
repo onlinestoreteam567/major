@@ -6,7 +6,6 @@ import { loadAuth, selectAccessToken } from '../../redux/selectors';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { useNavigate } from 'react-router-dom';
 import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
-import BtnSubmit from '@components/UI/Button/BtnSubmit';
 
 const AdminLoginPage = () => {
   const [email, setEmail] = useState('admin@gmail.com');
