@@ -59,6 +59,23 @@
         border-radius: 6px;
         padding: 12px 32px;
         font-size: 16px;
+
+        &:hover {
+          border-color: #676767;
+        }
+
+        &:focus {
+          color: #676767;
+          border-color: #676767;
+        }
+
+        &:focus-visible {
+          outline: none;
+        }
+
+        &.error {
+          border-color: #e31a1a;
+        }
       }
     }
 
