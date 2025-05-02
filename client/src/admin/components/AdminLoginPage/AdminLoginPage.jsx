@@ -8,7 +8,7 @@ import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
 import { clearTokens } from '../../redux/authSlice';
 
 const AdminLoginPage = () => {
-  const [formData, setFormData] = useState({ email: 'admin@gmail.com', password: 'admin' });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const dispatch = useDispatch();
   const isLoading = useSelector(loadAuth);
   const authToken = useSelector(selectAccessToken);
