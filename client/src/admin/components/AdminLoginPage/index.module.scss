@@ -6,6 +6,7 @@
   font-family: Mulish;
   font-weight: $font-weight-base;
   line-height: 136%;
+  height: 100vh;
 
   header {
     @include flex();
@@ -75,6 +76,53 @@
     form {
       height: 446px;
       width: 316px;
+    }
+  }
+
+  @include tablet {
+    header {
+      height: 120px;
+
+      svg {
+        height: 48px;
+        width: 104px;
+      }
+    }
+
+    form {
+      height: 512px;
+      width: 540px;
+      padding: 40px 0;
+      justify-content: inherit;
+      gap: 0;
+
+      h1 {
+        justify-content: center;
+        width: inherit;
+        font-size: 32px;
+        margin-bottom: 40px;
+
+        img {
+          height: 40px;
+          width: 40px;
+        }
+      }
+
+      label {
+        font-size: 20px;
+
+        input {
+          padding: 12px 48px;
+          font-size: 20px;
+          width: 382px;
+          margin-bottom: 26px;
+        }
+      }
+
+      button {
+        width: 382px;
+        margin-top: 14px;
+      }
     }
   }
 }
