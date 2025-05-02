@@ -31,6 +31,7 @@
     height: 470px;
     width: 286px;
     padding: 32px 0;
+    position: relative;
 
     h1 {
       @include flex(row, null);
@@ -83,6 +84,13 @@
       }
     }
 
+    p {
+      @include absolute(335px, 28px);
+      font-size: 14px;
+      color: #e31a1a;
+      width: 230px;
+    }
+
     button {
       color: #f8f8f9;
       font-family: Mulish;
@@ -103,8 +111,9 @@
         background-color: #000000;
       }
 
-      &.disabled {
+      &:disabled {
         background-color: #a2a2a2;
+        cursor: not-allowed;
       }
     }
   }
@@ -113,6 +122,11 @@
     form {
       height: 446px;
       width: 316px;
+
+      p {
+        top: 320px;
+        left: 44px;
+      }
     }
   }
 
@@ -156,6 +170,12 @@
         }
       }
 
+      p {
+        font-size: 16px;
+        top: 300px;
+        left: 80px;
+      }
+
       button {
         width: 382px;
         height: 65px;
@@ -182,6 +202,11 @@
         margin-bottom: 80px;
       }
 
+      p {
+        top: 340px;
+        left: 160px;
+      }
+
       button {
         margin-top: 22px;
       }
@@ -192,6 +217,10 @@
     form {
       height: 594px;
       width: 900px;
+
+      p {
+        left: 260px;
+      }
     }
   }
 }

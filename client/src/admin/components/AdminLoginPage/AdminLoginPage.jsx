@@ -2,17 +2,18 @@ import { useState, useEffect } from 'react';
 import cl from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuthToken } from '../../redux/service';
-import { loadAuth, selectAccessToken } from '../../redux/selectors';
+import { errorAuth, loadAuth, selectAccessToken } from '../../redux/selectors';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { useNavigate } from 'react-router-dom';
 import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
+import { clearTokens } from '../../redux/authSlice';
 
 const AdminLoginPage = () => {
-  const [email, setEmail] = useState('admin@gmail.com');
-  const [password, setPassword] = useState('admin');
+  const [formData, setFormData] = useState({ email: 'admin@gmail.com', password: 'admin' });
   const dispatch = useDispatch();
   const isLoading = useSelector(loadAuth);
   const authToken = useSelector(selectAccessToken);
+  const error = useSelector(errorAuth);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,9 +22,18 @@ const AdminLoginPage = () => {
     }
   }, [authToken, navigate]);
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (error) {
+      dispatch(clearTokens()); // Clear error when user changes input
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchAuthToken({ email, password }));
+    dispatch(fetchAuthToken(formData));
   };
 
   return (
@@ -44,24 +54,31 @@ const AdminLoginPage = () => {
             <label>
               Email
               <input
+                className={error ? cl.error : ''}
                 placeholder="email"
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
                 required
               />
             </label>
             <label>
               Password
               <input
+                className={error ? cl.error : ''}
                 placeholder="password"
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
                 required
               />
             </label>
-            <button type="submit">Увійти</button>
+            {error && <p>Введені дані неправильні</p>}
+            <button type="submit" disabled={!!error}>
+              Увійти
+            </button>
           </form>
         </div>
       )}

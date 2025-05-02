@@ -1,5 +1,6 @@
 export const loadAuth = (state) => state.auth.isLoading;
 export const selectAccessToken = (state) => state.auth.accessToken;
+export const errorAuth = (state) => state.auth.error;
 
 export const loadCreateProduct = (state) => state.createProduct.isLoading;
 export const responseCreateProduct = (state) => state.createProduct.response;

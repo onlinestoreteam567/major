@@ -103,7 +103,7 @@ apiClient.interceptors.response.use(
           console.log('No refresh token available, logging out');
           store.dispatch(clearTokens());
           isRefreshing = false;
-          window.location.href = '/admin/login';
+          // window.location.href = '/admin/login';
           return Promise.reject(error);
         }
 
