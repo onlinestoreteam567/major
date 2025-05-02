@@ -62,7 +62,19 @@
     }
 
     button {
+      color: #f8f8f9;
+      font-family: Mulish;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 136%;
       width: 230px;
+    }
+  }
+
+  @include mobile {
+    form {
+      height: 446px;
+      width: 316px;
     }
   }
 }
