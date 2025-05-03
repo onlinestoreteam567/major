@@ -13,7 +13,7 @@ export default function ProductSet() {
 
   return (
     <div className={cl.slider}>
-      <Heading type="h2">{getTranslation('cheaperTogether')}</Heading>
+      <Heading type="h3">{getTranslation('cheaperTogether')}</Heading>
       {isLoading ? <Spinner /> : <SliderBoxMain slidesData={sets} />}
     </div>
   );

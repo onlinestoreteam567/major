@@ -33,7 +33,7 @@ export default function FitCategory({ categoryId }) {
         <Spinner />
       ) : (
         <div className={cl.slider}>
-          <Heading type="h2">{getTranslation('youMayBeInterestedIn')}</Heading>
+          <Heading type="h3">{getTranslation('youMayBeInterestedIn')}</Heading>
           {showArr ? <ProductListOrSlider products={slidesData} /> : <EmptyPage message="Нічого не знайдено" />}
         </div>
       )}
