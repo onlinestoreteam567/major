@@ -20,9 +20,9 @@
 
   "addToCart": "Додати до кошику",
   "bestSellers": "Хіти продажів",
-  "youHaveViewed": "Ви переглядали",
+  "youHaveViewed": "Переглянуті товари:",
 
-  "cheaperTogether": "Разом дешевше",
+  "cheaperTogether": "Разом дешевше:",
   "reviewsAboutProducts": "Відгуки про наші засоби",
   "milliliters": "мл.",
   "available": "В наявності",
@@ -34,7 +34,7 @@
   "ingredients": "Склад",
   "productReviews": "Відгуки про товар",
 
-  "youMayBeInterestedIn": "Вас можуть зацікавити",
+  "youMayBeInterestedIn": "Вас можуть зацікавити:",
   "reviewsNotFound": "Відгуків не знайдено!",
 
   "discount": "Знижка"
