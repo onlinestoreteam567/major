@@ -34,7 +34,7 @@ export default function CardsContainer() {
       ) : (
         <div className={cl.emptyWrap}>
           <img src="/images/X.webp" alt={getTranslation('notFoundImageAlt')} />
-          <Paragraph type="body2">{getTranslation('continueSearching')}</Paragraph>
+          <Paragraph type="body2">{getTranslation('notFoundParagraph')}</Paragraph>
           <Button onClick={handleClearFilters} variant="secondary" ariaLabel={getTranslation('continueSearching')}>
             {getTranslation('continueSearching')}
           </Button>
