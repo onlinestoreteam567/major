@@ -20,6 +20,10 @@ export default function ImgMobile({ card }) {
   const openModal = () => setIsShow(true);
   const closeModal = () => setIsShow(false);
 
+  const handleImageError = (e) => {
+    e.currentTarget.src = placeholderImage;
+  };
+
   let sliderRef = useRef(null);
 
   const oneElement = {
@@ -49,12 +53,12 @@ export default function ImgMobile({ card }) {
             {images.map((slide) => (
               <div key={slide.id} className={cl.wrapImgMobCard}>
                 <CardLabels card={card} />
-                <img src={slide.image} alt={card.name || 'Image'} />
+                <img src={slide.image} alt={card.name || 'Image'} onError={handleImageError} />
               </div>
             ))}
           </Slider>
           <button type="button" onClick={openModal} className={cl.btnMore}>
-            <img src="/svg/more.svg" />
+            <img src="/svg/more.svg" alt="Open gallery" />
           </button>
         </>
       )}
@@ -62,7 +66,7 @@ export default function ImgMobile({ card }) {
       {images.length === 1 && (
         <div className={cl.wrapImgMobCard}>
           <CardLabels card={card} />
-          <img src={images[0].image} alt={card.name || 'Image'} />
+          <img src={images[0].image} alt={card.name || 'Image'} onError={handleImageError} />
         </div>
       )}
 
