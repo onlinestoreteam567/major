@@ -56,7 +56,7 @@ const Settlement = () => {
             <Spinner />
           ) : !isShowNothing ? (
             settlements.map((settlement, i) => (
-              <li key={i} onClick={(e) => selectCity(e, settlement.ref)}>
+              <li key={i} onMouseDown={(e) => selectCity(e, settlement.ref)}>
                 Місто {settlement.name} - {settlement.Oblast} обл., {settlement.Raion} р-н.
               </li>
             ))
