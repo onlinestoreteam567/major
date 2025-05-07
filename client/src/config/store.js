@@ -67,9 +67,9 @@ const rootReducer = combineReducers({
   bannerCreate: bannerCreateReducer,
   bannerById: bannerByIdReducer,
   bannerEdit: bannerEditReducer,
-viewedProducts: viewedProductsReducer,
-settlements: settlementsReducer,
-warehouses: warehousesReducer,
+  viewedProducts: viewedProductsReducer,
+  settlements: settlementsReducer,
+  warehouses: warehousesReducer,
 
   auth: authReducer,
   createProduct: createProductReducer,

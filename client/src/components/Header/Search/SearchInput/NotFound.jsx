@@ -7,7 +7,7 @@ const NotFound = () => {
 
   return (
     <section className={cl.searchNotFound}>
-      <p>{getTranslation('notFound1')}</p>
+      <p>{getTranslation('notFound')}</p>
       <Link to="catalog">{getTranslation('goToCatalog')}</Link>
     </section>
   );
