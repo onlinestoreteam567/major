@@ -2,7 +2,7 @@
   "showAll": "Show all search results",
   "ariaLabelShowAll": "Go to catalog page with search results",
   "searchResultsComplete": "This is all search results",
-  "notFound1": "No products found",
+  "notFound": "Nothing was found for your search criteria. Please try again.",
   "goToCatalog": "Go to catalog",
   "ariaLabelProduct": "Go to product page:"
 }
