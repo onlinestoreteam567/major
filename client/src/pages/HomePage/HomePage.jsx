@@ -1,4 +1,5 @@
 import cl from './index.module.scss';
+import BestSellers from './MainSliders/BestSellers';
 
 const HomePage = () => {
   return (
@@ -8,7 +9,7 @@ const HomePage = () => {
       </div> */}
       <div className={cl.page}>
         {/* <YellowButton /> */}
-        {/* <BestSellers /> */}
+        <BestSellers />
         {/* <Sets />
         <Catalog />
         <MajorInfo />
