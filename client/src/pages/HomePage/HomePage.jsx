@@ -12,7 +12,8 @@ import OurPartners from './OurPartners/OurPartners';
 const HomePage = () => {
   return (
     <div className={cl.homePage}>
-      <div className={cl.banner}>
+      <p>555</p>
+      {/* <div className={cl.banner}>
         <MainBanner />
       </div>
       <div className={cl.page}>
@@ -24,7 +25,7 @@ const HomePage = () => {
         <WhyChooseUs />
         <Comments />
         <OurPartners />
-      </div>
+      </div> */}
     </div>
   );
 };
