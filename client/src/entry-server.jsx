@@ -1,30 +1,23 @@
-import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom/server';
-import App from './App';
 import { StrictMode } from 'react';
-import { store } from './config/store';
-import { Provider } from 'react-redux';
-import { fetchBestSellers } from './redux/service'; // Import the action creator
+import { renderToString } from 'react-dom/server';
+import fs from 'fs/promises'; // Or your preferred file system module
+import path from 'path';
 
 export async function render(url) {
-  // Dispatch the fetchBestSellers action and wait for it to complete
-  await store.dispatch(fetchBestSellers());
-
   const rendered = renderToString(
     <StrictMode>
-      <Provider store={store}>
-        <StaticRouter location={url.startsWith('/') ? url : '/' + url}>
-          <App />
-        </StaticRouter>
-      </Provider>
+      <p>123</p>
     </StrictMode>
   );
+  console.log('Server-rendered HTML:', rendered);
 
-  // Get the final state of the store after the data has been fetched
-  const preloadedState = store.getState();
+  // Read your index.html file
+  const indexHTML = await fs.readFile(path.resolve('./index.html'), 'utf-8');
+
+  // Inject the server-rendered HTML into the root div
+  const htmlWithRoot = indexHTML.replace('<div id="root"></div>', `<div id="root">${rendered}</div>`);
 
   return {
-    html: rendered,
-    head: `<script>window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState)}</script>`,
+    html: htmlWithRoot,
   };
 }
