@@ -1,31 +1,21 @@
 import cl from './index.module.scss';
-import Catalog from './Catalog/Catalog';
-import Comments from './Comments/Comments';
-import MainBanner from './MainBanner/MainBanner';
-import MajorInfo from './MajorInfo/MajorInfo';
-import WhyChooseUs from './WhyChooseUs/WhyChooseUs';
-import YellowButton from './YellowButton/YellowButton';
-import BestSellers from './MainSliders/BestSellers';
-import Sets from './MainSliders/Sets';
-import OurPartners from './OurPartners/OurPartners';
 
 const HomePage = () => {
   return (
     <div className={cl.homePage}>
-      <p>555</p>
       {/* <div className={cl.banner}>
         <MainBanner />
-      </div>
+      </div> */}
       <div className={cl.page}>
-        <YellowButton />
-        <BestSellers />
-        <Sets />
+        {/* <YellowButton /> */}
+        {/* <BestSellers /> */}
+        {/* <Sets />
         <Catalog />
         <MajorInfo />
         <WhyChooseUs />
         <Comments />
-        <OurPartners />
-      </div> */}
+        <OurPartners /> */}
+      </div>
     </div>
   );
 };

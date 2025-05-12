@@ -9,7 +9,7 @@ export const fetchBestSellers = createAsyncThunk('bests/fetchBestSellers', async
   try {
     const endpoint = `${PRODUCT_LIST_ENDPOINT}/?is_best_seller=true`;
     const { data } = await apiClient.get(endpoint);
-    // console.log(data);
+    console.log('Best sellers fetched successfully:', data);
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

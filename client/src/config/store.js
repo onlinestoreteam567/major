@@ -1,6 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import cartReducer from '@features/cart/cartSlice';
-import { loadFromStorage, saveToStorage } from '@utils/localStorage';
 import { setsReducer } from '@redux/products/setsSlice';
 import { productsReducer } from '@redux/products/listSlice';
 import { productIdReducer } from '@redux/products/cardSlice';
@@ -39,16 +38,16 @@ import { promocodeEditReducer } from '../admin/redux/promocodeEditSlice';
 import { promocodeDeleteReducer } from '../admin/redux/promocodeDeleteSlice';
 import { reviewReducer } from '../redux/reviews/reviewsSlice';
 
-const preloadedState = {
-  cart: loadFromStorage('cart') || undefined,
-  auth: {
-    accessToken: loadFromStorage('accessToken') || null,
-    refreshToken: loadFromStorage('refreshToken') || null,
-  },
-  viewedProducts: {
-    viewedProducts: loadFromStorage('viewedProducts') || [],
-  },
-};
+// const preloadedState = {
+//   cart: loadFromStorage('cart') || undefined,
+//   auth: {
+//     accessToken: loadFromStorage('accessToken') || null,
+//     refreshToken: loadFromStorage('refreshToken') || null,
+//   },
+//   viewedProducts: {
+//     viewedProducts: loadFromStorage('viewedProducts') || [],
+//   },
+// };
 
 const rootReducer = combineReducers({
   cart: cartReducer,
@@ -95,13 +94,5 @@ export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => [...getDefaultMiddleware()],
   devTools: 'process.env.NODE_ENV' !== 'production',
-  preloadedState,
-});
-
-store.subscribe(() => {
-  const { cart, auth, viewedProducts } = store.getState();
-  saveToStorage('cart', cart);
-  saveToStorage('accessToken', auth.accessToken);
-  saveToStorage('refreshToken', auth.refreshToken);
-  saveToStorage('viewedProducts', viewedProducts.viewedProducts);
+  // preloadedState,
 });

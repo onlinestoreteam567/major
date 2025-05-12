@@ -27,32 +27,6 @@ apiClient.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Add Authorization header with Bearer token for requests to /admin path except for the refresh token endpoint
-apiClient.interceptors.request.use(
-  (config) => {
-    // Don't add Authorization header for the refresh token endpoint
-    if (config.url.includes('/auth/token/refresh/')) {
-      delete config.headers['Authorization'];
-    } else {
-      let accessToken = localStorage.getItem('accessToken');
-
-      // Only add Authorization header for /admin path
-      if (window.location.href.includes('/admin')) {
-        if (accessToken && accessToken.trim() !== '' && accessToken !== 'null') {
-          // Remove quotes from the token
-          accessToken = accessToken.replace(/^"(.*)"$/, '$1');
-          config.headers['Authorization'] = `Bearer ${accessToken}`;
-        } else {
-          console.log('Token is invalid or missing, no token sent for /admin');
-        }
-      }
-    }
-
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
-
 // Queue to store pending requests while token refresh is in progress
 let isRefreshing = false;
 let refreshSubscribers = [];
