@@ -5,6 +5,14 @@ import { useSelector } from 'react-redux';
 import EmptyPage from '@components/helpers/EmptyPage';
 import { loadBestSeller, selectBestSeller } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner/Spinner';
+import EmblaCarousel from './EmblaCarousel';
+import './base.css';
+import './sandbox.css';
+import './embla.css';
+
+const OPTIONS = { slidesToScroll: 'auto' };
+const SLIDE_COUNT = 10;
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 const BestSellers = () => {
   const isLoading = useSelector(loadBestSeller);
@@ -20,7 +28,7 @@ const BestSellers = () => {
         <>
           <Heading type="h2">Хіти без перекладу</Heading>
           {showArr ? (
-            <SliderBoxMain total={total} slidesData={items} />
+            <EmblaCarousel slides={SLIDES} options={OPTIONS} />
           ) : (
             <EmptyPage message="Не передбачувана помилка" />
           )}
