@@ -1,21 +1,18 @@
 @import '@mixins';
 
 .catalogSection {
-  @include flex(column, null, center);
+  @include flex(column, null, start);
   width: 296px;
   margin: 0 auto 25px;
-  align-items: start;
 
   @include mobile {
     width: 356px;
-    align-items: start;
   }
 
   @include tablet {
     width: 636px;
     margin: 0 auto 40px;
     flex-direction: column;
-    align-items: start;
   }
 
   @include deskmin {
