@@ -1,6 +1,5 @@
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import Heading from '@UI/Texts/Heading/Heading';
 import Button from '@components/UI/Button/Button';
 import Filters from '@assets/svg/CatalogPage/Filters';
 import Sorting from '@assets/svg/CatalogPage/Sorting';
@@ -22,7 +21,6 @@ const Top = ({ setIsShowAside }) => {
     <section className={cl.catalogSection}>
       <div>
         <TopLink />
-        <Heading type="h2">{getTranslation('catalog', 'common')}</Heading>
       </div>
       <br />
       {(tablet || deskmin || deskmax) && <FilterByCategory />}
