@@ -10,7 +10,6 @@ const PartnerInfo = ({ informationAboutPartner, setInformationAboutPartner }) =>
 
   return (
     <aside className={`${cl.partnerInfo} ${isHiddenAnimation ? cl.hiddenAnimation : ''}`} onMouseLeave={handleClose}>
-      {console.log(informationAboutPartner)}
       <Heading type="h2">{informationAboutPartner.name}</Heading>
       <section className={cl.workScheduleSection}>
         <Heading type="h3">{getTranslation('workingHours')}</Heading>
