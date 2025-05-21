@@ -10,6 +10,8 @@ export async function render(url) {
   // Dispatch the fetchBestSellers action and wait for it to complete
   await store.dispatch(fetchBestSellers());
 
+  console.log('rerender server');
+
   const rendered = renderToString(
     <StrictMode>
       <Provider store={store}>

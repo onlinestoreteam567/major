@@ -13,6 +13,7 @@ if (preloadedState) {
   store.replaceReducer(() => preloadedState); // A simple way to hydrate the store
   delete window.__PRELOADED_STATE__; // Clean up the global variable
 }
+console.log('rerender client');
 
 ReactDOM.hydrateRoot(
   document.getElementById('root'),
