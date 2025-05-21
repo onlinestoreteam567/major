@@ -13,16 +13,16 @@ const PartnerInfo = ({ informationAboutPartner, setInformationAboutPartner }) =>
       <Heading type="h2">{informationAboutPartner.name}</Heading>
       <section className={cl.workScheduleSection}>
         <Heading type="h3">{getTranslation('workingHours')}</Heading>
-        <Heading type="h4">{informationAboutPartner.workScheduleWeekdays}</Heading>
-        <Heading type="h4">{informationAboutPartner.workScheduleWeekends}</Heading>
+        <Heading type="h4">{informationAboutPartner.work_schedule_weekdays}</Heading>
+        <Heading type="h4">{informationAboutPartner.work_schedule_weekends}</Heading>
       </section>
       <section>
         <Heading type="h3">{getTranslation('address')}</Heading>
         <br />
-        <Heading type="h4">{informationAboutPartner.address}</Heading>
+        <Heading type="h4">{informationAboutPartner.addres}</Heading>
       </section>
       <a
-        href={informationAboutPartner.googleMapAddress}
+        href={informationAboutPartner.google_maps_link}
         rel="nofollow"
         target="_blank"
         aria-label={getTranslation('ariaLabelOpenGoogleMap')}
