@@ -4,7 +4,6 @@ import handleMove from './eventHandlers/handleMove';
 import handleEnd from './eventHandlers/handleEnd';
 import handleZoomIn from './eventHandlers/handleZoomIn';
 import handleZoomOut from './eventHandlers/handleZoomOut';
-import points from './points.json';
 import cl from './index.module.scss';
 import ZoomOut from '@assets/svg/ZoomOut';
 import ZoomIn from '@assets/svg/ZoomIn';
@@ -14,6 +13,9 @@ import handleWheel from './eventHandlers/handleWheel';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
 import useScreenSizes from '@hooks/useScreenSizes';
+import { loadPartners, selectPartners } from '@redux/selectors';
+import { useSelector } from 'react-redux';
+import Spinner from '@components/helpers/Spinner/Spinner';
 
 const Map = () => {
   const [scale, setScale] = useState(1);
@@ -27,6 +29,8 @@ const Map = () => {
   const { i18n } = useTranslation();
   const { getTranslation } = useTranslationNamespace('ourPartners');
   const { mobile, tablet, deskmin, deskmax } = useScreenSizes();
+  const points = useSelector(selectPartners);
+  const isLoading = useSelector(loadPartners);
 
   const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.webp' : '/images/ourPartners/mapUa.webp';
 
@@ -103,23 +107,26 @@ const Map = () => {
             handleStart(e, scale, setIsDragging, setDragStart, position);
           }}
         />
-
-        {points.map((point) => (
-          <button
-            key={point.id}
-            className={cl.mark}
-            style={{
-              top: `${point.y - topPostitionCorrection}%`,
-              left: `${point.x - leftPostitionCorrection}%`,
-            }}
-            title={point.label}
-            onClick={() => setInformationAboutPartner(point)}
-            type="button"
-            aria-label={getTranslation('ariaLabelPoint')}
-          >
-            <img src="/svg/ourPartners/point.svg" alt="" />
-          </button>
-        ))}
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          points.map((point) => (
+            <button
+              key={point.id}
+              className={cl.mark}
+              style={{
+                top: `${point.latitude - topPostitionCorrection}%`,
+                left: `${point.longitude - leftPostitionCorrection}%`,
+              }}
+              title={point.label}
+              onClick={() => setInformationAboutPartner(point)}
+              type="button"
+              aria-label={getTranslation('ariaLabelPoint')}
+            >
+              <img src="/svg/ourPartners/point.svg" alt="" />
+            </button>
+          ))
+        )}
       </div>
       {informationAboutPartner && (
         <PartnerInfo
