@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useDotButton = (emblaApi) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
