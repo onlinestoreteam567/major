@@ -1,0 +1,6 @@
+@import '@mixins';
+
+.partnerEdit {
+  @include flex(column, null, null);
+  color: black;
+}

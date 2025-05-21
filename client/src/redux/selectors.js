@@ -69,3 +69,21 @@ export const showNothingSettlements = (state) => state.settlements.isShowNothing
 export const loadWarehouses = (state) => state.warehouses.isLoading;
 export const selectWarehouses = (state) => state.warehouses.warehouses;
 export const isDisabledWarehouses = (state) => state.warehouses.isDisabled;
+
+export const loadPartners = (state) => state.partners.isLoading;
+export const selectPartners = (state) => state.partners.partners;
+export const errorPartners = (state) => state.partners.isDisabled;
+
+export const loadPartnerCreate = (state) => state.partnerCreate.isLoading;
+export const selectPartnerCreate = (state) => state.partnerCreate.response;
+export const errorPartnerCreate = (state) => state.partnerCreate.isDisabled;
+
+export const loadPartnerDelete = (state) => state.partnerDelete.isLoading;
+export const selectPartnerDelete = (state) => state.partnerDelete.response;
+
+export const loadPartnerById = (state) => state.partnerById.isLoading;
+export const responsePartnerById = (state) => state.partnerById.partner;
+
+export const loadPartnerEdit = (state) => state.partnerEdit.isLoading;
+export const responsePartnerEdit = (state) => state.partnerEdit.response;
+export const errorPartnerEdit = (state) => state.partnerEdit.error;
