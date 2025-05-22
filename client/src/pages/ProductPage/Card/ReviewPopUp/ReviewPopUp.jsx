@@ -55,7 +55,7 @@ const ReviewPopUp = ({ card, closeModal }) => {
   return (
     <>
       <Overlay handleClose={closeModal} />
-      <div className={cl.messagePopUp} onClick={(e) => e.stopPropagation()}>
+      <div className={cl.reviewPopUp} onClick={(e) => e.stopPropagation()}>
         <ButtonClose onClick={closeModal} ariaLabel="ariaLabelMainPopUp" />
 
         {!response ? (
