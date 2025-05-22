@@ -42,6 +42,7 @@ import { typeEditReducer } from '../admin/redux/typeEditSlice';
 import { reviewReducer } from '../redux/reviews/reviewsSlice';
 import { partnerByIdReducer } from '@redux/partners/partnerByIdSlice';
 import { partnerEditReducer } from '@redux/partners/partnerEditSlice';
+import { addReviewReducer } from '@redux/reviews/addReviewReducer';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -98,6 +99,7 @@ const rootReducer = combineReducers({
   promocodeEdit: promocodeEditReducer,
   promocodeDelete: promocodeDeleteReducer,
   reviews: reviewReducer,
+  addReview: addReviewReducer,
 });
 
 export const store = configureStore({

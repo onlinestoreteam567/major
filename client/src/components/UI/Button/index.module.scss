@@ -13,6 +13,13 @@
   transition:
     background-color 300ms ease-out,
     color 300ms ease-out;
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #cccccc;
+    border: none;
+    color: white;
+  }
 }
 
 // Buttons purposes

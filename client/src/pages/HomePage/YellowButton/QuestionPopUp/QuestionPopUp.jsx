@@ -10,7 +10,7 @@ import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import Heading from '@components/UI/Texts/Heading/Heading';
 
-const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
+const QuestionPopUp = ({ setShowMessagePopUp }) => {
   const { getTranslation } = useTranslationNamespace('yellowButton');
   const {
     setValue,
@@ -29,18 +29,18 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
     <>
       <Overlay handleClose={handleCloseMessagePopUp} />
 
-      <div className={cl.messagePopUp}>
+      <div className={cl.questionPopUp}>
         <ButtonClose onClick={handleCloseMessagePopUp} ariaLabel="ariaLabelMainPopUp" />
 
         <div className={cl.overflowWrap}>
           <div>
-            <Heading type="h2">{getTranslation(popUpData.subtitle)}</Heading>
-            <Paragraph type="body2">{getTranslation(popUpData.heading)}</Paragraph>
+            <Heading type="h2">{getTranslation('subtitle')}</Heading>
+            <Paragraph type="body2">{getTranslation('heading')}</Paragraph>
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <Input
-                labelText={getTranslation('name')}
+                labelText={getTranslation('yourName')}
                 name="fullName"
                 variant="popUp"
                 register={register}
@@ -59,14 +59,14 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
 
             <div>
               <Textarea
-                labelText={getTranslation(popUpData.textAreaTitle)}
+                labelText={getTranslation('textAreaTitle')}
                 name="question"
                 register={register}
                 variant={'popUp'}
                 errors={errors}
               />
 
-              <Button submit={true}>{getTranslation(popUpData.buttonText)}</Button>
+              <Button submit={true}>{getTranslation('send', 'common')}</Button>
             </div>
           </form>
         </div>
@@ -75,4 +75,4 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
   );
 };
 
-export default MainPopUp;
+export default QuestionPopUp;

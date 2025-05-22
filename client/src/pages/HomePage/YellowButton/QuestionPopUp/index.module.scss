@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.messagePopUp {
+.questionPopUp {
   @include flex(column, null, center);
   width: 300px;
   padding: 20px;

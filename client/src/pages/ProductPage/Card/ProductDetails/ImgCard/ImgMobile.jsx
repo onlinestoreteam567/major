@@ -5,7 +5,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { createPortal } from 'react-dom';
 import SliderImgs from './SliderImgs';
-import WrapModal from '@components/UI/WrapModal/WrapModal';
 import CardLabels from './CardLabels';
 
 export default function ImgMobile({ card }) {
@@ -76,11 +75,11 @@ export default function ImgMobile({ card }) {
         </div>
       )}
 
-      {isShow &&
+      {/* {isShow &&
         createPortal(
           <WrapModal isShow={isShow} closeModal={closeModal} content={<SliderImgs card={card} />} />,
           document.body
-        )}
+        )} */}
     </div>
   );
 }

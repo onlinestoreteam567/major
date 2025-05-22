@@ -87,3 +87,7 @@ export const responsePartnerById = (state) => state.partnerById.partner;
 export const loadPartnerEdit = (state) => state.partnerEdit.isLoading;
 export const responsePartnerEdit = (state) => state.partnerEdit.response;
 export const errorPartnerEdit = (state) => state.partnerEdit.error;
+
+export const loadAddReview = (state) => state.addReview.isLoading;
+export const responseAddReview = (state) => state.addReview.response;
+export const errorAddReview = (state) => state.addReview.error;
