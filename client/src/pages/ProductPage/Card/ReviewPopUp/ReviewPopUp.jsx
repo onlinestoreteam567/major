@@ -18,7 +18,7 @@ import { useEffect } from 'react';
 const ReviewPopUp = ({ card, closeModal }) => {
   const schema = yup.object({
     user_name: yup.string(),
-    review_text: yup.string().required("поле обов'язкове"),
+    review_text: yup.string(),
     stars: yup.number().min(0).max(5).required("поле обов'язкове"),
   });
   const dispatch = useDispatch();
