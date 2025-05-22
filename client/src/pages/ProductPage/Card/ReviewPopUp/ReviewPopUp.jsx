@@ -19,7 +19,7 @@ const ReviewPopUp = ({ card, closeModal }) => {
   const schema = yup.object({
     user_name: yup.string(),
     review_text: yup.string(),
-    stars: yup.number().min(0).max(5).required("поле обов'язкове"),
+    stars: yup.number().min(1).max(5).required(),
   });
   const dispatch = useDispatch();
   const { getTranslation } = useTranslationNamespace('reviewPopUp');
@@ -30,8 +30,11 @@ const ReviewPopUp = ({ card, closeModal }) => {
     register,
     handleSubmit,
     control,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+    formState: { errors, isValid },
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: 'onChange',
+  });
 
   const id = card.id;
 
@@ -70,7 +73,6 @@ const ReviewPopUp = ({ card, closeModal }) => {
                 register={register}
                 errors={errors}
               />
-
               <div className={cl.wrapRating}>
                 <Heading type="h4">{getTranslation('rateTheProduct')}</Heading>
                 <Controller
@@ -81,7 +83,6 @@ const ReviewPopUp = ({ card, closeModal }) => {
                   )}
                 />
               </div>
-
               <Textarea
                 labelText={getTranslation('writeShortReview')}
                 name="review_text"
@@ -89,8 +90,7 @@ const ReviewPopUp = ({ card, closeModal }) => {
                 variant={'popUp'}
                 errors={errors}
               />
-
-              <BtnSubmit disabled={isLoading}>{getTranslation('send', 'common')}</BtnSubmit>
+              <BtnSubmit disabled={isLoading || !isValid}>{getTranslation('send', 'common')}</BtnSubmit>{' '}
             </form>
           </div>
         ) : (

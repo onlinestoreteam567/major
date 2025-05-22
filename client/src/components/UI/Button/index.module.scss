@@ -16,6 +16,9 @@
 
   &:disabled {
     cursor: not-allowed;
+    background-color: #cccccc;
+    border: none;
+    color: white;
   }
 }
 
