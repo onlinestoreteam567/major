@@ -1,5 +1,5 @@
-import ReviewPopUp from '@components/UI/PopUp/FormPopUp/ReviewPopUp/ReviewPopUp';
 import { useState } from 'react';
+import ReviewPopUp from './ProductPage/Card/ReviewPopUp/ReviewPopUp';
 
 const AboutPage = () => {
   const [isShow, setIsShow] = useState(false);
