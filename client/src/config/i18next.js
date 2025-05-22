@@ -24,6 +24,7 @@ i18n
       'yellowButton',
       'buttonClose',
       'buttonAriaLable',
+      'reviewPopUp',
 
       // Modules/Sections
       'mainBanner',
