@@ -5,7 +5,7 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@components/UI/Texts/Heading/Heading';
 
 export default function LeaveReview({ card }) {
-  const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState();
 
   const openModal = () => setIsShow(true);
   const closeModal = () => setIsShow(false);
