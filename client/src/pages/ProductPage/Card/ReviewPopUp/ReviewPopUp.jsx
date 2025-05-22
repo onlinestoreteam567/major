@@ -11,7 +11,7 @@ import Overlay from '@components/UI/Overlay/Overlay';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { responseAddReview } from '@redux/selectors';
+import { loadAddReview, responseAddReview } from '@redux/selectors';
 import { resetAddReviewState } from '@redux/reviews/addReviewReducer';
 import { useEffect } from 'react';
 
@@ -24,6 +24,7 @@ const ReviewPopUp = ({ card, closeModal }) => {
   const dispatch = useDispatch();
   const { getTranslation } = useTranslationNamespace('reviewPopUp');
   const response = useSelector(responseAddReview);
+  const isLoading = useSelector(loadAddReview);
 
   const {
     register,
@@ -89,7 +90,7 @@ const ReviewPopUp = ({ card, closeModal }) => {
                 errors={errors}
               />
 
-              <BtnSubmit>{getTranslation('send', 'common')}</BtnSubmit>
+              <BtnSubmit disabled={isLoading}>{getTranslation('send', 'common')}</BtnSubmit>
             </form>
           </div>
         ) : (
