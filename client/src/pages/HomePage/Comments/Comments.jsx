@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import CommentCard from '@components/UI/CommentCard/CommentCard';
+import CommentCard from './CommentCard/CommentCard';
 import Slider from 'react-slick';
 import { useRef, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
