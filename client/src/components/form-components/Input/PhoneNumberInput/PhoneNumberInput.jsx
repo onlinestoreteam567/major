@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import cl from '../index.module.scss';
 import { handleInputCursorPosition, handleInputChange, handleKeyDown, handleInputDelete } from './eventHandlers';
+import Heading from '@components/UI/Texts/Heading/Heading';
 
 export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant, errors, ...props }, ref) => {
   const [inputsValue, setInputsValue] = useState('');
@@ -38,7 +39,7 @@ export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant
   return (
     <>
       <label htmlFor={name}>
-        {labelText}
+        <Heading type="h4">{labelText}</Heading>
 
         <input
           {...props}

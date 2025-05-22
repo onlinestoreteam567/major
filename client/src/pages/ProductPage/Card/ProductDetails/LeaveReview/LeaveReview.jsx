@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import ReviewPopUp from '@components/UI/PopUp/FormPopUp/ReviewPopUp/ReviewPopUp';
+import ReviewPopUp from '@components/UI/PopUp/ReviewPopUp/ReviewPopUp';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@components/UI/Texts/Heading/Heading';
 

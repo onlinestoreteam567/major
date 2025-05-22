@@ -44,10 +44,6 @@
       }
 
       label {
-        @include flexGap(10px, column);
-        font-size: $font-size-medium;
-        font-weight: $font-weight-medium;
-        line-height: 23.04px;
         user-select: none;
       }
 

@@ -40,7 +40,7 @@ const MainPopUp = ({ setShowMessagePopUp, popUpData }) => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <Input
-                labelText={getTranslation('yourName', 'common')}
+                labelText={getTranslation('yourName')}
                 name="fullName"
                 variant="popUp"
                 register={register}

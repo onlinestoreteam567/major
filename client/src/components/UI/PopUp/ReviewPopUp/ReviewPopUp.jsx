@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import { Controller, useForm } from 'react-hook-form';
-import StarsCheskBox from '../StarsCheckBox';
+import StarsCheskBox from './StarsCheckBox';
 import BtnSubmit from '@components/UI/Button/BtnSubmit';
 import { useDispatch, useSelector } from 'react-redux';
 import { addReviewById } from '@redux/products/service';
@@ -71,7 +71,7 @@ const ReviewPopUp = ({ card, closeModal }) => {
               />
 
               <div className={cl.wrapRating}>
-                <label>{getTranslation('rateTheProduct')}</label>
+                <Heading type="h4">{getTranslation('rateTheProduct')}</Heading>
                 <Controller
                   control={control}
                   name="stars"
