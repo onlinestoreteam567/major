@@ -1,15 +1,6 @@
-import { NavLink } from 'react-router-dom';
+import AdminNavigation from '../AdminNavigation/AdminNavigation';
 
 const AdminPage = () => {
-  return (
-    <nav style={{ color: 'black' }}>
-      <NavLink to={`/admin/products`}>Товари</NavLink>
-      <NavLink to={`/admin/categories`}>Категорії</NavLink>
-      <NavLink to={`/admin/promocodes`}>Промокоди</NavLink>
-      <NavLink to={`/admin/banners`}>Банери</NavLink>
-      <NavLink to={`/admin/reviews`}>Відгуки</NavLink>
-      <NavLink to={`/admin/partners`}>Мапа</NavLink>
-    </nav>
-  );
+  return <AdminNavigation />;
 };
 export default AdminPage;
