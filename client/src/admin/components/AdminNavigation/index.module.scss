@@ -1,0 +1,37 @@
+@import '@mixins';
+
+.adminNavigation {
+  @include flex(column, space-between, center);
+  height: 700px;
+  width: 100px;
+  background-color: #323232;
+  padding: 16px 0;
+
+  & > a:first-of-type > img {
+    height: 32px;
+    width: 71px;
+  }
+
+  div {
+    @include flex(column, space-between, center);
+    gap: 8px;
+
+    a,
+    button {
+      @include flex();
+      border-radius: 16px;
+      height: 44px;
+      width: 44px;
+
+      img {
+        height: 40px;
+        width: 40px;
+        object-fit: contain;
+      }
+
+      &.active {
+        background-color: #4c9a4e66;
+      }
+    }
+  }
+}
