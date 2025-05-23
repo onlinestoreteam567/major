@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
-import background from '../../../../public/images/404/404-background.png';
-import label from '../../../../public/images/404/404-label.png';
+import background from '../../../../public/images/404/404-background.webp';
+import label from '../../../../public/images/404/404-label.webp';
 import Header from '@components/Header/Header';
 
 export default function NotFound() {
