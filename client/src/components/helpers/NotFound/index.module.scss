@@ -1,0 +1,133 @@
+@import '@mixins';
+
+.wrap {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+  background-color: #fff;
+
+  @include flex(column, center, center);
+  padding: 20px;
+  box-sizing: border-box;
+
+  @include tablet {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: start;
+    padding: 75px 64px;
+    gap: 18px;
+  }
+
+  @include deskmin {
+    padding: 96px 24px;
+    gap: 50px;
+  }
+
+  @include deskmax {
+    padding: 96px 72px;
+    gap: 127px;
+  }
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlayImage {
+  z-index: 2;
+  width: 160%;
+  height: 347px;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @include tablet {
+    position: relative;
+    transform: none;
+    width: 426px;
+    height: 253px;
+    left: auto;
+    top: auto;
+    margin: auto;
+  }
+
+  @include deskmin {
+    width: 600px;
+    height: 355px;
+    margin: auto;
+  }
+
+  @include deskmax {
+    width: 776px;
+    height: 418px;
+    margin: auto;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  margin: auto;
+  @include flex(column, center, center);
+  gap: 24px;
+
+  @include tablet {
+    justify-content: center;
+  }
+}
+
+.text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 136%;
+  color: $text-color-black;
+
+  @include deskmin {
+    font-size: 18px;
+  }
+
+  @include deskmax {
+    font-size: 20px;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: transparent;
+  color: $text-color-black;
+  border: 1px solid $text-color-black;
+  border-radius: 8px;
+  cursor: pointer;
+
+  width: 356px;
+  height: 54px;
+
+  @include tablet {
+    width: 241px;
+    height: 58px;
+  }
+
+  @include deskmin {
+    width: 275px;
+    height: 60px;
+  }
+
+  @include deskmax {
+    width: 331px;
+    height: 77px;
+  }
+}
