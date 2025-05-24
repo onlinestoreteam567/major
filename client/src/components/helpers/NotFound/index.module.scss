@@ -8,7 +8,6 @@
   background-color: #fff;
 
   @include flex(column, center, center);
-  padding: 20px;
   box-sizing: border-box;
 
   @include tablet {
@@ -42,8 +41,9 @@
 
 .overlayImage {
   z-index: 2;
-  width: 160%;
+  width: 125%;
   height: 347px;
+  pointer-events: none;
   object-fit: contain;
   position: absolute;
   top: 50%;
@@ -113,7 +113,7 @@
   border-radius: 8px;
   cursor: pointer;
 
-  width: 356px;
+   width: clamp(241px, 90vw, 356px);
   height: 54px;
 
   @include tablet {
