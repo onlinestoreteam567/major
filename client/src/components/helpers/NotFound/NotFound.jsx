@@ -11,12 +11,14 @@ export default function NotFound() {
 
       <div className={cl.wrap}>
         <img src={background} alt="background" className={cl.backgroundImage} />
-        <img src={label} alt="404 label" className={cl.overlayImage} />
-        <div className={cl.content}>
-          <p className={cl.text}>Сторінку не знайдено</p>
-          <Link to="/" className={cl.button}>
-            На головну сторінку
-          </Link>
+        <div className={cl.contentWrap}>
+          <img src={label} alt="404 label" className={cl.overlayImage} />
+          <div className={cl.content}>
+            <p className={cl.text}>Сторінку не знайдено</p>
+            <Link to="/" className={cl.button}>
+              На головну сторінку
+            </Link>
+          </div>
         </div>
       </div>
     </>

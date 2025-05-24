@@ -1,33 +1,11 @@
 @import '@mixins';
 
 .wrap {
-  @include layout();
   position: relative;
   width: 100%;
   min-height: 100dvh;
   overflow: hidden;
   background-color: #fff;
-
-  @include flex(column, center, center);
-  box-sizing: border-box;
-
-  @include tablet {
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: start;
-    padding: 75px 64px;
-    gap: 18px;
-  }
-
-  @include deskmin {
-    padding: 96px 24px;
-    gap: 50px;
-  }
-
-  @include deskmax {
-    padding: 96px 72px;
-    gap: 127px;
-  }
 }
 
 .backgroundImage {
@@ -37,55 +15,80 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  // object-position: right center;
-  // z-index: 0;
-  
+  object-position: center center;
+  z-index: 0;
+}
+
+.contentWrap {
+  @include layout();
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 100dvh;
+
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-bottom: 0 !important;
+
+  @include tablet {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .overlayImage {
-  z-index: 2;
-  width: 125%;
-  height: 347px;
-  pointer-events: none;
   object-fit: contain;
+  width: 125%;
+  max-width: 426px;
+  height: auto;
+
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
+
+  @include mobile{
+    width: 125%;
+  }
 
   @include tablet {
-    position: relative;
+    position: static;
     transform: none;
-    width: 426px;
-    height: 253px;
-    left: auto;
-    top: auto;
-    margin: auto;
+    z-index: auto;
+    max-width: 426px;
   }
 
   @include deskmin {
-    width: 600px;
-    height: 355px;
-    margin: auto;
+    max-width: 600px;
   }
 
   @include deskmax {
-    width: 776px;
-    height: 418px;
-    margin: auto;
+    max-width: 776px;
   }
 }
 
 .content {
-  position: relative;
-  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  margin: auto;
-  @include flex(column, center, center);
   gap: 24px;
 
+  position: relative;
+  z-index: 2;
+
   @include tablet {
-    justify-content: center;
+    align-items: center;
+    text-align: left;
+    position: static;
+    z-index: auto;
   }
 }
 
@@ -115,11 +118,9 @@
   border: 1px solid $text-color-black;
   border-radius: 8px;
   cursor: pointer;
-
-   width: clamp(241px, 90vw, 356px);
+  width: clamp(241px, 90vw, 356px);
   height: 54px;
-
-  
+  transition: background-color 300ms ease-out, color 300ms ease-out;
 
   @include tablet {
     width: 241px;
@@ -135,10 +136,10 @@
     width: 331px;
     height: 77px;
   }
-}
 
-.button:hover,
- .button:active {
+  &:hover,
+  &:active {
     background-color: $second-background-color-black;
     color: $text-color-light;
- }
+  }
+}
