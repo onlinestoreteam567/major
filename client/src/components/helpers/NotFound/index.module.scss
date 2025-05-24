@@ -45,7 +45,7 @@
 .overlayImage {
   object-fit: contain;
   width: 125%;
-  max-width: 426px;
+  max-width: 487px;
   height: auto;
 
   position: absolute;
@@ -54,10 +54,7 @@
   transform: translate(-50%, -50%);
   z-index: 1;
 
-  @include mobile{
-    width: 125%;
-  }
-
+ 
   @include tablet {
     position: static;
     transform: none;
