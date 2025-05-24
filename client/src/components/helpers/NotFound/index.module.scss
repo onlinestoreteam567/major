@@ -1,6 +1,7 @@
 @import '@mixins';
 
 .wrap {
+  @include layout();
   position: relative;
   width: 100%;
   min-height: 100dvh;
@@ -36,7 +37,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
+  // object-position: right center;
+  // z-index: 0;
+  
 }
 
 .overlayImage {
@@ -116,6 +119,8 @@
    width: clamp(241px, 90vw, 356px);
   height: 54px;
 
+  
+
   @include tablet {
     width: 241px;
     height: 58px;
@@ -131,3 +136,9 @@
     height: 77px;
   }
 }
+
+.button:hover,
+ .button:active {
+    background-color: $second-background-color-black;
+    color: $text-color-light;
+ }
