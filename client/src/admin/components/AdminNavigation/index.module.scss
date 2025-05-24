@@ -2,7 +2,8 @@
 
 .adminNavigation {
   @include flex(column, space-between, center);
-  height: 700px;
+  height: 628px;
+  box-sizing: border-box;
   width: 100px;
   background-color: #323232;
   padding: 16px 0;
@@ -16,12 +17,25 @@
     @include flex(column, space-between, center);
     gap: 8px;
 
+    a:first-of-type {
+      img {
+        height: 32px;
+        width: 32px;
+      }
+    }
+
     a,
     button {
-      @include flex();
+      @include flex(row, start);
       border-radius: 16px;
       height: 44px;
       width: 44px;
+      padding: 16px;
+      box-sizing: border-box;
+
+      span {
+        display: none;
+      }
 
       img {
         height: 40px;
@@ -31,6 +45,102 @@
 
       &.active {
         background-color: #4c9a4e66;
+      }
+    }
+  }
+
+  @include mobile {
+    & > a:first-of-type > img {
+      height: 46px;
+      width: 98px;
+    }
+  }
+
+  @include tablet {
+    padding: 64px 0;
+    width: 168px;
+    height: 1024px;
+
+    &:hover {
+      width: 358px;
+
+      & > div:first-of-type {
+        span {
+          display: block;
+          font-family: Mulish;
+          font-weight: 400;
+          font-size: 32px;
+          line-height: 136%;
+          letter-spacing: 0%;
+          color: #f8f8f9;
+        }
+      }
+
+      & > div:last-of-type {
+        span {
+          display: block;
+          font-family: Mulish;
+          font-weight: 400;
+          font-size: 24px;
+          line-height: 136%;
+          letter-spacing: 0%;
+          color: #f8f8f9;
+        }
+      }
+
+      div {
+        align-items: start;
+
+        a,
+        button {
+          gap: 22px;
+          width: 262px;
+        }
+      }
+    }
+
+    div {
+      a:first-of-type {
+        img {
+          height: 40px;
+          width: 40px;
+        }
+      }
+
+      a,
+      button {
+        height: 70px;
+        width: 70px;
+        img {
+          height: 50px;
+          width: 50px;
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    height: 768px;
+    width: 270px;
+
+    &:hover {
+      width: 270px;
+    }
+
+    & > a:first-of-type > img {
+      height: 71px;
+      width: 154px;
+    }
+
+    div {
+      a,
+      button {
+        gap: 16px;
+        width: 192px;
+
+        span {
+          display: block;
+        }
       }
     }
   }
