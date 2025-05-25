@@ -34,6 +34,7 @@ i18n
       'basket',
       'search',
       'card',
+      'notFound',
     ],
     defaultNS: 'common',
     interpolation: {
