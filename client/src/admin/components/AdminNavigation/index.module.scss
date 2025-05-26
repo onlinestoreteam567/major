@@ -26,11 +26,10 @@
 
     a,
     button {
-      @include flex(row, start);
+      @include flex(row);
       border-radius: 16px;
       height: 44px;
       width: 44px;
-      padding: 16px;
       box-sizing: border-box;
 
       span {
@@ -51,8 +50,8 @@
 
   @include mobile {
     & > a:first-of-type > img {
-      height: 46px;
-      width: 98px;
+      height: 32px;
+      width: 72px;
     }
   }
 
@@ -61,30 +60,25 @@
     width: 168px;
     height: 1024px;
 
+    & > a:first-of-type > img {
+      height: 46px;
+      width: 98px;
+    }
+
     &:hover {
       width: 358px;
 
       & > div:first-of-type {
         span {
           display: block;
-          font-family: Mulish;
-          font-weight: 400;
           font-size: 32px;
-          line-height: 136%;
-          letter-spacing: 0%;
-          color: #f8f8f9;
         }
       }
 
       & > div:last-of-type {
         span {
           display: block;
-          font-family: Mulish;
-          font-weight: 400;
           font-size: 24px;
-          line-height: 136%;
-          letter-spacing: 0%;
-          color: #f8f8f9;
         }
       }
 
@@ -93,8 +87,17 @@
 
         a,
         button {
+          justify-content: start;
+          padding: 16px;
           gap: 22px;
           width: 262px;
+
+          span {
+            font-family: Mulish;
+            font-weight: 400;
+            line-height: 136%;
+            color: #f8f8f9;
+          }
         }
       }
     }
@@ -136,7 +139,9 @@
     div {
       a,
       button {
-        gap: 16px;
+        justify-content: start;
+        padding: 16px;
+        gap: 8px;
         height: 56px;
         width: 192px;
 
@@ -184,7 +189,7 @@
 
         a,
         button {
-          gap: 16px;
+          gap: 8px;
           width: 192px;
         }
       }
