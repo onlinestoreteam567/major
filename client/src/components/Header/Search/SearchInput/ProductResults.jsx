@@ -44,7 +44,7 @@ const ProductResults = ({ handleCloseInput }) => {
         <section className={cl.searchResultsSection}>
           <hr />
           {products.length === 0 ? (
-            <NotFound />
+            <NotFound handleCloseInput={handleCloseInput} />
           ) : (
             <ul>
               {showOnlyFirstThree.map((product) => (

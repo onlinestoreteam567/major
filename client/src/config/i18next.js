@@ -35,6 +35,7 @@ i18n
       'search',
       'card',
       'notFound',
+      'errorPage',
     ],
     defaultNS: 'common',
     interpolation: {

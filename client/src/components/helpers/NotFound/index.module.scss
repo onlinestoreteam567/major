@@ -89,27 +89,33 @@
 
       .button {
         @include flex(null, center, center);
-        font-size: 16px;
         font-weight: 500;
+        font-size: 18px;
+        line-height: 120%;
         background-color: transparent;
         color: $text-color-black;
         border: 1px solid $text-color-black;
         border-radius: 8px;
         width: clamp(241px, 90vw, 356px);
         height: 54px;
-        transition: background-color 300ms ease-out, color 300ms ease-out;
+        transition:
+          background-color 300ms ease-out,
+          color 300ms ease-out;
 
         @include tablet {
+          font-weight: 700;
           width: 241px;
           height: 58px;
         }
 
         @include deskmin {
+          font-size: 20px;
           width: 275px;
           height: 60px;
         }
 
         @include deskmax {
+          font-size: 24px;
           width: 331px;
           height: 77px;
         }
