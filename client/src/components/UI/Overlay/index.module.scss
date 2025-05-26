@@ -10,6 +10,7 @@
   background-color: #00000000;
   animation: fadeIn 0.3s ease forwards;
   z-index: $z-index-overlay;
+  cursor: pointer;
 
   &.closeAnimation {
     animation: fadeOut 0.3s ease forwards;
