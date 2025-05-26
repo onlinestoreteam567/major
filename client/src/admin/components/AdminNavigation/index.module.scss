@@ -120,8 +120,9 @@
   }
 
   @include deskmin {
-    height: 768px;
+    height: 780px;
     width: 270px;
+    padding-block: 32px;
 
     &:hover {
       width: 270px;
@@ -136,10 +137,55 @@
       a,
       button {
         gap: 16px;
+        height: 56px;
         width: 192px;
 
         span {
+          color: #f8f8f9;
           display: block;
+          font-family: Mulish;
+          line-height: 136%;
+        }
+      }
+    }
+
+    & > div:first-of-type {
+      span {
+        font-size: 24px;
+        font-weight: 400;
+      }
+    }
+
+    & > div:last-of-type {
+      span {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+
+    &:hover {
+      width: 270px;
+
+      & > div:first-of-type {
+        span {
+          font-size: 24px;
+        }
+      }
+
+      & > div:last-of-type {
+        span {
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+
+      div {
+        align-items: start;
+
+        a,
+        button {
+          gap: 16px;
+          width: 192px;
         }
       }
     }
