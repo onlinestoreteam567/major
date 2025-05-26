@@ -1,10 +1,62 @@
 @import '@mixins';
 
-.list {
-  @include flexGap(20px, column);
-  color: black;
+.productList {
+  font-family: Mulish;
 
-  li {
-    @include flexGap(20px);
+  & > div:first-of-type {
+    @include flexGap(8px);
+
+    p {
+      text-align: center;
+    }
+
+    p:nth-child(1) {
+      width: 63px;
+    }
+
+    p:nth-child(2) {
+      width: 67px;
+    }
+
+    p:nth-child(3) {
+      width: 103px;
+    }
+  }
+
+  ul {
+    @include flexGap(20px, column);
+    color: black;
+
+    li {
+      @include flex(row, start);
+      gap: 8px;
+
+      p {
+        @include flex();
+        width: 63px;
+
+        img {
+          height: 24px;
+          width: 24px;
+        }
+      }
+
+      a {
+        width: 67px;
+
+        img {
+          height: 68px;
+          width: 68px;
+        }
+      }
+
+      h3 {
+        width: 103px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 136%;
+        text-align: center;
+      }
+    }
   }
 }

@@ -5,8 +5,7 @@ import List from './ProductList/ProductList';
 // import { fetchProductsAll } from '@redux/products/service';
 import { Link } from 'react-router-dom';
 // import ProductForm from './ProductForm/ProductForm';
-import ProductFilters from './ProductFilters/ProductFilters';
-import ReturnButton from '../ReturnButton/ReturnButton';
+import Button from '@components/UI/Button/Button';
 const ProductManagement = () => {
   // const dispatch = useDispatch();
 
@@ -17,11 +16,13 @@ const ProductManagement = () => {
   return (
     <div className={cl.productManagement}>
       <div>
-        <Link to={`/admin/products/create`}>+</Link>
-        <ReturnButton />;
+        <p>Товари(30)</p>
+        <Link to={`/admin/products/create`}>
+          <Button>Додати товар</Button>
+        </Link>
+        пошук
       </div>
       <List />
-      <ProductFilters />
     </div>
   );
 };

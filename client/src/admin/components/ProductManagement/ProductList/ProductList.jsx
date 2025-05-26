@@ -27,15 +27,35 @@ const List = () => {
       {isLoading || isLoadingDelete ? (
         <Spinner />
       ) : (
-        <ul className={cl.list}>
-          {items.map((card) => (
-            <li key={card.id}>
-              <p>{card.name}</p>
-              <Link to={`/admin/products/${card.id}`}>Редагувати</Link>
-              <button onClick={() => handleDelete(card.id)}>Видалити</button>
-            </li>
-          ))}
-        </ul>
+        <div className={cl.productList}>
+          <div>
+            <p>В наяв.</p>
+            <p>Фото</p>
+            <p>Назва</p>
+          </div>
+
+          <ul className={cl.productList}>
+            {items.map((card) => (
+              <li key={card.id}>
+                {console.log(card)}
+                <p>
+                  {card.available ? (
+                    <img src="/svg/admin/available.svg" alt="" />
+                  ) : (
+                    <img src="/svg/admin/notAvalaible.svg" alt="" />
+                  )}
+                </p>
+                <Link to={`/admin/products/${card.id}`}>
+                  <img src={card.images[0].image} alt="" />
+                </Link>
+                <h3>{card.name}</h3>
+                <button onClick={() => handleDelete(card.id)}>
+                  <img src="/svg/admin/dots.svg" />
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </>
   );
