@@ -2,12 +2,12 @@ import Spinner from '@components/helpers/Spinner/Spinner';
 import cl from './index.module.scss';
 import { loadProducts, selectProducts } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { deleteProduct } from '../../../redux/service';
 import { loadProductDelete, responseProductDelete } from '../../../redux/selectors';
 import { useEffect } from 'react';
 import { fetchProductsAll } from '@redux/products/service';
 import handleDeleteItem from '@utils/handleDeleteItem';
+import Card from './Card/Card';
 
 const List = () => {
   const items = useSelector(selectProducts);
@@ -32,27 +32,12 @@ const List = () => {
             <p>В наяв.</p>
             <p>Фото</p>
             <p>Назва</p>
+            <p>Ціна</p>
           </div>
 
           <ul className={cl.productList}>
             {items.map((card) => (
-              <li key={card.id}>
-                {console.log(card)}
-                <p>
-                  {card.available ? (
-                    <img src="/svg/admin/available.svg" alt="" />
-                  ) : (
-                    <img src="/svg/admin/notAvalaible.svg" alt="" />
-                  )}
-                </p>
-                <Link to={`/admin/products/${card.id}`}>
-                  <img src={card.images[0].image} alt="" />
-                </Link>
-                <h3>{card.name}</h3>
-                <button onClick={() => handleDelete(card.id)}>
-                  <img src="/svg/admin/dots.svg" />
-                </button>
-              </li>
+              <Card card={card} handleDelete={handleDelete} key={card.id} />
             ))}
           </ul>
         </div>

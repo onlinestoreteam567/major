@@ -1,0 +1,44 @@
+@import '@mixins';
+
+.card {
+  @include flex(row, start);
+  gap: 8px;
+
+  a {
+    @include flex(row, start);
+    gap: 8px;
+
+    p:nth-of-type(1) {
+      @include flex();
+      width: 63px;
+
+      img {
+        height: 24px;
+        width: 24px;
+      }
+    }
+
+    p:nth-of-type(2),
+    p:nth-of-type(3),
+    button {
+      display: none;
+    }
+
+    a {
+      width: 67px;
+
+      img {
+        height: 68px;
+        width: 68px;
+        border-radius: 8px;
+      }
+    }
+
+    h3 {
+      width: 103px;
+      font-weight: 400;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}

@@ -26,43 +26,15 @@
     p:nth-child(3) {
       width: 103px;
     }
+
+    p:nth-child(4) {
+      display: none;
+    }
   }
 
   ul {
     @include flexGap(20px, column);
     color: black;
-
-    li {
-      @include flex(row, start);
-      gap: 8px;
-
-      p {
-        @include flex();
-        width: 63px;
-
-        img {
-          height: 24px;
-          width: 24px;
-        }
-      }
-
-      a {
-        width: 67px;
-
-        img {
-          height: 68px;
-          width: 68px;
-          border-radius: 8px;
-        }
-      }
-
-      h3 {
-        width: 103px;
-        font-weight: 400;
-        font-size: 14px;
-        text-align: center;
-      }
-    }
   }
 
   @include mobile {
@@ -74,6 +46,12 @@
 
     h3 {
       font-size: 16px;
+    }
+  }
+
+  @include tablet {
+    p:nth-child(4) {
+      display: block;
     }
   }
 }
