@@ -1,5 +1,9 @@
 @import '@mixins';
 
+.burgerButton {
+  position: fixed;
+}
+
 .adminNavigation {
   @include flex(column, space-between, center);
   position: relative;

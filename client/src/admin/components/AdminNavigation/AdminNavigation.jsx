@@ -14,7 +14,7 @@ const AdminNavigation = () => {
   const handleClose = () => setIsShowBurgerButton(false);
 
   return isDisplayNavigation ? (
-    <button onClick={() => setIsShowBurgerButton(!isShowBurgerButton)}>
+    <button className={cl.burgerButton} onClick={() => setIsShowBurgerButton(!isShowBurgerButton)}>
       <img src="/svg/admin/navigation/burger.svg" alt="Burger menu icon" />
     </button>
   ) : (
