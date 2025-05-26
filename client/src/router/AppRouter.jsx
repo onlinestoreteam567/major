@@ -17,7 +17,7 @@ import NotFound from '@components/helpers/NotFound';
 import Loading from '@components/helpers/Loading';
 
 // Protected Route (Admin)
-import ProtectedRoute from './layouts/ProtectedRoute';
+import ProtectedRoute from './layouts/ProtectedRoute/ProtectedRoute';
 import AdminLoginPage from '../admin/components/AdminLoginPage/AdminLoginPage';
 import AdminPage from '../admin/components/AdminPage/AdminPage';
 import ProductManagement from '../admin/components/ProductManagement/ProductManagement';
