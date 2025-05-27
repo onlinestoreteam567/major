@@ -1,0 +1,47 @@
+.deleteMessage {
+  width: 218px;
+  height: 54px;
+  border-radius: 8px;
+  padding-block: 8px;
+
+  p {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 136%;
+    text-align: center;
+  }
+
+  @include mobile {
+    width: 259px;
+    height: 80px;
+    padding-block: 16px;
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  @include tablet {
+    width: 368px;
+    height: 98px;
+
+    p {
+      font-size: 24px;
+    }
+  }
+
+  @include deskmin {
+    width: 500px;
+    height: 120px;
+
+    p {
+      font-size: 32px;
+    }
+  }
+
+  @include deskmax {
+    width: 660px;
+    height: 152px;
+  }
+}
