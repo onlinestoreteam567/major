@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
 import useScreenSizes from '@hooks/useScreenSizes';
 
-const Card = ({ card, handleDelete }) => {
+const Card = ({ card, showDeletePopUp }) => {
   const { tablet, deskmin, deskmax } = useScreenSizes();
 
   const isSmallScreen = !(tablet || deskmin || deskmax);
@@ -29,14 +29,14 @@ const Card = ({ card, handleDelete }) => {
           <Link to={`/admin/products/${card.id}`} className={cl.fullCardLink}>
             {cardContent}
           </Link>
-          <button onClick={() => handleDelete(card.id)}>
+          <button onClick={() => showDeletePopUp()}>
             <img src="/svg/admin/delete.svg" alt="More options" />
           </button>
         </>
       ) : (
         <>
           {cardContent}
-          <button onClick={() => handleDelete(card.id)}>
+          <button onClick={() => showDeletePopUp()}>
             <img src="/svg/admin/delete.svg" alt="More options" />
           </button>
         </>

@@ -1,0 +1,39 @@
+@import '@mixins';
+
+.deletePopUp {
+  @include flexGap(24px);
+  background-color: #ffffff;
+  width: 280px;
+  height: 241px;
+  border-radius: 8px;
+  padding: 32px;
+  font-family: Mulish;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: $z-index-pop-up;
+  animation: fadeIn 300ms ease-out;
+
+  h2 {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 136%;
+    text-align: center;
+  }
+
+  button {
+    height: 54px;
+    width: 100px;
+    // border-radius: 8px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
