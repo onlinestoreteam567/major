@@ -94,6 +94,10 @@
 
     & > div:first-of-type {
       flex-wrap: nowrap;
+
+      p {
+        width: fit-content;
+      }
     }
   }
 }
