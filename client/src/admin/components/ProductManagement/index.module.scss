@@ -4,6 +4,20 @@
   color: black;
   margin-inline: auto;
   width: 280px;
+  font-family: Mulish;
+  font-weight: 400;
+  line-height: 136%;
+  letter-spacing: 0%;
+
+  & > div:first-of-type {
+    padding-top: 11px;
+
+    p {
+      color: #4c9a4e;
+      font-size: 18px;
+      text-align: end;
+    }
+  }
 
   @include tablet {
     width: 562px;
