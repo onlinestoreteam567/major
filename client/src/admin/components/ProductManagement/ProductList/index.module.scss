@@ -52,6 +52,10 @@
 
   @include tablet {
     & > div:first-of-type {
+      p {
+        font-size: 20px;
+      }
+
       gap: 24px;
       p:nth-child(1),
       p:nth-child(2) {
@@ -75,6 +79,29 @@
       p:nth-child(4) {
         display: block;
         width: 94px;
+      }
+    }
+  }
+
+  @include deskmax {
+    & > div:first-of-type {
+      width: 993px;
+      gap: 56px;
+
+      p:nth-child(1) {
+        width: 110px;
+      }
+
+      p:nth-child(2) {
+        width: 90px;
+      }
+
+      p:nth-child(3) {
+        width: 190px;
+      }
+
+      p:nth-child(5) {
+        width: 110px;
       }
     }
   }

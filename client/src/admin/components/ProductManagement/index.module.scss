@@ -12,4 +12,8 @@
   @include deskmin {
     width: 686px;
   }
+
+  @include deskmax {
+    width: 993px;
+  }
 }
