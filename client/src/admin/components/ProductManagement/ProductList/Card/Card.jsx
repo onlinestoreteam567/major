@@ -16,9 +16,6 @@ const Card = ({ card, showDeletePopUp }) => {
       <h3>{card.name}</h3>
       <p>{card.article}</p>
       <p>{card.is_discount ? card.price_with_discount : card.price}</p>
-      <Link to={`/admin/products/${card.id}`} className={cl.fullCardLink}>
-        <img src="/svg/admin/edit.svg" />
-      </Link>
     </>
   );
 
@@ -39,6 +36,9 @@ const Card = ({ card, showDeletePopUp }) => {
           <button onClick={() => showDeletePopUp()}>
             <img src="/svg/admin/delete.svg" alt="More options" />
           </button>
+          <Link to={`/admin/products/${card.id}`} className={cl.fullCardLink}>
+            <img src="/svg/admin/edit.svg" />
+          </Link>
         </>
       )}
     </li>
