@@ -57,7 +57,7 @@
         font-size: 32px;
       }
 
-      button:first-of-type {
+      & > button:first-of-type {
         width: 306px;
         height: 65px;
         font-size: 24px;
