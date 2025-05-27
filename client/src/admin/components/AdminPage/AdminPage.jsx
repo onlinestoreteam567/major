@@ -1,6 +1,4 @@
-import AdminNavigation from '../AdminNavigation/AdminNavigation';
-
 const AdminPage = () => {
-  return <AdminNavigation />;
+  return <div></div>;
 };
 export default AdminPage;

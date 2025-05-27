@@ -50,8 +50,17 @@
   }
 
   @include tablet {
-    p:nth-child(4) {
-      display: block;
+    & > div:first-of-type {
+      gap: 24px;
+      p:nth-child(1),
+      p:nth-child(2) {
+        width: 90px;
+      }
+
+      p:nth-child(4) {
+        display: block;
+        width: 96px;
+      }
     }
   }
 }

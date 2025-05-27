@@ -1,5 +1,11 @@
+@import '@mixins';
+
 .productManagement {
   color: black;
   margin-inline: auto;
   width: 280px;
+
+  @include tablet {
+    width: 562px;
+  }
 }

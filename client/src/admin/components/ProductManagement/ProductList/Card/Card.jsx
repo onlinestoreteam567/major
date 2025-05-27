@@ -10,15 +10,15 @@ const Card = ({ card, handleDelete }) => {
   const cardContent = (
     <>
       <p>{card.available ? <img src="/svg/admin/available.svg" /> : <img src="/svg/admin/notAvalaible.svg" />}</p>
-      <Link to={`/admin/products/${card.id}`}>
+      <span>
         <img src={card.images[0].image} alt={card.name} />
-      </Link>
+      </span>
       <h3>{card.name}</h3>
       <p>Артикул</p>
       <p>{card.is_discount ? card.price_with_discount : card.price}</p>
-      <button>
+      <Link to={`/admin/products/${card.id}`} className={cl.fullCardLink}>
         <img src="/svg/admin/edit.svg" />
-      </button>
+      </Link>
     </>
   );
 
