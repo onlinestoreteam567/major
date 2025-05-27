@@ -1,8 +1,17 @@
+@import '@mixins';
+
 .deleteMessage {
+  box-sizing: border-box;
   width: 218px;
   height: 54px;
   border-radius: 8px;
   padding-block: 8px;
+  background-color: #6da86f;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fadeIn 300ms ease-out;
 
   p {
     font-family: Mulish;
@@ -10,6 +19,7 @@
     font-size: 14px;
     line-height: 136%;
     text-align: center;
+    color: #ffffff;
   }
 
   @include mobile {
@@ -43,5 +53,14 @@
   @include deskmax {
     width: 660px;
     height: 152px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

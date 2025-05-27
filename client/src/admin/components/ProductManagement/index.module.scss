@@ -8,6 +8,7 @@
   font-weight: 400;
   line-height: 136%;
   letter-spacing: 0%;
+  position: relative;
 
   & > div:first-of-type {
     @include flexGap(24px, column);

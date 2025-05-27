@@ -2,13 +2,11 @@ import Spinner from '@components/helpers/Spinner/Spinner';
 import cl from './index.module.scss';
 import { loadProducts, selectProducts } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteProduct } from '../../../redux/service';
 import { loadProductDelete, responseProductDelete } from '../../../redux/selectors';
 import { useEffect, useState } from 'react';
 import { fetchProductsAll } from '@redux/products/service';
-import handleDeleteItem from '@utils/handleDeleteItem';
 import Card from './Card/Card';
-import DeletePopUp from './DeletePopUp/DeletePopUp';
+import DeleteMessage from '../../DeleteMessage/DeleteMessage';
 
 const List = () => {
   const items = useSelector(selectProducts);
@@ -16,14 +14,11 @@ const List = () => {
   const dispatch = useDispatch();
   const isLoadingDelete = useSelector(loadProductDelete);
   const deleteResponse = useSelector(responseProductDelete);
-  const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
+  const [deletedItemName, setDeletedItemName] = useState('');
 
   useEffect(() => {
     deleteResponse === 204 && dispatch(fetchProductsAll());
-  }, [dispatch, deleteResponse]);
-
-  const toggleDeletePopUp = () => setIsShowDeletePopUp(!isShowDeletePopUp);
-  const handleDelete = (id) => handleDeleteItem(dispatch, deleteProduct, id);
+  }, [dispatch, deleteResponse, deletedItemName]);
 
   return (
     <>
@@ -42,11 +37,11 @@ const List = () => {
 
             <ul>
               {items.map((card) => (
-                <Card card={card} showDeletePopUp={toggleDeletePopUp} handleDelete={handleDelete} key={card.id} />
+                <Card card={card} key={card.id} setDeletedItemName={setDeletedItemName} />
               ))}
             </ul>
           </div>
-          {isShowDeletePopUp && <DeletePopUp closeDeletePopUp={toggleDeletePopUp} />}
+          <DeleteMessage deletedItemName={deletedItemName} />
         </>
       )}
     </>

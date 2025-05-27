@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
 import useScreenSizes from '@hooks/useScreenSizes';
+import DeletePopUp from '../DeletePopUp/DeletePopUp';
+import { useState } from 'react';
 
-const Card = ({ card, showDeletePopUp }) => {
+const Card = ({ card, setDeletedItemName }) => {
+  const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
+
   const { tablet, deskmin, deskmax } = useScreenSizes();
-
   const isSmallScreen = !(tablet || deskmin || deskmax);
+
+  const toggleDeletePopUp = () => setIsShowDeletePopUp(!isShowDeletePopUp);
+  const handleDelete = (id) => console.log(123 + id);
 
   const cardContent = (
     <>
@@ -20,28 +26,38 @@ const Card = ({ card, showDeletePopUp }) => {
   );
 
   return (
-    <li className={cl.card}>
-      {isSmallScreen ? (
-        <>
-          <Link to={`/admin/products/${card.id}`} className={cl.fullCardLink}>
+    <>
+      <li className={cl.card}>
+        {isSmallScreen ? (
+          <>
+            <Link to={`/admin/products/${card.id}`} className={cl.fullCardLink}>
+              {cardContent}
+            </Link>
+            <button onClick={() => toggleDeletePopUp()}>
+              <img src="/svg/admin/delete.svg" alt="More options" />
+            </button>
+          </>
+        ) : (
+          <>
             {cardContent}
-          </Link>
-          <button onClick={() => showDeletePopUp()}>
-            <img src="/svg/admin/delete.svg" alt="More options" />
-          </button>
-        </>
-      ) : (
-        <>
-          {cardContent}
-          <button onClick={() => showDeletePopUp()}>
-            <img src="/svg/admin/delete.svg" alt="More options" />
-          </button>
-          <Link to={`/admin/products/${card.id}`} className={cl.fullCardLink}>
-            <img src="/svg/admin/edit.svg" />
-          </Link>
-        </>
+            <button onClick={() => toggleDeletePopUp()}>
+              <img src="/svg/admin/delete.svg" alt="More options" />
+            </button>
+            <Link to={`/admin/products/${card.id}`} className={cl.fullCardLink}>
+              <img src="/svg/admin/edit.svg" />
+            </Link>
+          </>
+        )}
+      </li>
+      {isShowDeletePopUp && (
+        <DeletePopUp
+          card={card}
+          closeDeletePopUp={toggleDeletePopUp}
+          handleDelete={handleDelete}
+          setDeletedItemName={setDeletedItemName}
+        />
       )}
-    </li>
+    </>
   );
 };
 
