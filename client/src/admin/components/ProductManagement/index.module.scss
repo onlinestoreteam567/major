@@ -29,6 +29,10 @@
       justify-content: space-between;
       align-items: center;
 
+      p {
+        font-size: 24px;
+      }
+
       button {
         width: 180px;
       }
@@ -43,6 +47,10 @@
     width: 562px;
 
     & > div:first-of-type {
+      p {
+        font-size: 32px;
+      }
+
       span {
         margin-left: auto;
       }
