@@ -65,4 +65,8 @@
       width: 318px;
     }
   }
+
+  @include deskmin {
+    margin-left: 0;
+  }
 }
