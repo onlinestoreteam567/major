@@ -14,9 +14,11 @@ const AdminNavigation = () => {
   const handleClose = () => setIsShowBurgerButton(false);
 
   return isDisplayNavigation ? (
-    <button className={cl.burgerButton} onClick={() => setIsShowBurgerButton(!isShowBurgerButton)}>
-      <img src="/svg/admin/navigation/burger.svg" alt="Burger menu icon" />
-    </button>
+    <div className={cl.burgerButtonWrapper}>
+      <button onClick={() => setIsShowBurgerButton(!isShowBurgerButton)}>
+        <img src="/svg/admin/navigation/burger.svg" alt="Burger menu icon" />
+      </button>
+    </div>
   ) : (
     <>
       {isMobileOverlay && <Overlay handleClose={handleClose} />}
