@@ -14,7 +14,7 @@ const Card = ({ card, handleDelete }) => {
         <img src={card.images[0].image} alt={card.name} />
       </span>
       <h3>{card.name}</h3>
-      <p>Артикул</p>
+      <p>{card.article}</p>
       <p>{card.is_discount ? card.price_with_discount : card.price}</p>
       <Link to={`/admin/products/${card.id}`} className={cl.fullCardLink}>
         <img src="/svg/admin/edit.svg" />
