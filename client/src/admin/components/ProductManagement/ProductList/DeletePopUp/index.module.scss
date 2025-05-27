@@ -1,7 +1,7 @@
 @import '@mixins';
 
 .deletePopUp {
-  @include flexGap(24px);
+  @include flexGap(24px, column);
   background-color: #ffffff;
   width: 280px;
   height: 241px;
@@ -14,6 +14,7 @@
   transform: translate(-50%, -50%);
   z-index: $z-index-pop-up;
   animation: fadeIn 300ms ease-out;
+  box-sizing: border-box;
 
   h2 {
     font-weight: 400;
@@ -22,10 +23,51 @@
     text-align: center;
   }
 
-  button {
-    height: 54px;
-    width: 100px;
-    // border-radius: 8px;
+  div {
+    @include flex(row, space-between);
+    button {
+      height: 54px;
+      width: 100px;
+      font-family: Mulish;
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+
+  @include mobile {
+    width: 348px;
+    height: 264px;
+    gap: 48px;
+    padding: 48px 32px;
+  }
+
+  @include tablet {
+    width: 412px;
+    height: 354px;
+    gap: 72px;
+
+    h2 {
+      font-size: 32px;
+    }
+
+    div {
+      button {
+        width: 154px;
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 550px;
+    height: 310px;
+    gap: 72px;
+    padding: 48px 64px;
+
+    div {
+      button {
+        width: 191px;
+      }
+    }
   }
 }
 
