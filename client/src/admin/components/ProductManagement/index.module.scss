@@ -18,6 +18,12 @@
       font-size: 18px;
       text-align: end;
     }
+
+    button {
+      font-family: Mulish;
+      font-weight: 700;
+      font-size: 18px;
+    }
   }
 
   @include mobile {
@@ -49,6 +55,12 @@
     & > div:first-of-type {
       p {
         font-size: 32px;
+      }
+
+      button {
+        width: 306px;
+        height: 65px;
+        font-size: 24px;
       }
 
       span {
