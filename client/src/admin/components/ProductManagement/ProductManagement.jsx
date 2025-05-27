@@ -6,6 +6,7 @@ import List from './ProductList/ProductList';
 import { Link } from 'react-router-dom';
 // import ProductForm from './ProductForm/ProductForm';
 import Button from '@components/UI/Button/Button';
+import Search from './Search/Search';
 const ProductManagement = () => {
   // const dispatch = useDispatch();
 
@@ -20,7 +21,7 @@ const ProductManagement = () => {
         <Link to={`/admin/products/create`}>
           <Button>Додати товар</Button>
         </Link>
-        <span>search</span>
+        <Search />
       </div>
       <List />
     </div>
