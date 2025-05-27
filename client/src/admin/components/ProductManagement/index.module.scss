@@ -51,6 +51,22 @@
 
   @include deskmin {
     width: 686px;
+
+    & > div:first-of-type {
+      p {
+        width: 686px;
+        text-align: start;
+      }
+
+      a {
+        order: 3;
+      }
+
+      span {
+        margin-left: 0;
+        order: 2;
+      }
+    }
   }
 
   @include deskmax {
