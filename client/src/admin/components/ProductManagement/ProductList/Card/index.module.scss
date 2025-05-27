@@ -20,7 +20,7 @@
 
     p:nth-of-type(2),
     p:nth-of-type(3),
-    button {
+    a {
       display: none;
     }
 
@@ -104,6 +104,33 @@
 
     button {
       margin-left: 4px;
+    }
+  }
+
+  @include deskmin {
+    width: 686px;
+    gap: 32px;
+
+    p:nth-of-type(2) {
+      display: block;
+      font-weight: 400;
+      line-height: 160%;
+      font-size: 20px;
+      width: 94px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h3 {
+      line-height: 160%;
+    }
+
+    a {
+      margin-left: -16px;
+    }
+
+    button {
+      margin-left: -18px;
     }
   }
 }

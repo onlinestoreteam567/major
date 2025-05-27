@@ -32,10 +32,11 @@ const List = () => {
             <p>В наяв.</p>
             <p>Фото</p>
             <p>Назва</p>
+            <p>Артикул</p>
             <p>Ціна</p>
           </div>
 
-          <ul className={cl.productList}>
+          <ul>
             {items.map((card) => (
               <Card card={card} handleDelete={handleDelete} key={card.id} />
             ))}
