@@ -19,7 +19,8 @@
       text-align: end;
     }
 
-    & > button {
+    a {
+      height: fit-content;
       font-family: Mulish;
       font-weight: 700;
       font-size: 18px;
@@ -39,7 +40,7 @@
         font-size: 24px;
       }
 
-      & > button:first-of-type {
+      a {
         width: 180px;
       }
     }
@@ -53,10 +54,13 @@
         font-size: 32px;
       }
 
-      & > button:first-of-type {
+      a {
         width: 306px;
-        height: 65px;
         font-size: 24px;
+
+        button {
+          height: 65px;
+        }
       }
     }
   }
@@ -71,6 +75,7 @@
       }
 
       a {
+        width: 304px;
         order: 3;
       }
     }
