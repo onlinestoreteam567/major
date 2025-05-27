@@ -71,5 +71,9 @@
 
   @include deskmax {
     width: 993px;
+
+    & > div:first-of-type {
+      flex-wrap: nowrap;
+    }
   }
 }
