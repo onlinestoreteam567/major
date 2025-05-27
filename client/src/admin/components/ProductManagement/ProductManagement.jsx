@@ -20,7 +20,7 @@ const ProductManagement = () => {
         <Link to={`/admin/products/create`}>
           <Button>Додати товар</Button>
         </Link>
-        пошук
+        <span>search</span>
       </div>
       <List />
     </div>

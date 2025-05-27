@@ -20,6 +20,25 @@
     }
   }
 
+  @include mobile {
+    width: 340px;
+
+    & > div:first-of-type {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        width: 180px;
+      }
+
+      span {
+        width: 340px;
+      }
+    }
+  }
+
   @include tablet {
     width: 562px;
   }
