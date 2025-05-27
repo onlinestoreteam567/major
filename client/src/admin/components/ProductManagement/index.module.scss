@@ -41,6 +41,12 @@
 
   @include tablet {
     width: 562px;
+
+    & > div:first-of-type {
+      span {
+        margin-left: auto;
+      }
+    }
   }
 
   @include deskmin {
