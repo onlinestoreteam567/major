@@ -55,13 +55,14 @@ const ProductResults = ({ handleCloseInput }) => {
                     onClick={handleCloseInput}
                   >
                     <img src={product.images[0].image} alt={product.name} />
+
+                    <section className={cl.searchResultInfo}>
+                      <p className={cl.productName}>{product.name}</p>
+                      <p className={cl.productPrice}>
+                        {product.price} <img src="/svg/hryvnia.svg" alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
+                      </p>
+                    </section>
                   </Link>
-                  <section className={cl.searchResultInfo}>
-                    <p className={cl.productName}>{product.name}</p>
-                    <p className={cl.productPrice}>
-                      {product.price} <img src="/svg/hryvnia.svg" alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
-                    </p>
-                  </section>
                 </li>
               ))}
             </ul>
