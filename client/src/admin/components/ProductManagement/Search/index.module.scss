@@ -56,4 +56,13 @@
       width: 300px;
     }
   }
+
+  @include tablet {
+    margin-left: auto;
+    width: 358px;
+
+    input {
+      width: 318px;
+    }
+  }
 }
