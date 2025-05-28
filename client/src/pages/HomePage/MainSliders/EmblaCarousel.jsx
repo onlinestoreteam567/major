@@ -1,6 +1,7 @@
 import { DotButton, useDotButton } from './EmblaCarouselDotButton';
 import { PrevButton, NextButton, usePrevNextButtons } from './EmblaCarouselArrowButtons';
 import useEmblaCarousel from 'embla-carousel-react';
+import Card from '@pages/CatalogPage/Products/CardsContainer/Card/Card';
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props;
@@ -14,9 +15,11 @@ const EmblaCarousel = (props) => {
     <section className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {slides.map((index) => (
+          {slides.map((slide, index) => (
             <div className="embla__slide" key={index}>
-              <div className="embla__slide__number">{index + 1}</div>
+              <Card key={index} card={slide} />
+
+              {/* <div className="embla__slide__number">{index + 1}</div> */}
             </div>
           ))}
         </div>

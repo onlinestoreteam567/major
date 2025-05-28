@@ -7,6 +7,7 @@
   width: 296px;
   min-height: 685px;
   height: 685px;
+  overflow: hidden;
 
   @include mobile {
     width: 356px;
