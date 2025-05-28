@@ -2,10 +2,11 @@ import { DotButton, useDotButton } from './EmblaCarouselDotButton';
 import { PrevButton, NextButton, usePrevNextButtons } from './EmblaCarouselArrowButtons';
 import useEmblaCarousel from 'embla-carousel-react';
 import Card from '@pages/CatalogPage/Products/CardsContainer/Card/Card';
+import Fade from 'embla-carousel-fade';
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props;
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [Fade()]);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 

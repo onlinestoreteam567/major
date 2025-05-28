@@ -10,7 +10,7 @@ import './sandbox.css';
 import './embla.css';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-const OPTIONS = { slidesToScroll: 'auto' };
+const OPTIONS = { slidesToScroll: 1, containScroll: false };
 
 const BestSellers = () => {
   const { getTranslation } = useTranslationNamespace('common');

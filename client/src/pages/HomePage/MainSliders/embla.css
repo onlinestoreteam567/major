@@ -1,10 +1,10 @@
 .embla {
   margin: auto;
   --slide-height: 550px;
-  --slide-spacing: 20px;
-  --slide-size: fit-content;
-  max-width: 1296px;
-  /* overflow: hidden; */
+  --slide-spacing: 0px;
+  --slide-size: 296px;
+  max-width: 296px;
+  overflow: hidden;
 }
 .embla__viewport {
   overflow: hidden;
@@ -49,7 +49,7 @@
   -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
   -webkit-appearance: none;
   appearance: none;
-  background-color: transparent;
+  background-color: red;
   touch-action: manipulation;
   display: inline-flex;
   text-decoration: none;
