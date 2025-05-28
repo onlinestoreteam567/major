@@ -1,3 +1,5 @@
+@import '@mixins';
+
 .embla {
   margin: auto;
   --slide-height: 550px;
@@ -5,9 +7,14 @@
   --slide-size: 296px;
   max-width: 296px;
   overflow: hidden;
+
+  @include mobile {
+    --slide-height: 570px;
+    --slide-size: 356px;
+    max-width: 356px;
+  }
 }
 .embla__viewport {
-  overflow: hidden;
   height: var(--slide-height);
 }
 .embla__container {

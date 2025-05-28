@@ -5,20 +5,13 @@
   box-sizing: border-box;
   gap: 40px;
   width: 296px;
-  min-height: 685px;
-  height: 685px;
-  overflow: hidden;
 
   @include mobile {
     width: 356px;
-    min-height: 693px;
-    height: 693px;
     gap: 48px;
   }
   @include tablet {
     width: 640px;
-    min-height: 646px;
-    height: 646px;
   }
   @include deskmin {
     width: 980px;
