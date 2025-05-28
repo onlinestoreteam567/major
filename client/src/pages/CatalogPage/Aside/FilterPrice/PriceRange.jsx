@@ -11,7 +11,7 @@ import { handleMinInputChange } from './helpers/handleMinInputChange';
 import { handleMaxInputChange } from './helpers/handleMaxInputChange';
 import { getByPrice } from './helpers/getByPrice';
 
-const PriceRange = () => {
+const PriceRange = ({ handleCloseAside }) => {
   const { getTranslation } = useTranslationNamespace('common');
   const newPrice = useSelector(filterPrice);
   const products = useSelector(selectProducts);
@@ -97,7 +97,7 @@ const PriceRange = () => {
           />
         </div>
         <button
-          onClick={() =>
+          onClick={() => {
             getByPrice(
               minPrice,
               maxPrice,
@@ -107,8 +107,9 @@ const PriceRange = () => {
               setMinInputValue,
               setMaxInputValue,
               dispatch
-            )
-          }
+            );
+            handleCloseAside();
+          }}
           disabled={
             minInputValue.trim() === '' ||
             maxInputValue.trim() === '' ||
