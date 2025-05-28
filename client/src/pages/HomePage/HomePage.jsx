@@ -1,6 +1,8 @@
 import cl from './index.module.scss';
 import BestSellers from './MainSliders/BestSellers';
 import MajorInfo from './MajorInfo/MajorInfo';
+import OurPartners from './OurPartners/OurPartners';
+import WhyChooseUs from './WhyChooseUs/WhyChooseUs';
 
 const HomePage = () => {
   return (
@@ -14,9 +16,9 @@ const HomePage = () => {
         {/* <Sets /> */}
         {/* <Catalog /> */}
         <MajorInfo />
-        {/* <WhyChooseUs /> */}
+        <WhyChooseUs />
         {/* <Comments /> */}
-        {/* <OurPartners /> */}
+        <OurPartners />
       </div>
     </div>
   );
