@@ -1,4 +1,4 @@
-export const handleCloseWithDelay = (setHidden, setShow, delay = 280) => {
+export const handleCloseWithDelay = (setHidden, setShow, delay = 250) => {
   setHidden(true);
   clearTimeout();
   setTimeout(() => {
