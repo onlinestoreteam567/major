@@ -1,3 +1,4 @@
+// render.js
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
 import App from './App';
@@ -7,34 +8,46 @@ import { Provider } from 'react-redux';
 import { fetchBestSellers } from './redux/products/service';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import Backend from 'i18next-fs-backend'; // Import i18next-fs-backend
+import path from 'path'; // Node.js path module
 
 export async function render(url) {
-  await i18n.use(initReactI18next).init({
-    fallbackLng: 'ua',
-    lng: 'ua',
-    ns: [
-      'common',
-      'header',
-      'footer',
-      'catalogPage',
-      'yellowButton',
-      'buttonClose',
-      'buttonAriaLable',
-      'mainBanner',
-      'majorInfo',
-      'whyChooseUs',
-      'ourPartners',
-      'basket',
-      'search',
-      'card',
-    ],
-    defaultNS: 'common',
-    interpolation: {
-      escapeValue: false,
-    },
-    // Set debug to true temporarily if you want to see i18next loading logs on server
-    // debug: true,
-  });
+  // Determine the absolute path to your locales directory
+  // Adjust this path based on your project structure.
+  // Assuming 'public/locales' relative to your server entry file.
+  const localesPath = path.resolve(process.cwd(), 'public', 'locales');
+
+  await i18n
+    .use(Backend) // Use fs-backend for server-side
+    .use(initReactI18next)
+    .init({
+      debug: true, // Keep for debugging
+      fallbackLng: 'ua',
+      lng: 'ua',
+      ns: [
+        'common',
+        'header',
+        'footer',
+        'catalogPage',
+        'yellowButton',
+        'buttonClose',
+        'buttonAriaLable',
+        'mainBanner',
+        'majorInfo',
+        'whyChooseUs',
+        'ourPartners',
+        'basket',
+        'search',
+        'card',
+      ],
+      defaultNS: 'common',
+      backend: {
+        loadPath: path.join(localesPath, '{{lng}}', '{{ns}}.json'),
+      },
+      interpolation: {
+        escapeValue: false,
+      },
+    });
 
   // Dispatch the fetchBestSellers action and wait for it to complete
   await store.dispatch(fetchBestSellers());
