@@ -45,9 +45,9 @@ export default function ListReviewsCard({ card }) {
           )}
 
           {isSingleReview ? (
-            <>
+            <div className={cl.wrapSingleReview}>
               <ReviewsCard review={slidesData[0]} />
-            </>
+            </div>
           ) : (
             <>
               {showArr ? (
