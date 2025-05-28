@@ -10,6 +10,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-fs-backend'; // Import i18next-fs-backend
 import path from 'path'; // Node.js path module
+import './index.scss';
 
 export async function render(url) {
   // Determine the absolute path to your locales directory

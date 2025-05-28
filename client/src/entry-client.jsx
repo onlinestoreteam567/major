@@ -5,6 +5,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { store } from './config/store.js';
 import './config/i18next';
+import './index.scss';
 
 // Check for preloaded state from the server
 const preloadedState = window.__PRELOADED_STATE__;
