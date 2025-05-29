@@ -75,11 +75,7 @@ export default function ImgMobile({ card }) {
         </div>
       )}
 
-      {/* {isShow &&
-        createPortal(
-          <WrapModal isShow={isShow} closeModal={closeModal} content={<SliderImgs card={card} />} />,
-          document.body
-        )} */}
+      {isShow && <SliderImgs card={card} closeModal={closeModal} />}
     </div>
   );
 }
