@@ -3,10 +3,16 @@ import { PrevButton, NextButton, usePrevNextButtons } from './EmblaCarouselArrow
 import useEmblaCarousel from 'embla-carousel-react';
 import Card from '@pages/CatalogPage/Products/CardsContainer/Card/Card';
 import Fade from 'embla-carousel-fade';
+import useScreenSizes from '@hooks/useScreenSizes';
 
 const EmblaCarousel = (props) => {
+  const { tablet, deskmin, deskmax } = useScreenSizes();
+
+  let plugins = [Fade()];
+  if (tablet || deskmin || deskmax) plugins = [];
+
   const { slides, options } = props;
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, plugins);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 

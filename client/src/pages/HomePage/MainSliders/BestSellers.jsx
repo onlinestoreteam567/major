@@ -8,7 +8,7 @@ import EmblaCarousel from './EmblaCarousel';
 import './embla.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-const OPTIONS = { containScroll: false };
+const OPTIONS = { slidesToScroll: 2 };
 
 const BestSellers = () => {
   const { getTranslation } = useTranslationNamespace('common');
