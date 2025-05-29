@@ -13,6 +13,12 @@
     --slide-size: 356px;
     max-width: 356px;
   }
+
+  @include tablet {
+    --slide-size: 306px;
+    --slide-spacing: 28px;
+    max-width: 640px;
+  }
 }
 .embla__viewport {
   height: var(--slide-height);

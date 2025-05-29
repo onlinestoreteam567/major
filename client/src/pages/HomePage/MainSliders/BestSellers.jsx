@@ -5,12 +5,10 @@ import EmptyPage from '@components/helpers/EmptyPage';
 import { loadBestSeller, selectBestSeller } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import EmblaCarousel from './EmblaCarousel';
-import './base.css';
-import './sandbox.css';
 import './embla.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-const OPTIONS = { slidesToScroll: 1, containScroll: false };
+const OPTIONS = { containScroll: false };
 
 const BestSellers = () => {
   const { getTranslation } = useTranslationNamespace('common');
