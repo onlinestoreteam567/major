@@ -6,7 +6,6 @@
   --slide-spacing: 0px;
   --slide-size: 296px;
   max-width: 296px;
-  overflow: hidden;
 
   @include mobile {
     --slide-height: 570px;
@@ -22,10 +21,17 @@
 
   @include deskmin {
     max-width: 980px;
+    --slide-spacing: 31px;
+  }
+
+  @include deskmax {
+    max-width: 1296px;
+    --slide-spacing: 24px;
   }
 }
 .embla__viewport {
   height: var(--slide-height);
+  overflow: hidden;
 }
 .embla__container {
   display: flex;
@@ -54,7 +60,6 @@
   grid-template-columns: auto 1fr;
   justify-content: space-between;
   gap: 1.2rem;
-  margin-top: 1.8rem;
 }
 .embla__buttons {
   display: grid;
