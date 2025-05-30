@@ -8,12 +8,11 @@ import EmblaCarousel from './EmblaCarousel';
 import './embla.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-const OPTIONS = { slidesToScroll: 2 };
-
 const BestSellers = () => {
   const { getTranslation } = useTranslationNamespace('common');
   const isLoading = useSelector(loadBestSeller);
   const items = useSelector(selectBestSeller);
+  const OPTIONS = { slidesToScroll: 1, align: 'start' };
 
   const showArr = Array.isArray(items) && items.length !== 0;
   return (

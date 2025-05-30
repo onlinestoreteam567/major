@@ -19,6 +19,10 @@
     --slide-spacing: 28px;
     max-width: 640px;
   }
+
+  @include deskmin {
+    max-width: 980px;
+  }
 }
 .embla__viewport {
   height: var(--slide-height);
