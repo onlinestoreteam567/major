@@ -1,21 +1,14 @@
-import { DotButton, useDotButton } from './EmblaCarouselDotButton';
 import { PrevButton, NextButton, usePrevNextButtons } from './EmblaCarouselArrowButtons';
 import useEmblaCarousel from 'embla-carousel-react';
 import Card from '@pages/CatalogPage/Products/CardsContainer/Card/Card';
 import Fade from 'embla-carousel-fade';
 import useScreenSizes from '@hooks/useScreenSizes';
 
-const EmblaCarousel = (props) => {
+const EmblaCarousel = ({ slides, options }) => {
   const { tablet, deskmin, deskmax } = useScreenSizes();
-
   let plugins = [Fade()];
   if (tablet || deskmin || deskmax) plugins = [];
-
-  const { slides, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, plugins);
-
-  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
-
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi);
 
   return (
@@ -25,8 +18,6 @@ const EmblaCarousel = (props) => {
           {slides.map((slide, index) => (
             <div className="embla__slide" key={index}>
               <Card key={index} card={slide} />
-
-              {/* <div className="embla__slide__number">{index + 1}</div> */}
             </div>
           ))}
         </div>
@@ -38,7 +29,8 @@ const EmblaCarousel = (props) => {
           <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
         </div>
 
-        <div className="embla__dots">
+        {/* const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi); */}
+        {/* <div className="embla__dots">
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}
@@ -46,7 +38,7 @@ const EmblaCarousel = (props) => {
               className={'embla__dot'.concat(index === selectedIndex ? ' embla__dot--selected' : '')}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
