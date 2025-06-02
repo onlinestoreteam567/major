@@ -28,18 +28,6 @@
     right: 0;
   }
 
-  .flowersBackground {
-    width: 1440px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    @include deskmax {
-      width: 100%;
-    }
-  }
-
   .slide {
     height: 620px;
     margin: 0 auto;
