@@ -19,7 +19,7 @@ const Slide = ({ slide, next, previous }) => {
   return (
     <div style={{ backgroundImage: `url(${slide.background_image_url})` }} className={cl.wrapBackground}>
       <ButtonAriaLabel al="previous" onClick={previous} cn />
-      <img src="/images/banners/mainBanner/background.webp" alt="" className={cl.flowersBackground} />
+
       <div className={`${cl.slide} ${slide.left ? cl.right : ''}`}>
         {slide.left && <img src={slide.image_url} alt="" />}
         <section>
