@@ -95,7 +95,7 @@ const ReviewPopUp = ({ card, closeModal }) => {
           </div>
         ) : (
           <div className={cl.successMessage}>
-            <Heading type="h2">Дякуємо за Ваш відгук!</Heading>
+            <Heading type="h2">{getTranslation('thankYouForYourReview')}</Heading>
           </div>
         )}
       </div>
