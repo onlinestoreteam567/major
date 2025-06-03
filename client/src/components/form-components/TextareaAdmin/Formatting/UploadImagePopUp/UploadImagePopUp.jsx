@@ -2,7 +2,7 @@ import ImageUpload from '../../../../../admin/components/ImageUpload/ImageUpload
 import cl from './index.module.scss'; // Assuming this is for styling, keep it.
 import { useDispatch, useSelector } from 'react-redux';
 import { uploadImage } from '@redux/blogs/service';
-import { loadUploadImage, selectUploadImage } from '@redux/selectors';
+import { errorUploadImage, loadUploadImage, selectUploadImage } from '@redux/selectors';
 import { useCallback, useEffect } from 'react';
 import { clearUploadedImage } from '@redux/blogs/uploadImageSlice';
 
@@ -10,6 +10,7 @@ const UploadImagePopUp = ({ editor }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(loadUploadImage);
   const uploadedImage = useSelector(selectUploadImage);
+  const error = useSelector(errorUploadImage);
 
   const addImage = useCallback(
     (url) => {
@@ -40,6 +41,7 @@ const UploadImagePopUp = ({ editor }) => {
         labelText="Загрузіть фото"
         onFileSelect={handleFileChange}
         disabled={isLoading}
+        error={error}
       />
     </div>
   );
