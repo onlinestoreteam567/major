@@ -12,6 +12,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@reduxjs/toolkit": "^2.2.7",
+    "@sereneinserenade/tiptap-search-and-replace": "^0.1.1",
     "@tiptap/extension-blockquote": "^2.11.7",
     "@tiptap/extension-bold": "^2.11.7",
     "@tiptap/extension-bullet-list": "^2.11.7",

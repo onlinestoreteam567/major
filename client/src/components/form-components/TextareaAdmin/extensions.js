@@ -15,6 +15,7 @@ import Youtube from '@tiptap/extension-youtube';
 import History from '@tiptap/extension-history';
 import Image from '@tiptap/extension-image';
 import Dropcursor from '@tiptap/extension-dropcursor';
+import SearchAndReplace from '@sereneinserenade/tiptap-search-and-replace';
 const extensions = [
   Document,
   Paragraph,
@@ -96,6 +97,11 @@ const extensions = [
     nocookie: true,
   }),
   History,
+  SearchAndReplace.configure({
+    searchResultClass: 'search-result', // CSS class for highlighted search results
+    caseSensitive: false,
+    disableRegex: false,
+  }),
 ];
 
 export default extensions;
