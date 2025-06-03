@@ -69,3 +69,7 @@ export const showNothingSettlements = (state) => state.settlements.isShowNothing
 export const loadWarehouses = (state) => state.warehouses.isLoading;
 export const selectWarehouses = (state) => state.warehouses.warehouses;
 export const isDisabledWarehouses = (state) => state.warehouses.isDisabled;
+
+export const loadUploadImage = (state) => state.uploadImage.isLoading;
+export const selectUploadImage = (state) => state.uploadImage.uploadedImage;
+export const errorUploadImage = (state) => state.uploadImage.error;

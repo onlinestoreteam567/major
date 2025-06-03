@@ -6,14 +6,6 @@ import UploadImagePopUp from './UploadImagePopUp/UploadImagePopUp';
 const Formatting = ({ editor }) => {
   const [isShowUploadImagePopUp, setIsShowUploadImagePopUp] = useState(false);
 
-  const addImage = useCallback(() => {
-    const url = window.prompt('URL');
-
-    if (url) {
-      editor.chain().focus().setImage({ src: url }).run();
-    }
-  }, [editor]);
-
   const setLink = useCallback(() => {
     const previousUrl = editor.getAttributes('link').href;
     const url = window.prompt('URL', previousUrl);
@@ -166,7 +158,7 @@ const Formatting = ({ editor }) => {
           H6
         </button>
       </div>
-      {isShowUploadImagePopUp && <UploadImagePopUp />}
+      {isShowUploadImagePopUp && <UploadImagePopUp editor={editor} />}
     </>
   );
 };

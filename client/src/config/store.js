@@ -38,6 +38,7 @@ import { promocodeByIdReducer } from '../admin/redux/promocodeByIdSlice';
 import { promocodeEditReducer } from '../admin/redux/promocodeEditSlice';
 import { promocodeDeleteReducer } from '../admin/redux/promocodeDeleteSlice';
 import { reviewReducer } from '../redux/reviews/reviewsSlice';
+import { uploadImageReducer } from '@redux/blogs/uploadImageSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -67,10 +68,10 @@ const rootReducer = combineReducers({
   bannerCreate: bannerCreateReducer,
   bannerById: bannerByIdReducer,
   bannerEdit: bannerEditReducer,
-viewedProducts: viewedProductsReducer,
-settlements: settlementsReducer,
-warehouses: warehousesReducer,
-
+  viewedProducts: viewedProductsReducer,
+  settlements: settlementsReducer,
+  warehouses: warehousesReducer,
+  uploadImage: uploadImageReducer,
   auth: authReducer,
   createProduct: createProductReducer,
   editProduct: editProductReducer,
