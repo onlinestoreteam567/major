@@ -91,3 +91,7 @@ export const errorPartnerEdit = (state) => state.partnerEdit.error;
 export const loadAddReview = (state) => state.addReview.isLoading;
 export const responseAddReview = (state) => state.addReview.response;
 export const errorAddReview = (state) => state.addReview.error;
+
+export const loadUploadImage = (state) => state.uploadImage.isLoading;
+export const selectUploadImage = (state) => state.uploadImage.uploadedImage;
+export const errorUploadImage = (state) => state.uploadImage.error;

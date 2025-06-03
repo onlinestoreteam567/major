@@ -1,13 +1,13 @@
-import Underline from '@tiptap/extension-underline';
 import { EditorContent, useEditor } from '@tiptap/react';
-import StarterKit from '@tiptap/starter-kit';
 import { useEffect } from 'react';
 import { Controller } from 'react-hook-form';
 import cl from './index.module.scss';
+import Formatting from './Formatting/Formatting';
+import extensions from './extensions';
 
 const TipTap = ({ value, onChange, labelText, name, errors }) => {
   const editor = useEditor({
-    extensions: [StarterKit, Underline],
+    extensions,
     content: value || '',
     onUpdate: ({ editor }) => {
       onChange(editor.getHTML());
@@ -21,21 +21,10 @@ const TipTap = ({ value, onChange, labelText, name, errors }) => {
     }
   }, [value, editor]);
 
-  const handleBold = () => editor?.chain().focus().toggleBold().run();
-  const handleUnderline = () => editor?.chain().focus().toggleUnderline().run();
-
   return (
     <div className={cl.textAreaAdmin}>
       <label htmlFor={name}>{labelText}</label>
-      <div className={cl.formatting}>
-        <button type="button" onClick={handleBold}>
-          Bold
-        </button>
-        <button type="button" onClick={handleUnderline}>
-          Underline
-        </button>
-      </div>
-
+      {editor && <Formatting editor={editor} />}
       <div className={cl.tipTapWrapper}>
         <EditorContent editor={editor} />
       </div>
