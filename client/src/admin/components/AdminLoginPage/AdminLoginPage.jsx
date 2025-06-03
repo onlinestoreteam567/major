@@ -1,18 +1,18 @@
-import Heading from '@components/UI/Texts/Heading/Heading';
 import { useState, useEffect } from 'react';
 import cl from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuthToken } from '../../redux/service';
-import { loadAuth, selectAccessToken } from '../../redux/selectors';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import { errorAuth, loadAuth, selectAccessToken } from '../../redux/selectors';
 import { useNavigate } from 'react-router-dom';
+import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
+import { clearTokens } from '../../redux/authSlice';
 
 const AdminLoginPage = () => {
-  const [email, setEmail] = useState('admin@gmail.com');
-  const [password, setPassword] = useState('admin');
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const dispatch = useDispatch();
   const isLoading = useSelector(loadAuth);
   const authToken = useSelector(selectAccessToken);
+  const error = useSelector(errorAuth);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,31 +21,62 @@ const AdminLoginPage = () => {
     }
   }, [authToken, navigate]);
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (error) {
+      dispatch(clearTokens());
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchAuthToken({ email, password }));
+    dispatch(fetchAuthToken(formData));
   };
 
   return (
     <>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <div className={cl.adminLoginPage}>
-          <Heading type="h1">Admin Login</Heading>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>Email:</label>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </div>
-            <div>
-              <label>Password:</label>
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            </div>
-            <button type="submit">Login</button>
-          </form>
-        </div>
-      )}
+      <div className={cl.adminLoginPage}>
+        <header>
+          <LogoIcon fillColor="#FFFFFF" />
+        </header>
+
+        <form onSubmit={handleSubmit}>
+          <h1>
+            <img src="/svg/admin/login.svg" />
+            Введіть дані для входу
+          </h1>
+          <label>
+            Email
+            <input
+              className={error ? cl.error : ''}
+              placeholder="email"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+          <label>
+            Password
+            <input
+              className={error ? cl.error : ''}
+              placeholder="password"
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+          {error && <p>Введені дані неправильні</p>}
+          <button type="submit" disabled={!!error || isLoading}>
+            Увійти
+          </button>
+        </form>
+      </div>
     </>
   );
 };

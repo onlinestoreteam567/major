@@ -70,6 +70,28 @@ export const loadWarehouses = (state) => state.warehouses.isLoading;
 export const selectWarehouses = (state) => state.warehouses.warehouses;
 export const isDisabledWarehouses = (state) => state.warehouses.isDisabled;
 
+export const loadPartners = (state) => state.partners.isLoading;
+export const selectPartners = (state) => state.partners.partners;
+export const errorPartners = (state) => state.partners.isDisabled;
+
+export const loadPartnerCreate = (state) => state.partnerCreate.isLoading;
+export const selectPartnerCreate = (state) => state.partnerCreate.response;
+export const errorPartnerCreate = (state) => state.partnerCreate.isDisabled;
+
+export const loadPartnerDelete = (state) => state.partnerDelete.isLoading;
+export const selectPartnerDelete = (state) => state.partnerDelete.response;
+
+export const loadPartnerById = (state) => state.partnerById.isLoading;
+export const responsePartnerById = (state) => state.partnerById.partner;
+
+export const loadPartnerEdit = (state) => state.partnerEdit.isLoading;
+export const responsePartnerEdit = (state) => state.partnerEdit.response;
+export const errorPartnerEdit = (state) => state.partnerEdit.error;
+
+export const loadAddReview = (state) => state.addReview.isLoading;
+export const responseAddReview = (state) => state.addReview.response;
+export const errorAddReview = (state) => state.addReview.error;
+
 export const loadUploadImage = (state) => state.uploadImage.isLoading;
 export const selectUploadImage = (state) => state.uploadImage.uploadedImage;
 export const errorUploadImage = (state) => state.uploadImage.error;

@@ -20,7 +20,7 @@
 
   "addToCart": "Add to cart",
   "bestSellers": "Best Sellers",
-  "youHaveViewed": "You have viewed",
+  "youHaveViewed": "Viewed products:",
 
   "cheaperTogether": "Cheaper together",
   "reviewsAboutProducts": "Reviews about our products",
@@ -34,8 +34,10 @@
   "ingredients": "Ingredients",
   "productReviews": "Product reviews",
 
-  "youMayBeInterestedIn": "You may be interested in",
+  "youMayBeInterestedIn": "You may be interested in:",
   "reviewsNotFound": "No reviews found!",
 
-  "discount": "Discount"
+  "discount": "Discount",
+
+  "send": "Send"
 }

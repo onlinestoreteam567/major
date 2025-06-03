@@ -1,11 +1,8 @@
-import { createPortal } from 'react-dom';
-import LabelHit from '../Labels/LabelHit';
-import LabelNew from '../Labels/LabelNew';
-import LabelSale from '../Labels/LabelSale';
 import cl from './index.module.scss';
 import { useState } from 'react';
 import SliderImgs from './SliderImgs';
-import WrapModal from '@components/UI/WrapModal/WrapModal';
+
+import CardLabels from './CardLabels';
 
 export default function ImgDesk({ card }) {
   const placeholderImage = '/images/placeholder.webp';
@@ -17,13 +14,14 @@ export default function ImgDesk({ card }) {
   const openModal = () => setIsShow(true);
   const closeModal = () => setIsShow(false);
 
+  // Fallback for the main big image
+  const handleBigImageError = () => setBigImage(placeholderImage);
+
   return (
     <div className={cl.wrapImgDeskCard}>
       <div className={cl.wrapImgCase}>
-        {card.is_best_seller && <LabelHit />}
-        {card.is_new && <LabelNew />}
-        {card.is_discount && <LabelSale card={card} />}
-        <img src={bigImage} alt={card.name || 'Placeholder'} className={cl.imgBig} />
+        <CardLabels card={card} />
+        <img src={bigImage} alt={card.name || 'Placeholder'} className={cl.imgBig} onError={handleBigImageError} />
       </div>
       <ul className={cl.wrapSmallImg}>
         {images.map((img, i) => (
@@ -31,19 +29,19 @@ export default function ImgDesk({ card }) {
             <img
               src={img.image}
               alt={card.name || 'Placeholder'}
+              onError={(e) => {
+                e.currentTarget.src = placeholderImage;
+              }}
               className={bigImage === images[i].image ? cl.selected : ''}
             />
           </li>
         ))}
       </ul>
       <button type="button" onClick={openModal} className={cl.btnMore}>
-        <img src="/svg/more.svg" />
+        <img src="/svg/more.svg" alt="Open gallery" />
       </button>
-      {isShow &&
-        createPortal(
-          <WrapModal isShow={isShow} closeModal={closeModal} content={<SliderImgs card={card} />} />,
-          document.body
-        )}
+      {isShow && <SliderImgs closeModal={closeModal} card={card} />}
+      SliderImgs ?
     </div>
   );
 }

@@ -13,7 +13,8 @@ import CookieTest from './testСomponents/Cookie';
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
 import FormTest from './testСomponents/FormTest';
-import NotFound from '@components/helpers/NotFound';
+import NotFound from '@components/helpers/NotFound/NotFound';
+import ErrorPage from '@components/helpers/ErrorPage/ErrorPage';
 import Loading from '@components/helpers/Loading';
 
 // Protected Route (Admin)
@@ -34,6 +35,9 @@ import BannerManagement from '../admin/components/BannerManagement/BannerManagem
 import BannerCreate from '../admin/components/BannerManagement/BannerCreate/BannerCreate';
 import BannerEdit from '../admin/components/BannerManagement/BannerEdit/BannerEdit';
 import ReviewsManagement from '../admin/components/ReviewsManagement/ReviewsManagement';
+import PartnersManagement from '../admin/components/PartnersManagement.jsx/PartnersManagement';
+import PartnerCreate from '../admin/components/PartnersManagement.jsx/PartnerCreate/PartnerCreate';
+import PartnerEdit from '../admin/components/PartnersManagement.jsx/PartnerEdit/PartnerEdit';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -89,6 +93,10 @@ const router = createBrowserRouter([
       { path: 'banners/create', element: <BannerCreate /> },
       { path: 'banners/:id', element: <BannerEdit /> },
 
+      { path: 'partners', element: <PartnersManagement /> },
+      { path: 'partners/create', element: <PartnerCreate /> },
+      { path: 'partners/:id', element: <PartnerEdit /> },
+
       { path: 'reviews', element: <ReviewsManagement /> },
     ],
   },
@@ -107,6 +115,12 @@ const router = createBrowserRouter([
     path: '*',
     element: <NotFound />,
   },
+/*** */
+  {
+    path: '/error-test',
+    element: <ErrorPage error={400} />,
+  },
+  /**** */
 ]);
 
 const AppRouter = () => {

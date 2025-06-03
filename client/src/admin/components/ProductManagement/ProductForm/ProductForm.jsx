@@ -1,4 +1,4 @@
-import { Input, TextareaAdmin } from '@components/form-components';
+import { Input, TextareaProduct } from '@components/form-components';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
 import CategorySelect from './CategorySelect';
 import TypeSelect from './TypeSelect';
@@ -16,11 +16,11 @@ const ProductForm = ({ register, errors, control }) => {
       <Input type="number" labelText="Price:" name="price" register={register} errors={errors} />
       <Input type="number" labelText="Discount:" name="discount" register={register} errors={errors} />
       <Input type="number" labelText="Volume (ml):" name="volume_ml" register={register} errors={errors} />
-      <TextareaAdmin name="description_uk" labelText="Опис (укр):" errors={errors} control={control} />
-      <TextareaAdmin name="description_en" labelText="Опис (англ):" errors={errors} control={control} />
-      <TextareaAdmin name="ingredients" labelText="Інгредієнти:" errors={errors} control={control} />
-      <TextareaAdmin name="application_uk" labelText="Застосування (укр):" errors={errors} control={control} />
-      <TextareaAdmin name="application_en" labelText="Застосування (англ):" errors={errors} control={control} />
+      <TextareaProduct name="description_uk" labelText="Опис (укр):" errors={errors} register={register}/>
+      <TextareaProduct name="description_en" labelText="Опис (англ):" errors={errors} register={register}/>
+      <TextareaProduct name="ingredients" labelText="Інгредієнти:" errors={errors} register={register}/>
+      <TextareaProduct name="application_uk" labelText="Застосування (укр):" errors={errors} register={register}/>
+      <TextareaProduct name="application_en" labelText="Застосування (англ):" errors={errors} register={register} />
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
       <ImageUpload control={control} name="upload_images" errors={errors} />

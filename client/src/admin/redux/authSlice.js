@@ -20,6 +20,8 @@ const authSlice = createSlice({
   },
   reducers: {
     clearTokens: (state) => {
+      state.error = null;
+      state.isLoading = false;
       state.accessToken = null;
       state.refreshToken = null;
       localStorage.removeItem('accessToken');

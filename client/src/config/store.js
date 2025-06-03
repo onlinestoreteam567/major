@@ -1,44 +1,49 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import cartReducer from '@features/cart/cartSlice';
-import { loadFromStorage, saveToStorage } from '@utils/localStorage';
-import { setsReducer } from '@redux/products/setsSlice';
-import { productsReducer } from '@redux/products/listSlice';
-import { productIdReducer } from '@redux/products/cardSlice';
-import { bestSellerReducer } from '@redux/products/bestSlice';
-import { categotyReducer } from '@redux/params/categorySlice';
-import { promocodeReducer } from '@redux/promocode/promocodeSlice';
-import { typesReducer } from '@redux/params/purposeSlice';
-import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
-import { filterReducer } from '@redux/filter/filterSlice';
-import { searchReducer } from '@redux/products/searchSlice';
-import { bannerReducer } from '@redux/banner/bannerSlice';
-import { bannerDeleteReducer } from '@redux/banner/bannerDeleteSlice';
-import { bannerCreateReducer } from '@redux/banner/bannerCreateSlice';
 import { bannerByIdReducer } from '@redux/banner/bannerByIdSlice';
+import { bannerCreateReducer } from '@redux/banner/bannerCreateSlice';
+import { bannerDeleteReducer } from '@redux/banner/bannerDeleteSlice';
 import { bannerEditReducer } from '@redux/banner/bannerEditSlice';
-import { viewedProductsReducer } from '@redux/products/viewedProductsSlice';
+import { bannerReducer } from '@redux/banner/bannerSlice';
+import { filterReducer } from '@redux/filter/filterSlice';
 import { settlementsReducer } from '@redux/novaPost/settlementsSlice';
 import { warehousesReducer } from '@redux/novaPost/warehousesSlice';
-
+import { categotyReducer } from '@redux/params/categorySlice';
+import { typesReducer } from '@redux/params/purposeSlice';
+import { partnerCreateReducer } from '@redux/partners/partnerCreateSlice';
+import { partnerDeleteReducer } from '@redux/partners/partnerDeleteSlice';
+import { partnersReducer } from '@redux/partners/partnerSlice';
+import { bestSellerReducer } from '@redux/products/bestSlice';
+import { productIdReducer } from '@redux/products/cardSlice';
+import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
+import { productsReducer } from '@redux/products/listSlice';
+import { searchReducer } from '@redux/products/searchSlice';
+import { setsReducer } from '@redux/products/setsSlice';
+import { viewedProductsReducer } from '@redux/products/viewedProductsSlice';
+import { promocodeReducer } from '@redux/promocode/promocodeSlice';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { loadFromStorage, saveToStorage } from '@utils/localStorage';
 import { authReducer } from '../admin/redux/authSlice';
 import { createProductReducer } from '../admin/redux/createProductSlice';
-import { editProductReducer } from '../admin/redux/editProductSlice';
-import { productDeleteReducer } from '../admin/redux/productDeleteSlice';
 import { createPurposeCategoryReducer } from '../admin/redux/createPurposeCategorySlice';
 import { createTypeCategoryReducer } from '../admin/redux/createTypeCategorySlice';
-import { purposeCategoryByIdReducer } from '../admin/redux/purposeCategoryByIdSlice';
-import { purposeEditReducer } from '../admin/redux/purposeEditSlice';
-import { purposeDeleteReducer } from '../admin/redux/purposeDeleteSlice';
-import { typeByIdReducer } from '../admin/redux/typeByIdSlice';
-import { typeEditReducer } from '../admin/redux/typeEditSlice';
-import { typeDeleteReducer } from '../admin/redux/typeDeleteSlice';
-import { promocodeListReducer } from '../admin/redux/promocodeListSlice';
-import { promocodeCreateReducer } from '../admin/redux/promocodeCreateSlice';
+import { editProductReducer } from '../admin/redux/editProductSlice';
+import { productDeleteReducer } from '../admin/redux/productDeleteSlice';
 import { promocodeByIdReducer } from '../admin/redux/promocodeByIdSlice';
-import { promocodeEditReducer } from '../admin/redux/promocodeEditSlice';
+import { promocodeCreateReducer } from '../admin/redux/promocodeCreateSlice';
 import { promocodeDeleteReducer } from '../admin/redux/promocodeDeleteSlice';
+import { promocodeEditReducer } from '../admin/redux/promocodeEditSlice';
+import { promocodeListReducer } from '../admin/redux/promocodeListSlice';
+import { purposeCategoryByIdReducer } from '../admin/redux/purposeCategoryByIdSlice';
+import { purposeDeleteReducer } from '../admin/redux/purposeDeleteSlice';
+import { purposeEditReducer } from '../admin/redux/purposeEditSlice';
+import { typeByIdReducer } from '../admin/redux/typeByIdSlice';
+import { typeDeleteReducer } from '../admin/redux/typeDeleteSlice';
+import { typeEditReducer } from '../admin/redux/typeEditSlice';
 import { reviewReducer } from '../redux/reviews/reviewsSlice';
 import { uploadImageReducer } from '@redux/blogs/uploadImageSlice';
+import { partnerByIdReducer } from '@redux/partners/partnerByIdSlice';
+import { partnerEditReducer } from '@redux/partners/partnerEditSlice';
+import { addReviewReducer } from '@redux/reviews/addReviewReducer';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -71,7 +76,7 @@ const rootReducer = combineReducers({
   viewedProducts: viewedProductsReducer,
   settlements: settlementsReducer,
   warehouses: warehousesReducer,
-  uploadImage: uploadImageReducer,
+
   auth: authReducer,
   createProduct: createProductReducer,
   editProduct: editProductReducer,
@@ -90,6 +95,7 @@ const rootReducer = combineReducers({
   promocodeEdit: promocodeEditReducer,
   promocodeDelete: promocodeDeleteReducer,
   reviews: reviewReducer,
+  addReview: addReviewReducer,
 });
 
 export const store = configureStore({

@@ -30,7 +30,7 @@ export default function ProductLook() {
     <Spinner />
   ) : (
     <div className={cl.slider}>
-      <Heading type="h2">{getTranslation('youHaveViewed')}</Heading>
+      <Heading type="h3">{getTranslation('youHaveViewed')}</Heading>
       <ProductListOrSlider products={fetchedViewedProducts} />
     </div>
   );

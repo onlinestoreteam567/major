@@ -1,0 +1,16 @@
+@import '@mixins';
+
+.star {
+  width: 13.33px;
+  height: 13.33px;
+
+  @include tablet {
+    width: 16px;
+    height: 16px;
+  }
+
+  @include deskmin {
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -18,9 +18,14 @@ const Warehouses = () => {
   }, [allWarehouses]);
 
   const handleInputChange = (e) => {
-    const term = e.target.value;
+    const term = e.target.value.toLowerCase();
     setSearchTerm(term);
-    const filtered = allWarehouses.filter((warehouse) => warehouse.address.toLowerCase().includes(term.toLowerCase()));
+
+    const filtered = allWarehouses.filter((warehouse) => {
+      const fullText = `№${warehouse.number} ${warehouse.address}`.toLowerCase();
+      return fullText.includes(term);
+    });
+
     setFilteredWarehouses(filtered);
     setIsCanDisplayNothingFound(true);
   };
@@ -45,8 +50,8 @@ const Warehouses = () => {
           <Spinner />
         ) : filteredWarehouses.length > 0 ? (
           filteredWarehouses.map((warehouse, i) => (
-            <li onClick={() => handleListItemClick(warehouse.address)} key={i}>
-              {warehouse.address}
+            <li onMouseDown={() => handleListItemClick(warehouse.address)} key={i}>
+              №{warehouse.number} {warehouse.address}
             </li>
           ))
         ) : (
