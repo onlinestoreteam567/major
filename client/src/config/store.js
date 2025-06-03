@@ -76,6 +76,12 @@ const rootReducer = combineReducers({
   viewedProducts: viewedProductsReducer,
   settlements: settlementsReducer,
   warehouses: warehousesReducer,
+  uploadImage: uploadImageReducer,
+  partnerById: partnerByIdReducer,
+  partnerEdit: partnerEditReducer,
+  partners: partnersReducer,
+  partnerDelete: partnerDeleteReducer,
+  partnerCreate: partnerCreateReducer,
 
   auth: authReducer,
   createProduct: createProductReducer,
