@@ -1,0 +1,81 @@
+@import '@mixins';
+
+.deletePopUp {
+  @include flexGap(24px, column);
+  background-color: #ffffff;
+  width: 280px;
+  height: 241px;
+  border-radius: 8px;
+  padding: 32px;
+  font-family: Mulish;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: $z-index-pop-up;
+  animation: fadeIn 300ms ease-out;
+  box-sizing: border-box;
+
+  h2 {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 136%;
+    text-align: center;
+  }
+
+  div {
+    @include flex(row, space-between);
+    button {
+      height: 54px;
+      width: 100px;
+      font-family: Mulish;
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+
+  @include mobile {
+    width: 348px;
+    height: 264px;
+    gap: 48px;
+    padding: 48px 32px;
+  }
+
+  @include tablet {
+    width: 412px;
+    height: 354px;
+    gap: 72px;
+
+    h2 {
+      font-size: 32px;
+    }
+
+    div {
+      button {
+        width: 154px;
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 550px;
+    height: 310px;
+    gap: 72px;
+    padding: 48px 64px;
+
+    div {
+      button {
+        width: 191px;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
