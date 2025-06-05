@@ -24,7 +24,7 @@ const List = () => {
     if (deletedItemName) {
       const timer = setTimeout(() => {
         setDeletedItemName('');
-      }, 4000);
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
@@ -51,7 +51,7 @@ const List = () => {
               ))}
             </ul>
           </div>
-          {deletedItemName && <DeleteMessage deletedItemName={deletedItemName} />}
+          {deletedItemName && <DeleteMessage>Товар “{deletedItemName}” видалено</DeleteMessage>}
         </>
       )}
     </>

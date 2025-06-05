@@ -1,9 +1,11 @@
 import cl from './index.module.scss';
 
-const DeleteMessage = ({ deletedItemName }) => {
+const DeleteMessage = ({ children }) => {
+  if (!children) return null;
+
   return (
     <div className={cl.deleteMessage}>
-      <p>Товар “{deletedItemName}” видалено</p>
+      <p>{children}</p>
     </div>
   );
 };
