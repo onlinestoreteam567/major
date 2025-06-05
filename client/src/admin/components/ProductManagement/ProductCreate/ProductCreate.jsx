@@ -40,10 +40,14 @@ const ProductCreate = () => {
 
   return (
     <>
-      <ReturnButton to="/admin/products" />
       <form onSubmit={handleSubmit(onSubmit)} className={cl.productCreate}>
         <ProductForm register={register} errors={errors} control={control} />
-        <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити товар" />
+
+        <div className={cl.btn_wrapper}>
+          <ReturnButton to="/admin/products" />
+          <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Зберегти" />
+        </div>
+
         {errorPost && <ErrorText error={errorPost}></ErrorText>}
         {response && <SuccessMessage>Товар успішно створено!</SuccessMessage>}
       </form>

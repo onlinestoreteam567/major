@@ -9,6 +9,13 @@
   letter-spacing: $letter-spacing-small;
   line-height: $line-height-small;
   outline: none;
+  width: 100%;
+  border-radius: 8px;
+  height: 125px;
+  
+   @include tablet {
+    height: 100%;
+  }
 
   &::placeholder {
     font-size: $font-size-small;
