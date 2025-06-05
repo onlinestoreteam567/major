@@ -20,6 +20,16 @@ const List = () => {
     deleteResponse === 204 && dispatch(fetchProductsAll());
   }, [dispatch, deleteResponse, deletedItemName]);
 
+  useEffect(() => {
+    if (deletedItemName) {
+      const timer = setTimeout(() => {
+        setDeletedItemName('');
+      }, 4000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [deletedItemName]);
+
   return (
     <>
       {isLoading || isLoadingDelete ? (
@@ -41,7 +51,7 @@ const List = () => {
               ))}
             </ul>
           </div>
-          <DeleteMessage deletedItemName={deletedItemName} />
+          {deletedItemName && <DeleteMessage deletedItemName={deletedItemName} />}
         </>
       )}
     </>
