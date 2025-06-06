@@ -1,9 +1,9 @@
-import { Input } from '@components/form-components';
+import { Input, TextareaProduct } from '@components/form-components';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
 import CategorySelect from './CategorySelect';
 import TypeSelect from './TypeSelect';
 import ImageUpload from './ImageUpload/ImageUpload';
-import ResponsiveTextareas from '@components/form-components/ResponsiveTextareas/ResponsiveTextareas';
+// import ResponsiveTextareas from '@components/form-components/ResponsiveTextareas/ResponsiveTextareas';
 
 const ProductForm = ({ register, errors, control }) => {
   return (
@@ -21,13 +21,13 @@ const ProductForm = ({ register, errors, control }) => {
       <Input type="number" labelText="Ціна зі знижкою:" name="discounted_price" register={register} errors={errors} />
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
-      {/* <TextareaProduct name="description_uk" labelText="Опис (UA):" errors={errors} register={register}/>
+      <TextareaProduct name="description_uk" labelText="Опис (UA):" errors={errors} register={register}/>
       <TextareaProduct name="description_en" labelText="Опис (ENG):" errors={errors} register={register}/>
       <TextareaProduct name="application_uk" labelText="Застосування (UA):" errors={errors} register={register}/>
       <TextareaProduct name="application_en" labelText="Застосування (ENG):" errors={errors} register={register} />
-      <TextareaProduct name="ingredients" labelText="Склад:" errors={errors} register={register}/> */}
+      <TextareaProduct name="ingredients" labelText="Склад:" errors={errors} register={register}/>
 
-      <ResponsiveTextareas register={register} errors={errors} />
+      {/* <ResponsiveTextareas register={register} errors={errors} /> */}
     </>
   );
 };

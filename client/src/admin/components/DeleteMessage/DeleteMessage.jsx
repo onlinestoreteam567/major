@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 
 const DeleteMessage = ({ children }) => {
-  if (!children) return null;
+  // if (!children) return null;
 
   return (
     <div className={cl.deleteMessage}>
