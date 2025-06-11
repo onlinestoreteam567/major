@@ -8,6 +8,7 @@ export default function Button({
   onMouseEnter,
   onMouseLeave,
   ariaLabel,
+  disabled,
 }) {
   const handleClick = (e) => onClick(e);
 
@@ -19,6 +20,7 @@ export default function Button({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       aria-label={ariaLabel}
+      disabled={disabled}
     >
       {children}
     </button>
