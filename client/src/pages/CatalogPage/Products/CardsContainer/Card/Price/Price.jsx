@@ -7,7 +7,7 @@ export default function PriceCardCatalog({ card }) {
   const { getTranslation } = useTranslationNamespace('common');
 
   return (
-    <div className={cl.wrapPriceCatalog}>
+    <div className={`${cl.wrapPriceCatalog} ${!card.available ? cl.disabled : ''}`}>
       <div className={cl.wrapPrice}>
         <div className={cl.price}>
           <span className={cl.costNow}>{card.is_discount ? card.price_with_discount : card.price}</span>

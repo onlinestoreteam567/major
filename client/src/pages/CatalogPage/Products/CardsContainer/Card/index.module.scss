@@ -5,6 +5,7 @@
   padding: 0;
   width: 296px;
   height: 570px;
+  position: relative;
 
   @include mobile {
     width: 356px;

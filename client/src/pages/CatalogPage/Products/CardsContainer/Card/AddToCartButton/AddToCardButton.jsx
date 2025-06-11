@@ -16,7 +16,12 @@ const AddToCartButton = ({ card, variant = 'secondary', count }) => {
   };
 
   return (
-    <Button ariaLabel={getTranslation('addToCart')} onClick={handleAddToCart} variant={variant}>
+    <Button
+      ariaLabel={getTranslation('addToCart')}
+      onClick={handleAddToCart}
+      variant={variant}
+      disabled={!card.available}
+    >
       {getTranslation('addToCart')}
     </Button>
   );
