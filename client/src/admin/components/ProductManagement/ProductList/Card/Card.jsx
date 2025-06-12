@@ -3,6 +3,8 @@ import cl from './index.module.scss';
 import useScreenSizes from '@hooks/useScreenSizes';
 import DeletePopUp from '../DeletePopUp/DeletePopUp';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteProductById } from '@redux/products/service';
 
 const Card = ({ card, setDeletedItemName }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
@@ -11,7 +13,13 @@ const Card = ({ card, setDeletedItemName }) => {
   const isSmallScreen = !(tablet || deskmin || deskmax);
 
   const toggleDeletePopUp = () => setIsShowDeletePopUp(!isShowDeletePopUp);
-  const handleDelete = (id) => console.log(123 + id);
+
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(deleteProductById(id));
+    toggleDeletePopUp();
+  };
 
   const cardContent = (
     <>
