@@ -10,6 +10,7 @@
   position: fixed;
   top: 0;
   left: 50%;
+  z-index: 1000;
   transform: translateX(-50%);
   animation: fadeIn 300ms ease-out;
 
