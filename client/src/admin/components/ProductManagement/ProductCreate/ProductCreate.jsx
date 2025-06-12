@@ -12,6 +12,7 @@ import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
 import handleImageUpload from '@utils/handleImageUpload';
 import ReturnButton from '../../ReturnButton/ReturnButton';
+import { useEffect } from 'react';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -21,10 +22,27 @@ const ProductCreate = () => {
     handleSubmit,
     formState: { errors },
     control,
+    watch,
+    setValue,
+    reset,
   } = useForm({
     resolver: yupResolver(productSchema),
     mode: 'onSubmit',
   });
+
+  const price = watch('price');
+  const discount = watch('discount');
+
+  useEffect(() => {
+    if (price && discount) {
+      const discounted = price - (price * discount) / 100;
+      setValue('discounted_price', Math.round(discounted));
+    } else if (price) {
+      setValue('discounted_price', price);
+    } else {
+      setValue('discounted_price', '');
+    }
+  }, [price, discount, setValue]);
 
   const isLoading = useSelector(loadCreateProduct);
   const response = useSelector(responseCreateProduct);
@@ -37,6 +55,12 @@ const ProductCreate = () => {
 
     dispatch(createProduct(formData));
   };
+
+  useEffect(() => {
+    if (response) {
+      reset();
+    }
+  }, [response, reset]);
 
   return (
     <>

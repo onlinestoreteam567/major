@@ -18,7 +18,7 @@ const ProductForm = ({ register, errors, control }) => {
       <CheckBox labelText="Хіт продажу" name="is_best_seller" register={register} />
       <Input type="number" labelText="Ціна (грн):" name="price" register={register} errors={errors} />
       <Input type="number" labelText="Знижка(%):" name="discount" register={register} errors={errors} />
-      <Input type="number" labelText="Ціна зі знижкою:" name="discounted_price" register={register} errors={errors} />
+      <Input type="number" labelText="Ціна зі знижкою:" name="discounted_price" register={register} errors={errors} readOnly/>
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
       <TextareaProduct name="description_uk" labelText="Опис (UA):" errors={errors} register={register}/>
