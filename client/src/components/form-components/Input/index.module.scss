@@ -1,33 +1,74 @@
 @import '@mixins';
 
-.input {
-  outline: none;
-  box-sizing: border-box;
-  padding-left: 10px;
-  font-family: $font-main;
-  font-size: $font-size-small;
-  font-weight: $font-weight-base;
-  line-height: $line-height-small;
-  letter-spacing: $letter-spacing-small;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+.label {
+  input {
+    box-sizing: border-box;
+    outline: none;
+    box-sizing: border-box;
+    padding-left: 10px;
+    font-family: $font-main;
+    font-size: $font-size-small;
+    font-weight: $font-weight-base;
+    line-height: $line-height-small;
+    letter-spacing: $letter-spacing-small;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
 }
 
 .popUp {
-  height: 40px;
-  border-radius: $border-radius-base;
-  border: 1px solid #676767;
+  input {
+    height: 40px;
+    border-radius: $border-radius-base;
+    border: 1px solid #676767;
 
-  &::placeholder {
-    color: #676767;
+    &::placeholder {
+      color: #676767;
+    }
   }
 }
 
 .phoneNumberInput {
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+  input {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+}
+
+.admin {
+  font-family: Mulish;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 136%;
+  color: #000000;
+
+  input {
+    border-radius: 6px;
+    padding: 12px 24px;
+    border: 1px solid #a2a2a2;
+    color: #676767;
+    height: 46px;
+    width: 220px;
+
+    &::placeholder {
+      font-family: Mulish;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 136%;
+      color: #a2a2a2;
+    }
+
+    &:hover {
+      border-color: #676767;
+    }
+
+    &.error {
+      border-color: #e31a1a;
+      color: #e31a1a;
+    }
+  }
 }
