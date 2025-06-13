@@ -1,9 +1,10 @@
 import { Input } from '@components/form-components';
 import CheckBox from '@components/form-components/Checkbox/Checkbox';
-import CategorySelect from './CategorySelect';
-import TypeSelect from './TypeSelect';
+import CategorySelect from './CategorySelect/CategorySelect';
+import TypeSelect from './TypeSelect/TypeSelect';
 import ImageUpload from './ImageUpload/ImageUpload';
-// import ResponsiveTextareas from '@components/form-components/ResponsiveTextareas/ResponsiveTextareas';
+import ResponsiveTextareas from '@components/form-components/ResponsiveTextareas/ResponsiveTextareas';
+import AdminCheckBox from '@components/form-components/Checkbox/AdminCheckbox/Checkbox';
 
 const ProductForm = ({ register, errors, control }) => {
   return (
