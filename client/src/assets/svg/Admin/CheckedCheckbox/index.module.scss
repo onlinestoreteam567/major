@@ -1,0 +1,9 @@
+.checkedCheckbox {
+  &:hover {
+    box-shadow: 4px 4px 8px 0px #226b247a;
+
+    rect {
+      fill: #438645;
+    }
+  }
+}

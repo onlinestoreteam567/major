@@ -1,8 +1,8 @@
 import { Input, TextareaProduct } from '@components/form-components';
-import CheckBox from '@components/form-components/Checkbox/Checkbox';
 import CategorySelect from './CategorySelect';
 import TypeSelect from './TypeSelect';
 import ImageUpload from './ImageUpload/ImageUpload';
+import AdminCheckBox from '@components/form-components/Checkbox/AdminCheckbox/Checkbox';
 
 const ProductForm = ({ register, errors, control }) => {
   return (
@@ -41,9 +41,9 @@ const ProductForm = ({ register, errors, control }) => {
         errors={errors}
         variant="admin"
       />
-      <CheckBox labelText="В наявності" name="available" register={register} />
-      <CheckBox labelText="Новинка" name="is_new" register={register} />
-      <CheckBox labelText="Хіт продажу" name="is_best_seller" register={register} />
+      <AdminCheckBox labelText="В наявності" name="available" register={register} />
+      <AdminCheckBox labelText="Новинка" name="is_new" register={register} />
+      <AdminCheckBox labelText="Хіт продажу" name="is_best_seller" register={register} />
       <Input type="number" labelText="Ціна (грн):" name="price" register={register} errors={errors} />
       <Input type="number" labelText="Знижка(%):" name="discount" register={register} errors={errors} />
       <Input
