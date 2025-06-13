@@ -29,7 +29,7 @@ const ImageUpload = ({ control, name, errors, labelText = 'Фото' }) => {
             />
           </label>
 
-          {image && (
+          {image ? (
             <div>
               <Cropper
                 className={cl.cropperContainer}
@@ -65,6 +65,8 @@ const ImageUpload = ({ control, name, errors, labelText = 'Фото' }) => {
                 Обрізати & Додати
               </button>
             </div>
+          ) : (
+            <img src="/images/admin/product/imagePlaceholder.webp" />
           )}
 
           <div className={cl.croppedImageContainer}>
