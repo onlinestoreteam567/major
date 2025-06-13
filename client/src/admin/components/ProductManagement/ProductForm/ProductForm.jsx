@@ -29,6 +29,7 @@ const ProductForm = ({ register, errors, control }) => {
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
 
+
       <ResponsiveTextareas register={register} errors={errors} />
     </>
   );
