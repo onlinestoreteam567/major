@@ -3,12 +3,11 @@ import { Controller } from 'react-hook-form';
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
 import cl from './index.module.scss';
-
 import handleImageUpload from './helpers/handleImageUpload';
 import handleCroppedImage from './helpers/handleCroppedImage';
 import deleteCroppedImage from './helpers/deleteCroppedImage';
 
-const ImageUpload = ({ control, name, errors, labelText = 'Фото' }) => {
+const ImageUpload = ({ control, name, errors, labelText = 'Додати фото' }) => {
   const [image, setImage] = useState(null);
   const [originalFile, setOriginalFile] = useState(null);
   const [croppedImages, setCroppedImages] = useState([]);
@@ -19,16 +18,7 @@ const ImageUpload = ({ control, name, errors, labelText = 'Фото' }) => {
       control={control}
       name={name}
       render={({ field: { onChange } }) => (
-        <div>
-          <label>
-            {labelText}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(event) => handleImageUpload(event, setImage, setOriginalFile)}
-            />
-          </label>
-
+        <div className={cl.inputWrapper}>
           {image ? (
             <div>
               <Cropper
@@ -68,6 +58,17 @@ const ImageUpload = ({ control, name, errors, labelText = 'Фото' }) => {
           ) : (
             <img src="/images/admin/product/imagePlaceholder.webp" />
           )}
+
+          <label htmlFor={name}>
+            <span>{labelText}</span>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(event) => handleImageUpload(event, setImage, setOriginalFile)}
+              id={name}
+              name={name}
+            />
+          </label>
 
           <div className={cl.croppedImageContainer}>
             {croppedImages.map((img, index) => (
