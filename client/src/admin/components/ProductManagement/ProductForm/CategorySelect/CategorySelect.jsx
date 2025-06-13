@@ -1,12 +1,13 @@
+import cl from './index.module.scss';
 import Spinner from '@components/helpers/Spinner/Spinner';
-import { loadTypes, selectTypes } from '@redux/selectors';
+import { loadCategories, selectCategories } from '@redux/selectors';
 import { Controller } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 
-const TypeSelect = ({ control, errors }) => {
-  const items = useSelector(selectTypes);
-  const isLoading = useSelector(loadTypes);
-  const name = 'type_category';
+const CategorySelect = ({ control, errors }) => {
+  const purposeCategories = useSelector(selectCategories);
+  const isLoading = useSelector(loadCategories);
+  const name = 'purpose_category';
 
   return isLoading ? (
     <Spinner />
@@ -17,14 +18,17 @@ const TypeSelect = ({ control, errors }) => {
       render={({ field: { value, onChange, ...field } }) => (
         <>
           <select
-            value={value}
+            className={cl.categorySelect}
             {...field}
             id={name}
+            multiple
+            value={value}
             onChange={(event) => {
-              onChange(event.target.value);
+              const selectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
+              onChange(selectedValues);
             }}
           >
-            {items.map((value, idx) => (
+            {purposeCategories.map((value, idx) => (
               <option key={idx} value={value.id}>
                 {value.name} id: {value.id}
               </option>
@@ -36,4 +40,4 @@ const TypeSelect = ({ control, errors }) => {
     />
   );
 };
-export default TypeSelect;
+export default CategorySelect;
