@@ -1,6 +1,6 @@
 import { Input, TextareaProduct } from '@components/form-components';
-import CategorySelect from './CategorySelect';
-import TypeSelect from './TypeSelect';
+import CategorySelect from './CategorySelect/CategorySelect';
+import TypeSelect from './TypeSelect/TypeSelect';
 import ImageUpload from './ImageUpload/ImageUpload';
 import AdminCheckBox from '@components/form-components/Checkbox/AdminCheckbox/Checkbox';
 
