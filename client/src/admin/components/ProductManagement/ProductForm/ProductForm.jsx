@@ -32,8 +32,12 @@ const ProductForm = ({ register, errors, control }) => {
         errors={errors}
         variant="admin"
       />
+
+      <AdminCheckBox labelText="В наявності" name="available" register={register} />
+      <AdminCheckBox labelText="Новинка" name="is_new" register={register} />
+      <AdminCheckBox labelText="Хіт продажу" name="is_best_seller" register={register} />
       <Input
-        placeholder="example"
+        placeholder="0"
         type="number"
         labelText="Об’єм(ml):"
         name="volume_ml"
@@ -41,12 +45,27 @@ const ProductForm = ({ register, errors, control }) => {
         errors={errors}
         variant="admin"
       />
-      <AdminCheckBox labelText="В наявності" name="available" register={register} />
-      <AdminCheckBox labelText="Новинка" name="is_new" register={register} />
-      <AdminCheckBox labelText="Хіт продажу" name="is_best_seller" register={register} />
-      <Input type="number" labelText="Ціна (грн):" name="price" register={register} errors={errors} />
-      <Input type="number" labelText="Знижка(%):" name="discount" register={register} errors={errors} />
       <Input
+        placeholder="0"
+        variant="admin"
+        type="number"
+        labelText="Ціна (грн):"
+        name="price"
+        register={register}
+        errors={errors}
+      />
+      <Input
+        placeholder="0"
+        variant="admin"
+        type="number"
+        labelText="Знижка(%):"
+        name="discount"
+        register={register}
+        errors={errors}
+      />
+      <Input
+        placeholder="0"
+        variant="admin"
         type="number"
         labelText="Ціна зі знижкою:"
         name="discounted_price"
