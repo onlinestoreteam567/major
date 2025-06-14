@@ -6,7 +6,6 @@
   min-height: 100dvh;
   overflow: hidden;
   background-color: #fff;
-  
 
   img {
     @include absolute;
@@ -32,6 +31,7 @@
       line-height: 136%;
       color: $text-color-black;
       font-family: $font-second;
+      
 
       @include deskmin {
         font-size: 18px;

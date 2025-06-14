@@ -8,14 +8,14 @@ export default function NotFound() {
 
   return (
     <>
-      <Header />
+      <Header scrolled={true}/>
 
       <div className={cl.wrap}>
-        <img src="/images/404/404-background.webp" alt={getTranslation('imgAltBg')} className={cl.backgroundImage} />
+        <img src="/images/404/404-background.webp" alt={getTranslation('imgAltBg')} />
         <div className={cl.contentWrap}>
-          <img src="/images/404/404-label.webp" alt={getTranslation('imgAltLabel')} className={cl.overlayImage} />
-          <div className={cl.content}>
-            <p className={cl.text}>{getTranslation('text')}</p>
+          <img src="/images/404/404-label.webp" alt={getTranslation('imgAltLabel')} />
+          <div>
+            <p>{getTranslation('text')}</p>
             <Link to="/" className={cl.button}>
               {getTranslation('button')}
             </Link>

@@ -8,7 +8,7 @@ export default function ErrorPage() {
 
   return (
     <>
-      <Header />
+      <Header scrolled={true} />
 
       <div className={cl.wrap}>
         <img src="/images/404/404-background.webp" alt={getTranslation('imgAltBg')} />
