@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 
-export function Input({ labelText, placeholder, type = 'text', name, variant, register, errors, ...rest }) {
+export function Input({ labelText, placeholder, type = 'text', name, variant, register, errors, disabled, ...rest }) {
   return (
     <label htmlFor={name} className={`${cl.label} ${cl[variant]}`}>
       {labelText}
@@ -12,6 +12,7 @@ export function Input({ labelText, placeholder, type = 'text', name, variant, re
         {...rest}
         placeholder={placeholder}
         className={errors && errors[name] && cl.error}
+        disabled={disabled}
       />
 
       {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}

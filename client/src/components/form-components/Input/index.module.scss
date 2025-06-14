@@ -81,5 +81,9 @@
       border-color: #e31a1a;
       color: #e31a1a;
     }
+
+    &:disabled {
+      background: -webkit-repeating-radial-gradient();
+    }
   }
 }

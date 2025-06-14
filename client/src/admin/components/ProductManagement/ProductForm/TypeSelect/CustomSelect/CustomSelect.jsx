@@ -31,7 +31,7 @@ const CustomSelect = ({ wrapperRef, onChange, value, items, onBlur, name, errors
       </div>
 
       {isOpen && (
-        <ul className={cl.optionsList} role="listbox" id={`${name}-list`}>
+        <ul className={`${cl.optionsList} ${errors[name] ? cl.error : ''}`} role="listbox" id={`${name}-list`}>
           {items.map((item) => (
             <li
               key={item.id}

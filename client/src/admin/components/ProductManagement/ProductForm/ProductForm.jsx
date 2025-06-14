@@ -72,7 +72,7 @@ const ProductForm = ({ register, errors, control }) => {
         name="discounted_price"
         register={register}
         errors={errors}
-        readOnly
+        disabled={true}
       />
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
