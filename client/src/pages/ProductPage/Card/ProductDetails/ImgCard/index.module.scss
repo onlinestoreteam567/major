@@ -159,7 +159,12 @@
 // *** Slider Images ***
 
 .wrapImgPopUp {
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 0.3s ease forwards;
+  z-index: $z-index-pop-up;
   @include flexGap(0, column);
   justify-content: flex-start;
   box-sizing: border-box;
@@ -282,26 +287,36 @@
   // animation: fadeOut 0.3s ease forwards;
   animation: hidden 0.3s ease-in-out forwards;
 }
-// Анимация появления
-@keyframes show {
+
+@keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateX(-100%);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
   }
 }
 
-// Анимация закрытия
-@keyframes hidden {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-}
+// // Анимация появления
+// @keyframes show {
+//   0% {
+//     opacity: 0;
+//     transform: translateX(-100%);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// }
+
+// // Анимация закрытия
+// @keyframes hidden {
+//   0% {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+//   100% {
+//     opacity: 0;
+//     transform: translateX(-100%);
+//   }
+// }

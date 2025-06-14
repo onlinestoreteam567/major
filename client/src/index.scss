@@ -133,3 +133,12 @@ input[type='number'] {
 .slick-arrow {
   display: none !important;
 }
+
+.search-result {
+  background-color: yellow;
+  border-radius: 3px;
+}
+
+.search-result-current {
+  background-color: orange;
+}

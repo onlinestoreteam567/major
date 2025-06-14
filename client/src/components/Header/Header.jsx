@@ -12,10 +12,10 @@ import NavDrawer from './NavDrawer/NavDrawer';
 import MobileSearchWrapper from './Search/MobileSearchWrapper';
 import SearchInput from './Search/SearchInput/SearchInput';
 
-const Header = () => {
+const Header = ({ scrolled }) => {
   const { deskmin, deskmax } = useScreenSizes();
   const isMainPage = usePageState();
-  const isScrolled = useScrollState(isMainPage);
+  const isScrolled = useScrollState(isMainPage || scrolled);
   const [isShowInput, setIsShowInput] = useState(false);
   const [isShowBasket, setIsShowBasket] = useState(false);
   const [isShowNavDrawer, setIsShowNavDrawer] = useState(false);

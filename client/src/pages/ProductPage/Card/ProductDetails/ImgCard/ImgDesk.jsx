@@ -1,4 +1,3 @@
-import { createPortal } from 'react-dom';
 import cl from './index.module.scss';
 import { useState } from 'react';
 import SliderImgs from './SliderImgs';
@@ -41,11 +40,8 @@ export default function ImgDesk({ card }) {
       <button type="button" onClick={openModal} className={cl.btnMore}>
         <img src="/svg/more.svg" alt="Open gallery" />
       </button>
-      {/* {isShow &&
-        createPortal(
-          <WrapModal isShow={isShow} closeModal={closeModal} content={<SliderImgs card={card} />} />,
-          document.body
-        )} */}
+      {isShow && <SliderImgs closeModal={closeModal} card={card} />}
+      SliderImgs ?
     </div>
   );
 }

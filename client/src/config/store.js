@@ -40,6 +40,7 @@ import { typeByIdReducer } from '../admin/redux/typeByIdSlice';
 import { typeDeleteReducer } from '../admin/redux/typeDeleteSlice';
 import { typeEditReducer } from '../admin/redux/typeEditSlice';
 import { reviewReducer } from '../redux/reviews/reviewsSlice';
+import { uploadImageReducer } from '@redux/blogs/uploadImageSlice';
 import { partnerByIdReducer } from '@redux/partners/partnerByIdSlice';
 import { partnerEditReducer } from '@redux/partners/partnerEditSlice';
 import { addReviewReducer } from '@redux/reviews/addReviewReducer';
@@ -75,11 +76,12 @@ const rootReducer = combineReducers({
   viewedProducts: viewedProductsReducer,
   settlements: settlementsReducer,
   warehouses: warehousesReducer,
-  partners: partnersReducer,
-  partnerCreate: partnerCreateReducer,
-  partnerDelete: partnerDeleteReducer,
+  uploadImage: uploadImageReducer,
   partnerById: partnerByIdReducer,
   partnerEdit: partnerEditReducer,
+  partners: partnersReducer,
+  partnerDelete: partnerDeleteReducer,
+  partnerCreate: partnerCreateReducer,
 
   auth: authReducer,
   createProduct: createProductReducer,

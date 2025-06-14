@@ -1,7 +1,8 @@
 {
   "leaveAReviewTitle": "Leave a review about our product",
-  "writeShortReview": "Write review*",
+  "writeShortReview": "Write review",
   "writeShortReviewPlaceholder": "Product review",
   "rateTheProduct": "Rate the product*",
-  "yourName": "Your name"
+  "yourName": "Your name",
+  "thankYouForYourReview": "Thank you for your review!"
 }

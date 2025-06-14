@@ -1,12 +1,18 @@
 .textAreaAdmin {
   border: 1px solid gray;
   margin: 25px 0;
-  .formatting {
-    button {
-      background-color: black;
-      color: white;
-      margin-right: 25px;
+
+  ul,
+  ol {
+    padding: 20px;
+    li {
+      list-style-type: inherit;
     }
+  }
+
+  a {
+    text-decoration: inherit;
+    color: purple;
   }
 
   .tipTapWrapper > div {

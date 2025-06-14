@@ -42,7 +42,7 @@ const Aside = ({ setIsShowAside }) => {
             {!(tablet || deskmin || deskmax) && <FilterByCategory />}
             {(deskmin || deskmax) && <Sorting />}
             <FilterByStatus />
-            <PriceRange />
+            <PriceRange handleCloseAside={handleCloseAside} />
             <FilterByType />
           </div>
         </div>

@@ -5,7 +5,12 @@
   box-sizing: border-box;
   width: 300px;
 
+  .wrapSingleReview {
+    margin-top: 30px;
+  }
+
   .wrapTitle {
+    position: relative;
     width: 100%;
 
     h3 {
@@ -20,6 +25,7 @@
   }
 
   .wrapSlider {
+    margin-top: 30px;
     text-align: center;
     width: 300px;
     height: auto;
@@ -92,14 +98,13 @@
         text-align: start;
         margin-bottom: 0;
       }
+    }
+    .wrapSlider {
+      width: 640px;
+    }
 
-      .wrapSlider {
-        width: 640px;
-      }
-
-      .wrapReviewBtn {
-        width: 640px;
-      }
+    .wrapReviewBtn {
+      width: 640px;
     }
   }
 
@@ -110,16 +115,16 @@
       h3 {
         max-width: 540px;
       }
+    }
 
-      .wrapSlider {
-        width: 980px;
-      }
+    .wrapSlider {
+      width: 980px;
+    }
 
-      .wrapReviewBtn {
-        @include flex(row, flex-end, center);
-        gap: 20px;
-        width: 980px;
-      }
+    .wrapReviewBtn {
+      @include flex(row, flex-end, center);
+      gap: 20px;
+      width: 980px;
     }
   }
 
@@ -128,12 +133,12 @@
 
     .wrapSlider {
       width: 1296px;
+    }
 
-      .wrapReviewBtn {
-        @include deskmax {
-          gap: 24px;
-          width: 1296px;
-        }
+    .wrapReviewBtn {
+      @include deskmax {
+        gap: 24px;
+        width: 1296px;
       }
     }
   }
