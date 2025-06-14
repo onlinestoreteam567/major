@@ -25,7 +25,6 @@ const ProductCreate = () => {
     watch,
     setValue,
     reset,
-    getValues,
   } = useForm({
     resolver: yupResolver(productSchema),
     mode: 'onSubmit',
@@ -67,9 +66,6 @@ const ProductCreate = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.productCreate}>
         <ProductForm register={register} errors={errors} control={control} />
-        <button type="button" onClick={() => console.log(getValues())}>
-          getValues
-        </button>
 
         <div className={cl.btn_wrapper}>
           <ReturnButton to="/admin/products" />

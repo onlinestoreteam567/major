@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TextareaProduct } from '@components/form-components/Textarea/TextareaProduct.jsx';
 import cl from './index.module.scss';
-import { IoIosArrowDown } from 'react-icons/io';
+import ArrowAccordion from '@assets/svg/Admin/ArrowAccordion/ArrowAccordion.jsx';
 
 const fields = [
   { name: 'description_uk', label: 'Опис (UA):', placeholder: 'Опис' },
@@ -33,7 +33,7 @@ const ResponsiveTextareas = ({ register, errors }) => {
             <button type="button" className={`${cl.accordionHeader} ${openItems[name] ? cl.open : ''}`} onClick={() => toggle(name)}>
               {label}
               <span className={`${cl.arrow} ${openItems[name] ? cl.open : ''}`}>
-                <IoIosArrowDown />
+                <ArrowAccordion />
               </span>
             </button>
             {openItems[name] && (
