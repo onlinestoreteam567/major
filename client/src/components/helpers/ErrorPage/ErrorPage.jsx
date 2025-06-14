@@ -11,10 +11,10 @@ export default function ErrorPage() {
       <Header scrolled={true} />
 
       <div className={cl.wrap}>
-        <img src="/images/404/404-background.webp" alt={getTranslation('imgAltBg')} className={cl.backgroundImage} />
+        <img src="/images/404/404-background.webp" alt={getTranslation('imgAltBg')} />
 
-        <div className={cl.content}>
-          <p className={cl.text}>{getTranslation('errorText')}</p>
+        <div>
+          <p>{getTranslation('errorText')}</p>
           <Link to="/" className={cl.button}>
             {getTranslation('button')}
           </Link>

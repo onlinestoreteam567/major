@@ -7,7 +7,7 @@
   overflow: hidden;
   background-color: #fff;
 
-  .backgroundImage {
+  img {
     @include absolute;
     width: 100%;
     height: 100%;
@@ -34,7 +34,7 @@
       justify-content: space-between;
     }
 
-    .overlayImage {
+    img {
       object-fit: contain;
       width: 125%;
       max-width: 487px;
@@ -58,7 +58,7 @@
       }
     }
 
-    .content {
+    div {
       @include flex(column, center);
       text-align: center;
       gap: 24px;
@@ -72,11 +72,12 @@
         z-index: auto;
       }
 
-      .text {
+      p {
         font-weight: 400;
         font-size: 16px;
         line-height: 136%;
         color: $text-color-black;
+        font-family: $font-second;
 
         @include deskmin {
           font-size: 18px;
