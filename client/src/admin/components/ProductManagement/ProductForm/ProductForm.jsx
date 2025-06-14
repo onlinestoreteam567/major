@@ -1,5 +1,4 @@
 import { Input } from '@components/form-components';
-import CheckBox from '@components/form-components/Checkbox/Checkbox';
 import CategorySelect from './CategorySelect/CategorySelect';
 import TypeSelect from './TypeSelect/TypeSelect';
 import ImageUpload from './ImageUpload/ImageUpload';
@@ -77,7 +76,6 @@ const ProductForm = ({ register, errors, control }) => {
       />
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
-
 
       <ResponsiveTextareas register={register} errors={errors} />
     </>
