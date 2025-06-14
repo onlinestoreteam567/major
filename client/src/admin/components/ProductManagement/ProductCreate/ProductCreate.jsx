@@ -28,6 +28,7 @@ const ProductCreate = () => {
   } = useForm({
     resolver: yupResolver(productSchema),
     mode: 'onSubmit',
+    shouldUnregister: false,
   });
 
   const price = watch('price');
