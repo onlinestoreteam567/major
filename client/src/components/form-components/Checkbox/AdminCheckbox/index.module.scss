@@ -1,8 +1,8 @@
 @import '@mixins';
 
 .checkboxLabel {
-  @include flex();
-  gap: 8px;
+  @include flex(row, start);
+  gap: 16px;
   cursor: pointer;
   font-family: Mulish;
   font-weight: 400;
