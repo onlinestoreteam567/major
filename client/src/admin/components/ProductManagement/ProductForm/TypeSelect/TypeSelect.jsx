@@ -20,14 +20,7 @@ const TypeSelect = ({ control, errors }) => {
       name={name}
       render={({ field: { value, onChange, onBlur, ...field } }) => (
         <div className={cl.customSelectWrapper} ref={wrapperRef}>
-          <select
-            className={cl.visuallyHiddenSelect}
-            value={value || ''}
-            onChange={(e) => onChange(e.target.value)}
-            onBlur={onBlur}
-            id={name}
-            {...field}
-          >
+          <select value={value || ''} onChange={(e) => onChange(e.target.value)} onBlur={onBlur} id={name} {...field}>
             <option value="">Обрати</option>
             {items.map((item) => (
               <option key={item.id} value={item.id}>
@@ -43,9 +36,8 @@ const TypeSelect = ({ control, errors }) => {
             items={items}
             onBlur={onBlur}
             name={name}
+            errors={errors}
           />
-
-          {errors[name] && <p style={{ color: 'red', marginTop: '5px' }}>{errors[name].message}</p>}
         </div>
       )}
     />

@@ -3,8 +3,9 @@ import cl from './index.module.scss';
 import handleClickOutside from '../handlers/handleClickOutside';
 import handleKeyDown from '../handlers/handleKeyDown';
 import getSelectedItemName from '../handlers/getSelectedItemName';
+import Arrow from '@assets/svg/Admin/Arrow/Arrow';
 
-const CustomSelect = ({ wrapperRef, onChange, value, items, onBlur, name }) => {
+const CustomSelect = ({ wrapperRef, onChange, value, items, onBlur, name, errors }) => {
   const [isOpen, setIsOpen] = useState(false);
   const displayRef = useRef(null);
 
@@ -18,13 +19,15 @@ const CustomSelect = ({ wrapperRef, onChange, value, items, onBlur, name }) => {
   return (
     <>
       <div
-        className={cl.customSelectDisplay}
+        className={`${cl.customSelectDisplay} ${isOpen ? cl.open : ''} ${errors[name] ? cl.error : ''}`}
         onClick={() => setIsOpen(!isOpen)}
         onKeyDown={(e) => handleKeyDown(e, onChange, isOpen, setIsOpen, displayRef, cl, wrapperRef)}
         ref={displayRef}
       >
         <span id={`${name}-label`}>{getSelectedItemName(value, items)}</span>
-        <span className={`${cl.arrowIcon} ${isOpen ? cl.open : ''}`}></span>
+        <span className={isOpen ? cl.open : ''}>
+          <Arrow />
+        </span>
       </div>
 
       {isOpen && (
@@ -32,7 +35,7 @@ const CustomSelect = ({ wrapperRef, onChange, value, items, onBlur, name }) => {
           {items.map((item) => (
             <li
               key={item.id}
-              className={`${cl.optionItem} ${String(value) === String(item.id) ? cl.selected : ''}`}
+              className={String(value) === String(item.id) ? cl.selected : ''}
               onClick={() => {
                 onChange(String(item.id));
                 setIsOpen(false);
@@ -47,12 +50,8 @@ const CustomSelect = ({ wrapperRef, onChange, value, items, onBlur, name }) => {
                   displayRef.current.focus();
                 }
               }}
-              role="option"
               data-value={item.id}
             >
-              <span className={`${cl.checkboxIcon} ${String(value) === String(item.id) ? cl.checkboxIconChecked : ''}`}>
-                {String(value) === String(item.id) && '✔'}
-              </span>
               {item.name}
             </li>
           ))}

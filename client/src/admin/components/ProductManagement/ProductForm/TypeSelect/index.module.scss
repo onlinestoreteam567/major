@@ -1,19 +1,12 @@
-/* index.module.scss */
-
 .customSelectWrapper {
   position: relative;
   width: 100%;
-}
 
-/* Visually hidden select for accessibility and RHF */
-.visuallyHiddenSelect {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+  select {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    padding: 0;
+    border-width: 0;
+  }
 }
