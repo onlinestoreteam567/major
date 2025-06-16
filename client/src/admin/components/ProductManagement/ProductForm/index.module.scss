@@ -1,3 +1,24 @@
+@import '@mixins';
+
+.productBasicInfo {
+  @include flexGap(16px, column);
+  margin-block: 25px;
+}
+
+.checkboxes {
+  @include flexGap(16px, column);
+  margin-bottom: 25px;
+}
+
+.productNumericalInputs {
+  @include flexGap(16px, column);
+}
+
+.selects {
+  @include flexGap(24px, column);
+  margin-block: 25px;
+}
+
 .images {
   display: flex;
   gap: 25px;

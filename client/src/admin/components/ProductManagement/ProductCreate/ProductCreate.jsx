@@ -76,11 +76,11 @@ const ProductCreate = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.productCreate}>
-        <ProductForm register={register} errors={errors} control={control} resetImagesTrigger={resetImagesTrigger}/>
+        <ProductForm register={register} errors={errors} control={control} />
 
         <div className={cl.btn_wrapper}>
           <ReturnButton to="/admin/products" />
-          <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Зберегти" />
+          <LoadingButton isLoading={isLoading} />
         </div>
 
         {errorPost && <ErrorText error={errorPost}></ErrorText>}

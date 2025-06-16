@@ -40,9 +40,10 @@
 }
 
 .admin {
+  @include flex(row, space-between, start);
   font-family: Mulish;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 136%;
   color: #000000;
 
@@ -54,10 +55,16 @@
 
     &[type='text'] {
       height: 46px;
-      width: 220px;
+      width: 180px;
+
+      @include mobile {
+        width: 220px;
+      }
     }
 
     &[type='number'] {
+      text-align: center;
+
       height: 46px;
       width: 105px;
       &::placeholder {
@@ -80,6 +87,19 @@
     &.error {
       border-color: #e31a1a;
       color: #e31a1a;
+    }
+
+    &:disabled {
+      background: -webkit-repeating-radial-gradient();
+    }
+  }
+
+  @include mobile {
+    font-size: 18px;
+    width: 340px;
+
+    &[type='text'] {
+      width: 220px;
     }
   }
 }

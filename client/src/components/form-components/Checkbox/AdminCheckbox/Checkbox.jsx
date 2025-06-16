@@ -5,7 +5,6 @@ import CheckedCheckbox from '@assets/svg/Admin/CheckedCheckbox/CheckedCheckbox';
 export default function AdminCheckBox({ labelText, name, register, ...rest }) {
   return (
     <label htmlFor={name} className={`${cl.checkboxLabel}`}>
-      <input id={name} type="checkbox" {...register(name)} {...rest} />
       <span className={cl.unchecked}>
         <UncheckedCheckbox />
       </span>
@@ -13,6 +12,7 @@ export default function AdminCheckBox({ labelText, name, register, ...rest }) {
         <CheckedCheckbox />
       </span>
       {labelText}
+      <input id={name} type="checkbox" {...register(name)} {...rest} />
     </label>
   );
 }

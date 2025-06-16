@@ -1,3 +1,33 @@
+@import '@mixins';
+
 .return {
+  @include flex(row, center, center);
+  box-sizing: border-box;
+  height: 56px;
+  width: 130px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: $border-radius-medium;
+  border: 1px solid #22211f;
+  background-color: transparent;
   color: black;
+  transition:
+    background-color 300ms ease-out,
+    color 300ms ease-out;
+  font-family: Mulish;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 136%;
+
+  &:hover,
+  &:active {
+    background-color: $second-background-color-black;
+    color: $text-color-light;
+
+    svg {
+      path {
+        stroke: $text-color-light;
+      }
+    }
+  }
 }

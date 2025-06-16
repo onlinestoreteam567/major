@@ -6,6 +6,12 @@
 }
 
 .inputWrapper {
+  img {
+    width: 280px;
+    height: 297px;
+    border-radius: 8px;
+  }
+
   label {
     @include flex();
     font-family: Mulish;
@@ -41,7 +47,6 @@
 
 .croppedImageContainer {
   display: flex;
-  margin-top: 10px;
 
   div {
     position: relative;
@@ -67,6 +72,18 @@
       font-size: 12px;
       line-height: 20px;
       text-align: center;
+    }
+  }
+}
+
+@include mobile {
+  .inputWrapper {
+    img {
+      width: 297px;
+    }
+
+    label {
+      width: 297px;
     }
   }
 }
