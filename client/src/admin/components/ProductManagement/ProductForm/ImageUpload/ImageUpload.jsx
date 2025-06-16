@@ -6,6 +6,7 @@ import cl from './index.module.scss';
 import handleImageUpload from './helpers/handleImageUpload';
 import handleCroppedImage from './helpers/handleCroppedImage';
 import deleteCroppedImage from './helpers/deleteCroppedImage';
+import Button from '@components/UI/Button/Button';
 
 const ImageUpload = ({ control, name, errors, labelText = 'Додати фото' }) => {
   const [image, setImage] = useState(null);
@@ -18,9 +19,10 @@ const ImageUpload = ({ control, name, errors, labelText = 'Додати фото
       control={control}
       name={name}
       render={({ field: { onChange } }) => (
-        <div className={cl.inputWrapper}>
+        <div className={cl.imageUploadWrapper}>
           {image ? (
-            <div>
+            <div className={cl.cropperContainerWrapper}>
+              <h2>Обріжте фото</h2>
               <Cropper
                 className={cl.cropperContainer}
                 ref={cropperRef}
@@ -38,22 +40,27 @@ const ImageUpload = ({ control, name, errors, labelText = 'Додати фото
                 checkOrientation={false}
                 guides={true}
               />
-              <button
-                type="button"
-                onClick={() =>
-                  handleCroppedImage(
-                    onChange,
-                    cropperRef,
-                    croppedImages,
-                    setCroppedImages,
-                    setImage,
-                    originalFile,
-                    setOriginalFile
-                  )
-                }
-              >
-                Обрізати & Додати
-              </button>
+              <div className={cl.buttonsWrapper}>
+                <Button variant="secondary" type="button">
+                  Відміна
+                </Button>
+                <Button
+                  type="button"
+                  onClick={() =>
+                    handleCroppedImage(
+                      onChange,
+                      cropperRef,
+                      croppedImages,
+                      setCroppedImages,
+                      setImage,
+                      originalFile,
+                      setOriginalFile
+                    )
+                  }
+                >
+                  Додати
+                </Button>
+              </div>
             </div>
           ) : (
             <img src="/images/admin/product/imagePlaceholder.webp" />

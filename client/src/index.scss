@@ -133,3 +133,67 @@ input[type='number'] {
 .slick-arrow {
   display: none !important;
 }
+
+//* cropper library custom styles start
+.cropper-dashed {
+  border-color: #0077ff;
+  opacity: 1;
+}
+.cropper-dashed.dashed-h {
+  border-bottom-width: 2px;
+  border-top-width: 2px;
+}
+.cropper-dashed.dashed-v {
+  border-left-width: 2px;
+  border-right-width: 2px;
+}
+.cropper-view-box {
+  outline-width: 2px;
+  outline-color: #0077ff;
+}
+.cropper-drag-box {
+  border-radius: 8px;
+}
+.cropper-point.point-se,
+.cropper-point {
+  border-radius: 50%;
+  opacity: 1;
+  background-color: #0077ff;
+  height: 10px;
+  width: 10px;
+}
+.point-ne {
+  right: -6px !important;
+  top: -6px !important;
+}
+.point-n {
+  top: -6px !important;
+}
+.point-nw {
+  top: -6px !important;
+  left: -6px !important;
+}
+.point-w {
+  left: -6px !important;
+}
+.point-sw {
+  bottom: -6px !important;
+  left: -6px !important;
+}
+.point-s {
+  bottom: -6px !important;
+}
+.point-se {
+  bottom: -6px !important;
+  right: -6px !important;
+}
+.point-e {
+  right: -6px !important;
+}
+.point-n .cropper-line {
+  background-color: red !important;
+}
+.cropper-center {
+  display: none;
+}
+//* cropper library custom styles end
