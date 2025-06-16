@@ -76,7 +76,7 @@ const ProductCreate = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.productCreate}>
-        <ProductForm register={register} errors={errors} control={control} />
+        <ProductForm register={register} errors={errors} control={control}  resetImagesTrigger={resetImagesTrigger}/>
 
         <div className={cl.btn_wrapper}>
           <ReturnButton to="/admin/products" />
