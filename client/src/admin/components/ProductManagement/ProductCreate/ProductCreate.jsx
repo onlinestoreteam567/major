@@ -66,17 +66,17 @@ const ProductCreate = () => {
   const [resetImagesTrigger, setResetImagesTrigger] = useState(0);
 
   useEffect(() => {
-  if (response) {
-    reset();
-    setValue('upload_images', []);
-    setResetImagesTrigger((prev) => prev + 1);
-  }
-}, [response, reset, setValue]);
+    if (response) {
+      reset();
+      setValue('upload_images', []);
+      setResetImagesTrigger((prev) => prev + 1);
+    }
+  }, [response, reset, setValue]);
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.productCreate}>
-        <ProductForm register={register} errors={errors} control={control}  resetImagesTrigger={resetImagesTrigger}/>
+        <ProductForm register={register} errors={errors} control={control} resetImagesTrigger={resetImagesTrigger} />
 
         <div className={cl.btn_wrapper}>
           <ReturnButton to="/admin/products" />
