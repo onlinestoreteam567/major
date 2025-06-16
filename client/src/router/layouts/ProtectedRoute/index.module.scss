@@ -1,5 +1,12 @@
+@import '@mixins';
+
 .adminLayout {
   display: flex;
-  padding: 20px;
   box-sizing: border-box;
+  width: 280px;
+  margin-inline: auto;
+
+  @include mobile {
+    width: 340px;
+  }
 }

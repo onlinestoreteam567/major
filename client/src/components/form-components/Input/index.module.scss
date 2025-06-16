@@ -56,6 +56,10 @@
     &[type='text'] {
       height: 46px;
       width: 180px;
+
+      @include mobile {
+        width: 220px;
+      }
     }
 
     &[type='number'] {
@@ -87,6 +91,15 @@
 
     &:disabled {
       background: -webkit-repeating-radial-gradient();
+    }
+  }
+
+  @include mobile {
+    font-size: 18px;
+    width: 340px;
+
+    &[type='text'] {
+      width: 220px;
     }
   }
 }

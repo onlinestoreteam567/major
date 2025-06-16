@@ -88,3 +88,10 @@
     }
   }
 }
+
+@include mobile {
+  .customSelectDisplay,
+  .optionsList {
+    width: 340px;
+  }
+}
