@@ -1,4 +1,3 @@
-import cl from './index.module.scss';
 import { Input } from '@components/form-components';
 import CategorySelect from './CategorySelect/CategorySelect';
 import TypeSelect from './TypeSelect/TypeSelect';
@@ -9,7 +8,7 @@ import AdminCheckBox from '@components/form-components/Checkbox/AdminCheckbox/Ch
 const ProductForm = ({ register, errors, control, resetImagesTrigger }) => {
   return (
     <>
-      <ImageUpload control={control} name="upload_images" errors={errors} />
+      <ImageUpload control={control} name="upload_images" errors={errors} resetImagesTrigger={resetImagesTrigger}/>
       <Input
         placeholder="example"
         labelText="Назва (UA):"
