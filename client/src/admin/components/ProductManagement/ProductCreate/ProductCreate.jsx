@@ -73,7 +73,7 @@ const ProductCreate = () => {
 
         <div className={cl.btn_wrapper}>
           <ReturnButton to="/admin/products" />
-          <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Зберегти" />
+          <LoadingButton isLoading={isLoading} />
         </div>
 
         {errorPost && <ErrorText error={errorPost}></ErrorText>}

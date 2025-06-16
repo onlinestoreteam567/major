@@ -2,6 +2,7 @@
 
 .return {
   @include flex(row, center, center);
+  box-sizing: border-box;
   height: 56px;
   width: 130px;
   cursor: pointer;
