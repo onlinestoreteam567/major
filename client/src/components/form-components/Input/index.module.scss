@@ -59,6 +59,8 @@
     }
 
     &[type='number'] {
+      text-align: center;
+
       height: 46px;
       width: 105px;
       &::placeholder {

@@ -30,7 +30,11 @@ const ResponsiveTextareas = ({ register, errors }) => {
       <div className={cl.mobile}>
         {fields.map(({ name, label, placeholder }) => (
           <div key={name} className={cl.accordionItem}>
-            <button type="button" className={`${cl.accordionHeader} ${openItems[name] ? cl.open : ''}`} onClick={() => toggle(name)}>
+            <button
+              type="button"
+              className={`${cl.accordionHeader} ${openItems[name] ? cl.open : ''}`}
+              onClick={() => toggle(name)}
+            >
               {label}
               <span className={`${cl.arrow} ${openItems[name] ? cl.open : ''}`}>
                 <ArrowAccordion />

@@ -18,13 +18,14 @@
 
 .adminNavigation {
   @include flex(column, space-between, center);
-  position: relative;
+  @include absolute();
   z-index: $z-index-pop-up;
   height: 628px;
   box-sizing: border-box;
   width: 100px;
   background-color: #323232;
   padding: 16px 0;
+  overflow: auto;
 
   & > a:first-of-type > img {
     height: 32px;
@@ -74,6 +75,7 @@
   }
 
   @include tablet {
+    position: relative;
     padding: 64px 0;
     width: 168px;
     height: 1024px;

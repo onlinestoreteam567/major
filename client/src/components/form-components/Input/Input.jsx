@@ -14,8 +14,6 @@ export function Input({ labelText, placeholder, type = 'text', name, variant, re
         className={errors && errors[name] && cl.error}
         disabled={disabled}
       />
-
-      {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
     </label>
   );
 }
