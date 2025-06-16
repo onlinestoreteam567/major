@@ -41,7 +41,7 @@ const ImageUpload = ({ control, name, errors, labelText = 'Додати фото
                 guides={true}
               />
               <div className={cl.buttonsWrapper}>
-                <Button variant="secondary" type="button">
+                <Button variant="secondary" type="button" onClick={() => setImage(null)}>
                   Відміна
                 </Button>
                 <Button
