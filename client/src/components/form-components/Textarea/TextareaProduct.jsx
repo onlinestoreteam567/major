@@ -1,11 +1,24 @@
 import cl from './index.module.scss';
+import { Controller } from 'react-hook-form';
 
-export function TextareaProduct({ labelText, errors, name, register, ...rest }) {
+export function TextareaProduct({ control, name, labelText, errors, placeholder }) {
   return (
     <>
       <label htmlFor={name}>{labelText}</label>
-      <textarea className={cl.textarea} {...register(name)} {...rest} id={name} />
-      {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
+      <Controller
+        name={name}
+        control={control}
+        defaultValue=""
+        render={({ field }) => (
+          <textarea
+            id={name}
+            className={`${cl.textarea} ${errors?.[name] ? cl.error : ''}`}
+            placeholder={placeholder}
+            {...field}
+          />
+        )}
+      />
+      {errors?.[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
     </>
   );
 }

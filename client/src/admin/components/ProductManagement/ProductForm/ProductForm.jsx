@@ -5,10 +5,10 @@ import ImageUpload from './ImageUpload/ImageUpload';
 import ResponsiveTextareas from '@components/form-components/ResponsiveTextareas/ResponsiveTextareas';
 import AdminCheckBox from '@components/form-components/Checkbox/AdminCheckbox/Checkbox';
 
-const ProductForm = ({ register, errors, control }) => {
+const ProductForm = ({ register, errors, control, resetImagesTrigger }) => {
   return (
     <>
-      <ImageUpload control={control} name="upload_images" errors={errors} />
+      <ImageUpload control={control} name="upload_images" errors={errors} resetTrigger={resetImagesTrigger}/>
       <Input
         placeholder="example"
         labelText="Назва (UA):"
@@ -77,7 +77,7 @@ const ProductForm = ({ register, errors, control }) => {
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
 
-      <ResponsiveTextareas register={register} errors={errors} />
+      <ResponsiveTextareas register={register} errors={errors} control={control}/>
     </>
   );
 };
