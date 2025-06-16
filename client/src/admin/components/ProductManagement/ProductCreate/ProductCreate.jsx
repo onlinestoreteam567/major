@@ -25,10 +25,10 @@ const ProductCreate = () => {
     watch,
     setValue,
     reset,
-    getValues,
   } = useForm({
     resolver: yupResolver(productSchema),
     mode: 'onSubmit',
+    shouldUnregister: false,
   });
 
   const price = watch('price');
