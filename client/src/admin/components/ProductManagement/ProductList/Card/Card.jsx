@@ -64,7 +64,6 @@ const Card = ({ card, setDeletedItemName }) => {
           closeDeletePopUp={toggleDeletePopUp}
           handleDelete={handleDelete}
           setDeletedItemName={setDeletedItemName}
-          confirmText={`Ви впевнені, що хочете видалити товар "${card.name}"?`}
         />
       )}
     </>

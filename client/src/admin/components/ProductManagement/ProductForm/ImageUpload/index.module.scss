@@ -1,6 +1,9 @@
 @import '@mixins';
 
 .imageUploadWrapper {
+  margin-top: 52px;
+  @include flexGap(24px, column);
+
   .cropperContainerWrapper {
     @include flex(column);
     top: 0;
@@ -40,12 +43,6 @@
     }
   }
 
-  img {
-    width: 280px;
-    height: 297px;
-    border-radius: 8px;
-  }
-
   label {
     @include flex();
     font-family: Mulish;
@@ -79,33 +76,16 @@
   }
 }
 
-.croppedImageContainer {
-  display: flex;
+.imagesContainer {
+  position: relative;
 
-  div {
-    position: relative;
-    margin-right: 10px;
+  .image {
+    width: 280px;
+    height: 297px;
+    border-radius: 8px;
 
-    img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
-
-    button {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      background: red;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      font-size: 12px;
-      line-height: 20px;
-      text-align: center;
+    &.error {
+      border: 2px solid #e31a1a;
     }
   }
 }

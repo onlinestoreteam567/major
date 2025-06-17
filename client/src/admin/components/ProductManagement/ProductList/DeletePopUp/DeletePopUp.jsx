@@ -8,7 +8,7 @@ const DeletePopUp = ({
   itemId,
   itemName,
   setDeletedItemName,
-  confirmText = 'Ви впевнені, що хочете видалити цей елемент?',
+  confirmText = 'Ви впевнені, що хочете  видалити цей товар?',
   children,
 }) => {
   return (
@@ -18,7 +18,7 @@ const DeletePopUp = ({
         <h2>{confirmText}</h2>
         {children && <div className={cl.customContent}>{children}</div>}
 
-         <div className={cl.buttons}>
+        <div className={cl.buttons}>
           <Button onClick={closeDeletePopUp} variant="secondary">
             Ні
           </Button>

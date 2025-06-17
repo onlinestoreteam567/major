@@ -5,8 +5,8 @@ import 'cropperjs/dist/cropper.css';
 import cl from './index.module.scss';
 import handleImageUpload from './helpers/handleImageUpload';
 import handleCroppedImage from './helpers/handleCroppedImage';
-import deleteCroppedImage from './helpers/deleteCroppedImage';
 import Button from '@components/UI/Button/Button';
+import ImagesSlider from './ImagesSlider/ImagesSlider';
 
 const ImageUpload = ({ control, name, errors, labelText = 'Додати фото' }) => {
   const [image, setImage] = useState(null);
@@ -63,9 +63,17 @@ const ImageUpload = ({ control, name, errors, labelText = 'Додати фото
               </div>
             </div>
           ) : (
-            <img src="/images/admin/product/imagePlaceholder.webp" />
+            <div className={cl.imagesContainer}>
+              {croppedImages.length > 0 ? (
+                <ImagesSlider croppedImages={croppedImages} setCroppedImages={setCroppedImages} onChange={onChange} />
+              ) : (
+                <img
+                  className={`${cl.image} ${errors && errors[name] && cl.error}`}
+                  src="/images/admin/product/imagePlaceholder.webp"
+                />
+              )}
+            </div>
           )}
-
           <label htmlFor={name}>
             <span>{labelText}</span>
             <input
@@ -76,22 +84,6 @@ const ImageUpload = ({ control, name, errors, labelText = 'Додати фото
               name={name}
             />
           </label>
-
-          <div className={cl.croppedImageContainer}>
-            {croppedImages.map((img, index) => (
-              <div key={index}>
-                <img src={URL.createObjectURL(img)} alt={`Cropped ${index + 1}`} />
-                <button
-                  type="button"
-                  onClick={() => deleteCroppedImage(index, onChange, croppedImages, setCroppedImages)}
-                >
-                  X
-                </button>
-              </div>
-            ))}
-          </div>
-
-          {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
         </div>
       )}
     />

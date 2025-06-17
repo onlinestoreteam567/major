@@ -95,10 +95,8 @@ input[type='number'] {
   appearance: textfield;
 }
 
-/* Banner Styles */
-
+//* Banner Styles start */
 /* For dots */
-
 .slick-dots {
   bottom: 10px !important;
 
@@ -129,10 +127,38 @@ input[type='number'] {
   }
 }
 
+.admin-slider-container {
+  .slick-dots {
+    bottom: 10px !important;
+
+    li {
+      button {
+        height: 24px !important;
+        width: 24px !important;
+        &::before {
+          color: #b7d7b8 !important;
+          opacity: unset !important;
+          font-size: 24px !important;
+        }
+      }
+      &.slick-active {
+        & > button {
+          &::before {
+            opacity: unset !important;
+            font-size: 24px !important;
+            color: #4c9a4e !important;
+          }
+        }
+      }
+    }
+  }
+}
+
 // Remove arrows from inside page, avoid creating x scroll bar
 .slick-arrow {
   display: none !important;
 }
+//* Banner Styles End */
 
 //* cropper library custom styles start
 .cropper-dashed {
