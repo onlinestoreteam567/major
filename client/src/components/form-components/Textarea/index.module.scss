@@ -9,11 +9,16 @@
   letter-spacing: $letter-spacing-small;
   line-height: $line-height-small;
   outline: none;
-  width: 100%;
+  width: 280px;
+  border: 1px solid #c0c0c0;
   border-radius: 8px;
   height: 125px;
   
+  &.error {
+    border: 1px solid #e31a1a !important;
+  }
    @include tablet {
+    width: 100%;
     height: 100%;
     border: none;
   }

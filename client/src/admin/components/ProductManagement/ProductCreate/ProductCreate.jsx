@@ -12,7 +12,7 @@ import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
 import handleImageUpload from '@utils/handleImageUpload';
 import ReturnButton from '../../ReturnButton/ReturnButton';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -63,13 +63,20 @@ const ProductCreate = () => {
     }
   }, [response, reset]);
 
+  const [resetImagesTrigger, setResetImagesTrigger] = useState(0);
+
+  useEffect(() => {
+    if (response) {
+      reset();
+      setValue('upload_images', []);
+      setResetImagesTrigger((prev) => prev + 1);
+    }
+  }, [response, reset, setValue]);
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.productCreate}>
-        <ProductForm register={register} errors={errors} control={control} />
-        {/* <button type="button" onClick={() => console.log(getValues())}>
-          getValues
-        </button> */}
+        <ProductForm register={register} errors={errors} control={control} resetImagesTrigger={resetImagesTrigger} />
 
         <div className={cl.btn_wrapper}>
           <ReturnButton to="/admin/products" />

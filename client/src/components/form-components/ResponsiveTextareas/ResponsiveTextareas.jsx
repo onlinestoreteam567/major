@@ -11,7 +11,7 @@ const fields = [
   { name: 'ingredients', label: 'Склад:', placeholder: 'Склад' },
 ];
 
-const ResponsiveTextareas = ({ register, errors }) => {
+const ResponsiveTextareas = ({ register, errors, control }) => {
   const [openItems, setOpenItems] = useState({});
   const [activeTab, setActiveTab] = useState(fields[0].name);
 
@@ -36,12 +36,21 @@ const ResponsiveTextareas = ({ register, errors }) => {
               onClick={() => toggle(name)}
             >
               {label}
-              <span className={`${cl.arrow} ${openItems[name] ? cl.open : ''}`}>
-                <ArrowAccordion />
+              <span className={cl.arrowWrapper}>
+                <ArrowAccordion
+                  className={`${cl.arrow} ${openItems[name] ? cl.open : ''} ${errors?.[name] && !openItems[name] ? cl.arrowError : ''}`}
+                />
               </span>
             </button>
             {openItems[name] && (
-              <TextareaProduct labelText="" name={name} placeholder={placeholder} register={register} errors={errors} />
+              <TextareaProduct
+                labelText=""
+                name={name}
+                placeholder={placeholder}
+                register={register}
+                errors={errors}
+                control={control}
+              />
             )}
           </div>
         ))}
@@ -83,6 +92,7 @@ const ResponsiveTextareas = ({ register, errors }) => {
                   placeholder={placeholder}
                   register={register}
                   errors={errors}
+                  control={control}
                 />
               )
           )}

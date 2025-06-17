@@ -1,4 +1,4 @@
-import { useState, createRef } from 'react';
+import { useState, createRef, useEffect } from 'react';
 import { Controller } from 'react-hook-form';
 import Cropper from 'react-cropper';
 import 'cropperjs/dist/cropper.css';
@@ -8,11 +8,17 @@ import handleCroppedImage from './helpers/handleCroppedImage';
 import Button from '@components/UI/Button/Button';
 import ImagesSlider from './ImagesSlider/ImagesSlider';
 
-const ImageUpload = ({ control, name, errors, labelText = 'Додати фото' }) => {
+const ImageUpload = ({ control, name, errors, labelText = 'Додати фото', resetTrigger }) => {
   const [image, setImage] = useState(null);
   const [originalFile, setOriginalFile] = useState(null);
   const [croppedImages, setCroppedImages] = useState([]);
   const cropperRef = createRef();
+
+   useEffect(() => {
+    setImage(null);
+    setOriginalFile(null);
+    setCroppedImages([]);
+  }, [resetTrigger]);
 
   return (
     <Controller
