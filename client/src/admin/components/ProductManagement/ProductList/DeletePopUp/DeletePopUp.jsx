@@ -2,21 +2,12 @@ import Button from '@components/UI/Button/Button';
 import cl from './index.module.scss';
 import Overlay from '@components/UI/Overlay/Overlay';
 
-const DeletePopUp = ({
-  closeDeletePopUp,
-  handleDelete,
-  itemId,
-  itemName,
-  setDeletedItemName,
-  confirmText = 'Ви впевнені, що хочете  видалити цей товар?',
-  children,
-}) => {
+const DeletePopUp = ({ closeDeletePopUp, handleDelete, setDeletedItemName, children }) => {
   return (
     <>
       <Overlay handleClose={closeDeletePopUp} />
       <div className={cl.deletePopUp}>
-        <h2>{confirmText}</h2>
-        {children && <div className={cl.customContent}>{children}</div>}
+        <h2>{children}</h2>
 
         <div className={cl.buttons}>
           <Button onClick={closeDeletePopUp} variant="secondary">
@@ -24,9 +15,9 @@ const DeletePopUp = ({
           </Button>
           <Button
             onClick={() => {
-              handleDelete(itemId);
+              handleDelete();
               closeDeletePopUp();
-              if (setDeletedItemName) setDeletedItemName(itemName);
+              setDeletedItemName();
             }}
           >
             Так

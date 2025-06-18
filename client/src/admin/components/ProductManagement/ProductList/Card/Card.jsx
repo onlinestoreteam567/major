@@ -59,12 +59,12 @@ const Card = ({ card, setDeletedItemName }) => {
       </li>
       {isShowDeletePopUp && (
         <DeletePopUp
-          itemId={card.id}
-          itemName={card.name}
           closeDeletePopUp={toggleDeletePopUp}
-          handleDelete={handleDelete}
-          setDeletedItemName={setDeletedItemName}
-        />
+          handleDelete={() => handleDelete(card.id)}
+          setDeletedItemName={() => setDeletedItemName(card.name)}
+        >
+          Ви впевнені, що хочете видалити цей товар?
+        </DeletePopUp>
       )}
     </>
   );
