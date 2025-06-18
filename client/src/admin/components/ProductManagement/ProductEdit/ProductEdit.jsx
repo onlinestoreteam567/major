@@ -14,7 +14,6 @@ import { productSchema } from '../../../validations/productSchema';
 import ErrorText from '../../ErrorText/ErrorText';
 import LoadingButton from '../../LoadingButton/LoadingButton';
 import SuccessMessage from '../../SuccessMessage/SuccessMessage';
-import UploadedImages from '../../UploadedImages/UploadedImages';
 import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
 import setFormValues from './helpers/setFormValues';
@@ -62,14 +61,16 @@ const ProductEdit = () => {
         <Spinner />
       ) : (
         <form className={cl.productEdit} onSubmit={handleSubmit(onSubmit)}>
-          <ProductForm register={register} errors={errors} control={control} />
-          {responseGet && responseGet.images && responseGet.images.length > 0 && (
+          <ProductForm uploadedImages={responseGet.images} register={register} errors={errors} control={control} />
+          {/* {responseGet && responseGet.images && responseGet.images.length > 0 && (
             <UploadedImages images={responseGet.images} setValue={setValue} getValues={getValues} />
-          )}
+          )} */}
           <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити" />
           {errorEdit && <ErrorText error={errorEdit} />}
           {responseEdit && <SuccessMessage>Товар успішно відредаговано!</SuccessMessage>}
-          <button onClick={() => console.log(getValues())}>123</button>
+          <button type="button" onClick={() => console.log(getValues())}>
+            123
+          </button>
         </form>
       )}
     </>

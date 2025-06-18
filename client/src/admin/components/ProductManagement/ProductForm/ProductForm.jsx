@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import AdminMessage from '../../AdminMessage/AdminMessage';
 import cl from './index.module.scss';
 
-const ProductForm = ({ register, errors, control, resetImagesTrigger }) => {
+const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedImages }) => {
   const [messageText, setMessageText] = useState(null);
 
   useEffect(() => {
@@ -28,6 +28,7 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger }) => {
         errors={errors}
         resetImagesTrigger={resetImagesTrigger}
         setMessageText={() => setMessageText('Фото успішно додано')}
+        uploadedImages={uploadedImages}
       />
       <div className={cl.productBasicInfo}>
         <Input

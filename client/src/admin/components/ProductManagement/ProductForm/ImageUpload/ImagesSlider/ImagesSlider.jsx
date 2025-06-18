@@ -9,7 +9,7 @@ import ArrowImages from '@assets/svg/Admin/Arrow/ArrowImages.jsx';
 import DeletePopUp from '../../../ProductList/DeletePopUp/DeletePopUp.jsx';
 import AdminMessage from '../../../../AdminMessage/AdminMessage.jsx';
 
-const ImagesSlider = ({ onChange, croppedImages, setCroppedImages }) => {
+const ImagesSlider = ({ onChange, croppedImages, setCroppedImages, images }) => {
   const sliderRef = useRef(null);
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(null);
   const [messageText, setMessageText] = useState('');
@@ -40,12 +40,23 @@ const ImagesSlider = ({ onChange, croppedImages, setCroppedImages }) => {
       </div>
 
       <Slider ref={sliderRef} {...settings}>
-        {croppedImages.map((img, index) => (
+        {images.map((img, index) => (
           <div key={index}>
-            <img className={cl.image} src={URL.createObjectURL(img)} alt={`Cropped ${index + 1}`} />
-            <button className={cl.deleteButton} type="button" onClick={() => showDeletePopUp(index)}>
-              <img src="/svg/admin/delete.svg" />
-            </button>
+            {img instanceof File ? (
+              <>
+                <img className={cl.image} src={URL.createObjectURL(img)} alt={`Cropped ${index}`} />
+                <button className={cl.deleteButton} type="button" onClick={() => showDeletePopUp(index)}>
+                  <img src="/svg/admin/delete.svg" alt="Delete" />
+                </button>
+              </>
+            ) : (
+              <>
+                <img className={cl.image} src={img.image || ''} alt={`Cropped ${index}`} />
+                <button className={cl.deleteButton} type="button" onClick={() => showDeletePopUp(index)}>
+                  <img src="/svg/admin/delete.svg" alt="Delete" />
+                </button>
+              </>
+            )}
           </div>
         ))}
       </Slider>

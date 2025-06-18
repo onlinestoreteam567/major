@@ -8,10 +8,22 @@ import handleCroppedImage from './helpers/handleCroppedImage';
 import Button from '@components/UI/Button/Button';
 import ImagesSlider from './ImagesSlider/ImagesSlider';
 
-const ImageUpload = ({ control, name, errors, labelText = 'Додати фото', resetTrigger, setMessageText }) => {
+const ImageUpload = ({
+  control,
+  name,
+  errors,
+  labelText = 'Додати фото',
+  resetTrigger,
+  setMessageText,
+  uploadedImages,
+}) => {
   const [image, setImage] = useState(null);
   const [originalFile, setOriginalFile] = useState(null);
   const [croppedImages, setCroppedImages] = useState([]);
+  const [images, setImages] = useState([...(uploadedImages ?? []), ...(croppedImages ?? [])]);
+
+  console.log(`croppedImages ${croppedImages}`);
+  console.log(`images ${images}`);
   const cropperRef = createRef();
 
   useEffect(() => {
@@ -61,7 +73,8 @@ const ImageUpload = ({ control, name, errors, labelText = 'Додати фото
                       setCroppedImages,
                       setImage,
                       originalFile,
-                      setOriginalFile
+                      setOriginalFile,
+                      setImages
                     );
                   }}
                 >
@@ -71,8 +84,13 @@ const ImageUpload = ({ control, name, errors, labelText = 'Додати фото
             </div>
           ) : (
             <div className={cl.imagesContainer}>
-              {croppedImages.length > 0 ? (
-                <ImagesSlider croppedImages={croppedImages} setCroppedImages={setCroppedImages} onChange={onChange} />
+              {images.length > 0 ? (
+                <ImagesSlider
+                  images={images}
+                  croppedImages={croppedImages}
+                  setCroppedImages={setCroppedImages}
+                  onChange={onChange}
+                />
               ) : (
                 <img
                   className={`${cl.image} ${errors && errors[name] && cl.error}`}
