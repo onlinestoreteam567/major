@@ -18,13 +18,3 @@
   @include flexGap(24px, column);
   margin-block: 25px;
 }
-
-.images {
-  display: flex;
-  gap: 25px;
-
-  img {
-    height: 100px;
-    object-fit: cover;
-  }
-}
