@@ -18,7 +18,6 @@ import UploadedImages from '../../UploadedImages/UploadedImages';
 import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
 import setFormValues from './helpers/setFormValues';
-import ReturnButton from '../../ReturnButton/ReturnButton';
 
 const ProductEdit = () => {
   const {
@@ -59,7 +58,6 @@ const ProductEdit = () => {
 
   return (
     <>
-      <ReturnButton to="/admin/products" />
       {isLoadingGet ? (
         <Spinner />
       ) : (

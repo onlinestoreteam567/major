@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TextareaProduct } from '@components/form-components/Textarea/TextareaProduct.jsx';
+import { TextareaProduct } from '@components/form-components/Textarea/TextareaProduct/TextareaProduct.jsx';
 import cl from './index.module.scss';
 import ArrowAccordion from '@assets/svg/Admin/ArrowAccordion/ArrowAccordion.jsx';
 
