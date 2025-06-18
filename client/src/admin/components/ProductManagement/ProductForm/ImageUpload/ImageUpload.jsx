@@ -8,13 +8,13 @@ import handleCroppedImage from './helpers/handleCroppedImage';
 import Button from '@components/UI/Button/Button';
 import ImagesSlider from './ImagesSlider/ImagesSlider';
 
-const ImageUpload = ({ control, name, errors, labelText = 'Додати фото', resetTrigger }) => {
+const ImageUpload = ({ control, name, errors, labelText = 'Додати фото', resetTrigger, setMessageText }) => {
   const [image, setImage] = useState(null);
   const [originalFile, setOriginalFile] = useState(null);
   const [croppedImages, setCroppedImages] = useState([]);
   const cropperRef = createRef();
 
-   useEffect(() => {
+  useEffect(() => {
     setImage(null);
     setOriginalFile(null);
     setCroppedImages([]);
@@ -52,7 +52,8 @@ const ImageUpload = ({ control, name, errors, labelText = 'Додати фото
                 </Button>
                 <Button
                   type="button"
-                  onClick={() =>
+                  onClick={() => {
+                    setMessageText();
                     handleCroppedImage(
                       onChange,
                       cropperRef,
@@ -61,8 +62,8 @@ const ImageUpload = ({ control, name, errors, labelText = 'Додати фото
                       setImage,
                       originalFile,
                       setOriginalFile
-                    )
-                  }
+                    );
+                  }}
                 >
                   Додати
                 </Button>

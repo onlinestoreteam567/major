@@ -4,11 +4,30 @@ import TypeSelect from './TypeSelect/TypeSelect';
 import ImageUpload from './ImageUpload/ImageUpload';
 import ResponsiveTextareas from '@components/form-components/ResponsiveTextareas/ResponsiveTextareas';
 import AdminCheckBox from '@components/form-components/Checkbox/AdminCheckbox/Checkbox';
+import { useEffect, useState } from 'react';
+import AdminMessage from '../../AdminMessage/AdminMessage';
 
 const ProductForm = ({ register, errors, control, resetImagesTrigger }) => {
+  const [messageText, setMessageText] = useState(null);
+
+  useEffect(() => {
+    if (messageText) {
+      const timer = setTimeout(() => {
+        setMessageText('');
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [messageText]);
   return (
     <>
-      <ImageUpload control={control} name="upload_images" errors={errors} resetImagesTrigger={resetImagesTrigger}/>
+      <ImageUpload
+        control={control}
+        name="upload_images"
+        errors={errors}
+        resetImagesTrigger={resetImagesTrigger}
+        setMessageText={() => setMessageText('Фото успішно додано')}
+      />
       <Input
         placeholder="example"
         labelText="Назва (UA):"
@@ -77,7 +96,9 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger }) => {
       <CategorySelect control={control} errors={errors} />
       <TypeSelect control={control} errors={errors} />
 
-      <ResponsiveTextareas register={register} errors={errors} control={control}/>
+      <ResponsiveTextareas register={register} errors={errors} control={control} />
+
+      {messageText && <AdminMessage>{messageText}</AdminMessage>}
     </>
   );
 };
