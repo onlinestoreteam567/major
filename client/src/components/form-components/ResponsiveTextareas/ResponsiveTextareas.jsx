@@ -5,9 +5,9 @@ import ArrowAccordion from '@assets/svg/Admin/ArrowAccordion/ArrowAccordion.jsx'
 
 const fields = [
   { name: 'description_uk', label: 'Опис (UA):', placeholder: 'Опис' },
-  { name: 'description_en', label: 'Опис (ENG):', placeholder: 'Description' },
+  { name: 'description_en', label: 'Опис (ENG):', placeholder: 'Опис' },
   { name: 'application_uk', label: 'Застосування (UA):', placeholder: 'Застосування' },
-  { name: 'application_en', label: 'Застосування (ENG):', placeholder: 'Usage' },
+  { name: 'application_en', label: 'Застосування (ENG):', placeholder: 'Застосування' },
   { name: 'ingredients', label: 'Склад:', placeholder: 'Склад' },
 ];
 
