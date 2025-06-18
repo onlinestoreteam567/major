@@ -6,7 +6,7 @@ import { loadProductDelete, responseProductDelete } from '../../../redux/selecto
 import { useEffect, useState } from 'react';
 import { fetchProductsAll } from '@redux/products/service';
 import Card from './Card/Card';
-import DeleteMessage from '../../DeleteMessage/DeleteMessage';
+import AdminMessage from '../../AdminMessage/AdminMessage';
 
 const List = () => {
   const items = useSelector(selectProducts);
@@ -51,7 +51,7 @@ const List = () => {
               ))}
             </ul>
           </div>
-          {deletedItemName && <DeleteMessage>Товар “{deletedItemName}” видалено</DeleteMessage>}
+          {deletedItemName && <AdminMessage>Товар “{deletedItemName}” видалено</AdminMessage>}
         </>
       )}
     </>
