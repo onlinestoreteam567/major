@@ -40,6 +40,7 @@
 
   @include mobile {
     & > div:first-of-type {
+      gap: 16px;
       p {
         font-size: 18px;
       }

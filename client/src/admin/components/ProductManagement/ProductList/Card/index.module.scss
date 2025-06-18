@@ -44,12 +44,19 @@
   }
 
   @include mobile {
+    justify-content: space-between;
+
     a {
+      gap: 16px;
       h3 {
         width: 103px;
         font-size: 16px;
         text-align: center;
       }
+    }
+
+    button {
+      margin-right: 11px;
     }
   }
 
