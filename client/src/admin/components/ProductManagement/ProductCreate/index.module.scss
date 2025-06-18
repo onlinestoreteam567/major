@@ -5,9 +5,8 @@
   color: black;
 }
 
-.btn_wrapper{
-  @include flex(row, null, center);
+.btnWrapper {
+  @include flex(row, space-between, center);
   width: 100%;
   margin-top: 16px;
-  gap: 30px;
 }

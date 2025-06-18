@@ -31,9 +31,6 @@
       width: 225px;
       height: 252px;
       border-radius: 8px;
-
-      // height: 400px;
-      // width: 100%;
     }
 
     .buttonsWrapper {
@@ -92,7 +89,24 @@
 
 @include mobile {
   .imageUploadWrapper {
-    img {
+    @include flex(column);
+
+    .cropperContainerWrapper {
+      padding: 25px 35px;
+      width: 356px;
+      height: 545px;
+
+      .cropperContainer {
+        height: 285px;
+        width: 285px;
+      }
+
+      .buttonsWrapper {
+        width: 285px;
+      }
+    }
+
+    .image {
       width: 297px;
     }
 

@@ -18,7 +18,6 @@ export function TextareaProduct({ control, name, labelText, errors, placeholder 
           />
         )}
       />
-      {errors?.[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
     </>
   );
 }

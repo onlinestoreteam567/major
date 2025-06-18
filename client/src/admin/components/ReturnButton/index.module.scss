@@ -30,4 +30,8 @@
       }
     }
   }
+
+  @include mobile {
+    width: 150px;
+  }
 }
