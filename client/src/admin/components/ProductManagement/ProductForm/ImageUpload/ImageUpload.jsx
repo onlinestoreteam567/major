@@ -23,10 +23,12 @@ const ImageUpload = ({
   const [images, setImages] = useState([...(uploadedImages ?? []), ...(croppedImages ?? [])]);
 
   useEffect(() => {
-    setImage(null);
-    setOriginalFile(null);
-    setCroppedImages([]);
-    setImages([]);
+    if (resetImagesTrigger) {
+      setImage(null);
+      setOriginalFile(null);
+      setCroppedImages([]);
+      setImages([]);
+    }
   }, [resetImagesTrigger]);
 
   return (

@@ -31,6 +31,10 @@
     }
   }
 
+  @include mobile {
+    width: 340px;
+  }
+
   @include tablet {
     width: 100%;
     height: 100%;
