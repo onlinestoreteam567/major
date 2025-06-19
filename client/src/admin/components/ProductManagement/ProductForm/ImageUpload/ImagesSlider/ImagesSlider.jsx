@@ -9,14 +9,19 @@ import ArrowImages from '@assets/svg/Admin/Arrow/ArrowImages.jsx';
 import DeletePopUp from '../../../ProductList/DeletePopUp/DeletePopUp.jsx';
 import AdminMessage from '../../../../AdminMessage/AdminMessage.jsx';
 
-const ImagesSlider = ({ onChange, croppedImages, setCroppedImages, images }) => {
+const ImagesSlider = ({ onChange, images, setImages, setValue, getValues }) => {
   const sliderRef = useRef(null);
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(null);
   const [messageText, setMessageText] = useState('');
 
+  const handleDeleteFromBackend = (image) => {
+    setValue('remove_images', getValues('remove_images') ? [...getValues('remove_images'), image.id] : [image.id]);
+    console.log('backend');
+  };
+
   const showDeletePopUp = (index) => setIsShowDeletePopUp(index);
   const closeDeletePopUp = () => setIsShowDeletePopUp(null);
-  const handleDelete = (index) => deleteCroppedImage(index, onChange, croppedImages, setCroppedImages);
+  const handleDelete = (index) => deleteCroppedImage(index, onChange, images, setImages);
 
   useEffect(() => {
     if (messageText) {
@@ -52,7 +57,14 @@ const ImagesSlider = ({ onChange, croppedImages, setCroppedImages, images }) => 
             ) : (
               <>
                 <img className={cl.image} src={img.image || ''} alt={`Cropped ${index}`} />
-                <button className={cl.deleteButton} type="button" onClick={() => showDeletePopUp(index)}>
+                <button
+                  className={cl.deleteButton}
+                  type="button"
+                  onClick={() => {
+                    showDeletePopUp(index);
+                    handleDeleteFromBackend(img);
+                  }}
+                >
                   <img src="/svg/admin/delete.svg" alt="Delete" />
                 </button>
               </>

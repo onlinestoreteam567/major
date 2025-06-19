@@ -16,13 +16,15 @@ const ImageUpload = ({
   resetTrigger,
   setMessageText,
   uploadedImages,
+  setValue,
+  getValues,
 }) => {
   const [image, setImage] = useState(null);
   const [originalFile, setOriginalFile] = useState(null);
   const [croppedImages, setCroppedImages] = useState([]);
   const [images, setImages] = useState([...(uploadedImages ?? []), ...(croppedImages ?? [])]);
 
-  console.log(`croppedImages ${croppedImages}`);
+  console.log(croppedImages);
   console.log(`images ${images}`);
   const cropperRef = createRef();
 
@@ -87,9 +89,10 @@ const ImageUpload = ({
               {images.length > 0 ? (
                 <ImagesSlider
                   images={images}
-                  croppedImages={croppedImages}
-                  setCroppedImages={setCroppedImages}
+                  setImages={setImages}
                   onChange={onChange}
+                  setValue={setValue}
+                  getValues={getValues}
                 />
               ) : (
                 <img

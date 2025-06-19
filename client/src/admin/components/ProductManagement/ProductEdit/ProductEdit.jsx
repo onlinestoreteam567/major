@@ -61,7 +61,14 @@ const ProductEdit = () => {
         <Spinner />
       ) : (
         <form className={cl.productEdit} onSubmit={handleSubmit(onSubmit)}>
-          <ProductForm uploadedImages={responseGet.images} register={register} errors={errors} control={control} />
+          <ProductForm
+            uploadedImages={responseGet.images}
+            register={register}
+            errors={errors}
+            control={control}
+            setValue={setValue}
+            getValues={getValues}
+          />
           {/* {responseGet && responseGet.images && responseGet.images.length > 0 && (
             <UploadedImages images={responseGet.images} setValue={setValue} getValues={getValues} />
           )} */}
