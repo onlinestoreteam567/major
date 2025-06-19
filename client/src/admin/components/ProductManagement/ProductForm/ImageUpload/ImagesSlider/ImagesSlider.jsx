@@ -14,11 +14,8 @@ const ImagesSlider = ({ onChange, images, setImages, setValue, getValues }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(null);
   const [messageText, setMessageText] = useState('');
 
-  const handleDeleteFromBackend = (image) => {
+  const handleDeleteFromBackend = (image) =>
     setValue('remove_images', getValues('remove_images') ? [...getValues('remove_images'), image.id] : [image.id]);
-    console.log('backend');
-  };
-
   const showDeletePopUp = (index) => setIsShowDeletePopUp(index);
   const closeDeletePopUp = () => setIsShowDeletePopUp(null);
   const handleDelete = (index) => deleteCroppedImage(index, onChange, images, setImages);

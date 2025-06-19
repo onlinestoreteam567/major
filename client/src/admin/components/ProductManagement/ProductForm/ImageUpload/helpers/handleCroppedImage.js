@@ -6,6 +6,7 @@ const handleCroppedImage = (
   setImage,
   originalFile,
   setOriginalFile,
+  images,
   setImages
 ) => {
   if (cropperRef.current?.cropper && originalFile) {
@@ -21,7 +22,7 @@ const handleCroppedImage = (
 
           const updatedImages = [...croppedImages, croppedFile];
           setCroppedImages(updatedImages);
-          setImages((prev) => [...prev, ...updatedImages]);
+          setImages((prev) => [...prev, croppedFile]);
           onChange(updatedImages);
           setImage(null);
           setOriginalFile(null);
