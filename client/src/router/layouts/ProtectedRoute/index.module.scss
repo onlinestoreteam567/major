@@ -9,4 +9,8 @@
   @include mobile {
     width: 340px;
   }
+
+  @include tablet {
+    width: 768px;
+  }
 }

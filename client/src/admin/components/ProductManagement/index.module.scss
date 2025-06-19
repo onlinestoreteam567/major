@@ -50,7 +50,8 @@
   }
 
   @include tablet {
-    width: 562px;
+    width: 524px;
+    margin: 36px 40px 0 208px;
 
     & > div:first-of-type {
       p {
