@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 // import ProductForm from './ProductForm/ProductForm';
 import Button from '@components/UI/Button/Button';
 import Search from './Search/Search';
-import { selectProducts } from '@redux/selectors';
 import { useSelector } from 'react-redux';
+import { selectFilteredProducts } from '@redux/selectors';
 const ProductManagement = () => {
-  const items = useSelector(selectProducts);
+  const items = useSelector(selectFilteredProducts);
 
   // const dispatch = useDispatch();
 

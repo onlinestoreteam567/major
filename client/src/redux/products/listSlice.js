@@ -22,6 +22,7 @@ const productSlice = createSlice({
 
   initialState: {
     products: [],
+    filteredProducts: [],
     isLoading: false,
     error: null,
   },
@@ -29,6 +30,16 @@ const productSlice = createSlice({
   reducers: {
     setProducts: (state, action) => {
       state.products = action.payload;
+    },
+    filterProductsByName: (state, action) => {
+      const searchTerm = action.payload.toLowerCase();
+      if (searchTerm) {
+        state.filteredProducts = state.products.filter((product) =>
+          product.product_name_uk.toLowerCase().includes(searchTerm)
+        );
+      } else {
+        state.filteredProducts = state.products;
+      }
     },
   },
 
@@ -75,5 +86,5 @@ const productSlice = createSlice({
       .addCase(getFilteredProducts.rejected, handleRejected),
 });
 
-export const { setProducts } = productSlice.actions;
+export const { setProducts, filterProductsByName } = productSlice.actions;
 export const productsReducer = productSlice.reducer;

@@ -12,6 +12,7 @@ export const selectSets = (state) => state.sets.sets;
 
 export const loadProducts = (state) => state.products.isLoading;
 export const selectProducts = (state) => state.products.products;
+export const selectFilteredProducts = (state) => state.products.filteredProducts;
 
 export const selectFitCategory = (state) => state.fitCategory.fitCategory;
 export const loadFitCategory = (state) => state.fitCategory.isLoading;
