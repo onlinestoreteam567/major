@@ -11,7 +11,7 @@ const ImageUpload = ({
   name,
   errors,
   labelText = 'Додати фото',
-  resetTrigger,
+  resetImagesTrigger,
   setMessageText,
   uploadedImages,
   setValue,
@@ -26,7 +26,8 @@ const ImageUpload = ({
     setImage(null);
     setOriginalFile(null);
     setCroppedImages([]);
-  }, [resetTrigger]);
+    setImages([]);
+  }, [resetImagesTrigger]);
 
   return (
     <Controller

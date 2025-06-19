@@ -33,7 +33,6 @@ const ProductCreate = () => {
 
   const price = watch('price');
   const discount = watch('discount');
-
   useEffect(() => {
     if (price && discount) {
       const discounted = price - (price * discount) / 100;
@@ -53,18 +52,10 @@ const ProductCreate = () => {
     let formData = new FormData();
     formData = handleImageUpload(formData, values, 'upload_images');
     appendFormData(formData, values, ['upload_images']);
-
     dispatch(createProduct(formData));
   };
 
-  useEffect(() => {
-    if (response) {
-      reset();
-    }
-  }, [response, reset]);
-
   const [resetImagesTrigger, setResetImagesTrigger] = useState(0);
-
   useEffect(() => {
     if (response) {
       reset();
