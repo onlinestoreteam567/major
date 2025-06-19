@@ -23,7 +23,7 @@ const Card = ({ card, setDeletedItemName }) => {
 
   const cardContent = (
     <>
-      <p>{card.available ? <img src="/svg/admin/available.svg" /> : <img src="/svg/admin/notAvalaible.svg" />}</p>
+      <p>{card.available ? <img src="/svg/admin/available.svg" /> : <img src="/svg/admin/notAvailable.svg" />}</p>
       <span>
         <img src={card.images[0].image} alt={card.name} />
       </span>
