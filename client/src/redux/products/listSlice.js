@@ -50,6 +50,7 @@ const productSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.products = action.payload;
+        state.filteredProducts = action.payload;
       })
       .addCase(fetchProductsAll.rejected, handleRejected)
 
