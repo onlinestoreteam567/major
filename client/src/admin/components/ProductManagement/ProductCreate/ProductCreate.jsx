@@ -13,6 +13,7 @@ import cl from './index.module.scss';
 import handleImageUpload from '@utils/handleImageUpload';
 import ReturnButton from '../../ReturnButton/ReturnButton';
 import { useEffect, useState } from 'react';
+import calculateDiscountedPrice from './calculateDiscountedPrice';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -34,14 +35,7 @@ const ProductCreate = () => {
   const price = watch('price');
   const discount = watch('discount');
   useEffect(() => {
-    if (price && discount) {
-      const discounted = price - (price * discount) / 100;
-      setValue('discounted_price', Math.round(discounted));
-    } else if (price) {
-      setValue('discounted_price', price);
-    } else {
-      setValue('discounted_price', '');
-    }
+    calculateDiscountedPrice(price, discount, setValue);
   }, [price, discount, setValue]);
 
   const isLoading = useSelector(loadCreateProduct);
@@ -59,7 +53,6 @@ const ProductCreate = () => {
   useEffect(() => {
     if (response) {
       reset();
-      setValue('upload_images', []);
       setResetImagesTrigger((prev) => prev + 1);
     }
   }, [response, reset, setValue]);
