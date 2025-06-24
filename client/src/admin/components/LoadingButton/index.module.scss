@@ -37,4 +37,8 @@
   @include tablet {
     width: 218px;
   }
+
+  @include deskmax {
+    width: 382px;
+  }
 }

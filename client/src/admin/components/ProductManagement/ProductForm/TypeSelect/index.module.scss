@@ -29,5 +29,14 @@
   @include deskmin {
     display: flex;
     justify-content: space-between;
+
+    p {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  @include deskmax {
+    width: 747px;
   }
 }

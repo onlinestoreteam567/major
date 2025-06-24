@@ -17,6 +17,7 @@ import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
 import setFormValues from './helpers/setFormValues';
+import ReturnButton from '../../ReturnButton/ReturnButton';
 
 const ProductEdit = () => {
   const {
@@ -72,12 +73,12 @@ const ProductEdit = () => {
           {/* {responseGet && responseGet.images && responseGet.images.length > 0 && (
             <UploadedImages images={responseGet.images} setValue={setValue} getValues={getValues} />
           )} */}
-          <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити" />
           {errorEdit && <ErrorText error={errorEdit} />}
           {responseEdit && <SuccessMessage>Товар успішно відредаговано!</SuccessMessage>}
-          <button type="button" onClick={() => console.log(getValues())}>
-            123
-          </button>
+          <div className={cl.btnWrapper}>
+            <ReturnButton to="/admin/products" />
+            <LoadingButton isLoading={isLoadingEdit} />
+          </div>
         </form>
       )}
     </>

@@ -102,3 +102,10 @@
     width: 375px;
   }
 }
+
+@include deskmin {
+  .customSelectDisplay,
+  .optionsList {
+    width: 340px;
+  }
+}

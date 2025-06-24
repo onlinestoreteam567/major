@@ -67,4 +67,16 @@
       top: 130px;
     }
   }
+
+  @include deskmax {
+    width: 427px;
+    .image {
+      width: 427px;
+      height: 427px;
+    }
+
+    .arrow {
+      top: 195px;
+    }
+  }
 }

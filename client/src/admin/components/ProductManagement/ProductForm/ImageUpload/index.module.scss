@@ -183,4 +183,23 @@
       }
     }
   }
+
+  @include deskmax {
+    .imageUploadWrapper {
+      gap: 40px;
+
+      .cropperContainerWrapper {
+        width: 761px;
+      }
+
+      label {
+        width: 427px;
+      }
+
+      .image {
+        height: 427px;
+        width: 427px;
+      }
+    }
+  }
 }

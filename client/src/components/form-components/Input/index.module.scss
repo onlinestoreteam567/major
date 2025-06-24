@@ -53,6 +53,7 @@
     padding: 12px 24px;
     border: 1px solid #a2a2a2;
     color: #676767;
+    align-items: start;
     font-size: 16px;
 
     &[type='text'] {
@@ -127,6 +128,24 @@
     input {
       &[type='text'] {
         width: 197px;
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 475px;
+    font-size: 24px;
+    font-weight: 400;
+
+    input {
+      font-size: 20px;
+
+      &::placeholder {
+        font-size: 20px;
+      }
+
+      &[type='text'] {
+        width: 315px;
       }
     }
   }

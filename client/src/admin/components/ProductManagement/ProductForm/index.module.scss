@@ -18,6 +18,7 @@
   @include flexGap(24px, column);
   margin-block: 25px;
   order: 5;
+  width: 100%;
 }
 
 @include tablet {
@@ -61,5 +62,12 @@
     label {
       width: 297px;
     }
+  }
+}
+
+@include deskmax {
+  .checkboxes {
+    width: 475px;
+    margin-top: -328px;
   }
 }
