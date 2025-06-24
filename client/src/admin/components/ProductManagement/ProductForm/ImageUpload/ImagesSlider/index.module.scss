@@ -33,4 +33,25 @@
     right: 5px;
     height: 34px;
   }
+
+  @include tablet {
+    width: 427px;
+
+    .image {
+      width: 427px;
+      height: 427px;
+    }
+
+    .arrow {
+      top: 195px;
+    }
+
+    .deleteButton {
+      top: 13px;
+      right: 13px;
+      img {
+        height: 35px;
+      }
+    }
+  }
 }

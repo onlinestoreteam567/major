@@ -33,4 +33,8 @@
   @include mobile {
     width: 150px;
   }
+
+  @include tablet {
+    width: 218px;
+  }
 }

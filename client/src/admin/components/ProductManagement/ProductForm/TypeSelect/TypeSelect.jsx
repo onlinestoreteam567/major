@@ -20,6 +20,7 @@ const TypeSelect = ({ control, errors }) => {
       name={name}
       render={({ field: { value, onChange, onBlur, ...field } }) => (
         <div className={cl.customSelectWrapper} ref={wrapperRef}>
+          <p>Категорія (за типом):</p>
           <select value={value || ''} onChange={(e) => onChange(e.target.value)} onBlur={onBlur} id={name} {...field}>
             <option value="">Обрати</option>
             {items.map((item) => (

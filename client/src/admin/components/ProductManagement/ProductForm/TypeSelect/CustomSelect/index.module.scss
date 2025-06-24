@@ -56,7 +56,7 @@
 }
 
 .optionsList {
-  @include absolute(56px);
+  @include absolute(104px);
   @include flexGap(16px, column);
   width: 280px;
   border-radius: 8px;
@@ -93,5 +93,12 @@
   .customSelectDisplay,
   .optionsList {
     width: 340px;
+  }
+}
+
+@include tablet {
+  .customSelectDisplay,
+  .optionsList {
+    width: 375px;
   }
 }

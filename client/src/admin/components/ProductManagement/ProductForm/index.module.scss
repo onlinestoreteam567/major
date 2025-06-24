@@ -3,15 +3,32 @@
 .productBasicInfo {
   @include flexGap(16px, column);
   margin-block: 25px;
+
+  @include tablet {
+    margin-block: 56px;
+  }
 }
 
 .checkboxes {
   @include flexGap(16px, column);
   margin-bottom: 25px;
+
+  @include tablet {
+    @include flexGap(24px);
+    margin-bottom: 56px;
+  }
 }
 
 .productNumericalInputs {
   @include flexGap(16px, column);
+
+  @include tablet {
+    gap: 24px;
+
+    label {
+      width: 290px;
+    }
+  }
 }
 
 .selects {

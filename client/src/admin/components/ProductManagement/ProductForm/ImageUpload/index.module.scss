@@ -114,4 +114,38 @@
       width: 297px;
     }
   }
+
+  @include tablet {
+    .imageUploadWrapper {
+      gap: 40px;
+      .cropperContainerWrapper {
+        width: 571px;
+        height: 600px;
+
+        h2 {
+          font-size: 32px;
+        }
+
+        .cropperContainer {
+          height: 361px;
+          width: 361px;
+        }
+
+        .buttonsWrapper {
+          flex-direction: row;
+          width: 361px;
+        }
+      }
+
+      label {
+        width: 427px;
+        height: 65px;
+      }
+
+      .image {
+        height: 427px;
+        width: 427px;
+      }
+    }
+  }
 }

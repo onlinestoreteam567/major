@@ -3,4 +3,9 @@
 .productEdit {
   @include flex(column, null, null);
   color: black;
+
+  @include tablet {
+    margin: 36px 40px 0 208px;
+    width: 524px;
+  }
 }
