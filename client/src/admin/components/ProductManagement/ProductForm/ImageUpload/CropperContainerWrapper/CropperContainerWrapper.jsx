@@ -3,6 +3,7 @@ import cl from '../index.module.scss';
 import { createRef } from 'react';
 import Button from '@components/UI/Button/Button';
 import handleCroppedImage from '../helpers/handleCroppedImage';
+import Overlay from '@components/UI/Overlay/Overlay';
 
 const CropperContainerWrapper = ({
   image,
@@ -19,50 +20,53 @@ const CropperContainerWrapper = ({
   const cropperRef = createRef();
 
   return (
-    <div className={cl.cropperContainerWrapper}>
-      <h2>Обріжте фото</h2>
-      <Cropper
-        className={cl.cropperContainer}
-        ref={cropperRef}
-        zoomTo={0.5}
-        initialAspectRatio={1}
-        aspectRatio={1}
-        preview=".img-preview"
-        src={image}
-        viewMode={1}
-        minCropBoxHeight={10}
-        minCropBoxWidth={10}
-        background={false}
-        responsive={true}
-        autoCropArea={1}
-        checkOrientation={false}
-        guides={true}
-      />
-      <div className={cl.buttonsWrapper}>
-        <Button variant="secondary" type="button" onClick={() => setImage(null)}>
-          Відміна
-        </Button>
-        <Button
-          type="button"
-          onClick={() => {
-            setMessageText();
-            handleCroppedImage(
-              onChange,
-              cropperRef,
-              croppedImages,
-              setCroppedImages,
-              setImage,
-              originalFile,
-              setOriginalFile,
-              images,
-              setImages
-            );
-          }}
-        >
-          Додати
-        </Button>
+    <>
+      <Overlay handleClose={() => setImage(null)} />
+      <div className={cl.cropperContainerWrapper}>
+        <h2>Обріжте фото</h2>
+        <Cropper
+          className={cl.cropperContainer}
+          ref={cropperRef}
+          zoomTo={0.5}
+          initialAspectRatio={1}
+          aspectRatio={1}
+          preview=".img-preview"
+          src={image}
+          viewMode={1}
+          minCropBoxHeight={10}
+          minCropBoxWidth={10}
+          background={false}
+          responsive={true}
+          autoCropArea={1}
+          checkOrientation={false}
+          guides={true}
+        />
+        <div className={cl.buttonsWrapper}>
+          <Button variant="secondary" type="button" onClick={() => setImage(null)}>
+            Відміна
+          </Button>
+          <Button
+            type="button"
+            onClick={() => {
+              setMessageText();
+              handleCroppedImage(
+                onChange,
+                cropperRef,
+                croppedImages,
+                setCroppedImages,
+                setImage,
+                originalFile,
+                setOriginalFile,
+                images,
+                setImages
+              );
+            }}
+          >
+            Додати
+          </Button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 export default CropperContainerWrapper;

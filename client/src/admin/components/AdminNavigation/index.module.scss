@@ -18,7 +18,7 @@
 .adminNavigation {
   @include flex(column, space-between, center);
   @include absolute();
-  z-index: $z-index-pop-up;
+  z-index: $z-index-header;
   height: 628px;
   box-sizing: border-box;
   width: 100px;

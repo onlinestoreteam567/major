@@ -6,11 +6,11 @@
 
   .cropperContainerWrapper {
     @include flex(column);
-    top: 0;
-    left: 50%;
     z-index: 1000;
-    transform: translateX(-50%);
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 280px;
     height: 545px;
     border-radius: 8px;
