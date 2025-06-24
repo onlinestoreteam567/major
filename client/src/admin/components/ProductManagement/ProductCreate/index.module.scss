@@ -8,10 +8,21 @@
     margin: 36px 40px 0 208px;
     width: 524px;
   }
+
+  @include deskmin {
+    margin: 36px;
+    width: 686px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 .btnWrapper {
   @include flex(row, space-between, center);
   width: 100%;
   margin-top: 16px;
+
+  @include deskmin {
+    order: 8;
+  }
 }

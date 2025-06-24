@@ -25,7 +25,7 @@ const ResponsiveTextareas = ({ register, errors, control }) => {
   const activeIndex = fields.findIndex((f) => f.name === activeTab);
 
   return (
-    <div className={cl.wrapper}>
+    <>
       {/* Mobile: Accordion */}
       <div className={cl.mobile}>
         {fields.map(({ name, label, placeholder }) => (
@@ -98,7 +98,7 @@ const ResponsiveTextareas = ({ register, errors, control }) => {
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

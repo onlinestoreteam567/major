@@ -142,8 +142,10 @@
 
   @include deskmin {
     height: 780px;
+    min-width: 270px;
     width: 270px;
     padding-block: 32px;
+    position: static;
 
     &:hover {
       width: 270px;

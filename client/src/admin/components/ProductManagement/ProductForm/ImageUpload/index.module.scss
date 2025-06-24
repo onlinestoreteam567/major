@@ -148,4 +148,39 @@
       }
     }
   }
+
+  @include deskmin {
+    .imageUploadWrapper {
+      margin: 0;
+      gap: 16px;
+
+      .cropperContainerWrapper {
+        width: 637px;
+        height: 647px;
+
+        h2 {
+          font-size: 32px;
+        }
+
+        .cropperContainer {
+          height: 437px;
+          width: 437px;
+        }
+
+        .buttonsWrapper {
+          gap: 54px;
+          width: 437px;
+        }
+      }
+
+      label {
+        width: 297px;
+      }
+
+      .image {
+        height: 297px;
+        width: 297px;
+      }
+    }
+  }
 }

@@ -43,7 +43,7 @@ const AdminNavigation = () => {
           </NavLink>
           <NavLink to={`/admin/partners`}>
             <img src="/images/admin/navigation/Map.png" alt="Partners icon" />
-            <span>Карта</span>
+            <span>Мапа</span>
           </NavLink>
           <button>
             <img src="/images/admin/navigation/Articles icon.png" alt="Articles icon" />

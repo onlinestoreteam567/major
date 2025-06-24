@@ -13,4 +13,8 @@
   @include tablet {
     width: 768px;
   }
+
+  @include deskmin {
+    margin: 0;
+  }
 }

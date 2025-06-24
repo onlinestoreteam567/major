@@ -54,4 +54,17 @@
       }
     }
   }
+
+  @include deskmin {
+    width: 297px;
+
+    .image {
+      width: 297px;
+      height: 297px;
+    }
+
+    .arrow {
+      top: 130px;
+    }
+  }
 }

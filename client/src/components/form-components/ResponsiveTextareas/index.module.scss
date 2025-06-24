@@ -14,6 +14,10 @@
   @include tablet {
     display: block;
   }
+
+  @include deskmin {
+    order: 6;
+  }
 }
 
 .accordionItem {

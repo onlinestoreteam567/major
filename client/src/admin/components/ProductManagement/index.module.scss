@@ -71,6 +71,7 @@
 
   @include deskmin {
     width: 686px;
+    margin: 36px;
 
     & > div:first-of-type {
       margin-bottom: 56px;

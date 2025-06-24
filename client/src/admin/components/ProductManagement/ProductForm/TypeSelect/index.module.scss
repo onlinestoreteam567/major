@@ -25,4 +25,9 @@
       margin-bottom: 16px;
     }
   }
+
+  @include deskmin {
+    display: flex;
+    justify-content: space-between;
+  }
 }
