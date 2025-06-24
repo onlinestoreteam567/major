@@ -20,6 +20,20 @@
   width: 100%;
 }
 
+.seoInputs {
+  @include flexGap(16px, column);
+  margin-block: 25px;
+
+  label {
+    @include flexGap(16px, column);
+    width: 100%;
+
+    input[type='text'] {
+      width: 100%;
+    }
+  }
+}
+
 @include tablet {
   .productBasicInfo {
     margin-block: 56px;

@@ -109,7 +109,40 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
       </div>
 
       <ResponsiveTextareas register={register} errors={errors} control={control} />
-
+      <div className={cl.seoInputs}>
+        <Input
+          placeholder="example"
+          labelText="Мета-тег Title (UA):"
+          name="1"
+          register={register}
+          errors={errors}
+          variant="admin"
+        />
+        <Input
+          placeholder="example"
+          labelText="Мета-тег Title (ENG):"
+          name="2"
+          register={register}
+          errors={errors}
+          variant="admin"
+        />
+        <Input
+          placeholder="example"
+          labelText="Мета-тег Description (UA):"
+          name="3"
+          register={register}
+          errors={errors}
+          variant="admin"
+        />
+        <Input
+          placeholder="example"
+          labelText="Мета-тег Description (ENG):"
+          name="4"
+          register={register}
+          errors={errors}
+          variant="admin"
+        />
+      </div>
       {messageText && <AdminMessage>{messageText}</AdminMessage>}
     </>
   );
