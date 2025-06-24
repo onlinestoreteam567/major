@@ -2,6 +2,7 @@
 
 .mobile {
   display: block;
+  font-family: Mulish;
 
   @include tablet {
     display: none;
@@ -9,6 +10,7 @@
 }
 
 .desktop {
+  font-family: Mulish;
   display: none;
 
   @include tablet {
@@ -36,7 +38,6 @@
   justify-content: space-between;
   align-items: center;
   font-weight: 500;
-  font-size: 16px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
@@ -97,30 +98,35 @@
     width: 985px;
     font-size: 20px;
   }
-}
 
-.tab {
-  flex: 1;
-  padding: 12px 20px;
-  cursor: pointer;
-  background: #b7d7b8;
-  border: none;
-  height: 68px;
-  font-size: 14px;
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
-
-  &.active {
-    background: #4c9a4e;
+  button {
+    width: 104px;
+    background: #b7d7b8;
+    height: 68px;
+    font-size: 18px;
     color: white;
     font-weight: 600;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
-  }
-  &:not(.active) {
-    color: white;
-    font-weight: 600;
+    word-break: break-all;
+    transition:
+      background 0.3s ease,
+      color 0.3s ease;
+
+    &.active {
+      background: #4c9a4e;
+      color: white;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+    }
+
+    @include deskmin {
+      width: 136px;
+      font-size: 16px;
+    }
+
+    @include deskmax {
+      width: 196px;
+      font-size: 20px;
+    }
   }
 }
 
@@ -137,4 +143,14 @@
   border-radius: 0 0 12px 12px;
   background-color: #4c9a4e;
   height: 245px;
+  width: 520px;
+  box-sizing: border-box;
+
+  @include deskmin {
+    width: 680px;
+  }
+
+  @include deskmax {
+    width: 980px;
+  }
 }
