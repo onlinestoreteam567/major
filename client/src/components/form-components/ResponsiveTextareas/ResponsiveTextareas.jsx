@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // Import useEffect
 import { TextareaProduct } from '@components/form-components/Textarea/TextareaProduct/TextareaProduct.jsx';
 import cl from './index.module.scss';
 import ArrowAccordion from '@assets/svg/Admin/ArrowAccordion/ArrowAccordion.jsx';
@@ -15,6 +15,16 @@ const ResponsiveTextareas = ({ register, errors, control }) => {
   const [openItems, setOpenItems] = useState({});
   const [activeTab, setActiveTab] = useState(fields[0].name);
 
+  useEffect(() => {
+    const newOpenItems = {};
+    fields.forEach(({ name }) => {
+      if (errors?.[name]) {
+        newOpenItems[name] = true;
+      }
+    });
+    setOpenItems((prev) => ({ ...prev, ...newOpenItems }));
+  }, [errors]);
+
   const toggle = (name) => {
     setOpenItems((prev) => ({
       ...prev,
@@ -29,16 +39,12 @@ const ResponsiveTextareas = ({ register, errors, control }) => {
       {/* Mobile: Accordion */}
       <div className={cl.mobile}>
         {fields.map(({ name, label, placeholder }) => (
-          <div key={name} className={cl.accordionItem}>
-            <button
-              type="button"
-              className={`${cl.accordionHeader} ${openItems[name] ? cl.open : ''}`}
-              onClick={() => toggle(name)}
-            >
+          <div key={name} className={`${cl.accordionItem} ${errors?.[name] ? cl.error : ''}`}>
+            <button type="button" className={` ${openItems[name] ? cl.open : ''}`} onClick={() => toggle(name)}>
               {label}
               <span className={cl.arrowWrapper}>
                 <ArrowAccordion
-                  className={`${cl.arrow} ${openItems[name] ? cl.open : ''} ${errors?.[name] && !openItems[name] ? cl.arrowError : ''}`}
+                  className={`${cl.arrow} ${openItems[name] ? cl.open : ''} ${errors?.[name] ? cl.arrowError : ''}`}
                 />
               </span>
             </button>

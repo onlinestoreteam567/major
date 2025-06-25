@@ -27,34 +27,41 @@
   margin-bottom: 16px;
   border-radius: 8px;
   overflow: hidden;
-}
 
-.accordionHeader {
-  width: 280px;
-  background: #b7d7b8;
-  padding: 10px 16px;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 500;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  color: #676767;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 136%;
-
-  &.open {
-    margin-bottom: 8px;
-    color: #323232;
+  &.error {
+    button {
+      border: 1px solid #e31a1a;
+    }
   }
 
-  @include mobile {
-    width: 340px;
+  button {
+    width: 280px;
+    background: #b7d7b8;
+    padding: 10px 16px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: #676767;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 136%;
+
+    &.open {
+      margin-bottom: 8px;
+      color: #323232;
+
+      @include mobile {
+        width: 340px;
+      }
+    }
   }
 }
+
 .arrowWrapper {
   width: 24px;
   height: 24px;
