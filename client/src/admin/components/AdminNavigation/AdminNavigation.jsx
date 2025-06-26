@@ -24,24 +24,24 @@ const AdminNavigation = () => {
       {isMobileOverlay && <Overlay handleClose={handleClose} />}
 
       <nav className={cl.adminNavigation} style={{ color: 'black' }}>
-        <NavLink to={`/admin/products`}>
+        <NavLink to={`/admin/products`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
           <img src="/images/admin/navigation/Logo.png" alt="Company Logo" />
         </NavLink>
 
         <div>
-          <NavLink to={`/admin/products`} className={cl.active}>
+          <NavLink to={`/admin/products`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
             <img src="/images/admin/navigation/Goods icon.png" alt="Goods icon" />
             <span>Товари</span>
           </NavLink>
-          <NavLink to={`/admin/categories`}>
+          <NavLink to={`/admin/categories`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
             <img src="/images/admin/navigation/Catalog icons.png" alt="Catalog icon" />
             <span>Категорії</span>
           </NavLink>
-          <NavLink to={`/admin/promocodes`}>
+          <NavLink to={`/admin/promocodes`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
             <img src="/images/admin/navigation/Promo icons.png" alt="Promocodes icon" />
             <span>Промокоди</span>
           </NavLink>
-          <NavLink to={`/admin/partners`}>
+          <NavLink to={`/admin/partners`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
             <img src="/images/admin/navigation/Map.png" alt="Partners icon" />
             <span>Мапа</span>
           </NavLink>
@@ -49,11 +49,11 @@ const AdminNavigation = () => {
             <img src="/images/admin/navigation/Articles icon.png" alt="Articles icon" />
             <span>Статті</span>
           </button>
-          <NavLink to={`/admin/banners`}>
+          <NavLink to={`/admin/banners`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
             <img src="/images/admin/navigation/Banners icons.png" alt="Banners icon" />
             <span>Банери</span>
           </NavLink>
-          <NavLink to={`/admin/reviews`}>
+          <NavLink to={`/admin/reviews`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
             <img src="/images/admin/navigation/Rewievs icons.png" alt="Reviews icon" />
             <span>Відгуки</span>
           </NavLink>
