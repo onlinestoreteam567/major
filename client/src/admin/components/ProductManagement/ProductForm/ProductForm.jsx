@@ -1,4 +1,4 @@
-import { Input } from '@components/form-components';
+import { Input, TextareaAdmin } from '@components/form-components';
 import CategorySelect from './CategorySelect/CategorySelect';
 import TypeSelect from './TypeSelect/TypeSelect';
 import ImageUpload from './ImageUpload/ImageUpload';
@@ -126,19 +126,19 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
           errors={errors}
           variant="admin"
         />
-        <Input
+        <TextareaAdmin
           placeholder="example"
           labelText="Мета-тег Description (UA):"
           name="3"
-          register={register}
           errors={errors}
+          control={control}
           variant="admin"
         />
-        <Input
+        <TextareaAdmin
           placeholder="example"
           labelText="Мета-тег Description (ENG):"
           name="4"
-          register={register}
+          control={control}
           errors={errors}
           variant="admin"
         />

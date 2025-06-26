@@ -54,10 +54,10 @@
     &.open {
       margin-bottom: 8px;
       color: #323232;
+    }
 
-      @include mobile {
-        width: 340px;
-      }
+    @include mobile {
+      width: 340px;
     }
   }
 }
@@ -86,8 +86,6 @@
 .tabs {
   display: flex;
   overflow-x: auto;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
   font-weight: 700;
   font-size: 18px;
   line-height: 136%;
@@ -96,14 +94,36 @@
 
   @include tablet {
     width: 520px;
+
+    button:nth-of-type(1),
+    button:nth-of-type(2) {
+      padding-inline: 18px;
+    }
   }
   @include deskmin {
     width: 680px;
     font-size: 16px;
+    button:nth-of-type(3),
+    button:nth-of-type(4) {
+      padding-inline: 10px;
+    }
   }
   @include deskmax {
     width: 985px;
     font-size: 20px;
+
+    button:nth-of-type(3),
+    button:nth-of-type(4) {
+      padding-inline: 15px;
+    }
+  }
+
+  button:nth-of-type(1) {
+    border-top-left-radius: 24px;
+  }
+
+  button:nth-of-type(5) {
+    border-top-right-radius: 24px;
   }
 
   button {
@@ -123,6 +143,10 @@
       color: white;
       border-top-left-radius: 24px;
       border-top-right-radius: 24px;
+    }
+
+    &.error {
+      border: 1px solid #e31a1a;
     }
 
     @include deskmin {

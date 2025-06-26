@@ -23,6 +23,7 @@
 .seoInputs {
   @include flexGap(16px, column);
   margin-block: 25px;
+  width: 100%;
 
   label {
     @include flexGap(16px, column);
@@ -80,11 +81,43 @@
   .selects {
     order: 5;
   }
+
+  .seoInputs {
+    order: 7;
+
+    label {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+
+      span {
+        max-width: 235px;
+      }
+
+      input[type='text'],
+      textarea {
+        width: 407px;
+      }
+    }
+  }
 }
 
 @include deskmax {
   .checkboxes {
     width: 475px;
     margin-top: -328px;
+  }
+
+  .seoInputs {
+    label {
+      span {
+        max-width: initial;
+      }
+
+      input[type='text'],
+      textarea {
+        width: 642px;
+      }
+    }
   }
 }
