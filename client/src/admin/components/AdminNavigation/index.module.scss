@@ -106,6 +106,10 @@
       div {
         align-items: start;
 
+        a:first-of-type {
+          padding-left: 22px;
+        }
+
         a,
         button {
           justify-content: start;
@@ -124,6 +128,7 @@
 
     div {
       a:first-of-type {
+        width: fit-content;
         img {
           height: 40px;
           width: 40px;
@@ -133,6 +138,9 @@
       a,
       button {
         height: 70px;
+        width: fit-content;
+        padding-inline: 16px;
+
         img {
           height: 50px;
           width: 50px;
@@ -158,6 +166,12 @@
     }
 
     div {
+      align-items: start;
+
+      a:first-of-type {
+        padding-left: 22px;
+      }
+
       a,
       button {
         justify-content: start;
