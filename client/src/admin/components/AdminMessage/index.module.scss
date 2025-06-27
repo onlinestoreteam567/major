@@ -1,6 +1,7 @@
 @import '@mixins';
 
 .adminMessage {
+  @include flex();
   box-sizing: border-box;
   width: 218px;
   height: 54px;

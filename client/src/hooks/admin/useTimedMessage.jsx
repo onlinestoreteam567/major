@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-const useTimedMessage = (initialMessage = null, duration = 3000) => {
-  const [message, setMessage] = useState(initialMessage);
+const useTimedMessage = (duration = 3000) => {
+  const [message, setMessage] = useState();
   const timerRef = useRef(null);
 
   const showMessage = useCallback(
@@ -18,11 +18,9 @@ const useTimedMessage = (initialMessage = null, duration = 3000) => {
 
   useEffect(() => {
     return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
+      if (timerRef.current) clearTimeout(timerRef.current);
     };
-  });
+  }, []);
 
   return [message, showMessage];
 };
