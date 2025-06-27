@@ -1,9 +1,12 @@
+import useScreenSizes from '@hooks/useScreenSizes';
 import cl from './index.module.scss';
 
-const LoadingButton = ({ isLoading, children = 'Зберегти' }) => {
+const LoadingButton = ({ isLoading, shortText, longText }) => {
+  const { smallMobile, mobile } = useScreenSizes();
+
   return (
     <button type="submit" disabled={isLoading} className={cl.loadingButton}>
-      {children}
+      {smallMobile || mobile ? shortText : longText}
     </button>
   );
 };

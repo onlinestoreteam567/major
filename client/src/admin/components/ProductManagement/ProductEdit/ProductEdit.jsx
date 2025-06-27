@@ -9,12 +9,10 @@ import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
 import ReturnButton from '../../ReturnButton/ReturnButton';
-import useScreenSizes from '@hooks/useScreenSizes';
 import { useFetchProductData } from './helpers/useFetchProductData';
 import { useEditProductForm } from './helpers/useEditProductForm';
 
 const ProductEdit = () => {
-  const { smallMobile, mobile } = useScreenSizes();
   const { isLoadingGet, responseGet, id, isLoadingEdit, responseEdit, errorEdit } = useFetchProductData();
   const { register, handleSubmit, errors, control, getValues, setValue } = useEditProductForm(responseGet);
 
@@ -45,9 +43,7 @@ const ProductEdit = () => {
           {responseEdit && <SuccessMessage>Товар успішно відредаговано!</SuccessMessage>}
           <div className={cl.btnWrapper}>
             <ReturnButton to="/admin/products" />
-            <LoadingButton isLoading={isLoadingEdit}>
-              {smallMobile || mobile ? 'Зберегти' : 'Зберегти зміни'}
-            </LoadingButton>
+            <LoadingButton isLoading={isLoadingEdit} shortText="Зберегти" longText="Зберегти зміни" />
           </div>
         </form>
       )}

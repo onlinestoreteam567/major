@@ -1,7 +1,6 @@
 // components/ProductCreate/index.jsx
 import appendFormData from '@utils/appendFormData';
 import handleImageUpload from '@utils/handleImageUpload';
-import useScreenSizes from '@hooks/useScreenSizes';
 import { useDispatch, useSelector } from 'react-redux';
 import { errorCreateProduct, loadCreateProduct, responseCreateProduct } from '../../../redux/selectors';
 import { createProduct } from '../../../redux/service';
@@ -14,11 +13,9 @@ import cl from './index.module.scss';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
-  const { smallMobile, mobile } = useScreenSizes();
   const isLoading = useSelector(loadCreateProduct);
   const response = useSelector(responseCreateProduct);
   const errorPost = useSelector(errorCreateProduct);
-
   const { register, handleSubmit, errors, control, resetImagesTrigger } = useProductForm(response);
 
   const onSubmit = (values) => {
@@ -35,7 +32,7 @@ const ProductCreate = () => {
 
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/products" />
-          <LoadingButton isLoading={isLoading}>{smallMobile || mobile ? 'Створити' : 'Створити товар'}</LoadingButton>
+          <LoadingButton isLoading={isLoading} shortText="Створити" longText="Створити товар" />
         </div>
 
         {errorPost && <ErrorText error={errorPost} />}
