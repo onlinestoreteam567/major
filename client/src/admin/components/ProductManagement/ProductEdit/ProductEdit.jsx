@@ -79,6 +79,10 @@ const ProductEdit = () => {
             <ReturnButton to="/admin/products" />
             <LoadingButton isLoading={isLoadingEdit} />
           </div>
+
+          <button type="button" onClick={() => console.log(getValues())}>
+            console.log(getValues())
+          </button>
         </form>
       )}
     </>
