@@ -10,14 +10,14 @@
   }
 
   @include deskmin {
-    margin: 36px;
+    margin: 36px auto;
     width: 686px;
     flex-direction: row;
     flex-wrap: wrap;
   }
 
   @include deskmax {
-    margin: 90px 48px;
+    margin: 90px auto;
     width: 986px;
   }
 }

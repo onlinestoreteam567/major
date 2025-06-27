@@ -1,4 +1,3 @@
-// components/ProductCreate/index.jsx
 import appendFormData from '@utils/appendFormData';
 import handleImageUpload from '@utils/handleImageUpload';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +7,7 @@ import ErrorText from '../../ErrorText/ErrorText';
 import LoadingButton from '../../LoadingButton/LoadingButton';
 import ReturnButton from '../../ReturnButton/ReturnButton';
 import ProductForm from '../ProductForm/ProductForm';
-import { useProductForm } from './useProductForm'; // Adjust path as needed
+import { useProductForm } from './useProductForm';
 import cl from './index.module.scss';
 
 const ProductCreate = () => {
