@@ -41,7 +41,6 @@
   font-size: 18px;
   line-height: 136%;
   color: #e31a1a;
-  order: 8;
 }
 
 @include tablet {
@@ -113,6 +112,10 @@
         width: 407px;
       }
     }
+  }
+
+  .errorMessage {
+    order: 8;
   }
 }
 

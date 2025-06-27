@@ -58,7 +58,6 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
           variant="admin"
         />
       </div>
-
       <div className={cl.checkboxes}>
         <AdminCheckBox labelText="В наявності" name="available" register={register} />
         <AdminCheckBox labelText="Новинка" name="is_new" register={register} />
@@ -107,7 +106,6 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
         <CategorySelect control={control} errors={errors} />
         <TypeSelect control={control} errors={errors} />
       </div>
-
       <ResponsiveTextareas register={register} errors={errors} control={control} />
       <div className={cl.seoInputs}>
         <Input
@@ -144,7 +142,9 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
         />
       </div>
       {messageText && <AdminMessage>{messageText}</AdminMessage>}
-      {errors && <p className={cl.errorMessage}>Неможливо створити товар — перевірте правильність введення даних.</p>}
+      {Object.keys(errors).length > 0 && (
+        <p className={cl.errorMessage}>Неможливо створити товар — перевірте правильність введення даних.</p>
+      )}
     </>
   );
 };
