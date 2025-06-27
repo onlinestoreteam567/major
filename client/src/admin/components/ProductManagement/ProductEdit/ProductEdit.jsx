@@ -78,9 +78,6 @@ const ProductEdit = () => {
             setValue={setValue}
             getValues={getValues}
           />
-          {/* {responseGet && responseGet.images && responseGet.images.length > 0 && (
-            <UploadedImages images={responseGet.images} setValue={setValue} getValues={getValues} />
-          )} */}
           {errorEdit && <ErrorText error={errorEdit} />}
           {responseEdit && <SuccessMessage>Товар успішно відредаговано!</SuccessMessage>}
           <div className={cl.btnWrapper}>
