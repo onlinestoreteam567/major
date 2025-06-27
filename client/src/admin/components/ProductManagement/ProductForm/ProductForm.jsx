@@ -67,15 +67,6 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
       <div className={cl.productNumericalInputs}>
         <Input
           placeholder="0"
-          type="number"
-          labelText="Об’єм(ml):"
-          name="volume_ml"
-          register={register}
-          errors={errors}
-          variant="admin"
-        />
-        <Input
-          placeholder="0"
           variant="admin"
           type="number"
           labelText="Ціна (грн):"
@@ -101,6 +92,15 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
           register={register}
           errors={errors}
           readOnly
+        />
+        <Input
+          placeholder="0"
+          type="number"
+          labelText="Об’єм(ml):"
+          name="volume_ml"
+          register={register}
+          errors={errors}
+          variant="admin"
         />
       </div>
       <div className={cl.selects}>

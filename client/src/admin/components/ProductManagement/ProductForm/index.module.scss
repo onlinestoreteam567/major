@@ -103,9 +103,20 @@
 }
 
 @include deskmax {
+  .productNumericalInputs {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    label {
+      width: fit-content;
+      gap: 16px;
+    }
+  }
+
   .checkboxes {
     width: 475px;
-    margin-top: -328px;
+    margin-top: -462px;
   }
 
   .seoInputs {
