@@ -4,22 +4,13 @@ import TypeSelect from './TypeSelect/TypeSelect';
 import ImageUpload from './ImageUpload/ImageUpload';
 import ResponsiveTextareas from '@components/form-components/ResponsiveTextareas/ResponsiveTextareas';
 import AdminCheckBox from '@components/form-components/Checkbox/AdminCheckbox/Checkbox';
-import { useEffect, useState } from 'react';
 import AdminMessage from '../../AdminMessage/AdminMessage';
 import cl from './index.module.scss';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
 
 const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedImages, setValue, getValues }) => {
-  const [messageText, setMessageText] = useState(null);
+  const [messageText, showMessage] = useTimedMessage();
 
-  useEffect(() => {
-    if (messageText) {
-      const timer = setTimeout(() => {
-        setMessageText('');
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [messageText]);
   return (
     <>
       <ImageUpload
@@ -27,7 +18,7 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
         name="upload_images"
         errors={errors}
         resetImagesTrigger={resetImagesTrigger}
-        setMessageText={() => setMessageText('Фото успішно додано')}
+        setMessageText={() => showMessage('Фото успішно додано')}
         uploadedImages={uploadedImages}
         setValue={setValue}
         getValues={getValues}
