@@ -2,9 +2,8 @@
   "title": "Free consultation",
   "subtitle": "Need help?",
   "heading": "We are always in touch with you, leave your contact details and we will call you back!",
-  "name": "Your name*",
   "phoneNumber": "Phone number*",
-  "textAreaTitle": "Message*2",
-  "buttonText": "Send",
-  "crossAlt": "Close"
+  "textAreaTitle": "Message*",
+  "crossAlt": "Close",
+  "yourName": "Your name*"
 }

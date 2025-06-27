@@ -106,18 +106,17 @@
       margin-top: 10px;
       box-sizing: border-box;
 
-      li {
+      li > a {
         display: flex;
         height: 75px;
         gap: 10px;
+        text-decoration: none;
+        color: inherit;
 
-        & > a:first-of-type {
+        img {
           width: 75px;
-
-          img {
-            height: 100%;
-            aspect-ratio: 1 / 1;
-          }
+          height: 100%;
+          aspect-ratio: 1 / 1;
         }
 
         .searchResultInfo {

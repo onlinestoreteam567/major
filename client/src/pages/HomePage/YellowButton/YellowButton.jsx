@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import MainPopUp from '@UI/PopUp/MainPopUp/MainPopUp';
 import { popUpData } from '@components/constants/popUpData';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
+import QuestionPopUp from './QuestionPopUp/QuestionPopUp';
 
 const YellowButton = () => {
   const [showMessagePopUp, setShowMessagePopUp] = useState(false);
@@ -50,7 +50,7 @@ const YellowButton = () => {
           </div>
         )}
       </section>
-      {showMessagePopUp && <MainPopUp setShowMessagePopUp={setShowMessagePopUp} popUpData={popUpData} />}
+      {showMessagePopUp && <QuestionPopUp setShowMessagePopUp={setShowMessagePopUp} popUpData={popUpData} />}
     </>
   );
 };

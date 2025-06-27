@@ -223,3 +223,12 @@ input[type='number'] {
   display: none;
 }
 //* cropper library custom styles end
+
+.search-result {
+  background-color: yellow;
+  border-radius: 3px;
+}
+
+.search-result-current {
+  background-color: orange;
+}

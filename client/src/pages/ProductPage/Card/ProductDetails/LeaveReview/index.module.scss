@@ -2,6 +2,13 @@
 
 .leaveReview {
   @include flex(row, flex-end);
+  position: absolute;
+  right: 0;
+  top: 40px;
+
+  @include tablet {
+    top: 1px;
+  }
 
   button {
     @include flex();
