@@ -1,47 +1,25 @@
-import { yupResolver } from '@hookform/resolvers/yup';
+// components/ProductCreate/index.jsx
 import appendFormData from '@utils/appendFormData';
-import { useForm } from 'react-hook-form';
+import handleImageUpload from '@utils/handleImageUpload';
+import useScreenSizes from '@hooks/useScreenSizes';
 import { useDispatch, useSelector } from 'react-redux';
 import { errorCreateProduct, loadCreateProduct, responseCreateProduct } from '../../../redux/selectors';
 import { createProduct } from '../../../redux/service';
-import { productSchema } from '../../../validations/productSchema';
 import ErrorText from '../../ErrorText/ErrorText';
 import LoadingButton from '../../LoadingButton/LoadingButton';
-import ProductForm from '../ProductForm/ProductForm';
-import cl from './index.module.scss';
-import handleImageUpload from '@utils/handleImageUpload';
 import ReturnButton from '../../ReturnButton/ReturnButton';
-import { useEffect, useState } from 'react';
-import calculateDiscountedPrice from './calculateDiscountedPrice';
-import useScreenSizes from '@hooks/useScreenSizes';
+import ProductForm from '../ProductForm/ProductForm';
+import { useProductForm } from './useProductForm'; // Adjust path as needed
+import cl from './index.module.scss';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
   const { smallMobile, mobile } = useScreenSizes();
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    control,
-    watch,
-    setValue,
-    reset,
-  } = useForm({
-    resolver: yupResolver(productSchema),
-    mode: 'onSubmit',
-    shouldUnregister: false,
-  });
-
-  const price = watch('price');
-  const discount = watch('discount');
-  useEffect(() => {
-    calculateDiscountedPrice(price, discount, setValue);
-  }, [price, discount, setValue]);
-
   const isLoading = useSelector(loadCreateProduct);
   const response = useSelector(responseCreateProduct);
   const errorPost = useSelector(errorCreateProduct);
+
+  const { register, handleSubmit, errors, control, resetImagesTrigger } = useProductForm(response);
 
   const onSubmit = (values) => {
     let formData = new FormData();
@@ -49,14 +27,6 @@ const ProductCreate = () => {
     appendFormData(formData, values, ['upload_images']);
     dispatch(createProduct(formData));
   };
-
-  const [resetImagesTrigger, setResetImagesTrigger] = useState(0);
-  useEffect(() => {
-    if (response) {
-      reset();
-      setResetImagesTrigger((prev) => prev + 1);
-    }
-  }, [response, reset, setValue]);
 
   return (
     <>
@@ -68,7 +38,7 @@ const ProductCreate = () => {
           <LoadingButton isLoading={isLoading}>{smallMobile || mobile ? 'Створити' : 'Створити товар'}</LoadingButton>
         </div>
 
-        {errorPost && <ErrorText error={errorPost}></ErrorText>}
+        {errorPost && <ErrorText error={errorPost} />}
       </form>
     </>
   );

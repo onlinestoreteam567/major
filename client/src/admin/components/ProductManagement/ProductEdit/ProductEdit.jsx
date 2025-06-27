@@ -1,64 +1,24 @@
 import Spinner from '@components/helpers/Spinner/Spinner';
-import { yupResolver } from '@hookform/resolvers/yup';
-import useIdFromUrl from '@hooks/useId';
-import { getProductById } from '@redux/products/service';
-import { loadProductId, selectProductId } from '@redux/selectors';
 import appendFormData from '@utils/appendFormData';
 import handleImageUpload from '@utils/handleImageUpload';
-import { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import { errorEditProduct, loadEditProduct, responseEditProduct } from '../../../redux/selectors';
+import { useDispatch } from 'react-redux';
 import { editProduct } from '../../../redux/service';
-import { productSchema } from '../../../validations/productSchema';
 import ErrorText from '../../ErrorText/ErrorText';
 import LoadingButton from '../../LoadingButton/LoadingButton';
 import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
-import setFormValues from './helpers/setFormValues';
 import ReturnButton from '../../ReturnButton/ReturnButton';
-import calculateDiscountedPrice from '../ProductCreate/calculateDiscountedPrice';
 import useScreenSizes from '@hooks/useScreenSizes';
+import { useFetchProductData } from './helpers/useFetchProductData';
+import { useEditProductForm } from './helpers/useEditProductForm';
 
 const ProductEdit = () => {
   const { smallMobile, mobile } = useScreenSizes();
+  const { isLoadingGet, responseGet, id, isLoadingEdit, responseEdit, errorEdit } = useFetchProductData();
+  const { register, handleSubmit, errors, control, getValues, setValue } = useEditProductForm(responseGet);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    control,
-    setValue,
-    getValues,
-    watch,
-  } = useForm({
-    resolver: yupResolver(productSchema),
-    mode: 'onSubmit',
-  });
-
-  const id = useIdFromUrl();
   const dispatch = useDispatch();
-  const isLoadingGet = useSelector(loadProductId);
-  const responseGet = useSelector(selectProductId);
-  const isLoadingEdit = useSelector(loadEditProduct);
-  const responseEdit = useSelector(responseEditProduct);
-  const errorEdit = useSelector(errorEditProduct);
-
-  useEffect(() => {
-    dispatch(getProductById(id));
-  }, [dispatch, id]);
-
-  useEffect(() => {
-    responseGet && setFormValues(setValue, responseGet);
-  }, [responseGet, setValue]);
-
-  const price = watch('price');
-  const discount = watch('discount');
-  useEffect(() => {
-    calculateDiscountedPrice(price, discount, setValue);
-  }, [price, discount, setValue]);
-
   const onSubmit = (values) => {
     let formData = new FormData();
     formData = handleImageUpload(formData, values, 'upload_images');
@@ -86,14 +46,9 @@ const ProductEdit = () => {
           <div className={cl.btnWrapper}>
             <ReturnButton to="/admin/products" />
             <LoadingButton isLoading={isLoadingEdit}>
-              {' '}
               {smallMobile || mobile ? 'Зберегти' : 'Зберегти зміни'}
             </LoadingButton>
           </div>
-
-          <button type="button" onClick={() => console.log(getValues())}>
-            console.log(getValues())
-          </button>
         </form>
       )}
     </>
