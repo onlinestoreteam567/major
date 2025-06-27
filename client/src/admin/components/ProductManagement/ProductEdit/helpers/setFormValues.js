@@ -20,6 +20,18 @@ const setFormValues = (setValue, responseGet) => {
   setValue('application_uk', responseGet.application_uk);
   setValue('application_en', responseGet.application_en);
   setValue('upload_images', responseGet.images);
+
+  const price = responseGet.price;
+  const discount = responseGet.discount;
+
+  if (price && discount) {
+    const discounted = price - (price * discount) / 100;
+    setValue('discounted_price', Math.round(discounted));
+  } else if (price) {
+    setValue('discounted_price', price);
+  } else {
+    setValue('discounted_price', '');
+  }
 };
 
 export default setFormValues;

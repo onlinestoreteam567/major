@@ -18,6 +18,7 @@ import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
 import setFormValues from './helpers/setFormValues';
 import ReturnButton from '../../ReturnButton/ReturnButton';
+import calculateDiscountedPrice from '../ProductCreate/calculateDiscountedPrice';
 
 const ProductEdit = () => {
   const {
@@ -27,6 +28,7 @@ const ProductEdit = () => {
     control,
     setValue,
     getValues,
+    watch,
   } = useForm({
     resolver: yupResolver(productSchema),
     mode: 'onSubmit',
@@ -47,6 +49,12 @@ const ProductEdit = () => {
   useEffect(() => {
     responseGet && setFormValues(setValue, responseGet);
   }, [responseGet, setValue]);
+
+  const price = watch('price');
+  const discount = watch('discount');
+  useEffect(() => {
+    calculateDiscountedPrice(price, discount, setValue);
+  }, [price, discount, setValue]);
 
   const onSubmit = (values) => {
     let formData = new FormData();
