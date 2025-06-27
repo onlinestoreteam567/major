@@ -144,6 +144,7 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
         />
       </div>
       {messageText && <AdminMessage>{messageText}</AdminMessage>}
+      {errors && <p className={cl.errorMessage}>Неможливо створити товар — перевірте правильність введення даних.</p>}
     </>
   );
 };
