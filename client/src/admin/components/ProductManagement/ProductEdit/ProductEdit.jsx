@@ -19,8 +19,11 @@ import cl from './index.module.scss';
 import setFormValues from './helpers/setFormValues';
 import ReturnButton from '../../ReturnButton/ReturnButton';
 import calculateDiscountedPrice from '../ProductCreate/calculateDiscountedPrice';
+import useScreenSizes from '@hooks/useScreenSizes';
 
 const ProductEdit = () => {
+  const { smallMobile, mobile } = useScreenSizes();
+
   const {
     register,
     handleSubmit,
@@ -82,7 +85,10 @@ const ProductEdit = () => {
           {responseEdit && <SuccessMessage>Товар успішно відредаговано!</SuccessMessage>}
           <div className={cl.btnWrapper}>
             <ReturnButton to="/admin/products" />
-            <LoadingButton isLoading={isLoadingEdit} />
+            <LoadingButton isLoading={isLoadingEdit}>
+              {' '}
+              {smallMobile || mobile ? 'Зберегти' : 'Зберегти зміни'}
+            </LoadingButton>
           </div>
 
           <button type="button" onClick={() => console.log(getValues())}>

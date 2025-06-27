@@ -13,9 +13,11 @@ import handleImageUpload from '@utils/handleImageUpload';
 import ReturnButton from '../../ReturnButton/ReturnButton';
 import { useEffect, useState } from 'react';
 import calculateDiscountedPrice from './calculateDiscountedPrice';
+import useScreenSizes from '@hooks/useScreenSizes';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
+  const { smallMobile, mobile } = useScreenSizes();
 
   const {
     register,
@@ -63,7 +65,7 @@ const ProductCreate = () => {
 
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/products" />
-          <LoadingButton isLoading={isLoading} />
+          <LoadingButton isLoading={isLoading}>{smallMobile || mobile ? 'Створити' : 'Створити товар'}</LoadingButton>
         </div>
 
         {errorPost && <ErrorText error={errorPost}></ErrorText>}
