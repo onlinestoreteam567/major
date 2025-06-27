@@ -7,10 +7,15 @@ import Overlay from '@components/UI/Overlay/Overlay';
 const AdminNavigation = () => {
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const [isShowBurgerButton, setIsShowBurgerButton] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const isDisplayNavigation = !(tablet || deskmin || deskmax || isShowBurgerButton);
   const isMobileOverlay = !(tablet || deskmin || deskmax);
 
+  const handleExpand = () => {
+    if (!isExpanded && tablet) setIsExpanded(true);
+    if (isExpanded && tablet) setIsExpanded(false);
+  };
   const handleClose = () => setIsShowBurgerButton(false);
 
   return isDisplayNavigation ? (
@@ -23,7 +28,7 @@ const AdminNavigation = () => {
     <>
       {isMobileOverlay && <Overlay handleClose={handleClose} />}
 
-      <nav className={cl.adminNavigation} style={{ color: 'black' }}>
+      <nav className={`${cl.adminNavigation} ${isExpanded ? cl.expanded : ''}`} onClick={() => handleExpand()}>
         <NavLink to={`/admin/products`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
           <img src="/images/admin/navigation/Logo.png" alt="Company Logo" />
         </NavLink>
