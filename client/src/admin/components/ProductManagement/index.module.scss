@@ -13,7 +13,6 @@
 
   & > div:first-of-type {
     @include flexGap(24px, column);
-    padding-top: 11px;
     margin-bottom: 40px;
 
     p {
