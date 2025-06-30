@@ -51,13 +51,15 @@ const PromocodeCreate = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeCreate}>
         <PromocodeForm register={register} errors={errors} />
-        <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
-        <LoadingButton
-  isLoading={isLoading}
-  loadingText="Створення промокоду…"
-  shortText="Створити"
-  longText="Створити промокод"
-/>
+        <div className={cl.btnWrapper}>
+          <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
+          <LoadingButton
+            isLoading={isLoading}
+            loadingText="Створення промокоду…"
+            shortText="Створити"
+            longText="Створити промокод"
+          />
+        </div>
         {errorPost && <ErrorText error={errorPost} />}
         {response && <SuccessMessage>Промокод успішно створено!</SuccessMessage>}
       </form>

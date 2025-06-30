@@ -3,4 +3,10 @@
 .promocodeCreate {
   @include flex(column, null, null);
   color: black;
+
+  .btnWrapper {
+    @include flex(row, null, null);
+    justify-content: space-between;
+    width: 100%;
+  }
 }
