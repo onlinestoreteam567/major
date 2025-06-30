@@ -1,10 +1,109 @@
 @import '@mixins';
 
-.list {
-  @include flexGap(20px, column);
-  color: black;
+.productList {
+  font-family: Mulish;
+  line-height: 136%;
 
-  li {
-    @include flexGap(20px);
+  & > div:first-of-type {
+    @include flexGap(8px);
+    margin-bottom: 24px;
+
+    p {
+      text-align: center;
+      font-weight: 400;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    p:nth-child(1) {
+      width: 63px;
+    }
+
+    p:nth-child(2) {
+      width: 67px;
+    }
+
+    p:nth-child(3) {
+      width: 103px;
+    }
+
+    p:nth-child(4),
+    p:nth-child(5) {
+      display: none;
+    }
+  }
+
+  ul {
+    @include flexGap(20px, column);
+    color: black;
+  }
+
+  @include mobile {
+    & > div:first-of-type {
+      gap: 16px;
+      p {
+        font-size: 18px;
+      }
+    }
+
+    h3 {
+      font-size: 16px;
+    }
+  }
+
+  @include tablet {
+    & > div:first-of-type {
+      p {
+        font-size: 20px;
+      }
+
+      gap: 24px;
+      p:nth-child(1),
+      p:nth-child(2) {
+        width: 90px;
+      }
+
+      p:nth-child(5) {
+        display: block;
+        width: 96px;
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 686px;
+
+    & > div:first-of-type {
+      width: 601px;
+      gap: 32px;
+
+      p:nth-child(4) {
+        display: block;
+        width: 94px;
+      }
+    }
+  }
+
+  @include deskmax {
+    & > div:first-of-type {
+      width: 993px;
+      gap: 56px;
+
+      p:nth-child(1) {
+        width: 110px;
+      }
+
+      p:nth-child(2) {
+        width: 90px;
+      }
+
+      p:nth-child(3) {
+        width: 190px;
+      }
+
+      p:nth-child(5) {
+        width: 110px;
+      }
+    }
   }
 }

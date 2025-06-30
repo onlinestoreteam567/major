@@ -1,0 +1,23 @@
+@import '@mixins';
+
+.adminLayout {
+  display: flex;
+  box-sizing: border-box;
+  width: 280px;
+  margin-inline: auto;
+  margin-bottom: 83px;
+
+  @include mobile {
+    width: 340px;
+  }
+
+  @include tablet {
+    width: 768px;
+    margin-bottom: 100px;
+  }
+
+  @include deskmin {
+    margin: 0;
+    width: 100%;
+  }
+}

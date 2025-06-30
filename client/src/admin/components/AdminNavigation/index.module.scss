@@ -1,0 +1,292 @@
+@import '@mixins';
+
+.burgerButtonWrapper {
+  position: fixed;
+  margin-top: 10px;
+
+  button {
+    height: 32px;
+    width: 32px;
+
+    img {
+      height: 32px;
+      width: 32px;
+    }
+  }
+}
+
+.adminNavigation {
+  @include flex(column, space-between, center);
+  @include absolute();
+  z-index: $z-index-pop-up;
+  height: 628px;
+  box-sizing: border-box;
+  width: 100px;
+  background-color: #323232;
+  padding: 16px 0;
+  overflow: auto;
+
+  & > a:first-of-type > img {
+    height: 32px;
+    width: 71px;
+  }
+
+  div {
+    @include flex(column, space-between, center);
+    gap: 8px;
+
+    a:first-of-type {
+      width: 45px;
+
+      img {
+        height: 32px;
+        width: 32px;
+      }
+    }
+
+    a,
+    button {
+      @include flex(row);
+      border-radius: 16px;
+      height: 44px;
+      width: fit-content;
+      box-sizing: border-box;
+
+      span {
+        display: none;
+      }
+
+      img {
+        height: 40px;
+        width: 40px;
+        object-fit: contain;
+      }
+
+      &.active {
+        background-color: #4c9a4e66;
+      }
+    }
+  }
+
+  @include mobile {
+    & > a:first-of-type > img {
+      height: 32px;
+      width: 72px;
+    }
+  }
+
+  @include tablet {
+    padding: 64px 0;
+    width: 168px;
+    height: 1024px;
+    z-index: $z-index-header;
+
+    & > a:first-of-type > img {
+      height: 46px;
+      width: 98px;
+    }
+
+    &.expanded,
+    &:hover {
+      width: 358px;
+
+      & > div:first-of-type {
+        span {
+          display: block;
+          font-size: 32px;
+        }
+      }
+
+      & > div:last-of-type {
+        span {
+          display: block;
+          font-size: 24px;
+        }
+      }
+
+      div {
+        align-items: start;
+
+        a:first-of-type {
+          padding-left: 22px;
+        }
+
+        a,
+        button {
+          justify-content: start;
+          padding: 16px;
+          gap: 22px;
+
+          span {
+            font-family: Mulish;
+            font-weight: 400;
+            line-height: 136%;
+            color: #f8f8f9;
+          }
+        }
+      }
+    }
+
+    div {
+      a:first-of-type {
+        width: fit-content;
+        img {
+          height: 40px;
+          width: 40px;
+        }
+      }
+
+      a,
+      button {
+        height: 70px;
+        width: fit-content;
+        padding-inline: 16px;
+
+        img {
+          height: 50px;
+          width: 50px;
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    height: 780px;
+    min-width: 270px;
+    width: 270px;
+    padding-block: 32px;
+    position: static;
+
+    &:hover {
+      width: 270px;
+    }
+
+    & > a:first-of-type > img {
+      height: 71px;
+      width: 154px;
+    }
+
+    div {
+      align-items: start;
+
+      a:first-of-type {
+        padding-left: 22px;
+      }
+
+      a,
+      button {
+        justify-content: start;
+        padding: 16px;
+        gap: 8px;
+        height: 56px;
+
+        span {
+          color: #f8f8f9;
+          display: block;
+          font-family: Mulish;
+          line-height: 136%;
+        }
+      }
+    }
+
+    & > div:first-of-type {
+      span {
+        font-size: 24px;
+        font-weight: 400;
+      }
+    }
+
+    & > div:last-of-type {
+      span {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+
+    &:hover {
+      width: 270px;
+
+      & > div:first-of-type {
+        span {
+          font-size: 24px;
+        }
+      }
+
+      & > div:last-of-type {
+        span {
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+
+      div {
+        align-items: start;
+
+        a,
+        button {
+          gap: 8px;
+        }
+      }
+    }
+  }
+
+  @include deskmax {
+    height: 1024px;
+    min-width: 358px;
+    width: 358px;
+    padding-block: 64px;
+
+    & > a:first-of-type > img {
+      height: 72px;
+      width: 154px;
+    }
+
+    & > div:first-of-type {
+      span {
+        font-size: 32px;
+      }
+    }
+
+    & > div:last-of-type {
+      span {
+        font-size: 24px;
+        font-weight: 400;
+      }
+    }
+
+    div {
+      a:first-of-type {
+        img {
+          height: 40px;
+          width: 40px;
+        }
+      }
+
+      a,
+      button {
+        height: 64px;
+        img {
+          height: 56px;
+          width: 56px;
+        }
+      }
+    }
+
+    &:hover {
+      width: 358px;
+
+      & > div:first-of-type {
+        span {
+          font-size: 32px;
+        }
+      }
+
+      & > div:last-of-type {
+        span {
+          font-size: 24px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

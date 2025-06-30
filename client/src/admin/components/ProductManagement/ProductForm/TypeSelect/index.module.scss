@@ -1,0 +1,43 @@
+@import '@mixins';
+
+.customSelectWrapper {
+  position: relative;
+  width: 100%;
+
+  p {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 136%;
+    margin-bottom: 16px;
+  }
+
+  select {
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    padding: 0;
+    border-width: 0;
+  }
+
+  @include tablet {
+    p {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+  }
+
+  @include deskmin {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  @include deskmax {
+    width: 747px;
+  }
+}

@@ -5,11 +5,13 @@ const handleCroppedImage = (
   setCroppedImages,
   setImage,
   originalFile,
-  setOriginalFile
+  setOriginalFile,
+  images,
+  setImages
 ) => {
   if (cropperRef.current?.cropper && originalFile) {
-    const fileType = originalFile.type; // e.g., image/webp
-    const fileExtension = fileType.split('/')[1]; // webp, jpeg, etc.
+    const fileType = originalFile.type;
+    const fileExtension = fileType.split('/')[1];
 
     cropperRef.current.cropper.getCroppedCanvas().toBlob(
       (blob) => {
@@ -20,13 +22,14 @@ const handleCroppedImage = (
 
           const updatedImages = [...croppedImages, croppedFile];
           setCroppedImages(updatedImages);
+          setImages((prev) => [...prev, croppedFile]);
           onChange(updatedImages);
           setImage(null);
           setOriginalFile(null);
         }
       },
       fileType,
-      0.95 // optional quality for lossy formats like webp/jpeg
+      0.95
     );
   }
 };

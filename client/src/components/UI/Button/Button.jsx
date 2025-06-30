@@ -9,8 +9,7 @@ export default function Button({
   onMouseLeave,
   ariaLabel,
 }) {
-  const handleClick = (e) => onClick(e);
-
+  const handleClick = (e) => onClick && onClick(e);
   return (
     <button
       className={`${cl.button} ${cl[variant]} ${cl[purpose]}`}

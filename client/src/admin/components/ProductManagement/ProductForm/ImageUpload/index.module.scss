@@ -1,36 +1,205 @@
-.cropperContainer {
-  height: 400px;
-  width: 100%;
-}
+@import '@mixins';
 
-.croppedImageContainer {
-  display: flex;
-  margin-top: 10px;
+.imageUploadWrapper {
+  margin-top: 52px;
+  @include flexGap(24px, column);
 
-  div {
-    position: relative;
-    margin-right: 10px;
+  .cropperContainerWrapper {
+    @include flex(column);
+    z-index: 1000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 545px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 42px 15px;
+    box-sizing: border-box;
 
-    img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 5px;
+    h2 {
+      font-family: Mulish;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 136%;
+      text-align: center;
+      margin-bottom: 24px;
     }
 
-    button {
+    .cropperContainer {
+      width: 225px;
+      height: 252px;
+      border-radius: 8px;
+    }
+
+    .buttonsWrapper {
+      @include flexGap(16px, column);
+      margin-top: 24px;
+      width: 250px;
+    }
+  }
+
+  label {
+    @include flex();
+    font-family: Mulish;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 136%;
+    height: 56px;
+    width: 280px;
+    border: 1px solid #22211f;
+    background-color: transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    border-radius: $border-radius-medium;
+    transition:
+      background-color 300ms ease-out,
+      color 300ms ease-out;
+
+    &:hover {
+      background-color: $second-background-color-black;
+      color: $text-color-light;
+    }
+
+    input {
+      opacity: 0;
+      height: 0;
+      width: 0;
       position: absolute;
-      top: 5px;
-      right: 5px;
-      background: red;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      font-size: 12px;
-      line-height: 20px;
-      text-align: center;
+    }
+  }
+}
+
+.imagesContainer {
+  position: relative;
+
+  .image {
+    width: 280px;
+    height: 297px;
+    border-radius: 8px;
+
+    &.error {
+      border: 2px solid #e31a1a;
+    }
+  }
+}
+
+@include mobile {
+  .imageUploadWrapper {
+    @include flex(column);
+
+    .cropperContainerWrapper {
+      padding: 25px 35px;
+      width: 356px;
+      height: 545px;
+
+      .cropperContainer {
+        height: 285px;
+        width: 285px;
+      }
+
+      .buttonsWrapper {
+        width: 285px;
+      }
+    }
+
+    .image {
+      width: 297px;
+    }
+
+    label {
+      width: 297px;
+    }
+  }
+
+  @include tablet {
+    .imageUploadWrapper {
+      gap: 40px;
+      .cropperContainerWrapper {
+        width: 571px;
+        height: 600px;
+
+        h2 {
+          font-size: 32px;
+        }
+
+        .cropperContainer {
+          height: 361px;
+          width: 361px;
+        }
+
+        .buttonsWrapper {
+          flex-direction: row;
+          width: 361px;
+        }
+      }
+
+      label {
+        width: 427px;
+        height: 65px;
+      }
+
+      .image {
+        height: 427px;
+        width: 427px;
+      }
+    }
+  }
+
+  @include deskmin {
+    .imageUploadWrapper {
+      margin: 0;
+      gap: 16px;
+
+      .cropperContainerWrapper {
+        width: 637px;
+        height: 647px;
+
+        h2 {
+          font-size: 32px;
+        }
+
+        .cropperContainer {
+          height: 437px;
+          width: 437px;
+        }
+
+        .buttonsWrapper {
+          gap: 54px;
+          width: 437px;
+        }
+      }
+
+      label {
+        width: 297px;
+      }
+
+      .image {
+        height: 297px;
+        width: 297px;
+      }
+    }
+  }
+
+  @include deskmax {
+    .imageUploadWrapper {
+      gap: 40px;
+
+      .cropperContainerWrapper {
+        width: 761px;
+      }
+
+      label {
+        width: 427px;
+      }
+
+      .image {
+        height: 427px;
+        width: 427px;
+      }
     }
   }
 }

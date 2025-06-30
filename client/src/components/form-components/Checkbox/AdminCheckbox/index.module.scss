@@ -1,0 +1,40 @@
+@import '@mixins';
+
+.checkboxLabel {
+  @include flex(row, start);
+  gap: 16px;
+  cursor: pointer;
+  font-family: Mulish;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 160%;
+  user-select: none;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  span {
+    height: 32px;
+    width: 32px;
+  }
+
+  .checked {
+    display: none;
+  }
+
+  input:checked ~ .checked {
+    display: inline;
+  }
+
+  input:checked ~ .unchecked {
+    display: none;
+  }
+
+  @include deskmax {
+    font-size: 24px;
+  }
+}

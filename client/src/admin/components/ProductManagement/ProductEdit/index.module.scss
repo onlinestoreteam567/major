@@ -3,4 +3,31 @@
 .productEdit {
   @include flex(column, null, null);
   color: black;
+
+  @include tablet {
+    margin: 36px 40px 0 208px;
+    width: 524px;
+  }
+
+  @include deskmin {
+    margin: 36px auto;
+    width: 686px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @include deskmax {
+    margin: 90px auto;
+    width: 986px;
+  }
+
+  .btnWrapper {
+    @include flex(row, space-between, center);
+    width: 100%;
+    margin-top: 16px;
+
+    @include deskmin {
+      order: 8;
+    }
+  }
 }

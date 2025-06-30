@@ -51,7 +51,7 @@ function SearchInput({ setIsShowInput, isDesktop }) {
     <>
       {isDesktop && <Overlay handleClose={handleCloseInput} />}
 
-      <search className={isHiddenInputAnimation ? cl.hiddenInput : ''}>
+      <search className={`${cl.search} ${isHiddenInputAnimation ? cl.hiddenInput : ''}`}>
         <div className={searchTerm && cl.activeSearch}>
           <input
             className={`${cl.searchInput} ${searchTerm && cl.activeSearchInput} ${isInputFocus && cl.inputFocus}`}

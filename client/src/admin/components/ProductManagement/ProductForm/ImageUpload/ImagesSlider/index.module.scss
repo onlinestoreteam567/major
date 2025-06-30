@@ -1,0 +1,82 @@
+@import '@mixins';
+
+.imagesSlider {
+  width: 280px;
+  position: relative;
+
+  .image {
+    width: 280px;
+    height: 297px;
+    border-radius: 8px;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 130px;
+    z-index: $z-index-local-1;
+  }
+
+  .arrowPrev {
+    left: 0;
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  .arrowNext {
+    right: 0;
+  }
+
+  .deleteButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 34px;
+  }
+
+  @include tablet {
+    width: 427px;
+
+    .image {
+      width: 427px;
+      height: 427px;
+    }
+
+    .arrow {
+      top: 195px;
+    }
+
+    .deleteButton {
+      top: 13px;
+      right: 13px;
+      img {
+        height: 35px;
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 297px;
+
+    .image {
+      width: 297px;
+      height: 297px;
+    }
+
+    .arrow {
+      top: 130px;
+    }
+  }
+
+  @include deskmax {
+    width: 427px;
+    .image {
+      width: 427px;
+      height: 427px;
+    }
+
+    .arrow {
+      top: 195px;
+    }
+  }
+}

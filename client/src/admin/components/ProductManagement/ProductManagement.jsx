@@ -5,9 +5,13 @@ import List from './ProductList/ProductList';
 // import { fetchProductsAll } from '@redux/products/service';
 import { Link } from 'react-router-dom';
 // import ProductForm from './ProductForm/ProductForm';
-import ProductFilters from './ProductFilters/ProductFilters';
-import ReturnButton from '../ReturnButton/ReturnButton';
+import Button from '@components/UI/Button/Button';
+import Search from './Search/Search';
+import { useSelector } from 'react-redux';
+import { selectFilteredProducts } from '@redux/selectors';
 const ProductManagement = () => {
+  const items = useSelector(selectFilteredProducts);
+
   // const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -17,11 +21,13 @@ const ProductManagement = () => {
   return (
     <div className={cl.productManagement}>
       <div>
-        <Link to={`/admin/products/create`}>+</Link>
-        <ReturnButton />;
+        <p>Товари({items.length})</p>
+        <Link to={`/admin/products/create`}>
+          <Button>Додати товар</Button>
+        </Link>
+        <Search />
       </div>
       <List />
-      <ProductFilters />
     </div>
   );
 };

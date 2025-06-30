@@ -1,0 +1,172 @@
+@import '@mixins';
+
+.card {
+  @include flex(row, start);
+  gap: 8px;
+
+  a {
+    @include flex(row, start);
+    gap: 8px;
+
+    p:nth-of-type(1) {
+      @include flex();
+      width: 63px;
+
+      img {
+        height: 24px;
+        width: 24px;
+      }
+    }
+
+    p:nth-of-type(2),
+    p:nth-of-type(3),
+    a {
+      display: none;
+    }
+
+    span {
+      width: 67px;
+
+      img {
+        height: 68px;
+        width: 68px;
+        border-radius: 8px;
+      }
+    }
+
+    h3 {
+      width: 103px;
+      font-weight: 400;
+      font-size: 14px;
+      text-align: center;
+      overflow: hidden;
+    }
+  }
+
+  @include mobile {
+    justify-content: space-between;
+
+    a {
+      gap: 16px;
+      h3 {
+        width: 103px;
+        font-size: 16px;
+        text-align: center;
+      }
+    }
+
+    button {
+      margin-right: 11px;
+    }
+  }
+
+  @include tablet {
+    @include flex(row, start);
+    gap: 24px;
+
+    p:nth-of-type(1) {
+      @include flex();
+      width: 90px;
+
+      img {
+        height: 32px;
+        width: 32px;
+      }
+    }
+
+    p:nth-of-type(2) {
+      display: none;
+    }
+
+    p:nth-of-type(3) {
+      display: block;
+      font-weight: 400;
+      font-size: 20px;
+      text-align: center;
+      overflow: hidden;
+      width: 96px;
+    }
+
+    span {
+      width: 90px;
+
+      img {
+        height: 90px;
+        width: 90px;
+        border-radius: 8px;
+      }
+    }
+
+    h3 {
+      font-size: 20px;
+      width: 103px;
+      font-weight: 400;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    a {
+      margin-left: auto;
+    }
+
+    button {
+      position: absolute;
+      right: 0;
+      margin: 0;
+    }
+
+    a {
+      position: absolute;
+      right: 40px;
+    }
+  }
+
+  @include deskmin {
+    width: 686px;
+    gap: 32px;
+
+    p:nth-of-type(2) {
+      display: block;
+      font-weight: 400;
+      line-height: 160%;
+      font-size: 20px;
+      width: 94px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h3 {
+      line-height: 160%;
+    }
+
+    a {
+      margin-left: -16px;
+    }
+
+    button {
+      margin-left: -18px;
+    }
+  }
+
+  @include deskmax {
+    width: fit-content;
+    gap: 56px;
+
+    p:nth-of-type(1),
+    p:nth-of-type(3) {
+      width: 110px;
+    }
+
+    h3 {
+      width: 190px;
+    }
+
+    a {
+      margin-left: 0;
+    }
+
+    button {
+      margin-left: auto;
+    }
+  }
+}

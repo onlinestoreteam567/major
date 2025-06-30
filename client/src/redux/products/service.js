@@ -167,3 +167,13 @@ export const getProductsByViewedProductsIds = createAsyncThunk(
     }
   }
 );
+
+export const deleteProductById = createAsyncThunk('products/deleteById', async (id, thunkAPI) => {
+  try {
+    const endpoint = `${PRODUCT_LIST_ENDPOINT}/${id}/`;
+    const response = await apiClient.delete(endpoint);
+    return response.status;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
