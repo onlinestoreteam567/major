@@ -1,0 +1,73 @@
+@import '@mixins';
+
+.customSelectDisplay {
+  @include flex(row, space-between, center);
+  position: relative;
+  padding: 10px 14px;
+  box-sizing: border-box;
+  width: 280px;
+  height: 39px;
+  border-radius: 8px;
+  border: 1px solid #a2a2a2;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover,
+  &.open {
+    border-color: #676767;
+
+    span:first-of-type {
+      color: #676767;
+    }
+
+    & > span:last-of-type {
+      svg {
+        path {
+          fill: #676767;
+        }
+      }
+    }
+  }
+
+  &.error {
+    border-color: #e31a1a;
+  }
+
+  & > span:first-of-type {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 136%;
+    color: #a2a2a2;
+  }
+
+  & > span:last-of-type {
+    @include flex();
+    transition: transform 0.2s ease-in-out;
+
+    &.open {
+      transform: rotate(180deg);
+    }
+  }
+
+  @include mobile {
+    width: 340px;
+  }
+
+  @include tablet {
+    width: 524px;
+
+    span:first-of-type {
+      font-size: 20px;
+    }
+  }
+
+  @include deskmin {
+    padding-inline: 34px;
+    width: 686px;
+  }
+
+  @include deskmax {
+    width: 744px;
+  }
+}

@@ -1,5 +1,9 @@
 @import '@mixins';
 
+.customSelectWrapper {
+  @include flexGap(14px, column);
+}
+
 .customSelectDisplay {
   box-sizing: border-box;
   height: 42px;
@@ -9,14 +13,16 @@
   padding: 10px 14px;
   background-color: #ffffff;
   cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(row, space-between, center);
   user-select: none;
 
   &:hover,
   &.open {
     border-color: #676767;
+
+    span:first-of-type {
+      color: #676767;
+    }
 
     & > span:last-of-type {
       svg {
@@ -24,12 +30,6 @@
           fill: #676767;
         }
       }
-    }
-  }
-
-  &.open {
-    span:first-of-type {
-      color: #676767;
     }
   }
 
@@ -56,7 +56,6 @@
 }
 
 .optionsList {
-  @include absolute(75px);
   @include flexGap(16px, column);
   width: 280px;
   border-radius: 8px;
@@ -84,7 +83,8 @@
     }
 
     &.selected {
-      font-weight: bold;
+      font-weight: 700;
+      color: #4c9a4e;
     }
   }
 }
@@ -97,9 +97,15 @@
 }
 
 @include tablet {
+  .customSelectDisplay {
+    & > span:first-of-type {
+      font-size: 20px;
+    }
+  }
+
   .customSelectDisplay,
   .optionsList {
-    width: 375px;
+    width: 524px;
   }
 
   .optionsList {
@@ -111,5 +117,6 @@
   .customSelectDisplay,
   .optionsList {
     width: 340px;
+    padding-inline: 34px;
   }
 }

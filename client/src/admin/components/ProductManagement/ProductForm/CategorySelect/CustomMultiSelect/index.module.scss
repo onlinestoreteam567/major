@@ -1,0 +1,45 @@
+@import '@mixins';
+
+.customMultiSelect {
+  @include flexGap(14px, column);
+}
+
+@include mobile {
+  .customSelectDisplay,
+  .optionsList {
+    width: 340px;
+  }
+}
+
+@include tablet {
+  .customSelectDisplay {
+    & > span:first-of-type {
+      font-size: 20px;
+    }
+  }
+
+  .customSelectDisplay,
+  .optionsList {
+    width: 524px;
+  }
+
+  .optionsList {
+    top: 103px;
+  }
+}
+
+@include deskmin {
+  .customSelectDisplay,
+  .optionsList {
+    padding-inline: 34px;
+    width: 686px;
+  }
+}
+
+@include deskmax {
+  .optionsList,
+  .customMultiSelect,
+  .customSelectDisplay {
+    width: 744px;
+  }
+}

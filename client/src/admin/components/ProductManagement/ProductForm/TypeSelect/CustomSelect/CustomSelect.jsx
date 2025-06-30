@@ -1,27 +1,19 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import cl from './index.module.scss';
-import handleClickOutside from '../handlers/handleClickOutside';
-import handleKeyDown from '../handlers/handleKeyDown';
 import getSelectedItemName from '../handlers/getSelectedItemName';
 import Arrow from '@assets/svg/Admin/Arrow/Arrow';
+import useClickOutside from '@hooks/admin/useClickOutside';
 
-const CustomSelect = ({ wrapperRef, onChange, value, items, onBlur, name, errors }) => {
+const CustomSelect = ({ onChange, value, items, onBlur, name, errors }) => {
   const [isOpen, setIsOpen] = useState(false);
   const displayRef = useRef(null);
-
-  useEffect(() => {
-    document.addEventListener('mousedown', (e) => handleClickOutside(e, wrapperRef, setIsOpen));
-    return () => {
-      document.removeEventListener('mousedown', (e) => handleClickOutside(e, wrapperRef, setIsOpen));
-    };
-  });
+  const wrapperRef = useClickOutside(() => setIsOpen(false));
 
   return (
-    <>
+    <div className={cl.customSelectWrapper} ref={wrapperRef}>
       <div
         className={`${cl.customSelectDisplay} ${isOpen ? cl.open : ''} ${errors[name] ? cl.error : ''}`}
         onClick={() => setIsOpen(!isOpen)}
-        onKeyDown={(e) => handleKeyDown(e, onChange, isOpen, setIsOpen, displayRef, cl, wrapperRef)}
         ref={displayRef}
       >
         <span id={`${name}-label`}>{getSelectedItemName(value, items)}</span>
@@ -31,7 +23,7 @@ const CustomSelect = ({ wrapperRef, onChange, value, items, onBlur, name, errors
       </div>
 
       {isOpen && (
-        <ul className={`${cl.optionsList} ${errors[name] ? cl.error : ''}`} role="listbox" id={`${name}-list`}>
+        <ul className={`${cl.optionsList} ${errors[name] ? cl.error : ''}`}>
           {items.map((item) => (
             <li
               key={item.id}
@@ -41,23 +33,13 @@ const CustomSelect = ({ wrapperRef, onChange, value, items, onBlur, name, errors
                 setIsOpen(false);
                 onBlur();
               }}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  onChange(String(item.id));
-                  setIsOpen(false);
-                  onBlur();
-                  displayRef.current.focus();
-                }
-              }}
-              data-value={item.id}
             >
               {item.name}
             </li>
           ))}
         </ul>
       )}
-    </>
+    </div>
   );
 };
 export default CustomSelect;

@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import cl from './index.module.scss';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { loadTypes, selectTypes } from '@redux/selectors';
@@ -9,7 +8,6 @@ import CustomSelect from './CustomSelect/CustomSelect';
 const TypeSelect = ({ control, errors }) => {
   const items = useSelector(selectTypes);
   const isLoading = useSelector(loadTypes);
-  const wrapperRef = useRef(null);
   const name = 'type_category';
 
   return isLoading ? (
@@ -19,7 +17,7 @@ const TypeSelect = ({ control, errors }) => {
       control={control}
       name={name}
       render={({ field: { value, onChange, onBlur, ...field } }) => (
-        <div className={cl.customSelectWrapper} ref={wrapperRef}>
+        <div className={cl.customSelectWrapper}>
           <p>Категорія (за типом):</p>
           <select value={value || ''} onChange={(e) => onChange(e.target.value)} onBlur={onBlur} id={name} {...field}>
             <option value="">Обрати</option>
@@ -30,15 +28,7 @@ const TypeSelect = ({ control, errors }) => {
             ))}
           </select>
 
-          <CustomSelect
-            wrapperRef={wrapperRef}
-            onChange={onChange}
-            value={value}
-            items={items}
-            onBlur={onBlur}
-            name={name}
-            errors={errors}
-          />
+          <CustomSelect onChange={onChange} value={value} items={items} onBlur={onBlur} name={name} errors={errors} />
         </div>
       )}
     />
