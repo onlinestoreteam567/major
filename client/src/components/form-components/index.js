@@ -6,4 +6,4 @@ export { ErrorMessage } from './Error/ErrorMessage.jsx';
 export { PhoneNumberInput } from './Input/PhoneNumberInput/PhoneNumberInput.jsx';
 export { Textarea } from './Textarea/Textarea.jsx';
 export { TextareaProduct } from './Textarea/TextareaProduct/TextareaProduct.jsx';
-export { TextareaAdmin } from './Textarea/TextareaAdmin/TextareaAdmin.jsx';
+export { TextareaAdmin } from './Textarea/TextAreaAdmin/TextareaAdmin.jsx';
