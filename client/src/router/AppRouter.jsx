@@ -25,7 +25,7 @@ import ProductManagement from '../admin/components/ProductManagement/ProductMana
 import ProductCreate from '../admin/components/ProductManagement/ProductCreate/ProductCreate';
 import ProductEdit from '../admin/components/ProductManagement/ProductEdit/ProductEdit';
 import CategoriesManagement from '../admin/components/CategoriesManagement/CategoriesManagement';
-import CategoryCreate from '../admin/components/CategoriesManagement/CategoryCreate';
+import CategoryCreate from '../admin/components/CategoriesManagement/CategoryCreate/CategoryCreate';
 import PurposeEdit from '../admin/components/CategoriesManagement/Purpose/PurposeEdit/PurposeEdit';
 import TypeEdit from '../admin/components/CategoriesManagement/Type/TypeEdit/TypeEdit';
 import PromocodeManagement from '../admin/components/PromocodeManagement/PromocodeManagement';
@@ -115,7 +115,7 @@ const router = createBrowserRouter([
     path: '*',
     element: <NotFound />,
   },
-/*** */
+  /*** */
   {
     path: '/error-test',
     element: <ErrorPage error={400} />,
