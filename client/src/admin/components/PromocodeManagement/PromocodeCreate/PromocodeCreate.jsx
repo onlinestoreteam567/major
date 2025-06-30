@@ -10,6 +10,9 @@ import LoadingButton from '../../LoadingButton/LoadingButton';
 import cl from './index.module.scss';
 import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 import ReturnButton from '../../ReturnButton/ReturnButton';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { clearPromocodeCreateState } from '../../../redux/promocodeCreateSlice';
 
 const PromocodeCreate = () => {
   const {
@@ -26,7 +29,23 @@ const PromocodeCreate = () => {
   const response = useSelector(responsePromocodeCreate);
   const errorPost = useSelector(errorPromocodeCreate);
 
+  const navigate = useNavigate();
+
   const onSubmit = (values) => dispatch(createPromocode(values));
+
+  useEffect(() => {
+    dispatch(clearPromocodeCreateState());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (response) {
+      const timeout = setTimeout(() => {
+        navigate('/admin/promocodes');
+      }, 1500);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [response, navigate]);
 
   return (
     <>
