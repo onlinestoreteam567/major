@@ -32,7 +32,7 @@ const PromocodeForm = ({ register, errors }) => {
           errors={errors}
         />
         <Input
-          placeholder="0"
+          placeholder="example"
           variant="admin"
           type="number"
           labelText="Знижка:"

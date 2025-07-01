@@ -5,8 +5,13 @@
   color: black;
 
   .btnWrapper {
-    @include flex(row, null, null);
-    justify-content: space-between;
-    width: 100%;
+    @include flex(column, null, null);
+    margin-top: 74px;
+        width: 100%;
+        gap: 24px;
+
+        button, a{
+          width: 100%;;
+        }
   }
 }
