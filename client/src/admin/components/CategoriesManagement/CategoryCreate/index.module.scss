@@ -1,9 +1,10 @@
 @import '@mixins';
 
 .categoryCreate {
+  margin: 65px auto 0 auto;
+
   & > div:first-of-type {
     @include flexGap(24px, column);
-    margin: 65px auto 0 auto;
 
     label {
       @include flexGap(18px);
@@ -22,15 +23,24 @@
   }
 
   @include tablet {
+    margin: 36px 40px 0 208px;
+
     & > div:first-of-type {
       flex-direction: row;
       justify-content: space-between;
     }
   }
 
+  @include deskmin {
+    margin: 36px auto;
+  }
+
   @include deskmax {
+    margin: 90px auto;
+    width: 986px;
+
     & > div:first-of-type {
-      width: 553px;
+      width: 686px;
     }
   }
 }

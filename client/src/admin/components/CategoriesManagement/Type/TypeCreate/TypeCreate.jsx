@@ -13,6 +13,7 @@ import LoadingButton from '../../../LoadingButton/LoadingButton';
 import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
 import TypeForm from '../TypeForm';
 import cl from './index.module.scss';
+import ReturnButton from '../../../ReturnButton/ReturnButton';
 
 const TypeCreate = () => {
   const {
@@ -34,11 +35,10 @@ const TypeCreate = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cl.typeCreate}>
       <TypeForm register={register} errors={errors} />
-      <LoadingButton
-        isLoading={isLoading}
-        loadingText="Створення категорії за типом..."
-        defaultText="Створити категорію за типом"
-      />
+      <div className={cl.btnWrapper}>
+        <ReturnButton to="/admin/categories" />
+        <LoadingButton isLoading={isLoading} shortText="Створити" longText="Створити категорію" />
+      </div>
       {errorPost && <ErrorText error={errorPost} />}
       {response && <SuccessMessage>Категорія за типом успішно створена!</SuccessMessage>}
     </form>

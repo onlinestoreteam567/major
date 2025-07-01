@@ -1,0 +1,24 @@
+@import '@mixins';
+
+.previewImage {
+  img {
+    width: 280px;
+    height: 140px;
+    border-radius: 8px;
+
+    @include mobile {
+      width: 340px;
+      height: 170px;
+    }
+
+    @include tablet {
+      width: 524px;
+      height: 262px;
+    }
+
+    @include deskmin {
+      width: 686px;
+      height: 343px;
+    }
+  }
+}

@@ -15,6 +15,7 @@ import LoadingButton from '../../../LoadingButton/LoadingButton';
 import SuccessMessage from '../../../SuccessMessage/SuccessMessage';
 import PurposeForm from '../PurposeForm';
 import cl from './index.module.scss';
+import ReturnButton from '../../../ReturnButton/ReturnButton';
 
 const PurposeCreate = () => {
   const {
@@ -42,11 +43,10 @@ const PurposeCreate = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cl.purposeCreate}>
       <PurposeForm register={register} errors={errors} control={control} />
-      <LoadingButton
-        isLoading={isLoading}
-        loadingText="Створення категорії за призначенням..."
-        defaultText="Створити категорію за призначенням"
-      />
+      <div className={cl.btnWrapper}>
+        <ReturnButton to="/admin/categories" />
+        <LoadingButton isLoading={isLoading} shortText="Створити" longText="Створити категорію" />
+      </div>
       {errorPost && <ErrorText error={errorPost}></ErrorText>}
       {response && <SuccessMessage>Категорія за призначенням успішно створена</SuccessMessage>}
     </form>

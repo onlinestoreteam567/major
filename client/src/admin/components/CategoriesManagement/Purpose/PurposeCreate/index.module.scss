@@ -3,4 +3,30 @@
 .purposeCreate {
   @include flex(column, null, null);
   color: black;
+
+  .btnWrapper {
+    @include flex(row, space-between, center);
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  @include mobile {
+    .btnWrapper {
+      margin-top: 60px;
+    }
+  }
+
+  @include tablet {
+    .btnWrapper {
+      margin-top: 72px;
+    }
+  }
+
+  @include deskmax {
+    .btnWrapper {
+      button {
+        width: 382px;
+      }
+    }
+  }
 }
