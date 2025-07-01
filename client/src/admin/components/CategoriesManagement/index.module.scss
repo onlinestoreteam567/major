@@ -1,20 +1,124 @@
 @import '@mixins';
 
-.categories {
-  @include flexGap(20px);
-}
-
-.list {
-  @include flexGap(20px, column);
-  color: black;
-  margin-bottom: 60px;
-
-  li {
-    @include flexGap(20px);
-  }
-
-}
-
 .categoriesManagement {
   color: black;
+  margin-top: 15px;
+  width: 280px;
+
+  .addCategoryContainer {
+    @include flex(row, end);
+
+    a {
+      button {
+        width: 211px;
+        font-family: Mulish;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 136%;
+        height: 54px;
+      }
+    }
+  }
+
+  .categoriesContainer {
+    & > div:first-of-type {
+      @include flex();
+      margin-top: 28px;
+
+      button {
+        width: 140px;
+        height: 56px;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        background-color: #ededed;
+        font-family: Mulish;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 136%;
+
+        &.active {
+          background-color: #b7d7b8;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    width: 340px;
+
+    .addCategoryContainer {
+      a {
+        button {
+          width: 259px;
+        }
+      }
+    }
+
+    .categoriesContainer {
+      margin-top: 31px;
+
+      & > div:first-of-type {
+        button {
+          width: 170px;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    width: 524px;
+    margin: 36px 40px 0 208px;
+
+    .addCategoryContainer {
+      a {
+        button {
+          width: 306px;
+          height: 65px;
+          font-size: 24px;
+        }
+      }
+    }
+
+    .categoriesContainer {
+      margin-top: 55px;
+
+      & > div:first-of-type {
+        button {
+          font-size: 24px;
+          width: 270px;
+          border-top-left-radius: 32px;
+          border-top-right-radius: 32px;
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 686px;
+    margin: 36px auto;
+
+    .categoriesContainer {
+      margin-top: 32px;
+
+      & > div:first-of-type {
+        button {
+          width: 343px;
+        }
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 986px;
+
+    .categoriesContainer {
+      margin-top: 38px;
+
+      & > div:first-of-type {
+        button {
+          width: 493px;
+        }
+      }
+    }
+  }
 }
