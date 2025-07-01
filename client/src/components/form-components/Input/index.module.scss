@@ -58,7 +58,7 @@
 
     &[type='text'] {
       height: 46px;
-      width: 180px;
+      // width: 180px;
 
       @include mobile {
         width: 220px;
@@ -69,7 +69,7 @@
       text-align: center;
 
       height: 46px;
-      width: 105px;
+      // width: 105px;
       &::placeholder {
         text-align: center;
       }
