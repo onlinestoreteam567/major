@@ -2,7 +2,6 @@
 
 .typeFormInputs {
   @include flexGap(16px, column);
-  margin-top: 50px;
 
   label {
     flex-direction: column;

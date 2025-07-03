@@ -1,6 +1,7 @@
 import { Input } from '@components/form-components';
 import ImageUpload from '../../ImageUpload/ImageUpload';
 import cl from './index.module.scss';
+import ValidationErrorMessage from '../../AdminLoginPage/ValidationErrorMessage/ValidationErrorMessage';
 
 const PurposeForm = ({ register, errors, control }) => {
   return (
@@ -24,6 +25,12 @@ const PurposeForm = ({ register, errors, control }) => {
           variant="admin"
         />
       </div>
+
+      {Object.keys(errors).length > 0 && (
+        <ValidationErrorMessage>
+          Неможливо створити категорію — перевірте правильність введення даних.
+        </ValidationErrorMessage>
+      )}
     </>
   );
 };

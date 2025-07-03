@@ -15,7 +15,7 @@ const ProductCreate = () => {
   const isLoading = useSelector(loadCreateProduct);
   const response = useSelector(responseCreateProduct);
   const errorPost = useSelector(errorCreateProduct);
-  const { register, handleSubmit, errors, control, resetImagesTrigger } = useProductForm(response);
+  const { register, handleSubmit, errors, control, resetImagesTrigger, getValues } = useProductForm(response);
 
   const onSubmit = (values) => {
     let formData = new FormData();
@@ -35,6 +35,10 @@ const ProductCreate = () => {
         </div>
 
         {errorPost && <ErrorText error={errorPost} />}
+
+        <button type="button" onClick={() => console.log(getValues())}>
+          getValues
+        </button>
       </form>
     </>
   );

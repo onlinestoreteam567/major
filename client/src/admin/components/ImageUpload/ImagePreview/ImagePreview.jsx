@@ -3,7 +3,6 @@ import cl from './index.module.scss';
 
 const ImagePreview = ({ file, uploadedImage }) => {
   const [previewUrl, setPreviewUrl] = useState('/images/admin/categoryPlaceholder.webp');
-  console.log(previewUrl);
 
   useEffect(() => {
     if (file instanceof File) {

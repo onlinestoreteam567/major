@@ -3,10 +3,11 @@ import cl from './index.module.scss';
 import { loadProducts, selectFilteredProducts } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadProductDelete, responseProductDelete } from '../../../redux/selectors';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { fetchProductsAll } from '@redux/products/service';
 import Card from './Card/Card';
 import AdminMessage from '../../AdminMessage/AdminMessage';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
 
 const List = () => {
   const items = useSelector(selectFilteredProducts);
@@ -14,21 +15,11 @@ const List = () => {
   const dispatch = useDispatch();
   const isLoadingDelete = useSelector(loadProductDelete);
   const deleteResponse = useSelector(responseProductDelete);
-  const [deletedItemName, setDeletedItemName] = useState('');
+  const [deletedMessage, showDeletedMessage] = useTimedMessage();
 
   useEffect(() => {
-    deleteResponse === 204 && dispatch(fetchProductsAll());
-  }, [dispatch, deleteResponse, deletedItemName]);
-
-  useEffect(() => {
-    if (deletedItemName) {
-      const timer = setTimeout(() => {
-        setDeletedItemName('');
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [deletedItemName]);
+    if (deleteResponse === 204) dispatch(fetchProductsAll());
+  }, [dispatch, deleteResponse]);
 
   return (
     <>
@@ -47,11 +38,11 @@ const List = () => {
 
             <ul>
               {items.map((card) => (
-                <Card card={card} key={card.id} setDeletedItemName={setDeletedItemName} />
+                <Card card={card} key={card.id} showDeletedMessage={showDeletedMessage} />
               ))}
             </ul>
           </div>
-          {deletedItemName && <AdminMessage>Товар “{deletedItemName}” видалено</AdminMessage>}
+          {deletedMessage && <AdminMessage>{deletedMessage}</AdminMessage>}
         </>
       )}
     </>

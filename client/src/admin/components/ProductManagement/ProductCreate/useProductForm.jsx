@@ -13,10 +13,14 @@ export const useProductForm = (response) => {
     watch,
     reset,
     setValue,
+    getValues,
   } = useForm({
     resolver: yupResolver(productSchema),
     mode: 'onSubmit',
     shouldUnregister: false,
+    defaultValues: {
+      purpose_category: [],
+    },
   });
 
   const price = watch('price');
@@ -40,5 +44,6 @@ export const useProductForm = (response) => {
     errors,
     control,
     resetImagesTrigger,
+    getValues,
   };
 };

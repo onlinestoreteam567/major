@@ -22,7 +22,7 @@
 
 .seoInputs {
   @include flexGap(16px, column);
-  margin-block: 25px;
+  margin-top: 25px;
   width: 100%;
 
   label {
@@ -33,14 +33,6 @@
       width: 100%;
     }
   }
-}
-
-.errorMessage {
-  font-family: Mulish;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 136%;
-  color: #e31a1a;
 }
 
 @include tablet {
@@ -59,11 +51,6 @@
     label {
       width: 290px;
     }
-  }
-
-  .errorMessage {
-    font-weight: 600;
-    font-size: 20px;
   }
 }
 
@@ -114,7 +101,7 @@
     }
   }
 
-  .errorMessage {
+  .validationErrorMessageWrapper {
     order: 8;
   }
 }
@@ -147,10 +134,5 @@
         width: 642px;
       }
     }
-  }
-
-  .errorMessage {
-    font-weight: 400;
-    font-size: 24px;
   }
 }

@@ -2,12 +2,12 @@ import Spinner from '@components/helpers/Spinner/Spinner';
 import cl from './index.module.scss';
 import { loadTypes, selectTypes } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteType } from '../../../../redux/service';
 import { loadTypeDelete, responseTypeDelete } from '../../../../redux/selectors';
 import { useEffect } from 'react';
 import { fetchTypes } from '@redux/params/service';
-import handleDeleteItem from '@utils/handleDeleteItem';
 import TypeCategoryItem from './TypeCategoryItem/TypeCategoryItem';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
+import AdminMessage from '../../../AdminMessage/AdminMessage';
 
 const TypeList = () => {
   const dispatch = useDispatch();
@@ -15,10 +15,11 @@ const TypeList = () => {
   const isLoading = useSelector(loadTypes);
   const isLoadingDelete = useSelector(loadTypeDelete);
   const deleteResponse = useSelector(responseTypeDelete);
+  const [deletedMessage, showDeletedMessage] = useTimedMessage();
+
   useEffect(() => {
     deleteResponse === 204 && dispatch(fetchTypes());
   }, [dispatch, deleteResponse]);
-  const handleDelete = (id) => handleDeleteItem(dispatch, deleteType, id);
   return (
     <>
       {isLoading || isLoadingDelete ? (
@@ -31,10 +32,11 @@ const TypeList = () => {
           </div>
 
           {items.map((category) => (
-            <TypeCategoryItem key={category.id} category={category} />
+            <TypeCategoryItem key={category.id} category={category} showDeletedMessage={showDeletedMessage} />
           ))}
         </ul>
       )}
+      {deletedMessage && <AdminMessage>{deletedMessage}</AdminMessage>}
     </>
   );
 };

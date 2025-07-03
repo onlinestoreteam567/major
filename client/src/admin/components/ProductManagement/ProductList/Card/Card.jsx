@@ -6,9 +6,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteProductById } from '@redux/products/service';
 
-const Card = ({ card, setDeletedItemName }) => {
+const Card = ({ card, showDeletedMessage }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
-
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const isSmallScreen = !(tablet || deskmin || deskmax);
 
@@ -18,6 +17,7 @@ const Card = ({ card, setDeletedItemName }) => {
 
   const handleDelete = (id) => {
     dispatch(deleteProductById(id));
+    showDeletedMessage(`Товар “${card.name}” видалено`);
     toggleDeletePopUp();
   };
 
@@ -58,11 +58,7 @@ const Card = ({ card, setDeletedItemName }) => {
         )}
       </li>
       {isShowDeletePopUp && (
-        <DeletePopUp
-          closeDeletePopUp={toggleDeletePopUp}
-          handleDelete={() => handleDelete(card.id)}
-          setDeletedItemName={() => setDeletedItemName(card.name)}
-        >
+        <DeletePopUp closeDeletePopUp={toggleDeletePopUp} handleDelete={() => handleDelete(card.id)}>
           Ви впевнені, що хочете видалити цей товар?
         </DeletePopUp>
       )}

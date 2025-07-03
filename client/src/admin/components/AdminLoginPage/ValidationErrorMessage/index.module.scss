@@ -1,0 +1,20 @@
+@import '@mixins';
+
+.validationErrorMessage {
+  font-family: Mulish;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 136%;
+  color: #e31a1a;
+  margin-top: 16px;
+
+  @include tablet {
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  @include deskmax {
+    font-weight: 400;
+    font-size: 24px;
+  }
+}

@@ -1,5 +1,5 @@
 import Slider from 'react-slick';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import settings from './settings.js';
@@ -8,27 +8,22 @@ import cl from './index.module.scss';
 import ArrowImages from '@assets/svg/Admin/Arrow/ArrowImages.jsx';
 import DeletePopUp from '../../../ProductList/DeletePopUp/DeletePopUp.jsx';
 import AdminMessage from '../../../../AdminMessage/AdminMessage.jsx';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
 
 const ImagesSlider = ({ onChange, images, setImages, setValue, getValues }) => {
   const sliderRef = useRef(null);
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(null);
-  const [messageText, setMessageText] = useState('');
+  const [messageText, showMessageText] = useTimedMessage();
 
   const handleDeleteFromBackend = (image) =>
     setValue('remove_images', getValues('remove_images') ? [...getValues('remove_images'), image.id] : [image.id]);
   const showDeletePopUp = (index) => setIsShowDeletePopUp(index);
   const closeDeletePopUp = () => setIsShowDeletePopUp(null);
-  const handleDelete = (index) => deleteCroppedImage(index, onChange, images, setImages);
 
-  useEffect(() => {
-    if (messageText) {
-      const timer = setTimeout(() => {
-        setMessageText('');
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [messageText]);
+  const handleDelete = (index) => {
+    deleteCroppedImage(index, onChange, images, setImages);
+    showMessageText('Фото видалено');
+  };
 
   return (
     <div className={`slider-container admin-slider-container ${cl.imagesSlider} `}>
@@ -72,8 +67,14 @@ const ImagesSlider = ({ onChange, images, setImages, setValue, getValues }) => {
       {(isShowDeletePopUp === 0 || isShowDeletePopUp) && (
         <DeletePopUp
           closeDeletePopUp={() => closeDeletePopUp()}
-          handleDelete={() => handleDelete(isShowDeletePopUp)}
-          setDeletedItemName={() => setMessageText('Фото видалено')}
+          handleDelete={() => {
+            handleDelete(isShowDeletePopUp);
+            const currentImage = images[isShowDeletePopUp];
+            if (!(currentImage instanceof File)) {
+              handleDeleteFromBackend(currentImage);
+            }
+            closeDeletePopUp();
+          }}
         >
           Ви впевнені, що хочете видалити це фото?
         </DeletePopUp>

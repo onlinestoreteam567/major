@@ -7,6 +7,7 @@ import AdminCheckBox from '@components/form-components/Checkbox/AdminCheckbox/Ch
 import AdminMessage from '../../AdminMessage/AdminMessage';
 import cl from './index.module.scss';
 import useTimedMessage from '@hooks/admin/useTimedMessage';
+import ValidationErrorMessage from '../../AdminLoginPage/ValidationErrorMessage/ValidationErrorMessage';
 
 const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedImages, setValue, getValues }) => {
   const [messageText, showMessage] = useTimedMessage();
@@ -134,7 +135,11 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
       </div>
       {messageText && <AdminMessage>{messageText}</AdminMessage>}
       {Object.keys(errors).length > 0 && (
-        <p className={cl.errorMessage}>Неможливо створити товар — перевірте правильність введення даних.</p>
+        <div className={cl.validationErrorMessageWrapper}>
+          <ValidationErrorMessage>
+            Неможливо створити товар — перевірте правильність введення даних.
+          </ValidationErrorMessage>
+        </div>
       )}
     </>
   );

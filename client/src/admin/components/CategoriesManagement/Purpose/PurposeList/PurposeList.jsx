@@ -2,12 +2,12 @@ import Spinner from '@components/helpers/Spinner/Spinner';
 import cl from './index.module.scss';
 import { loadCategories, selectCategories } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletePurpose } from '../../../../redux/service';
 import { loadPurposeDelete, responsePurposeDelete } from '../../../../redux/selectors';
 import { useEffect } from 'react';
 import { fetchCategories } from '@redux/params/service';
-import handleDeleteItem from '@utils/handleDeleteItem';
 import PurposeCategoryItem from './PurposeCategoryItem/PurposeCategoryItem';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
+import AdminMessage from '../../../AdminMessage/AdminMessage';
 
 const PurposeList = () => {
   const items = useSelector(selectCategories);
@@ -15,10 +15,12 @@ const PurposeList = () => {
   const isLoadingDelete = useSelector(loadPurposeDelete);
   const deleteResponse = useSelector(responsePurposeDelete);
   const dispatch = useDispatch();
+  const [deletedMessage, showDeletedMessage] = useTimedMessage();
+
   useEffect(() => {
     deleteResponse === 204 && dispatch(fetchCategories());
   }, [dispatch, deleteResponse]);
-  const handleDelete = (id) => handleDeleteItem(dispatch, deletePurpose, id);
+
   return (
     <>
       {isLoading || isLoadingDelete ? (
@@ -32,10 +34,11 @@ const PurposeList = () => {
           </div>
 
           {items.map((category) => (
-            <PurposeCategoryItem key={category.id} category={category} />
+            <PurposeCategoryItem key={category.id} category={category} showDeletedMessage={showDeletedMessage} />
           ))}
         </ul>
       )}
+      {deletedMessage && <AdminMessage>{deletedMessage}</AdminMessage>}
     </>
   );
 };

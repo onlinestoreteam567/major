@@ -1,10 +1,24 @@
 import useScreenSizes from '@hooks/useScreenSizes';
 import cl from './index.module.scss';
 import { Link } from 'react-router-dom';
+import { deletePurpose } from '../../../../../redux/service';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import DeletePopUp from '../../../../ProductManagement/ProductList/DeletePopUp/DeletePopUp';
 
-const PurposeCategoryItem = ({ category }) => {
+const PurposeCategoryItem = ({ category, showDeletedMessage }) => {
+  const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const isSmallScreen = !(tablet || deskmin || deskmax);
+  const dispatch = useDispatch();
+
+  const toggleDeletePopUp = () => setIsShowDeletePopUp(!isShowDeletePopUp);
+
+  const handleDelete = (id) => {
+    dispatch(deletePurpose(id));
+    showDeletedMessage(`Категорію “${category.name}” видалено`);
+    toggleDeletePopUp();
+  };
 
   const categoryContent = (
     <div>
@@ -17,28 +31,35 @@ const PurposeCategoryItem = ({ category }) => {
   );
 
   return (
-    <li className={cl.purposeCategoryItem}>
-      {isSmallScreen ? (
-        <>
-          <Link to={`/admin/purpose-categories/${category.id}`}>{categoryContent}</Link>
-          <button>
-            <img src="/svg/admin/delete.svg" alt="More options" />
-          </button>
-        </>
-      ) : (
-        <>
-          {categoryContent}
-          <div>
-            <Link to={`/admin/purpose-categories/${category.id}`}>
-              <img src="/svg/admin/edit.svg" />
-            </Link>
-            <button>
-              <img src="/svg/admin/delete.svg" alt="More options" />
+    <>
+      <li className={cl.purposeCategoryItem}>
+        {isSmallScreen ? (
+          <>
+            <Link to={`/admin/purpose-categories/${category.id}`}>{categoryContent}</Link>
+            <button onClick={() => toggleDeletePopUp()}>
+              <img src="/svg/admin/delete.svg" />
             </button>
-          </div>
-        </>
+          </>
+        ) : (
+          <>
+            {categoryContent}
+            <div>
+              <Link to={`/admin/purpose-categories/${category.id}`}>
+                <img src="/svg/admin/edit.svg" />
+              </Link>
+              <button onClick={() => toggleDeletePopUp()}>
+                <img src="/svg/admin/delete.svg" />
+              </button>
+            </div>
+          </>
+        )}
+      </li>
+      {isShowDeletePopUp && (
+        <DeletePopUp closeDeletePopUp={toggleDeletePopUp} handleDelete={() => handleDelete(category.id)}>
+          Ви впевнені, що хочете видалити цю категорію?
+        </DeletePopUp>
       )}
-    </li>
+    </>
   );
 };
 export default PurposeCategoryItem;

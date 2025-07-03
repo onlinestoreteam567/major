@@ -1,5 +1,6 @@
 import { Input } from '@components/form-components';
 import cl from './index.module.scss';
+import ValidationErrorMessage from '../../AdminLoginPage/ValidationErrorMessage/ValidationErrorMessage';
 
 const TypeForm = ({ register, errors }) => {
   return (
@@ -22,6 +23,11 @@ const TypeForm = ({ register, errors }) => {
           placeholder="example"
         />
       </div>
+      {Object.keys(errors).length > 0 && (
+        <ValidationErrorMessage>
+          Неможливо створити категорію — перевірте правильність введення даних.
+        </ValidationErrorMessage>
+      )}
     </>
   );
 };
