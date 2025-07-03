@@ -1,16 +1,16 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectAccessToken } from '../../../admin/redux/selectors';
+import { selectAccessToken } from '../../../redux/admin/selectors';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { fetchBestSellers, fetchProductsAll, fetchSets } from '@redux/products/service';
 import { fetchCategories, fetchTypes } from '@redux/params/service';
-import { fetchPromocode } from '../../../admin/redux/service';
+import { fetchPromocode } from '@redux/promocode/service';
 import { fetchBanner } from '@redux/banner/service';
 import { reviewsGetAll } from '@redux/reviews/service';
 import { fetchPartners } from '@redux/partners/service';
-import AdminNavigation from '../../../admin/components/AdminNavigation/AdminNavigation';
+import AdminNavigation from '../../../components/admin/AdminNavigation/AdminNavigation';
 import cl from './index.module.scss';
 
 const ProtectedRoute = () => {
