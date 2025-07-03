@@ -1,0 +1,46 @@
+@import '@mixins';
+
+.typeFormInputs {
+  @include flexGap(16px, column);
+
+  label {
+    flex-direction: column;
+    align-items: start;
+    font-size: 18px;
+    gap: 18px;
+
+    input[type='text'] {
+      width: 220px;
+    }
+  }
+
+  @include mobile {
+    gap: 38px;
+
+    label {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+
+  @include tablet {
+    gap: 48px;
+    margin-top: 64px;
+
+    label {
+      font-size: 24px;
+      width: auto;
+
+      input[type='text'] {
+        width: 315px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 686px;
+  }
+}

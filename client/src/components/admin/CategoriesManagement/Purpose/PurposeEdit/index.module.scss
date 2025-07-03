@@ -1,0 +1,46 @@
+@import '@mixins';
+
+.purposeEdit {
+  @include flex(column, null, null);
+  color: black;
+  margin: 65px auto 0 auto;
+
+  .btnWrapper {
+    @include flex(row, space-between, center);
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  @include mobile {
+    .btnWrapper {
+      margin-top: 60px;
+    }
+  }
+
+  @include tablet {
+    margin: 36px 40px 0 208px;
+
+    .btnWrapper {
+      margin-top: 72px;
+    }
+  }
+
+  @include deskmin {
+    margin: 36px auto;
+  }
+
+  @include deskmax {
+    margin: 90px auto;
+    width: 986px;
+
+    & > div:first-of-type {
+      width: 686px;
+    }
+
+    .btnWrapper {
+      button {
+        width: 382px;
+      }
+    }
+  }
+}

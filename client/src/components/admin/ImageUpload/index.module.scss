@@ -1,0 +1,61 @@
+@import '@mixins';
+
+.imageUpload {
+  @include flexGap(24px, column);
+  margin-top: 40px;
+
+  label {
+    @include flex();
+    font-family: Mulish;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 136%;
+    border: 1px solid #22211f;
+    height: 56px;
+    width: 280px;
+    background-color: transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    border-radius: $border-radius-medium;
+    transition:
+      background-color 300ms ease-out,
+      color 300ms ease-out;
+
+    &:hover {
+      background-color: $second-background-color-black;
+      color: $text-color-light;
+    }
+
+    input {
+      opacity: 0;
+      height: 0;
+      width: 0;
+      position: absolute;
+    }
+  }
+
+  @include mobile {
+    gap: 40px;
+    margin-top: 48px;
+
+    label {
+      width: 340px;
+    }
+  }
+
+  @include tablet {
+    margin-top: 70px;
+
+    label {
+      width: 524px;
+    }
+  }
+
+  @include deskmin {
+    label {
+      width: 686px;
+    }
+  }
+}

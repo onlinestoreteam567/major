@@ -1,0 +1,91 @@
+@import '@mixins';
+
+.purposeList {
+  @include flexGap(16px, column);
+  background-color: #b7d7b8;
+  padding: 16px 8px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+
+  & > div:first-of-type {
+    @include flexGap(32px);
+
+    p {
+      font-family: Mulish;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 136%;
+      color: #4c4c4c;
+    }
+
+    p:nth-of-type(1) {
+      width: 61px;
+      text-align: center;
+    }
+
+    p:nth-of-type(2) {
+      width: 109px;
+    }
+    p:nth-of-type(3) {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    & > div:first-of-type {
+      gap: 8px;
+
+      p:nth-of-type(3) {
+        display: block;
+        width: 109px;
+      }
+    }
+  }
+
+  @include tablet {
+    padding-block: 35px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    gap: 40px;
+
+    & > div:first-of-type {
+      padding-inline: 8px;
+
+      p {
+        font-weight: 600;
+        font-size: 20px;
+      }
+
+      p:nth-of-type(1) {
+        width: 91px;
+      }
+      p:nth-of-type(2) {
+        width: 150px;
+      }
+      p:nth-of-type(3) {
+        width: 129px;
+      }
+    }
+  }
+
+  @include deskmin {
+    padding-inline: 17px;
+
+    & > div:first-of-type {
+      padding-inline: 17px;
+
+      p:nth-of-type(2) {
+        width: 227px;
+      }
+      p:nth-of-type(3) {
+        width: 123px;
+      }
+    }
+  }
+
+  @include deskmax {
+    & > div:first-of-type {
+      gap: 108px;
+    }
+  }
+}

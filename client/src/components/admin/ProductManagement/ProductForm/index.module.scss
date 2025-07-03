@@ -1,0 +1,138 @@
+@import '@mixins';
+
+.productBasicInfo {
+  @include flexGap(16px, column);
+  margin-block: 25px;
+}
+
+.checkboxes {
+  @include flexGap(16px, column);
+  margin-bottom: 25px;
+}
+
+.productNumericalInputs {
+  @include flexGap(16px, column);
+}
+
+.selects {
+  @include flexGap(24px, column);
+  margin-block: 32px;
+  width: 100%;
+}
+
+.seoInputs {
+  @include flexGap(16px, column);
+  margin-top: 25px;
+  width: 100%;
+
+  label {
+    @include flexGap(16px, column);
+    width: 100%;
+
+    input[type='text'] {
+      width: 100%;
+    }
+  }
+}
+
+@include tablet {
+  .productBasicInfo {
+    margin-block: 56px;
+  }
+
+  .checkboxes {
+    @include flexGap(24px);
+    margin-bottom: 56px;
+  }
+
+  .productNumericalInputs {
+    gap: 24px;
+
+    label {
+      width: 290px;
+    }
+  }
+}
+
+@include deskmin {
+  .productBasicInfo {
+    margin: 0;
+    order: 2;
+    height: fit-content;
+    margin-left: auto;
+  }
+
+  .checkboxes {
+    width: 334px;
+    margin-top: -144px;
+    margin-left: auto;
+    flex-direction: column;
+    order: 4;
+  }
+
+  .productNumericalInputs {
+    order: 3;
+    margin-top: 32px;
+    label {
+      width: 297px;
+    }
+  }
+
+  .selects {
+    order: 5;
+  }
+
+  .seoInputs {
+    order: 7;
+
+    label {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0;
+
+      span {
+        max-width: 235px;
+      }
+
+      input[type='text'],
+      textarea {
+        width: 407px;
+      }
+    }
+  }
+
+  .validationErrorMessageWrapper {
+    order: 8;
+  }
+}
+
+@include deskmax {
+  .productNumericalInputs {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    label {
+      width: fit-content;
+      gap: 16px;
+    }
+  }
+
+  .checkboxes {
+    width: 475px;
+    margin-top: -462px;
+  }
+
+  .seoInputs {
+    label {
+      span {
+        max-width: initial;
+      }
+
+      input[type='text'],
+      textarea {
+        width: 642px;
+      }
+    }
+  }
+}
