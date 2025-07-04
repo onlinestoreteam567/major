@@ -15,7 +15,7 @@ import useIdFromUrl from '@hooks/useId';
 import { promocodeSchema } from '../../../validations/promocodeSchema';
 import ErrorText from '../../ErrorText/ErrorText';
 import LoadingButton from '../../LoadingButton/LoadingButton';
-import PromocodeForm from '../PromocodeForm';
+import PromocodeForm from '../PromocodeForm/PromocodeForm';
 import cl from './index.module.scss';
 import SuccessMessage from '../../SuccessMessage/SuccessMessage';
 import ReturnButton from '../../ReturnButton/ReturnButton';

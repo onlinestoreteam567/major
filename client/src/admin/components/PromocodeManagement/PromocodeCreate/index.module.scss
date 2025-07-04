@@ -5,13 +5,13 @@
   color: black;
 
   .btnWrapper {
-    @include flex(column, null, null);
+    @include flexGap(24px, column);
     margin-top: 74px;
-        width: 100%;
-        gap: 24px;
-
+        width: 280px;
+       
         button, a{
-          width: 100%;;
+          width: 100%;
+          height: 54px;
         }
   }
 }

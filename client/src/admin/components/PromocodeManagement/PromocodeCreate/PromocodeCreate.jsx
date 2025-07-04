@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { promocodeSchema } from '../../../validations/promocodeSchema';
 import ErrorText from '../../ErrorText/ErrorText';
-import PromocodeForm from '../PromocodeForm';
+import PromocodeForm from '../PromocodeForm/PromocodeForm';
 import LoadingButton from '../../LoadingButton/LoadingButton';
 import cl from './index.module.scss';
 import SuccessMessage from '../../SuccessMessage/SuccessMessage';
