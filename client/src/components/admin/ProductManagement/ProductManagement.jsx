@@ -21,7 +21,7 @@ const ProductManagement = () => {
   return (
     <div className={cl.productManagement}>
       <div>
-        <p>Товари({items.length})</p>
+        <p>Товари ({items.length})</p>
         <Link to={`/admin/products/create`}>
           <Button>Додати товар</Button>
         </Link>

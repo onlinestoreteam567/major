@@ -1,0 +1,93 @@
+@import '@mixins';
+
+.reviewsManamegent {
+  width: 280px;
+  margin-top: 13px;
+  margin-inline: auto;
+
+  & > div:first-of-type {
+    @include flexGap(24px, column);
+
+    p {
+      color: #4c9a4e;
+      font-size: 18px;
+      text-align: end;
+      font-family: Mulish;
+      font-weight: 400;
+      line-height: 136%;
+    }
+  }
+
+  @include mobile {
+    margin-top: 13px;
+    width: 340px;
+
+    & > div:first-of-type {
+      p {
+        font-size: 24px;
+      }
+    }
+  }
+
+  @include tablet {
+    width: 524px;
+    margin: 36px 36px 0 208px;
+
+    & > div:first-of-type {
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      p {
+        text-align: start;
+        width: 524px;
+        font-size: 32px;
+      }
+
+      search {
+        width: 250px;
+        margin: 0;
+
+        input {
+          width: 210px;
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 686px;
+    margin: 36px auto;
+
+    & > div:first-of-type {
+      search {
+        width: 331px;
+        margin: 0;
+
+        input {
+          width: 290px;
+        }
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 993px;
+
+    & > div:first-of-type {
+      justify-content: space-between;
+
+      p {
+        width: fit-content;
+      }
+
+      search {
+        width: 375px;
+        margin: 0;
+
+        input {
+          width: 335px;
+        }
+      }
+    }
+  }
+}
