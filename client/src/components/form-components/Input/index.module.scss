@@ -4,7 +4,6 @@
   input {
     box-sizing: border-box;
     outline: none;
-    box-sizing: border-box;
     padding-left: 10px;
     font-family: $font-main;
     font-size: $font-size-small;
@@ -56,25 +55,6 @@
     align-items: start;
     font-size: 16px;
 
-    &[type='text'] {
-      height: 46px;
-      // width: 180px;
-
-      @include mobile {
-        // width: 220px;
-      }
-    }
-
-    &[type='number'] {
-      // text-align: center;
-
-      height: 46px;
-      // width: 105px;
-      &::placeholder {
-        // text-align: center;
-      }
-    }
-
     &::placeholder {
       font-family: Mulish;
       font-weight: 400;
@@ -97,27 +77,39 @@
     }
   }
 
+  // MOBILE ≥ 380px
   @include mobile {
     font-size: 18px;
     width: 340px;
 
-    &[type='text'] {
-      width: 220px;
+    input[type='text'],
+    input[type='number'],
+    input {
+      width: 340px;
+    }
+
+    .inputDateGroup {
+      input[type='date'] {
+        width: 340px;
+      }
     }
   }
 
+  // TABLET ≥ 768px
   @include tablet {
     width: 524px;
     font-size: 20px;
     font-weight: 600;
 
+    input[type='text'],
+    input[type='number'],
     input {
-      &[type='text'] {
-        width: 380px;
-      }
+      width: 357px;
+    }
 
-      &[type='number'] {
-        width: 104px;
+    .inputDateGroup {
+      input[type='date'] {
+        width: 357px;
       }
     }
   }
@@ -126,8 +118,10 @@
     width: 334px;
 
     input {
-      &[type='text'] {
-        width: 197px;
+      font-size: 18px;
+
+      &::placeholder {
+        font-size: 18px;
       }
     }
   }
@@ -143,65 +137,71 @@
       &::placeholder {
         font-size: 20px;
       }
+    }
+  }
 
-      &[type='text'] {
-        width: 315px;
+  .inputDateGroup {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+
+    input[type='date'] {
+      position: relative;
+      z-index: 2;
+      height: 46px;
+      padding: 10px 16px;
+      font-size: 18px;
+      color: #6b6b6b;
+      border: 1px solid #aaa;
+      border-right: none;
+      border-radius: 6px 0 0 6px;
+      background-color: #fff;
+      width: 240px;
+      appearance: none;
+      -webkit-appearance: none;
+      margin-right: -6px;
+
+      &::-webkit-calendar-picker-indicator {
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        z-index: 3;
+      }
+    }
+
+    .iconWrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 44px;
+      background-color: #bde2c3;
+      border: 1px solid #4b9c5a;
+      border-left: none;
+      border-radius: 0 6px 6px 0;
+      pointer-events: none;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        color: #4b9c5a;
+      }
+    }
+    @include mobile {
+      input[type='date'] {
+        width: 300px;
+      }
+    }
+
+    @include tablet {
+      input[type='date'] {
+        width: 317px;
       }
     }
   }
 }
-
-.inputDateGroup {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: fit-content;
-
-  input[type='date'] {
-    position: relative;
-    z-index: 2;
-    height: 46px;
-    padding: 10px 16px;
-    font-size: 18px;
-    color: #6b6b6b;
-    border: 1px solid #aaa;
-    border-right: none;
-    border-radius: 6px 0 0 6px;
-    background-color: #fff;
-    width: 240px;
-    appearance: none;
-    -webkit-appearance: none;
-     margin-right: -6px;
-
-    &::-webkit-calendar-picker-indicator {
-      opacity: 0;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      right: 0;
-      top: 0;
-      cursor: pointer;
-      z-index: 3;
-    }
-  }
-
-  .iconWrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 46px;
-    height: 44px;
-    background-color: #bde2c3;
-    border: 1px solid #4b9c5a;
-    border-left: none;
-    border-radius: 0 6px 6px 0;
-    pointer-events: none;
-
-    svg {
-      width: 24px;
-      height: 24px;
-      color: #4b9c5a;
-    }
-  }
-}
-
