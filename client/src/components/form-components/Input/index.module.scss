@@ -78,7 +78,6 @@
     }
   }
 
-  // MOBILE ≥ 380px
   @include mobile {
     font-size: 18px;
     width: 340px;
@@ -96,7 +95,6 @@
     }
   }
 
-  // TABLET ≥ 768px
   @include tablet {
     width: 524px;
     font-size: 20px;

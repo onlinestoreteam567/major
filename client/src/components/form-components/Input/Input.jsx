@@ -1,10 +1,9 @@
 import cl from './index.module.scss';
 
-
 export function Input({ labelText, placeholder, type = 'text', name, variant, register, errors, disabled, ...rest }) {
   const isDate = type === 'date';
   const hasError = errors?.[name];
-  
+
   return (
     <label htmlFor={name} className={`${cl.label} ${cl[variant]}`}>
       {labelText}
