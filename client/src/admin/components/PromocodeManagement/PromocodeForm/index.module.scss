@@ -1,10 +1,9 @@
 @import '@mixins';
 
 .wrapperInput {
-  @include flexGap(16px, column);
-  margin-block: 25px;
+  @include flexGap(24px, column);
   width: 100%;
-  padding-top: 70px;
+  padding-top: 71px;
 
   label {
     @include flexGap(16px, column);
@@ -41,5 +40,33 @@
         cursor: pointer;
       }
     }
+  }
+}
+
+@include tablet {
+  .wrapperInput {
+    width: 523px;
+    gap: 48px;
+
+    label {
+      flex-direction: row;
+      font-size: 24px;
+
+      input {
+        height: 56px;
+      }
+          }
+  }
+}
+
+@include deskmin {
+  .wrapperInput {
+    width: 683px;
+  }
+}
+
+@include deskmax {
+  .wrapperInput {
+    width: 778px;
   }
 }

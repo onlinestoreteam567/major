@@ -56,7 +56,7 @@ const PromocodeCreate = () => {
           <LoadingButton
             isLoading={isLoading}
             loadingText="Створення промокоду…"
-            shortText="Створити"
+            shortText="Створити промокод"
             longText="Створити промокод"
           />
         </div>

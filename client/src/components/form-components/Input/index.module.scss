@@ -156,7 +156,7 @@
       color: #6b6b6b;
       border: 1px solid #aaa;
       border-right: none;
-      border-radius: 6px 0 0 6px;
+      border-radius: 6px;
       background-color: #fff;
       width: 240px;
       appearance: none;
@@ -202,7 +202,11 @@
     @include tablet {
       input[type='date'] {
         width: 317px;
+        height: 56px;
       }
-    }
+
+      .iconWrap {
+      height: 55px;
+    }}
   }
 }

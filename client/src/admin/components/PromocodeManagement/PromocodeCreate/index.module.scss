@@ -1,17 +1,65 @@
 @import '@mixins';
 
 .promocodeCreate {
-  @include flex(column, null, null);
+  @include flexGap(74px, column);
   color: black;
 
   .btnWrapper {
     @include flexGap(24px, column);
-    margin-top: 74px;
-        width: 280px;
-       
-        button, a{
-          width: 100%;
-          height: 54px;
-        }
+    width: 280px;
+
+    button,
+    a {
+      width: 100%;
+      height: 54px;
+      font-size: 16px;
+    }
+  }
+
+  @include mobile {
+    .btnWrapper {
+      width: 340px;
+    }
+  }
+}
+
+@include mobile {
+  .promocodeCreate {
+    gap: 90px;
+  }
+}
+
+@include tablet {
+  .promocodeCreate {
+    gap: 72px;
+
+    .btnWrapper {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 523px;
+
+      button,
+      a {
+        height: 65px;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+@include deskmin {
+  .promocodeCreate .btnWrapper {
+    width: 683px;
+
+    button,
+    a {
+      width: 304px;
+    }
+  }
+}
+
+@include deskmax {
+  .promocodeCreate .btnWrapper {
+    width: 778px;
   }
 }
