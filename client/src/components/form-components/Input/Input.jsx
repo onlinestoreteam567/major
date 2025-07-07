@@ -1,5 +1,5 @@
 import cl from './index.module.scss';
-import { LuCalendarDays } from 'react-icons/lu';
+
 
 export function Input({ labelText, placeholder, type = 'text', name, variant, register, errors, disabled, ...rest }) {
   const isDate = type === 'date';
@@ -21,7 +21,7 @@ export function Input({ labelText, placeholder, type = 'text', name, variant, re
             {...rest}
           />
           <div className={cl.iconWrap}>
-            <LuCalendarDays />
+            <img src="/svg/admin/calendar.svg" alt="calendar icon" />
           </div>
         </div>
       ) : (
