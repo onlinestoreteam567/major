@@ -90,6 +90,7 @@
 
     .inputDateGroup {
       input[type='date'] {
+        box-sizing: border-box;
         width: 340px;
       }
     }
@@ -177,8 +178,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      box-sizing: border-box;
       width: 46px;
-      height: 44px;
+      height: 46px;
       background-color: #bde2c3;
       border: 1px solid #4b9c5a;
       border-left: none;
@@ -204,7 +206,7 @@
       }
 
       .iconWrap {
-      height: 55px;
+      height: 56px;
     }}
   }
 }
