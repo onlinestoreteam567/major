@@ -12,7 +12,7 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 136%;
-
+    
     input {
       width: 280px;
     }
@@ -51,6 +51,7 @@
     label {
       flex-direction: row;
       font-size: 24px;
+      align-items: center;
 
       input {
         height: 56px;
