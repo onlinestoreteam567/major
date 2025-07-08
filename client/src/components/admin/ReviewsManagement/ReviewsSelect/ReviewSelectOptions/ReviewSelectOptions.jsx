@@ -29,11 +29,13 @@ const ReviewSelectOptions = ({ setIsExpanded, selectedValue, setSelectedValue })
   return (
     <ul className={cl.reviewSelectOptions}>
       {options.map((option) => (
-        <li key={option.value} className={selectedValue === option.value ? cl.selected : ''}>
-          <button type="button" onClick={() => handleOptionClick(option)}>
-            {option.value}
-          </button>
-        </li>
+        <button
+          key={option.value}
+          onClick={() => handleOptionClick(option)}
+          className={selectedValue === option.value ? cl.selected : ''}
+        >
+          {option.value}
+        </button>
       ))}
     </ul>
   );

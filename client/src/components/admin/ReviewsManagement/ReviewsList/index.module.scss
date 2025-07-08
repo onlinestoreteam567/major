@@ -3,9 +3,4 @@
 .list {
   @include flexGap(20px, column);
   color: black;
-
-  li {
-    @include flexGap(20px, column);
-    border: 2px solid orange;
-  }
 }
