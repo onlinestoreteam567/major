@@ -3,6 +3,11 @@
 .reviewsList {
   @include flexGap(20px, column);
   color: black;
+  margin-top: 32px;
+
+  @include deskmax {
+    margin-top: 48px;
+  }
 }
 
 .notFoundText {

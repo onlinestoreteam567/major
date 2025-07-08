@@ -3,6 +3,7 @@
 .typeCreate {
   @include flex(column, null, null);
   color: black;
+  margin-top: 40px;
 
   .btnWrapper {
     @include flex(row, space-between, center);
