@@ -1,11 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import cl from './index.module.scss';
-import { useState, useMemo } from 'react';
-import { reviewsByProductId } from '@redux/reviews/service';
+import { useState, useMemo, useEffect } from 'react';
+import { reviewsByProductId, reviewsGetAll } from '@redux/reviews/service';
 import { selectFilteredProducts } from '@redux/selectors';
 
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(null);
   const dispatch = useDispatch();
   const allProducts = useSelector(selectFilteredProducts);
 
@@ -19,6 +19,13 @@ const Search = () => {
         product.product_name_uk?.toLowerCase().includes(lowerCaseSearchTerm)
     );
   }, [searchTerm, allProducts]);
+
+  useEffect(() => {
+    if (searchTerm === '') {
+      dispatch(reviewsGetAll());
+      console.log(123123123);
+    }
+  }, [searchTerm, dispatch]);
 
   const handleChange = (e) => setSearchTerm(e.target.value);
 
