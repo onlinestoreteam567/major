@@ -37,7 +37,7 @@ const Search = () => {
   return (
     <search className={cl.search}>
       <div>
-        <input placeholder="Пошук товарів..." type="text" onChange={handleChange} value={searchTerm} />
+        <input placeholder="пошук" type="text" onChange={handleChange} value={searchTerm} />
         <button>
           <img src="/svg/admin/search.svg" alt="Search" />
         </button>
