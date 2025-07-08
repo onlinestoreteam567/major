@@ -7,13 +7,20 @@ import DeletePopUp from '@components/admin/DeletePopUp/DeletePopUp';
 
 const ReviewCard = ({ review, showDeletedMessage }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
+  const [isShowApprovePopUp, setIsShowApprovePopUp] = useState(false);
   const dispatch = useDispatch();
+
   const handleDelete = (productId, reviewId) => {
     dispatch(deleteReview({ productId, reviewId }));
     showDeletedMessage(`Відгук успішно видалено`);
   };
-  const handleApprove = (productId, reviewId) => dispatch(approveReview({ productId, reviewId }));
+  const handleApprove = (productId, reviewId) => {
+    dispatch(approveReview({ productId, reviewId }));
+    showDeletedMessage(`Відгук успішно опубліковано`);
+  };
+
   const toggleDeletePopUp = () => setIsShowDeletePopUp(!isShowDeletePopUp);
+  const toggleApprovePopUp = () => setIsShowApprovePopUp(!isShowApprovePopUp);
 
   return (
     <>
@@ -34,14 +41,14 @@ const ReviewCard = ({ review, showDeletedMessage }) => {
           Ім`я користувача: <span>{review.user_name}</span>
         </p>
         {review.is_approved ? (
-          <button onClick={toggleDeletePopUp}>
+          <button onClick={() => toggleDeletePopUp()}>
             <img src="/svg/admin/delete.svg" alt="More options" />
           </button>
         ) : (
           <div className={cl.approveButtonsWrap}>
-            <Button onClick={() => handleApprove(review.product_id, review.id)}>Опублікувати</Button>
-            <button>
-              <img src="/svg/admin/delete.svg" alt="More options" />
+            <Button onClick={() => toggleApprovePopUp()}>Опублікувати</Button>
+            <button onClick={() => toggleDeletePopUp()}>
+              <img src="/svg/admin/delete.svg" />
             </button>
           </div>
         )}
@@ -49,10 +56,19 @@ const ReviewCard = ({ review, showDeletedMessage }) => {
 
       {isShowDeletePopUp && (
         <DeletePopUp
-          closeDeletePopUp={toggleDeletePopUp}
+          closeDeletePopUp={() => toggleDeletePopUp()}
           handleDelete={() => handleDelete(review.product_id, review.id)}
         >
           Ви впевнені, що хочете видалити цей відгук?
+        </DeletePopUp>
+      )}
+
+      {isShowApprovePopUp && (
+        <DeletePopUp
+          closeDeletePopUp={toggleDeletePopUp}
+          handleDelete={() => handleApprove(review.product_id, review.id)}
+        >
+          Ви впевнені, що хочете опублікувати цей відгук
         </DeletePopUp>
       )}
     </>
