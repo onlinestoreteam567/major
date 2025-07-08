@@ -14,6 +14,9 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import TypeForm from '../TypeForm';
 import cl from './index.module.scss';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
+import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
+import { clearEditTypeState } from '@redux/admin/type/typeEditSlice';
 
 const formValues = ['type_name_uk', 'type_name_en'];
 
@@ -35,10 +38,15 @@ const TypeEdit = () => {
   const responseEdit = useSelector(responseTypeEdit);
   const isLoadingGet = useSelector(loadTypeById);
   const responseGet = useSelector(responseTypeById);
+  const [successEditMessage, showSuccessEditMessage] = useTimedMessage(3000, () => dispatch(clearEditTypeState()));
 
   useEffect(() => {
     dispatch(getTypeCategoryById(id));
   }, [dispatch, id]);
+
+  useEffect(() => {
+    if (responseEdit) showSuccessEditMessage('Категорія успішно відредагована');
+  }, [responseEdit]);
 
   useEffect(() => {
     responseGet && setFormValues(setValue, responseGet, formValues);
@@ -63,6 +71,7 @@ const TypeEdit = () => {
           {responseEdit && <SuccessMessage>Категорія за типом успішно відредагована!</SuccessMessage>}
         </form>
       )}
+      {successEditMessage && <AdminMessage>{successEditMessage}</AdminMessage>}
     </>
   );
 };

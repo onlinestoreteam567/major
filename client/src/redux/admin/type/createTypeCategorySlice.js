@@ -20,6 +20,13 @@ const createTypeCategorySlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearCreateTypeState: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(createTypeCategory.pending, handlePending)
@@ -30,5 +37,5 @@ const createTypeCategorySlice = createSlice({
       })
       .addCase(createTypeCategory.rejected, handleRejected),
 });
-
+export const { clearCreateTypeState } = createTypeCategorySlice.actions;
 export const createTypeCategoryReducer = createTypeCategorySlice.reducer;

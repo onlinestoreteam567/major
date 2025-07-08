@@ -1,7 +1,6 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
 import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
-import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPurposeCategory } from '@redux/admin/purpose/service';
 import {
@@ -16,6 +15,10 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import PurposeForm from '../PurposeForm';
 import cl from './index.module.scss';
+import { useEffect } from 'react';
+import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
+import { clearCreatePurposeState } from '@redux/admin/purpose/createPurposeCategorySlice';
 
 const PurposeCreate = () => {
   const {
@@ -32,6 +35,13 @@ const PurposeCreate = () => {
   const isLoading = useSelector(loadCreatePurposeCategory);
   const response = useSelector(responseCreatePurposeCategory);
   const errorPost = useSelector(errorCreatePurposeCategory);
+  const [successCreateMessage, showSuccessCreateMessage] = useTimedMessage(3000, () =>
+    dispatch(clearCreatePurposeState())
+  );
+
+  useEffect(() => {
+    if (response) showSuccessCreateMessage('Категорія успішно створена');
+  }, [response]);
 
   const onSubmit = (values) => {
     let formData = new FormData();
@@ -41,15 +51,17 @@ const PurposeCreate = () => {
     dispatch(createPurposeCategory(formData));
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={cl.purposeCreate}>
-      <PurposeForm register={register} errors={errors} control={control} />
-      <div className={cl.btnWrapper}>
-        <ReturnButton to="/admin/categories" />
-        <LoadingButton isLoading={isLoading} shortText="Створити" longText="Створити категорію" />
-      </div>
-      {errorPost && <ErrorText error={errorPost}></ErrorText>}
-      {response && <SuccessMessage>Категорія за призначенням успішно створена</SuccessMessage>}
-    </form>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className={cl.purposeCreate}>
+        <PurposeForm register={register} errors={errors} control={control} />
+        <div className={cl.btnWrapper}>
+          <ReturnButton to="/admin/categories" />
+          <LoadingButton isLoading={isLoading} shortText="Створити" longText="Створити категорію" />
+        </div>
+        {errorPost && <ErrorText error={errorPost}></ErrorText>}
+      </form>
+      {successCreateMessage && <AdminMessage>{successCreateMessage}</AdminMessage>}
+    </>
   );
 };
 export default PurposeCreate;

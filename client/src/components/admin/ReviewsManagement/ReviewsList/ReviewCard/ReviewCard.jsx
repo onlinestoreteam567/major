@@ -5,18 +5,18 @@ import Button from '@components/UI/Button/Button';
 import { useState } from 'react';
 import DeletePopUp from '@components/admin/DeletePopUp/DeletePopUp';
 
-const ReviewCard = ({ review, showDeletedMessage }) => {
+const ReviewCard = ({ review, showMessage }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const [isShowApprovePopUp, setIsShowApprovePopUp] = useState(false);
   const dispatch = useDispatch();
 
   const handleDelete = (productId, reviewId) => {
     dispatch(deleteReview({ productId, reviewId }));
-    showDeletedMessage(`Відгук успішно видалено`);
+    showMessage(`Відгук успішно видалено`);
   };
   const handleApprove = (productId, reviewId) => {
     dispatch(approveReview({ productId, reviewId }));
-    showDeletedMessage(`Відгук успішно опубліковано`);
+    showMessage(`Відгук успішно опубліковано`);
   };
 
   const toggleDeletePopUp = () => setIsShowDeletePopUp(!isShowDeletePopUp);

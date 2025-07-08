@@ -9,13 +9,20 @@ import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
 import { useProductForm } from './helpers/useProductForm';
+import { useEffect } from 'react';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
+import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
+import { clearCreateProductState } from '@redux/admin/product/createProductSlice';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(loadCreateProduct);
   const response = useSelector(responseCreateProduct);
   const errorPost = useSelector(errorCreateProduct);
-  const { register, handleSubmit, errors, control, resetImagesTrigger, getValues } = useProductForm(response);
+  const { register, handleSubmit, errors, control, resetImagesTrigger } = useProductForm(response);
+  const [successCreateMessage, showSuccessCreateMessage] = useTimedMessage(3000, () =>
+    dispatch(clearCreateProductState())
+  );
 
   const onSubmit = (values) => {
     let formData = new FormData();
@@ -23,6 +30,10 @@ const ProductCreate = () => {
     appendFormData(formData, values, ['upload_images']);
     dispatch(createProduct(formData));
   };
+
+  useEffect(() => {
+    if (response) showSuccessCreateMessage('Товар успішно створено');
+  }, [response]);
 
   return (
     <>
@@ -35,11 +46,8 @@ const ProductCreate = () => {
         </div>
 
         {errorPost && <ErrorText error={errorPost} />}
-
-        <button type="button" onClick={() => console.log(getValues())}>
-          getValues
-        </button>
       </form>
+      {successCreateMessage && <AdminMessage>{successCreateMessage}</AdminMessage>}
     </>
   );
 };

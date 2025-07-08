@@ -9,7 +9,7 @@ import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
 const ReviewsList = () => {
   const reviews = useSelector(selectReviews);
   const isLoading = useSelector(loadReviews);
-  const [deletedMessage, showDeletedMessage] = useTimedMessage();
+  const [message, showMessage] = useTimedMessage();
 
   return isLoading ? (
     <Spinner />
@@ -17,10 +17,10 @@ const ReviewsList = () => {
     <>
       <ul className={cl.reviewsList}>
         {reviews.map((review) => (
-          <ReviewCard review={review} key={review.id} showDeletedMessage={showDeletedMessage} />
+          <ReviewCard review={review} key={review.id} showMessage={showMessage} />
         ))}
       </ul>
-      {deletedMessage && <AdminMessage>{deletedMessage}</AdminMessage>}
+      {message && <AdminMessage>{message}</AdminMessage>}
     </>
   ) : (
     <p className={cl.notFoundText}>Нічого не знайдено. Плак плак.</p>

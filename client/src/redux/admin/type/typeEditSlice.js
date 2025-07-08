@@ -20,6 +20,13 @@ const typeEditSlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearEditTypeState: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(editType.pending, handlePending)
@@ -30,5 +37,5 @@ const typeEditSlice = createSlice({
       })
       .addCase(editType.rejected, handleRejected),
 });
-
+export const { clearEditTypeState } = typeEditSlice.actions;
 export const typeEditReducer = typeEditSlice.reducer;
