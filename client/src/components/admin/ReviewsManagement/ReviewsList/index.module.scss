@@ -1,6 +1,14 @@
 @import '@mixins';
 
-.list {
+.reviewsList {
   @include flexGap(20px, column);
   color: black;
+}
+
+.notFoundText {
+  color: skyblue;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 16px;
+  font-family: Mulish;
 }

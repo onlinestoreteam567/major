@@ -3,7 +3,7 @@ import ReviewsSelect from './ReviewsSelect/ReviewsSelect';
 import cl from './index.module.scss';
 import { selectReviews } from '@redux/selectors';
 import { useSelector } from 'react-redux';
-import Search from '../ProductManagement/Search/Search';
+import Search from './Search/Search';
 const ReviewsManagement = () => {
   const reviews = useSelector(selectReviews);
 
