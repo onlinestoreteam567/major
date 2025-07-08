@@ -20,6 +20,13 @@ const purposeEditSlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearEditPurposeState: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(editPurpose.pending, handlePending)
@@ -31,4 +38,5 @@ const purposeEditSlice = createSlice({
       .addCase(editPurpose.rejected, handleRejected),
 });
 
+export const { clearEditPurposeState } = purposeEditSlice.actions;
 export const purposeEditReducer = purposeEditSlice.reducer;

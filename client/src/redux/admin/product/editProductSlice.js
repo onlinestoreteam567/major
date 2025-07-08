@@ -20,6 +20,14 @@ const editProductSlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearEditProductState: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
+    },
+  },
+
   extraReducers: (builder) =>
     builder
       .addCase(editProduct.pending, handlePending)
@@ -31,4 +39,5 @@ const editProductSlice = createSlice({
       .addCase(editProduct.rejected, handleRejected),
 });
 
+export const { clearEditProductState } = editProductSlice.actions;
 export const editProductReducer = editProductSlice.reducer;

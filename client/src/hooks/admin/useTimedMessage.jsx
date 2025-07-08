@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-const useTimedMessage = (duration = 3000) => {
+const useTimedMessage = (duration = 3000, customFunction) => {
   const [message, setMessage] = useState();
   const timerRef = useRef(null);
 
@@ -11,6 +11,7 @@ const useTimedMessage = (duration = 3000) => {
       timerRef.current = setTimeout(() => {
         setMessage(null);
         timerRef.current = null;
+        if (customFunction) customFunction();
       }, duration);
     },
     [duration]

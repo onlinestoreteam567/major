@@ -8,6 +8,7 @@
 .checkboxes {
   @include flexGap(16px, column);
   margin-bottom: 25px;
+  height: fit-content;
 }
 
 .productNumericalInputs {
@@ -27,6 +28,7 @@
 
   label {
     @include flexGap(16px, column);
+    align-items: start;
     width: 100%;
 
     input[type='text'] {

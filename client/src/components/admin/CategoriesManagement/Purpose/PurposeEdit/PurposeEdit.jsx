@@ -22,6 +22,9 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import PurposeForm from '../PurposeForm';
 import cl from './index.module.scss';
+import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
+import { clearEditPurposeState } from '@redux/admin/purpose/purposeEditSlice';
 
 const formValues = ['category_name_uk', 'category_name_en', 'image'];
 
@@ -44,6 +47,11 @@ const PurposeEdit = () => {
   const responseEdit = useSelector(responsePurposeEdit);
   const isLoadingGet = useSelector(loadPurposeById);
   const responseGet = useSelector(responsePurposeById);
+  const [successEditMessage, showSuccessEditMessage] = useTimedMessage(3000, () => dispatch(clearEditPurposeState()));
+
+  useEffect(() => {
+    if (responseEdit) showSuccessEditMessage('Категорія успішно відредагована');
+  }, [responseEdit]);
 
   useEffect(() => {
     dispatch(getPurposeCategoryById(id));
@@ -61,21 +69,20 @@ const PurposeEdit = () => {
     dispatch(editPurpose({ formData, id }));
   };
 
-  return (
+  return isLoadingGet ? (
+    <Spinner />
+  ) : (
     <>
-      {isLoadingGet ? (
-        <Spinner />
-      ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className={cl.purposeEdit}>
-          <PurposeForm register={register} errors={errors} control={control} />
-          <div className={cl.btnWrapper}>
-            <ReturnButton to="/admin/categories" />
-            <LoadingButton isLoading={isLoadingEdit} shortText="Зберегти" longText="Зберегти категорію" />
-          </div>
-          {errorEdit && <ErrorText error={errorEdit}></ErrorText>}
-          {responseEdit && <SuccessMessage>Категорія за призначенням успішно відредагована</SuccessMessage>}
-        </form>
-      )}
+      <form onSubmit={handleSubmit(onSubmit)} className={cl.purposeEdit}>
+        <PurposeForm register={register} errors={errors} control={control} />
+        <div className={cl.btnWrapper}>
+          <ReturnButton to="/admin/categories" />
+          <LoadingButton isLoading={isLoadingEdit} shortText="Зберегти" longText="Зберегти категорію" />
+        </div>
+        {errorEdit && <ErrorText error={errorEdit}></ErrorText>}
+        {responseEdit && <SuccessMessage>Категорія за призначенням успішно відредагована</SuccessMessage>}
+      </form>
+      {successEditMessage && <AdminMessage>{successEditMessage}</AdminMessage>}
     </>
   );
 };

@@ -1,11 +1,19 @@
 @import '@mixins';
 
-.list {
+.reviewsList {
   @include flexGap(20px, column);
   color: black;
+  margin-top: 32px;
 
-  li {
-    @include flexGap(20px, column);
-    border: 2px solid orange;
+  @include deskmax {
+    margin-top: 48px;
   }
+}
+
+.notFoundText {
+  color: skyblue;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 16px;
+  font-family: Mulish;
 }

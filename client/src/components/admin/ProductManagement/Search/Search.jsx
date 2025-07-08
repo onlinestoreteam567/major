@@ -7,6 +7,7 @@ const Search = () => {
 
   const handleSearch = (event) => {
     const searchTerm = event.target.value;
+
     dispatch(filterProductsByName(searchTerm));
   };
 

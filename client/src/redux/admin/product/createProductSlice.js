@@ -20,6 +20,13 @@ const createProductSlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearCreateProductState: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(createProduct.pending, handlePending)
@@ -30,5 +37,5 @@ const createProductSlice = createSlice({
       })
       .addCase(createProduct.rejected, handleRejected),
 });
-
+export const { clearCreateProductState } = createProductSlice.actions;
 export const createProductReducer = createProductSlice.reducer;

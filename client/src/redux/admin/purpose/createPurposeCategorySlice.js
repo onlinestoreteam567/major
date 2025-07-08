@@ -20,6 +20,13 @@ const createPurposeCategorySlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearCreatePurposeState: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(createPurposeCategory.pending, handlePending)
@@ -31,4 +38,5 @@ const createPurposeCategorySlice = createSlice({
       .addCase(createPurposeCategory.rejected, handleRejected),
 });
 
+export const { clearCreatePurposeState } = createPurposeCategorySlice.actions;
 export const createPurposeCategoryReducer = createPurposeCategorySlice.reducer;

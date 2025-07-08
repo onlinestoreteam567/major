@@ -19,6 +19,10 @@ const setFormValues = (setValue, responseGet) => {
   setValue('ingredients', responseGet.ingredients);
   setValue('application_uk', responseGet.application_uk);
   setValue('application_en', responseGet.application_en);
+  setValue('meta_tag_title_uk', responseGet.meta_tag_title_uk);
+  setValue('meta_tag_title_en', responseGet.meta_tag_title_en);
+  setValue('meta_tag_description_uk', responseGet.meta_tag_description_uk);
+  setValue('meta_tag_description_en', responseGet.meta_tag_description_en);
   setValue('upload_images', responseGet.images);
 
   const price = responseGet.price;

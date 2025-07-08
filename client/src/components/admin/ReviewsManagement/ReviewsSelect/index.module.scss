@@ -1,0 +1,81 @@
+@import '@mixins';
+
+.reviewSelect {
+  @include flexGap(14px, column);
+
+  div {
+    box-sizing: border-box;
+    height: 42px;
+    width: 280px;
+    border-radius: 8px;
+    border: 1px solid #a2a2a2;
+    padding: 10px 14px;
+    background-color: #ffffff;
+    cursor: pointer;
+    @include flex(row, space-between, center);
+    user-select: none;
+
+    &:hover,
+    &.open {
+      border-color: #676767;
+
+      span:first-of-type {
+        color: #676767;
+      }
+
+      span:last-of-type {
+        svg {
+          path {
+            fill: #676767;
+          }
+        }
+      }
+    }
+
+    span:first-of-type {
+      font-family: Mulish;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 136%;
+      color: #a2a2a2;
+    }
+
+    & > span:last-of-type {
+      @include flex();
+      transition: transform 0.2s ease-in-out;
+
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  @include mobile {
+    div {
+      width: 340px;
+    }
+  }
+
+  @include tablet {
+    div {
+      width: 250px;
+      height: 56px;
+
+      span:first-of-type {
+        font-size: 20px;
+      }
+    }
+  }
+
+  @include deskmin {
+    div {
+      width: 331px;
+      padding-inline: 34px;
+    }
+  }
+  @include deskmax {
+    div {
+      width: 375px;
+    }
+  }
+}

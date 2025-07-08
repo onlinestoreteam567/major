@@ -103,7 +103,7 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
         <Input
           placeholder="example"
           labelText="Мета-тег Title (UA):"
-          name="1"
+          name="meta_tag_title_uk"
           register={register}
           errors={errors}
           variant="admin"
@@ -111,7 +111,7 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
         <Input
           placeholder="example"
           labelText="Мета-тег Title (ENG):"
-          name="2"
+          name="meta_tag_title_en"
           register={register}
           errors={errors}
           variant="admin"
@@ -119,7 +119,7 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
         <TextareaAdmin
           placeholder="example"
           labelText="Мета-тег Description (UA):"
-          name="3"
+          name="meta_tag_description_uk"
           errors={errors}
           control={control}
           variant="admin"
@@ -127,7 +127,7 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
         <TextareaAdmin
           placeholder="example"
           labelText="Мета-тег Description (ENG):"
-          name="4"
+          name="meta_tag_description_en"
           control={control}
           errors={errors}
           variant="admin"

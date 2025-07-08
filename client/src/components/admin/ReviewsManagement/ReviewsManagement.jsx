@@ -1,18 +1,20 @@
-import ProductSelect from '@components/admin/ProductSelect/ProductSelect';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import ReviewsList from './ReviewsList/ReviewsList';
 import ReviewsSelect from './ReviewsSelect/ReviewsSelect';
-
+import cl from './index.module.scss';
+import { selectReviews } from '@redux/selectors';
+import { useSelector } from 'react-redux';
+import Search from './Search/Search';
 const ReviewsManagement = () => {
+  const reviews = useSelector(selectReviews);
+
   return (
-    <div>
+    <div className={cl.reviewsManamegent}>
       <div>
-        <ReturnButton />;
-      </div>
-      <div>
-        <ProductSelect />
+        <p>Відгуки ({reviews.length})</p>
+        <Search />
         <ReviewsSelect />
       </div>
+
       <ReviewsList />
     </div>
   );
