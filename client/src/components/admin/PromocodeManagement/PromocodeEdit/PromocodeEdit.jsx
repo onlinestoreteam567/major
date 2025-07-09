@@ -17,7 +17,7 @@ import { promocodeSchema } from '@validations/admin/promocodeSchema';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import PromocodeForm from '../PromocodeForm/PromocodeForm';
+import PromocodeForm from '../PromocodeForm';
 import cl from './index.module.scss';
 
 const PromocodeEdit = () => {

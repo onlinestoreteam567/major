@@ -8,11 +8,11 @@ import { errorPromocodeCreate, loadPromocodeCreate, responsePromocodeCreate } fr
 import { promocodeSchema } from '@validations/admin/promocodeSchema';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import PromocodeForm from '../PromocodeForm/PromocodeForm';
+import PromocodeForm from '../PromocodeForm';
 import cl from './index.module.scss';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { clearPromocodeCreateState } from '../../../redux/promocodeCreateSlice';
+import { clearPromocodeCreateState } from '@redux/admin/promocode/promocodeCreateSlice';
 
 const PromocodeCreate = () => {
   const {
