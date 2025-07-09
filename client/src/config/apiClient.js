@@ -1,7 +1,7 @@
 import axios from 'axios';
 import i18n from 'i18next';
-import { fetchAuthToken } from '../admin/redux/service';
-import { clearTokens } from '../admin/redux/authSlice';
+import { fetchAuthToken } from '../redux/admin/auth/service';
+import { clearTokens } from '../redux/admin/auth/authSlice';
 
 // Check if the environment variable is defined
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;

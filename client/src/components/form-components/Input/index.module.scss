@@ -39,7 +39,7 @@
 }
 
 .admin {
-  @include flex(row, space-between, start);
+  @include flex(row, space-between, center);
   font-family: Mulish;
   font-weight: 400;
   font-size: 14px;

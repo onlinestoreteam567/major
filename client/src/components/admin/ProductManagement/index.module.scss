@@ -1,0 +1,104 @@
+@import '@mixins';
+
+.productManagement {
+  color: black;
+  margin-inline: auto;
+  margin-top: 45px;
+  width: 280px;
+  font-family: Mulish;
+  font-weight: 400;
+  line-height: 136%;
+  letter-spacing: 0%;
+  position: relative;
+
+  & > div:first-of-type {
+    @include flexGap(24px, column);
+    margin-bottom: 40px;
+
+    p {
+      color: #4c9a4e;
+      font-size: 18px;
+      text-align: end;
+    }
+
+    a {
+      height: fit-content;
+
+      button {
+        font-family: Mulish;
+        font-weight: 700;
+        font-size: 18px;
+      }
+    }
+  }
+
+  @include mobile {
+    width: 340px;
+
+    & > div:first-of-type {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        font-size: 24px;
+      }
+
+      a {
+        width: 180px;
+      }
+    }
+  }
+
+  @include tablet {
+    width: 524px;
+    margin: 36px 36px 0 208px;
+
+    & > div:first-of-type {
+      p {
+        font-size: 32px;
+      }
+
+      a {
+        width: 306px;
+
+        button {
+          height: 65px;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 686px;
+    margin: 36px auto;
+
+    & > div:first-of-type {
+      margin-bottom: 56px;
+
+      p {
+        width: 686px;
+        text-align: start;
+      }
+
+      a {
+        width: 304px;
+        order: 3;
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 993px;
+
+    & > div:first-of-type {
+      flex-wrap: nowrap;
+
+      p {
+        width: fit-content;
+      }
+    }
+  }
+}

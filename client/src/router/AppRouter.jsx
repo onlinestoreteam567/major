@@ -19,25 +19,25 @@ import Loading from '@components/helpers/Loading';
 
 // Protected Route (Admin)
 import ProtectedRoute from './layouts/ProtectedRoute/ProtectedRoute';
-import AdminLoginPage from '../admin/components/AdminLoginPage/AdminLoginPage';
-import AdminPage from '../admin/components/AdminPage/AdminPage';
-import ProductManagement from '../admin/components/ProductManagement/ProductManagement';
-import ProductCreate from '../admin/components/ProductManagement/ProductCreate/ProductCreate';
-import ProductEdit from '../admin/components/ProductManagement/ProductEdit/ProductEdit';
-import CategoriesManagement from '../admin/components/CategoriesManagement/CategoriesManagement';
-import CategoryCreate from '../admin/components/CategoriesManagement/CategoryCreate';
-import PurposeEdit from '../admin/components/CategoriesManagement/Purpose/PurposeEdit/PurposeEdit';
-import TypeEdit from '../admin/components/CategoriesManagement/Type/TypeEdit/TypeEdit';
-import PromocodeManagement from '../admin/components/PromocodeManagement/PromocodeManagement';
-import PromocodeCreate from '../admin/components/PromocodeManagement/PromocodeCreate/PromocodeCreate';
-import PromocodeEdit from '../admin/components/PromocodeManagement/PromocodeEdit/PromocodeEdit';
-import BannerManagement from '../admin/components/BannerManagement/BannerManagement';
-import BannerCreate from '../admin/components/BannerManagement/BannerCreate/BannerCreate';
-import BannerEdit from '../admin/components/BannerManagement/BannerEdit/BannerEdit';
-import ReviewsManagement from '../admin/components/ReviewsManagement/ReviewsManagement';
-import PartnersManagement from '../admin/components/PartnersManagement.jsx/PartnersManagement';
-import PartnerCreate from '../admin/components/PartnersManagement.jsx/PartnerCreate/PartnerCreate';
-import PartnerEdit from '../admin/components/PartnersManagement.jsx/PartnerEdit/PartnerEdit';
+import AdminLoginPage from '@components/admin/AdminLoginPage/AdminLoginPage';
+import AdminPage from '@components/admin/AdminPage/AdminPage';
+import ProductManagement from '@components/admin/ProductManagement/ProductManagement';
+import ProductCreate from '@components/admin/ProductManagement/ProductCreate/ProductCreate';
+import ProductEdit from '@components/admin/ProductManagement/ProductEdit/ProductEdit';
+import CategoriesManagement from '@components/admin/CategoriesManagement/CategoriesManagement';
+import CategoryCreate from '@components/admin/CategoriesManagement/CategoryCreate/CategoryCreate';
+import PurposeEdit from '@components/admin/CategoriesManagement/Purpose/PurposeEdit/PurposeEdit';
+import TypeEdit from '@components/admin/CategoriesManagement/Type/TypeEdit/TypeEdit';
+import PromocodeManagement from '@components/admin/PromocodeManagement/PromocodeManagement';
+import PromocodeCreate from '@components/admin/PromocodeManagement/PromocodeCreate/PromocodeCreate';
+import PromocodeEdit from '@components/admin/PromocodeManagement/PromocodeEdit/PromocodeEdit';
+import BannerManagement from '@components/admin/BannerManagement/BannerManagement';
+import BannerCreate from '@components/admin/BannerManagement/BannerCreate/BannerCreate';
+import BannerEdit from '@components/admin/BannerManagement/BannerEdit/BannerEdit';
+import PartnersManagement from '@components/admin/PartnersManagement.jsx/PartnersManagement';
+import PartnerCreate from '@components/admin/PartnersManagement.jsx/PartnerCreate/PartnerCreate';
+import PartnerEdit from '@components/admin/PartnersManagement.jsx/PartnerEdit/PartnerEdit';
+import ReviewsManagement from '@components/admin/ReviewsManagement/ReviewsManagement';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -115,7 +115,7 @@ const router = createBrowserRouter([
     path: '*',
     element: <NotFound />,
   },
-/*** */
+  /*** */
   {
     path: '/error-test',
     element: <ErrorPage error={400} />,
