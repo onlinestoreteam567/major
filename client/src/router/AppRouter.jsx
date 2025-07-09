@@ -38,6 +38,7 @@ import PartnersManagement from '@components/admin/PartnersManagement.jsx/Partner
 import PartnerCreate from '@components/admin/PartnersManagement.jsx/PartnerCreate/PartnerCreate';
 import PartnerEdit from '@components/admin/PartnersManagement.jsx/PartnerEdit/PartnerEdit';
 import ReviewsManagement from '@components/admin/ReviewsManagement/ReviewsManagement';
+import ContactsEdit from '@components/admin/Contacts/ContactsEdit/ContactsEdit';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -98,6 +99,7 @@ const router = createBrowserRouter([
       { path: 'partners/:id', element: <PartnerEdit /> },
 
       { path: 'reviews', element: <ReviewsManagement /> },
+      { path: 'contacts', element: <ContactsEdit /> },
     ],
   },
   { path: '/admin/login', element: <AdminLoginPage /> },

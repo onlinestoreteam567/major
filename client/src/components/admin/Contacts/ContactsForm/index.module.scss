@@ -1,0 +1,49 @@
+@import '@mixins';
+
+@include tablet {
+  .socialNetworks {
+    label {
+      input[type='text'] {
+        width: 390px;
+      }
+    }
+  }
+
+  .phoneNumbers {
+    label {
+      input[type='text'] {
+        width: 260px;
+      }
+    }
+  }
+}
+
+@include deskmin {
+  .socialNetworks {
+    label {
+      input[type='text'] {
+        width: 548px;
+      }
+    }
+  }
+
+  .phoneNumbers {
+    label {
+      input[type='text'] {
+        width: 357px;
+      }
+    }
+  }
+}
+
+@include deskmax {
+  .socialNetworks {
+    label {
+      width: 986px;
+
+      input[type='text'] {
+        width: 660px;
+      }
+    }
+  }
+}

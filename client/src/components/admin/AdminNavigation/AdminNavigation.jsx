@@ -68,10 +68,10 @@ const AdminNavigation = () => {
               <img src="/images/admin/navigation/Rewievs icons.png" alt="Reviews icon" />
               <span>Відгуки</span>
             </NavLink>
-            <button>
+            <NavLink to={`/admin/contacts`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
               <img src="/images/admin/navigation/Contact icon.png" alt="Contact icon" />
               <span>Контакти</span>
-            </button>
+            </NavLink>
           </div>
 
           <div>
