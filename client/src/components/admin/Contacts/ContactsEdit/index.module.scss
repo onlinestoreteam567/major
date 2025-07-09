@@ -1,0 +1,97 @@
+@import '@mixins';
+
+.contactsEdit {
+  @include flexGap(43px, column);
+  margin-top: 52px;
+
+  & > div {
+    @include flexGap(16px, column);
+    h2 {
+      font-family: Mulish;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 136%;
+      color: #000000;
+      margin-bottom: 8px;
+    }
+  }
+
+  label {
+    @include flexGap(16px, column);
+    align-items: start;
+    font-size: 18px;
+    input[type='text'] {
+      width: 280px;
+    }
+  }
+
+  .btnWrapper {
+    @include flex(row, space-between, center);
+    width: 100%;
+    margin-top: 16px;
+
+    @include deskmin {
+      order: 8;
+    }
+  }
+
+  @include mobile {
+    label {
+      input[type='text'] {
+        width: 340px;
+      }
+    }
+  }
+
+  @include tablet {
+    margin: 36px 40px 0 208px;
+    & > div {
+      h2 {
+        font-size: 32px;
+      }
+    }
+    label {
+      flex-direction: row;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 400;
+      input[type='text'] {
+        width: 357px;
+      }
+    }
+
+    & > label:last-of-type {
+      flex-direction: column;
+      align-items: start;
+
+      input[type='text'] {
+        width: 100%;
+      }
+    }
+  }
+
+  @include deskmin {
+    margin: 36px auto;
+
+    label {
+      width: 686px;
+    }
+
+    & > label:last-of-type {
+      flex-direction: row;
+      gap: 0;
+
+      input[type='text'] {
+        width: 357px;
+      }
+    }
+  }
+
+  @include deskmax {
+    margin: 90px auto;
+
+    label {
+      width: 779px;
+    }
+  }
+}
