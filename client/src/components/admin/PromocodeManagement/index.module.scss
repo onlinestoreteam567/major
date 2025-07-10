@@ -1,3 +1,21 @@
+@import '@mixins';
+
 .promocodeManagement {
-  color: black;
+  @include flexGap(24px, column);
+  padding-top: 71px;
+  .linkCreatePromo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 136%;
+    text-align: center;
+    color: white;
+    background: black;
+    border-radius: 8px;
+    width: 280px;
+    height: 54px;
+  }
 }

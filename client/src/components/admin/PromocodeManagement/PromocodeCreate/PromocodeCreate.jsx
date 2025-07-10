@@ -8,8 +8,11 @@ import { errorPromocodeCreate, loadPromocodeCreate, responsePromocodeCreate } fr
 import { promocodeSchema } from '@validations/admin/promocodeSchema';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import PromocodeForm from '../PromocodeForm';
+import PromocodeForm from '../PromocodeForm/PromocodeForm';
 import cl from './index.module.scss';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { clearPromocodeCreateState } from '@redux/admin/promocode/promocodeCreateSlice';
 
 const PromocodeCreate = () => {
   const {
@@ -26,14 +29,37 @@ const PromocodeCreate = () => {
   const response = useSelector(responsePromocodeCreate);
   const errorPost = useSelector(errorPromocodeCreate);
 
+  const navigate = useNavigate();
+
   const onSubmit = (values) => dispatch(createPromocode(values));
+
+  useEffect(() => {
+    dispatch(clearPromocodeCreateState());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (response) {
+      const timeout = setTimeout(() => {
+        navigate('/admin/promocodes');
+      }, 1500);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [response, navigate]);
 
   return (
     <>
-      <ReturnButton to="/admin/promocodes" />
       <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeCreate}>
         <PromocodeForm register={register} errors={errors} />
-        <LoadingButton isLoading={isLoading} loadingText="Створення промокоду..." defaultText="Створити промокод" />
+        <div className={cl.btnWrapper}>
+          <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
+          <LoadingButton
+            isLoading={isLoading}
+            loadingText="Створення промокоду…"
+            shortText="Створити промокод"
+            longText="Створити промокод"
+          />
+        </div>
         {errorPost && <ErrorText error={errorPost} />}
         {response && <SuccessMessage>Промокод успішно створено!</SuccessMessage>}
       </form>
