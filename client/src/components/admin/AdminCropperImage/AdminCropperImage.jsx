@@ -5,6 +5,8 @@ import CropperContainerWrapper from './CropperContainerWrapper/CropperContainerW
 import handleImageUpload from './helpers/handleImageUpload';
 import ImagesSlider from './ImagesSlider/ImagesSlider';
 import cl from './index.module.scss';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
+import AdminMessage from '../AdminMessage/AdminMessage';
 
 const AdminCropperImage = ({
   control,
@@ -21,6 +23,7 @@ const AdminCropperImage = ({
   const [originalFile, setOriginalFile] = useState(null);
   const [croppedImages, setCroppedImages] = useState([]);
   const [images, setImages] = useState([...(uploadedImages ?? []), ...(croppedImages ?? [])]);
+  const [messageText, showMessageText] = useTimedMessage();
 
   useEffect(() => {
     if (resetImagesTrigger) {
@@ -73,11 +76,12 @@ const AdminCropperImage = ({
             <input
               type="file"
               accept="image/*"
-              onChange={(event) => handleImageUpload(event, setImage, setOriginalFile)}
+              onChange={(event) => handleImageUpload(event, setImage, setOriginalFile, images, showMessageText)}
               id={name}
               name={name}
             />
           </label>
+          {messageText && <AdminMessage>{messageText}</AdminMessage>}
         </div>
       )}
     />

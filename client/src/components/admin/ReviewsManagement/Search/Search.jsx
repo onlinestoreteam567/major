@@ -5,7 +5,8 @@ import { reviewsByProductId, reviewsGetAll } from '@redux/reviews/service';
 import { selectFilteredProducts } from '@redux/selectors';
 
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isSelected, setIsSelected] = useState('');
   const dispatch = useDispatch();
   const allProducts = useSelector(selectFilteredProducts);
 
@@ -21,17 +22,18 @@ const Search = () => {
   }, [searchTerm, allProducts]);
 
   useEffect(() => {
-    if (searchTerm === '') {
-      dispatch(reviewsGetAll());
-      console.log(123123123);
-    }
-  }, [searchTerm, dispatch]);
+    if (searchTerm === '' && isSelected === false) dispatch(reviewsGetAll());
+  }, [searchTerm, isSelected, dispatch]);
 
-  const handleChange = (e) => setSearchTerm(e.target.value);
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+    setIsSelected(false);
+  };
 
-  const onProductSelect = (id) => {
+  const onProductSelect = (id, name) => {
     dispatch(reviewsByProductId(id));
-    setSearchTerm('');
+    setIsSelected(true);
+    setSearchTerm(name);
   };
 
   return (
@@ -43,10 +45,10 @@ const Search = () => {
         </button>
       </div>
 
-      {searchTerm && filteredProducts.length > 0 && (
+      {!isSelected && searchTerm && filteredProducts.length > 0 && (
         <ul className={cl.searchResults}>
           {filteredProducts.map((product) => (
-            <li key={product.id} onClick={() => onProductSelect(product.id)}>
+            <li key={product.id} onClick={() => onProductSelect(product.id, product.name)}>
               {product.name}
             </li>
           ))}

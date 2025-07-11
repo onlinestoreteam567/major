@@ -4,8 +4,8 @@ import ReviewSelectOptions from './ReviewSelectOptions/ReviewSelectOptions';
 import Arrow from '@assets/svg/Admin/Arrow/Arrow';
 
 const ReviewsSelect = () => {
-  const [selectedValue, setSelectedValue] = useState('Всі');
   const [isExpanded, setIsExpanded] = useState(false);
+  const [selectedValue, setSelectedValue] = useState('Всі');
 
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
