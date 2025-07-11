@@ -32,8 +32,8 @@ const productSlice = createSlice({
       state.products = action.payload;
     },
     filterProductsByName: (state, action) => {
-      const searchTerm = action.payload.toLowerCase();
-      if (searchTerm) {
+      if (action.payload) {
+        const searchTerm = action.payload.toLowerCase();
         state.filteredProducts = state.products.filter((product) =>
           product.product_name_uk.toLowerCase().includes(searchTerm)
         );
