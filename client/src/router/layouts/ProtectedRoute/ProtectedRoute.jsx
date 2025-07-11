@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 import { fetchBestSellers, fetchProductsAll, fetchSets } from '@redux/products/service';
 import { fetchCategories, fetchTypes } from '@redux/params/service';
 import { fetchBanner } from '@redux/banner/service';
-import { reviewsGetAll } from '@redux/reviews/service';
 import { fetchPartners } from '@redux/partners/service';
 import AdminNavigation from '../../../components/admin/AdminNavigation/AdminNavigation';
 import cl from './index.module.scss';
@@ -27,7 +26,6 @@ const ProtectedRoute = () => {
       dispatch(fetchCategories());
       dispatch(fetchPromocode());
       dispatch(fetchBanner());
-      dispatch(reviewsGetAll());
       dispatch(fetchPartners());
     }
   }, [auth, i18n.language, dispatch]);
