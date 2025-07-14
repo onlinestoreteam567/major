@@ -1,7 +1,7 @@
 import Arrow from '@assets/svg/Admin/Arrow/Arrow';
 import cl from './index.module.scss';
 
-const CustomSelectDisplay = ({ isOpen, setIsOpen, placeholder, errors }) => {
+const CustomSelectDisplay = ({ isOpen, setIsOpen, placeholder, errors, name }) => {
   return (
     <div
       className={`${cl.customSelectDisplay} ${isOpen ? cl.open : ''} ${errors[name] ? cl.error : ''}`}

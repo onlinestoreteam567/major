@@ -3,8 +3,6 @@ import * as yup from 'yup';
 export const productSchema = yup.object({
   article: yup.string().required(`Артикул обов'язковий`).max(20, 'Артикул повинен мати не більше 20 символів').trim(),
 
-  available: yup.boolean().required('Наявність обов’язкова'),
-
   product_name_uk: yup.string().required('Назва продукту (укр) обов’язкова'),
   product_name_en: yup.string().required('Назва продукту (англ) обов’язкова'),
 
@@ -32,7 +30,7 @@ export const productSchema = yup.object({
     .mixed()
     .test('is-not-undefined', 'Завантажте щонайменше 1 зображення', (value) => value !== undefined),
 
-  // purpose_category: yup.number().integer().required('Категорія за призначенням обовязкова'),
+  purpose_category: yup.number().integer().required('Категорія за призначенням обовязкова'),
 
   type_category: yup
     .number()
@@ -40,8 +38,9 @@ export const productSchema = yup.object({
     .integer('Будь ласка, введіть ціле число')
     .required('Категорія за типом обов’язкова'),
 
-  is_new: yup.boolean().required('Новинка обов’язкова'),
-  is_best_seller: yup.boolean().required("Хіт обов'язковий"),
+  available: yup.boolean(),
+  is_new: yup.boolean(),
+  is_best_seller: yup.boolean(),
 
   description_uk: yup
     .string()
