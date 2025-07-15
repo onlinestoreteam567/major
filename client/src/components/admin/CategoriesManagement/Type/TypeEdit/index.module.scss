@@ -3,5 +3,46 @@
 .typeEdit {
   @include flex(column, null, null);
   color: black;
-  margin-top: 40px;
+  margin: 65px auto 0 auto;
+
+  .btnWrapper {
+    @include flex(row, space-between, center);
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  @include mobile {
+    .btnWrapper {
+      margin-top: 60px;
+    }
+  }
+
+  @include tablet {
+    width: 524px;
+    margin: 36px 40px 0 208px;
+
+    & > div:first-of-type {
+      margin-top: 0;
+    }
+
+    .btnWrapper {
+      margin-top: 72px;
+    }
+  }
+
+  @include deskmin {
+    width: 686px;
+    margin: 36px auto;
+  }
+
+  @include deskmax {
+    width: 986px;
+    margin: 90px auto;
+
+    .btnWrapper {
+      button {
+        width: 382px;
+      }
+    }
+  }
 }

@@ -1,6 +1,14 @@
 @import '@mixins';
 
 .previewImage {
+  box-sizing: border-box;
+
+  &.error {
+    img {
+      border: 2px solid #e31a1a;
+    }
+  }
+
   img {
     width: 280px;
     height: 140px;

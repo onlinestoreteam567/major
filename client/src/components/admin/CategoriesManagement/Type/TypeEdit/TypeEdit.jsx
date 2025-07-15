@@ -56,17 +56,15 @@ const TypeEdit = () => {
 
   return (
     <>
-      <ReturnButton />
       {isLoadingGet ? (
         <Spinner />
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className={cl.typeEdit}>
           <TypeForm register={register} errors={errors} />
-          <LoadingButton
-            isLoading={isLoadingEdit}
-            loadingText="Редагування категорії за типом..."
-            defaultText="Редагувати категорію за типом"
-          />
+          <div className={cl.btnWrapper}>
+            <ReturnButton to="/admin/categories" />
+            <LoadingButton isLoading={isLoadingEdit} shortText="Зберегти" longText="Зберегти зміни" />
+          </div>
           {errorEdit && <ErrorText error={errorEdit} />}
           {responseEdit && <SuccessMessage>Категорія за типом успішно відредагована!</SuccessMessage>}
         </form>

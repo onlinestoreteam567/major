@@ -32,7 +32,7 @@ const TypeCategoryItem = ({ category, showDeletedMessage }) => {
       <li className={cl.typeCategoryItem}>
         {isSmallScreen ? (
           <>
-            <Link to={`/admin/purpose-categories/${category.id}`}>{categoryContent}</Link>
+            <Link to={`/admin/type/${category.id}`}>{categoryContent}</Link>
             <button type="button" onClick={() => toggleDeletePopUp()}>
               <img src="/svg/admin/delete.svg" />
             </button>
@@ -41,7 +41,7 @@ const TypeCategoryItem = ({ category, showDeletedMessage }) => {
           <>
             {categoryContent}
             <div>
-              <Link to={`/admin/purpose-categories/${category.id}`}>
+              <Link to={`/admin/type/${category.id}`}>
                 <img src="/svg/admin/edit.svg" />
               </Link>
               <button type="button" onClick={() => toggleDeletePopUp()}>
