@@ -1,148 +1,127 @@
 @import '@mixins';
 
 .cartItem {
-  @include flex(row, start, null);
-  gap: 10px;
+  @include flexGap(8px);
   list-style-type: none;
-  margin-bottom: 10px;
+  width: 288px;
 
-  .basketItemImg {
+  img {
     cursor: pointer;
-    height: 100px;
+    height: 86px;
+    width: 86px;
+    border-radius: 2px;
     aspect-ratio: 1/1;
   }
 
-  h3 {
-    font-family: $font-main;
-    font-size: $font-size-medium;
-    font-weight: $font-weight-medium;
-    line-height: 23.04px;
-  }
-
-  .priceWrap {
-    @include flexGap(12px, row);
-
-    .oldPrice {
-      @include flex(row, flex-start, center);
-      color: rgb(103, 103, 103);
-      font-family: $font-main;
-      font-size: $font-size-base;
-      font-weight: 500;
-      line-height: 1.28;
-      text-align: left;
-      gap: 8px;
-      .costOld {
-        text-decoration-line: line-through;
-        font-weight: 500;
-      }
-      .hrnGrey {
-        font-weight: 400;
-      }
-      @include tablet {
-        .oldPrice {
-          font-size: $font-size-medium;
-        }
-      }
-      @include deskmax {
-        .price {
-          letter-spacing: 0.08;
-        }
-      }
-    }
-  }
-
-  section:first-of-type {
-    @include flex(column, space-between, null);
+  section {
     width: 100%;
+    @include flex(column, space-between, null);
 
-    @import '@mixins';
+    div:first-of-type {
+      @include flex(row, space-between, start);
+      box-sizing: border-box;
+      padding-right: 4px;
+      width: 100%;
 
-    .basketItemCounterAndDeleteSection {
-      @include flex(row, space-between, center);
-
-      section {
-        @include flex(row, start, center);
-
-        input {
-          height: 32px;
-          width: 48px;
-          text-align: center;
-          outline: none;
-          padding: 0;
-          border: none;
-          border-bottom: 1px solid #a2a2a2;
-          border-radius: $border-radius-small;
-
-          // Delete arrows from input[number]
-          /* Chrome, Safari, Edge, Opera */
-          &::-webkit-outer-spin-button,
-          &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-          }
-          /* Firefox */
-          &[type='number'] {
-            -moz-appearance: textfield;
-            appearance: textfield;
-          }
-        }
-
-        button {
-          @include flex(row, center, center);
-          width: 24px;
-          height: 24px;
-          border-radius: $border-radius-small;
-          border: none;
-          outline: none;
-          background-color: transparent;
-          padding: 0;
-          cursor: pointer;
-          &:hover {
-            box-shadow:
-              0px 4px 4px -4px rgba(12, 12, 13, 0.05),
-              0px 8px 32px -4px rgba(12, 12, 13, 0.1);
-            svg {
-              @include flex(row, center, center);
-              rect {
-                fill: rgb(34, 33, 31);
-                transition: fill 0.5s ease;
-              }
-              path {
-                stroke: #ffffff;
-                transition: stroke 0.5s ease;
-              }
-            }
-          }
-          &:active {
-            box-shadow:
-              0px 4px 4px -4px rgba(12, 12, 13, 0.05),
-              0px 8px 32px -4px rgba(12, 12, 13, 0.1);
-            svg {
-              @include flex(row, center, center);
-              rect {
-                fill: rgb(225, 225, 225);
-                transition: fill 0.5s ease;
-              }
-              path {
-                stroke: #22211f;
-                transition: stroke 0.5s ease;
-              }
-            }
-          }
-        }
+      p {
+        text-align: justify;
+        width: 170px;
+        height: 59px;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
       }
-      .deleteButton {
-        border: none;
-        background-color: transparent;
-        font-family: $font-main;
-        font-size: $font-size-base;
-        font-weight: $font-weight-small;
-        line-height: 20.48px;
-        padding: 0;
-        color: #22211f;
-        border-bottom: 1px solid #22211f;
-        transition: 0.3s ease-out;
+
+      button {
+        @include flex();
+        height: 20px;
+        width: 20px;
+
+        svg {
+          path {
+            fill: #676767;
+          }
+        }
       }
     }
+    div:last-of-type {
+      @include flex(row, space-around);
+      h4:nth-child(1) {
+        order: 2;
+      }
+
+      h4 {
+        span {
+          display: none;
+        }
+      }
+
+      h4:last-of-type {
+        display: none;
+      }
+    }
+  }
+
+  @include mobile {
+    width: 308px;
+
+    section {
+      div:first-of-type {
+        p {
+          width: 190px;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    width: 526px;
+
+    section {
+      div:first-of-type {
+        p {
+          height: 40px;
+
+          Хотів додати гапку між фото і назвою для таблет, тому шо вона на таблеті більша ніж на мобілці. + вирівнював тайтл з хрестиком до верхнього експанду
+
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          width: 400px;
+        }
+      }
+
+      div:last-of-type {
+        h4 {
+          @include flexGap(4px, column);
+          span {
+            font-family: $font-main;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 128%;
+            color: #a2a2a2;
+            display: inline;
+          }
+        }
+
+        h4:nth-child(1) {
+          order: initial;
+        }
+
+        h4:last-of-type {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 364px;
+  }
+
+  @include deskmax {
+    width: 526px;
   }
 }

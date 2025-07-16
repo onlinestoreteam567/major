@@ -1,4 +1,5 @@
 {
   "continueShopping": "Continue shopping",
-  "checkout": "Checkout"
+  "checkout": "Checkout",
+  "NumberOfItemsInTheCart": "Number of items in the cart:"
 }
