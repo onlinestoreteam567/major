@@ -1,3 +1,110 @@
+@import '@mixins';
+
 .promocodeManagement {
   color: black;
+
+  & > div:first-of-type {
+    @include flex(column, null, end);
+    margin-top: 10px;
+    gap: 24px;
+
+    p {
+      font-family: Mulish;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 136%;
+      color: #4c9a4e;
+    }
+
+    a {
+      @include flex();
+      width: 280px;
+      height: 54px;
+      border-radius: 8px;
+      background-color: #22211f;
+      font-family: Mulish;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 136%;
+      transition:
+        background-color 300ms ease-out,
+        color 300ms ease-out;
+      border: 2px solid $second-background-color-black;
+      box-sizing: border-box;
+      color: #f8f8f9;
+
+      &:hover {
+        background-color: transparent;
+        color: $text-color-black;
+      }
+    }
+  }
+
+  @include mobile {
+    & > div:last-of-type {
+      a {
+        width: 340px;
+      }
+    }
+  }
+
+  @include tablet {
+    width: 524px;
+    margin: 36px 36px 0 208px;
+
+    & > div:last-of-type {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: initial;
+
+      p {
+        font-size: 32px;
+        width: 100%;
+      }
+
+      a {
+        width: 243px;
+        order: 3;
+        margin-left: auto;
+      }
+
+      & > div {
+        order: 2;
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 686px;
+    margin: 36px auto;
+
+    & > div:last-of-type {
+      align-items: start;
+
+      a {
+        width: 325px;
+        height: 65px;
+        font-size: 24px;
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 993px;
+
+    & > div:last-of-type {
+      justify-content: space-between;
+      gap: 0;
+
+      p {
+        width: fit-content;
+        margin-top: 8px;
+      }
+
+      a {
+        margin-left: 0;
+        width: 300px;
+      }
+    }
+  }
 }
