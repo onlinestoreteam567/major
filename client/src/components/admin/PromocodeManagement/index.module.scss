@@ -40,8 +40,12 @@
     }
   }
 
+  & > div:nth-of-type(2) {
+    display: none;
+  }
+
   @include mobile {
-    & > div:last-of-type {
+    & > div:first-of-type {
       a {
         width: 340px;
       }
@@ -52,7 +56,7 @@
     width: 524px;
     margin: 36px 36px 0 208px;
 
-    & > div:last-of-type {
+    & > div:first-of-type {
       flex-direction: row;
       flex-wrap: wrap;
       align-items: initial;
@@ -72,13 +76,44 @@
         order: 2;
       }
     }
+
+    & > div:nth-of-type(2) {
+      @include flexGap(20px);
+      margin-top: 32px;
+
+      p {
+        font-family: Mulish;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 136%;
+        color: #4c4c4c;
+      }
+
+      p:nth-of-type(1) {
+        width: 90px;
+      }
+      p:nth-of-type(2) {
+        width: 117px;
+      }
+      p:nth-of-type(3) {
+        width: 114px;
+      }
+      p:nth-of-type(6) {
+        width: 78px;
+      }
+
+      p:nth-of-type(4),
+      p:nth-of-type(5) {
+        display: none;
+      }
+    }
   }
 
   @include deskmin {
     width: 686px;
     margin: 36px auto;
 
-    & > div:last-of-type {
+    & > div:first-of-type {
       align-items: start;
 
       a {
@@ -87,12 +122,27 @@
         font-size: 24px;
       }
     }
+
+    & > div:nth-of-type(2) {
+      gap: 16px;
+      margin-top: 50px;
+
+      p:nth-of-type(3) {
+        display: none;
+      }
+
+      p:nth-of-type(4),
+      p:nth-of-type(5) {
+        display: block;
+        width: 120px;
+      }
+    }
   }
 
   @include deskmax {
     width: 993px;
 
-    & > div:last-of-type {
+    & > div:first-of-type {
       justify-content: space-between;
       gap: 0;
 
@@ -104,6 +154,27 @@
       a {
         margin-left: 0;
         width: 300px;
+      }
+    }
+
+    & > div:nth-of-type(2) {
+      gap: 56px;
+      margin-top: 56px;
+
+      p:nth-of-type(1) {
+        width: 136px;
+      }
+      p:nth-of-type(2) {
+        width: 132px;
+      }
+      p:nth-of-type(4) {
+        width: 127px;
+      }
+      p:nth-of-type(5) {
+        width: 113px;
+      }
+      p:nth-of-type(6) {
+        width: 91px;
       }
     }
   }
