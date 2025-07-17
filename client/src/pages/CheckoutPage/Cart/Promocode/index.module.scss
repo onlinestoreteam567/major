@@ -1,0 +1,47 @@
+@import '@mixins';
+
+.promocode {
+  @include flexGap(16px, column);
+
+  input {
+    text-align: center;
+    width: 100%;
+    height: 48px;
+    border-radius: 4px;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid #676767;
+    font-family: Oswald;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 136%;
+    letter-spacing: 4%;
+    color: #22211f;
+
+    &::placeholder {
+      color: #676767;
+    }
+  }
+
+  button {
+    height: 48px;
+  }
+
+  @include tablet {
+    width: 416px;
+    flex-direction: row;
+    gap: 24px;
+    margin-inline: auto;
+  }
+
+  @include deskmin {
+    flex-direction: column;
+    width: 196px;
+  }
+
+  @include deskmax {
+    margin-inline: auto 0;
+    flex-direction: row;
+    width: 416px;
+  }
+}

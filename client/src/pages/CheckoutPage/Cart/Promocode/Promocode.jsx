@@ -1,7 +1,8 @@
 import { fetchPromocode } from '@redux/promocode/service';
 import { useState } from 'react';
-// import cl from './index.module.scss';
+import cl from './index.module.scss';
 import { useDispatch } from 'react-redux';
+import BtnSubmit from '@components/UI/Button/BtnSubmit';
 
 const Promocode = () => {
   const [promocode, setPromocode] = useState('');
@@ -13,9 +14,9 @@ const Promocode = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" onChange={(e) => setPromocode(e.target.value)} value={promocode} />
-      <button type="submit">Застосувати</button>
+    <form onSubmit={onSubmit} className={`${cl.promocode}`}>
+      <input type="text" onChange={(e) => setPromocode(e.target.value)} value={promocode} placeholder="Промокод" />
+      <BtnSubmit disabled={promocode === ''}>Застосувати</BtnSubmit>
     </form>
   );
 };

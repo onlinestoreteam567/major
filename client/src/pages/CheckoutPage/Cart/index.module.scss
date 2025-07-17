@@ -47,20 +47,50 @@
     overflow-y: auto;
     min-height: fit-content;
     padding-block: 1px;
+    border-bottom: 1px solid #22211f;
+  }
+
+  & > div:nth-of-type(2) {
+    @include flexGap(12px, column);
+    padding-inline: 4px;
+    box-sizing: border-box;
+
+    div {
+      h4,
+      h3 {
+        @include flex(row, space-between);
+
+        & > span {
+          @include flex(row, space-between);
+          width: 86px;
+        }
+      }
+    }
   }
 
   @include mobile {
     padding-inline: 24px;
     width: 356px;
+
+    & > div:nth-of-type(2) {
+      padding-inline: 0 9px;
+    }
   }
 
   @include tablet {
     width: 636px;
     padding-inline: 55px;
+    gap: 8px;
 
     & > div:first-of-type {
       padding: 16px 8px 16px 0;
       width: 526px;
+    }
+
+    & > div:nth-of-type(2) {
+      width: 307px;
+      padding: 0;
+      margin: 8px auto;
     }
   }
 
@@ -83,6 +113,10 @@
 
     & > div:first-of-type {
       width: 526px;
+    }
+
+    & > div:nth-of-type(2) {
+      margin-inline: auto 0;
     }
   }
 }
