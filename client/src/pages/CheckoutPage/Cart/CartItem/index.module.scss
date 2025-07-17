@@ -14,7 +14,6 @@
   }
 
   section {
-    width: 100%;
     @include flex(column, space-between, null);
 
     div:first-of-type {
@@ -24,7 +23,6 @@
       width: 100%;
 
       p {
-        text-align: justify;
         width: 170px;
         height: 59px;
         display: -webkit-box;
@@ -79,21 +77,25 @@
 
   @include tablet {
     width: 526px;
+    gap: 24px;
 
     section {
       div:first-of-type {
+        padding-right: 8px;
+
         p {
           height: 40px;
-
-          Хотів додати гапку між фото і назвою для таблет, тому шо вона на таблеті більша ніж на мобілці. + вирівнював тайтл з хрестиком до верхнього експанду
+          width: 370px;
 
           -webkit-line-clamp: 2;
           line-clamp: 2;
-          width: 400px;
         }
       }
 
       div:last-of-type {
+        justify-content: start;
+        gap: 24px;
+
         h4 {
           @include flexGap(4px, column);
           span {
@@ -119,9 +121,35 @@
 
   @include deskmin {
     width: 364px;
+
+    section {
+      width: 254px;
+
+      div:first-of-type {
+        p {
+          width: 220px;
+        }
+      }
+    }
   }
 
   @include deskmax {
     width: 526px;
+
+    section {
+      width: 412px;
+
+      div:first-of-type {
+        p {
+          width: 370px;
+        }
+      }
+
+      div:last-of-type {
+        h4 {
+          width: 86px;
+        }
+      }
+    }
   }
 }

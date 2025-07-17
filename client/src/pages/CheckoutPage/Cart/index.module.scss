@@ -15,6 +15,10 @@
     padding: 16px 4px;
     border-bottom: 1px solid #22211f;
 
+    h4 {
+      color: #676767;
+    }
+
     button {
       @include flex();
       height: 20px;
@@ -52,5 +56,33 @@
 
   @include tablet {
     width: 636px;
+    padding-inline: 55px;
+
+    & > div:first-of-type {
+      padding: 16px 8px 16px 0;
+      width: 526px;
+    }
+  }
+
+  @include deskmin {
+    width: 412px;
+    padding-inline: 24px;
+    gap: 8px;
+
+    & > div:first-of-type {
+      width: 364px;
+
+      button {
+        display: none;
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 574px;
+
+    & > div:first-of-type {
+      width: 526px;
+    }
   }
 }
