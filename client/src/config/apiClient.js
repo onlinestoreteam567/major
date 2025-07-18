@@ -191,7 +191,7 @@ apiClient.interceptors.response.use(
       console.error('Network Error:', error.message);
     } else {
       // Handle unexpected errors during request setup
-      console.error('Unexpected Error:', error.message);
+      console.error('Unexpected Error:', error);
     }
 
     return Promise.reject(error); // Pass the error for further handling
