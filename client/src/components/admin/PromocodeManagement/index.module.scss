@@ -1,21 +1,181 @@
 @import '@mixins';
 
 .promocodeManagement {
-  @include flexGap(24px, column);
-  padding-top: 71px;
-  .linkCreatePromo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 136%;
-    text-align: center;
-    color: white;
-    background: black;
-    border-radius: 8px;
-    width: 280px;
-    height: 54px;
+  color: black;
+
+  & > div:first-of-type {
+    @include flex(column, null, end);
+    margin-top: 10px;
+    gap: 24px;
+
+    p {
+      font-family: Mulish;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 136%;
+      color: #4c9a4e;
+    }
+
+    a {
+      @include flex();
+      width: 280px;
+      height: 54px;
+      border-radius: 8px;
+      background-color: #22211f;
+      font-family: Mulish;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 136%;
+      transition:
+        background-color 300ms ease-out,
+        color 300ms ease-out;
+      border: 2px solid $second-background-color-black;
+      box-sizing: border-box;
+      color: #f8f8f9;
+
+      &:hover {
+        background-color: transparent;
+        color: $text-color-black;
+      }
+    }
+  }
+
+  & > div:nth-of-type(2) {
+    display: none;
+  }
+
+  @include mobile {
+    & > div:first-of-type {
+      a {
+        width: 340px;
+      }
+    }
+  }
+
+  @include tablet {
+    width: 524px;
+    margin: 36px 36px 0 208px;
+
+    & > div:first-of-type {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: initial;
+
+      p {
+        font-size: 32px;
+        width: 100%;
+      }
+
+      a {
+        width: 243px;
+        order: 3;
+        margin-left: auto;
+      }
+
+      & > div {
+        order: 2;
+      }
+    }
+
+    & > div:nth-of-type(2) {
+      @include flexGap(20px);
+      margin-top: 32px;
+
+      p {
+        font-family: Mulish;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 136%;
+        color: #4c4c4c;
+      }
+
+      p:nth-of-type(1) {
+        width: 90px;
+      }
+      p:nth-of-type(2) {
+        width: 117px;
+      }
+      p:nth-of-type(3) {
+        width: 114px;
+      }
+      p:nth-of-type(6) {
+        width: 78px;
+      }
+
+      p:nth-of-type(4),
+      p:nth-of-type(5) {
+        display: none;
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 686px;
+    margin: 36px auto;
+
+    & > div:first-of-type {
+      align-items: start;
+
+      a {
+        width: 325px;
+        height: 65px;
+        font-size: 24px;
+      }
+    }
+
+    & > div:nth-of-type(2) {
+      gap: 16px;
+      margin-top: 50px;
+
+      p:nth-of-type(3) {
+        display: none;
+      }
+
+      p:nth-of-type(4),
+      p:nth-of-type(5) {
+        display: block;
+        width: 120px;
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 993px;
+
+    & > div:first-of-type {
+      justify-content: space-between;
+      gap: 0;
+
+      p {
+        width: fit-content;
+        margin-top: 8px;
+      }
+
+      a {
+        margin-left: 0;
+        width: 300px;
+      }
+    }
+
+    & > div:nth-of-type(2) {
+      gap: 56px;
+      margin-top: 56px;
+
+      p:nth-of-type(1) {
+        width: 136px;
+      }
+      p:nth-of-type(2) {
+        width: 132px;
+      }
+      p:nth-of-type(4) {
+        width: 127px;
+      }
+      p:nth-of-type(5) {
+        width: 113px;
+      }
+      p:nth-of-type(6) {
+        width: 91px;
+      }
+    }
   }
 }
