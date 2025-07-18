@@ -11,7 +11,7 @@ import { reviewsGetAll } from '@redux/reviews/service';
 import { fetchPartners } from '@redux/partners/service';
 import AdminNavigation from '../../../components/admin/AdminNavigation/AdminNavigation';
 import cl from './index.module.scss';
-import { fetchAllPromocodes } from '@redux/admin/promocode/service';
+import { fetchPromocode } from '@redux/admin/promocode/service';
 
 const ProtectedRoute = () => {
   const auth = useSelector(selectAccessToken);
@@ -25,7 +25,7 @@ const ProtectedRoute = () => {
       dispatch(fetchSets());
       dispatch(fetchTypes());
       dispatch(fetchCategories());
-      dispatch(fetchAllPromocodes());
+      dispatch(fetchPromocode());
       dispatch(fetchBanner());
       dispatch(reviewsGetAll());
       dispatch(fetchPartners());

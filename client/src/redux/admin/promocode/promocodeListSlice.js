@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllPromocodes } from './service';
+import { fetchPromocode } from './service';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -22,13 +22,13 @@ const promocodeListSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      .addCase(fetchAllPromocodes.pending, handlePending)
-      .addCase(fetchAllPromocodes.fulfilled, (state, action) => {
+      .addCase(fetchPromocode.pending, handlePending)
+      .addCase(fetchPromocode.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.response = action.payload;
       })
-      .addCase(fetchAllPromocodes.rejected, handleRejected),
+      .addCase(fetchPromocode.rejected, handleRejected),
 });
 
 export const promocodeListReducer = promocodeListSlice.reducer;

@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const PROMOCODE_ENDPOINT = import.meta.env.VITE_PROMOCODE_ENDPOINT;
 
-export const fetchAllPromocodes = createAsyncThunk('promocode/getAll', async (_, thunkAPI) => {
+export const fetchPromocode = createAsyncThunk('promocode/getAll', async (_, thunkAPI) => {
   try {
     const { data } = await apiClient.get(PROMOCODE_ENDPOINT);
     return data;

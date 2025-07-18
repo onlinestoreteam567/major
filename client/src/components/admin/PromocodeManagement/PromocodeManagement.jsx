@@ -10,7 +10,7 @@ const PromocodeManagement = () => {
   return (
     <div className={cl.promocodeManagement}>
       <div>
-        <p>Промокоди ({items.length})</p>
+        <p>Промокоди ({items ? items.length : 0})</p>
         <Link to={`/admin/promocodes/create`}>Створити промо</Link>
         <PromocodeSelect />
       </div>
