@@ -1,0 +1,166 @@
+@import '@mixins';
+
+.promocodeListItem {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 0.5fr 0.5fr;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #676767;
+  box-sizing: border-box;
+
+  p {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 136%;
+  }
+
+  p:nth-of-type(1) {
+    width: fit-content;
+    font-size: 16px;
+    padding: 4px 10px;
+    border-radius: 16px;
+    background-color: #e31a1a33;
+    box-sizing: border-box;
+  }
+
+  p:nth-of-type(3) {
+    font-size: 16px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  p:nth-of-type(2),
+  p:nth-of-type(4) {
+    text-align: end;
+  }
+
+  div {
+    @include flex(row, end);
+    gap: 4px;
+
+    button,
+    a {
+      @include flex();
+      height: 32px;
+      width: 32px;
+      img {
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 32px 32px 32px;
+    gap: 0;
+    column-gap: 20px;
+
+    p:nth-of-type(1) {
+      grid-area: 2 / 2;
+      width: 117px;
+    }
+    p:nth-of-type(2) {
+      grid-area: 1 / 3;
+      width: 114px;
+      text-align: start;
+    }
+    p:nth-of-type(3) {
+      grid-area: 2 / 1;
+      width: 90px;
+    }
+    p:nth-of-type(4) {
+      grid-area: 3 / 3;
+      width: 114px;
+      text-align: start;
+    }
+    p:nth-of-type(4) {
+      grid-area: 3 / 3;
+    }
+    p:nth-of-type(5) {
+      grid-area: 2 / 4;
+      width: 78px;
+    }
+    div {
+      grid-area: 2 / 5;
+    }
+
+    p,
+    p:nth-of-type(3) {
+      font-size: 20px;
+    }
+
+    p:nth-of-type(1) {
+      font-size: 16px;
+    }
+  }
+
+  @include deskmin {
+    @include flexGap(16px);
+
+    p:nth-of-type(1) {
+      order: 2;
+    }
+    p:nth-of-type(2) {
+      order: 3;
+      width: 120px;
+    }
+    p:nth-of-type(3) {
+      order: 1;
+    }
+    p:nth-of-type(4) {
+      order: 4;
+      width: 120px;
+    }
+    p:nth-of-type(5) {
+      order: 5;
+    }
+
+    div {
+      gap: 8px;
+      margin-left: auto;
+      order: 6;
+    }
+  }
+
+  @include deskmax {
+    gap: 56px;
+
+    p:nth-of-type(1) {
+      font-size: 20px;
+      width: 132px;
+    }
+    p:nth-of-type(2) {
+      width: 127px;
+    }
+    p:nth-of-type(3) {
+      width: 136px;
+    }
+    p:nth-of-type(4) {
+      width: 113px;
+    }
+    p:nth-of-type(5) {
+      width: 91px;
+    }
+
+    div {
+      gap: 16px;
+
+      button,
+      a {
+        height: 40px;
+        width: 40px;
+
+        img {
+          height: 30px;
+          width: 30px;
+        }
+      }
+    }
+  }
+}

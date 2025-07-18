@@ -42,4 +42,5 @@ const PromocodeListItem = ({ promocode, showDeletedMessage }) => {
     </>
   );
 };
+
 export default PromocodeListItem;

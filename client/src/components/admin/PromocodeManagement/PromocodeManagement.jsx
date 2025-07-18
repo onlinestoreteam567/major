@@ -14,4 +14,5 @@ const PromocodeManagement = () => {
     </div>
   );
 };
+
 export default PromocodeManagement;
