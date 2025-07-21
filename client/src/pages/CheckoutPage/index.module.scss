@@ -1,9 +1,14 @@
 @import '@mixins';
 
 .checkoutPage {
+  @include flexGap(12px, column);
   width: 288px;
   margin-inline: auto;
-  margin-top: 200px;
+  margin-top: 87px;
+
+  & > h2 {
+    margin-top: 12px;
+  }
 
   @include mobile {
     width: 356px;
@@ -11,11 +16,34 @@
 
   @include tablet {
     width: 700px;
+    gap: 40px;
+    margin-top: 91px;
+
+    & > h2 {
+      margin-top: 0;
+    }
   }
   @include deskmin {
     width: 914px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 100px;
+
+    & > h2 {
+      width: 100%;
+    }
+
+    & > div {
+      order: 4;
+    }
+
+    & > form {
+      order: 3;
+    }
   }
-  // @include deskmax {
-  //   width: 700px;
-  // }
+
+  @include deskmax {
+    width: 1296px;
+    margin-top: 146px;
+  }
 }

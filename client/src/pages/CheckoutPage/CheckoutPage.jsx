@@ -11,7 +11,6 @@ const CheckoutPage = () => {
     <div className={cl.checkoutPage}>
       <CheckoutBreadCrumbs />
       <Heading type="h2">{getTranslation('checkout')}</Heading>
-      {/* <NovaPost /> */}
       <Cart />
       <CheckoutSteps />
     </div>
