@@ -20,8 +20,15 @@
     font-size: 16px;
     padding: 4px 10px;
     border-radius: 16px;
-    background-color: #e31a1a33;
     box-sizing: border-box;
+    text-align: center;
+    &.active {
+      background: rgba(76, 154, 78, 0.2);
+    }
+
+    &:not(.active) {
+      background: rgba(227, 26, 26, 0.2);
+    }
   }
 
   p:nth-of-type(3) {
