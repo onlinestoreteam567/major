@@ -1,4 +1,21 @@
+@import '@mixins';
+
 .checkoutPage {
+  width: 288px;
+  margin-inline: auto;
   margin-top: 200px;
-  height: 900px;
+
+  @include mobile {
+    width: 356px;
+  }
+
+  @include tablet {
+    width: 700px;
+  }
+  @include deskmin {
+    width: 914px;
+  }
+  // @include deskmax {
+  //   width: 700px;
+  // }
 }
