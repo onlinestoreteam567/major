@@ -131,6 +131,24 @@
           width: 220px;
         }
       }
+
+      div:last-of-type {
+        justify-content: space-around;
+
+        h4:nth-child(1) {
+          order: 2;
+        }
+
+        h4 {
+          span {
+            display: none;
+          }
+        }
+
+        h4:last-of-type {
+          display: none;
+        }
+      }
     }
   }
 
