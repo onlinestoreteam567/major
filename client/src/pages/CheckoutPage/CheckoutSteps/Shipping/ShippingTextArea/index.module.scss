@@ -1,0 +1,46 @@
+@import '@mixins';
+
+label.shippingTextArea {
+  @include flexGap(16px, column);
+
+  textarea {
+    box-sizing: border-box;
+    height: 64px;
+    border-radius: 4px;
+    border: 1px solid #676767;
+    padding: 10px;
+    color: #22211f;
+    font-family: $font-second;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 124%;
+    resize: none;
+
+    &:placeholder {
+      color: #a2a2a2;
+    }
+  }
+
+  @include tablet {
+    textarea {
+      width: 636px;
+      height: 64px;
+    }
+  }
+
+  @include deskmin {
+    textarea {
+      width: 412px;
+    }
+  }
+
+  @include deskmax {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 636px;
+
+    textarea {
+      width: 416px;
+    }
+  }
+}

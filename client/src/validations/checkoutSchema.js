@@ -9,6 +9,8 @@ export const checkoutSchema = yup.object({
     .notOneOf(['+38 (0__)  __ __ ___'], 'Обов’язкове поле для заповнення!')
     .required('Обов’язкове поле для заповнення!'),
   telegram: yup.string(),
+
+  goodName23: yup.string(),
   // address: yup.string().min(10, 'Address must be at least 10 characters long').required('Address is required'),
   // city: yup.string().required('City is required'),
   // postalCode: yup

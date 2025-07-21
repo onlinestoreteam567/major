@@ -35,16 +35,24 @@
   }
 
   @include tablet {
+    width: 636px;
+
     label {
       width: 306px;
     }
   }
 
   @include deskmin {
+    width: 412px;
+
     input {
       &:placeholder {
         font-size: $font-size-base;
       }
     }
+  }
+
+  @include deskmax {
+    width: 636px;
   }
 }

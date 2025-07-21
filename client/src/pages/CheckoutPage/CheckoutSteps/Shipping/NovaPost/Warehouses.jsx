@@ -1,11 +1,10 @@
-import Spinner from '@components/helpers/Spinner/Spinner';
-import { isDisabledWarehouses, loadWarehouses, selectWarehouses } from '@redux/selectors';
+import { isDisabledWarehouses, selectWarehouses } from '@redux/selectors';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import cl from './index.module.scss';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 
 const Warehouses = () => {
-  const isLoading = useSelector(loadWarehouses);
   const allWarehouses = useSelector(selectWarehouses);
   const isDisabled = useSelector(isDisabledWarehouses);
   const [searchTerm, setSearchTerm] = useState('');
@@ -38,25 +37,23 @@ const Warehouses = () => {
 
   return (
     <label className={cl.warehouses}>
+      <Paragraph type="body1">Відділення №*:</Paragraph>
+
       <input
         type="text"
-        placeholder="Введіть адресу або номер відділення"
+        placeholder="- оберіть -"
         value={searchTerm}
         onChange={handleInputChange}
         disabled={isDisabled}
       />
       <ul>
-        {isLoading ? (
-          <Spinner />
-        ) : filteredWarehouses.length > 0 ? (
-          filteredWarehouses.map((warehouse, i) => (
-            <li onMouseDown={() => handleListItemClick(warehouse.address)} key={i}>
-              №{warehouse.number} {warehouse.address}
-            </li>
-          ))
-        ) : (
-          isCanDisplayNothingFound && <p>Нічого не знайдено</p>
-        )}
+        {filteredWarehouses.length > 0
+          ? filteredWarehouses.map((warehouse, i) => (
+              <li onMouseDown={() => handleListItemClick(warehouse.address)} key={i}>
+                №{warehouse.number} {warehouse.address}
+              </li>
+            ))
+          : isCanDisplayNothingFound && <p>Нічого не знайдено</p>}
       </ul>
     </label>
   );

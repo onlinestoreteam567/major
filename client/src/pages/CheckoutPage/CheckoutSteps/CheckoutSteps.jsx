@@ -3,6 +3,7 @@ import ContactInformation from './ContactInformation/ContactInformation';
 import cl from './index.module.scss';
 import { useForm } from 'react-hook-form';
 import { checkoutSchema } from '@validations/checkoutSchema';
+import Shipping from './Shipping/Shipping';
 
 const CheckoutSteps = () => {
   const {
@@ -19,9 +20,10 @@ const CheckoutSteps = () => {
   return (
     <form onSubmit={handleSubmit} className={cl.checkoutSteps}>
       <ContactInformation setValue={setValue} errors={errors} register={register} />
-      <button type="button" onClick={() => console.log(getValues())}>
+      <Shipping register={register} errors={errors} />
+      {/* <button type="button" onClick={() => console.log(getValues())}>
         getValues
-      </button>
+      </button> */}
     </form>
   );
 };
