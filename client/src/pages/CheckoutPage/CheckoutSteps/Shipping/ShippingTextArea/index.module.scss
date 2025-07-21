@@ -22,6 +22,8 @@ label.shippingTextArea {
   }
 
   @include tablet {
+    width: auto;
+
     textarea {
       width: 636px;
       height: 64px;

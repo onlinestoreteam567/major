@@ -4,8 +4,11 @@ import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import Button from '@components/UI/Button/Button';
 import NovaPost from './NovaPost/NovaPost';
 import { ShippingTextArea } from './ShippingTextArea/ShippingTextArea';
+import { useState } from 'react';
 
 const Shipping = ({ register, errors }) => {
+  const [shippingMethod, setShippingMethod] = useState('novaPost');
+
   return (
     <div className={cl.shipping}>
       <div>
@@ -17,15 +20,31 @@ const Shipping = ({ register, errors }) => {
         <p>(Достака можлива лише на території України)</p>
       </div>
       <div>
-        <button className={cl.active} type="button">
+        <button
+          className={shippingMethod === 'novaPost' ? cl.active : ''}
+          onClick={() => setShippingMethod('novaPost')}
+          type="button"
+        >
           <Heading type="h4">Нова Пошта</Heading>
         </button>
-        <button type="button">
+        <button
+          type="button"
+          className={shippingMethod === 'selfPickup' ? cl.active : ''}
+          onClick={() => setShippingMethod('selfPickup')}
+        >
           <Heading type="h4">Самовивіз</Heading>
         </button>
       </div>
       <div>
-        <NovaPost />
+        {shippingMethod === 'novaPost' ? (
+          <>
+            <NovaPost />
+          </>
+        ) : (
+          <Paragraph type="body1">
+            Забрати можна за адресою: <br /> м.Нововолинськ віділення Нової пошти №4
+          </Paragraph>
+        )}
         <ShippingTextArea
           name={'goodName'}
           register={register}
