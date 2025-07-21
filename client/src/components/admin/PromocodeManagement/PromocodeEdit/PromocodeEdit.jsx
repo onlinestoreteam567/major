@@ -2,13 +2,11 @@ import ErrorText from '@components/admin/ErrorText/ErrorText';
 import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
 import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
-import Spinner from '@components/helpers/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useId';
 import { editPromocode, getPromocodeById } from '@redux/admin/promocode/service';
 import {
   errorPromocodeEdit,
-  loadPromocodeById,
   loadPromocodeEdit,
   responsePromocodeById,
   responsePromocodeEdit,
@@ -19,6 +17,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import PromocodeForm from '../PromocodeForm/PromocodeForm';
 import cl from './index.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const PromocodeEdit = () => {
   const {
@@ -43,8 +42,9 @@ const PromocodeEdit = () => {
   const errorEdit = useSelector(errorPromocodeEdit);
   const isLoadingEdit = useSelector(loadPromocodeEdit);
   const responseEdit = useSelector(responsePromocodeEdit);
-  const isLoadingGet = useSelector(loadPromocodeById);
   const responseGet = useSelector(responsePromocodeById);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (id && responseGet) {
@@ -57,23 +57,30 @@ const PromocodeEdit = () => {
 
   const onSubmit = (formData) => dispatch(editPromocode({ formData, id }));
 
+  useEffect(() => {
+    if (responseEdit) {
+      const timeout = setTimeout(() => {
+        navigate('/admin/promocodes');
+      }, 1500);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [responseEdit, navigate]);
+
   return (
     <>
-      <ReturnButton />
-      {isLoadingGet ? (
-        <Spinner />
-      ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeEdit}>
-          <PromocodeForm register={register} errors={errors} />
-          <LoadingButton
-            isLoading={isLoadingEdit}
-            loadingText="Редагування категорії за типом..."
-            defaultText="Редагувати категорію за типом"
-          />
-          {errorEdit && <ErrorText error={errorEdit} />}
-          {responseEdit && <SuccessMessage>Промокод успішно змінено!</SuccessMessage>}
-        </form>
-      )}
+      <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeEdit}>
+        <PromocodeForm register={register} errors={errors} />
+        <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
+        <LoadingButton
+          isLoading={isLoadingEdit}
+          loadingText="Редагування промокоду…"
+          shortText="Редагувати промокод"
+          longText="Редагувати промокод"
+        />
+        {errorEdit && <ErrorText error={errorEdit} />}
+        {responseEdit && <SuccessMessage>Промокод успішно змінено!</SuccessMessage>}
+      </form>
     </>
   );
 };
