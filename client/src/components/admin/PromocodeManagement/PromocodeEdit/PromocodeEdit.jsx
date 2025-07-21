@@ -71,13 +71,15 @@ const PromocodeEdit = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeEdit}>
         <PromocodeForm register={register} errors={errors} />
-        <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
-        <LoadingButton
-          isLoading={isLoadingEdit}
-          loadingText="Редагування промокоду…"
-          shortText="Редагувати промокод"
-          longText="Редагувати промокод"
-        />
+        <div className={cl.btnWrapper}>
+          <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
+          <LoadingButton
+            isLoading={isLoadingEdit}
+            loadingText="Редагування промокоду…"
+            shortText="Редагувати промокод"
+            longText="Редагувати промокод"
+          />
+        </div>
         {errorEdit && <ErrorText error={errorEdit} />}
         {responseEdit && <SuccessMessage>Промокод успішно змінено!</SuccessMessage>}
       </form>
