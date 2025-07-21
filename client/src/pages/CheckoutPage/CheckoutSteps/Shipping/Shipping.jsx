@@ -13,7 +13,7 @@ const Shipping = ({ activeStep, setActiveStep, register, errors }) => {
     <div className={cl.shipping}>
       <div className={cl.shippingHeader}>
         <Heading type="h3">2. Доставка</Heading>
-        {activeStep !== 2 && <p>Редагувати</p>}
+        {activeStep !== 2 && <button onClick={() => setActiveStep(2)}>Редагувати</button>}
       </div>
       {activeStep === 2 && (
         <>

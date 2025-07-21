@@ -10,7 +10,7 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
     <div className={cl.contactInformation}>
       <div className={cl.contactInformationHeader}>
         <Heading type="h3">1. Особисті дані</Heading>
-        {activeStep !== 1 && <p>Редагувати</p>}
+        {activeStep !== 1 && <button onClick={() => setActiveStep(1)}>Редагувати</button>}
       </div>
       {activeStep === 1 && (
         <>
