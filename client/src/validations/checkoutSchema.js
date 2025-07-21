@@ -11,6 +11,7 @@ export const checkoutSchema = yup.object({
   telegram: yup.string(),
 
   goodName23: yup.string(),
+  checkbox: yup.string(),
   // address: yup.string().min(10, 'Address must be at least 10 characters long').required('Address is required'),
   // city: yup.string().required('City is required'),
   // postalCode: yup
