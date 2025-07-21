@@ -1,7 +1,7 @@
 @import '@mixins';
 
 .contactInformation {
-  & > div:first-of-type {
+  & > div:first-of-type.contactInformationHeader {
     @include flex(row, space-between);
     width: 100%;
     border-bottom: 1px solid #000000;
@@ -71,22 +71,22 @@
   }
 
   @include deskmin {
-    div:first-of-type {
+    & > div:first-of-type.contactInformationHeader {
       width: 412px;
     }
 
-    div:last-of-type {
+    & > div:last-of-type {
       flex-direction: column;
       width: 412px;
     }
   }
 
   @include deskmax {
-    div:first-of-type {
+    & > div:first-of-type.contactInformationHeader {
       width: 637px;
     }
 
-    div:last-of-type {
+    & > div:last-of-type {
       flex-direction: row;
       width: 637px;
 

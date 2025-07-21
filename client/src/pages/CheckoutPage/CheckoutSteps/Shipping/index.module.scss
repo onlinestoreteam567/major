@@ -1,7 +1,7 @@
 @import '@mixins';
 
 .shipping {
-  & > div:first-of-type {
+  & > div:first-of-type.shippingHeader {
     @include flex(row, space-between);
     width: 100%;
     border-bottom: 1px solid #000000;
@@ -95,7 +95,7 @@
   }
 
   @include deskmin {
-    div:first-of-type {
+    & > div:first-of-type.shippingHeader {
       width: 412px;
     }
 
@@ -106,7 +106,7 @@
   }
 
   @include deskmax {
-    div:first-of-type {
+    div:first-of-type.contactInformationHeader {
       width: 637px;
     }
 

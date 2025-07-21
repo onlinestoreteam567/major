@@ -4,36 +4,40 @@ import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import Button from '@components/UI/Button/Button';
 import PaymentCheckbox from './PaymentCheckbox/PaymentCheckbox';
 
-const Payment = ({ register, errors }) => {
+const Payment = ({ activeStep, register, errors }) => {
   return (
     <div className={cl.payment}>
       <div>
         <Heading type="h3">3. Оплата</Heading>
       </div>
-      <div>
-        <Paragraph type="body1">Як оплатити замовлення?</Paragraph>
-        <Paragraph type="body2">
-          Ми працюємо через оплату на ФОП, але зробили все, щоб це було просто та зручно для вас. Обирайте:
-        </Paragraph>
-      </div>
-      <div>
-        <div>
-          <img src="/images/checkout/firstOption.webp" alt="" />
+      {activeStep === 3 && (
+        <>
           <div>
-            <Heading type="h4">Часткова передплата — 100 грн</Heading>
-            <Paragraph type="body2">Щоб ми почали збирати замовлення саме для вас. </Paragraph>
+            <Paragraph type="body1">Як оплатити замовлення?</Paragraph>
+            <Paragraph type="body2">
+              Ми працюємо через оплату на ФОП, але зробили все, щоб це було просто та зручно для вас. Обирайте:
+            </Paragraph>
           </div>
-        </div>
-        <div>
-          <img src="/images/checkout/firstOption.webp" alt="" />
           <div>
-            <Heading type="h4">Повна оплата</Heading>
-            <Paragraph type="body2">Так ваше замовлення ще швидше вирушить до вас.</Paragraph>
+            <div>
+              <img src="/images/checkout/firstOption.webp" alt="" />
+              <div>
+                <Heading type="h4">Часткова передплата — 100 грн</Heading>
+                <Paragraph type="body2">Щоб ми почали збирати замовлення саме для вас. </Paragraph>
+              </div>
+            </div>
+            <div>
+              <img src="/images/checkout/firstOption.webp" alt="" />
+              <div>
+                <Heading type="h4">Повна оплата</Heading>
+                <Paragraph type="body2">Так ваше замовлення ще швидше вирушить до вас.</Paragraph>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <PaymentCheckbox name="checkbox" register={register} errors={errors} />
-      <Button>Оплатити</Button>
+          <PaymentCheckbox name="checkbox" register={register} errors={errors} />
+          <Button>Оплатити</Button>
+        </>
+      )}
     </div>
   );
 };

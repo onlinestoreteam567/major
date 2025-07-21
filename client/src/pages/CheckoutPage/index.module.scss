@@ -3,8 +3,7 @@
 .checkoutPage {
   @include flexGap(12px, column);
   width: 288px;
-  margin-inline: auto;
-  margin-top: 87px;
+  margin: 87px auto 36px auto;
 
   & > h2 {
     margin-top: 12px;
@@ -17,7 +16,7 @@
   @include tablet {
     width: 700px;
     gap: 40px;
-    margin-top: 91px;
+    margin-block: 91px 60px;
 
     & > h2 {
       margin-top: 0;
@@ -27,7 +26,7 @@
     width: 914px;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: 100px;
+    margin-block: 100px 147px;
 
     & > h2 {
       width: 100%;
@@ -44,6 +43,6 @@
 
   @include deskmax {
     width: 1296px;
-    margin-top: 146px;
+    margin-block: 146px 171px;
   }
 }
