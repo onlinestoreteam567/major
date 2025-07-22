@@ -28,6 +28,14 @@
     div {
       @include flexGap(4px, column);
 
+      label {
+        input {
+          background: url('/svg/checkout/telegram.svg') no-repeat;
+          background-position: 10px center;
+          padding-left: 46px;
+        }
+      }
+
       p {
         font-family: $font-second;
         font-weight: 400;
@@ -41,14 +49,6 @@
   & > button {
     margin-top: 8px;
     height: 46px;
-  }
-
-  label:last-of-type {
-    input {
-      background: url('/svg/checkout/telegram.svg') no-repeat;
-      background-position: 10px center;
-      padding-left: 46px;
-    }
   }
 
   @include tablet {
