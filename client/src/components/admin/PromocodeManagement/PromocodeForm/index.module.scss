@@ -12,6 +12,7 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 136%;
+    justify-content: space-between;
     
     input {
       width: 280px;
@@ -38,6 +39,9 @@
         width: 100%;
         height: 100%;
         cursor: pointer;
+      }
+      @include tablet {
+        height: 56px;
       }
     }
   }

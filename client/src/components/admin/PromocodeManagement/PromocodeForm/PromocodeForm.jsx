@@ -1,4 +1,5 @@
 import { Input } from '@components/form-components';
+import { InputDate } from '@components/form-components/InputDate/InputDate';
 import cl from './index.module.scss';
 
 const PromocodeForm = ({ register, errors }) => {
@@ -13,7 +14,7 @@ const PromocodeForm = ({ register, errors }) => {
           errors={errors}
           variant="admin"
         />
-        <Input
+        <InputDate
           placeholder="10.06.2024"
           variant="admin"
           type="date"
@@ -22,7 +23,7 @@ const PromocodeForm = ({ register, errors }) => {
           register={register}
           errors={errors}
         />
-        <Input
+        <InputDate
           placeholder="10.06.2024"
           variant="admin"
           type="date"
