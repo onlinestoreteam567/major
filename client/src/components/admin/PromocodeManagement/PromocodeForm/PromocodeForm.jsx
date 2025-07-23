@@ -1,6 +1,7 @@
 import { Input } from '@components/form-components';
 import { InputDate } from '@components/form-components/InputDate/InputDate';
 import cl from './index.module.scss';
+import ValidationErrorMessage from '@components/admin/ValidationErrorMessage/ValidationErrorMessage';
 
 const PromocodeForm = ({ register, errors }) => {
   return (
@@ -41,6 +42,9 @@ const PromocodeForm = ({ register, errors }) => {
           register={register}
           errors={errors}
         />
+        {(errors.code || errors.started_at || errors.expires_at || errors.discount_percent) && (
+          <ValidationErrorMessage>Усі поля обовʼязкові для заповнення</ValidationErrorMessage>
+        )}
       </div>
     </>
   );
