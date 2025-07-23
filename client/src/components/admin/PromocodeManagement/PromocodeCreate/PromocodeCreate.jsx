@@ -29,7 +29,6 @@ const PromocodeCreate = () => {
   const isLoading = useSelector(loadPromocodeCreate);
   const response = useSelector(responsePromocodeCreate);
   const errorPost = useSelector(errorPromocodeCreate);
-
   const navigate = useNavigate();
 
   const [successCreateMessage, showSuccessCreateMessage] = useTimedMessage(1500, () => {
