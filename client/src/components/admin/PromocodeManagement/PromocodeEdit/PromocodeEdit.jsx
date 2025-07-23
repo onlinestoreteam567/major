@@ -1,7 +1,6 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
 import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
-import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useId';
 import { editPromocode, getPromocodeById } from '@redux/admin/promocode/service';
@@ -18,6 +17,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import PromocodeForm from '../PromocodeForm/PromocodeForm';
 import cl from './index.module.scss';
 import { useNavigate } from 'react-router-dom';
+import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
 
 const PromocodeEdit = () => {
   const {
@@ -32,6 +33,11 @@ const PromocodeEdit = () => {
 
   const id = useIdFromUrl();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [successEditMessage, showSuccessEditMessage] = useTimedMessage(1500, () => {
+    navigate('/admin/promocodes');
+  });
 
   useEffect(() => {
     if (id) {
@@ -43,8 +49,6 @@ const PromocodeEdit = () => {
   const isLoadingEdit = useSelector(loadPromocodeEdit);
   const responseEdit = useSelector(responsePromocodeEdit);
   const responseGet = useSelector(responsePromocodeById);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (id && responseGet) {
@@ -59,13 +63,9 @@ const PromocodeEdit = () => {
 
   useEffect(() => {
     if (responseEdit) {
-      const timeout = setTimeout(() => {
-        navigate('/admin/promocodes');
-      }, 1500);
-
-      return () => clearTimeout(timeout);
+      showSuccessEditMessage('Промокод успішно змінено!');
     }
-  }, [responseEdit, navigate]);
+  }, [responseEdit]);
 
   return (
     <>
@@ -81,8 +81,8 @@ const PromocodeEdit = () => {
           />
         </div>
         {errorEdit && <ErrorText error={errorEdit} />}
-        {responseEdit && <SuccessMessage>Промокод успішно змінено!</SuccessMessage>}
       </form>
+      {successEditMessage && <AdminMessage>{successEditMessage}</AdminMessage>}
     </>
   );
 };
