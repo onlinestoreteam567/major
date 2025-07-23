@@ -1,7 +1,6 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
 import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
-import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPromocode } from '@redux/admin/promocode/service';
 import { errorPromocodeCreate, loadPromocodeCreate, responsePromocodeCreate } from '@redux/admin/selectors';
@@ -13,6 +12,8 @@ import cl from './index.module.scss';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { clearPromocodeCreateState } from '@redux/admin/promocode/promocodeCreateSlice';
+import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
 
 const PromocodeCreate = () => {
   const {
@@ -31,6 +32,11 @@ const PromocodeCreate = () => {
 
   const navigate = useNavigate();
 
+  const [successCreateMessage, showSuccessCreateMessage] = useTimedMessage(1500, () => {
+    dispatch(clearPromocodeCreateState());
+    navigate('/admin/promocodes');
+  });
+
   const onSubmit = (values) => dispatch(createPromocode(values));
 
   useEffect(() => {
@@ -39,13 +45,9 @@ const PromocodeCreate = () => {
 
   useEffect(() => {
     if (response) {
-      const timeout = setTimeout(() => {
-        navigate('/admin/promocodes');
-      }, 1500);
-
-      return () => clearTimeout(timeout);
+      showSuccessCreateMessage('Промокод успішно створено!');
     }
-  }, [response, navigate]);
+  }, [response]);
 
   return (
     <>
@@ -61,8 +63,8 @@ const PromocodeCreate = () => {
           />
         </div>
         {errorPost && <ErrorText error={errorPost} />}
-        {response && <SuccessMessage>Промокод успішно створено!</SuccessMessage>}
       </form>
+      {successCreateMessage && <AdminMessage>{successCreateMessage}</AdminMessage>}
     </>
   );
 };
