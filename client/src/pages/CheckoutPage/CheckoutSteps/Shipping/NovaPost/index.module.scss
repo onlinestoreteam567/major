@@ -6,7 +6,7 @@
 
 .warehouses {
   display: none;
-  & > p:last-of-type {
+  ul + p:last-of-type {
     color: #e31a1a;
   }
 }
