@@ -11,7 +11,7 @@ import { Controller } from 'react-hook-form';
 
 const name = 'settlement';
 
-const Settlement = ({ control, errors }) => {
+const Settlement = ({ setValue, control, errors, setIsResetWarehouses }) => {
   const dispatch = useDispatch();
   const settlements = useSelector(selectSettlements);
   const isShowNothing = useSelector(showNothingSettlements);
@@ -69,6 +69,8 @@ const Settlement = ({ control, errors }) => {
               onChange={(e) => {
                 const val = e.target.value;
                 handleCityChange(val);
+                setIsResetWarehouses(true);
+                setValue('warehouse', '');
                 field.onChange(val);
               }}
               className={errors?.[name] ? cl.error : ''}

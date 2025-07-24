@@ -7,7 +7,8 @@ export const checkoutSchema = yup.object({
     .string()
     .trim()
     .notOneOf(['+38 (0__)  __ __ ___'], 'Обов’язкове поле для заповнення!')
-    .required('Обов’язкове поле для заповнення!'),
+    .required('Обов’язкове поле для заповнення!')
+    .test('no-dash', 'Введіть номер повністю', (value) => !value?.includes('_')),
   telegram: yup.string(),
 
   settlement: yup.string().required('Обов’язкове поле для заповнення!'),

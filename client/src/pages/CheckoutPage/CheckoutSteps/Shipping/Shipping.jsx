@@ -6,7 +6,7 @@ import NovaPost from './NovaPost/NovaPost';
 import { ShippingTextArea } from './ShippingTextArea/ShippingTextArea';
 import { useState } from 'react';
 
-const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigger, getValues }) => {
+const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigger, getValues, setValue }) => {
   const [shippingMethod, setShippingMethod] = useState('novaPost');
   const isShowEditButton = activeStep !== 2 && (getValues().settlement || getValues().warehouse);
 
@@ -40,7 +40,7 @@ const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigge
           </div>
           <div>
             {shippingMethod === 'novaPost' ? (
-              <NovaPost control={control} register={register} errors={errors} />
+              <NovaPost setValue={setValue} control={control} register={register} errors={errors} />
             ) : (
               <Paragraph type="body1">
                 Забрати можна за адресою: <br /> м.Нововолинськ віділення Нової пошти №4

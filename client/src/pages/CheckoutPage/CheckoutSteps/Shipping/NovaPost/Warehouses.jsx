@@ -7,20 +7,32 @@ import { Controller, useWatch } from 'react-hook-form';
 
 const name = 'warehouse';
 
-const Warehouses = ({ control, errors }) => {
+const Warehouses = ({ control, errors, isResetWarehouses, setIsResetWarehouses }) => {
   const allWarehouses = useSelector(selectWarehouses);
   const isDisabled = useSelector(isDisabledWarehouses);
   const [filteredWarehouses, setFilteredWarehouses] = useState([]);
   const [isCanDisplayNothingFound, setIsCanDisplayNothingFound] = useState(false);
+  const [inputValue, setInputValue] = useState('');
 
   const selectedWarehouse = useWatch({ control, name });
 
   useEffect(() => {
+    if (selectedWarehouse) {
+      setInputValue(selectedWarehouse);
+      console.log(`Selected warehouse: ${selectedWarehouse}`);
+    }
     if (!selectedWarehouse) {
       setFilteredWarehouses([...allWarehouses]);
       setIsCanDisplayNothingFound(false);
     }
   }, [allWarehouses]);
+
+  useEffect(() => {
+    console.log(isResetWarehouses);
+    if (isResetWarehouses) {
+      setInputValue('');
+    }
+  }, [isResetWarehouses]);
 
   const handleFilter = (term) => {
     const filtered = allWarehouses.filter((warehouse) => {
@@ -45,12 +57,14 @@ const Warehouses = ({ control, errors }) => {
             <input
               type="text"
               placeholder="- оберіть -"
-              value={field.value}
               onChange={(e) => {
                 const term = e.target.value;
+                setInputValue(term);
                 handleFilter(term);
-                field.onChange(term);
+                field.onChange('');
+                setIsResetWarehouses(false);
               }}
+              value={inputValue}
               disabled={isDisabled}
               className={errors?.[name] && cl.error}
               ref={field.ref}
@@ -62,8 +76,9 @@ const Warehouses = ({ control, errors }) => {
                       onClick={() => {
                         setFilteredWarehouses([]);
                         setIsCanDisplayNothingFound(false);
-
+                        setInputValue(`№${warehouse.number} ${warehouse.address}`);
                         field.onChange(`№${warehouse.number} ${warehouse.address}`);
+                        setIsResetWarehouses(false);
                       }}
                       key={i}
                     >
