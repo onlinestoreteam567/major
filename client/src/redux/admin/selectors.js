@@ -65,3 +65,5 @@ export const errorPromocodeEdit = (state) => state.promocodeEdit.error;
 export const loadPromocodeDelete = (state) => state.promocodeDelete.isLoading;
 export const responsePromocodeDelete = (state) => state.promocodeDelete.response;
 export const errorPromocodeDelete = (state) => state.promocodeDelete.error;
+
+export const productSearchValue = (state) => state.adminSearch.value;

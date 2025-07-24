@@ -1,23 +1,27 @@
-import { filterProductsByName } from '@redux/products/listSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import cl from './index.module.scss';
+import { setSearch } from '@redux/admin/adminSearchSlice/adminSearchSlice';
+import { productSearchValue } from '@redux/admin/selectors';
+import { filterProductsByName } from '@redux/products/listSlice';
 
 const Search = () => {
   const dispatch = useDispatch();
+  const value = useSelector(productSearchValue);
 
-  const handleSearch = (event) => {
+  const handleChange = (event) => {
     const searchTerm = event.target.value;
-
+    dispatch(setSearch(searchTerm));
     dispatch(filterProductsByName(searchTerm));
   };
 
   return (
     <search className={cl.search}>
-      <input placeholder="пошук" type="text" onChange={handleSearch} />
+      <input type="text" placeholder="пошук" value={value} onChange={handleChange} />
       <button>
-        <img src="/svg/admin/search.svg" />
+        <img src="/svg/admin/search.svg" alt="search" />
       </button>
     </search>
   );
 };
+
 export default Search;
