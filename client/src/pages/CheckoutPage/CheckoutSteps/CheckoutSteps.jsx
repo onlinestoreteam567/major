@@ -32,6 +32,7 @@ const CheckoutSteps = () => {
         errors={errors}
         register={register}
         trigger={trigger}
+        getValues={getValues}
       />
       <Shipping
         control={control}
@@ -43,9 +44,9 @@ const CheckoutSteps = () => {
       />
       <Payment activeStep={activeStep} register={register} errors={errors} />
 
-      {/* <button type="button" onClick={() => console.log(getValues())}>
+      <button type="button" onClick={() => console.log(getValues().phone)}>
         getValues
-      </button> */}
+      </button>
     </form>
   );
 };

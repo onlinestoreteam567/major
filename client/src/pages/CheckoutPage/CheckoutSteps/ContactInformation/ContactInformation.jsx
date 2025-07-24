@@ -5,7 +5,7 @@ import { ContactInformationInput } from '../ContactInformationInput/ContactInfor
 import { PhoneNumberInput } from '@components/form-components';
 import Button from '@components/UI/Button/Button';
 
-const ContactInformation = ({ activeStep, setActiveStep, register, setValue, errors, trigger }) => {
+const ContactInformation = ({ activeStep, setActiveStep, register, setValue, errors, trigger, getValues }) => {
   return (
     <div className={cl.contactInformation}>
       <div className={cl.contactInformationHeader}>
@@ -38,6 +38,7 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
               labelText="Номер телефону*:"
               placeholder="+38 (097) 123 45 67"
               errors={errors}
+              getValues={getValues}
             />
             <div>
               <ContactInformationInput

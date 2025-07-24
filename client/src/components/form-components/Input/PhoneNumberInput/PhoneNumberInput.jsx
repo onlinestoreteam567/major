@@ -4,8 +4,8 @@ import { handleInputCursorPosition, handleInputChange, handleKeyDown, handleInpu
 import Heading from '@components/UI/Texts/Heading/Heading';
 
 export const PhoneNumberInput = forwardRef(
-  ({ name, labelText, setValue, variant, errors, placeholder, ...props }, ref) => {
-    const [inputsValue, setInputsValue] = useState('');
+  ({ name, labelText, setValue, variant, errors, placeholder, getValues, ...props }, ref) => {
+    const [inputsValue, setInputsValue] = useState(getValues(name) || '');
     const inputRef = useRef(null);
     const [isFocused, setIsFocused] = useState(false);
 
