@@ -1,33 +1,46 @@
-import debouce from 'lodash.debounce';
+import debounce from 'lodash.debounce';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSettlements, fetchWarehouses } from '@redux/novaPost/service';
 import { selectSettlements, showNothingSettlements } from '@redux/selectors';
 import { clearSettlements, setIsShowNothing } from '@redux/novaPost/settlementsSlice';
-import { useEffect, useState } from 'react';
-import cl from './index.module.scss';
 import { clearWarehouses, setDisabled } from '@redux/novaPost/warehousesSlice';
+import { useEffect, useState, useCallback } from 'react';
+import cl from './index.module.scss';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
+import { Controller } from 'react-hook-form';
 
-const Settlement = () => {
-  const [city, setCity] = useState('');
-  const [isCitySelected, setIsCitySelected] = useState(false);
+const name = 'settlement';
+
+const Settlement = ({ control, errors }) => {
   const dispatch = useDispatch();
   const settlements = useSelector(selectSettlements);
   const isShowNothing = useSelector(showNothingSettlements);
 
-  const cityChange = (e) => {
-    setCity(e.target.value);
+  const [city, setCity] = useState('');
+  const [isCitySelected, setIsCitySelected] = useState(false);
+
+  const handleCityChange = (value) => {
+    setCity(value);
     setIsCitySelected(false);
     dispatch(clearWarehouses());
   };
 
-  const selectCity = (e, cityRef) => {
+  const selectCity = (cityName, cityRef, onChange) => {
+    setCity(cityName);
     setIsCitySelected(true);
-    setCity(e.target.innerHTML);
     dispatch(clearSettlements());
     dispatch(fetchWarehouses(cityRef));
     dispatch(setDisabled(false));
+    onChange(cityName); // Update RHF value
   };
+
+  // Debounced city fetch
+  const debouncedSearch = useCallback(
+    debounce((cityToSearch) => {
+      dispatch(fetchSettlements(cityToSearch));
+    }, 1000),
+    [dispatch]
+  );
 
   useEffect(() => {
     if (city === '' || isCitySelected) {
@@ -35,26 +48,50 @@ const Settlement = () => {
       return;
     }
 
-    const debouncedSearch = debouce(() => {
-      dispatch(fetchSettlements(city.trim()));
-    }, 1000);
-
-    debouncedSearch();
+    debouncedSearch(city.trim());
 
     return () => {
       debouncedSearch.cancel();
     };
-  }, [isCitySelected, city, dispatch]);
+  }, [city, isCitySelected, debouncedSearch, dispatch]);
 
   return (
     <label className={cl.settlement}>
       <Paragraph type="body1">Місто*:</Paragraph>
-      <input type="text" value={city} onChange={cityChange} placeholder="- оберіть -" />
+
+      <Controller
+        name={name}
+        control={control}
+        render={({ field }) => (
+          <input
+            type="text"
+            placeholder="- оберіть -"
+            value={city}
+            onChange={(e) => {
+              const val = e.target.value;
+              handleCityChange(val);
+              field.onChange(val); // RHF update
+            }}
+            className={errors?.[name] && cl.error}
+            ref={field.ref}
+          />
+        )}
+      />
+
       <div>
         <ul>
           {!isShowNothing ? (
             settlements.map((settlement, i) => (
-              <li key={i} onMouseDown={(e) => selectCity(e, settlement.ref)}>
+              <li
+                key={i}
+                onMouseDown={() =>
+                  selectCity(
+                    settlement.name,
+                    settlement.ref,
+                    control._formValues[name] === settlement.name ? () => {} : (val) => control.setValue(name, val)
+                  )
+                }
+              >
                 Місто {settlement.name} - {settlement.Oblast} обл., {settlement.Raion} р-н.
               </li>
             ))
@@ -63,7 +100,10 @@ const Settlement = () => {
           )}
         </ul>
       </div>
+
+      {errors?.[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
     </label>
   );
 };
+
 export default Settlement;

@@ -15,6 +15,7 @@ export function ContactInformationInput({ labelText, placeholder, name, register
         className={errors && errors[name] && cl.error}
         disabled={disabled}
       />
+      {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
     </label>
   );
 }

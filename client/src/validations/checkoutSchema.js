@@ -10,7 +10,8 @@ export const checkoutSchema = yup.object({
     .required('Обов’язкове поле для заповнення!'),
   telegram: yup.string(),
 
-  goodName23: yup.string(),
+  settlement: yup.string().required('Обов’язкове поле для заповнення!'),
+  warehouse: yup.string().required('Обов’язкове поле для заповнення!'),
   checkbox: yup.string(),
   // address: yup.string().min(10, 'Address must be at least 10 characters long').required('Address is required'),
   // city: yup.string().required('City is required'),

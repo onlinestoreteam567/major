@@ -59,8 +59,8 @@ export const PhoneNumberInput = forwardRef(
             className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]}`}
             placeholder={placeholder}
           />
+          {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
         </label>
-        {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
       </>
     );
   }

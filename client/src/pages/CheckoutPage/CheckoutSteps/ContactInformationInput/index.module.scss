@@ -9,6 +9,10 @@
     padding: 12px;
     box-sizing: border-box;
 
+    &.error {
+      border-color: #e31a1a;
+    }
+
     &:placeholder {
       font-family: $font-second;
       font-size: $font-size-base;

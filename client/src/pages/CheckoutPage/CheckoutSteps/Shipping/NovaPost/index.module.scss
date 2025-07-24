@@ -8,6 +8,10 @@
   display: none;
 }
 
+input[type='text'].error {
+  border-color: #e31a1a;
+}
+
 .warehouses,
 .settlement {
   ul {

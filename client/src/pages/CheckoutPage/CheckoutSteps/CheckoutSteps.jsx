@@ -13,6 +13,8 @@ const CheckoutSteps = () => {
     handleSubmit,
     setValue,
     getValues,
+    control,
+    trigger,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(checkoutSchema),
@@ -29,8 +31,16 @@ const CheckoutSteps = () => {
         setValue={setValue}
         errors={errors}
         register={register}
+        trigger={trigger}
       />
-      <Shipping activeStep={activeStep} setActiveStep={setActiveStep} register={register} errors={errors} />
+      <Shipping
+        control={control}
+        trigger={trigger}
+        activeStep={activeStep}
+        setActiveStep={setActiveStep}
+        register={register}
+        errors={errors}
+      />
       <Payment activeStep={activeStep} register={register} errors={errors} />
 
       {/* <button type="button" onClick={() => console.log(getValues())}>

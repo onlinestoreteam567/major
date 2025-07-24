@@ -6,7 +6,7 @@ import NovaPost from './NovaPost/NovaPost';
 import { ShippingTextArea } from './ShippingTextArea/ShippingTextArea';
 import { useState } from 'react';
 
-const Shipping = ({ activeStep, setActiveStep, register, errors }) => {
+const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigger }) => {
   const [shippingMethod, setShippingMethod] = useState('novaPost');
 
   return (
@@ -41,7 +41,7 @@ const Shipping = ({ activeStep, setActiveStep, register, errors }) => {
           <div>
             {shippingMethod === 'novaPost' ? (
               <>
-                <NovaPost />
+                <NovaPost control={control} register={register} errors={errors} />
               </>
             ) : (
               <Paragraph type="body1">
@@ -55,7 +55,18 @@ const Shipping = ({ activeStep, setActiveStep, register, errors }) => {
               labelText={'Коментар до замовлення:'}
               placeholder={'Коментар до замовлення'}
             />
-            <Button onClick={() => setActiveStep(3)}>Продовжити</Button>
+            <Button
+              onClick={async () => {
+                if (shippingMethod === 'novaPost') {
+                  const isStepValid = await trigger(['settlement', 'warehouse']);
+                  if (isStepValid) setActiveStep(3);
+                } else {
+                  setActiveStep(3);
+                }
+              }}
+            >
+              Продовжити
+            </Button>
           </div>
         </>
       )}

@@ -5,7 +5,7 @@ import { ContactInformationInput } from '../ContactInformationInput/ContactInfor
 import { PhoneNumberInput } from '@components/form-components';
 import Button from '@components/UI/Button/Button';
 
-const ContactInformation = ({ activeStep, setActiveStep, register, setValue, errors }) => {
+const ContactInformation = ({ activeStep, setActiveStep, register, setValue, errors, trigger }) => {
   return (
     <div className={cl.contactInformation}>
       <div className={cl.contactInformationHeader}>
@@ -50,7 +50,16 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
               <p>Якщо хочете отримати підтвердження про замовлення в Telegram </p>
             </div>
           </div>
-          <Button onClick={() => setActiveStep(2)}>Продовжити</Button>
+          <Button
+            onClick={async () => {
+              const isStepValid = await trigger(['name', 'surname', 'phone', 'telegram']);
+              if (isStepValid) {
+                setActiveStep(2);
+              }
+            }}
+          >
+            Продовжити
+          </Button>
         </>
       )}
     </div>
