@@ -1,8 +1,7 @@
 @import '@mixins';
 
 label.paymentCheckbox {
-  @include flexGap(8px);
-  align-items: center;
+  @include flexGap(8px, column);
   cursor: pointer;
   font-family: $font-second;
   font-weight: 400;
@@ -10,32 +9,27 @@ label.paymentCheckbox {
   line-height: 124%;
   color: #676767;
 
-  input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    position: absolute;
-  }
+  div {
+    @include flexGap(8px);
+    align-items: center;
 
-  & > span:first-of-type {
-    height: 24px;
-    width: 24px;
-    background-image: url('/svg/catalogPage/emptyCheckbox.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
 
-  input:checked ~ span {
-    background-image: url('/svg/catalogPage/checkbox.svg');
-  }
+    & > span:first-of-type {
+      height: 24px;
+      width: 24px;
+      background-image: url('/svg/catalogPage/emptyCheckbox.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
 
-  p {
-    font-family: $font-second;
-    font-size: $font-size-base;
-    font-weight: $font-weight-base;
-
-    span {
-      color: #a2a2a2;
+    input:checked ~ span {
+      background-image: url('/svg/catalogPage/checkbox.svg');
     }
   }
 

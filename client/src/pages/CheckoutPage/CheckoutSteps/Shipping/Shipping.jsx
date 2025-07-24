@@ -40,9 +40,7 @@ const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigge
           </div>
           <div>
             {shippingMethod === 'novaPost' ? (
-              <>
-                <NovaPost control={control} register={register} errors={errors} />
-              </>
+              <NovaPost control={control} register={register} errors={errors} />
             ) : (
               <Paragraph type="body1">
                 Забрати можна за адресою: <br /> м.Нововолинськ віділення Нової пошти №4
