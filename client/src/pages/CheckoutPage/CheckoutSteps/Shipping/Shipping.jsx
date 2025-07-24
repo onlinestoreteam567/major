@@ -8,12 +8,13 @@ import { useState } from 'react';
 
 const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigger, getValues }) => {
   const [shippingMethod, setShippingMethod] = useState('novaPost');
+  const isShowEditButton = activeStep !== 2 && (getValues().settlement || getValues().warehouse);
 
   return (
     <div className={cl.shipping}>
       <div className={cl.shippingHeader}>
         <Heading type="h3">2. Доставка</Heading>
-        {activeStep !== 2 && <button onClick={() => setActiveStep(2)}>Редагувати</button>}
+        {isShowEditButton && <button onClick={() => setActiveStep(2)}>Редагувати</button>}
       </div>
       {activeStep === 2 ? (
         <>
