@@ -25,16 +25,14 @@ const Settlement = ({ control, errors }) => {
     dispatch(clearWarehouses());
   };
 
-  const selectCity = (cityName, cityRef, onChange) => {
+  const selectCity = (cityName, cityRef) => {
     setCity(cityName);
     setIsCitySelected(true);
     dispatch(clearSettlements());
     dispatch(fetchWarehouses(cityRef));
     dispatch(setDisabled(false));
-    onChange(cityName); // Update RHF value
   };
 
-  // Debounced city fetch
   const debouncedSearch = useCallback(
     debounce((cityToSearch) => {
       dispatch(fetchSettlements(cityToSearch));
@@ -63,43 +61,44 @@ const Settlement = ({ control, errors }) => {
         name={name}
         control={control}
         render={({ field }) => (
-          <input
-            type="text"
-            placeholder="- оберіть -"
-            value={city}
-            onChange={(e) => {
-              const val = e.target.value;
-              handleCityChange(val);
-              field.onChange(val); // RHF update
-            }}
-            className={errors?.[name] && cl.error}
-            ref={field.ref}
-          />
+          <>
+            <input
+              type="text"
+              placeholder="- оберіть -"
+              value={field.value || ''}
+              onChange={(e) => {
+                const val = e.target.value;
+                handleCityChange(val);
+                field.onChange(val);
+              }}
+              className={errors?.[name] ? cl.error : ''}
+              ref={field.ref}
+            />
+
+            <div>
+              <ul>
+                {!isShowNothing ? (
+                  settlements.map((settlement, i) => (
+                    <li
+                      key={i}
+                      onClick={() => {
+                        selectCity(settlement.name, settlement.ref);
+                        field.onChange(
+                          `Місто ${settlement.name} - ${settlement.Oblast} обл., ${settlement.Raion} р-н.`
+                        );
+                      }}
+                    >
+                      Місто {settlement.name} - {settlement.Oblast} обл., {settlement.Raion} р-н.
+                    </li>
+                  ))
+                ) : (
+                  <p>Нічого не знайдено</p>
+                )}
+              </ul>
+            </div>
+          </>
         )}
       />
-
-      <div>
-        <ul>
-          {!isShowNothing ? (
-            settlements.map((settlement, i) => (
-              <li
-                key={i}
-                onMouseDown={() =>
-                  selectCity(
-                    settlement.name,
-                    settlement.ref,
-                    control._formValues[name] === settlement.name ? () => {} : (val) => control.setValue(name, val)
-                  )
-                }
-              >
-                Місто {settlement.name} - {settlement.Oblast} обл., {settlement.Raion} р-н.
-              </li>
-            ))
-          ) : (
-            <p>Нічого не знайдено</p>
-          )}
-        </ul>
-      </div>
 
       {errors?.[name] && <Paragraph type="caption">{errors[name].message}</Paragraph>}
     </label>

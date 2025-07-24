@@ -44,7 +44,7 @@ const CheckoutSteps = () => {
       />
       <Payment activeStep={activeStep} register={register} errors={errors} />
 
-      <button type="button" onClick={() => console.log(getValues().phone)}>
+      <button type="button" onClick={() => console.log(getValues())}>
         getValues
       </button>
     </form>
