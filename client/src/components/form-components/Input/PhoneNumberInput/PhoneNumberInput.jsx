@@ -57,7 +57,7 @@ export const PhoneNumberInput = forwardRef(
               handleKeyDown(e);
             }}
             onMouseDown={(e) => handleInputCursorPosition(e, isFocused, inputRef)}
-            className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]}`}
+            className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]} ${errors && errors[name] ? cl.error : ''}`}
             placeholder={placeholder}
           />
           {errors && errors[name] && <Paragraph type="caption">{errors[name].message}</Paragraph>}

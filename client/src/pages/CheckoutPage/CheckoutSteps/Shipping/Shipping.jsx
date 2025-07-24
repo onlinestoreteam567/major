@@ -49,7 +49,7 @@ const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigge
               </Paragraph>
             )}
             <ShippingTextArea
-              name={'goodName'}
+              name={'comment'}
               register={register}
               errors={errors}
               labelText={'Коментар до замовлення:'}
@@ -58,7 +58,7 @@ const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigge
             <Button
               onClick={async () => {
                 if (shippingMethod === 'novaPost') {
-                  const isStepValid = await trigger(['settlement', 'warehouse']);
+                  const isStepValid = await trigger(['settlement', 'warehouse', 'comment']);
                   if (isStepValid) setActiveStep(3);
                 } else {
                   setActiveStep(3);

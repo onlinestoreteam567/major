@@ -21,6 +21,15 @@ label.shippingTextArea {
     }
   }
 
+  &.error {
+    textarea {
+      border-color: #e31a1a;
+    }
+    textarea + p {
+      color: #e31a1a;
+    }
+  }
+
   @include tablet {
     width: auto;
 
