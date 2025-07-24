@@ -3,20 +3,23 @@ import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import cl from './index.module.scss';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
-import { Controller } from 'react-hook-form';
+import { Controller, useWatch } from 'react-hook-form';
 
 const name = 'warehouse';
 
 const Warehouses = ({ control, errors }) => {
   const allWarehouses = useSelector(selectWarehouses);
   const isDisabled = useSelector(isDisabledWarehouses);
-  const [searchTerm, setSearchTerm] = useState('');
   const [filteredWarehouses, setFilteredWarehouses] = useState([]);
   const [isCanDisplayNothingFound, setIsCanDisplayNothingFound] = useState(false);
 
+  const selectedWarehouse = useWatch({ control, name });
+
   useEffect(() => {
-    setFilteredWarehouses([...allWarehouses]);
-    setSearchTerm('');
+    if (!selectedWarehouse) {
+      setFilteredWarehouses([...allWarehouses]);
+      setIsCanDisplayNothingFound(false);
+    }
   }, [allWarehouses]);
 
   const handleFilter = (term) => {
@@ -36,40 +39,42 @@ const Warehouses = ({ control, errors }) => {
       <Controller
         name={name}
         control={control}
+        defaultValue=""
         render={({ field }) => (
-          <input
-            type="text"
-            placeholder="- оберіть -"
-            value={searchTerm}
-            onChange={(e) => {
-              const term = e.target.value;
-              setSearchTerm(term);
-              handleFilter(term);
-              field.onChange(term); // Update RHF state
-            }}
-            disabled={isDisabled}
-            className={errors?.[name] && cl.error}
-            ref={field.ref}
-          />
+          <>
+            <input
+              type="text"
+              placeholder="- оберіть -"
+              value={field.value}
+              onChange={(e) => {
+                const term = e.target.value;
+                handleFilter(term);
+                field.onChange(term);
+              }}
+              disabled={isDisabled}
+              className={errors?.[name] && cl.error}
+              ref={field.ref}
+            />
+            <ul>
+              {filteredWarehouses.length > 0
+                ? filteredWarehouses.map((warehouse, i) => (
+                    <li
+                      onClick={() => {
+                        setFilteredWarehouses([]);
+                        setIsCanDisplayNothingFound(false);
+
+                        field.onChange(`№${warehouse.number} ${warehouse.address}`);
+                      }}
+                      key={i}
+                    >
+                      №{warehouse.number} {warehouse.address}
+                    </li>
+                  ))
+                : isCanDisplayNothingFound && <p>Нічого не знайдено</p>}
+            </ul>
+          </>
         )}
       />
-
-      <ul>
-        {filteredWarehouses.length > 0
-          ? filteredWarehouses.map((warehouse, i) => (
-              <li
-                onMouseDown={() => {
-                  setSearchTerm(warehouse.address);
-                  setFilteredWarehouses([]);
-                  setIsCanDisplayNothingFound(false);
-                }}
-                key={i}
-              >
-                №{warehouse.number} {warehouse.address}
-              </li>
-            ))
-          : isCanDisplayNothingFound && <p>Нічого не знайдено</p>}
-      </ul>
 
       {errors?.[name] && <Paragraph type="caption">{errors[name].message}</Paragraph>}
     </label>
