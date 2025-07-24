@@ -13,7 +13,11 @@ export const checkoutSchema = yup.object({
   settlement: yup.string().required('Обов’язкове поле для заповнення!'),
   warehouse: yup.string().required('Обов’язкове поле для заповнення!'),
   comment: yup.string().max(500, 'Максимальна довжина коментаря 500 символів'),
-  checkbox: yup.boolean().default(false).oneOf([true], 'Ви повинні погодитися на обробку персональних даних'),
+  checkbox: yup
+    .boolean()
+    .default(false)
+    .oneOf([true], 'Ви повинні погодитися на обробку персональних даних')
+    .default(true),
   // address: yup.string().min(10, 'Address must be at least 10 characters long').required('Address is required'),
   // city: yup.string().required('City is required'),
   // postalCode: yup

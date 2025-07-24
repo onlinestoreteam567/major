@@ -6,7 +6,7 @@ import NovaPost from './NovaPost/NovaPost';
 import { ShippingTextArea } from './ShippingTextArea/ShippingTextArea';
 import { useState } from 'react';
 
-const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigger }) => {
+const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigger, getValues }) => {
   const [shippingMethod, setShippingMethod] = useState('novaPost');
 
   return (
@@ -15,9 +15,8 @@ const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigge
         <Heading type="h3">2. Доставка</Heading>
         {activeStep !== 2 && <button onClick={() => setActiveStep(2)}>Редагувати</button>}
       </div>
-      {activeStep === 2 && (
+      {activeStep === 2 ? (
         <>
-          {' '}
           <div>
             <Paragraph type="body2">Оберіть спосіб доставки :</Paragraph>
             <p>(Достака можлива лише на території України)</p>
@@ -69,6 +68,11 @@ const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigge
             </Button>
           </div>
         </>
+      ) : (
+        <Paragraph type="body2">
+          {getValues().settlement} <br /> {getValues().warehouse} <br /> <br />
+          Коментар до замовлення: {getValues().comment}
+        </Paragraph>
       )}
     </div>
   );

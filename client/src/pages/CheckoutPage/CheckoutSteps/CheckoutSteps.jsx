@@ -21,8 +21,7 @@ const CheckoutSteps = () => {
     mode: 'onSubmit',
   });
 
-  //TODO Change to 1
-  const [activeStep, setActiveStep] = useState(3);
+  const [activeStep, setActiveStep] = useState(1);
 
   return (
     <form onSubmit={handleSubmit} className={cl.checkoutSteps}>
@@ -42,6 +41,7 @@ const CheckoutSteps = () => {
         setActiveStep={setActiveStep}
         register={register}
         errors={errors}
+        getValues={getValues}
       />
       <Payment activeStep={activeStep} register={register} errors={errors} trigger={trigger} />
 

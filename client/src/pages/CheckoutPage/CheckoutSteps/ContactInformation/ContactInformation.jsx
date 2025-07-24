@@ -12,7 +12,7 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
         <Heading type="h3">1. Особисті дані</Heading>
         {activeStep !== 1 && <button onClick={() => setActiveStep(1)}>Редагувати</button>}
       </div>
-      {activeStep === 1 && (
+      {activeStep === 1 ? (
         <>
           <Paragraph type="body2">Введіть дані, щоб продовжити</Paragraph>
           <div>
@@ -62,6 +62,12 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
             Продовжити
           </Button>
         </>
+      ) : (
+        <div>
+          <Paragraph type="body2">
+            {getValues().name} {getValues().surname} <br /> {getValues().phone}
+          </Paragraph>
+        </div>
       )}
     </div>
   );

@@ -25,6 +25,10 @@
   & > div:last-of-type {
     @include flexGap(12px, column);
 
+    & > p {
+      margin-top: 12px;
+    }
+
     div {
       @include flexGap(4px, column);
 
