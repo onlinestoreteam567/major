@@ -31,11 +31,13 @@
 }
 
 .phoneNumberInput {
-  input {
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
+  &.error {
+    border-color: #e31a1a;
   }
 }
 
