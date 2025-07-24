@@ -4,7 +4,7 @@ import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import Button from '@components/UI/Button/Button';
 import PaymentCheckbox from './PaymentCheckbox/PaymentCheckbox';
 
-const Payment = ({ activeStep, register, errors }) => {
+const Payment = ({ activeStep, register, errors, trigger }) => {
   return (
     <div className={cl.payment}>
       <div>
@@ -35,7 +35,14 @@ const Payment = ({ activeStep, register, errors }) => {
             </div>
           </div>
           <PaymentCheckbox name="checkbox" register={register} errors={errors} />
-          <Button>Оплатити</Button>
+          <Button
+            onClick={async () => {
+              const isStepValid = await trigger(['checkbox']);
+              if (isStepValid) console.log('Плати.');
+            }}
+          >
+            Оплатити
+          </Button>
         </>
       )}
     </div>
