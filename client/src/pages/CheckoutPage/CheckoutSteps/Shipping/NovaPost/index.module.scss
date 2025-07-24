@@ -6,6 +6,9 @@
 
 .warehouses {
   display: none;
+  & > p:last-of-type {
+    color: #e31a1a;
+  }
 }
 
 input[type='text'].error {

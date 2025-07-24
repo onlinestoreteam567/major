@@ -71,7 +71,7 @@ const Warehouses = ({ control, errors }) => {
           : isCanDisplayNothingFound && <p>Нічого не знайдено</p>}
       </ul>
 
-      {errors?.[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
+      {errors?.[name] && <Paragraph type="caption">{errors[name].message}</Paragraph>}
     </label>
   );
 };

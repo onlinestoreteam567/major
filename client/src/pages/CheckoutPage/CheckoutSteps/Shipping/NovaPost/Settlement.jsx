@@ -101,7 +101,7 @@ const Settlement = ({ control, errors }) => {
         </ul>
       </div>
 
-      {errors?.[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
+      {errors?.[name] && <Paragraph type="caption">{errors[name].message}</Paragraph>}
     </label>
   );
 };

@@ -2,6 +2,7 @@ import { forwardRef, useEffect, useRef, useState } from 'react';
 import cl from '../index.module.scss';
 import { handleInputCursorPosition, handleInputChange, handleKeyDown, handleInputDelete } from './eventHandlers';
 import Heading from '@components/UI/Texts/Heading/Heading';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 
 export const PhoneNumberInput = forwardRef(
   ({ name, labelText, setValue, variant, errors, placeholder, getValues, ...props }, ref) => {
@@ -59,7 +60,7 @@ export const PhoneNumberInput = forwardRef(
             className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]}`}
             placeholder={placeholder}
           />
-          {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
+          {errors && errors[name] && <Paragraph type="caption">{errors[name].message}</Paragraph>}
         </label>
       </>
     );

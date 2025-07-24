@@ -28,6 +28,11 @@
         border-color: #e31a1a;
       }
     }
+
+    div + p,
+    input + p {
+      color: #e31a1a;
+    }
   }
 
   @include mobile {

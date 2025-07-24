@@ -1,5 +1,6 @@
 import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 
 export function ContactInformationInput({ labelText, placeholder, name, register, errors, disabled, ...rest }) {
   return (
@@ -15,7 +16,7 @@ export function ContactInformationInput({ labelText, placeholder, name, register
         className={errors && errors[name] && cl.error}
         disabled={disabled}
       />
-      {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
+      {errors && errors[name] && <Paragraph type="caption">{errors[name].message}</Paragraph>}
     </label>
   );
 }
