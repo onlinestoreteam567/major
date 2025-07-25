@@ -87,9 +87,12 @@ const ContactsForm = ({ register, errors, setValue }) => {
         placeholder="example"
       />
       {Object.keys(errors).length > 0 && (
-        <ValidationErrorMessage>
-          Неможливо створити/відредагувати контакти — перевірте правильність введення даних.
-        </ValidationErrorMessage>
+        <div className={cl.errors}>
+          {Object.entries(errors).map(
+            ([fieldName, error]) =>
+              error.message && <ValidationErrorMessage key={fieldName}>{error.message}</ValidationErrorMessage>
+          )}
+        </div>
       )}
     </>
   );

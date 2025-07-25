@@ -53,6 +53,13 @@
   }
 }
 
+.errors {
+  gap: 8px;
+  p {
+    margin-top: 0;
+  }
+}
+
 @include mobile {
   .phoneNumbers {
     label {

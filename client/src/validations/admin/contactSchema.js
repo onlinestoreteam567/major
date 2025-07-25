@@ -28,17 +28,15 @@ export const contactSchema = yup.object({
   main_phone_number: yup
     .string()
     .trim()
-    .notOneOf(['+38 (0__)  __ __ ___'], 'Введіть номер повністю!')
-    .required('Обов’язкове поле для заповнення!')
-    .test('no-dash', 'Введіть номер повністю', (value) => !value?.includes('_')),
+    .required('Основний номер обов’язкове поле для заповнення!')
+    .test('no-dash', 'Введіть основний номер повністю', (value) => !value?.includes('_')),
   secondary_phone_number: yup
     .string()
     .trim()
-    .notOneOf(['+38 (0__)  __ __ ___'], 'Введіть номер повністю')
-    .test('no-dash', 'Введіть номер повністю', (value) => !value?.includes('_')),
+    .test('no-dash', 'Введіть додатковий номер повністю', (value) => !value?.includes('_')),
   work_schedule_weekdays: yup.string().required('Графік роботи в будні дні обов’язковий'),
   work_schedule_weekend: yup.string().required('Графік роботи у вихідні дні обов’язковий'),
-  copyright: yup.string().required('Рік сайту обов`язковий'),
+  copyright: yup.string().required('Рік сайту обов’язковий'),
   privacy_policy_url: yup
     .string()
     .required('Посилання на Політику конфіденційності обов’язкове')
