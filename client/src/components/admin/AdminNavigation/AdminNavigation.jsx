@@ -4,8 +4,11 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import cl from './index.module.scss';
 import { useDispatch } from 'react-redux';
-import { clearSearch } from '@redux/admin/adminSearchSlice/adminSearchSlice';
+
 import { filterProductsByName } from '@redux/products/listSlice';
+import { clearSearch } from '@redux/admin/search/adminProductSearchSlice/adminProductSearchSlice';
+import { clearSearch as clearSearchReviews } from '@redux/admin/search/adminReviewsSearchSlice/adminReviewsSearchSlice';
+import { reviewsGetAll } from '@redux/reviews/service';
 
 const AdminNavigation = () => {
   const { tablet, deskmin, deskmax } = useScreenSizes();
@@ -26,9 +29,13 @@ const AdminNavigation = () => {
     }
   };
   const handleClose = () => setIsShowBurgerButton(false);
-  const productsGetAll = () => {
+  const productsClearSearch = () => {
     dispatch(clearSearch());
     dispatch(filterProductsByName(''));
+  };
+  const reviewsClearSearch = () => {
+    dispatch(clearSearchReviews());
+    dispatch(reviewsGetAll());
   };
 
   return isDisplayNavigation ? (
@@ -51,7 +58,7 @@ const AdminNavigation = () => {
             <NavLink
               to={`/admin/products`}
               className={({ isActive }) => (isActive ? cl.active : undefined)}
-              onClick={productsGetAll}
+              onClick={productsClearSearch}
             >
               <img src="/images/admin/navigation/Goods icon.png" alt="Goods icon" />
               <span>Товари</span>
@@ -72,7 +79,11 @@ const AdminNavigation = () => {
               <img src="/images/admin/navigation/Banners icons.png" alt="Banners icon" />
               <span>Банери</span>
             </NavLink>
-            <NavLink to={`/admin/reviews`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
+            <NavLink
+              to={`/admin/reviews`}
+              className={({ isActive }) => (isActive ? cl.active : undefined)}
+              onClick={reviewsClearSearch}
+            >
               <img src="/images/admin/navigation/Rewievs icons.png" alt="Reviews icon" />
               <span>Відгуки</span>
             </NavLink>

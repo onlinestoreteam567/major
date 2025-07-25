@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import cl from './index.module.scss';
-import { setSearch } from '@redux/admin/adminSearchSlice/adminSearchSlice';
 import { productSearchValue } from '@redux/admin/selectors';
 import { filterProductsByName } from '@redux/products/listSlice';
+import { setSearch } from '@redux/admin/search/adminProductSearchSlice/adminProductSearchSlice';
 
 const Search = () => {
   const dispatch = useDispatch();

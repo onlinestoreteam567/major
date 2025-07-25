@@ -4,8 +4,8 @@ const initialState = {
   value: '',
 };
 
-const adminSearchSlice = createSlice({
-  name: 'search',
+const adminReviewsSearchSlice = createSlice({
+  name: 'adminReviewsSearch',
   initialState,
   reducers: {
     setSearch: (state, action) => {
@@ -17,5 +17,5 @@ const adminSearchSlice = createSlice({
   },
 });
 
-export const { setSearch, clearSearch } = adminSearchSlice.actions;
-export const adminSearchReducer = adminSearchSlice.reducer;
+export const { setSearch, clearSearch } = adminReviewsSearchSlice.actions;
+export const adminReviewsSearchReducer = adminReviewsSearchSlice.reducer;
