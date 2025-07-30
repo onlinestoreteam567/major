@@ -1,13 +1,15 @@
-import Heading from '@components/UI/Texts/Heading/Heading';
-import cl from './index.module.scss';
-import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
+import Heading from '@components/UI/Texts/Heading/Heading';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import { removeItem } from '@features/cart/cartSlice';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { useDispatch } from 'react-redux';
+import cl from './index.module.scss';
 
 const CheckoutCartItem = ({ product }) => {
   const dispatch = useDispatch();
   const hryvnia = '\u20B4';
+  const { getTranslation } = useTranslationNamespace('checkoutPage');
 
   const handleRemoveItem = () => dispatch(removeItem(product.id));
 
@@ -23,14 +25,14 @@ const CheckoutCartItem = ({ product }) => {
 
         <div>
           <Heading type="h4">
-            <span>Ціна</span>
+            <span>{getTranslation('price')}</span>
             {product.price_with_discount || product.price} {hryvnia}
           </Heading>
           <Heading type="h4">
-            <span>Кількість</span>х {product.quantity}
+            <span>{getTranslation('amount')}</span>х {product.quantity}
           </Heading>
           <Heading type="h4">
-            <span>Сума</span>
+            <span>{getTranslation('total')}</span>
             {product.price_with_discount || product.price * product.quantity} {hryvnia}
           </Heading>
         </div>

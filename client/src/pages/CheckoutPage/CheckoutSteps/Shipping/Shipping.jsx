@@ -1,26 +1,37 @@
-import Heading from '@components/UI/Texts/Heading/Heading';
-import cl from './index.module.scss';
-import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import Button from '@components/UI/Button/Button';
+import Heading from '@components/UI/Texts/Heading/Heading';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import { useState } from 'react';
+import cl from './index.module.scss';
 import NovaPost from './NovaPost/NovaPost';
 import { ShippingTextArea } from './ShippingTextArea/ShippingTextArea';
-import { useState } from 'react';
+import ShippingInfo from './ShippingInfo/ShippingInfo';
+import useShippingLogic from './helpers/useShippingLogic';
+import handleContinueClick from './helpers/handleContinueClick';
 
 const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigger, getValues, setValue }) => {
   const [shippingMethod, setShippingMethod] = useState('novaPost');
-  const isShowEditButton = activeStep !== 2 && (getValues().settlement || getValues().warehouse);
+  const { isShowEditButton, isShowShippingInfo, handleEditClick } = useShippingLogic(
+    activeStep,
+    shippingMethod,
+    getValues,
+    setActiveStep
+  );
+  const { getTranslation } = useTranslationNamespace('checkoutPage');
 
   return (
     <div className={cl.shipping}>
       <div className={cl.shippingHeader}>
-        <Heading type="h3">2. Доставка</Heading>
-        {isShowEditButton && <button onClick={() => setActiveStep(2)}>Редагувати</button>}
+        <Heading type="h3">2. {getTranslation('shipping')}</Heading>
+        {isShowEditButton && <button onClick={handleEditClick}>{getTranslation('edit')}</button>}
       </div>
+
       {activeStep === 2 ? (
         <>
           <div>
-            <Paragraph type="body2">Оберіть спосіб доставки :</Paragraph>
-            <p>(Достака можлива лише на території України)</p>
+            <Paragraph type="body2">{getTranslation('chooseADeliveryMethod')}</Paragraph>
+            <p>{getTranslation('availableOnlyOnTheTerritoryOfUkraine')}</p>
           </div>
           <div>
             <button
@@ -28,14 +39,14 @@ const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigge
               onClick={() => setShippingMethod('novaPost')}
               type="button"
             >
-              <Heading type="h4">Нова Пошта</Heading>
+              <Heading type="h4">{getTranslation('novaPost')}</Heading>
             </button>
             <button
               type="button"
               className={shippingMethod === 'selfPickup' ? cl.active : ''}
               onClick={() => setShippingMethod('selfPickup')}
             >
-              <Heading type="h4">Самовивіз</Heading>
+              <Heading type="h4">{getTranslation('selfPickup')}</Heading>
             </button>
           </div>
           <div>
@@ -43,35 +54,23 @@ const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigge
               <NovaPost setValue={setValue} control={control} register={register} errors={errors} />
             ) : (
               <Paragraph type="body1">
-                Забрати можна за адресою: <br /> м.Нововолинськ віділення Нової пошти №4
+                {getTranslation('youCanPickItUpAtTheAddress')} <br /> {getTranslation('selfPupAddress')}
               </Paragraph>
             )}
             <ShippingTextArea
               name={'comment'}
               register={register}
               errors={errors}
-              labelText={'Коментар до замовлення:'}
-              placeholder={'Коментар до замовлення'}
+              labelText={getTranslation(`${'commentToOrder'}:`)}
+              placeholder={getTranslation('commentToOrder')}
             />
-            <Button
-              onClick={async () => {
-                if (shippingMethod === 'novaPost') {
-                  const isStepValid = await trigger(['settlement', 'warehouse', 'comment']);
-                  if (isStepValid) setActiveStep(3);
-                } else {
-                  setActiveStep(3);
-                }
-              }}
-            >
-              Продовжити
+            <Button onClick={handleContinueClick(shippingMethod, trigger, setActiveStep)}>
+              {getTranslation('continue')}
             </Button>
           </div>
         </>
       ) : (
-        <Paragraph type="body2">
-          {getValues().settlement} <br /> {getValues().warehouse} <br /> <br />
-          Коментар до замовлення: {getValues().comment}
-        </Paragraph>
+        isShowShippingInfo && <ShippingInfo shippingMethod={shippingMethod} getValues={getValues} />
       )}
     </div>
   );

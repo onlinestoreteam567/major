@@ -6,7 +6,7 @@ const CheckoutBreadCrumbs = () => {
 
   return (
     <button className={cl.checkoutBreadCrumbs}>
-      <img src="/svg/banners/arrowLeft.svg" alt="" />
+      <img src="/svg/banners/arrowLeft.svg" alt={getTranslation('backArrowAlt')} />
       {getTranslation('continueShopping')}
     </button>
   );

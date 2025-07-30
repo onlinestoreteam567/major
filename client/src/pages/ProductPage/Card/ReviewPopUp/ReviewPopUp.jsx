@@ -90,7 +90,7 @@ const ReviewPopUp = ({ card, closeModal }) => {
                 variant={'popUp'}
                 errors={errors}
               />
-              <BtnSubmit disabled={isLoading || !isValid}>{getTranslation('send', 'common')}</BtnSubmit>{' '}
+              <BtnSubmit disabled={isLoading || !isValid}>{getTranslation('send', 'common')}</BtnSubmit>
             </form>
           </div>
         ) : (

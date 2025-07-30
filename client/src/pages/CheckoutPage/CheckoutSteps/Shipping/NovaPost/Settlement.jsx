@@ -1,20 +1,25 @@
-import debounce from 'lodash.debounce';
-import { useDispatch, useSelector } from 'react-redux';
+import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { fetchSettlements, fetchWarehouses } from '@redux/novaPost/service';
-import { selectSettlements, showNothingSettlements } from '@redux/selectors';
 import { clearSettlements, setIsShowNothing } from '@redux/novaPost/settlementsSlice';
 import { clearWarehouses, setDisabled } from '@redux/novaPost/warehousesSlice';
-import { useEffect, useState, useCallback } from 'react';
-import cl from './index.module.scss';
-import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
+import { selectSettlements, showNothingSettlements } from '@redux/selectors';
+import debounce from 'lodash.debounce';
+import { useCallback, useEffect, useState } from 'react';
 import { Controller } from 'react-hook-form';
-
+import { useDispatch, useSelector } from 'react-redux';
+import cl from './index.module.scss';
 const name = 'settlement';
 
 const Settlement = ({ setValue, control, errors, setIsResetWarehouses }) => {
   const dispatch = useDispatch();
   const settlements = useSelector(selectSettlements);
   const isShowNothing = useSelector(showNothingSettlements);
+  const { getTranslation } = useTranslationNamespace('checkoutPage');
+
+  const getTranslate = (settlement) => {
+    return `${getTranslation('city')} ${settlement.name} - ${settlement.Oblast} ${getTranslation('obl')}, ${settlement.Raion} ${getTranslation('district')}`;
+  };
 
   const [city, setCity] = useState('');
   const [isCitySelected, setIsCitySelected] = useState(false);
@@ -55,7 +60,7 @@ const Settlement = ({ setValue, control, errors, setIsResetWarehouses }) => {
 
   return (
     <label className={cl.settlement}>
-      <Paragraph type="body1">Місто*:</Paragraph>
+      <Paragraph type="body1">{getTranslation('city')}*:</Paragraph>
 
       <Controller
         name={name}
@@ -64,7 +69,7 @@ const Settlement = ({ setValue, control, errors, setIsResetWarehouses }) => {
           <>
             <input
               type="text"
-              placeholder="- оберіть -"
+              placeholder={getTranslation('choose')}
               value={field.value || ''}
               onChange={(e) => {
                 const val = e.target.value;
@@ -85,16 +90,14 @@ const Settlement = ({ setValue, control, errors, setIsResetWarehouses }) => {
                       key={i}
                       onClick={() => {
                         selectCity(settlement.name, settlement.ref);
-                        field.onChange(
-                          `Місто ${settlement.name} - ${settlement.Oblast} обл., ${settlement.Raion} р-н.`
-                        );
+                        field.onChange(getTranslate(settlement));
                       }}
                     >
-                      Місто {settlement.name} - {settlement.Oblast} обл., {settlement.Raion} р-н.
+                      {getTranslate(settlement)}
                     </li>
                   ))
                 ) : (
-                  <p>Нічого не знайдено</p>
+                  <p>{getTranslation('nothingWasFound')}</p>
                 )}
               </ul>
             </div>
@@ -102,7 +105,7 @@ const Settlement = ({ setValue, control, errors, setIsResetWarehouses }) => {
         )}
       />
 
-      {errors?.[name] && <Paragraph type="caption">{errors[name].message}</Paragraph>}
+      {errors?.[name] && <Paragraph type="caption">{getTranslation(errors[name].message)}</Paragraph>}
     </label>
   );
 };

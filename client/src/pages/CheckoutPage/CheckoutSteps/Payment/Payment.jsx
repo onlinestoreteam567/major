@@ -3,34 +3,35 @@ import cl from './index.module.scss';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import Button from '@components/UI/Button/Button';
 import PaymentCheckbox from './PaymentCheckbox/PaymentCheckbox';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-const Payment = ({ activeStep, register, errors, trigger }) => {
+const Payment = ({ activeStep, setActiveStep, register, errors, trigger }) => {
+  const { getTranslation } = useTranslationNamespace('checkoutPage');
+
   return (
     <div className={cl.payment}>
       <div>
-        <Heading type="h3">3. Оплата</Heading>
+        <Heading type="h3">3. {getTranslation('payment')}</Heading>
       </div>
       {activeStep === 3 && (
         <>
           <div>
-            <Paragraph type="body1">Як оплатити замовлення?</Paragraph>
-            <Paragraph type="body2">
-              Ми працюємо через оплату на ФОП, але зробили все, щоб це було просто та зручно для вас. Обирайте:
-            </Paragraph>
+            <Paragraph type="body1">{getTranslation('paymentFirstTitle')}</Paragraph>
+            <Paragraph type="body2">{getTranslation('paymentFirstParagraph')}</Paragraph>
           </div>
           <div>
             <div>
-              <img src="/images/checkout/firstOption.webp" alt="" />
+              <img src="/images/checkout/firstOption.webp" alt={getTranslation('firstOptionAlt')} />
               <div>
-                <Heading type="h4">Часткова передплата — 100 грн</Heading>
-                <Paragraph type="body2">Щоб ми почали збирати замовлення саме для вас. </Paragraph>
+                <Heading type="h4">{getTranslation('partialPaymentTitle')}</Heading>
+                <Paragraph type="body2">{getTranslation('partialPaymentDescription')}</Paragraph>
               </div>
             </div>
             <div>
-              <img src="/images/checkout/firstOption.webp" alt="" />
+              <img src="/images/checkout/secondOption.webp" alt={getTranslation('secondOptionAlt')} />
               <div>
-                <Heading type="h4">Повна оплата</Heading>
-                <Paragraph type="body2">Так ваше замовлення ще швидше вирушить до вас.</Paragraph>
+                <Heading type="h4">{getTranslation('fullPaymentTitle')}</Heading>
+                <Paragraph type="body2">{getTranslation('fullPaymentDescription')}</Paragraph>
               </div>
             </div>
           </div>
@@ -38,10 +39,10 @@ const Payment = ({ activeStep, register, errors, trigger }) => {
           <Button
             onClick={async () => {
               const isStepValid = await trigger(['checkbox']);
-              if (isStepValid) console.log('Плати.');
+              if (isStepValid) setActiveStep(4);
             }}
           >
-            Оплатити
+            {getTranslation('pay')}
           </Button>
         </>
       )}

@@ -3,12 +3,14 @@ import cl from '../index.module.scss';
 import { handleInputCursorPosition, handleInputChange, handleKeyDown, handleInputDelete } from './eventHandlers';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export const PhoneNumberInput = forwardRef(
-  ({ name, labelText, setValue, variant, errors, placeholder, getValues, ...props }, ref) => {
+  ({ name, labelText, setValue, variant, errors, placeholder, getValues, nameSpace, ...props }, ref) => {
     const [inputsValue, setInputsValue] = useState(getValues(name) || '');
     const inputRef = useRef(null);
     const [isFocused, setIsFocused] = useState(false);
+    const { getTranslation } = useTranslationNamespace(nameSpace);
 
     useEffect(() => {
       if (typeof ref === 'function') {
@@ -60,7 +62,7 @@ export const PhoneNumberInput = forwardRef(
             className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]} ${errors && errors[name] ? cl.error : ''}`}
             placeholder={placeholder}
           />
-          {errors && errors[name] && <Paragraph type="caption">{errors[name].message}</Paragraph>}
+          {errors && errors[name] && <Paragraph type="caption">{getTranslation(errors[name].message)}</Paragraph>}
         </label>
       </>
     );

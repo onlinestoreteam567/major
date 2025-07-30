@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import cl from './index.module.scss';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import { Controller, useWatch } from 'react-hook-form';
-
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const name = 'warehouse';
 
 const Warehouses = ({ control, errors, isResetWarehouses, setIsResetWarehouses }) => {
@@ -13,14 +13,12 @@ const Warehouses = ({ control, errors, isResetWarehouses, setIsResetWarehouses }
   const [filteredWarehouses, setFilteredWarehouses] = useState([]);
   const [isCanDisplayNothingFound, setIsCanDisplayNothingFound] = useState(false);
   const [inputValue, setInputValue] = useState('');
+  const { getTranslation } = useTranslationNamespace('checkoutPage');
 
   const selectedWarehouse = useWatch({ control, name });
 
   useEffect(() => {
-    if (selectedWarehouse) {
-      setInputValue(selectedWarehouse);
-      console.log(`Selected warehouse: ${selectedWarehouse}`);
-    }
+    if (selectedWarehouse) setInputValue(selectedWarehouse);
     if (!selectedWarehouse) {
       setFilteredWarehouses([...allWarehouses]);
       setIsCanDisplayNothingFound(false);
@@ -28,10 +26,7 @@ const Warehouses = ({ control, errors, isResetWarehouses, setIsResetWarehouses }
   }, [allWarehouses]);
 
   useEffect(() => {
-    console.log(isResetWarehouses);
-    if (isResetWarehouses) {
-      setInputValue('');
-    }
+    if (isResetWarehouses) setInputValue('');
   }, [isResetWarehouses]);
 
   const handleFilter = (term) => {
@@ -46,7 +41,7 @@ const Warehouses = ({ control, errors, isResetWarehouses, setIsResetWarehouses }
 
   return (
     <label className={cl.warehouses}>
-      <Paragraph type="body1">Відділення №*:</Paragraph>
+      <Paragraph type="body1">{getTranslation('warehouseNumber')}:</Paragraph>
 
       <Controller
         name={name}
@@ -56,7 +51,7 @@ const Warehouses = ({ control, errors, isResetWarehouses, setIsResetWarehouses }
           <>
             <input
               type="text"
-              placeholder="- оберіть -"
+              placeholder={getTranslation('choose')}
               onChange={(e) => {
                 const term = e.target.value;
                 setInputValue(term);
@@ -85,13 +80,13 @@ const Warehouses = ({ control, errors, isResetWarehouses, setIsResetWarehouses }
                       №{warehouse.number} {warehouse.address}
                     </li>
                   ))
-                : isCanDisplayNothingFound && <p>Нічого не знайдено</p>}
+                : isCanDisplayNothingFound && <p>{getTranslation('nothingWasFound')}</p>}
             </ul>
           </>
         )}
       />
 
-      {errors?.[name] && <Paragraph type="caption">{errors[name].message}</Paragraph>}
+      {errors?.[name] && <Paragraph type="caption">{getTranslation(errors[name].message)}</Paragraph>}
     </label>
   );
 };

@@ -21,7 +21,7 @@ const CheckoutSteps = () => {
     mode: 'onSubmit',
   });
 
-  const [activeStep, setActiveStep] = useState(2);
+  const [activeStep, setActiveStep] = useState(1);
 
   return (
     <form onSubmit={handleSubmit} className={cl.checkoutSteps}>
@@ -44,10 +44,17 @@ const CheckoutSteps = () => {
         getValues={getValues}
         setValue={setValue}
       />
-      <Payment activeStep={activeStep} register={register} errors={errors} trigger={trigger} />
+      <Payment
+        activeStep={activeStep}
+        setActiveStep={setActiveStep}
+        register={register}
+        errors={errors}
+        trigger={trigger}
+      />
+      {activeStep === 4 && <p style={{ color: 'limeGreen', fontSize: '30px' }}>Всьо, форма пройдена, давай гроші</p>}
 
       <button type="button" onClick={() => console.log(getValues())}>
-        getValues
+        Клік: Вивести в консоль браузеру значення форми
       </button>
     </form>
   );

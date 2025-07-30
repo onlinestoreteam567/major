@@ -4,30 +4,33 @@ import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import { ContactInformationInput } from '../ContactInformationInput/ContactInformationInput';
 import { PhoneNumberInput } from '@components/form-components';
 import Button from '@components/UI/Button/Button';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const ContactInformation = ({ activeStep, setActiveStep, register, setValue, errors, trigger, getValues }) => {
+  const { getTranslation } = useTranslationNamespace('checkoutPage');
+
   return (
     <div className={cl.contactInformation}>
       <div className={cl.contactInformationHeader}>
-        <Heading type="h3">1. Особисті дані</Heading>
-        {activeStep !== 1 && <button onClick={() => setActiveStep(1)}>Редагувати</button>}
+        <Heading type="h3">1. {getTranslation('personalData')}</Heading>
+        {activeStep !== 1 && <button onClick={() => setActiveStep(1)}>{getTranslation('edit')}</button>}
       </div>
       {activeStep === 1 ? (
         <>
-          <Paragraph type="body2">Введіть дані, щоб продовжити</Paragraph>
+          <Paragraph type="body2">{getTranslation('enterYourDataToContinue')}</Paragraph>
           <div>
             <ContactInformationInput
               name="name"
               register={register}
-              placeholder="Ім’я"
-              labelText="Ім'я*:"
+              placeholder={getTranslation('name')}
+              labelText={`${getTranslation('name')}*`}
               errors={errors}
             />
             <ContactInformationInput
               name="surname"
               register={register}
-              labelText="Прізвище*:"
-              placeholder="Прізвище"
+              placeholder={getTranslation('surname')}
+              labelText={`${getTranslation('surname')}*`}
               errors={errors}
             />
             <PhoneNumberInput
@@ -35,20 +38,21 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
               variant="popUp"
               register="phone"
               name="phone"
-              labelText="Номер телефону*:"
               placeholder="+38 (097) 123 45 67"
+              labelText={`${getTranslation('phone')}*`}
               errors={errors}
               getValues={getValues}
+              nameSpace="checkoutPage"
             />
             <div>
               <ContactInformationInput
                 name="telegram"
                 register={register}
-                labelText="Ім’я користувача в Telegram "
+                labelText={getTranslation('telegram')}
                 placeholder="@user_name"
                 errors={errors}
               />
-              <p>Якщо хочете отримати підтвердження про замовлення в Telegram </p>
+              <p>{getTranslation('telegramParagraph')}</p>
             </div>
           </div>
           <Button
@@ -59,7 +63,7 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
               }
             }}
           >
-            Продовжити
+            {getTranslation('continue')}
           </Button>
         </>
       ) : (
