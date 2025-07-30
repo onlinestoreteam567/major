@@ -10,6 +10,7 @@ import CheckoutCartItem from './CartItem/CartItem';
 import Promocode from './Promocode/Promocode';
 import { getProductsByCartIds } from '@redux/products/service';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const { i18n } = useTranslation();
@@ -22,6 +23,7 @@ const Cart = () => {
   const [isExpanded, setIsExpanded] = useState(true);
   const hryvnia = '\u20B4';
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price_with_discount * item.quantity, 0);
+  const isEmpty = cartItems.length === 0;
 
   useEffect(() => {
     if (savedIds && savedIds.length > 0) {
@@ -36,7 +38,7 @@ const Cart = () => {
   }, [promocodeDiscount, cartItems]);
 
   return (
-    <div className={cl.checkoutCart}>
+    <div className={`${cl.checkoutCart} ${isEmpty ? cl.empty : ''}`}>
       <div className={isExpanded ? cl.expanded : ''}>
         <Heading type="h4">
           {getTranslation('NumberOfItemsInTheCart')} {discountedItems.length}
@@ -45,7 +47,7 @@ const Cart = () => {
           <Arrow />
         </button>
       </div>
-      {isExpanded && (
+      {isExpanded && !isEmpty && (
         <ul>
           {discountedItems.map((product) => (
             <CheckoutCartItem key={product.id} product={product} />
@@ -72,7 +74,12 @@ const Cart = () => {
         </div>
       </div>
 
-      <Promocode />
+      {!isEmpty && <Promocode />}
+      {isEmpty && (
+        <Link to="/catalog" role="button" aria-label={getTranslation('placeOrder')}>
+          <Heading type="h3">{getTranslation('goToCatalog')}</Heading>
+        </Link>
+      )}
     </div>
   );
 };

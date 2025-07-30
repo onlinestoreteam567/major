@@ -69,12 +69,46 @@
     }
   }
 
+  & > a {
+    @include flex(row, center, center);
+    background-color: $second-background-color-black;
+    color: white;
+    border: 2px solid $second-background-color-black;
+    width: 240px;
+    height: 46px;
+    margin-inline: auto;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    border-radius: $border-radius-medium;
+    transition:
+      background-color 300ms ease-out,
+      color 300ms ease-out;
+
+    h3 {
+      color: #ffffff;
+    }
+
+    &:hover {
+      background-color: transparent;
+
+      h3 {
+        color: $text-color-black;
+      }
+    }
+  }
+
   @include mobile {
     padding-inline: 24px;
     width: 356px;
 
     & > div:nth-of-type(2) {
       padding-inline: 0 9px;
+    }
+
+    & > a {
+      width: 100%;
     }
   }
 
@@ -93,6 +127,10 @@
       padding: 0;
       margin: 8px auto;
     }
+
+    & > a {
+      width: 196px;
+    }
   }
 
   @include deskmin {
@@ -100,6 +138,10 @@
     padding-inline: 24px;
     gap: 8px;
     margin-inline: auto 0;
+
+    &.empty {
+      margin-inline: auto;
+    }
 
     & > div:first-of-type {
       width: 364px;
