@@ -73,7 +73,6 @@ const AdminNavigation = () => {
               onClick={promocodeClearFilter}
               className={({ isActive }) => (isActive ? cl.active : undefined)}
             >
-              {/* TODO поставити навігації більший індекс, щоб вона була више селектів */}
               <img src="/images/admin/navigation/Promo icons.png" alt="Promocodes icon" />
               <span>Промокоди</span>
             </NavLink>
