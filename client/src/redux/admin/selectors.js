@@ -49,6 +49,7 @@ export const errorTypeDelete = (state) => state.typeDelete.error;
 export const loadPromocodeList = (state) => state.promocodeList.isLoading;
 export const responsePromocodeList = (state) => state.promocodeList.response;
 export const errorPromocodeList = (state) => state.promocodeList.error;
+export const isFetchedAllPromocodes = (state) => state.promocodeList.isFetchedAllPromocodes;
 
 export const loadPromocodeCreate = (state) => state.promocodeCreate.isLoading;
 export const responsePromocodeCreate = (state) => state.promocodeCreate.response;

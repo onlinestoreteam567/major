@@ -9,6 +9,7 @@ import { filterProductsByName } from '@redux/products/listSlice';
 import { clearSearch } from '@redux/admin/search/adminProductSearchSlice/adminProductSearchSlice';
 import { clearSearch as clearSearchReviews } from '@redux/admin/search/adminReviewsSearchSlice/adminReviewsSearchSlice';
 import { reviewsGetAll } from '@redux/reviews/service';
+import { fetchPromocode } from '@redux/admin/promocode/service';
 
 const AdminNavigation = () => {
   const { tablet, deskmin, deskmax } = useScreenSizes();
@@ -37,7 +38,7 @@ const AdminNavigation = () => {
     dispatch(clearSearchReviews());
     dispatch(reviewsGetAll());
   };
-
+  const promocodeClearFilter = () => dispatch(fetchPromocode());
   return isDisplayNavigation ? (
     <div className={`${cl.burgerButtonWrapper} ${isExpanded ? cl.expanded : ''}`}>
       <button onClick={() => setIsShowBurgerButton(!isShowBurgerButton)}>
@@ -67,7 +68,12 @@ const AdminNavigation = () => {
               <img src="/images/admin/navigation/Catalog icons.png" alt="Catalog icon" />
               <span>Категорії</span>
             </NavLink>
-            <NavLink to={`/admin/promocodes`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
+            <NavLink
+              to={`/admin/promocodes`}
+              onClick={promocodeClearFilter}
+              className={({ isActive }) => (isActive ? cl.active : undefined)}
+            >
+              {/* TODO поставити навігації більший індекс, щоб вона була више селектів */}
               <img src="/images/admin/navigation/Promo icons.png" alt="Promocodes icon" />
               <span>Промокоди</span>
             </NavLink>
