@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import cl from './index.module.scss';
 import { selectCart, selectCartSavedIds, selectPromocode } from '@redux/selectors';
 import { useEffect, useState } from 'react';
-import calculateDiscountedItems from './helpers/calculateDiscountedItems';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Arrow from '@assets/svg/Admin/Arrow/Arrow';
@@ -19,12 +18,11 @@ const Cart = () => {
   const savedIds = useSelector(selectCartSavedIds);
   const cartItems = useSelector(selectCart);
   const promocodeDiscount = useSelector(selectPromocode);
-  const [discountedItems, setDiscountedItems] = useState([...cartItems]);
   const [isExpanded, setIsExpanded] = useState(true);
   const hryvnia = '\u20B4';
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price_with_discount * item.quantity, 0);
   const isEmpty = cartItems.length === 0;
-
+  console.log(promocodeDiscount);
   useEffect(() => {
     if (savedIds && savedIds.length > 0) {
       dispatch(getProductsByCartIds(savedIds.map((item) => item.id)));
@@ -33,15 +31,11 @@ const Cart = () => {
 
   const toggleExpanded = () => setIsExpanded(!isExpanded);
 
-  useEffect(() => {
-    setDiscountedItems(calculateDiscountedItems(promocodeDiscount, cartItems));
-  }, [promocodeDiscount, cartItems]);
-
   return (
     <div className={`${cl.checkoutCart} ${isEmpty ? cl.empty : ''}`}>
       <div className={isExpanded ? cl.expanded : ''}>
         <Heading type="h4">
-          {getTranslation('NumberOfItemsInTheCart')} {discountedItems.length}
+          {getTranslation('NumberOfItemsInTheCart')} {cartItems.length}
         </Heading>
         <button onClick={toggleExpanded}>
           <Arrow />
@@ -49,29 +43,37 @@ const Cart = () => {
       </div>
       {isExpanded && !isEmpty && (
         <ul>
-          {discountedItems.map((product) => (
+          {cartItems.map((product) => (
             <CheckoutCartItem key={product.id} product={product} />
           ))}
         </ul>
       )}
       <div>
-        <div>
+        <Heading type="h4">
+          {getTranslation('totalSum')}
+          <span>
+            {totalPrice} <span>{hryvnia}</span>
+          </span>
+        </Heading>
+        {promocodeDiscount && (
           <Heading type="h4">
-            {getTranslation('totalSum')}
+            {getTranslation('discount')}
             <span>
-              {totalPrice} <span>{hryvnia}</span>
+              -{promocodeDiscount && ((totalPrice * promocodeDiscount.discount_percent) / 100).toFixed(2)}
+              <span>{hryvnia}</span>
             </span>
           </Heading>
-        </div>
-        <div>
-          <Heading type="h3">
-            {getTranslation('toBePaid')}
-            <span>
-              {/* TODO до сплати додати */}
-              2044 <span>{hryvnia}</span>
-            </span>
-          </Heading>
-        </div>
+        )}
+
+        <Heading type="h3">
+          {getTranslation('toBePaid')}
+          <span>
+            {promocodeDiscount
+              ? (totalPrice - (totalPrice * promocodeDiscount.discount_percent) / 100).toFixed(2)
+              : totalPrice}
+            <span>{hryvnia}</span>
+          </span>
+        </Heading>
       </div>
 
       {!isEmpty && <Promocode />}

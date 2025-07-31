@@ -56,16 +56,18 @@
     padding-inline: 4px;
     box-sizing: border-box;
 
-    div {
-      h4,
-      h3 {
-        @include flex(row, space-between);
+    h4,
+    h3 {
+      @include flex(row, space-between);
 
-        & > span {
-          @include flex(row, space-between);
-          width: 86px;
-        }
+      & > span {
+        @include flex(row, space-between);
+        width: 86px;
       }
+    }
+
+    h4:nth-of-type(2) {
+      color: #676767;
     }
   }
 

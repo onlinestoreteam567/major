@@ -27,6 +27,10 @@
     letter-spacing: 4%;
     color: #22211f;
 
+    &:focus-visible {
+      outline: none;
+    }
+
     &.applied {
       background-color: #c0c0c0;
       color: #22211f;
