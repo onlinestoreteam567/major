@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const PROMOCODE_ENDPOINT = import.meta.env.VITE_PROMOCODE_ENDPOINT;
 
-export const fetchPromocode = createAsyncThunk('promocode/fetchPromocode', async (code, _, thunkAPI) => {
+export const fetchPromocode = createAsyncThunk('promocode/fetchPromocode', async (code, thunkAPI) => {
   try {
     const endpoint = `${PROMOCODE_ENDPOINT}/validate/`;
     const promocode = { code };
