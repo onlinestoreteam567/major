@@ -1,0 +1,100 @@
+@import '@mixins';
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  font-family: Mulish;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 136%;
+  color: #000;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    input[type='date'] {
+      opacity: 0;
+      position: absolute;
+      top: 33px;
+      left: 0;
+    }
+
+    .displayValue {
+      @include flex(row, start);
+      height: 46px;
+      width: 240px;
+      padding-left: 48px;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 160%;
+      color: #6b6b6bb3;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      background-color: #fff;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+
+      &.error {
+        border-color: #e31a1a;
+        color: #e31a1a;
+      }
+    }
+
+    .iconWrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      width: 46px;
+      height: 46px;
+      background-color: #bde2c3;
+      border: 1px solid #4b9c5a;
+      border-left: none;
+      border-radius: 0 6px 6px 0;
+      cursor: pointer;
+      margin-left: -3px;
+      position: absolute;
+      right: 0;
+      z-index: 2;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  @include mobile {
+    & > div {
+      .displayValue {
+        width: 300px;
+      }
+
+      .iconWrap {
+        height: 46px;
+      }
+    }
+  }
+
+  @include tablet {
+    & > div {
+      .displayValue {
+        height: 56px;
+        width: 357px;
+        font-size: 16px;
+      }
+
+      .iconWrap {
+        height: 56px;
+      }
+    }
+  }
+}
