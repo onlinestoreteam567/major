@@ -3,6 +3,15 @@
 .promocode {
   @include flexGap(16px, column);
 
+  div {
+    @include flexGap(4px, column);
+
+    p {
+      color: #e31a1a;
+      text-align: center;
+    }
+  }
+
   input {
     text-align: center;
     width: 100%;
@@ -18,6 +27,11 @@
     letter-spacing: 4%;
     color: #22211f;
 
+    &.applied {
+      background-color: #c0c0c0;
+      color: #22211f;
+    }
+
     &::placeholder {
       color: #676767;
     }
@@ -32,6 +46,10 @@
     flex-direction: row;
     gap: 24px;
     margin-inline: auto;
+
+    input {
+      width: 196px;
+    }
   }
 
   @include deskmin {

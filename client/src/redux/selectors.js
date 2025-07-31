@@ -31,6 +31,7 @@ export const selectSearch = (state) => state.search.searchResults;
 
 export const loadPromocode = (state) => state.promocode.isLoading;
 export const selectPromocode = (state) => state.promocode.response;
+export const errorPromocode = (state) => state.promocode.error;
 
 export const loadBanner = (state) => state.banner.isLoading;
 export const selectBanner = (state) => state.banner.slides;

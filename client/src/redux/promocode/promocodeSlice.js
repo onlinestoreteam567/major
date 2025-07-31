@@ -11,12 +11,21 @@ const handleRejected = (state, action) => {
   state.response = null;
 };
 
+const initialState = {
+  response: null,
+  isLoading: false,
+  error: null,
+};
+
 const promocodeSlice = createSlice({
   name: 'promocode',
-  initialState: {
-    response: null,
-    isLoading: false,
-    error: null,
+  initialState,
+  reducers: {
+    cleanPromocode: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -29,4 +38,5 @@ const promocodeSlice = createSlice({
       .addCase(fetchPromocode.rejected, handleRejected),
 });
 
+export const { cleanPromocode } = promocodeSlice.actions;
 export const promocodeReducer = promocodeSlice.reducer;
