@@ -13,36 +13,9 @@
     font-size: 18px;
     line-height: 136%;
     justify-content: space-between;
-    
+
     input {
       width: 280px;
-    }
-    input[type='date'] {
-      height: 46px;
-      padding: 10px 10px 10px 48px;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 160%;
-      color: #6b6b6bb3;
-      border: 1px solid #aaa;
-      border-radius: 6px;
-      appearance: none;
-      -webkit-appearance: none;
-      background-color: #fff;
-      position: relative;
-      z-index: 9;
-
-      &::-webkit-calendar-picker-indicator {
-        opacity: 0;
-        position: absolute;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-      }
-      @include tablet {
-        height: 56px;
-      }
     }
   }
 }

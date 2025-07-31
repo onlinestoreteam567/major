@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
-import cl from './InputDate.module.scss';
+import cl from './index.module.scss';
 
-export function InputDate({ labelText, placeholder, name, register, errors, disabled, variant = 'admin', ...rest }) {
+export function InputDate({ labelText, placeholder, name, register, errors, disabled, ...rest }) {
   const hasError = errors?.[name];
   const inputRef = useRef(null);
 
@@ -24,9 +24,9 @@ export function InputDate({ labelText, placeholder, name, register, errors, disa
   };
 
   return (
-    <label htmlFor={name} className={`${cl.label} ${cl[variant]}`}>
+    <label htmlFor={name} className={cl.label}>
       {labelText}
-      <div className={cl.inputDateGroup}>
+      <div>
         <input
           id={name}
           {...restRegister}

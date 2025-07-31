@@ -1,0 +1,100 @@
+@import '@mixins';
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  font-family: Mulish;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 136%;
+  color: #000;
+
+  & > div {
+    display: flex;
+    align-items: center;
+
+    input[type='date'] {
+      height: 46px;
+      padding: 10px 10px 10px 48px;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 160%;
+      color: #6b6b6bb3;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      background-color: #fff;
+      position: relative;
+      z-index: 9;
+      width: 100%;
+      box-sizing: border-box;
+      appearance: none;
+      -webkit-appearance: none;
+
+      &.error {
+        border-color: #e31a1a;
+        color: #e31a1a;
+      }
+
+      &::-webkit-calendar-picker-indicator {
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+      @include tablet {
+        height: 56px;
+      }
+    }
+
+    .iconWrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      width: 46px;
+      height: 46px;
+      background-color: #bde2c3;
+      border: 1px solid #4b9c5a;
+      border-left: none;
+      border-radius: 0 6px 6px 0;
+      cursor: pointer;
+      margin-left: -3px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  @include mobile {
+    & > div {
+      input[type='date'] {
+        height: 46px;
+      }
+      .iconWrap {
+        height: 46px;
+      }
+    }
+  }
+
+  @include tablet {
+    & > div {
+      input[type='date'] {
+        height: 56px;
+        width: 314px;
+        font-size: 16px;
+      }
+      .iconWrap {
+        height: 56px;
+      }
+    }
+  }
+}
