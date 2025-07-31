@@ -1,6 +1,73 @@
 @import '@mixins';
 
 .promocodeEdit {
-  @include flex(column, null, null);
+  @include flexGap(74px, column);
   color: black;
+
+  .btnWrapper {
+    @include flexGap(24px, column);
+    width: 280px;
+
+    button,
+    a {
+      width: 100%;
+      height: 54px;
+      font-size: 16px;
+    }
+  }
+
+  @include mobile {
+    .btnWrapper {
+      width: 340px;
+    }
+  }
+}
+
+@include mobile {
+  .promocodeEdit {
+    gap: 90px;
+  }
+}
+
+@include tablet {
+  .promocodeEdit {
+    gap: 72px;
+    margin: 36px 36px 0 208px;
+
+    .btnWrapper {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 523px;
+
+      button,
+      a {
+        height: 65px;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+@include deskmin {
+  .promocodeEdit {
+    margin: 36px auto;
+
+    .btnWrapper {
+      width: 683px;
+      button,
+      a {
+        width: 304px;
+      }
+    }
+  }
+}
+
+@include deskmax {
+  .promocodeEdit {
+    width: 993px;
+
+    .btnWrapper {
+      width: 778px;
+    }
+  }
 }

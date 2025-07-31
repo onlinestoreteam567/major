@@ -1,10 +1,15 @@
 @import '@mixins';
 
 .list {
-  @include flexGap(20px, row);
+  @include flexGap(32px, column);
   color: black;
+  margin-top: 32px;
 
-  li {
-    @include flexGap(20px, column);
+  @include deskmin {
+    margin-top: 50px;
+    gap: 24px;
+  }
+  @include deskmax {
+    margin-top: 56px;
   }
 }
