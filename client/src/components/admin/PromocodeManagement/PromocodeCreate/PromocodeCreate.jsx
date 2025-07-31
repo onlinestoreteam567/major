@@ -19,6 +19,7 @@ const PromocodeCreate = () => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(promocodeSchema),
@@ -39,10 +40,6 @@ const PromocodeCreate = () => {
   const onSubmit = (values) => dispatch(createPromocode(values));
 
   useEffect(() => {
-    dispatch(clearPromocodeCreateState());
-  }, [dispatch]);
-
-  useEffect(() => {
     if (response) {
       showSuccessCreateMessage('Промокод успішно створено!');
     }
@@ -51,7 +48,7 @@ const PromocodeCreate = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeCreate}>
-        <PromocodeForm register={register} errors={errors} />
+        <PromocodeForm control={control} register={register} errors={errors} />
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
           <LoadingButton

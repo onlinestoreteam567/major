@@ -49,18 +49,25 @@
 }
 
 @include deskmin {
-  .promocodeEdit .btnWrapper {
-    width: 683px;
+  .promocodeEdit {
+    margin: 36px auto;
 
-    button,
-    a {
-      width: 304px;
+    .btnWrapper {
+      width: 683px;
+      button,
+      a {
+        width: 304px;
+      }
     }
   }
 }
 
 @include deskmax {
-  .promocodeEdit .btnWrapper {
-    width: 778px;
+  .promocodeEdit {
+    width: 993px;
+
+    .btnWrapper {
+      width: 778px;
+    }
   }
 }

@@ -3,7 +3,7 @@ import { InputDate } from '@components/form-components/InputDate/InputDate';
 import cl from './index.module.scss';
 import ValidationErrorMessage from '@components/admin/ValidationErrorMessage/ValidationErrorMessage';
 
-const PromocodeForm = ({ register, errors }) => {
+const PromocodeForm = ({ register, errors, control }) => {
   return (
     <>
       <div className={cl.wrapperInput}>
@@ -17,21 +17,17 @@ const PromocodeForm = ({ register, errors }) => {
         />
         <InputDate
           placeholder="10.06.2024"
-          variant="admin"
-          type="date"
           labelText="Початок дії:"
           name="started_at"
-          register={register}
           errors={errors}
+          control={control}
         />
         <InputDate
           placeholder="10.06.2024"
-          variant="admin"
-          type="date"
           labelText="Кінець дії:"
           name="expires_at"
-          register={register}
           errors={errors}
+          control={control}
         />
         <Input
           placeholder="example"

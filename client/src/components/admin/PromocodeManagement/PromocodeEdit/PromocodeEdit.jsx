@@ -24,6 +24,7 @@ const PromocodeEdit = () => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
     setValue,
   } = useForm({
@@ -70,7 +71,7 @@ const PromocodeEdit = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeEdit}>
-        <PromocodeForm register={register} errors={errors} />
+        <PromocodeForm control={control} register={register} errors={errors} />
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
           <LoadingButton
