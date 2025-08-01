@@ -1,8 +1,8 @@
 import ValidationErrorMessage from '@components/admin/ValidationErrorMessage/ValidationErrorMessage';
-import { Input } from '@components/form-components';
+import { Input, PhoneNumberInput } from '@components/form-components';
 import cl from './index.module.scss';
 
-const ContactsForm = ({ register, errors }) => {
+const ContactsForm = ({ register, errors, setValue }) => {
   return (
     <>
       <div className={cl.socialNetworks}>
@@ -34,21 +34,21 @@ const ContactsForm = ({ register, errors }) => {
       </div>
       <div className={cl.phoneNumbers}>
         <h2>Номери телефону</h2>
-        <Input
-          labelText="Основний номер:"
+        <PhoneNumberInput
+          setValue={setValue}
+          register="main_phone_number"
           name="main_phone_number"
-          register={register}
-          errors={errors}
-          variant="admin"
+          labelText="Основний номер*:"
           placeholder="example"
+          errors={errors}
         />
-        <Input
-          labelText="Додатковий номер:"
+        <PhoneNumberInput
+          setValue={setValue}
+          register="secondary_phone_number"
           name="secondary_phone_number"
-          register={register}
-          errors={errors}
-          variant="admin"
+          labelText="Додатковий номер:"
           placeholder="example"
+          errors={errors}
         />
       </div>
       <div className={cl.workSchedule}>
@@ -87,9 +87,12 @@ const ContactsForm = ({ register, errors }) => {
         placeholder="example"
       />
       {Object.keys(errors).length > 0 && (
-        <ValidationErrorMessage>
-          Неможливо створити/відредагувати контакти — перевірте правильність введення даних.
-        </ValidationErrorMessage>
+        <div className={cl.errors}>
+          {Object.entries(errors).map(
+            ([fieldName, error]) =>
+              error.message && <ValidationErrorMessage key={fieldName}>{error.message}</ValidationErrorMessage>
+          )}
+        </div>
       )}
     </>
   );

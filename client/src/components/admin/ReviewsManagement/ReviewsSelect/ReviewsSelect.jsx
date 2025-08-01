@@ -1,11 +1,18 @@
 import cl from './index.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReviewSelectOptions from './ReviewSelectOptions/ReviewSelectOptions';
 import Arrow from '@assets/svg/Admin/Arrow/Arrow';
+import { useSelector } from 'react-redux';
+import { isFetchedAllReviews } from '@redux/selectors';
 
 const ReviewsSelect = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedValue, setSelectedValue] = useState('Всі');
+  const isAllReviews = useSelector(isFetchedAllReviews);
+
+  useEffect(() => {
+    isAllReviews && setSelectedValue('Всі');
+  }, [isAllReviews]);
 
   const toggleExpand = () => setIsExpanded(!isExpanded);
 

@@ -1,5 +1,75 @@
 @import '@mixins';
 
+.phoneNumbers {
+  p {
+    display: none;
+  }
+
+  label {
+    @include flexGap(16px, column);
+    align-items: start;
+
+    h4 {
+      font-family: Mulish;
+      font-weight: 400;
+      font-size: 18px;
+      color: black;
+
+      line-height: 136%;
+    }
+
+    input {
+      width: 280px;
+      height: 46px;
+      box-sizing: border-box;
+      border-radius: 6px;
+      padding: 12px 24px;
+      border: 1px solid #a2a2a2;
+      color: #676767;
+      align-items: start;
+      font-size: 16px;
+
+      &::placeholder {
+        font-family: Mulish;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 136%;
+        color: #a2a2a2;
+      }
+
+      &:hover {
+        border-color: #676767;
+      }
+
+      &.error {
+        border-color: #e31a1a;
+        color: #e31a1a;
+      }
+
+      &:disabled {
+        background: -webkit-repeating-radial-gradient();
+      }
+    }
+  }
+}
+
+.errors {
+  gap: 8px;
+  p {
+    margin-top: 0;
+  }
+}
+
+@include mobile {
+  .phoneNumbers {
+    label {
+      input {
+        width: 340px;
+      }
+    }
+  }
+}
+
 @include tablet {
   .socialNetworks {
     label {
@@ -11,7 +81,17 @@
 
   .phoneNumbers {
     label {
-      input[type='text'] {
+      width: 524px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      h4 {
+        font-size: 24px;
+        font-weight: 400;
+      }
+
+      input {
         width: 260px;
       }
     }
@@ -29,7 +109,8 @@
 
   .phoneNumbers {
     label {
-      input[type='text'] {
+      width: 686px;
+      input {
         width: 357px;
       }
     }
@@ -44,6 +125,11 @@
       input[type='text'] {
         width: 660px;
       }
+    }
+  }
+  .phoneNumbers {
+    label {
+      width: 779px;
     }
   }
 }

@@ -1,11 +1,18 @@
 import cl from './index.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Arrow from '@assets/svg/Admin/Arrow/Arrow';
 import PromocodeSelectOptions from './PromocodeSelectOptions/PromocodeSelectOptions';
+import { isFetchedAllPromocodes } from '@redux/admin/selectors';
+import { useSelector } from 'react-redux';
 
 const PromocodeSelect = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedValue, setSelectedValue] = useState('Всі');
+  const isAllPromocodes = useSelector(isFetchedAllPromocodes);
+
+  useEffect(() => {
+    isAllPromocodes && setSelectedValue('Всі');
+  }, [isAllPromocodes]);
 
   const toggleExpand = () => setIsExpanded(!isExpanded);
 

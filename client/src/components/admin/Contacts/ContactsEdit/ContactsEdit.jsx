@@ -1,10 +1,10 @@
 import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
 import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { typeSchema } from '@validations/admin/typeSchema';
 import { useForm } from 'react-hook-form';
 import cl from './index.module.scss';
 import ContactsForm from '../ContactsForm/ContactsForm';
+import { contactSchema } from '@validations/admin/contactSchema';
 
 // const formValues = [
 //   'telegram',
@@ -21,11 +21,12 @@ import ContactsForm from '../ContactsForm/ContactsForm';
 const ContactsEdit = () => {
   const {
     register,
-    // handleSubmit,
+    handleSubmit,
     formState: { errors },
-    // setValue,
+    setValue,
+    // getValues,
   } = useForm({
-    resolver: yupResolver(typeSchema),
+    resolver: yupResolver(contactSchema),
     mode: 'onSubmit',
   });
 
@@ -53,12 +54,12 @@ const ContactsEdit = () => {
   // }, [responseGet, setValue]);
 
   // const onSubmit = (formData) => dispatch(editType({ formData, id }));
+  const onSubmit = (formData) => console.log('Form submitted with data:', formData);
 
   return (
     <>
-      {/* <form onSubmit={handleSubmit(onSubmit)} className={cl.typeEdit}> */}
-      <form className={cl.contactsEdit}>
-        <ContactsForm register={register} errors={errors} />
+      <form onSubmit={handleSubmit(onSubmit)} className={cl.contactsEdit}>
+        <ContactsForm register={register} errors={errors} setValue={setValue} />
         {/* <LoadingButton
           // isLoading={isLoadingEdit}
           loadingText="Редагування категорії за типом..."

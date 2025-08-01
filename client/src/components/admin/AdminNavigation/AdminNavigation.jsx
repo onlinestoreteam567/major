@@ -3,11 +3,19 @@ import useScreenSizes from '@hooks/useScreenSizes';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import cl from './index.module.scss';
+import { useDispatch } from 'react-redux';
+
+import { filterProductsByName } from '@redux/products/listSlice';
+import { clearSearch } from '@redux/admin/search/adminProductSearchSlice/adminProductSearchSlice';
+import { clearSearch as clearSearchReviews } from '@redux/admin/search/adminReviewsSearchSlice/adminReviewsSearchSlice';
+import { reviewsGetAll } from '@redux/reviews/service';
+import { fetchPromocode } from '@redux/admin/promocode/service';
 
 const AdminNavigation = () => {
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const [isShowBurgerButton, setIsShowBurgerButton] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const dispatch = useDispatch();
 
   const isDisplayNavigation = !(tablet || deskmin || deskmax || isShowBurgerButton);
   const isMobileOverlay = !(tablet || deskmin || deskmax);
@@ -22,7 +30,15 @@ const AdminNavigation = () => {
     }
   };
   const handleClose = () => setIsShowBurgerButton(false);
-
+  const productsClearSearch = () => {
+    dispatch(clearSearch());
+    dispatch(filterProductsByName(''));
+  };
+  const reviewsClearSearch = () => {
+    dispatch(clearSearchReviews());
+    dispatch(reviewsGetAll());
+  };
+  const promocodeClearFilter = () => dispatch(fetchPromocode());
   return isDisplayNavigation ? (
     <div className={`${cl.burgerButtonWrapper} ${isExpanded ? cl.expanded : ''}`}>
       <button onClick={() => setIsShowBurgerButton(!isShowBurgerButton)}>
@@ -40,7 +56,11 @@ const AdminNavigation = () => {
           </NavLink>
 
           <div>
-            <NavLink to={`/admin/products`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
+            <NavLink
+              to={`/admin/products`}
+              className={({ isActive }) => (isActive ? cl.active : undefined)}
+              onClick={productsClearSearch}
+            >
               <img src="/images/admin/navigation/Goods icon.png" alt="Goods icon" />
               <span>Товари</span>
             </NavLink>
@@ -48,7 +68,11 @@ const AdminNavigation = () => {
               <img src="/images/admin/navigation/Catalog icons.png" alt="Catalog icon" />
               <span>Категорії</span>
             </NavLink>
-            <NavLink to={`/admin/promocodes`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
+            <NavLink
+              to={`/admin/promocodes`}
+              onClick={promocodeClearFilter}
+              className={({ isActive }) => (isActive ? cl.active : undefined)}
+            >
               <img src="/images/admin/navigation/Promo icons.png" alt="Promocodes icon" />
               <span>Промокоди</span>
             </NavLink>
@@ -56,15 +80,15 @@ const AdminNavigation = () => {
               <img src="/images/admin/navigation/Map.png" alt="Partners icon" />
               <span>Мапа</span>
             </NavLink>
-            <button>
-              <img src="/images/admin/navigation/Articles icon.png" alt="Articles icon" />
-              <span>Статті</span>
-            </button>
             <NavLink to={`/admin/banners`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
               <img src="/images/admin/navigation/Banners icons.png" alt="Banners icon" />
               <span>Банери</span>
             </NavLink>
-            <NavLink to={`/admin/reviews`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
+            <NavLink
+              to={`/admin/reviews`}
+              className={({ isActive }) => (isActive ? cl.active : undefined)}
+              onClick={reviewsClearSearch}
+            >
               <img src="/images/admin/navigation/Rewievs icons.png" alt="Reviews icon" />
               <span>Відгуки</span>
             </NavLink>

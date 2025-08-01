@@ -44,6 +44,8 @@ import { uploadImageReducer } from '@redux/blogs/uploadImageSlice';
 import { partnerByIdReducer } from '@redux/partners/partnerByIdSlice';
 import { partnerEditReducer } from '@redux/partners/partnerEditSlice';
 import { addReviewReducer } from '@redux/reviews/addReviewReducer';
+import { adminProductSearchReducer } from '@redux/admin/search/adminProductSearchSlice/adminProductSearchSlice';
+import { adminReviewsSearchReducer } from '@redux/admin/search/adminReviewsSearchSlice/adminReviewsSearchSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -102,6 +104,8 @@ const rootReducer = combineReducers({
   promocodeDelete: promocodeDeleteReducer,
   reviews: reviewReducer,
   addReview: addReviewReducer,
+  adminProductSearch: adminProductSearchReducer,
+  adminReviewsSearch: adminReviewsSearchReducer,
 });
 
 export const store = configureStore({
