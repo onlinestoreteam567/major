@@ -17,8 +17,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import PromocodeForm from '../PromocodeForm/PromocodeForm';
 import cl from './index.module.scss';
 import { useNavigate } from 'react-router-dom';
-import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
-import useTimedMessage from '@hooks/admin/useTimedMessage';
+import { setAdminMessage } from '@redux/admin/adminMessageSlice';
+import { clearPromocodeEditState } from '@redux/admin/promocode/promocodeEditSlice';
 
 const PromocodeEdit = () => {
   const {
@@ -35,10 +35,6 @@ const PromocodeEdit = () => {
   const id = useIdFromUrl();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const [successEditMessage, showSuccessEditMessage] = useTimedMessage(1500, () => {
-    navigate('/admin/promocodes');
-  });
 
   useEffect(() => {
     if (id) {
@@ -64,7 +60,13 @@ const PromocodeEdit = () => {
 
   useEffect(() => {
     if (responseEdit) {
-      showSuccessEditMessage('Промокод успішно змінено!');
+      dispatch(
+        setAdminMessage({
+          message: 'Промокод успішно змінено',
+          onClear: () => dispatch(clearPromocodeEditState()),
+        })
+      );
+      navigate('/admin/promocodes');
     }
   }, [responseEdit]);
 
@@ -75,6 +77,7 @@ const PromocodeEdit = () => {
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
           <LoadingButton
+            disabled={Object.keys(errors).length > 0}
             isLoading={isLoadingEdit}
             loadingText="Редагування промокоду…"
             shortText="Редагувати промокод"
@@ -83,7 +86,6 @@ const PromocodeEdit = () => {
         </div>
         {errorEdit && <ErrorText error={errorEdit} />}
       </form>
-      {successEditMessage && <AdminMessage>{successEditMessage}</AdminMessage>}
     </>
   );
 };

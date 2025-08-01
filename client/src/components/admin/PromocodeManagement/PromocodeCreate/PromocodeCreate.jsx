@@ -12,8 +12,7 @@ import cl from './index.module.scss';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { clearPromocodeCreateState } from '@redux/admin/promocode/promocodeCreateSlice';
-import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
-import useTimedMessage from '@hooks/admin/useTimedMessage';
+import { setAdminMessage } from '@redux/admin/adminMessageSlice';
 
 const PromocodeCreate = () => {
   const {
@@ -32,16 +31,17 @@ const PromocodeCreate = () => {
   const errorPost = useSelector(errorPromocodeCreate);
   const navigate = useNavigate();
 
-  const [successCreateMessage, showSuccessCreateMessage] = useTimedMessage(1500, () => {
-    dispatch(clearPromocodeCreateState());
-    navigate('/admin/promocodes');
-  });
-
   const onSubmit = (values) => dispatch(createPromocode(values));
 
   useEffect(() => {
     if (response) {
-      showSuccessCreateMessage('Промокод успішно створено!');
+      dispatch(
+        setAdminMessage({
+          message: 'Промокод успішно створено',
+          onClear: () => dispatch(clearPromocodeCreateState()),
+        })
+      );
+      navigate('/admin/promocodes');
     }
   }, [response]);
 
@@ -52,6 +52,7 @@ const PromocodeCreate = () => {
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
           <LoadingButton
+            disabled={Object.keys(errors).length > 0}
             isLoading={isLoading}
             loadingText="Створення промокоду…"
             shortText="Створити промокод"
@@ -60,7 +61,6 @@ const PromocodeCreate = () => {
         </div>
         {errorPost && <ErrorText error={errorPost} />}
       </form>
-      {successCreateMessage && <AdminMessage>{successCreateMessage}</AdminMessage>}
     </>
   );
 };

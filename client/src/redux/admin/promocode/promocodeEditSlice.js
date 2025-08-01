@@ -20,6 +20,12 @@ const promocodeEdit = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearPromocodeEditState: (state) => {
+      state.response = null;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(editPromocode.pending, handlePending)
@@ -30,5 +36,7 @@ const promocodeEdit = createSlice({
       })
       .addCase(editPromocode.rejected, handleRejected),
 });
+
+export const { clearPromocodeEditState } = promocodeEdit.actions;
 
 export const promocodeEditReducer = promocodeEdit.reducer;

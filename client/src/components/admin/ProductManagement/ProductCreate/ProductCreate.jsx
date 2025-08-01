@@ -48,9 +48,13 @@ const ProductCreate = () => {
 
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/products" />
-          <LoadingButton isLoading={isLoading} shortText="Створити" longText="Створити товар" />
+          <LoadingButton
+            disabled={Object.keys(errors).length > 0}
+            isLoading={isLoading}
+            shortText="Створити"
+            longText="Створити товар"
+          />
         </div>
-
         {errorPost && <ErrorText error={errorPost} />}
       </form>
     </>
