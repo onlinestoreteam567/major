@@ -70,6 +70,33 @@ const ContactsForm = ({ register, errors, setValue }) => {
           placeholder="example"
         />
       </div>
+      <div className={cl.documentsLinks}>
+        <h2>Посилання на документи</h2>
+        <Input
+          labelText="Договір оферти:"
+          name="offer_agreement"
+          register={register}
+          errors={errors}
+          variant="admin"
+          placeholder="link"
+        />
+        <Input
+          labelText="Обмін та повернення:"
+          name="exchange_and_return"
+          register={register}
+          errors={errors}
+          variant="admin"
+          placeholder="link"
+        />
+        <Input
+          labelText="Оплата та доставка:"
+          name="payment_and_delivery"
+          register={register}
+          errors={errors}
+          variant="admin"
+          placeholder="link"
+        />
+      </div>
       <Input
         labelText="Рік сайту:"
         name="copyright"
@@ -78,14 +105,7 @@ const ContactsForm = ({ register, errors, setValue }) => {
         variant="admin"
         placeholder="example"
       />
-      <Input
-        labelText="Політика конфіденційності:"
-        name="privacy_policy_url"
-        register={register}
-        errors={errors}
-        variant="admin"
-        placeholder="example"
-      />
+
       {Object.keys(errors).length > 0 && (
         <div className={cl.errors}>
           {Object.entries(errors).map(

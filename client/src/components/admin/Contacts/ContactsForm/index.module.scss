@@ -96,6 +96,18 @@
       }
     }
   }
+
+  .documentsLinks {
+    label {
+      flex-direction: column;
+      align-items: start;
+      gap: 24px;
+
+      input[type='text'] {
+        width: 100%;
+      }
+    }
+  }
 }
 
 @include deskmin {
@@ -115,6 +127,17 @@
       }
     }
   }
+
+  .documentsLinks {
+    label {
+      flex-direction: row;
+      align-items: center;
+
+      input[type='text'] {
+        width: 357px;
+      }
+    }
+  }
 }
 
 @include deskmax {
@@ -130,6 +153,15 @@
   .phoneNumbers {
     label {
       width: 779px;
+    }
+  }
+
+  .documentsLinks {
+    label {
+      width: 100%;
+      input[type='text'] {
+        width: 660px;
+      }
     }
   }
 }
