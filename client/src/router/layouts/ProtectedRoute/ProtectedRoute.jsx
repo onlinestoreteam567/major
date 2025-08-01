@@ -11,6 +11,7 @@ import { fetchPartners } from '@redux/partners/service';
 import AdminNavigation from '../../../components/admin/AdminNavigation/AdminNavigation';
 import cl from './index.module.scss';
 import { fetchPromocode } from '@redux/admin/promocode/service';
+import AdminGlobalMessage from './AdminGlobalMessage';
 
 const ProtectedRoute = () => {
   const auth = useSelector(selectAccessToken);
@@ -34,6 +35,7 @@ const ProtectedRoute = () => {
     <div className={cl.adminLayout}>
       <AdminNavigation />
       <Outlet />
+      <AdminGlobalMessage />
     </div>
   ) : (
     <Navigate to="/admin/login" replace />
