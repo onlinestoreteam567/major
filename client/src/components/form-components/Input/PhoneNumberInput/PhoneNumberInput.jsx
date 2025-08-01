@@ -55,7 +55,7 @@ export const PhoneNumberInput = forwardRef(({ name, labelText, setValue, variant
             handleKeyDown(e);
           }}
           onMouseDown={(e) => handleInputCursorPosition(e, isFocused, inputRef)}
-          className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]}`}
+          className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]} ${errors && errors[name] ? cl.error : ''}`}
         />
       </label>
       {errors && errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
