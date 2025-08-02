@@ -1,3 +1,24 @@
+@import '@mixins';
+
 .partnersManagement {
-  color: black;
+  width: 280px;
+  margin-inline: auto;
+  margin-top: 45px;
+
+  @include mobile {
+    width: 340px;
+  }
+
+  @include tablet {
+    width: 524px;
+    margin: 36px 36px 0 208px;
+  }
+
+  @include deskmin {
+    width: 686px;
+    margin: 36px auto;
+  }
+
+  @include deskmax {
+  }
 }

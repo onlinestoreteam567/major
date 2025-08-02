@@ -3,8 +3,4 @@
 .partnersList {
   @include flexGap(20px, column);
   color: black;
-
-  li {
-    @include flexGap(20px);
-  }
 }
