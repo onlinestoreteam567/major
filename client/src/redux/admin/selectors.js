@@ -2,6 +2,8 @@ export const loadAuth = (state) => state.auth.isLoading;
 export const selectAccessToken = (state) => state.auth.accessToken;
 export const errorAuth = (state) => state.auth.error;
 
+export const adminMessage = (state) => state.adminMessage.message;
+
 export const loadCreateProduct = (state) => state.createProduct.isLoading;
 export const responseCreateProduct = (state) => state.createProduct.response;
 export const errorCreateProduct = (state) => state.createProduct.error;

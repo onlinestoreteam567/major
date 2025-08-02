@@ -23,6 +23,27 @@
     background-color: #e31a1a33;
   }
 
+  .reviewProductInfo {
+    @include flexGap(16px, column);
+
+    p {
+      @include flexGap(8px);
+      font-family: Mulish;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 136%;
+
+      span {
+        font-family: Mulish;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 160%;
+      }
+    }
+  }
+
+  // TODO .reviewProductInfo - додав для нього стилі і відображення (для враперу), потірбно стилізувати пешки і всьо +, обмежити їх ширину, якщо ім'я наприклад дуже довге ;)
+
   & > p:nth-of-type(2) {
     font-family: Mulish;
     font-weight: 400;
@@ -75,6 +96,13 @@
       line-height: 160%;
     }
 
+    .reviewProductInfo {
+      p {
+        font-weight: 700;
+        font-size: 24px;
+      }
+    }
+
     .reviewDetail {
       font-weight: 700;
       font-size: 24px;
@@ -93,6 +121,11 @@
   }
 
   @include tablet {
+    .reviewProductInfo {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
     .approveButtonsWrap {
       justify-content: end;
       gap: 32px;
@@ -102,6 +135,10 @@
   @include deskmin {
     display: flex;
     flex-wrap: wrap;
+
+    .reviewProductInfo {
+      width: 522px;
+    }
 
     & > p:nth-of-type(2) {
       width: 100%;
@@ -122,6 +159,12 @@
 
     & > button:last-of-type {
       margin-top: -40px;
+    }
+  }
+
+  @include deskmax {
+    .reviewProductInfo {
+      width: 532px;
     }
   }
 }

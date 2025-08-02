@@ -10,9 +10,9 @@ import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
 import { useProductForm } from './helpers/useProductForm';
 import { useEffect } from 'react';
-import useTimedMessage from '@hooks/admin/useTimedMessage';
-import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
 import { clearCreateProductState } from '@redux/admin/product/createProductSlice';
+import { useNavigate } from 'react-router-dom';
+import { setAdminMessage } from '@redux/admin/adminMessageSlice';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -20,9 +20,7 @@ const ProductCreate = () => {
   const response = useSelector(responseCreateProduct);
   const errorPost = useSelector(errorCreateProduct);
   const { register, handleSubmit, errors, control, resetImagesTrigger } = useProductForm(response);
-  const [successCreateMessage, showSuccessCreateMessage] = useTimedMessage(3000, () =>
-    dispatch(clearCreateProductState())
-  );
+  const navigate = useNavigate();
 
   const onSubmit = (values) => {
     let formData = new FormData();
@@ -32,7 +30,15 @@ const ProductCreate = () => {
   };
 
   useEffect(() => {
-    if (response) showSuccessCreateMessage('Товар успішно створено');
+    if (response) {
+      dispatch(
+        setAdminMessage({
+          message: 'Товар успішно створено',
+          onClear: () => dispatch(clearCreateProductState()),
+        })
+      );
+      navigate('/admin/products');
+    }
   }, [response]);
 
   return (
@@ -42,12 +48,15 @@ const ProductCreate = () => {
 
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/products" />
-          <LoadingButton isLoading={isLoading} shortText="Створити" longText="Створити товар" />
+          <LoadingButton
+            disabled={Object.keys(errors).length > 0}
+            isLoading={isLoading}
+            shortText="Створити"
+            longText="Створити товар"
+          />
         </div>
-
         {errorPost && <ErrorText error={errorPost} />}
       </form>
-      {successCreateMessage && <AdminMessage>{successCreateMessage}</AdminMessage>}
     </>
   );
 };

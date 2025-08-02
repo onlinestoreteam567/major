@@ -10,19 +10,27 @@ import ProductForm from '../ProductForm/ProductForm';
 import { useEditProductForm } from './helpers/useEditProductForm';
 import { useFetchProductData } from './helpers/useFetchProductData';
 import cl from './index.module.scss';
-import useTimedMessage from '@hooks/admin/useTimedMessage';
 import { useEffect } from 'react';
-import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
+import { setAdminMessage } from '@redux/admin/adminMessageSlice';
+import { useNavigate } from 'react-router-dom';
 import { clearEditProductState } from '@redux/admin/product/editProductSlice';
 
 const ProductEdit = () => {
   const dispatch = useDispatch();
   const { isLoadingGet, responseGet, id, isLoadingEdit, responseEdit, errorEdit } = useFetchProductData();
   const { register, handleSubmit, errors, control, getValues, setValue } = useEditProductForm(responseGet);
-  const [successEditMessage, showSuccessEditMessage] = useTimedMessage(3000, () => dispatch(clearEditProductState()));
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (responseEdit) showSuccessEditMessage('Товар успішно відредаговано');
+    if (responseEdit) {
+      dispatch(
+        setAdminMessage({
+          message: 'Товар успішно відрегадовано',
+          onClear: () => dispatch(clearEditProductState()),
+        })
+      );
+      navigate('/admin/products');
+    }
   }, [responseEdit]);
 
   const onSubmit = (values) => {
@@ -50,11 +58,15 @@ const ProductEdit = () => {
           {errorEdit && <ErrorText error={errorEdit} />}
           <div className={cl.btnWrapper}>
             <ReturnButton to="/admin/products" />
-            <LoadingButton isLoading={isLoadingEdit} shortText="Зберегти" longText="Зберегти зміни" />
+            <LoadingButton
+              disabled={Object.keys(errors).length > 0}
+              isLoading={isLoadingEdit}
+              shortText="Зберегти"
+              longText="Зберегти зміни"
+            />
           </div>
         </form>
       )}
-      {successEditMessage && <AdminMessage>{successEditMessage}</AdminMessage>}
     </>
   );
 };

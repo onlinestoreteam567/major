@@ -16,9 +16,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import PurposeForm from '../PurposeForm';
 import cl from './index.module.scss';
 import { useEffect } from 'react';
-import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
-import useTimedMessage from '@hooks/admin/useTimedMessage';
 import { clearCreatePurposeState } from '@redux/admin/purpose/createPurposeCategorySlice';
+import { setAdminMessage } from '@redux/admin/adminMessageSlice';
+import { useNavigate } from 'react-router-dom';
 
 const PurposeCreate = () => {
   const {
@@ -31,16 +31,22 @@ const PurposeCreate = () => {
     mode: 'onSubmit',
   });
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoading = useSelector(loadCreatePurposeCategory);
   const response = useSelector(responseCreatePurposeCategory);
   const errorPost = useSelector(errorCreatePurposeCategory);
-  const [successCreateMessage, showSuccessCreateMessage] = useTimedMessage(3000, () =>
-    dispatch(clearCreatePurposeState())
-  );
 
   useEffect(() => {
-    if (response) showSuccessCreateMessage('Категорія успішно створена');
+    if (response) {
+      dispatch(
+        setAdminMessage({
+          message: 'Категорія успішно створена',
+          onClear: () => dispatch(clearCreatePurposeState()),
+        })
+      );
+      navigate('/admin/categories');
+    }
   }, [response]);
 
   const onSubmit = (values) => {
@@ -56,11 +62,15 @@ const PurposeCreate = () => {
         <PurposeForm register={register} errors={errors} control={control} />
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/categories" />
-          <LoadingButton isLoading={isLoading} shortText="Створити" longText="Створити категорію" />
+          <LoadingButton
+            disabled={Object.keys(errors).length > 0}
+            isLoading={isLoading}
+            shortText="Створити"
+            longText="Створити категорію"
+          />
         </div>
         {errorPost && <ErrorText error={errorPost}></ErrorText>}
       </form>
-      {successCreateMessage && <AdminMessage>{successCreateMessage}</AdminMessage>}
     </>
   );
 };

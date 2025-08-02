@@ -27,21 +27,25 @@ const List = () => {
         <Spinner />
       ) : (
         <>
-          <div className={cl.productList}>
-            <div>
-              <p>В наяв.</p>
-              <p>Фото</p>
-              <p>Назва</p>
-              <p>Артикул</p>
-              <p>Ціна</p>
-            </div>
+          {items.length > 0 ? (
+            <div className={cl.productList}>
+              <div>
+                <p>В наяв.</p>
+                <p>Фото</p>
+                <p>Назва</p>
+                <p>Артикул</p>
+                <p>Ціна</p>
+              </div>
 
-            <ul>
-              {items.map((card) => (
-                <Card card={card} key={card.id} showDeletedMessage={showDeletedMessage} />
-              ))}
-            </ul>
-          </div>
+              <ul>
+                {items.map((card) => (
+                  <Card card={card} key={card.id} showDeletedMessage={showDeletedMessage} />
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <p className={cl.notFoundMessage}>За вашими критеріями пошуку нічого не знайдено. Спробуйте ще раз.</p>
+          )}
           {deletedMessage && <AdminMessage>{deletedMessage}</AdminMessage>}
         </>
       )}

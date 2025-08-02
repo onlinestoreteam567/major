@@ -68,7 +68,8 @@ const ContactsEdit = () => {
         {/* {errorEdit && <ErrorText error={errorEdit} />} */}
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/products" />
-          <LoadingButton shortText="Зберегти" longText="Зберегти зміни" />
+
+          <LoadingButton disabled={Object.keys(errors).length > 0} shortText="Зберегти" longText="Зберегти зміни" />
         </div>
       </form>
       {/* {successEditMessage && <AdminMessage>{successEditMessage}</AdminMessage>} */}

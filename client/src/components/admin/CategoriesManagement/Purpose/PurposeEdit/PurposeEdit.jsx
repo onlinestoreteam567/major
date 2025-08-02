@@ -22,9 +22,9 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import PurposeForm from '../PurposeForm';
 import cl from './index.module.scss';
-import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
-import useTimedMessage from '@hooks/admin/useTimedMessage';
 import { clearEditPurposeState } from '@redux/admin/purpose/purposeEditSlice';
+import { setAdminMessage } from '@redux/admin/adminMessageSlice';
+import { useNavigate } from 'react-router-dom';
 
 const formValues = ['category_name_uk', 'category_name_en', 'image'];
 
@@ -41,16 +41,24 @@ const PurposeEdit = () => {
   });
 
   const id = useIdFromUrl();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const errorEdit = useSelector(errorPurposeEdit);
   const isLoadingEdit = useSelector(loadPurposeEdit);
   const responseEdit = useSelector(responsePurposeEdit);
   const isLoadingGet = useSelector(loadPurposeById);
   const responseGet = useSelector(responsePurposeById);
-  const [successEditMessage, showSuccessEditMessage] = useTimedMessage(3000, () => dispatch(clearEditPurposeState()));
 
   useEffect(() => {
-    if (responseEdit) showSuccessEditMessage('Категорія успішно відредагована');
+    if (responseEdit) {
+      dispatch(
+        setAdminMessage({
+          message: 'Категорія успішно відредагована',
+          onClear: () => dispatch(clearEditPurposeState()),
+        })
+      );
+      navigate('/admin/categories');
+    }
   }, [responseEdit]);
 
   useEffect(() => {
@@ -77,12 +85,16 @@ const PurposeEdit = () => {
         <PurposeForm register={register} errors={errors} control={control} />
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/categories" />
-          <LoadingButton isLoading={isLoadingEdit} shortText="Зберегти" longText="Зберегти категорію" />
+          <LoadingButton
+            disabled={Object.keys(errors).length > 0}
+            isLoading={isLoadingEdit}
+            shortText="Зберегти"
+            longText="Зберегти категорію"
+          />
         </div>
         {errorEdit && <ErrorText error={errorEdit}></ErrorText>}
         {responseEdit && <SuccessMessage>Категорія за призначенням успішно відредагована</SuccessMessage>}
       </form>
-      {successEditMessage && <AdminMessage>{successEditMessage}</AdminMessage>}
     </>
   );
 };

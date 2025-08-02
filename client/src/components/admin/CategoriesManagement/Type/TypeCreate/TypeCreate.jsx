@@ -9,10 +9,10 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import TypeForm from '../TypeForm';
 import cl from './index.module.scss';
-import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
-import useTimedMessage from '@hooks/admin/useTimedMessage';
 import { useEffect } from 'react';
 import { clearCreateTypeState } from '@redux/admin/type/createTypeCategorySlice';
+import { setAdminMessage } from '@redux/admin/adminMessageSlice';
+import { useNavigate } from 'react-router-dom';
 
 const TypeCreate = () => {
   const {
@@ -24,18 +24,24 @@ const TypeCreate = () => {
     mode: 'onSubmit',
   });
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoading = useSelector(loadCreateTypeCategory);
   const response = useSelector(responseCreateTypeCategory);
   const errorPost = useSelector(errorCreateTypeCategory);
-  const [successCreateMessage, showSuccessCreateMessage] = useTimedMessage(3000, () =>
-    dispatch(clearCreateTypeState())
-  );
 
   const onSubmit = (values) => dispatch(createTypeCategory(values));
 
   useEffect(() => {
-    if (response) showSuccessCreateMessage('Категорія успішно створена');
+    if (response) {
+      dispatch(
+        setAdminMessage({
+          message: 'Категорія успішно створена',
+          onClear: () => dispatch(clearCreateTypeState()),
+        })
+      );
+      navigate('/admin/categories');
+    }
   }, [response]);
 
   return (
@@ -44,11 +50,15 @@ const TypeCreate = () => {
         <TypeForm register={register} errors={errors} />
         <div className={cl.btnWrapper}>
           <ReturnButton to="/admin/categories" />
-          <LoadingButton isLoading={isLoading} shortText="Створити" longText="Створити категорію" />
+          <LoadingButton
+            disabled={Object.keys(errors).length > 0}
+            isLoading={isLoading}
+            shortText="Створити"
+            longText="Створити категорію"
+          />
         </div>
         {errorPost && <ErrorText error={errorPost} />}
       </form>
-      {successCreateMessage && <AdminMessage>{successCreateMessage}</AdminMessage>}
     </>
   );
 };
