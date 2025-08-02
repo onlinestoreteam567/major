@@ -1,0 +1,56 @@
+@import '@mixins';
+
+.mainMapContainer {
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  touch-action: none;
+  width: 296px;
+  height: 200px;
+
+  & > img {
+    width: 296px;
+    display: block;
+  }
+
+  button {
+    position: absolute;
+    transform: translate(-50% -50%);
+  }
+
+  @include mobile {
+    height: 242px;
+    width: 356px;
+
+    & > img {
+      width: 356px;
+    }
+  }
+
+  @include tablet {
+    width: 640px;
+    height: 435px;
+
+    & > img {
+      width: 640px;
+    }
+  }
+
+  @include deskmin {
+    width: 980px;
+    height: 665px;
+
+    & > img {
+      width: 980px;
+    }
+  }
+
+  @include deskmax {
+    width: 1296px;
+    height: 880px;
+
+    @include deskmax {
+      width: 1296px;
+    }
+  }
+}

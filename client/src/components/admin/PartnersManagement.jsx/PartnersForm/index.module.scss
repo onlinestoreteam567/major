@@ -1,0 +1,69 @@
+@import '@mixins';
+
+.partnerForm {
+  @include flexGap(32px, column);
+
+  h2,
+  & > label {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 136%;
+  }
+
+  .coordinates {
+    @include flexGap(8px, column);
+
+    label:first-of-type {
+      margin-top: 8px;
+    }
+
+    label {
+      @include flex(row, space-between);
+
+      input {
+        text-align: center;
+        width: 100px;
+        height: 46px;
+      }
+    }
+  }
+
+  & > label {
+    @include flexGap(16px, column);
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .partnersData,
+  .workSchedule {
+    @include flexGap(16px, column);
+
+    label:first-of-type {
+      margin-top: 8px;
+    }
+  }
+
+  .partnersData {
+    label {
+      @include flexGap(16px, column);
+    }
+  }
+
+  .workSchedule {
+    label {
+      align-items: center;
+      input {
+        width: 178px;
+      }
+    }
+  }
+
+  @include tablet {
+    h2 {
+      font-size: 32px;
+    }
+  }
+}

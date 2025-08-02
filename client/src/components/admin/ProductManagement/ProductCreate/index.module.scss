@@ -25,7 +25,6 @@
 .btnWrapper {
   @include flex(row, space-between, center);
   width: 100%;
-  margin-top: 16px;
 
   @include deskmin {
     order: 8;

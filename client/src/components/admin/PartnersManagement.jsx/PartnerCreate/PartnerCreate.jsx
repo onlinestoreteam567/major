@@ -1,6 +1,5 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPartner } from '@redux/partners/service';
@@ -10,6 +9,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import PartnersForm from '../PartnersForm/PartnersForm';
 import cl from './index.module.scss';
+import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 
 const PartnerCreate = () => {
   const dispatch = useDispatch();
@@ -18,9 +18,15 @@ const PartnerCreate = () => {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
+    watch,
   } = useForm({
     resolver: yupResolver(partnerSchema),
     mode: 'onSubmit',
+    defaultValues: {
+      longitude: '',
+      latitude: '',
+    },
   });
 
   const isLoading = useSelector(loadPartnerCreate);
@@ -31,12 +37,20 @@ const PartnerCreate = () => {
 
   return (
     <>
-      <ReturnButton to="/admin/partners" />
       <form onSubmit={handleSubmit(onSubmit)} className={cl.partnerCreate}>
-        <PartnersForm register={register} errors={errors} />
-        <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити партнера" />
+        <PartnersForm watch={watch} register={register} errors={errors} getValues={getValues} />
+
         {errorPost && <ErrorText error={errorPost}></ErrorText>}
         {response && <SuccessMessage>Партнера успішно створено!</SuccessMessage>}
+        <div className={cl.btnWrapper}>
+          <ReturnButton to="/admin/partners" />
+          <LoadingButton
+            disabled={Object.keys(errors).length > 0}
+            isLoading={isLoading}
+            shortText="Створити"
+            longText="Створити партнера"
+          />
+        </div>
       </form>
     </>
   );
