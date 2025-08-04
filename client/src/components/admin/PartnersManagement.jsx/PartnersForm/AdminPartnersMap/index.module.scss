@@ -47,10 +47,8 @@
 
   @include deskmax {
     width: 1296px;
-    height: 880px;
+    height: fit-content;
 
-    @include deskmax {
-      width: 1296px;
-    }
+    order: 3;
   }
 }
