@@ -91,6 +91,7 @@ const PartnersForm = ({ register, errors, getValues, watch }) => {
           placeholder="example"
         />
       </div>
+      {/* TODO Add here errors */}
     </div>
   );
 };
