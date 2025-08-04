@@ -1,6 +1,7 @@
 import { Input } from '@components/form-components';
 import cl from './index.module.scss';
 import AdminPartnersMap from './AdminPartnersMap/AdminPartnersMap';
+import ValidationErrorMessage from '@components/admin/ValidationErrorMessage/ValidationErrorMessage';
 
 const PartnersForm = ({ register, errors, getValues, watch }) => {
   return (
@@ -91,7 +92,13 @@ const PartnersForm = ({ register, errors, getValues, watch }) => {
           placeholder="example"
         />
       </div>
-      {/* TODO Add here errors */}
+      {Object.keys(errors).length > 0 && (
+        <div className={cl.validationErrorMessageWrapper}>
+          <ValidationErrorMessage>
+            Неможливо створити/відредагувати партнера — перевірте правильність введення даних.
+          </ValidationErrorMessage>
+        </div>
+      )}
     </div>
   );
 };
