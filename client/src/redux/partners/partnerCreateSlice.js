@@ -20,6 +20,13 @@ const PartnerCreateSlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearPartnerCreateState: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(createPartner.pending, handlePending)
@@ -31,4 +38,5 @@ const PartnerCreateSlice = createSlice({
       .addCase(createPartner.rejected, handleRejected),
 });
 
+export const { clearPartnerCreateState } = PartnerCreateSlice.actions;
 export const partnerCreateReducer = PartnerCreateSlice.reducer;
