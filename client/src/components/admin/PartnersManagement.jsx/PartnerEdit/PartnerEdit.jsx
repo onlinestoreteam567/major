@@ -39,6 +39,8 @@ const PartnerEdit = () => {
     handleSubmit,
     formState: { errors },
     setValue,
+    getValues,
+    watch,
   } = useForm({
     resolver: yupResolver(partnerSchema),
     mode: 'onSubmit',
@@ -62,24 +64,23 @@ const PartnerEdit = () => {
 
   const onSubmit = (formData) => dispatch(editPartner({ formData, id }));
 
-  return (
-    <>
-      <ReturnButton />
-      {isLoadingGet ? (
-        <Spinner />
-      ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className={cl.partnerEdit}>
-          <PartnersForm register={register} errors={errors} />
-          <LoadingButton
-            isLoading={isLoadingEdit}
-            loadingText="Редагування партнера"
-            defaultText="Редагувати партнера"
-          />
-          {errorEdit && <ErrorText error={errorEdit} />}
-          {responseEdit && <SuccessMessage>Партнер успішно відредагований!</SuccessMessage>}
-        </form>
-      )}
-    </>
+  return isLoadingGet ? (
+    <Spinner />
+  ) : (
+    <form onSubmit={handleSubmit(onSubmit)} className={cl.partnerEdit}>
+      <PartnersForm register={register} errors={errors} getValues={getValues} watch={watch} />
+      {errorEdit && <ErrorText error={errorEdit} />}
+      {responseEdit && <SuccessMessage>Партнер успішно відредагований!</SuccessMessage>}
+      <div className={cl.btnWrapper}>
+        <ReturnButton to="/admin/partners" />
+        <LoadingButton
+          disabled={Object.keys(errors).length > 0}
+          isLoading={isLoadingEdit}
+          shortText="Зберегти"
+          longText="Зберегти зміни"
+        />
+      </div>
+    </form>
   );
 };
 export default PartnerEdit;

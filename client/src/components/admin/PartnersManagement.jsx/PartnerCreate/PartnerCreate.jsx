@@ -40,6 +40,8 @@ const PartnerCreate = () => {
       <form onSubmit={handleSubmit(onSubmit)} className={cl.partnerCreate}>
         <PartnersForm watch={watch} register={register} errors={errors} getValues={getValues} />
 
+        {/* TODO add redirect */}
+
         {errorPost && <ErrorText error={errorPost}></ErrorText>}
         {response && <SuccessMessage>Партнера успішно створено!</SuccessMessage>}
         <div className={cl.btnWrapper}>
