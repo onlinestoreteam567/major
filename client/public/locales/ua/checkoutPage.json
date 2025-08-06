@@ -55,7 +55,7 @@
   "pay": "Оплата",
 
   "required": "Обов'язкове поле для заповнення!",
-  "enterFullNumber": "Введіть номер повністю",
+  "enterFullNumber": "Введіть дійсний номер телефону",
   "maximum500Characters": "Максимальна довжина коментаря 500 символів",
   "youMustAgreeToTheProcessingOfPersonalData": "Ви повинні погодитися на обробку персональних даних"
 }

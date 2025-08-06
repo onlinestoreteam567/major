@@ -55,7 +55,7 @@
   "pay": "Pay",
 
   "required": "Required field to fill in!",
-  "enterFullNumber": "Enter the full number",
+  "enterFullNumber": "Enter a valid phone number",
   "maximum500Characters": "Maximum comment length is 500 characters",
   "youMustAgreeToTheProcessingOfPersonalData": "You must agree to the processing of personal data"
 }
