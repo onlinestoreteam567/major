@@ -2,7 +2,7 @@
 
 .imageUploadWrapper {
   margin-top: 52px;
-  @include flexGap(24px, column);
+  @include flexGap(16px, column);
 
   .cropperContainerWrapper {
     @include flex(column);

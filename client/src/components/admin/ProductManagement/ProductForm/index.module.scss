@@ -2,7 +2,7 @@
 
 .productBasicInfo {
   @include flexGap(16px, column);
-  margin-block: 25px;
+  margin-block: 25px 40px;
 
   label {
     align-items: center;
@@ -15,8 +15,8 @@
 
 .checkboxes {
   @include flexGap(16px, column);
-  margin-bottom: 25px;
   height: fit-content;
+  margin-bottom: 25px;
 }
 
 .productNumericalInputs {
@@ -34,8 +34,8 @@
 
 .selects {
   @include flexGap(24px, column);
-  margin-block: 32px;
   width: 100%;
+  margin-block: 25px;
 }
 
 .seoInputs {
@@ -62,11 +62,23 @@
       }
     }
   }
+
+  .checkboxes {
+    margin-bottom: 40px;
+  }
+
+  .selects {
+    margin-block: 40px;
+  }
+
+  .seoInputs {
+    margin-top: 40px;
+  }
 }
 
 @include tablet {
   .productBasicInfo {
-    margin-block: 56px;
+    margin-block: 38px 56px;
 
     label {
       input[type='text'] {
@@ -88,7 +100,14 @@
     }
   }
 
+  .selects {
+    margin-block: 56px;
+    gap: 48px;
+  }
+
   .seoInputs {
+    margin-top: 56px;
+
     label {
       flex-direction: row;
 
@@ -135,10 +154,12 @@
 
   .selects {
     order: 5;
+    margin-block: 64px;
   }
 
   .seoInputs {
     order: 7;
+    margin-top: 64px;
 
     label {
       flex-direction: row;
@@ -174,6 +195,7 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 80px;
 
     label {
       width: fit-content;
@@ -187,10 +209,17 @@
 
   .checkboxes {
     width: 475px;
-    margin-top: -462px;
+    margin-top: -518px;
+  }
+
+  .selects {
+    gap: 32px;
+    margin-block: 80px;
   }
 
   .seoInputs {
+    margin-top: 80px;
+
     label {
       span {
         max-width: initial;
