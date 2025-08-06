@@ -69,7 +69,13 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
       ) : (
         <div>
           <Paragraph type="body2">
-            {getValues().name} {getValues().surname} <br /> {getValues().phone}
+            {getValues().name} {getValues().surname} <br />
+            {getValues().telegram && (
+              <>
+                {getValues().telegram} <br />
+              </>
+            )}
+            {getValues().phone}
           </Paragraph>
         </div>
       )}
