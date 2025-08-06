@@ -9,7 +9,11 @@ export const checkoutSchema = yup.object({
     .notOneOf(['+38 (0__)  __ __ ___'], 'required')
     .required('required')
     .test('no-dash', 'enterFullNumber', (value) => !value?.includes('_')),
-  telegram: yup.string().matches(/^@/, 'telegramError'),
+  telegram: yup
+    .string()
+    .nullable()
+    .notRequired()
+    .test('is-valid-telegram', 'telegramError', (value) => !value || value.startsWith('@')),
 
   settlement: yup.string().required('required'),
   warehouse: yup.string().required('required'),
