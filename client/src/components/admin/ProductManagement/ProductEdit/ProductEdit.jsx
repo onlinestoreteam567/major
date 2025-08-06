@@ -1,6 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { editProduct } from '@redux/admin/product/service';
 import appendFormData from '@utils/appendFormData';
@@ -14,6 +12,7 @@ import { useEffect } from 'react';
 import { setAdminMessage } from '@redux/admin/adminMessageSlice';
 import { useNavigate } from 'react-router-dom';
 import { clearEditProductState } from '@redux/admin/product/editProductSlice';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 const ProductEdit = () => {
   const dispatch = useDispatch();
@@ -56,15 +55,13 @@ const ProductEdit = () => {
             getValues={getValues}
           />
           {errorEdit && <ErrorText error={errorEdit} />}
-          <div className={cl.btnWrapper}>
-            <ReturnButton to="/admin/products" />
-            <LoadingButton
-              disabled={Object.keys(errors).length > 0}
-              isLoading={isLoadingEdit}
-              shortText="Зберегти"
-              longText="Зберегти зміни"
-            />
-          </div>
+          <AdminFormActions
+            to="/admin/products"
+            isLoading={isLoadingEdit}
+            errors={errors}
+            shortText={'Зберегти'}
+            longText={'Зберегти товар'}
+          />
         </form>
       )}
     </>

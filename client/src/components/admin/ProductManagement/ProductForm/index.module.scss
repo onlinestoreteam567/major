@@ -3,6 +3,14 @@
 .productBasicInfo {
   @include flexGap(16px, column);
   margin-block: 25px;
+
+  label {
+    align-items: center;
+
+    input {
+      width: 180px;
+    }
+  }
 }
 
 .checkboxes {
@@ -13,6 +21,15 @@
 
 .productNumericalInputs {
   @include flexGap(16px, column);
+
+  label {
+    align-items: center;
+
+    input[type='number'] {
+      width: 104px;
+      text-align: center;
+    }
+  }
 }
 
 .selects {
@@ -31,8 +48,18 @@
     align-items: start;
     width: 100%;
 
-    input[type='text'] {
+    input {
       width: 100%;
+    }
+  }
+}
+
+@include mobile {
+  .productBasicInfo {
+    label {
+      input[type='text'] {
+        width: 220px;
+      }
     }
   }
 }
@@ -40,6 +67,12 @@
 @include tablet {
   .productBasicInfo {
     margin-block: 56px;
+
+    label {
+      input[type='text'] {
+        width: 380px;
+      }
+    }
   }
 
   .checkboxes {
@@ -54,6 +87,20 @@
       width: 290px;
     }
   }
+
+  .seoInputs {
+    label {
+      flex-direction: row;
+
+      input[type='text'] {
+        width: 272px;
+      }
+
+      textarea {
+        width: 272px;
+      }
+    }
+  }
 }
 
 @include deskmin {
@@ -62,6 +109,12 @@
     order: 2;
     height: fit-content;
     margin-left: auto;
+
+    label {
+      input[type='text'] {
+        width: 197px;
+      }
+    }
   }
 
   .checkboxes {
@@ -109,6 +162,14 @@
 }
 
 @include deskmax {
+  .productBasicInfo {
+    label {
+      input[type='text'] {
+        width: 315px;
+      }
+    }
+  }
+
   .productNumericalInputs {
     flex-direction: row;
     justify-content: space-between;
@@ -117,6 +178,10 @@
     label {
       width: fit-content;
       gap: 16px;
+    }
+
+    label:last-of-type {
+      gap: 22px;
     }
   }
 

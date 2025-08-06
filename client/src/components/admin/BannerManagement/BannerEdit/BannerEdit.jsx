@@ -1,5 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
 import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import UploadedImage from '@components/admin/UploadedImage/UploadedImage';
 import Spinner from '@components/helpers/Spinner/Spinner';
@@ -74,7 +73,7 @@ const BannerEdit = () => {
       {responseGet && (
         <UploadedImage labelText="Завантажене зображення фону слайду:" image={responseGet.background_image_url} />
       )}
-      <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити слайд" />
+      {/* <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити слайд" /> */}
       {errorEdit && <ErrorText error={errorEdit} />}
       {responseEdit && <SuccessMessage>Слайд успішно відредаговано!</SuccessMessage>}
     </form>

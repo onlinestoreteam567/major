@@ -1,6 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPartner } from '@redux/partners/service';
@@ -31,10 +29,10 @@ const PartnerCreate = () => {
 
   return (
     <>
-      <ReturnButton to="/admin/partners" />
+      {/* <ReturnButton to="/admin/partners" /> */}
       <form onSubmit={handleSubmit(onSubmit)} className={cl.partnerCreate}>
         <PartnersForm register={register} errors={errors} />
-        <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити партнера" />
+        {/* <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити партнера" /> */}
         {errorPost && <ErrorText error={errorPost}></ErrorText>}
         {response && <SuccessMessage>Партнера успішно створено!</SuccessMessage>}
       </form>

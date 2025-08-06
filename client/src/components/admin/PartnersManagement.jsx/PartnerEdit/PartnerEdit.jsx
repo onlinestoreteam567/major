@@ -1,6 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -64,17 +62,17 @@ const PartnerEdit = () => {
 
   return (
     <>
-      <ReturnButton />
+      {/* <ReturnButton /> */}
       {isLoadingGet ? (
         <Spinner />
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className={cl.partnerEdit}>
           <PartnersForm register={register} errors={errors} />
-          <LoadingButton
+          {/* <LoadingButton
             isLoading={isLoadingEdit}
             loadingText="Редагування партнера"
             defaultText="Редагувати партнера"
-          />
+          /> */}
           {errorEdit && <ErrorText error={errorEdit} />}
           {responseEdit && <SuccessMessage>Партнер успішно відредагований!</SuccessMessage>}
         </form>

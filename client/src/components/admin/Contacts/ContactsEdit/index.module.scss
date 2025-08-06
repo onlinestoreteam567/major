@@ -4,7 +4,7 @@
   @include flexGap(43px, column);
   margin-top: 52px;
 
-  & > div {
+  & > div:not(:last-of-type) {
     @include flexGap(16px, column);
     h2 {
       font-family: Mulish;
@@ -25,16 +25,6 @@
     }
   }
 
-  .btnWrapper {
-    @include flex(row, space-between, center);
-    width: 100%;
-    margin-top: 16px;
-
-    @include deskmin {
-      order: 8;
-    }
-  }
-
   @include mobile {
     label {
       input[type='text'] {
@@ -45,7 +35,7 @@
 
   @include tablet {
     margin: 36px 40px 0 208px;
-    & > div {
+    & > div:not(:last-of-type) {
       h2 {
         font-size: 32px;
       }

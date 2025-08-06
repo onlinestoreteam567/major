@@ -1,6 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useId';
 import { editPromocode, getPromocodeById } from '@redux/admin/promocode/service';
@@ -19,6 +17,7 @@ import cl from './index.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { setAdminMessage } from '@redux/admin/adminMessageSlice';
 import { clearPromocodeEditState } from '@redux/admin/promocode/promocodeEditSlice';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 const PromocodeEdit = () => {
   const {
@@ -74,16 +73,15 @@ const PromocodeEdit = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeEdit}>
         <PromocodeForm control={control} register={register} errors={errors} />
-        <div className={cl.btnWrapper}>
-          <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
-          <LoadingButton
-            disabled={Object.keys(errors).length > 0}
-            isLoading={isLoadingEdit}
-            loadingText="Редагування промокоду…"
-            shortText="Редагувати промокод"
-            longText="Редагувати промокод"
-          />
-        </div>
+
+        <AdminFormActions
+          to="/admin/promocodes"
+          isLoading={isLoadingEdit}
+          errors={errors}
+          shortText={'Зберегти'}
+          longText={'Зберегти промокод'}
+        />
+
         {errorEdit && <ErrorText error={errorEdit} />}
       </form>
     </>
