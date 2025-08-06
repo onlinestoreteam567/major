@@ -19,6 +19,7 @@ export const useProductForm = (response) => {
     shouldUnregister: false,
     defaultValues: {
       purpose_category: [],
+      discount: 0,
     },
   });
 

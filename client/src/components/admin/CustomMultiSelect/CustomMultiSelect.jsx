@@ -13,7 +13,13 @@ const CustomMultiSelect = ({ onChange, value, items, onBlur, name, errors, place
   return (
     <div className={cl.customMultiSelect} ref={wrapperRef}>
       <SelectedCategories items={items} selectedValues={selectedValues} onChange={onChange} onBlur={onBlur} />
-      <CustomSelectDisplay isOpen={isOpen} placeholder={placeholder} setIsOpen={setIsOpen} errors={errors} />
+      <CustomSelectDisplay
+        name={name}
+        isOpen={isOpen}
+        placeholder={placeholder}
+        setIsOpen={setIsOpen}
+        errors={errors}
+      />
       {isOpen && (
         <CategoriesList
           selectedValues={selectedValues}

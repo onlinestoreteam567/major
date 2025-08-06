@@ -1,14 +1,11 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
 import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
-import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
-import Spinner from '@components/helpers/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useId';
 import { editPromocode, getPromocodeById } from '@redux/admin/promocode/service';
 import {
   errorPromocodeEdit,
-  loadPromocodeById,
   loadPromocodeEdit,
   responsePromocodeById,
   responsePromocodeEdit,
@@ -17,13 +14,17 @@ import { promocodeSchema } from '@validations/admin/promocodeSchema';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import PromocodeForm from '../PromocodeForm';
+import PromocodeForm from '../PromocodeForm/PromocodeForm';
 import cl from './index.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { setAdminMessage } from '@redux/admin/adminMessageSlice';
+import { clearPromocodeEditState } from '@redux/admin/promocode/promocodeEditSlice';
 
 const PromocodeEdit = () => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
     setValue,
   } = useForm({
@@ -33,6 +34,7 @@ const PromocodeEdit = () => {
 
   const id = useIdFromUrl();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (id) {
@@ -43,7 +45,6 @@ const PromocodeEdit = () => {
   const errorEdit = useSelector(errorPromocodeEdit);
   const isLoadingEdit = useSelector(loadPromocodeEdit);
   const responseEdit = useSelector(responsePromocodeEdit);
-  const isLoadingGet = useSelector(loadPromocodeById);
   const responseGet = useSelector(responsePromocodeById);
 
   useEffect(() => {
@@ -57,23 +58,34 @@ const PromocodeEdit = () => {
 
   const onSubmit = (formData) => dispatch(editPromocode({ formData, id }));
 
+  useEffect(() => {
+    if (responseEdit) {
+      dispatch(
+        setAdminMessage({
+          message: 'Промокод успішно змінено',
+          onClear: () => dispatch(clearPromocodeEditState()),
+        })
+      );
+      navigate('/admin/promocodes');
+    }
+  }, [responseEdit]);
+
   return (
     <>
-      <ReturnButton />
-      {isLoadingGet ? (
-        <Spinner />
-      ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeEdit}>
-          <PromocodeForm register={register} errors={errors} />
+      <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeEdit}>
+        <PromocodeForm control={control} register={register} errors={errors} />
+        <div className={cl.btnWrapper}>
+          <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
           <LoadingButton
+            disabled={Object.keys(errors).length > 0}
             isLoading={isLoadingEdit}
-            loadingText="Редагування категорії за типом..."
-            defaultText="Редагувати категорію за типом"
+            loadingText="Редагування промокоду…"
+            shortText="Редагувати промокод"
+            longText="Редагувати промокод"
           />
-          {errorEdit && <ErrorText error={errorEdit} />}
-          {responseEdit && <SuccessMessage>Промокод успішно змінено!</SuccessMessage>}
-        </form>
-      )}
+        </div>
+        {errorEdit && <ErrorText error={errorEdit} />}
+      </form>
     </>
   );
 };

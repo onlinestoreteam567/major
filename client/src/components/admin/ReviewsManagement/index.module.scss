@@ -23,7 +23,7 @@
     width: 340px;
 
     & > div:first-of-type {
-      p {
+      & > p {
         font-size: 24px;
       }
     }
@@ -37,7 +37,7 @@
       flex-direction: row;
       flex-wrap: wrap;
 
-      p {
+      & > p {
         text-align: start;
         width: 524px;
         font-size: 32px;
@@ -76,7 +76,7 @@
     & > div:first-of-type {
       justify-content: space-between;
 
-      p {
+      & > p {
         width: fit-content;
       }
 

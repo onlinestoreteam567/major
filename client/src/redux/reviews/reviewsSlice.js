@@ -12,10 +12,12 @@ const initialState = {
   reviews: [],
   isLoading: false,
   error: null,
+  isFetchedAllReviews: false,
 };
 
 const handlePending = (state) => {
   state.isLoading = true;
+  state.isFetchedAllReviews = false;
 };
 
 const handleRejected = (state, action) => {
@@ -38,6 +40,7 @@ const ReviewsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.reviews = action.payload;
+        state.isFetchedAllReviews = true;
       })
       .addCase(reviewsGetAll.rejected, handleRejected)
 

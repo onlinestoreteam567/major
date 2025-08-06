@@ -4,7 +4,6 @@
   input {
     box-sizing: border-box;
     outline: none;
-    box-sizing: border-box;
     padding-left: 10px;
     font-family: $font-main;
     font-size: $font-size-small;
@@ -38,11 +37,12 @@
 
   &.error {
     border-color: #e31a1a;
+    color: #e31a1a;
   }
 }
 
 .admin {
-  @include flex(row, space-between, center);
+  @include flex(row, space-between, start);
   font-family: Mulish;
   font-weight: 400;
   font-size: 14px;
@@ -57,25 +57,7 @@
     color: #676767;
     align-items: start;
     font-size: 16px;
-
-    &[type='text'] {
-      height: 46px;
-      width: 180px;
-
-      @include mobile {
-        width: 220px;
-      }
-    }
-
-    &[type='number'] {
-      text-align: center;
-
-      height: 46px;
-      width: 105px;
-      &::placeholder {
-        text-align: center;
-      }
-    }
+    height: 46px;
 
     &::placeholder {
       font-family: Mulish;
@@ -103,8 +85,10 @@
     font-size: 18px;
     width: 340px;
 
-    &[type='text'] {
-      width: 220px;
+    input[type='text'],
+    input[type='number'],
+    input {
+      width: 340px;
     }
   }
 
@@ -113,14 +97,10 @@
     font-size: 20px;
     font-weight: 600;
 
+    input[type='text'],
+    input[type='number'],
     input {
-      &[type='text'] {
-        width: 380px;
-      }
-
-      &[type='number'] {
-        width: 104px;
-      }
+      width: 357px;
     }
   }
 
@@ -128,8 +108,10 @@
     width: 334px;
 
     input {
-      &[type='text'] {
-        width: 197px;
+      font-size: 18px;
+
+      &::placeholder {
+        font-size: 18px;
       }
     }
   }
@@ -144,10 +126,6 @@
 
       &::placeholder {
         font-size: 20px;
-      }
-
-      &[type='text'] {
-        width: 315px;
       }
     }
   }

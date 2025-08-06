@@ -4,7 +4,7 @@ import { Controller } from 'react-hook-form';
 import ImagePreview from './ImagePreview/ImagePreview';
 import cl from './index.module.scss';
 
-const ImageUpload = ({ name, labelText, control }) => {
+const ImageUpload = ({ name, labelText, control, errors }) => {
   const [messageText, showMessageText] = useTimedMessage();
 
   return (
@@ -14,7 +14,7 @@ const ImageUpload = ({ name, labelText, control }) => {
       render={({ field: { onChange, value } }) => {
         return (
           <div className={cl.imageUpload}>
-            <ImagePreview file={value} uploadedImage={value} />
+            <ImagePreview file={value} uploadedImage={value} errors={errors} name={name} />
             <label htmlFor={name}>
               {labelText}
               <input

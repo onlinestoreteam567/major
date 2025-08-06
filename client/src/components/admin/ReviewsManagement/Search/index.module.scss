@@ -29,10 +29,6 @@
     &.error {
       border-color: #e31a1a;
     }
-
-    &:focus-visible {
-      outline: none;
-    }
   }
 
   button {
@@ -82,9 +78,18 @@
     input {
       width: 318px;
     }
+
+    p {
+      font-size: 22px;
+      width: 524px;
+    }
   }
 
   @include deskmin {
     margin-left: 0;
+
+    p {
+      width: 100%;
+    }
   }
 }

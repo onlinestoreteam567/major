@@ -13,3 +13,13 @@ export const fetchPromocode = createAsyncThunk('promocode/fetchPromocode', async
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const promocodeGetByStatus = createAsyncThunk('promocode/getByStatus', async (status, thunkAPI) => {
+  try {
+    const endpoint = `${PROMOCODE_ENDPOINT}/?is_active=${status}`;
+    const { data } = await apiClient.get(endpoint);
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

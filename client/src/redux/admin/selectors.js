@@ -2,6 +2,8 @@ export const loadAuth = (state) => state.auth.isLoading;
 export const selectAccessToken = (state) => state.auth.accessToken;
 export const errorAuth = (state) => state.auth.error;
 
+export const adminMessage = (state) => state.adminMessage.message;
+
 export const loadCreateProduct = (state) => state.createProduct.isLoading;
 export const responseCreateProduct = (state) => state.createProduct.response;
 export const errorCreateProduct = (state) => state.createProduct.error;
@@ -49,6 +51,7 @@ export const errorTypeDelete = (state) => state.typeDelete.error;
 export const loadPromocodeList = (state) => state.promocodeList.isLoading;
 export const responsePromocodeList = (state) => state.promocodeList.response;
 export const errorPromocodeList = (state) => state.promocodeList.error;
+export const isFetchedAllPromocodes = (state) => state.promocodeList.isFetchedAllPromocodes;
 
 export const loadPromocodeCreate = (state) => state.promocodeCreate.isLoading;
 export const responsePromocodeCreate = (state) => state.promocodeCreate.response;
@@ -65,3 +68,6 @@ export const errorPromocodeEdit = (state) => state.promocodeEdit.error;
 export const loadPromocodeDelete = (state) => state.promocodeDelete.isLoading;
 export const responsePromocodeDelete = (state) => state.promocodeDelete.response;
 export const errorPromocodeDelete = (state) => state.promocodeDelete.error;
+
+export const productSearchValue = (state) => state.adminProductSearch.value;
+export const reviewsSearchValue = (state) => state.adminReviewsSearch.value;

@@ -27,7 +27,6 @@ const CategoryCreate = () => {
       </div>
 
       <div className={cl.categories}>{currentCategory === 'purpose' ? <PurposeCreate /> : <TypeCreate />}</div>
-      {/* <ReturnButton to="/admin/categories" /> */}
     </div>
   );
 };

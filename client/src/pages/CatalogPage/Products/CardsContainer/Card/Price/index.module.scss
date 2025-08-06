@@ -2,6 +2,20 @@
 
 .wrapPriceCatalog {
   @include flex(row, space-between, center);
+
+  &.disabled {
+    .wrapPrice {
+      .price,
+      .oldPrice {
+        color: #999999;
+      }
+    }
+
+    .wrapVolume {
+      color: #999999;
+    }
+  }
+
   .wrapPrice {
     @include flex(row, flex-start, center);
     width: auto;

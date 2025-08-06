@@ -1,8 +1,8 @@
 import ValidationErrorMessage from '@components/admin/ValidationErrorMessage/ValidationErrorMessage';
-import { Input } from '@components/form-components';
+import { Input, PhoneNumberInput } from '@components/form-components';
 import cl from './index.module.scss';
 
-const ContactsForm = ({ register, errors }) => {
+const ContactsForm = ({ register, errors, setValue }) => {
   return (
     <>
       <div className={cl.socialNetworks}>
@@ -34,21 +34,21 @@ const ContactsForm = ({ register, errors }) => {
       </div>
       <div className={cl.phoneNumbers}>
         <h2>Номери телефону</h2>
-        <Input
-          labelText="Основний номер:"
+        <PhoneNumberInput
+          setValue={setValue}
+          register="main_phone_number"
           name="main_phone_number"
-          register={register}
-          errors={errors}
-          variant="admin"
+          labelText="Основний номер*:"
           placeholder="example"
+          errors={errors}
         />
-        <Input
-          labelText="Додатковий номер:"
+        <PhoneNumberInput
+          setValue={setValue}
+          register="secondary_phone_number"
           name="secondary_phone_number"
-          register={register}
-          errors={errors}
-          variant="admin"
+          labelText="Додатковий номер:"
           placeholder="example"
+          errors={errors}
         />
       </div>
       <div className={cl.workSchedule}>
@@ -70,6 +70,33 @@ const ContactsForm = ({ register, errors }) => {
           placeholder="example"
         />
       </div>
+      <div className={cl.documentsLinks}>
+        <h2>Посилання на документи</h2>
+        <Input
+          labelText="Договір оферти:"
+          name="offer_agreement"
+          register={register}
+          errors={errors}
+          variant="admin"
+          placeholder="link"
+        />
+        <Input
+          labelText="Обмін та повернення:"
+          name="exchange_and_return"
+          register={register}
+          errors={errors}
+          variant="admin"
+          placeholder="link"
+        />
+        <Input
+          labelText="Оплата та доставка:"
+          name="payment_and_delivery"
+          register={register}
+          errors={errors}
+          variant="admin"
+          placeholder="link"
+        />
+      </div>
       <Input
         labelText="Рік сайту:"
         name="copyright"
@@ -78,18 +105,14 @@ const ContactsForm = ({ register, errors }) => {
         variant="admin"
         placeholder="example"
       />
-      <Input
-        labelText="Політика конфіденційності:"
-        name="privacy_policy_url"
-        register={register}
-        errors={errors}
-        variant="admin"
-        placeholder="example"
-      />
+
       {Object.keys(errors).length > 0 && (
-        <ValidationErrorMessage>
-          Неможливо створити/відредагувати контакти — перевірте правильність введення даних.
-        </ValidationErrorMessage>
+        <div className={cl.errors}>
+          {Object.entries(errors).map(
+            ([fieldName, error]) =>
+              error.message && <ValidationErrorMessage key={fieldName}>{error.message}</ValidationErrorMessage>
+          )}
+        </div>
       )}
     </>
   );

@@ -12,7 +12,7 @@ export default function Image({ card }) {
   const handleError = () => setImageSrc(placeholderImage);
 
   return (
-    <div className={cl.wrapImg}>
+    <div className={`${cl.wrapImg} ${!card.available ? cl['disabled-overlay'] : ''}`}>
       {card.is_best_seller && <LabelHit />}
       {card.is_new && <LabelNew />}
       {card.is_discount && <LabelSale card={card} />}

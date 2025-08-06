@@ -27,7 +27,6 @@ const CategorySelect = ({ control, errors }) => {
             errors={errors}
             placeholder="Категорія (за призначенням):"
           />
-          {errors[name] && <p style={{ color: 'red' }}>{errors[name].message}</p>}
         </div>
       )}
     />
