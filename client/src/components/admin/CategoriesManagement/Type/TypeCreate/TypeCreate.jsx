@@ -1,6 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { errorCreateTypeCategory, loadCreateTypeCategory, responseCreateTypeCategory } from '@redux/admin/selectors';
 import { createTypeCategory } from '@redux/admin/type/service';
@@ -13,6 +11,7 @@ import { useEffect } from 'react';
 import { clearCreateTypeState } from '@redux/admin/type/createTypeCategorySlice';
 import { setAdminMessage } from '@redux/admin/adminMessageSlice';
 import { useNavigate } from 'react-router-dom';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 const TypeCreate = () => {
   const {
@@ -48,15 +47,14 @@ const TypeCreate = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.typeCreate}>
         <TypeForm register={register} errors={errors} />
-        <div className={cl.btnWrapper}>
-          <ReturnButton to="/admin/categories" />
-          <LoadingButton
-            disabled={Object.keys(errors).length > 0}
-            isLoading={isLoading}
-            shortText="Створити"
-            longText="Створити категорію"
-          />
-        </div>
+
+        <AdminFormActions
+          to="/admin/categories"
+          isLoading={isLoading}
+          errors={errors}
+          shortText={'Створити'}
+          longText={'Створити категорію'}
+        />
         {errorPost && <ErrorText error={errorPost} />}
       </form>
     </>

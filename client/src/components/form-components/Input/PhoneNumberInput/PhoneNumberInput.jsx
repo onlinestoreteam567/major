@@ -17,7 +17,7 @@ export const PhoneNumberInput = forwardRef(
         ref(inputRef.current);
       }
 
-      setValue('phone', inputsValue);
+      setValue(name, inputsValue);
 
       if (isFocused) {
         if (!inputsValue) {
@@ -35,7 +35,7 @@ export const PhoneNumberInput = forwardRef(
           ref(null);
         }
       };
-    }, [isFocused, inputsValue, setValue, ref]);
+    }, [isFocused, inputsValue, setValue, name, ref]);
 
     const handleInputFocus = () => setIsFocused(true);
     const handleInputBlur = () => setIsFocused(false);

@@ -1,6 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPromocode } from '@redux/admin/promocode/service';
 import { errorPromocodeCreate, loadPromocodeCreate, responsePromocodeCreate } from '@redux/admin/selectors';
@@ -13,6 +11,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { clearPromocodeCreateState } from '@redux/admin/promocode/promocodeCreateSlice';
 import { setAdminMessage } from '@redux/admin/adminMessageSlice';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 const PromocodeCreate = () => {
   const {
@@ -49,16 +48,15 @@ const PromocodeCreate = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.promocodeCreate}>
         <PromocodeForm control={control} register={register} errors={errors} />
-        <div className={cl.btnWrapper}>
-          <ReturnButton to="/admin/promocodes">Відмінити</ReturnButton>
-          <LoadingButton
-            disabled={Object.keys(errors).length > 0}
-            isLoading={isLoading}
-            loadingText="Створення промокоду…"
-            shortText="Створити промокод"
-            longText="Створити промокод"
-          />
-        </div>
+
+        <AdminFormActions
+          to="/admin/promocodes"
+          isLoading={isLoading}
+          errors={errors}
+          shortText={'Створити'}
+          longText={'Створити промокод'}
+        />
+
         {errorPost && <ErrorText error={errorPost} />}
       </form>
     </>

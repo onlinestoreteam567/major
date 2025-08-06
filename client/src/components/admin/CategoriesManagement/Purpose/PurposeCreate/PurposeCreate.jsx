@@ -1,6 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPurposeCategory } from '@redux/admin/purpose/service';
 import {
@@ -19,6 +17,7 @@ import { useEffect } from 'react';
 import { clearCreatePurposeState } from '@redux/admin/purpose/createPurposeCategorySlice';
 import { setAdminMessage } from '@redux/admin/adminMessageSlice';
 import { useNavigate } from 'react-router-dom';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 const PurposeCreate = () => {
   const {
@@ -60,15 +59,15 @@ const PurposeCreate = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.purposeCreate}>
         <PurposeForm register={register} errors={errors} control={control} />
-        <div className={cl.btnWrapper}>
-          <ReturnButton to="/admin/categories" />
-          <LoadingButton
-            disabled={Object.keys(errors).length > 0}
-            isLoading={isLoading}
-            shortText="Створити"
-            longText="Створити категорію"
-          />
-        </div>
+
+        <AdminFormActions
+          to="/admin/categories"
+          isLoading={isLoading}
+          errors={errors}
+          shortText={'Створити'}
+          longText={'Створити категорію'}
+        />
+
         {errorPost && <ErrorText error={errorPost}></ErrorText>}
       </form>
     </>

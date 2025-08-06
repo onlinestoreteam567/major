@@ -1,6 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -17,6 +15,7 @@ import cl from './index.module.scss';
 import { clearEditTypeState } from '@redux/admin/type/typeEditSlice';
 import { useNavigate } from 'react-router-dom';
 import { setAdminMessage } from '@redux/admin/adminMessageSlice';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 const formValues = ['type_name_uk', 'type_name_en'];
 
@@ -69,15 +68,15 @@ const TypeEdit = () => {
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className={cl.typeEdit}>
           <TypeForm register={register} errors={errors} />
-          <div className={cl.btnWrapper}>
-            <ReturnButton to="/admin/categories" />
-            <LoadingButton
-              disabled={Object.keys(errors).length > 0}
-              isLoading={isLoadingEdit}
-              shortText="Зберегти"
-              longText="Зберегти зміни"
-            />
-          </div>
+
+          <AdminFormActions
+            to="/admin/categories"
+            isLoading={isLoadingEdit}
+            errors={errors}
+            shortText={'Зберегти'}
+            longText={'Зберегти зміни'}
+          />
+
           {errorEdit && <ErrorText error={errorEdit} />}
           {responseEdit && <SuccessMessage>Категорія за типом успішно відредагована!</SuccessMessage>}
         </form>

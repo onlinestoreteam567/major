@@ -1,5 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
 import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createBanner } from '@redux/banner/service';
@@ -41,7 +40,7 @@ const BannerCreate = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cl.bannerCreate}>
       <BannerForm register={register} errors={errors} control={control} />
-      <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити слайд" />
+      {/* <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити слайд" /> */}
       {errorPost && <ErrorText error={errorPost}></ErrorText>}
       {response && <SuccessMessage>Слайд успішно створено!</SuccessMessage>}
     </form>
