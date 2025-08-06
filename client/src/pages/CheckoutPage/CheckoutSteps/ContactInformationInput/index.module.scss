@@ -1,0 +1,33 @@
+@import '@mixins';
+
+.contactInformationInput {
+  input {
+    height: 48px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #676767;
+    padding: 12px;
+    box-sizing: border-box;
+
+    &.error {
+      border-color: #e31a1a;
+    }
+
+    &:placeholder {
+      font-family: $font-second;
+      font-size: $font-size-base;
+      font-weight: $font-weight-base;
+      line-height: 1.24;
+      color: $text-color-black;
+      color: #c0c0c0;
+    }
+  }
+
+  @include deskmin {
+    input {
+      &:placeholder {
+        font-size: $font-size-base;
+      }
+    }
+  }
+}

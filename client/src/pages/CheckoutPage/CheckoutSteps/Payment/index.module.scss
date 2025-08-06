@@ -1,0 +1,83 @@
+@import '@mixins';
+
+.payment {
+  @include flexGap(16px, column);
+
+  & > div:first-of-type {
+    @include flex(row, space-between);
+    width: 100%;
+    border-bottom: 1px solid #000000;
+    padding-block: 16px;
+  }
+
+  div:nth-of-type(2) {
+    @include flexGap(12px, column);
+  }
+
+  div:nth-of-type(3) {
+    @include flexGap(12px, column);
+
+    & > div {
+      @include flexGap(4px);
+      align-items: center;
+
+      div {
+        @include flexGap(4px, column);
+      }
+
+      img {
+        height: 52px;
+        width: 52px;
+      }
+    }
+  }
+
+  button {
+    margin-top: 8px;
+    height: 46px;
+  }
+
+  @include tablet {
+    div:nth-of-type(3) {
+      gap: 24px;
+
+      & > div {
+        gap: 12px;
+
+        div {
+          gap: 12px;
+        }
+      }
+    }
+
+    button {
+      width: 306px;
+      height: 56px;
+    }
+  }
+
+  @include deskmin {
+    div:first-of-type {
+      width: 412px;
+    }
+  }
+
+  @include deskmax {
+    gap: 24px;
+
+    div:first-of-type {
+      width: 637px;
+    }
+
+    div:nth-of-type(3) {
+      & > div {
+        gap: 30px;
+
+        img {
+          height: 56px;
+          width: 56px;
+        }
+      }
+    }
+  }
+}

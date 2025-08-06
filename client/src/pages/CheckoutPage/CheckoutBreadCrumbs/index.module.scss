@@ -1,0 +1,14 @@
+@import '@mixins';
+
+.checkoutBreadCrumbs {
+  @include flex();
+  gap: 16px;
+  width: 196px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: #f8f8f9;
+  font-family: $font-main;
+  font-weight: $font-weight-small;
+  font-size: $font-size-base;
+  line-height: 128%;
+}

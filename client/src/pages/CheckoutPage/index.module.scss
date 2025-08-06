@@ -1,4 +1,48 @@
+@import '@mixins';
+
 .checkoutPage {
-  margin-top: 200px;
-  height: 900px;
+  @include flexGap(12px, column);
+  width: 288px;
+  margin: 87px auto 36px auto;
+
+  & > h2 {
+    margin-top: 12px;
+  }
+
+  @include mobile {
+    width: 356px;
+  }
+
+  @include tablet {
+    width: 700px;
+    gap: 40px;
+    margin-block: 91px 60px;
+
+    & > h2 {
+      margin-top: 0;
+    }
+  }
+  @include deskmin {
+    width: 914px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-block: 100px 147px;
+
+    & > h2 {
+      width: 100%;
+    }
+
+    & > div {
+      order: 4;
+    }
+
+    & > form {
+      order: 3;
+    }
+  }
+
+  @include deskmax {
+    width: 1296px;
+    margin-block: 146px 171px;
+  }
 }

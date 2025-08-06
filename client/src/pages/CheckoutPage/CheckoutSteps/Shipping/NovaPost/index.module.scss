@@ -1,0 +1,77 @@
+@import '@mixins';
+
+.novaPost {
+  @include flexGap(12px, column);
+}
+
+.warehouses {
+  display: none;
+  ul + p:last-of-type {
+    color: #e31a1a;
+  }
+}
+
+input[type='text'].error {
+  border-color: #e31a1a;
+}
+
+.warehouses,
+.settlement {
+  ul {
+    width: 288px;
+    overflow-y: auto;
+    max-height: 160px;
+    color: #000000;
+
+    li {
+      @include flex(row, start);
+      padding-inline: 12px;
+      box-sizing: border-box;
+      height: 40px;
+      font-family: $font-second;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 124%;
+    }
+  }
+
+  &:focus-within ul {
+    display: block;
+  }
+}
+
+@include mobile {
+  .warehouses,
+  .settlement {
+    ul {
+      width: 309px;
+    }
+  }
+}
+
+@include tablet {
+  .novaPost {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@include deskmin {
+  .novaPost {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+@include deskmax {
+  .novaPost {
+    flex-direction: row;
+  }
+
+  .warehouses,
+  .settlement {
+    ul {
+      width: 306px;
+    }
+  }
+}
