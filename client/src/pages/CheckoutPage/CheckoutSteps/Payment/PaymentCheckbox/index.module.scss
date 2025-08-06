@@ -28,6 +28,12 @@ label.paymentCheckbox {
       background-position: center;
     }
 
+    &.error {
+      span {
+        background-image: url('/svg/catalogPage/checkboxError.svg');
+      }
+    }
+
     input:checked ~ span {
       background-image: url('/svg/catalogPage/checkbox.svg');
     }
