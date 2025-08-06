@@ -48,7 +48,8 @@
   width: 100%;
 
   a {
-    @include flex(row, center, center);
+    @include flex();
+    text-align: center;
     background-color: $second-background-color-black;
     color: white;
     border: 2px solid $second-background-color-black;
