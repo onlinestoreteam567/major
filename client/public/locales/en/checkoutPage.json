@@ -22,6 +22,7 @@
   "surname": "Surname",
   "phone": "Phone",
   "telegram": "Username in Telegram",
+  "telegramError": "Телеграм повинен починатися з @",
   "telegramParagraph": "If you want to receive an order confirmation in Telegram",
   "continue": "Continue",
 
