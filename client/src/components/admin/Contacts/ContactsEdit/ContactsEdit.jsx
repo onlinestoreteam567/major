@@ -24,7 +24,7 @@ const ContactsEdit = () => {
     handleSubmit,
     formState: { errors },
     setValue,
-    // getValues,
+    getValues,
   } = useForm({
     resolver: yupResolver(contactSchema),
     mode: 'onSubmit',
@@ -59,7 +59,7 @@ const ContactsEdit = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.contactsEdit}>
-        <ContactsForm register={register} errors={errors} setValue={setValue} />
+        <ContactsForm getValues={getValues} register={register} errors={errors} setValue={setValue} />
         {/* <LoadingButton
           // isLoading={isLoadingEdit}
           loadingText="Редагування категорії за типом..."
