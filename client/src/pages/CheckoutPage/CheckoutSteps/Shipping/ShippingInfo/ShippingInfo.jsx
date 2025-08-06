@@ -3,15 +3,29 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const ShippingInfo = ({ shippingMethod, getValues }) => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
+  const comment = getValues().comment?.trim();
 
   return shippingMethod === 'novaPost' ? (
     <Paragraph type="body2">
-      {getValues().settlement} <br /> {getValues().warehouse} <br /> <br />
-      {getTranslation('commentToOrder')}: {getValues().comment}
+      {getTranslation('deliveryMethod')} {getTranslation('novaPost')} <br /> <br />
+      {getValues().settlement} <br /> {getValues().warehouse}
+      {comment && (
+        <>
+          <br /> <br />
+          {getTranslation('commentToOrder')}: {comment}
+        </>
+      )}
     </Paragraph>
   ) : (
     <Paragraph type="body2">
-      {getTranslation('commentToOrder')}: {getValues().comment}
+      {getTranslation('deliveryMethod')} {getTranslation('selfPickup')} <br /> <br />
+      {getTranslation('selfPupAddress')}
+      {comment && (
+        <>
+          <br /> <br />
+          {getTranslation('commentToOrder')}: {comment}
+        </>
+      )}
     </Paragraph>
   );
 };

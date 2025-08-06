@@ -39,6 +39,7 @@
   "obl": "obl.",
   "district": "district",
   "warehouseNumber": "Branch No.",
+  "deliveryMethod": "Delivery method:",
 
   "payment": "Payment",
   "commentToOrder": "Comment to order",
