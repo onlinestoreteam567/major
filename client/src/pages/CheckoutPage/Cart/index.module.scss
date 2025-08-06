@@ -10,6 +10,16 @@
   margin-inline: auto;
   height: fit-content;
 
+  &.empty {
+    & > div:first-of-type {
+      justify-content: center;
+
+      button {
+        display: none;
+      }
+    }
+  }
+
   & > div:first-of-type {
     @include flex(row, space-between);
     box-sizing: border-box;
