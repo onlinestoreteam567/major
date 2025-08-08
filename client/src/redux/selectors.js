@@ -52,6 +52,7 @@ export const errorBannerEdit = (state) => state.bannerEdit.error;
 
 export const loadReviews = (state) => state.reviews.isLoading;
 export const selectReviews = (state) => state.reviews.reviews;
+export const selectFilteredReviews = (state) => state.reviews.filteredReviews;
 export const isFetchedAllReviews = (state) => state.reviews.isFetchedAllReviews;
 
 export const loadReviewDelete = (state) => state.reviewDelete.isLoading;

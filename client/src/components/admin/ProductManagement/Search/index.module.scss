@@ -55,14 +55,18 @@
 
   @include tablet {
     margin-left: auto;
-    width: 358px;
+    width: 100%;
 
     input {
-      width: 318px;
+      width: 484px;
     }
   }
 
   @include deskmin {
-    margin-left: 0;
+    width: 355px;
+
+    input {
+      width: 315px;
+    }
   }
 }
