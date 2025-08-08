@@ -25,11 +25,12 @@ export const contactSchema = yup.object({
       'Введіть коректний email',
       (value) => typeof value === 'string' && /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)
     ),
+
   main_phone_number: yup
     .string()
     .trim()
     .required('Основний номер обов’язкове поле для заповнення!')
-    .matches(/^\+\d[\d\s]*$/, 'Номер телефону має починатися з + і містити лише цифри та пробіли'),
+    .matches(/^\+[\d\s()]+$/, 'Номер телефону має починатися з + і містити лише цифри, пробіли та дужки'),
 
   secondary_phone_number: yup
     .string()
@@ -37,8 +38,8 @@ export const contactSchema = yup.object({
     .notRequired()
     .test(
       'is-valid-phone',
-      'Номер телефону має починатися з + і містити лише цифри та пробіли',
-      (value) => !value || /^\+\d[\d\s]*$/.test(value)
+      'Номер телефону має починатися з + і містити лише цифри, пробіли та дужки',
+      (value) => !value || /^\+[\d\s()]+$/.test(value)
     ),
 
   work_schedule_weekdays: yup.string().required('Графік роботи в будні дні обов’язковий'),
