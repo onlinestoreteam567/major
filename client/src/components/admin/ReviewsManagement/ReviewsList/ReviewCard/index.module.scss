@@ -42,8 +42,6 @@
     }
   }
 
-  // TODO .reviewProductInfo - додав для нього стилі і відображення (для враперу), потірбно стилізувати пешки і всьо +, обмежити їх ширину, якщо ім'я наприклад дуже довге ;)
-
   & > p:nth-of-type(2) {
     font-family: Mulish;
     font-weight: 400;
@@ -56,6 +54,7 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 136%;
+    margin-top: 8px;
 
     span {
       font-family: Mulish;
@@ -121,9 +120,15 @@
   }
 
   @include tablet {
+    .approveed,
+    .notApproved {
+      margin-bottom: 8px;
+    }
+
     .reviewProductInfo {
       flex-direction: row;
       justify-content: space-between;
+      margin-bottom: 16px;
     }
 
     .approveButtonsWrap {
@@ -144,11 +149,7 @@
       width: 100%;
     }
 
-    & > p:nth-of-type(3) {
-      margin-top: auto;
-    }
-
-    .reviewDetailWrap {
+    .reviewDetail {
       width: 100%;
     }
 

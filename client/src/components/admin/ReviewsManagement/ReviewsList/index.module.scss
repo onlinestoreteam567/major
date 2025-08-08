@@ -1,9 +1,13 @@
 @import '@mixins';
 
 .reviewsList {
-  @include flexGap(20px, column);
+  @include flexGap(58px, column);
   color: black;
   margin-top: 32px;
+
+  @include tablet {
+    gap: 64px;
+  }
 
   @include deskmax {
     margin-top: 48px;
