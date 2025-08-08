@@ -22,8 +22,6 @@ const ContactsEdit = () => {
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
-    getValues,
   } = useForm({
     resolver: yupResolver(contactSchema),
     mode: 'onSubmit',
@@ -58,7 +56,7 @@ const ContactsEdit = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.contactsEdit}>
-        <ContactsForm getValues={getValues} register={register} errors={errors} setValue={setValue} />
+        <ContactsForm register={register} errors={errors} />
 
         <AdminFormActions
           to="/admin/promocodes"

@@ -29,11 +29,18 @@ export const contactSchema = yup.object({
     .string()
     .trim()
     .required('Основний номер обов’язкове поле для заповнення!')
-    .test('no-dash', 'Введіть основний номер повністю', (value) => !value?.includes('_')),
+    .matches(/^\+\d[\d\s]*$/, 'Номер телефону має починатися з + і містити лише цифри та пробіли'),
+
   secondary_phone_number: yup
     .string()
     .trim()
-    .test('no-dash', 'Введіть додатковий номер повністю', (value) => !value?.includes('_')),
+    .notRequired()
+    .test(
+      'is-valid-phone',
+      'Номер телефону має починатися з + і містити лише цифри та пробіли',
+      (value) => !value || /^\+\d[\d\s]*$/.test(value)
+    ),
+
   work_schedule_weekdays: yup.string().required('Графік роботи в будні дні обов’язковий'),
   work_schedule_weekend: yup.string().required('Графік роботи у вихідні дні обов’язковий'),
   copyright: yup.string().required('Рік сайту обов’язковий'),
