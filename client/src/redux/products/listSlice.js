@@ -32,7 +32,11 @@ const productSlice = createSlice({
       state.products = action.payload;
     },
     filterProductsByName: (state, action) => {
+      console.log(`action.payload is ${action.payload}`);
+
       if (action.payload) {
+        console.log(action.payload);
+
         const searchTerm = action.payload.toLowerCase();
         state.filteredProducts = state.products.filter(
           (product) =>
@@ -40,6 +44,7 @@ const productSlice = createSlice({
             product.article.toLowerCase().includes(searchTerm)
         );
       } else {
+        console.log('else');
         state.filteredProducts = state.products;
       }
     },

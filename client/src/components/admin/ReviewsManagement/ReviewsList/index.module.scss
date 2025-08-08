@@ -1,19 +1,28 @@
 @import '@mixins';
 
 .reviewsList {
-  @include flexGap(20px, column);
+  @include flexGap(58px, column);
   color: black;
   margin-top: 32px;
+
+  @include tablet {
+    gap: 64px;
+  }
 
   @include deskmax {
     margin-top: 48px;
   }
 }
 
-.notFoundText {
-  color: skyblue;
-  font-weight: 400;
-  font-size: 20px;
-  margin-top: 16px;
+.notFoundMessage {
   font-family: Mulish;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 136%;
+  color: #e31a1a;
+  margin-top: 32px;
+
+  @include deskmax {
+    margin-left: 204px;
+  }
 }

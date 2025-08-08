@@ -19,7 +19,7 @@ const ProductManagement = () => {
 
   return (
     <div className={cl.productManagement}>
-      <div>
+      <div className={items.length === 0 ? cl.empty : ''}>
         <p>Товари ({items.length})</p>
         <Link to={`/admin/products/create`}>
           <Button>Додати товар</Button>

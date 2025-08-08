@@ -10,6 +10,7 @@ import {
 
 const initialState = {
   reviews: [],
+  filteredReviews: [],
   isLoading: false,
   error: null,
   isFetchedAllReviews: false,
@@ -33,6 +34,22 @@ const handleFulfilled = (state) => {
 const ReviewsSlice = createSlice({
   name: 'reviews',
   initialState,
+  reducers: {
+    filterReviewByName: (state, action) => {
+      console.log(`action.payload is ${action.payload}`);
+
+      if (action.payload) {
+        console.log(action.payload);
+
+        const searchTerm = action.payload.toLowerCase();
+        state.filteredReviews = state.reviews.filter((review) =>
+          review.product_name.toLowerCase().includes(searchTerm)
+        );
+      } else {
+        state.filteredReviews = state.reviews;
+      }
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(reviewsGetAll.pending, handlePending)
@@ -40,6 +57,7 @@ const ReviewsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.reviews = action.payload;
+        state.filteredReviews = action.payload;
         state.isFetchedAllReviews = true;
       })
       .addCase(reviewsGetAll.rejected, handleRejected)
@@ -77,4 +95,5 @@ const ReviewsSlice = createSlice({
       .addCase(reviewsGetLatest.rejected, handleRejected),
 });
 
+export const { filterReviewByName } = ReviewsSlice.actions;
 export const reviewReducer = ReviewsSlice.reducer;
