@@ -64,9 +64,14 @@
 
   @include deskmin {
     width: 355px;
+    margin-left: 0;
 
     input {
       width: 315px;
     }
+  }
+
+  @include deskmax {
+    margin-left: auto;
   }
 }
