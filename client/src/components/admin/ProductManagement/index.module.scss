@@ -38,6 +38,7 @@
 
   @include mobile {
     width: 340px;
+    margin-top: 54px;
 
     & > div:first-of-type {
       flex-direction: row;
