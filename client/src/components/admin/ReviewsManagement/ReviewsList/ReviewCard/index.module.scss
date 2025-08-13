@@ -141,6 +141,14 @@
       }
     }
 
+    .reviewDetailWrap {
+      width: 336px;
+
+      p {
+        width: fit-content;
+      }
+    }
+
     .approveButtonsWrap {
       justify-content: end;
       gap: 32px;
