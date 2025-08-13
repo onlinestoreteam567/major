@@ -123,8 +123,11 @@
     }
 
     .approveButtonsWrap {
+      justify-content: center;
+
       button:nth-child(1) {
         width: 223px;
+        margin-inline: auto;
       }
     }
   }
@@ -156,6 +159,10 @@
     .approveButtonsWrap {
       justify-content: end;
       gap: 32px;
+
+      button:nth-child(1) {
+        margin: 0;
+      }
     }
   }
 
