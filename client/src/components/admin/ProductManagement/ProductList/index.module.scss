@@ -114,4 +114,8 @@
   font-size: 18px;
   line-height: 136%;
   color: #e31a1a;
+
+  @include deskmax {
+    margin-left: 345px;
+  }
 }

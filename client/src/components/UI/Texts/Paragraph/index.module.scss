@@ -16,7 +16,7 @@
 }
 .body2 {
   font-family: $font-second;
-  font-size: $font-size-small;
+  font-size: $font-size-base;
   font-weight: $font-weight-base;
   line-height: 1.24;
   color: $text-color-black;
@@ -34,4 +34,12 @@
   @include deskmin {
     font-size: $font-size-base;
   }
+}
+
+.caption {
+  font-family: $font-second;
+  font-weight: $font-weight-base;
+  font-size: 12px;
+  line-height: 124%;
+  letter-spacing: 0%;
 }

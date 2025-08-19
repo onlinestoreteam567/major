@@ -1,0 +1,102 @@
+@import '@mixins';
+
+.contactInformation {
+  & > div:first-of-type.contactInformationHeader {
+    @include flex(row, space-between);
+    width: 100%;
+    border-bottom: 1px solid #000000;
+    padding-block: 16px;
+
+    button {
+      font-family: $font-main;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 122%;
+      color: #676767;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  & > p {
+    margin-block: 12px;
+  }
+
+  & > div:last-of-type {
+    @include flexGap(12px, column);
+
+    & > p {
+      margin-top: 12px;
+    }
+
+    div {
+      @include flexGap(4px, column);
+
+      label {
+        input {
+          background: url('/svg/checkout/telegram.svg') no-repeat;
+          background-position: 10px center;
+          padding-left: 46px;
+        }
+      }
+
+      & > p {
+        font-family: $font-second;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 124%;
+        color: #a2a2a2;
+      }
+    }
+  }
+
+  & > button {
+    margin-top: 8px;
+    height: 46px;
+  }
+
+  @include tablet {
+    & > div:last-of-type {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 24px;
+      width: 637px;
+
+      div {
+        p {
+          width: 306px;
+        }
+      }
+    }
+
+    & > button {
+      width: 306px;
+    }
+  }
+
+  @include deskmin {
+    & > div:first-of-type.contactInformationHeader {
+      width: 412px;
+    }
+
+    & > div:last-of-type {
+      flex-direction: column;
+      width: 412px;
+    }
+  }
+
+  @include deskmax {
+    & > div:first-of-type.contactInformationHeader {
+      width: 637px;
+    }
+
+    & > div:last-of-type {
+      flex-direction: row;
+      width: 637px;
+
+      div {
+        width: 306px;
+      }
+    }
+  }
+}

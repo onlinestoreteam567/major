@@ -4,8 +4,6 @@ import handleImageUpload from '@utils/handleImageUpload';
 import { useDispatch, useSelector } from 'react-redux';
 import { errorCreateProduct, loadCreateProduct, responseCreateProduct } from '@redux/admin/selectors';
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';
 import { useProductForm } from './helpers/useProductForm';
@@ -13,6 +11,7 @@ import { useEffect } from 'react';
 import { clearCreateProductState } from '@redux/admin/product/createProductSlice';
 import { useNavigate } from 'react-router-dom';
 import { setAdminMessage } from '@redux/admin/adminMessageSlice';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 const ProductCreate = () => {
   const dispatch = useDispatch();
@@ -46,15 +45,14 @@ const ProductCreate = () => {
       <form onSubmit={handleSubmit(onSubmit)} className={cl.productCreate}>
         <ProductForm register={register} errors={errors} control={control} resetImagesTrigger={resetImagesTrigger} />
 
-        <div className={cl.btnWrapper}>
-          <ReturnButton to="/admin/products" />
-          <LoadingButton
-            disabled={Object.keys(errors).length > 0}
-            isLoading={isLoading}
-            shortText="Створити"
-            longText="Створити товар"
-          />
-        </div>
+        <AdminFormActions
+          to="/admin/products"
+          isLoading={isLoading}
+          errors={errors}
+          shortText={'Створити'}
+          longText={'Створити товар'}
+        />
+
         {errorPost && <ErrorText error={errorPost} />}
       </form>
     </>

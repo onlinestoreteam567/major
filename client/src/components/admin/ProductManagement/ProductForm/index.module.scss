@@ -2,23 +2,40 @@
 
 .productBasicInfo {
   @include flexGap(16px, column);
-  margin-block: 25px;
+  margin-block: 25px 40px;
+
+  label {
+    align-items: center;
+
+    input {
+      width: 180px;
+    }
+  }
 }
 
 .checkboxes {
   @include flexGap(16px, column);
-  margin-bottom: 25px;
   height: fit-content;
+  margin-bottom: 25px;
 }
 
 .productNumericalInputs {
   @include flexGap(16px, column);
+
+  label {
+    align-items: center;
+
+    input[type='number'] {
+      width: 104px;
+      text-align: center;
+    }
+  }
 }
 
 .selects {
   @include flexGap(24px, column);
-  margin-block: 32px;
   width: 100%;
+  margin-block: 25px;
 }
 
 .seoInputs {
@@ -31,15 +48,43 @@
     align-items: start;
     width: 100%;
 
-    input[type='text'] {
+    input {
       width: 100%;
     }
   }
 }
 
+@include mobile {
+  .productBasicInfo {
+    label {
+      input[type='text'] {
+        width: 220px;
+      }
+    }
+  }
+
+  .checkboxes {
+    margin-bottom: 40px;
+  }
+
+  .selects {
+    margin-block: 40px;
+  }
+
+  .seoInputs {
+    margin-top: 40px;
+  }
+}
+
 @include tablet {
   .productBasicInfo {
-    margin-block: 56px;
+    margin-block: 38px 56px;
+
+    label {
+      input[type='text'] {
+        width: 380px;
+      }
+    }
   }
 
   .checkboxes {
@@ -54,6 +99,27 @@
       width: 290px;
     }
   }
+
+  .selects {
+    margin-block: 56px;
+    gap: 48px;
+  }
+
+  .seoInputs {
+    margin-top: 56px;
+
+    label {
+      flex-direction: row;
+
+      input[type='text'] {
+        width: 272px;
+      }
+
+      textarea {
+        width: 272px;
+      }
+    }
+  }
 }
 
 @include deskmin {
@@ -62,6 +128,12 @@
     order: 2;
     height: fit-content;
     margin-left: auto;
+
+    label {
+      input[type='text'] {
+        width: 197px;
+      }
+    }
   }
 
   .checkboxes {
@@ -82,10 +154,12 @@
 
   .selects {
     order: 5;
+    margin-block: 64px;
   }
 
   .seoInputs {
     order: 7;
+    margin-top: 64px;
 
     label {
       flex-direction: row;
@@ -109,23 +183,43 @@
 }
 
 @include deskmax {
+  .productBasicInfo {
+    label {
+      input[type='text'] {
+        width: 315px;
+      }
+    }
+  }
+
   .productNumericalInputs {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 80px;
 
     label {
       width: fit-content;
       gap: 16px;
     }
+
+    label:last-of-type {
+      gap: 22px;
+    }
   }
 
   .checkboxes {
     width: 475px;
-    margin-top: -462px;
+    margin-top: -518px;
+  }
+
+  .selects {
+    gap: 32px;
+    margin-block: 80px;
   }
 
   .seoInputs {
+    margin-top: 80px;
+
     label {
       span {
         max-width: initial;

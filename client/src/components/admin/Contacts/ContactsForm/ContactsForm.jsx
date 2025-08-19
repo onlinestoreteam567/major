@@ -1,8 +1,8 @@
 import ValidationErrorMessage from '@components/admin/ValidationErrorMessage/ValidationErrorMessage';
-import { Input, PhoneNumberInput } from '@components/form-components';
+import { Input } from '@components/form-components';
 import cl from './index.module.scss';
 
-const ContactsForm = ({ register, errors, setValue }) => {
+const ContactsForm = ({ register, errors }) => {
   return (
     <>
       <div className={cl.socialNetworks}>
@@ -34,21 +34,21 @@ const ContactsForm = ({ register, errors, setValue }) => {
       </div>
       <div className={cl.phoneNumbers}>
         <h2>Номери телефону</h2>
-        <PhoneNumberInput
-          setValue={setValue}
-          register="main_phone_number"
-          name="main_phone_number"
+        <Input
           labelText="Основний номер*:"
-          placeholder="example"
+          name="main_phone_number"
+          register={register}
           errors={errors}
+          variant="admin"
+          placeholder="example"
         />
-        <PhoneNumberInput
-          setValue={setValue}
-          register="secondary_phone_number"
-          name="secondary_phone_number"
+        <Input
           labelText="Додатковий номер:"
-          placeholder="example"
+          name="secondary_phone_number"
+          register={register}
           errors={errors}
+          variant="admin"
+          placeholder="example"
         />
       </div>
       <div className={cl.workSchedule}>

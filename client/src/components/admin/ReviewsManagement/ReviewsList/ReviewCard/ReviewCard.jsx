@@ -25,6 +25,9 @@ const ReviewCard = ({ review, showMessage }) => {
   return (
     <>
       <li className={cl.reviewCard}>
+        <p className={review.is_approved ? cl.approveed : cl.notApproved}>
+          {review.is_approved ? 'Опубліковано' : 'Не опубліковано'}
+        </p>
         <div className={cl.reviewProductInfo}>
           <p>
             Товар: <span>{review.product_name}</span>
@@ -33,9 +36,6 @@ const ReviewCard = ({ review, showMessage }) => {
             ID товару: <span>{review.product_id}</span>
           </p>
         </div>
-        <p className={review.is_approved ? cl.approveed : cl.notApproved}>
-          {review.is_approved ? 'Опубліковано' : 'Не опубліковано'}
-        </p>
         <p>{review.review_text}</p>
         <div className={cl.reviewDetailWrap}>
           <p className={cl.reviewDetail}>

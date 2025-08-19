@@ -1,10 +1,9 @@
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import cl from './index.module.scss';
 import ContactsForm from '../ContactsForm/ContactsForm';
 import { contactSchema } from '@validations/admin/contactSchema';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 // const formValues = [
 //   'telegram',
@@ -23,8 +22,6 @@ const ContactsEdit = () => {
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
-    // getValues,
   } = useForm({
     resolver: yupResolver(contactSchema),
     mode: 'onSubmit',
@@ -59,18 +56,15 @@ const ContactsEdit = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.contactsEdit}>
-        <ContactsForm register={register} errors={errors} setValue={setValue} />
-        {/* <LoadingButton
-          // isLoading={isLoadingEdit}
-          loadingText="Редагування категорії за типом..."
-          defaultText="Редагувати категорію за типом"
-        /> */}
-        {/* {errorEdit && <ErrorText error={errorEdit} />} */}
-        <div className={cl.btnWrapper}>
-          <ReturnButton to="/admin/products" />
+        <ContactsForm register={register} errors={errors} />
 
-          <LoadingButton disabled={Object.keys(errors).length > 0} shortText="Зберегти" longText="Зберегти зміни" />
-        </div>
+        <AdminFormActions
+          to="/admin/promocodes"
+          errors={errors}
+          isLoading={false}
+          shortText={'Зберегти'}
+          longText={'Зберегти контакти'}
+        />
       </form>
       {/* {successEditMessage && <AdminMessage>{successEditMessage}</AdminMessage>} */}
     </>

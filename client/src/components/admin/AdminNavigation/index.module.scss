@@ -3,6 +3,7 @@
 .burgerButtonWrapper {
   position: fixed;
   margin-top: 10px;
+  z-index: 6;
 
   button {
     height: 32px;

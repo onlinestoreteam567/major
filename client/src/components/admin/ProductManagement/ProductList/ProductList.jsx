@@ -44,7 +44,10 @@ const List = () => {
               </ul>
             </div>
           ) : (
-            <p className={cl.notFoundMessage}>За вашими критеріями пошуку нічого не знайдено. Спробуйте ще раз.</p>
+            <p className={cl.notFoundMessage}>
+              За вашими критеріями пошуку нічого не знайдено. <br />
+              Спробуйте ще раз.
+            </p>
           )}
           {deletedMessage && <AdminMessage>{deletedMessage}</AdminMessage>}
         </>

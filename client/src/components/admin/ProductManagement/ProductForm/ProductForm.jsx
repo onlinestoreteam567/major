@@ -8,9 +8,18 @@ import useTimedMessage from '@hooks/admin/useTimedMessage';
 import CategorySelect from './CategorySelect/CategorySelect';
 import cl from './index.module.scss';
 import TypeSelect from './TypeSelect/TypeSelect';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCategories, fetchTypes } from '@redux/params/service';
 
 const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedImages, setValue, getValues }) => {
   const [messageText, showMessage] = useTimedMessage();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+    dispatch(fetchTypes());
+  }, [dispatch]);
 
   return (
     <>

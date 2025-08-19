@@ -38,6 +38,12 @@
         font-weight: 400;
         font-size: 20px;
         line-height: 160%;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
       }
     }
   }
@@ -54,6 +60,7 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 136%;
+    margin-top: 8px;
 
     span {
       font-family: Mulish;
@@ -101,6 +108,10 @@
       }
     }
 
+    & > p:nth-of-type(2) {
+      font-size: 20px;
+    }
+
     .reviewDetail {
       font-weight: 700;
       font-size: 24px;
@@ -112,21 +123,46 @@
     }
 
     .approveButtonsWrap {
+      justify-content: center;
+
       button:nth-child(1) {
         width: 223px;
+        margin-inline: auto;
       }
     }
   }
 
   @include tablet {
+    .approveed,
+    .notApproved {
+      margin-bottom: 8px;
+    }
+
     .reviewProductInfo {
       flex-direction: row;
       justify-content: space-between;
+      margin-bottom: 16px;
+
+      p:last-of-type {
+        text-wrap: nowrap;
+      }
+    }
+
+    .reviewDetailWrap {
+      width: 336px;
+
+      p {
+        width: fit-content;
+      }
     }
 
     .approveButtonsWrap {
       justify-content: end;
       gap: 32px;
+
+      button:nth-child(1) {
+        margin: 0;
+      }
     }
   }
 
@@ -142,11 +178,7 @@
       width: 100%;
     }
 
-    & > p:nth-of-type(3) {
-      margin-top: auto;
-    }
-
-    .reviewDetailWrap {
+    .reviewDetail {
       width: 100%;
     }
 

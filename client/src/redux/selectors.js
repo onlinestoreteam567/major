@@ -31,6 +31,7 @@ export const selectSearch = (state) => state.search.searchResults;
 
 export const loadPromocode = (state) => state.promocode.isLoading;
 export const selectPromocode = (state) => state.promocode.response;
+export const errorPromocode = (state) => state.promocode.error;
 
 export const loadBanner = (state) => state.banner.isLoading;
 export const selectBanner = (state) => state.banner.slides;
@@ -51,6 +52,7 @@ export const errorBannerEdit = (state) => state.bannerEdit.error;
 
 export const loadReviews = (state) => state.reviews.isLoading;
 export const selectReviews = (state) => state.reviews.reviews;
+export const selectFilteredReviews = (state) => state.reviews.filteredReviews;
 export const isFetchedAllReviews = (state) => state.reviews.isFetchedAllReviews;
 
 export const loadReviewDelete = (state) => state.reviewDelete.isLoading;

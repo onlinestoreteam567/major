@@ -1,6 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -25,6 +23,7 @@ import cl from './index.module.scss';
 import { clearEditPurposeState } from '@redux/admin/purpose/purposeEditSlice';
 import { setAdminMessage } from '@redux/admin/adminMessageSlice';
 import { useNavigate } from 'react-router-dom';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 const formValues = ['category_name_uk', 'category_name_en', 'image'];
 
@@ -83,15 +82,15 @@ const PurposeEdit = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)} className={cl.purposeEdit}>
         <PurposeForm register={register} errors={errors} control={control} />
-        <div className={cl.btnWrapper}>
-          <ReturnButton to="/admin/categories" />
-          <LoadingButton
-            disabled={Object.keys(errors).length > 0}
-            isLoading={isLoadingEdit}
-            shortText="Зберегти"
-            longText="Зберегти категорію"
-          />
-        </div>
+
+        <AdminFormActions
+          to="/admin/categories"
+          isLoading={isLoadingEdit}
+          errors={errors}
+          shortText={'Зберегти'}
+          longText={'Зберегти категорію'}
+        />
+
         {errorEdit && <ErrorText error={errorEdit}></ErrorText>}
         {responseEdit && <SuccessMessage>Категорія за призначенням успішно відредагована</SuccessMessage>}
       </form>

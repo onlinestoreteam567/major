@@ -1,0 +1,178 @@
+@import '@mixins';
+
+.checkoutCart {
+  @include flexGap(16px, column);
+  background-color: #f8f8f9;
+  border-radius: 4px;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+  width: 288px;
+  margin-inline: auto;
+  height: fit-content;
+
+  &.empty {
+    & > div:first-of-type {
+      justify-content: center;
+
+      button {
+        display: none;
+      }
+    }
+  }
+
+  & > div:first-of-type {
+    @include flex(row, space-between);
+    box-sizing: border-box;
+    padding: 16px 4px;
+    border-bottom: 1px solid #22211f;
+
+    h4 {
+      color: #676767;
+    }
+
+    button {
+      @include flex();
+      height: 20px;
+      width: 20px;
+      svg {
+        transition: all 0.3s ease;
+
+        path {
+          fill: #676767;
+        }
+      }
+    }
+
+    &.expanded {
+      button {
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  ul {
+    @include flexGap(12px, column);
+    max-height: 356px;
+    overflow-y: auto;
+    min-height: fit-content;
+    padding-block: 1px;
+    border-bottom: 1px solid #22211f;
+  }
+
+  & > div:nth-of-type(2) {
+    @include flexGap(12px, column);
+    padding-inline: 4px;
+    box-sizing: border-box;
+
+    h4,
+    h3 {
+      @include flex(row, space-between);
+
+      & > span {
+        @include flex(row, space-between);
+        width: 86px;
+      }
+    }
+
+    h4:nth-of-type(2) {
+      color: #676767;
+    }
+  }
+
+  & > a {
+    @include flex(row, center, center);
+    background-color: $second-background-color-black;
+    color: white;
+    border: 2px solid $second-background-color-black;
+    width: 240px;
+    height: 46px;
+    margin-inline: auto;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    border-radius: $border-radius-medium;
+    transition:
+      background-color 300ms ease-out,
+      color 300ms ease-out;
+
+    h3 {
+      color: #ffffff;
+    }
+
+    &:hover {
+      background-color: transparent;
+
+      h3 {
+        color: $text-color-black;
+      }
+    }
+  }
+
+  @include mobile {
+    padding-inline: 24px;
+    width: 356px;
+
+    & > div:nth-of-type(2) {
+      padding-inline: 0 9px;
+    }
+
+    & > a {
+      width: 100%;
+    }
+  }
+
+  @include tablet {
+    width: 636px;
+    padding-inline: 55px;
+    gap: 8px;
+
+    & > div:first-of-type {
+      padding: 16px 8px 16px 0;
+      width: 526px;
+    }
+
+    & > div:nth-of-type(2) {
+      width: 307px;
+      padding: 0;
+      margin: 8px auto;
+    }
+
+    & > a {
+      width: 196px;
+    }
+  }
+
+  @include deskmin {
+    width: 412px;
+    padding-inline: 24px;
+    gap: 8px;
+    margin-inline: auto 0;
+
+    &.empty {
+      margin-inline: auto;
+    }
+
+    & > div:first-of-type {
+      width: 364px;
+
+      button {
+        display: none;
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 574px;
+
+    & > div:first-of-type {
+      width: 526px;
+    }
+
+    & > div:nth-of-type(2) {
+      margin-inline: auto 0;
+    }
+  }
+}
