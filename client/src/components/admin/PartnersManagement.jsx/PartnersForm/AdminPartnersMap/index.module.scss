@@ -2,10 +2,10 @@
 
 .mainMapContainer {
   position: relative;
-  overflow: hidden;
+  overflow: auto;
   margin: auto;
   touch-action: none;
-  width: 296px;
+  width: 280px;
   height: 200px;
 
   & > img {
@@ -20,7 +20,7 @@
 
   @include mobile {
     height: 242px;
-    width: 356px;
+    width: 340px;
 
     & > img {
       width: 356px;
@@ -28,7 +28,7 @@
   }
 
   @include tablet {
-    width: 640px;
+    width: 524px;
     height: 435px;
 
     & > img {
@@ -37,7 +37,7 @@
   }
 
   @include deskmin {
-    width: 980px;
+    width: 686px;
     height: 665px;
 
     & > img {
@@ -46,7 +46,7 @@
   }
 
   @include deskmax {
-    width: 1296px;
+    width: fit-content;
     height: fit-content;
 
     order: 3;
