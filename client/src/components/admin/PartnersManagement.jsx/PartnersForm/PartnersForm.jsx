@@ -40,7 +40,7 @@ const PartnersForm = ({ register, errors, getValues, watch }) => {
       <div className={cl.partnersData}>
         <h2>Дані про партнера:</h2>
         <Input
-          labelText="Назва (UA):"
+          labelText="Назва салону (UA):"
           name="name_uk"
           register={register}
           errors={errors}
@@ -48,7 +48,7 @@ const PartnersForm = ({ register, errors, getValues, watch }) => {
           placeholder="example"
         />
         <Input
-          labelText="Назва (ENG):"
+          labelText="Назва салону (ENG):"
           name="name_en"
           register={register}
           errors={errors}
