@@ -1,11 +1,12 @@
 import Spinner from '@components/helpers/Spinner/Spinner';
-import { deletePartner, fetchPartners } from '@redux/partners/service';
+import { fetchPartners } from '@redux/partners/service';
 import { loadPartnerDelete, loadPartners, selectPartnerDelete, selectPartners } from '@redux/selectors';
-import handleDeleteItem from '@utils/handleDeleteItem';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
+import PartnerCard from './PartnerCard/PartnerCard';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
+import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
 
 const PartnersList = () => {
   const items = useSelector(selectPartners);
@@ -13,12 +14,11 @@ const PartnersList = () => {
   const dispatch = useDispatch();
   const isLoadingDelete = useSelector(loadPartnerDelete);
   const deleteResponse = useSelector(selectPartnerDelete);
+  const [deletedMessage, showDeletedMessage] = useTimedMessage();
 
   useEffect(() => {
     deleteResponse === 204 && dispatch(fetchPartners());
   }, [dispatch, deleteResponse]);
-
-  const handleDelete = (id) => handleDeleteItem(dispatch, deletePartner, id);
 
   return (
     <>
@@ -27,14 +27,11 @@ const PartnersList = () => {
       ) : (
         <ul className={cl.partnersList}>
           {items.map((card) => (
-            <li key={card.id}>
-              <p>{card.name}</p>
-              <Link to={`/admin/partners/${card.id}`}>Редагувати</Link>
-              <button onClick={() => handleDelete(card.id)}>Видалити</button>
-            </li>
+            <PartnerCard card={card} key={card.id} showDeletedMessage={showDeletedMessage} />
           ))}
         </ul>
       )}
+      {deletedMessage && <AdminMessage>{deletedMessage}</AdminMessage>}
     </>
   );
 };

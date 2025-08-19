@@ -1,5 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useId';
@@ -18,6 +17,10 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import PartnersForm from '../PartnersForm/PartnersForm';
 import cl from './index.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { setAdminMessage } from '@redux/admin/adminMessageSlice';
+import { clearPartnerEditState } from '@redux/partners/partnerEditSlice';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 const formValues = [
   'name_uk',
@@ -37,11 +40,13 @@ const PartnerEdit = () => {
     handleSubmit,
     formState: { errors },
     setValue,
+    getValues,
+    watch,
   } = useForm({
     resolver: yupResolver(partnerSchema),
     mode: 'onSubmit',
   });
-
+  const navigate = useNavigate();
   const id = useIdFromUrl();
   const dispatch = useDispatch();
   const errorEdit = useSelector(errorPartnerEdit);
@@ -58,26 +63,34 @@ const PartnerEdit = () => {
     responseGet && setFormValues(setValue, responseGet, formValues);
   }, [responseGet, setValue]);
 
+  useEffect(() => {
+    if (responseEdit) {
+      dispatch(
+        setAdminMessage({
+          message: 'Партнера успішно відредаговано',
+          onClear: () => dispatch(clearPartnerEditState()),
+        })
+      );
+      navigate('/admin/partners');
+    }
+  }, [responseEdit]);
+
   const onSubmit = (formData) => dispatch(editPartner({ formData, id }));
 
-  return (
-    <>
-      {/* <ReturnButton /> */}
-      {isLoadingGet ? (
-        <Spinner />
-      ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className={cl.partnerEdit}>
-          <PartnersForm register={register} errors={errors} />
-          {/* <LoadingButton
-            isLoading={isLoadingEdit}
-            loadingText="Редагування партнера"
-            defaultText="Редагувати партнера"
-          /> */}
-          {errorEdit && <ErrorText error={errorEdit} />}
-          {responseEdit && <SuccessMessage>Партнер успішно відредагований!</SuccessMessage>}
-        </form>
-      )}
-    </>
+  return isLoadingGet ? (
+    <Spinner />
+  ) : (
+    <form onSubmit={handleSubmit(onSubmit)} className={cl.partnerEdit}>
+      <PartnersForm register={register} errors={errors} getValues={getValues} watch={watch} />
+      <AdminFormActions
+        to="/admin/partners"
+        isLoading={isLoadingEdit}
+        errors={errors}
+        shortText={'Зберегти'}
+        longText={'Зберегти зміни'}
+      />
+      {errorEdit && <ErrorText error={errorEdit} />}
+    </form>
   );
 };
 export default PartnerEdit;

@@ -20,6 +20,13 @@ const partnerEdit = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearPartnerEditState: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(editPartner.pending, handlePending)
@@ -31,4 +38,5 @@ const partnerEdit = createSlice({
       .addCase(editPartner.rejected, handleRejected),
 });
 
+export const { clearPartnerEditState } = partnerEdit.actions;
 export const partnerEditReducer = partnerEdit.reducer;
