@@ -5,42 +5,18 @@
   color: black;
   margin-top: 52px;
 
-  .btnWrapper {
-    @include flex(row, space-between, center);
-    width: 280px;
-    margin-top: 32px;
-  }
-
-  @include mobile {
-    .btnWrapper {
-      width: 340px;
-    }
-  }
-
   @include tablet {
     margin: 36px 40px 0 208px;
     width: 524px;
-
-    .btnWrapper {
-      width: 524px;
-    }
   }
 
   @include deskmin {
     margin: 36px auto;
     width: 686px;
-
-    .btnWrapper {
-      width: 686px;
-    }
   }
 
   @include deskmax {
     margin: 90px auto;
     width: 986px;
-
-    .btnWrapper {
-      width: 986px;
-    }
   }
 }

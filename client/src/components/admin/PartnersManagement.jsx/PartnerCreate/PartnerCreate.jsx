@@ -1,5 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPartner } from '@redux/partners/service';
 import { errorPartnerCreate, loadPartnerCreate, selectPartnerCreate } from '@redux/selectors';
@@ -8,11 +7,11 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import PartnersForm from '../PartnersForm/PartnersForm';
 import cl from './index.module.scss';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { setAdminMessage } from '@redux/admin/adminMessageSlice';
 import { clearPartnerCreateState } from '@redux/partners/partnerCreateSlice';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 const PartnerCreate = () => {
   const dispatch = useDispatch();
@@ -54,15 +53,13 @@ const PartnerCreate = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cl.partnerCreate}>
       <PartnersForm watch={watch} register={register} errors={errors} getValues={getValues} />
-      <div className={cl.btnWrapper}>
-        <ReturnButton to="/admin/partners" />
-        <LoadingButton
-          disabled={Object.keys(errors).length > 0}
-          isLoading={isLoading}
-          shortText="Створити"
-          longText="Створити партнера"
-        />
-      </div>
+      <AdminFormActions
+        to="/admin/partners"
+        isLoading={isLoading}
+        errors={errors}
+        shortText={'Створити'}
+        longText={'Створити партнера'}
+      />
       {errorPost && <ErrorText error={errorPost}></ErrorText>}
     </form>
   );

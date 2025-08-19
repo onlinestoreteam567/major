@@ -1,6 +1,4 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import LoadingButton from '@components/admin/LoadingButton/LoadingButton';
-import ReturnButton from '@components/admin/ReturnButton/ReturnButton';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useId';
@@ -22,6 +20,7 @@ import cl from './index.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { setAdminMessage } from '@redux/admin/adminMessageSlice';
 import { clearPartnerEditState } from '@redux/partners/partnerEditSlice';
+import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
 const formValues = [
   'name_uk',
@@ -83,15 +82,13 @@ const PartnerEdit = () => {
   ) : (
     <form onSubmit={handleSubmit(onSubmit)} className={cl.partnerEdit}>
       <PartnersForm register={register} errors={errors} getValues={getValues} watch={watch} />
-      <div className={cl.btnWrapper}>
-        <ReturnButton to="/admin/partners" />
-        <LoadingButton
-          disabled={Object.keys(errors).length > 0}
-          isLoading={isLoadingEdit}
-          shortText="Зберегти"
-          longText="Зберегти зміни"
-        />
-      </div>
+      <AdminFormActions
+        to="/admin/partners"
+        isLoading={isLoadingEdit}
+        errors={errors}
+        shortText={'Зберегти'}
+        longText={'Зберегти зміни'}
+      />
       {errorEdit && <ErrorText error={errorEdit} />}
     </form>
   );
