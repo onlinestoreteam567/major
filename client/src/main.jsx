@@ -5,11 +5,14 @@ import App from './App.jsx';
 import './index.scss';
 import './config/i18next.js';
 import { store } from '@config/store.js';
+import { HelmetProvider } from 'react-helmet-async';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <HelmetProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </HelmetProvider>
   </StrictMode>
 );
