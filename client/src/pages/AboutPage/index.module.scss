@@ -1,0 +1,61 @@
+@import '@mixins';
+
+.aboutPage {
+  figure {
+    position: relative;
+
+    img {
+      width: 320px;
+      height: 190px;
+      object-fit: cover;
+      transform: rotateY(180deg);
+      object-position: 50% 33.5%;
+    }
+
+    figcaption {
+      @include absolute(88px, 113px);
+
+      h2 {
+        text-align: start;
+      }
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  @include mobile {
+    figure {
+      img {
+        width: 380px;
+        height: 226px;
+      }
+
+      figcaption {
+        width: 208px;
+        top: 115px;
+        left: 153px;
+      }
+    }
+  }
+
+  @include tablet {
+    figure {
+      img {
+        width: 768px;
+        height: 462px;
+        scale: 1.22;
+        object-position: 50% 41%;
+      }
+
+      figcaption {
+        width: auto;
+        // TODO Виставити відстань для тексту, виправити для h2 font-size, чомусь він на Фігмі більший, ніж насправді
+        br {
+          display: inline;
+        }
+      }
+    }
+  }
+}
