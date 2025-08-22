@@ -46,9 +46,9 @@
   }
 
   .sortSection {
-    @include flex(row, space-between, center);
-    width: 296px;
+    @include flex(row, space-between);
     margin-top: 20px;
+    width: 100%;
 
     @include mobile {
       width: 356px;
@@ -72,9 +72,6 @@
       justify-content: end;
       gap: 35px;
     }
-
-    @include flex(row, space-between);
-    width: 100%;
 
     button {
       @include flexGap(16px, row);
