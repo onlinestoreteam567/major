@@ -1,6 +1,9 @@
 @import '@mixins';
 
 .aboutPage {
+  margin-inline: auto;
+  width: 320px;
+
   figure {
     position: relative;
     overflow: hidden;
@@ -29,6 +32,8 @@
   }
 
   @include mobile {
+    width: 380px;
+
     figure {
       width: 380px;
       height: 226px;
@@ -47,6 +52,8 @@
   }
 
   @include tablet {
+    width: 768px;
+
     figure {
       width: 768px;
       height: 462px;
@@ -71,6 +78,8 @@
   }
 
   @include deskmin {
+    width: 1024px;
+
     figure {
       width: 1024px;
       height: 615px;
@@ -88,6 +97,8 @@
   }
 
   @include deskmax {
+    width: 1440px;
+
     figure {
       width: 1440px;
       height: 662px;
