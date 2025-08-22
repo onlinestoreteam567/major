@@ -17,16 +17,16 @@
   }
 
   .contentWrap {
-    @include layout();
+    @include flex(column);
     position: relative;
     z-index: 2;
-    @include flex(column);
     gap: 24px;
     min-height: 100dvh;
     width: 100%;
     max-width: 1440px;
     margin-inline: auto;
     padding-bottom: 0 !important;
+    @include layout();
 
     @include tablet {
       flex-direction: row-reverse;

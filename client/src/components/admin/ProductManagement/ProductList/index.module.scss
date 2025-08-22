@@ -52,12 +52,13 @@
   }
 
   @include tablet {
+    gap: 24px;
+
     & > div:first-of-type {
       p {
         font-size: 20px;
       }
 
-      gap: 24px;
       p:nth-child(1),
       p:nth-child(2) {
         width: 90px;
