@@ -36,13 +36,13 @@
   color: $text-color-black;
   text-align: center;
   @include tablet {
-    font-size: $font-size-medium-extra;
+    font-size: 32px;
   }
   @include deskmin {
-    font-size: $font-size-medium-max;
+    font-size: 32px;
   }
   @include deskmax {
-    font-size: $font-size-large-minus;
+    font-size: 36px;
   }
 }
 

@@ -3,6 +3,9 @@
 .aboutPage {
   figure {
     position: relative;
+    overflow: hidden;
+    width: 320px;
+    height: 190px;
 
     img {
       width: 320px;
@@ -27,6 +30,9 @@
 
   @include mobile {
     figure {
+      width: 380px;
+      height: 226px;
+
       img {
         width: 380px;
         height: 226px;
@@ -42,6 +48,9 @@
 
   @include tablet {
     figure {
+      width: 768px;
+      height: 462px;
+
       img {
         width: 768px;
         height: 462px;
@@ -51,10 +60,48 @@
 
       figcaption {
         width: auto;
-        // TODO Виставити відстань для тексту, виправити для h2 font-size, чомусь він на Фігмі більший, ніж насправді
+        top: 220px;
+        left: 283px;
+
         br {
           display: inline;
         }
+      }
+    }
+  }
+
+  @include deskmin {
+    figure {
+      width: 1024px;
+      height: 615px;
+
+      img {
+        width: 1024px;
+        height: 615px;
+      }
+
+      figcaption {
+        top: 295px;
+        left: 385px;
+      }
+    }
+  }
+
+  @include deskmax {
+    figure {
+      width: 1440px;
+      height: 662px;
+
+      img {
+        width: 1440px;
+        height: 662px;
+        object-position: 50% 44.5%;
+        scale: 1;
+      }
+
+      figcaption {
+        top: 310px;
+        left: 560px;
       }
     }
   }

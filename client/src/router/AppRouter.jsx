@@ -43,7 +43,7 @@ import ContactsEdit from '@components/admin/Contacts/ContactsEdit/ContactsEdit';
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
 const Catalog = lazy(() => import('@pages/CatalogPage/CatalogPage'));
-const About = lazy(() => import('@pages/AboutPage'));
+const About = lazy(() => import('@pages/AboutPage/AboutPage'));
 const Blog = lazy(() => import('@pages/BlogPage'));
 const Contact = lazy(() => import('@pages/ContactPage'));
 const Cooperation = lazy(() => import('@pages/СooperationPage'));
