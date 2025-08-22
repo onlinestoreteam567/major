@@ -5,7 +5,7 @@ export const usePageState = () => {
   const location = useLocation();
   const [isMainPage, setIsMainPage] = useState(location.pathname === '/');
   useEffect(() => {
-    setIsMainPage(location.pathname === '/');
+    setIsMainPage(location.pathname === '/' || location.pathname === '/about');
   }, [location]);
 
   return isMainPage;
