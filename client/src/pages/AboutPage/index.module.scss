@@ -131,6 +131,10 @@
           margin: 24px;
         }
       }
+
+      div:last-of-type {
+        width: 356px;
+      }
     }
   }
 
@@ -203,6 +207,7 @@
 
       div:last-of-type {
         gap: 24px;
+        width: 324px;
       }
     }
   }
@@ -227,17 +232,17 @@
 
     section {
       display: grid;
-      column-gap: 24px;
-      row-gap: 48px;
-      align-items: center;
+      column-gap: 28px;
+      row-gap: 0;
+      grid-template-rows: 18px 80px;
       justify-items: center;
 
       h2 {
-        grid-area: 1 / 2;
+        grid-area: 2 / 2;
       }
 
       div:first-of-type {
-        grid-area: 1 / 1 / 3;
+        grid-area: 1 / 1 / 4;
         order: initial;
 
         div {
@@ -268,7 +273,9 @@
       }
 
       div:last-of-type {
-        grid-area: 2 / 2;
+        grid-area: 3 / 2;
+        margin-block: 48px 18px;
+        width: 392px;
       }
     }
   }
@@ -294,6 +301,8 @@
     }
 
     section {
+      grid-template-rows: 95px 90px;
+
       h2 {
         width: 526px;
       }
@@ -309,6 +318,11 @@
           height: 500px;
           margin: 49px;
         }
+      }
+
+      div:last-of-type {
+        width: 526px;
+        margin-bottom: 95px;
       }
     }
   }
