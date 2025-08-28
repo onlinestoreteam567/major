@@ -52,6 +52,10 @@
   font-weight: $font-weight-medium;
   line-height: 1.22;
   color: $text-color-black;
+
+  @include deskmax {
+    font-size: 20px;
+  }
 }
 
 .h4 {
