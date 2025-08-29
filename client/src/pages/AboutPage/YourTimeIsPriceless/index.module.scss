@@ -1,0 +1,131 @@
+@import '@mixins';
+
+.yourTimeIsPriceless {
+  @include flex(column);
+  gap: 12px;
+
+  img {
+    width: 296px;
+    height: 323px;
+  }
+
+  div {
+    @include flexGap(8px, column);
+    width: 296px;
+
+    p {
+      text-align: start;
+    }
+  }
+
+  a {
+    @include flex();
+    text-align: center;
+    background-color: $second-background-color-black;
+    color: white;
+    border: 2px solid $second-background-color-black;
+    width: 306px;
+    height: 54px;
+    font-size: $font-size-medium;
+    font-family: $font-main;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-base;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    border-radius: $border-radius-medium;
+    transition:
+      background-color 300ms ease-out,
+      color 300ms ease-out;
+
+    &:hover {
+      background-color: transparent;
+      color: $text-color-black;
+    }
+  }
+
+  @include mobile {
+    img {
+      width: 356px;
+      height: 388px;
+    }
+
+    div {
+      width: 356px;
+    }
+  }
+
+  @include tablet {
+    display: grid;
+    grid-template-rows: 10px 40px 252px 54px;
+    row-gap: 0;
+    column-gap: 24px;
+    justify-content: initial;
+    align-items: center;
+
+    h2 {
+      width: 320px;
+      grid-area: 2 / 2;
+    }
+
+    img {
+      width: 336px;
+      height: 367px;
+      grid-area: 1 / 1 / 6;
+    }
+
+    div {
+      gap: 24px;
+      width: 336px;
+      grid-area: 3 / 2;
+    }
+
+    a {
+      grid-area: 4 / 2;
+    }
+  }
+
+  @include deskmin {
+    display: grid;
+    column-gap: 28px;
+    row-gap: 0;
+    grid-template-rows: 91px 40px 240px;
+    justify-items: center;
+
+    h2 {
+      grid-area: 2 / 2;
+    }
+
+    img {
+      width: 476px;
+      height: 519px;
+    }
+
+    div {
+      grid-area: 3 / 2;
+      width: 392px;
+    }
+
+    a {
+      height: 56px;
+    }
+  }
+
+  @include deskmax {
+    grid-template-rows: 169px 45px 246px;
+
+    h2 {
+      width: 526px;
+    }
+
+    img {
+      width: 636px;
+      height: 694px;
+    }
+
+    div {
+      width: 637px;
+    }
+  }
+}
