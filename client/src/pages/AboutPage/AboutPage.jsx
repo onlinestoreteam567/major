@@ -2,6 +2,7 @@ import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import KeyBenefits from './KeyBenefits/KeyBenefits';
+import OurProduction from './OurProduction/OurProduction';
 
 const AboutPage = () => {
   return (
@@ -107,6 +108,7 @@ const AboutPage = () => {
         </section>
       </div>
       <KeyBenefits />
+      <OurProduction />
     </div>
   );
 };

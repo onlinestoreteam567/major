@@ -1,0 +1,90 @@
+@import '@mixins';
+
+.ourProduction {
+  @include flex(column);
+  gap: 12px;
+
+  img {
+    width: 296px;
+    height: 199px;
+  }
+
+  div {
+    @include flexGap(8px, column);
+    width: 294px;
+
+    p {
+      text-align: start;
+    }
+  }
+
+  @include mobile {
+    img {
+      width: 356px;
+      height: 240px;
+    }
+
+    div {
+      width: 356px;
+    }
+  }
+
+  @include tablet {
+    display: grid;
+    row-gap: 48px;
+    column-gap: 24px;
+    justify-items: center;
+
+    h2 {
+      width: 336px;
+    }
+
+    img {
+      grid-area: 1/2 / 3;
+      width: 336px;
+      height: 226px;
+    }
+
+    div {
+      gap: 24px;
+      width: 336px;
+    }
+  }
+
+  @include deskmin {
+    grid-template-rows: 30px 40px;
+    column-gap: 28px;
+    row-gap: 0;
+
+    h2 {
+      width: fit-content;
+      grid-area: 2/1;
+    }
+
+    img {
+      grid-area: 1 / 2 / 4;
+      width: 476px;
+      height: 320px;
+    }
+
+    div {
+      width: 476px;
+      grid-area: 3 / 1;
+      margin-block: 48px 30px;
+    }
+  }
+
+  @include deskmax {
+    grid-template-rows: 88.5px 45px;
+
+    img {
+      width: 636px;
+      height: 429px;
+    }
+
+    div {
+      width: 637px;
+      margin-bottom: 88.5px;
+    }
+  }
+}
