@@ -1,0 +1,103 @@
+@import '@mixins';
+
+.paginatedBenefits {
+  @include flexGap(24px);
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 768px;
+
+  & > div {
+    @include flexGap(24px, column);
+    justify-content: space-between;
+
+    div {
+      @include flex();
+      gap: 16px;
+      width: 336px;
+      height: 145px;
+      border-radius: 32px;
+      padding: 20px 24px;
+      box-sizing: border-box;
+
+      h2 {
+        width: 208px;
+        text-align: start;
+      }
+
+      p {
+        text-align: start;
+      }
+
+      &.showParagraph {
+        flex-direction: column;
+        gap: 20px;
+        height: 220px;
+        padding-block: 24px;
+
+        h2 {
+          width: 288px;
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 1024px;
+    flex-direction: column;
+    gap: 0;
+
+    div {
+      flex-direction: row;
+
+      div {
+        width: 308px;
+        height: 155px;
+        gap: 24px;
+        padding: 24px;
+
+        h2 {
+          width: 100%;
+        }
+
+        &.showParagraph {
+          height: 311px;
+          gap: 24px;
+
+          h2 {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    & > div:nth-of-type(2) {
+      div:nth-of-type(1) {
+        &.showParagraph {
+          margin-top: -111px;
+        }
+      }
+      div:nth-of-type(2) {
+        margin-top: 38px;
+
+        &.showParagraph {
+          margin-top: -118px;
+        }
+      }
+      div:nth-of-type(3) {
+        margin-top: 37px;
+        &.showParagraph {
+          margin-top: -119px;
+        }
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 1440px;
+    & > div {
+      div {
+        width: 416px;
+      }
+    }
+  }
+}

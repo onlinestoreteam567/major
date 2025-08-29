@@ -37,12 +37,14 @@
   text-align: center;
   @include tablet {
     font-size: 32px;
+    font-weight: 500;
   }
   @include deskmin {
     font-size: 32px;
   }
   @include deskmax {
     font-size: 36px;
+    font-weight: 700;
   }
 }
 
