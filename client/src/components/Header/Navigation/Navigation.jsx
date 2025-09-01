@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { fetchProductsAll } from '@redux/products/service';
 import { resetFilter } from '@redux/filter/filterSlice';
 
-const links = ['catalog', 'about', 'blog', 'cooperation', 'contact'];
+const links = ['catalog', 'about', 'cooperation', 'contact'];
 
 const Navigation = ({ onClick }) => {
   const { getTranslation } = useTranslationNamespace('header');
