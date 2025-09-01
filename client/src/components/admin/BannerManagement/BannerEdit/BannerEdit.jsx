@@ -1,17 +1,10 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
-import UploadedImage from '@components/admin/UploadedImage/UploadedImage';
 import Spinner from '@components/helpers/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useId';
 import { editBanner, getBannerById } from '@redux/banner/service';
-import {
-  errorBannerEdit,
-  loadBannerById,
-  loadBannerEdit,
-  responseBannerById,
-  responseBannerEdit,
-} from '@redux/selectors';
+import { errorBannerEdit, loadBannerById, responseBannerById, responseBannerEdit } from '@redux/selectors';
 import appendFormData from '@utils/appendFormData';
 import handleImageUpload from '@utils/handleImageUpload';
 import { bannerSchema } from '@validations/admin/bannerSchema';
@@ -37,7 +30,6 @@ const BannerEdit = () => {
   const dispatch = useDispatch();
   const isLoadingGet = useSelector(loadBannerById);
   const responseGet = useSelector(responseBannerById);
-  const isLoadingEdit = useSelector(loadBannerEdit);
   const responseEdit = useSelector(responseBannerEdit);
   const errorEdit = useSelector(errorBannerEdit);
 
@@ -69,11 +61,10 @@ const BannerEdit = () => {
   ) : (
     <form className={cl.bannerEdit} onSubmit={handleSubmit(onSubmit)}>
       <BannerForm register={register} errors={errors} control={control} />
-      {responseGet && <UploadedImage labelText="Завантажене зображення товару:" image={responseGet.image_url} />}
-      {responseGet && (
+      {/* {responseGet && <UploadedImage labelText="Завантажене зображення товару:" image={responseGet.image_url} />} */}
+      {/* {responseGet && (
         <UploadedImage labelText="Завантажене зображення фону слайду:" image={responseGet.background_image_url} />
-      )}
-      {/* <LoadingButton isLoading={isLoadingEdit} loadingText="Зміна..." defaultText="Змінити слайд" /> */}
+      )} */}
       {errorEdit && <ErrorText error={errorEdit} />}
       {responseEdit && <SuccessMessage>Слайд успішно відредаговано!</SuccessMessage>}
     </form>

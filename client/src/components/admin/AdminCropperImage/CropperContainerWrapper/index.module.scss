@@ -1,0 +1,98 @@
+@import '@mixins';
+
+.cropperContainerWrapper {
+  @include flex(column);
+  z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 545px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 42px 15px;
+  box-sizing: border-box;
+
+  h2 {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 136%;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .cropperContainer {
+    width: 225px;
+    height: 252px;
+    border-radius: 8px;
+  }
+
+  .buttonsWrapper {
+    @include flexGap(16px, column);
+    margin-top: 24px;
+    width: 250px;
+  }
+
+  @include mobile {
+    padding: 25px 35px;
+    width: 356px;
+    height: 545px;
+
+    .cropperContainer {
+      height: 285px;
+      width: 285px;
+    }
+
+    .buttonsWrapper {
+      width: 285px;
+    }
+  }
+
+  @include tablet {
+    width: 571px;
+    height: 600px;
+
+    h2 {
+      font-size: 32px;
+    }
+
+    .cropperContainer {
+      height: 361px;
+      width: 361px;
+    }
+
+    .buttonsWrapper {
+      flex-direction: row;
+      width: 361px;
+    }
+  }
+
+  @include deskmin {
+    .cropperContainerWrapper {
+      width: 637px;
+      height: 647px;
+
+      h2 {
+        font-size: 32px;
+      }
+
+      .cropperContainer {
+        height: 437px;
+        width: 437px;
+      }
+
+      .buttonsWrapper {
+        gap: 54px;
+        width: 437px;
+      }
+    }
+  }
+
+  @include deskmax {
+    .cropperContainerWrapper {
+      width: 761px;
+    }
+  }
+}

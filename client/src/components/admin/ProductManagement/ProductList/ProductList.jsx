@@ -6,10 +6,10 @@ import { fetchProductsAll } from '@redux/products/service';
 import { loadProducts, selectFilteredProducts } from '@redux/selectors';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Card from './Card/Card';
+import ProductListItem from './ProductListItem/ProductListItem';
 import cl from './index.module.scss';
 
-const List = () => {
+const ProductList = () => {
   const items = useSelector(selectFilteredProducts);
   const isLoading = useSelector(loadProducts);
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const List = () => {
 
               <ul>
                 {items.map((card) => (
-                  <Card card={card} key={card.id} showDeletedMessage={showDeletedMessage} />
+                  <ProductListItem card={card} key={card.id} showDeletedMessage={showDeletedMessage} />
                 ))}
               </ul>
             </div>
@@ -55,4 +55,4 @@ const List = () => {
     </>
   );
 };
-export default List;
+export default ProductList;

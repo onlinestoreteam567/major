@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import SelectedCategories from './SelectedCategories.jsx/SelectedCategories';
+import SelectedCategories from './SelectedCategories/SelectedCategories';
 import CustomSelectDisplay from './CustomSelectDisplay/CustomSelectDisplay';
 import CategoriesList from './OptionsList/OptionsList';
 import useClickOutside from '@hooks/admin/useClickOutside';

@@ -20,7 +20,6 @@ import Loading from '@components/helpers/Loading';
 // Protected Route (Admin)
 import ProtectedRoute from './layouts/ProtectedRoute/ProtectedRoute';
 import AdminLoginPage from '@components/admin/AdminLoginPage/AdminLoginPage';
-import AdminPage from '@components/admin/AdminPage/AdminPage';
 import ProductManagement from '@components/admin/ProductManagement/ProductManagement';
 import ProductCreate from '@components/admin/ProductManagement/ProductCreate/ProductCreate';
 import ProductEdit from '@components/admin/ProductManagement/ProductEdit/ProductEdit';
@@ -34,11 +33,11 @@ import PromocodeEdit from '@components/admin/PromocodeManagement/PromocodeEdit/P
 import BannerManagement from '@components/admin/BannerManagement/BannerManagement';
 import BannerCreate from '@components/admin/BannerManagement/BannerCreate/BannerCreate';
 import BannerEdit from '@components/admin/BannerManagement/BannerEdit/BannerEdit';
-import PartnersManagement from '@components/admin/PartnersManagement.jsx/PartnersManagement';
-import PartnerCreate from '@components/admin/PartnersManagement.jsx/PartnerCreate/PartnerCreate';
-import PartnerEdit from '@components/admin/PartnersManagement.jsx/PartnerEdit/PartnerEdit';
+import PartnersManagement from '@components/admin/PartnersManagement/PartnersManagement';
+import PartnerCreate from '@components/admin/PartnersManagement/PartnerCreate/PartnerCreate';
+import PartnerEdit from '@components/admin/PartnersManagement/PartnerEdit/PartnerEdit';
 import ReviewsManagement from '@components/admin/ReviewsManagement/ReviewsManagement';
-import ContactsEdit from '@components/admin/Contacts/ContactsEdit/ContactsEdit';
+import ContactsManagement from '@components/admin/ContactsManagement/ContactsManagement';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -75,7 +74,7 @@ const router = createBrowserRouter([
     path: '/admin',
     element: <ProtectedRoute />,
     children: [
-      { index: true, element: <AdminPage /> },
+      { index: true, element: <div></div> },
 
       { path: 'products', element: <ProductManagement /> },
       { path: 'products/create', element: <ProductCreate /> },
@@ -99,7 +98,7 @@ const router = createBrowserRouter([
       { path: 'partners/:id', element: <PartnerEdit /> },
 
       { path: 'reviews', element: <ReviewsManagement /> },
-      { path: 'contacts', element: <ContactsEdit /> },
+      { path: 'contacts', element: <ContactsManagement /> },
     ],
   },
   { path: '/admin/login', element: <AdminLoginPage /> },

@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
 
-const Card = ({ card, showDeletedMessage }) => {
+const ProductListItem = ({ card, showDeletedMessage }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const isSmallScreen = !(tablet || deskmin || deskmax);
@@ -35,7 +35,7 @@ const Card = ({ card, showDeletedMessage }) => {
 
   return (
     <>
-      <li className={cl.card}>
+      <li className={cl.productListItem}>
         {isSmallScreen ? (
           <>
             <Link to={`/admin/products/${card.id}`} className={cl.fullCardLink}>
@@ -66,4 +66,4 @@ const Card = ({ card, showDeletedMessage }) => {
   );
 };
 
-export default Card;
+export default ProductListItem;

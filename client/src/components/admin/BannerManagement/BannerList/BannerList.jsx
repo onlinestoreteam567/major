@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
 
-const List = () => {
+const BannerList = () => {
   const items = useSelector(selectBanner);
   const isLoading = useSelector(loadBanner);
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ const List = () => {
       {isLoading || isLoadingDelete ? (
         <Spinner />
       ) : (
-        <ul className={cl.list}>
+        <ul className={cl.bannerList}>
           {items.map((card) => (
             <li key={card.id}>
               <img src={card.image_url} />
@@ -42,4 +42,4 @@ const List = () => {
     </>
   );
 };
-export default List;
+export default BannerList;

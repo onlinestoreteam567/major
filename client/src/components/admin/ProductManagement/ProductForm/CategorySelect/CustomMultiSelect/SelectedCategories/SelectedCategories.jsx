@@ -1,6 +1,9 @@
-import getSelectedItemsNames from '../handlers/getSelectedItemsNames';
-import handleToggleOption from '../handlers/handleToggleOption';
+import handleToggleOption from '../helpers/handleToggleOption';
 import cl from './index.module.scss';
+
+const getSelectedItemsNames = (selectedIds, items) => {
+  return items.filter((item) => selectedIds.includes(String(item.id)));
+};
 
 const SelectedCategories = ({ selectedValues, items, onChange, onBlur }) => {
   const displayedItems = getSelectedItemsNames(selectedValues, items);

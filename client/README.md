@@ -18,6 +18,228 @@ src/
 │
 ├── components/ # Reusable components
 │ ├── admin/ # almost all components for admin panel
+│ │ ├── AdminCropperImage
+│ │ │ ├── AdminCropperImage
+│ │ │ ├── index.module.scss
+│ │ │ ├── helpers
+│ │ │ │ ├── deleteCroppedImage.js
+│ │ │ │ ├── handleCroppedImage.js
+│ │ │ │ ├── handleImageUpload.js
+│ │ │ ├── CropperContainerWrapper
+│ │ │ │ ├── CropperContainerWrapper.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── ImagesSlider
+│ │ │ │ ├── ImagesSlider.jsx
+│ │ │ │ ├── index.module.scss
+
+│ │ ├── AdminFormActions
+│ │ │ ├── AdminFormActions.jsx
+│ │ │ ├── index.module.scss
+
+│ │ ├── AdminLoginPage
+│ │ │ ├── AdminLoginPage.jsx
+│ │ │ ├── index.module.scss
+
+│ │ ├── AdminMessage
+│ │ │ ├── AdminMessage.jsx
+│ │ │ ├── index.module.scss
+
+│ │ ├── AdminNavigation
+│ │ │ ├── AdminNavigation.jsx
+│ │ │ ├── index.module.scss
+
+│ │ ├── BannerManagement
+│ │ │ ├── BannerManagement.jsx
+│ │ │ ├── index.module.scss
+│ │ │ │ ├── BannerCreate
+│ │ │ │ │ ├── BannerCreate.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ ├── BannerEdit
+│ │ │ │ │ ├── BannerEdit.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ ├── BannerForm
+│ │ │ │ │ ├── BannerForm.jsx
+│ │ │ │ │ ├── BannerProductSelect.jsx
+│ │ │ │ ├── BannerList
+│ │ │ │ │ ├── BannerList.jsx
+│ │ │ │ │ ├── index.module.scss
+
+│ │ ├── CategoriesManagement
+│ │ │ ├── CategoriesManagement.jsx
+│ │ │ ├── index.module.scss
+│ │ │ │ ├── CategoryCreate
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── Purpose
+│ │ │ │ │ ├── PurposeForm.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── PurposeCreate
+│ │ │ │ │ │ ├── PurposeCreate.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── PurposeEdit
+│ │ │ │ │ │ ├── PurposeEdit.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── PurposeList
+│ │ │ │ │ │ ├── PurposeList.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ │ ├── PurposeCategoryItem
+│ │ │ │ │ │ │ ├── PurposeCategoryItem.jsx
+│ │ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ ├── Type
+│ │ │ │ │ ├── TypeForm.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── TypeCreate
+│ │ │ │ │ │ ├── TypeCreate.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── TypeEdit
+│ │ │ │ │ │ ├── TypeEdit.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── TypeList
+│ │ │ │ │ │ ├── TypeList.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ │ ├── TypeCategoryItem
+│ │ │ │ │ │ │ ├── TypeCategoryItem.jsx
+│ │ │ │ │ │ │ ├── index.module.scss
+
+│ │ ├── ContactsManagement
+│ │ │ ├── ContactsManagement.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── ContactsForm
+│ │ │ │ ├── ContactsForm.jsx
+│ │ │ │ ├── index.module.scss
+
+│ │ ├── CustomSelect
+│ │ │ ├── CustomSelect.jsx
+│ │ │ ├── index.module.scss
+
+│ │ ├── DeletePopUp
+│ │ │ ├── DeletePopUp.jsx
+│ │ │ ├── index.module.scss
+
+│ │ ├── ErrorText
+│ │ │ ├── ErrorText.jsx
+│ │ │ ├── index.module.scss
+
+│ │ ├── ImageUpload
+│ │ │ ├── ImageUpload.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── ImagePreview
+│ │ │ │ ├── ImagePreview.jsx
+│ │ │ │ ├── index.module.scss
+
+│ │ ├── PartnersManagement
+│ │ │ ├── PartnersManagement.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── PartnerCreate
+│ │ │ │ ├── PartnerCreate.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── PartnerEdit
+│ │ │ │ ├── PartnerEdit.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── PartnersForm
+│ │ │ │ ├── PartnersForm.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── AdminPartnersMap
+│ │ │ │ │ ├── AdminPartnersMap.jsx
+│ │ │ │ │ ├── index.module.scss
+
+│ │ ├── ProductManagement
+│ │ ├── ProductManagement.jsx
+│ │ ├── index.module.scss
+│ │ ├── ProductCreate
+│ │ │ ├── ProductCreate.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── helpers
+│ │ │ │ ├── calculateDiscountedPrice.js
+│ │ │ │ ├── useProductForm.jsx
+│ │ ├── ProductEdit
+│ │ │ ├── ProductEdit.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── helpers
+│ │ │ │ ├── setFormValues.js
+│ │ │ │ ├── useEditProductForm.jsx
+│ │ │ │ ├── useFetchProductData.jsx
+│ │ ├── ProductForm
+│ │ │ ├── ProductForm.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── CategorySelect
+│ │ │ │ ├── CategorySelect.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── CustomMultiSelect
+│ │ │ │ │ ├── CustomMultiSelect.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── helpers
+│ │ │ │ │ │ ├── handleToggleOption.js
+│ │ │ │ │ ├── CustomSelectDisplay
+│ │ │ │ │ │ ├── CustomSelectDisplay.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── OptionsList
+│ │ │ │ │ │ ├── OptionsList.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── SelectedCategories
+│ │ │ │ │ │ ├── SelectedCategories.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ ├── TypeSelect
+│ │ │ │ ├── TypeSelect.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── ProductList
+│ │ │ │ ├── ProductList.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── ProductSearch
+│ │ │ │ ├── ProductSearch.jsx
+│ │ │ │ ├── index.module.scss
+
+│ │ ├── PromocodeManagement
+│ │ │ ├── PromocodeManagement.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── PromocodeCreate
+│ │ │ │ ├── PromocodeCreate.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── PromocodeEdit
+│ │ │ │ ├── PromocodeEdit.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── PromocodeForm
+│ │ │ │ ├── PromocodeForm.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── PromocodeList
+│ │ │ │ ├── PromocodeList.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── PromocodeListItem
+│ │ │ │ │ ├── PromocodeListItem.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ ├── PromocodeSelect
+│ │ │ │ │ ├── PromocodeSelect.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── PromocodeSelectOptions
+│ │ │ │ │ │ ├── PromocodeSelectOptions.jsx
+│ │ │ │ │ │ ├── index.module.scss
+
+│ │ ├── ReviewsManagement
+│ │ │ ├── ReviewsManagement.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── ReviewsList
+│ │ │ │ ├── ReviewsList.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── ReviewListItem
+│ │ │ │ │ ├── ReviewListItem.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ ├── ReviewsSearch
+│ │ │ │ ├── ReviewsSearch.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── ReviewsSelect
+│ │ │ │ ├── ReviewsSelect.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── ReviewSelectOptions
+│ │ │ │ │ ├── ReviewSelectOptions.jsx
+│ │ │ │ │ ├── index.module.scss
+
+│ │ ├── SuccessMessage
+│ │ │ ├── SuccessMessage.jsx
+│ │ │ ├── index.module.scss
+
+│ │ ├── ValidationErrorMessage
+│ │ │ ├── ValidationErrorMessage
+│ │ │ ├── index.module.scss
+
 │ ├── UI/ # UI components with modular styles
 │ │ ├── Button/ # Button component with module SCSS
 │ │ │ ├── Button.jsx

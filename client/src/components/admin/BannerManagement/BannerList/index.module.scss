@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.list {
+.bannerList {
   @include flexGap(20px, column);
   color: black;
 

@@ -6,7 +6,7 @@ import { setSearch } from '@redux/admin/search/adminReviewsSearchSlice/adminRevi
 import { reviewsSearchValue } from '@redux/admin/selectors';
 import { filterReviewByName } from '@redux/reviews/reviewsSlice';
 
-const Search = () => {
+const ReviewsSearch = () => {
   const [isSelected, setIsSelected] = useState(false);
   const dispatch = useDispatch();
   const searchValue = useSelector(reviewsSearchValue);
@@ -26,7 +26,7 @@ const Search = () => {
   };
 
   return (
-    <search className={cl.search}>
+    <search className={cl.reviewsSearch}>
       <div>
         <input placeholder="пошук" type="text" onChange={handleChange} value={searchValue} />
         <button>
@@ -37,4 +37,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default ReviewsSearch;

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import cl from './index.module.scss';
-import getSelectedItemName from '../ProductManagement/ProductForm/TypeSelect/handlers/getSelectedItemName';
+import getSelectedItemName from './helpers/getSelectedItemName';
 import Arrow from '@assets/svg/Admin/Arrow/Arrow';
 import useClickOutside from '@hooks/admin/useClickOutside';
 

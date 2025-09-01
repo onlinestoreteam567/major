@@ -4,7 +4,7 @@ import { productSearchValue } from '@redux/admin/selectors';
 import { filterProductsByName } from '@redux/products/listSlice';
 import { setSearch } from '@redux/admin/search/adminProductSearchSlice/adminProductSearchSlice';
 
-const Search = () => {
+const ProductSearch = () => {
   const dispatch = useDispatch();
   const value = useSelector(productSearchValue);
 
@@ -16,7 +16,7 @@ const Search = () => {
   };
 
   return (
-    <search className={cl.search}>
+    <search className={cl.productSearch}>
       <input type="text" placeholder="пошук" value={value} onChange={handleChange} />
       <button>
         <img src="/svg/admin/search.svg" alt="search" />
@@ -25,4 +25,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default ProductSearch;

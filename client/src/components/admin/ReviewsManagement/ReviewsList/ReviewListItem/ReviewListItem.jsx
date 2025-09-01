@@ -5,7 +5,7 @@ import Button from '@components/UI/Button/Button';
 import { useState } from 'react';
 import DeletePopUp from '@components/admin/DeletePopUp/DeletePopUp';
 
-const ReviewCard = ({ review, showMessage }) => {
+const ReviewListItem = ({ review, showMessage }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const [isShowApprovePopUp, setIsShowApprovePopUp] = useState(false);
   const dispatch = useDispatch();
@@ -82,4 +82,4 @@ const ReviewCard = ({ review, showMessage }) => {
     </>
   );
 };
-export default ReviewCard;
+export default ReviewListItem;

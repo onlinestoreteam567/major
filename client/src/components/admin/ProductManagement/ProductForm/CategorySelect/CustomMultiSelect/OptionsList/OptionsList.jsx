@@ -1,5 +1,5 @@
 import CheckedCheckbox from '@assets/svg/Admin/CheckedCheckbox/CheckedCheckbox';
-import handleToggleOption from '../handlers/handleToggleOption';
+import handleToggleOption from '../helpers/handleToggleOption';
 import cl from './index.module.scss';
 import UncheckedCheckbox from '@assets/svg/Admin/UncheckedCheckbox/UncheckedCheckbox';
 

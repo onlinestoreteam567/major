@@ -3,7 +3,7 @@ import { loadProducts, selectProducts } from '@redux/selectors';
 import { Controller } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 
-const ProductSelect = ({ control, errors }) => {
+const BannerProductSelect = ({ control, errors }) => {
   const items = useSelector(selectProducts);
   const isLoading = useSelector(loadProducts);
   const name = 'product_id';
@@ -38,4 +38,4 @@ const ProductSelect = ({ control, errors }) => {
   );
 };
 
-export default ProductSelect;
+export default BannerProductSelect;

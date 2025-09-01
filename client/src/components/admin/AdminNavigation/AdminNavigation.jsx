@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import cl from './index.module.scss';
 import { useDispatch } from 'react-redux';
-
 import { filterProductsByName } from '@redux/products/listSlice';
 import { clearSearch } from '@redux/admin/search/adminProductSearchSlice/adminProductSearchSlice';
 import { clearSearch as clearSearchReviews } from '@redux/admin/search/adminReviewsSearchSlice/adminReviewsSearchSlice';

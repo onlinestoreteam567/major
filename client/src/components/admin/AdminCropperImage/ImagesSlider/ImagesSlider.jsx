@@ -2,13 +2,13 @@ import Slider from 'react-slick';
 import { useRef, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import settings from './settings.js';
 import deleteCroppedImage from '../helpers/deleteCroppedImage.js';
 import cl from './index.module.scss';
 import ArrowImages from '@assets/svg/Admin/Arrow/ArrowImages.jsx';
 import DeletePopUp from '@components/admin/DeletePopUp/DeletePopUp.jsx';
 import AdminMessage from '@components/admin/AdminMessage/AdminMessage.jsx';
 import useTimedMessage from '@hooks/admin/useTimedMessage';
+import { adminCropperSlider } from '@components/constants/settingSlider.js';
 
 const ImagesSlider = ({ onChange, images, setImages, setValue, getValues }) => {
   const sliderRef = useRef(null);
@@ -36,7 +36,7 @@ const ImagesSlider = ({ onChange, images, setImages, setValue, getValues }) => {
         </button>
       </div>
 
-      <Slider ref={sliderRef} {...settings}>
+      <Slider ref={sliderRef} {...adminCropperSlider}>
         {images.map((img, index) => (
           <div key={index}>
             {img instanceof File ? (

@@ -1,6 +1,8 @@
 @import '@mixins';
 
-.search {
+.productSearch {
+  display: flex;
+  height: 56px;
   width: 280px;
   position: relative;
 
@@ -43,26 +45,6 @@
     cursor: pointer;
   }
 
-  ul {
-    @include flexGap(16px, column);
-    padding: 16px;
-    border-radius: 6px;
-    background-color: white;
-    border: 1px solid #a2a2a2;
-    color: black;
-    font-family: Mulish;
-    font-weight: 400;
-    font-size: 20px;
-  }
-
-  p {
-    font-family: Mulish;
-    font-weight: 400;
-    font-size: 20px;
-    color: red;
-    margin-top: 16px;
-  }
-
   @include mobile {
     width: 340px;
 
@@ -73,23 +55,23 @@
 
   @include tablet {
     margin-left: auto;
-    width: 358px;
+    width: 100%;
 
     input {
-      width: 318px;
-    }
-
-    p {
-      font-size: 22px;
-      width: 524px;
+      width: 484px;
     }
   }
 
   @include deskmin {
+    width: 355px;
     margin-left: 0;
 
-    p {
-      width: 100%;
+    input {
+      width: 315px;
     }
+  }
+
+  @include deskmax {
+    margin-left: auto;
   }
 }

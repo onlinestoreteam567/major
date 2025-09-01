@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.card {
+.productListItem {
   @include flex(row, start);
   gap: 8px;
 

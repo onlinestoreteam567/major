@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import cl from './index.module.scss';
-import ContactsForm from '../ContactsForm/ContactsForm';
+import ContactsForm from './ContactsForm/ContactsForm';
 import { contactSchema } from '@validations/admin/contactSchema';
 import AdminFormActions from '@components/admin/AdminFormActions/AdminFormActions';
 
@@ -17,7 +17,7 @@ import AdminFormActions from '@components/admin/AdminFormActions/AdminFormAction
 //   'privacy_policy_url',
 // ];
 
-const ContactsEdit = () => {
+const ContactsManagement = () => {
   const {
     register,
     handleSubmit,
@@ -70,4 +70,4 @@ const ContactsEdit = () => {
     </>
   );
 };
-export default ContactsEdit;
+export default ContactsManagement;
