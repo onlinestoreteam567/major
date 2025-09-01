@@ -8,20 +8,16 @@ The project is structured to maintain a clear separation of concerns, making it 
 
 ## Directory Structure
 
+public/ # Static files (images, icons, locales)
+│
+│ ├── images/ # Product images, banners, etc.
+│ └── icons/ # SVG or other icons
+│ └── locales/ translation files for internationalization (i18n)
+
 src/
 │
-├── api/ # API interactions
-│ ├── apiClient.js # General API client (e.g., Axios)
-│ ├── productApi.js # API functions for working with products
-│ ├── userApi.js # API functions for working with users
-│ └── orderApi.js # API functions for working with orders
-│
-├── assets/ # Static files (images, icons, fonts)
-│ ├── images/ # Product images, banners, etc.
-│ ├── fonts/ # Fonts
-│ └── icons/ # SVG or other icons
-│
 ├── components/ # Reusable components
+│ ├── admin/ # almost all components for admin panel
 │ ├── UI/ # UI components with modular styles
 │ │ ├── Button/ # Button component with module SCSS
 │ │ │ ├── Button.jsx
