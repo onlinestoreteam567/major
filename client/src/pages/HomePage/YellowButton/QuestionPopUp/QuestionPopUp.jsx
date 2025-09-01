@@ -16,6 +16,7 @@ const QuestionPopUp = ({ setShowMessagePopUp }) => {
     setValue,
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm({
     mode: 'onSubmit',
@@ -54,6 +55,7 @@ const QuestionPopUp = ({ setShowMessagePopUp }) => {
                 name="phone"
                 labelText={getTranslation('phoneNumber')}
                 errors={errors}
+                getValues={getValues}
               />
             </div>
 
