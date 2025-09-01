@@ -9,9 +9,10 @@ import { useSelector } from 'react-redux';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
 
 const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) => {
+  const cartItemsAmount = useSelector((state) => state.cart.savedIds.length);
   const { deskmin, deskmax } = useScreenSizes();
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
-  const cartItems = useSelector((state) => state.cart.items);
+
   return (
     <div className={cl.rightSection}>
       <ButtonAriaLabel al="openSearchInput" onClick={handleShowInput}>
@@ -29,7 +30,7 @@ const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) 
 
       <ButtonAriaLabel al="openBasket" onClick={handleShowBasket}>
         <BagIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
-        <span>{cartItems.length}</span>
+        <span>{cartItemsAmount}</span>
       </ButtonAriaLabel>
     </div>
   );
