@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import { popUpData } from '@components/constants/popUpData';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import Heading from '@components/UI/Texts/Heading/Heading';
@@ -50,7 +49,7 @@ const YellowButton = () => {
           </div>
         )}
       </section>
-      {showMessagePopUp && <QuestionPopUp setShowMessagePopUp={setShowMessagePopUp} popUpData={popUpData} />}
+      {showMessagePopUp && <QuestionPopUp setShowMessagePopUp={setShowMessagePopUp} />}
     </>
   );
 };
