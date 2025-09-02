@@ -3,7 +3,7 @@ import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import Heading from '@components/UI/Texts/Heading/Heading';
-import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 import QuestionPopUp from './QuestionPopUp/QuestionPopUp';
 
 const YellowButton = () => {

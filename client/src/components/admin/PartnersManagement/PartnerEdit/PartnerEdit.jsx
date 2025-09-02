@@ -1,5 +1,5 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useId';
 import { editPartner, getPartnerById } from '@redux/partners/service';

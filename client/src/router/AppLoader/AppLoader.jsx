@@ -1,8 +1,8 @@
 import cl from './index.module.scss';
 
-export default function Loading() {
+export default function AppLoader() {
   return (
-    <div className={cl.wrapper}>
+    <div className={cl.appLoader}>
       <div className={cl.cloud}></div>
     </div>
   );

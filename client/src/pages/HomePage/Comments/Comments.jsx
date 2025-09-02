@@ -10,7 +10,7 @@ import { commentsSettings } from '@components/constants/settingSlider';
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
 import useScreenSizes from '@hooks/useScreenSizes';
-import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

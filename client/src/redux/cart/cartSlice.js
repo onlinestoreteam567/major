@@ -120,4 +120,5 @@ export const {
   clearCart,
   incrementItemQuantity,
 } = cartSlice.actions;
-export default cartSlice.reducer;
+
+export const cartReducer = cartSlice.reducer;

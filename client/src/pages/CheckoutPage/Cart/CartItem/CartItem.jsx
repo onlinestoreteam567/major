@@ -1,7 +1,7 @@
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
-import { removeItem } from '@features/cart/cartSlice';
+import { removeItem } from '@redux/cart/cartSlice';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { useDispatch } from 'react-redux';
 import cl from './index.module.scss';

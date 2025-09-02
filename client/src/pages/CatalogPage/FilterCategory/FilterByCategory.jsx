@@ -1,12 +1,12 @@
 import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
-import EmptyPage from '@components/helpers/EmptyPage';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import EmptyText from '@UI/EmptyText/EmptyText';
+import Spinner from '@UI/Spinner/Spinner';
 import { loadCategories, selectCategories } from '@redux/selectors';
 
 import useScreenSizes from '@hooks/useScreenSizes';
 import CategoryCard from './CategoryCard/CategoryCard';
-import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
+import SliderBoxMain from '@components/UI/SliderBoxMain/SliderBoxMain';
 
 export default function FilterByCategory() {
   const isLoading = useSelector(loadCategories);
@@ -29,7 +29,7 @@ export default function FilterByCategory() {
               items.map((item) => <CategoryCard item={item} key={item.id} />)
             )
           ) : (
-            <EmptyPage message="Не знайдено" />
+            <EmptyText message="Не знайдено" />
           )}
         </ul>
       )}

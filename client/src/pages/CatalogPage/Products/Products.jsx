@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import CardsContainer from './CardsContainer/CardsContainer';
 import cl from './index.module.scss';
 import { useSelector } from 'react-redux';

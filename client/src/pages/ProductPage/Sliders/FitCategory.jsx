@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 import Heading from '@components/UI/Texts/Heading/Heading';
-import Spinner from '@components/helpers/Spinner/Spinner';
-import EmptyPage from '@components/helpers/EmptyPage';
+import Spinner from '@UI/Spinner/Spinner';
+import EmptyText from '@UI/EmptyText/EmptyText';
 import { useEffect } from 'react';
 import { getFitCategory } from '../../../redux/products/service';
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,7 +34,7 @@ export default function FitCategory({ categoryId }) {
       ) : (
         <div className={cl.slider}>
           <Heading type="h3">{getTranslation('youMayBeInterestedIn')}</Heading>
-          {showArr ? <ProductListOrSlider products={slidesData} /> : <EmptyPage message="Нічого не знайдено" />}
+          {showArr ? <ProductListOrSlider products={slidesData} /> : <EmptyText message="Нічого не знайдено" />}
         </div>
       )}
     </>

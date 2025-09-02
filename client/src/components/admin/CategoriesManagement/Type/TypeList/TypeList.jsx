@@ -1,5 +1,5 @@
 import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import useTimedMessage from '@hooks/admin/useTimedMessage';
 import { loadTypeDelete, responseTypeDelete } from '@redux/admin/selectors';
 import { fetchTypes } from '@redux/params/service';

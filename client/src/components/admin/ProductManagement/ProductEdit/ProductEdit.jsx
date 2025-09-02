@@ -1,5 +1,5 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import { editProduct } from '@redux/admin/product/service';
 import appendFormData from '@utils/appendFormData';
 import handleImageUpload from '@utils/handleImageUpload';

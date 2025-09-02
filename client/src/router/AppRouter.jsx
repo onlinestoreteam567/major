@@ -13,9 +13,9 @@ import CookieTest from './testСomponents/Cookie';
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
 import FormTest from './testСomponents/FormTest';
-import NotFound from '@components/helpers/NotFound/NotFound';
-import ErrorPage from '@components/helpers/ErrorPage/ErrorPage';
-import Loading from '@components/helpers/Loading';
+import NotFound from '@pages/NotFoundPage/NotFoundPage';
+import ErrorPage from '@pages/ErrorPage/ErrorPage';
+import AppLoader from '@router/AppLoader/AppLoader';
 
 // Protected Route (Admin)
 import ProtectedRoute from './layouts/ProtectedRoute/ProtectedRoute';
@@ -119,14 +119,14 @@ const router = createBrowserRouter([
   /*** */
   {
     path: '/error-test',
-    element: <ErrorPage error={400} />,
+    element: <ErrorPage />,
   },
   /**** */
 ]);
 
 const AppRouter = () => {
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<AppLoader />}>
       <RouterProvider router={router} />
     </Suspense>
   );

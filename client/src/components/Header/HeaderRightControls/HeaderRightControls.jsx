@@ -6,7 +6,7 @@ import BagIcon from '@assets/svg/Header/BagIcon';
 import EnIcon from '@assets/svg/Header/EnIcon';
 import useScreenSizes from '@hooks/useScreenSizes';
 import { useSelector } from 'react-redux';
-import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 
 const HeaderRightControls = ({ handleShowInput, isScrolled, handleShowBasket }) => {
   const cartItemsAmount = useSelector((state) => state.cart.savedIds.length);

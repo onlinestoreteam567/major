@@ -1,0 +1,12 @@
+@import '@mixins';
+
+.emptyText {
+  @include flex(column, center, center);
+  box-sizing: border-box;
+  gap: 20px;
+  width: inherit;
+  height: 100%;
+  background-color: rgb(248, 248, 249);
+  padding: 40px;
+  text-align: center;
+}

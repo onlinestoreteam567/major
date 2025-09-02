@@ -1,4 +1,4 @@
-import cartReducer from '@features/cart/cartSlice';
+import { cartReducer } from '@redux/cart/cartSlice';
 import { bannerByIdReducer } from '@redux/banner/bannerByIdSlice';
 import { bannerCreateReducer } from '@redux/banner/bannerCreateSlice';
 import { bannerDeleteReducer } from '@redux/banner/bannerDeleteSlice';

@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import { fetchPartners } from '@redux/partners/service';
 import { loadPartnerDelete, loadPartners, selectPartnerDelete, selectPartners } from '@redux/selectors';
 import { useEffect } from 'react';

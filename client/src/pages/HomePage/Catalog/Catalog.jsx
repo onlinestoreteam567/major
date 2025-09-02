@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '@redux/filter/filterSlice';
 import { getProductsByCategory } from '@redux/products/service';
 import { Link } from 'react-router-dom';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 
 const Catalog = () => {
   const { getTranslation } = useTranslationNamespace('common');

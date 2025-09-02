@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import { deleteBanner, fetchBanner } from '@redux/banner/service';
 import { loadBanner, loadBannerDelete, selectBanner, selectBannerDelete } from '@redux/selectors';
 import handleDeleteItem from '@utils/handleDeleteItem';

@@ -2,7 +2,7 @@ import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import { loadViewedProducts, selectFetchedViewedProducts, selectViewedProducts } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ProductListOrSlider from '@components/UI/ProductListOrSlider/ProductListOrSlider';
 import { useEffect } from 'react';

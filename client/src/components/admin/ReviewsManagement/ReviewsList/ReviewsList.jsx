@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import { loadReviews, selectFilteredReviews } from '@redux/selectors';
 import { useSelector } from 'react-redux';
 import cl from './index.module.scss';

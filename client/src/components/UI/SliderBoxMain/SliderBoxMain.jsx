@@ -9,7 +9,7 @@ import ArrowRight from '@assets/svg/ArrowRight';
 import { mainSettings } from '@components/constants/settingSlider';
 import useScreenSizes from '@hooks/useScreenSizes';
 import CategoryCard from '@pages/CatalogPage/FilterCategory/CategoryCard/CategoryCard';
-import ButtonAriaLabel from '../Button/ButtonAriaLabel/ButtonAriaLabel';
+import ButtonAriaLabel from '../Button/ButtonAriaLabel';
 let screenSizeTotal;
 
 const SliderBoxMain = ({ slidesData, total, isCatalog }) => {

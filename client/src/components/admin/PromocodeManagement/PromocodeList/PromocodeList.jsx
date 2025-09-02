@@ -1,4 +1,4 @@
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import { fetchPromocode } from '@redux/admin/promocode/service';
 import {
   loadPromocodeDelete,

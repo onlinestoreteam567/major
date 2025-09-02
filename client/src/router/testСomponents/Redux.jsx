@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addItem, clearCart } from '@features/cart/cartSlice';
+import { addItem, clearCart } from '@redux/cart/cartSlice';
 
 const product = {
   id: 1,

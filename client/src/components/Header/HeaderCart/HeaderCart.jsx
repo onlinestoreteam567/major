@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import { getProductsByCartIds } from '@redux/products/service';
 import { loadCart, selectCart, selectCartSavedIds } from '@redux/selectors';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import { useTranslation } from 'react-i18next';
 import HeaderCartTopSection from './HeaderCartTopSection/HeaderCartTopSection';
 import HeaderCartEmpty from './HeaderCartEmpty/HeaderCartEmpty';

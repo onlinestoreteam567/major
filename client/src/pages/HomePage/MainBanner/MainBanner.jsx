@@ -6,7 +6,7 @@ import settings from './settings.js';
 import Slide from './Slide/Slide.jsx';
 import { useSelector } from 'react-redux';
 import { loadBanner, selectBanner } from '@redux/selectors.js';
-import Spinner from '@components/helpers/Spinner/Spinner.jsx';
+import Spinner from '@UI/Spinner/Spinner.jsx';
 
 const MainBanner = () => {
   const sliderRef = useRef(null);

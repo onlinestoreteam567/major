@@ -1,5 +1,5 @@
 import useScreenSizes from '@hooks/useScreenSizes';
-import SliderBoxMain from '../Sliders/SliderBoxMain';
+import SliderBoxMain from '../SliderBoxMain/SliderBoxMain';
 import ProductList from './ProductList/ProductList';
 
 const ProductListOrSlider = ({ products }) => {

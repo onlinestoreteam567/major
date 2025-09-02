@@ -2,14 +2,13 @@ import cl from './index.module.scss';
 import Plus from '@assets/svg/ButtonPlus';
 import Minus from '@assets/svg/ButtonMinus';
 import { useDispatch } from 'react-redux';
-import { removeItem, decrementItemQuantity, setItemQuantity } from '@features/cart/cartSlice.js/';
+import { removeItem, decrementItemQuantity, setItemQuantity } from '@redux/cart/cartSlice.js/';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 import { useEffect, useState } from 'react';
-import { incrementItemQuantity } from '@features/cart/cartSlice';
+import { incrementItemQuantity } from '@redux/cart/cartSlice';
 import { Link } from 'react-router-dom';
-
 const hryvnia = '\u20B4';
 const digitRegex = /^\d*$/;
 

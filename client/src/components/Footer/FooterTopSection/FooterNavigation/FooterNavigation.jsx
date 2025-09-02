@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import NavLink from '@UI/Texts/NavLink/NavLink';
+import NavLink from './NavLink/NavLink';
 
 const FooterNavigation = () => {
   const { getTranslation } = useTranslationNamespace('footer');

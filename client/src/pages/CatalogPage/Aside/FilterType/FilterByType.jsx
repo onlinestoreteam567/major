@@ -3,8 +3,8 @@ import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
 import { useDispatch, useSelector } from 'react-redux';
-import EmptyPage from '@components/helpers/EmptyPage';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import EmptyText from '@UI/EmptyText/EmptyText';
+import Spinner from '@UI/Spinner/Spinner';
 import { filterType, loadTypes, selectTypes } from '@redux/selectors';
 import { fetchProductsAll, getProductsByTypes } from '@redux/products/service';
 import { setType } from '@redux/filter/filterSlice';
@@ -63,7 +63,7 @@ export default function FilterByType() {
               </li>
             ))
           ) : (
-            <EmptyPage message="Не знайдено" />
+            <EmptyText message="Не знайдено" />
           )}
         </ul>
       )}
