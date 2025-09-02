@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { commentsSettings } from '@components/constants/settingSlider';
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 
 import { useEffect } from 'react';

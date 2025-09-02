@@ -1,5 +1,5 @@
 import Overlay from '@components/UI/Overlay/Overlay';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import cl from './index.module.scss';

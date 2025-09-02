@@ -2,7 +2,7 @@ import ErrorText from '@components/admin/ErrorText/ErrorText';
 import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import Spinner from '@UI/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
-import useIdFromUrl from '@hooks/useId';
+import useIdFromUrl from '@hooks/useIdFromUrl';
 import { editPurpose, getPurposeCategoryById } from '@redux/admin/purpose/service';
 import {
   errorPurposeEdit,

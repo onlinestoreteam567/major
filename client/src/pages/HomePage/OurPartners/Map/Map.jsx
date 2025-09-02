@@ -12,7 +12,7 @@ import PartnerInfo from '../PartnerInfo/PartnerInfo';
 import handleWheel from './eventHandlers/handleWheel';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { loadPartners, selectPartners } from '@redux/selectors';
 import { useSelector } from 'react-redux';
 import Spinner from '@UI/Spinner/Spinner';

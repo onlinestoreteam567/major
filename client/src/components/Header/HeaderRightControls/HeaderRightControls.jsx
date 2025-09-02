@@ -4,7 +4,7 @@ import SearchIcon from '@assets/svg/Header/SearchIcon';
 import UaIcon from '@assets/svg/Header/UaIcon';
 import BagIcon from '@assets/svg/Header/BagIcon';
 import EnIcon from '@assets/svg/Header/EnIcon';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { useSelector } from 'react-redux';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 

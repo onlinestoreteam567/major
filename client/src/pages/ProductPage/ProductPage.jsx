@@ -9,7 +9,7 @@ import Spinner from '@UI/Spinner/Spinner';
 import { clearFitCategory } from '@redux/products/fitCategorySlice';
 import { getProductById } from '@redux/products/service';
 import { loadProductId, selectProductId } from '@redux/selectors';
-import useIdFromUrl from '@hooks/useId';
+import useIdFromUrl from '@hooks/useIdFromUrl';
 import { useTranslation } from 'react-i18next';
 import Card from './Card/Card';
 import { addViewedProduct } from '@redux/products/viewedProductsSlice';

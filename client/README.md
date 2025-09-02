@@ -18,436 +18,420 @@ src/
 │
 ├── components/ # Reusable components
 │ ├── admin/ # almost all components for admin panel
-│ │ ├── AdminCropperImage
+│ │ ├── AdminCropperImage/
 │ │ │ ├── AdminCropperImage
 │ │ │ ├── index.module.scss
-│ │ │ ├── helpers
+│ │ │ ├── helpers/
 │ │ │ │ ├── deleteCroppedImage.js
 │ │ │ │ ├── handleCroppedImage.js
 │ │ │ │ └── handleImageUpload.js
-│ │ │ ├── CropperContainerWrapper
+│ │ │ ├── CropperContainerWrapper/
 │ │ │ │ ├── CropperContainerWrapper.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── ImagesSlider
+│ │ │ ├── ImagesSlider/
 │ │ │ │ ├── ImagesSlider.jsx
 │ │ │ │ └── index.module.scss
 │ │ │
-│ │ ├── AdminFormActions
+│ │ ├── AdminFormActions/
 │ │ │ ├── AdminFormActions.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── AdminLoginPage
+│ │ ├── AdminLoginPage/
 │ │ │ ├── AdminLoginPage.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── AdminMessage
+│ │ ├── AdminMessage/
 │ │ │ ├── AdminMessage.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── AdminNavigation
+│ │ ├── AdminNavigation/
 │ │ │ ├── AdminNavigation.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── BannerManagement
+│ │ ├── BannerManagement/
 │ │ │ ├── BannerManagement.jsx
 │ │ │ ├── index.module.scss
-│ │ │ │ ├── BannerCreate
+│ │ │ │ ├── BannerCreate/
 │ │ │ │ │ ├── BannerCreate.jsx
 │ │ │ │ │ └── index.module.scss
-│ │ │ │ ├── BannerEdit
+│ │ │ │ ├── BannerEdit/
 │ │ │ │ │ ├── BannerEdit.jsx
 │ │ │ │ │ └── index.module.scss
-│ │ │ │ ├── BannerForm
+│ │ │ │ ├── BannerForm/
 │ │ │ │ │ ├── BannerForm.jsx
 │ │ │ │ │ └── BannerProductSelect.jsx
-│ │ │ │ ├── BannerList
+│ │ │ │ ├── BannerList/
 │ │ │ │ │ ├── BannerList.jsx
 │ │ │ │ │ └── index.module.scss
 │ │
-│ │ ├── CategoriesManagement
+│ │ ├── CategoriesManagement/
 │ │ │ ├── CategoriesManagement.jsx
 │ │ │ ├── index.module.scss
-│ │ │ │ ├── CategoryCreate
+│ │ │ │ ├── CategoryCreate/
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── Purpose
+│ │ │ │ ├── Purpose/
 │ │ │ │ │ ├── PurposeForm.jsx
 │ │ │ │ │ └── index.module.scss
-│ │ │ │ │ ├── PurposeCreate
+│ │ │ │ │ ├── PurposeCreate/
 │ │ │ │ │ │ ├── PurposeCreate.jsx
 │ │ │ │ │ │ └── index.module.scss
-│ │ │ │ │ ├── PurposeEdit
+│ │ │ │ │ ├── PurposeEdit/
 │ │ │ │ │ │ ├── PurposeEdit.jsx
 │ │ │ │ │ │ └── index.module.scss
-│ │ │ │ │ ├── PurposeList
+│ │ │ │ │ ├── PurposeList/
 │ │ │ │ │ │ ├── PurposeList.jsx
 │ │ │ │ │ │ └── index.module.scss
-│ │ │ │ │ │ ├── PurposeCategoryItem
+│ │ │ │ │ │ ├── PurposeCategoryItem/
 │ │ │ │ │ │ │ ├── PurposeCategoryItem.jsx
 │ │ │ │ │ │ │ └── index.module.scss
-│ │ │ │ ├── Type
+│ │ │ │ ├── Type/
 │ │ │ │ │ ├── TypeForm.jsx
 │ │ │ │ │ ├── index.module.scss
-│ │ │ │ │ ├── TypeCreate
+│ │ │ │ │ ├── TypeCreate/
 │ │ │ │ │ │ ├── TypeCreate.jsx
 │ │ │ │ │ │ └── index.module.scss
-│ │ │ │ │ ├── TypeEdit
+│ │ │ │ │ ├── TypeEdit/
 │ │ │ │ │ │ ├── TypeEdit.jsx
 │ │ │ │ │ │ └── index.module.scss
-│ │ │ │ │ ├── TypeList
+│ │ │ │ │ ├── TypeList/
 │ │ │ │ │ │ ├── TypeList.jsx
 │ │ │ │ │ │ ├── index.module.scss
-│ │ │ │ │ │ ├── TypeCategoryItem
+│ │ │ │ │ │ ├── TypeCategoryItem/
 │ │ │ │ │ │ │ ├── TypeCategoryItem.jsx
 │ │ │ │ │ │ │ └── index.module.scss
 │ │
-│ │ ├── ContactsManagement
+│ │ ├── ContactsManagement/
 │ │ │ ├── ContactsManagement.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── ContactsForm
+│ │ │ ├── ContactsForm/
 │ │ │ │ ├── ContactsForm.jsx
 │ │ │ │ └── index.module.scss
 │ │
-│ │ ├── CustomSelect
+│ │ ├── CustomSelect/
 │ │ │ ├── CustomSelect.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── DeletePopUp
+│ │ ├── DeletePopUp/
 │ │ │ ├── DeletePopUp.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── ErrorText
+│ │ ├── ErrorText/
 │ │ │ ├── ErrorText.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── ImageUpload
+│ │ ├── ImageUpload/
 │ │ │ ├── ImageUpload.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── ImagePreview
+│ │ │ ├── ImagePreview/
 │ │ │ │ ├── ImagePreview.jsx
 │ │ │ │ └── index.module.scss
 │ │
-│ │ ├── PartnersManagement
+│ │ ├── PartnersManagement/
 │ │ │ ├── PartnersManagement.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── PartnerCreate
+│ │ │ ├── PartnerCreate/
 │ │ │ │ ├── PartnerCreate.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── PartnerEdit
+│ │ │ ├── PartnerEdit/
 │ │ │ │ ├── PartnerEdit.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── PartnersForm
+│ │ │ ├── PartnersForm/
 │ │ │ │ ├── PartnersForm.jsx
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── AdminPartnersMap
+│ │ │ │ ├── AdminPartnersMap/
 │ │ │ │ │ ├── AdminPartnersMap.jsx
 │ │ │ │ │ └── index.module.scss
 │ │
-│ │ ├── ProductManagement
+│ │ ├── ProductManagement/
 │ │ ├── ProductManagement.jsx
 │ │ ├── index.module.scss
-│ │ ├── ProductCreate
+│ │ ├── ProductCreate/
 │ │ │ ├── ProductCreate.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── helpers
+│ │ │ ├── helpers/
 │ │ │ │ ├── calculateDiscountedPrice.js
 │ │ │ │ └── useProductForm.jsx
-│ │ ├── ProductEdit
+│ │ ├── ProductEdit/
 │ │ │ ├── ProductEdit.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── helpers
+│ │ │ ├── helpers/
 │ │ │ │ ├── setFormValues.js
 │ │ │ │ ├── useEditProductForm.jsx
 │ │ │ │ └── useFetchProductData.jsx
-│ │ ├── ProductForm
+│ │ ├── ProductForm/
 │ │ │ ├── ProductForm.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── ProductCheckbox
+│ │ │ ├── ProductCheckbox/
 │ │ │ │ ├── ProductCheckbox.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── ProductDetailsTabs
+│ │ │ ├── ProductDetailsTabs/
 │ │ │ │ ├── ProductDetailsTabs.jsx
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── ProductDetailsTextarea
+│ │ │ │ ├── ProductDetailsTextarea/
 │ │ │ │ │ ├── ProductDetailsTextarea.jsx
 │ │ │ │ │ └── index.module.scss
 │ │ │
-│ │ │ ├── ProductTextArea
+│ │ │ ├── ProductTextArea/
 │ │ │ │ ├── ProductTextArea.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── CategorySelect
+│ │ │ ├── CategorySelect/
 │ │ │ │ ├── CategorySelect.jsx
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── CustomMultiSelect
+│ │ │ │ ├── CustomMultiSelect/
 │ │ │ │ │ ├── CustomMultiSelect.jsx
 │ │ │ │ │ ├── index.module.scss
-│ │ │ │ │ ├── helpers
+│ │ │ │ │ ├── helpers/
 │ │ │ │ │ │ └── handleToggleOption.js
-│ │ │ │ │ ├── CustomSelectDisplay
+│ │ │ │ │ ├── CustomSelectDisplay/
 │ │ │ │ │ │ ├── CustomSelectDisplay.jsx
 │ │ │ │ │ │ └── index.module.scss
-│ │ │ │ │ ├── OptionsList
+│ │ │ │ │ ├── OptionsList/
 │ │ │ │ │ │ ├── OptionsList.jsx
 │ │ │ │ │ │ └── index.module.scss
-│ │ │ │ │ ├── SelectedCategories
+│ │ │ │ │ ├── SelectedCategories/
 │ │ │ │ │ │ ├── SelectedCategories.jsx
 │ │ │ │ │ │ └── index.module.scss
-│ │ │ ├── TypeSelect
+│ │ │ ├── TypeSelect/
 │ │ │ │ ├── TypeSelect.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── ProductList
+│ │ │ ├── ProductList/
 │ │ │ │ ├── ProductList.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── ProductSearch
+│ │ │ ├── ProductSearch/
 │ │ │ │ ├── ProductSearch.jsx
 │ │ │ │ └── index.module.scss
 │ │
-│ │ ├── PromocodeManagement
+│ │ ├── PromocodeManagement/
 │ │ │ ├── PromocodeManagement.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── PromocodeCreate
+│ │ │ ├── PromocodeCreate/
 │ │ │ │ ├── PromocodeCreate.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── PromocodeEdit
+│ │ │ ├── PromocodeEdit/
 │ │ │ │ ├── PromocodeEdit.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── PromocodeForm
+│ │ │ ├── PromocodeForm/
 │ │ │ │ ├── PromocodeForm.jsx
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── PromocodeInputDate
+│ │ │ │ ├── PromocodeInputDate/
 │ │ │ │ │ ├── PromocodeInputDate.jsx
 │ │ │ │ │ └── index.module.scss
-│ │ │ ├── PromocodeList
+│ │ │ ├── PromocodeList/
 │ │ │ │ ├── PromocodeList.jsx
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── PromocodeListItem
+│ │ │ │ ├── PromocodeListItem/
 │ │ │ │ │ ├── PromocodeListItem.jsx
 │ │ │ │ │ └── index.module.scss
-│ │ │ │ ├── PromocodeSelect
+│ │ │ │ ├── PromocodeSelect/
 │ │ │ │ │ ├── PromocodeSelect.jsx
 │ │ │ │ │ ├── index.module.scss
-│ │ │ │ │ ├── PromocodeSelectOptions
+│ │ │ │ │ ├── PromocodeSelectOptions/
 │ │ │ │ │ │ ├── PromocodeSelectOptions.jsx
 │ │ │ │ │ │ └── index.module.scss
 │ │
-│ │ ├── ReviewsManagement
+│ │ ├── ReviewsManagement/
 │ │ │ ├── ReviewsManagement.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── ReviewsList
+│ │ │ ├── ReviewsList/
 │ │ │ │ ├── ReviewsList.jsx
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── ReviewListItem
+│ │ │ │ ├── ReviewListItem/
 │ │ │ │ │ ├── ReviewListItem.jsx
 │ │ │ │ │ └── index.module.scss
-│ │ │ ├── ReviewsSearch
+│ │ │ ├── ReviewsSearch/
 │ │ │ │ ├── ReviewsSearch.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── ReviewsSelect
+│ │ │ ├── ReviewsSelect/
 │ │ │ │ ├── ReviewsSelect.jsx
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── ReviewSelectOptions
+│ │ │ │ ├── ReviewSelectOptions/
 │ │ │ │ │ ├── ReviewSelectOptions.jsx
 │ │ │ │ │ └── index.module.scss
 │ │
-│ │ ├── SuccessMessage
+│ │ ├── SuccessMessage/
 │ │ │ ├── SuccessMessage.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── ValidationErrorMessage
+│ │ ├── ValidationErrorMessage/
 │ │ │ ├── ValidationErrorMessage
 │ │ │ └── index.module.scss
 │
-│ ├── constants
+│ ├── constants/
 │ │ └── settingSlider.js
 │
-│ ├── Footer
+│ ├── Footer/
 │ │ ├── Footer.jsx
 │ │ ├── index.module.scss
-│ │ ├── FooterCopyrightSection
+│ │ ├── FooterCopyrightSection/
 │ │ │ ├── FooterCopyrightSection.jsx
 │ │ │ └── index.module.scss
-│ │ ├── FooterTopSection
+│ │ ├── FooterTopSection/
 │ │ │ ├── FooterTopSection.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── FooterInfo
+│ │ │ ├── FooterInfo/
 │ │ │ │ ├── FooterInfo.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── FooterNavigation
+│ │ │ ├── FooterNavigation/
 │ │ │ │ ├── FooterNavigation.jsx
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── Navlink
+│ │ │ │ ├── Navlink/
 │ │ │ │ │ ├── Navlink.jsx
 │ │ │ │ │ └── index.module.scss
 │
-│ ├── form-components
+│ ├── form-components/
 │ │ ├── index.js
 │ │
-│ │ ├── Checkbox
+│ │ ├── Checkbox/
 │ │ │ ├── Checkbox.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── Editor # Currently unused component, will be using for Blogs in the future
+│ │ ├── Editor / # Currently unused component, will be using for Blogs in the future
 │ │ │ ├── Editor.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── helpers
+│ │ │ ├── helpers/
 │ │ │ │ └── extensions.js
-│ │ │ ├── Formatting
+│ │ │ ├── Formatting/
 │ │ │ │ ├── Formatting.jsx
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── Toolbar
+│ │ │ │ ├── Toolbar/
 │ │ │ │ ├── Toolbar.jsx
 │ │ │ │ ├── index.module.scss
 │ │ │ │ ├── YouTubeLink.jsx
 │ │ │ │ ├── SearchAndReplace.jsx
-│ │ │ │ ├── hooks
+│ │ │ │ ├── hooks/
 │ │ │ │ │ └── useEditorCommands.jsx
-│ │ │ │ ├── UploadImagePopUp
+│ │ │ │ ├── UploadImagePopUp/
 │ │ │ │ │ ├── UploadImagePopUp.jsx
 │ │ │ │ │ └── index.module.scss
 │ │
-│ │ ├── Input
+│ │ ├── Input/
 │ │ │ ├── Input.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── PhoneNumberInput
+│ │ │ ├── PhoneNumberInput/
 │ │ │ │ ├── PhoneNumberInput.jsx
-│ │ │ │ ├── eventHandlers
+│ │ │ │ ├── eventHandlers/
 │ │ │ │ │ ├── handleInputChange.js
 │ │ │ │ │ ├── handleInputCursorPosition.js
 │ │ │ │ │ ├── handleInputDelete.js
 │ │ │ │ │ ├── handleKeyDown.js
 │ │ │ │ │ └── index.js
 │ │
-│ │ ├── Textarea
+│ │ ├── Textarea/
 │ │ │ ├── Textarea.jsx
 │ │ │ └── index.module.scss
 │
-│ ├── Header
+│ ├── Header/
 │ │ ├── Header.jsx
 │ │ ├── index.module.scss
-│ │ ├── HeaderCart
+│ │ ├── HeaderCart/
 │ │ │ ├── HeaderCart.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── HeaderCartEmpty
+│ │ │ ├── HeaderCartEmpty/
 │ │ │ │ ├── HeaderCartEmpty.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── HeaderCartFilled
+│ │ │ ├── HeaderCartFilled/
 │ │ │ │ ├── HeaderCartFilled.jsx
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── HeaderCartItem
+│ │ │ │ ├── HeaderCartItem/
 │ │ │ │ │ ├── HeaderCartItem.jsx
 │ │ │ │ │ └── index.module.scss
-│ │ │ ├── HeaderCartTopSection
+│ │ │ ├── HeaderCartTopSection/
 │ │ │ │ ├── HeaderCartTopSection.jsx
 │ │ │ │ └── index.module.scss
-│ │ ├── HeaderRightControls
+│ │ ├── HeaderRightControls/
 │ │ │ ├── HeaderRightControls.jsx
 │ │ │ └── index.module.scss
-│ │ ├── HeaderSearch
+│ │ ├── HeaderSearch/
 │ │ │ ├── HeaderSearch.jsx
 │ │ │ ├── index.module.scss
 │ │ │ ├── DesktopSearch.jsx
-│ │ │ ├── MobileSearch
+│ │ │ ├── MobileSearch/
 │ │ │ │ ├── MobileSearch.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── SearchInput
+│ │ │ ├── SearchInput/
 │ │ │ │ ├── SearchInput.jsx
 │ │ │ │ ├── index.module.scss
-│ │ │ │ ├── SearchResults
+│ │ │ │ ├── SearchResults/
 │ │ │ │ │ ├── SearchResults.jsx
 │ │ │ │ │ ├── index.module.scss
-│ │ │ │ │ ├── SearchNotFound
+│ │ │ │ │ ├── SearchNotFound/
 │ │ │ │ │ │ ├── SearchNotFound.jsx
 │ │ │ │ │ │ └── index.module.scss
-│ │ ├── NavDrawer
+│ │ ├── NavDrawer/
 │ │ │ ├── NavDrawer.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── LangSwitcher
+│ │ │ ├── LangSwitcher/
 │ │ │ │ ├── LangSwitcher.jsx
 │ │ │ │ └── index.module.scss
 │
-│ ├── UI
-│ │ ├── Button
+│ ├── UI/
+│ │ ├── Button/
 │ │ │ ├── Button.jsx
 │ │ │ ├── index.module.scss
 │ │ │ ├── BtnSubmit.jsx
 │ │ │ ├── ButtonAriaLabel.jsx
-│ │ │ ├── ButtonClose
+│ │ │ ├── ButtonClose/
 │ │ │ │ ├── ButtonClose.jsx
 │ │ │ │ └── index.module.scss
 │ │
-│ │ ├── EmptyText
+│ │ ├── EmptyText/
 │ │ │ ├── EmptyText.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── Overlay
+│ │ ├── Overlay/
 │ │ │ ├── Overlay.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── Overlay
+│ │ ├── Overlay/
 │ │ │ ├── Overlay.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── ProductListOrSlider
+│ │ ├── ProductListOrSlider/
 │ │ │ ├── ProductListOrSlider.jsx
 │ │ │ ├── index.module.scss
-│ │ │ ├── ProductList
+│ │ │ ├── ProductList/
 │ │ │ │ ├── ProductList.jsx
 │ │ │ │ └── index.module.scss
 │ │
-│ │ ├── SliderBoxMain
+│ │ ├── SliderBoxMain/
 │ │ │ ├── SliderBoxMain.jsx
 │ │ │ └── index.module.scss
 │ │ │
-│ │ ├── SocialLinks
+│ │ ├── SocialLinks/
 │ │ │ ├── SocialLinks.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── Spinner
+│ │ ├── Spinner/
 │ │ │ ├── Spinner.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── Stars
+│ │ ├── Stars/
 │ │ │ ├── Stars.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── Texts
-│ │ │ ├── AccentText
-│ │ │ │ ├── AccentText.jsx
-│ │ │ │ └── index.module.scss
-│ │ │ ├── Heading
+│ │ ├── Texts/
+│ │ │ ├── Heading/
 │ │ │ │ ├── Heading.jsx
 │ │ │ │ └── index.module.scss
-│ │ │ ├── Paragraph
+│ │ │ ├── Paragraph/
 │ │ │ │ ├── Paragraph.jsx
 │ │ │ │ └── index.module.scss
 │
 │ ├── config/ # Configuration files
 │ │ ├── apiClient.js # API configuration
 │ │ ├── i18next.js
-│ └── store.js # Redux store configuration
-│
-│ │
-│ ├── checkout/
-│ │ ├── CheckoutPage/
-│ │ │ ├── CheckoutPage.jsx
-│ │ │ ├── CheckoutPage.module.scss
-│ │ │ └── CheckoutPage.test.js
-│ │ ├── checkoutSlice.js # Redux slice for checkout process
-│ │ └── checkoutService.js # Checkout logic (if needed)
-│ │
-│ ├── product/
-│ │ ├── ProductList/
-│ │ │ ├── ProductList.jsx
-│ │ │ ├── ProductList.module.scss
-│ │ │ └── ProductList.test.js
-│ │ ├── ProductDetail/
-│ │ │ ├── ProductDetail.jsx
-│ │ │ ├── ProductDetail.module.scss
-│ │ │ └── ProductDetail.test.js
-│ │ ├── productSlice.js # Redux slice for products
-│ └ └── productService.js # Product data handling logic
+│ │ └── store.js # Redux store configuration
 │
 ├── hooks/ # Custom hooks
-│ ├── useFetch.js # Hook for handling server requests
+│ ├── admin/
+│ │ ├── useClickOutside.jsx
+│ │ └── useTimedMessage.jsx.jsx
+│ │ ├── useScreenSizes/
+│ │ │ ├── useScreenSizes.jsx
+│ │ │ └── useMediaQuery.jsx
+│ │ ├── useIdFromUrl.jsx
+│ │ └── useTranslationNamespace.jsx
+
 │ └── useCart.js # Hook for cart handling
 │
 ├── pages/ # Pages tied to routes

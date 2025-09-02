@@ -7,7 +7,7 @@ import CardCatalog from '../../../pages/CatalogPage/Products/CardsContainer/Card
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
 import { mainSettings } from '@components/constants/settingSlider';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import CategoryCard from '@pages/CatalogPage/FilterCategory/CategoryCard/CategoryCard';
 import ButtonAriaLabel from '../Button/ButtonAriaLabel';
 let screenSizeTotal;

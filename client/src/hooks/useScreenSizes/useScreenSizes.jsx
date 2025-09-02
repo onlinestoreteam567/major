@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import useMediaQuery from '@hooks/useMediaQuery';
+import useMediaQuery from '@hooks/useScreenSizes/useMediaQuery';
 
 const useScreenSizes = () => {
   const [screenSizes, setScreenSizes] = useState({

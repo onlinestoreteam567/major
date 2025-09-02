@@ -1,4 +1,4 @@
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import cl from './index.module.scss';
 import { Link } from 'react-router-dom';
 import { deletePurpose } from '@redux/admin/purpose/service';

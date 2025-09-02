@@ -1,5 +1,5 @@
 import DeletePopUp from '@components/admin/DeletePopUp/DeletePopUp';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { deleteProductById } from '@redux/products/service';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';

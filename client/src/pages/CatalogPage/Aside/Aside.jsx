@@ -1,7 +1,7 @@
 import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import FilterByType from './FilterType/FilterByType';
 import FilterByStatus from './FilterStatus/FilterByStatus';

@@ -1,6 +1,6 @@
 import Description from '@pages/ProductPage/Card/ProductDetails/Descript/Description';
 import ListReviewsCard from '@pages/ProductPage/Card/Reviews/Reviews';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { useState } from 'react';
 import cl from './index.module.scss';
 import MobileView from './MobileView';

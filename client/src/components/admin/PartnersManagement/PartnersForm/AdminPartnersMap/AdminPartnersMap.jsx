@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import cl from './index.module.scss';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 
 const AdminPartnersMap = ({ getValues, watch }) => {
   const { mobile, tablet, deskmin, deskmax } = useScreenSizes();

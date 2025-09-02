@@ -1,6 +1,6 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import { yupResolver } from '@hookform/resolvers/yup';
-import useIdFromUrl from '@hooks/useId';
+import useIdFromUrl from '@hooks/useIdFromUrl';
 import { editPromocode, getPromocodeById } from '@redux/admin/promocode/service';
 import {
   errorPromocodeEdit,

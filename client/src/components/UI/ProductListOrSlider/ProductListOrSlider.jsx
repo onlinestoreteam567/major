@@ -1,4 +1,4 @@
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import SliderBoxMain from '../SliderBoxMain/SliderBoxMain';
 import ProductList from './ProductList/ProductList';
 

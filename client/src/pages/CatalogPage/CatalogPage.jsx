@@ -4,7 +4,7 @@ import Top from './Top/Top';
 import Container from '@pages/CatalogPage/Products/CardsContainer/CardsContainer';
 import Products from './Products/Products';
 import { useState } from 'react';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 
 const CatalogPage = () => {
   const { deskmin, deskmax } = useScreenSizes();

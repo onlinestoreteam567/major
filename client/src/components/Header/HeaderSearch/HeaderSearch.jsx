@@ -1,5 +1,5 @@
 import DesktopSearch from './DesktopSearch';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import MobileSearch from './MobileSearch/MobileSearch';
 
 const HeaderSearch = ({ setIsShowInput }) => {

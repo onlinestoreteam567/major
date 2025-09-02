@@ -3,7 +3,7 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@components/UI/Button/Button';
 import Filters from '@assets/svg/CatalogPage/Filters';
 import Sorting from '@assets/svg/CatalogPage/Sorting';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import MobileSorting from './Sorting/Sorting';
 import { useState } from 'react';
 import TopLink from '@components/UI/TopLink/TopLink';

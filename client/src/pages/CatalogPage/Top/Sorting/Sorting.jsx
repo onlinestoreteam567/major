@@ -2,7 +2,7 @@ import cl from './index.module.scss';
 import { useEffect, useState } from 'react';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import Overlay from '@components/UI/Overlay/Overlay';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import SortingButtons from './SortingButtons';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { useDispatch, useSelector } from 'react-redux';

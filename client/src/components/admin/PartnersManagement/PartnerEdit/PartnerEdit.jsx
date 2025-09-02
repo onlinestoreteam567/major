@@ -1,7 +1,7 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import Spinner from '@UI/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
-import useIdFromUrl from '@hooks/useId';
+import useIdFromUrl from '@hooks/useIdFromUrl';
 import { editPartner, getPartnerById } from '@redux/partners/service';
 import {
   errorPartnerEdit,

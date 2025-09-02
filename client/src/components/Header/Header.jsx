@@ -1,10 +1,10 @@
 import cl from './index.module.scss';
 import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
 import HeaderNavigation from '@components/Header/HeaderNavigation/HeaderNavigation';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { useState } from 'react';
-import { usePageState } from '@hooks/header/usePageState';
-import { useScrollState } from '@hooks/header/useScrollState';
+import { usePageState } from './hooks/usePageState';
+import { useScrollState } from './hooks/useScrollState';
 import BurgerIcon from '@assets/svg/Header/BurgerIcon';
 import NavDrawer from './NavDrawer/NavDrawer';
 import HeaderCart from '@components/Header/HeaderCart/HeaderCart';

@@ -1,4 +1,4 @@
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import cl from './index.module.scss';
 import FooterNavigation from './FooterNavigation/FooterNavigation';
 import FooterInfo from './FooterInfo/FooterInfo';

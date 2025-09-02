@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import useIdFromUrl from '@hooks/useId';
+import useIdFromUrl from '@hooks/useIdFromUrl';
 import { getProductById } from '@redux/products/service';
 import { loadProductId, selectProductId } from '@redux/selectors';
 import { errorEditProduct, loadEditProduct, responseEditProduct } from '../../../../../redux/admin/selectors';
