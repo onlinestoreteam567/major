@@ -3,13 +3,13 @@ import { useRef, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import cl from './index.module.scss';
-import CardCatalog from '../../../pages/CatalogPage/Products/CardsContainer/Card/Card';
 import ArrowLeft from '@assets/svg/ArrowLeft';
 import ArrowRight from '@assets/svg/ArrowRight';
 import { mainSettings } from '@components/constants/settingSlider';
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import CategoryCard from '@pages/CatalogPage/FilterCategory/CategoryCard/CategoryCard';
 import ButtonAriaLabel from '../Button/ButtonAriaLabel';
+import ProductCard from '../ProductCard/ProductCard';
 let screenSizeTotal;
 
 const SliderBoxMain = ({ slidesData, total, isCatalog }) => {
@@ -75,7 +75,7 @@ const SliderBoxMain = ({ slidesData, total, isCatalog }) => {
         {!isCatalog
           ? slidesData.map((slide, index) => (
               <div key={index} className={cl.slider}>
-                <CardCatalog key={index} card={slide} />
+                <ProductCard key={index} card={slide} />
               </div>
             ))
           : slidesData.map((slide, index) => (

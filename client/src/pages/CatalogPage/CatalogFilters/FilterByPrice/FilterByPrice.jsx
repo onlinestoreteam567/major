@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import RangeSlider from './RangeSlider';
+import RangeSlider from './RangeSlider/RangeSlider';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterPrice, loadProducts, selectProducts } from '@redux/selectors';
 import { setPrice } from '@redux/filter/filterSlice';
@@ -11,7 +11,7 @@ import { handleMinInputChange } from './helpers/handleMinInputChange';
 import { handleMaxInputChange } from './helpers/handleMaxInputChange';
 import { getByPrice } from './helpers/getByPrice';
 
-const PriceRange = ({ handleCloseAside }) => {
+const FilterByPrice = ({ handleCloseAside }) => {
   const { getTranslation } = useTranslationNamespace('common');
   const newPrice = useSelector(filterPrice);
   const products = useSelector(selectProducts);
@@ -65,7 +65,7 @@ const PriceRange = ({ handleCloseAside }) => {
   };
 
   return (
-    <div className={cl.rangeWrapper}>
+    <div className={cl.filterByPrice}>
       <div className={cl.slider}>
         <div className={cl.progress} ref={progressRef}></div>
       </div>
@@ -127,4 +127,4 @@ const PriceRange = ({ handleCloseAside }) => {
   );
 };
 
-export default PriceRange;
+export default FilterByPrice;

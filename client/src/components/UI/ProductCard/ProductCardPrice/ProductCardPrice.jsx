@@ -1,13 +1,13 @@
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-export default function PriceCardCatalog({ card }) {
+export default function ProductCardPrice({ card }) {
   const hryvnia = '\u20B4';
 
   const { getTranslation } = useTranslationNamespace('common');
 
   return (
-    <div className={`${cl.wrapPriceCatalog} ${!card.available ? cl.disabled : ''}`}>
+    <div className={`${cl.productCardPrice} ${!card.available ? cl.disabled : ''}`}>
       <div className={cl.wrapPrice}>
         <div className={cl.price}>
           <span className={cl.costNow}>{card.is_discount ? card.price_with_discount : card.price}</span>

@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
-import AddToCartButton from './AddToCartButton/AddToCardButton';
-import ProductRating from '../../../../ProductPage/Card/ProductDetails/Rating/ProductRating';
-import ImgCardCatalog from './Image/Image';
+import ProductRating from '../../../pages/ProductPage/Card/ProductDetails/Rating/ProductRating';
 import cl from './index.module.scss';
-import PriceCardCatalog from './Price/Price';
-import TitleCardCatalog from './Title/Title';
+import ProductCardPrice from './ProductCardPrice/ProductCardPrice';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import ButtonAddToCart from '@components/UI/Button/ButtonAddToCart';
+import ProductCardImage from './ProductCardImage/ProductCardImage';
+import ProductCardTitle from './ProductCardTitle/ProductCardTitle';
 
-export default function Card({ card }) {
+export default function ProductCard({ card }) {
   const { getTranslation } = useTranslationNamespace('card');
   const id = card.id;
   const translation = `${getTranslation('ariaLabelCard')} ${card.name}`;
@@ -15,17 +15,17 @@ export default function Card({ card }) {
   return (
     <div className={cl.wrapCardCatalog}>
       <Link to={`/catalog/${id}`} aria-label={translation}>
-        <ImgCardCatalog card={card} />
+        <ProductCardImage card={card} />
       </Link>
       <div className={cl.wrapInfo}>
         <Link to={`/catalog/${id}`} aria-label={translation}>
-          <TitleCardCatalog card={card} />
+          <ProductCardTitle card={card} />
         </Link>
         <div>
           <ProductRating card={card} />
-          <PriceCardCatalog card={card} />
+          <ProductCardPrice card={card} />
         </div>
-        <AddToCartButton card={card} />
+        <ButtonAddToCart card={card} />
       </div>
     </div>
   );

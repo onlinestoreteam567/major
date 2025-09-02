@@ -6,7 +6,7 @@ import Article from '@pages/ProductPage/Card/ProductDetails/Article/Article';
 import Price from '@pages/ProductPage/Card/ProductDetails/Price/Price';
 import Counter from '@pages/ProductPage/Card/ProductDetails/Counter/Counter';
 import Volume from '@pages/ProductPage/Card/ProductDetails/Volume/Volume';
-import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
+import ButtonAddToCart from '@components/UI/Button/ButtonAddToCart';
 
 const DesktopView = ({ card, count, setCount }) => {
   return (
@@ -21,7 +21,7 @@ const DesktopView = ({ card, count, setCount }) => {
           <Counter count={count} setCount={setCount} />
           <Volume card={card} />
         </div>
-        <AddToCartButton count={count} card={card} variant={'primary'} />
+        <ButtonAddToCart count={count} card={card} variant={'primary'} />
       </div>
     </>
   );

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { sorting } from '@redux/selectors';
 import { setSorting } from '@redux/filter/filterSlice';
 
-const Sorting = ({ setIsShowMobileSorting }) => {
+const CatalogSorting = ({ setIsShowMobileSorting }) => {
   const sortingOption = useSelector(sorting);
   const [isHiddenMobileSorting, setisHiddenMobileSorting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -56,4 +56,4 @@ const Sorting = ({ setIsShowMobileSorting }) => {
   );
 };
 
-export default Sorting;
+export default CatalogSorting;

@@ -1,22 +1,21 @@
 import cl from './index.module.scss';
-import Aside from './Aside/Aside';
-import Top from './Top/Top';
-import Container from '@pages/CatalogPage/Products/CardsContainer/CardsContainer';
-import Products from './Products/Products';
+import Products from './CatalogProductList/CatalogProductList';
 import { useState } from 'react';
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
+import CatalogFilters from './CatalogFilters/CatalogFilters';
+import CatalogTop from './CatalogTop/CatalogTop';
 
 const CatalogPage = () => {
   const { deskmin, deskmax } = useScreenSizes();
-  const [isShowAside, setIsShowAside] = useState(deskmin);
+  const [isShowCatalogFilters, setIsShowCatalogFilters] = useState(deskmin || deskmax);
   return (
     <div className={cl.catalogWrapper}>
-      <Top setIsShowAside={setIsShowAside} />
+      <CatalogTop setIsShowCatalogFilters={setIsShowCatalogFilters} />
       <section className={cl.mainWrapper}>
-        {(isShowAside || deskmin || deskmax) && <Aside setIsShowAside={setIsShowAside} />}
-        <Products>
-          <Container />
-        </Products>
+        {(deskmin || deskmax || isShowCatalogFilters) && (
+          <CatalogFilters setIsShowCatalogFilters={setIsShowCatalogFilters} />
+        )}
+        <Products />
       </section>
     </div>
   );

@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import LabelHit from '../../../../../ProductPage/Card/ProductDetails/Labels/LabelHit';
-import LabelNew from '../../../../../ProductPage/Card/ProductDetails/Labels/LabelNew';
-import LabelSale from '../../../../../ProductPage/Card/ProductDetails/Labels/LabelSale';
+import LabelHit from '../../../../pages/ProductPage/Card/ProductDetails/Labels/LabelHit';
+import LabelNew from '../../../../pages/ProductPage/Card/ProductDetails/Labels/LabelNew';
+import LabelSale from '../../../../pages/ProductPage/Card/ProductDetails/Labels/LabelSale';
 import cl from './index.module.scss';
 
-export default function Image({ card }) {
+export default function ProductCardImage({ card }) {
   const placeholderImage = '/images/placeholder.webp';
   const hasImages = card.images && card.images.length > 0;
   const [imageSrc, setImageSrc] = useState(hasImages ? card.images[0].image : placeholderImage);
@@ -12,7 +12,7 @@ export default function Image({ card }) {
   const handleError = () => setImageSrc(placeholderImage);
 
   return (
-    <div className={`${cl.wrapImg} ${!card.available ? cl['disabled-overlay'] : ''}`}>
+    <div className={`${cl.productCardImage} ${!card.available ? cl['disabled-overlay'] : ''}`}>
       {card.is_best_seller && <LabelHit />}
       {card.is_new && <LabelNew />}
       {card.is_discount && <LabelSale card={card} />}

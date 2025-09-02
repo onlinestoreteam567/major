@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.wrapImg {
+.productCardImage {
   position: relative;
   @include flex(row, center, center);
   width: 296px;

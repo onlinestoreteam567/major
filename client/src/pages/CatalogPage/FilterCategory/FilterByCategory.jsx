@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import EmptyText from '@UI/EmptyText/EmptyText';
 import Spinner from '@UI/Spinner/Spinner';
 import { loadCategories, selectCategories } from '@redux/selectors';
-
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import CategoryCard from './CategoryCard/CategoryCard';
 import SliderBoxMain from '@components/UI/SliderBoxMain/SliderBoxMain';

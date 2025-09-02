@@ -1,0 +1,77 @@
+@import '@mixins';
+
+.catalogProductList {
+  width: 100%;
+
+  .container {
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 36px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    @include flex(column);
+
+    @include tablet {
+      flex-direction: row;
+      width: 640px;
+      gap: 28px;
+    }
+
+    @include deskmax {
+      justify-content: start;
+      width: auto;
+      gap: 22px;
+    }
+
+    li {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .emptyWrap {
+    @include flex(column);
+    gap: 20px;
+    height: 100%;
+
+    @include mobile {
+      gap: 32px;
+    }
+
+    @include deskmin {
+      gap: 40px;
+    }
+
+    p {
+      text-align: center;
+      color: #a2a2a2;
+      width: 185px;
+
+      @include mobile {
+        width: inherit;
+        white-space: nowrap;
+      }
+    }
+
+    button {
+      width: 296px;
+      height: 54px;
+
+      @include mobile {
+        width: 356px;
+        height: 54px;
+      }
+
+      @include tablet {
+        width: 221px;
+        height: 48px;
+      }
+
+      @include deskmin {
+        width: 221px;
+        height: 48px;
+      }
+    }
+  }
+}

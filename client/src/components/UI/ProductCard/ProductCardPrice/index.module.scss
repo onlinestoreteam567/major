@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.wrapPriceCatalog {
+.productCardPrice {
   @include flex(row, space-between, center);
 
   &.disabled {

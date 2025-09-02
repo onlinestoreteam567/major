@@ -1,4 +1,4 @@
-import Card from '@pages/CatalogPage/Products/CardsContainer/Card/Card';
+import Card from '@components/UI/ProductCard/ProductCard';
 import cl from './index.module.scss';
 
 const ProductList = ({ products }) => {

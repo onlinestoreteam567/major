@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.catalogSection {
+.catalogTop {
   @include flex(column, null, start);
   width: 296px;
   margin: 0 auto 25px;

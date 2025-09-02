@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.rangeWrapper {
+.filterByPrice {
   margin-top: 53px;
   background: #fff;
   border-radius: 10px;
@@ -75,60 +75,6 @@
       position: absolute;
       border-radius: $border-radius-base;
       background: #000;
-    }
-  }
-
-  .rangeInput {
-    position: relative;
-
-    input {
-      position: absolute;
-      width: 100%;
-      height: 5px;
-      top: -5px;
-      background: none;
-      pointer-events: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      margin: 0;
-    }
-
-    input[type='range']::-webkit-slider-thumb {
-      height: 24px !important;
-      width: 24px !important;
-      border-radius: 50% !important;
-      border: 2px solid #000000 !important;
-      background: #fff !important;
-      pointer-events: auto !important;
-      cursor: pointer !important;
-      -webkit-appearance: none !important;
-      box-shadow: 0 0.125rem 0.5625rem -0.125rem rgba(0, 0, 0, 0.25) !important;
-      box-sizing: border-box;
-    }
-
-    input[type='range']::-moz-range-thumb {
-      height: 24px;
-      width: 24px;
-      border: 2px solid #22211f;
-      border-radius: $border-radius-circle;
-      background: #ffffff;
-      pointer-events: auto;
-      -moz-appearance: none;
-      box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
-      cursor: pointer;
-      box-sizing: border-box;
-    }
-
-    input[type='range'] {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 5px;
-      background: none;
-      pointer-events: none;
-      margin: 0;
     }
   }
 }

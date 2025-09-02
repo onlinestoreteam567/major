@@ -1,7 +1,6 @@
 import cl from './index.module.scss';
 import { useState } from 'react';
 import SliderImgs from './SliderImgs';
-
 import CardLabels from './CardLabels';
 
 export default function ImgDesk({ card }) {

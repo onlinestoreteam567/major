@@ -368,6 +368,7 @@ src/
 │ │ ├── Button/
 │ │ │ ├── Button.jsx
 │ │ │ ├── index.module.scss
+│ │ │ ├── ButtonAddToCart.jsx
 │ │ │ ├── BtnSubmit.jsx
 │ │ │ ├── ButtonAriaLabel.jsx
 │ │ │ ├── ButtonClose/
@@ -382,9 +383,18 @@ src/
 │ │ │ ├── Overlay.jsx
 │ │ │ └── index.module.scss
 │ │
-│ │ ├── Overlay/
-│ │ │ ├── Overlay.jsx
-│ │ │ └── index.module.scss
+│ │ ├── ProductCard/
+│ │ │ ├── ProductCard.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── ProductCardImage/
+│ │ │ │ ├── ProductCardImage.jsx
+│ │ │ │ └── index.module.scss
+│ │ │ ├── ProductCardPrice/
+│ │ │ │ ├── ProductCardPrice.jsx
+│ │ │ │ └── index.module.scss
+│ │ │ ├── ProductCardTitle/
+│ │ │ │ ├── ProductCardTitle.jsx
+│ │ │ │ └── index.module.scss
 │ │
 │ │ ├── ProductListOrSlider/
 │ │ │ ├── ProductListOrSlider.jsx
@@ -431,15 +441,49 @@ src/
 │ │ │ └── useMediaQuery.jsx
 │ │ ├── useIdFromUrl.jsx
 │ │ └── useTranslationNamespace.jsx
-
-│ └── useCart.js # Hook for cart handling
 │
-├── pages/ # Pages tied to routes
-│ ├── HomePage.jsx # Home page
-│ ├── ProductPage.jsx # Product page
-│ ├── CartPage.jsx # Cart page (imported from features)
-│ ├── CheckoutPage.jsx # Checkout page (imported from features)
-│ └── pages.module.scss # Common styles for pages
+│ ├── pages/ # Pages tied to routes
+│ │ ├── CatalogPage/
+│ │ │ ├── CatalogPage.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── CatalogFilters/
+│ │ │ │ ├── CatalogFilters.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── FilterByPrice/
+│ │ │ │ │ ├── FilterByPrice.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── helpers/
+│ │ │ │ │ │ ├── getByPrice.js
+│ │ │ │ │ │ ├── handleMaxInputChange.js
+│ │ │ │ │ │ ├── handleMinInputChange.js
+│ │ │ │ │ │ ├── handleSliderMaxChange.js
+│ │ │ │ │ │ └─ handleSliderMinChange.js
+│ │ │ │ │ ├── RangeSlider/
+│ │ │ │ │ │ ├── RangeSlider.jsx
+│ │ │ │ │ │ └─ index.module.scss
+│ │ │ │ ├── FilterByStatus/
+│ │ │ │ │ ├── FilterByStatus.jsx
+│ │ │ │ │ └─ index.module.scss
+│ │ │ │ ├── FilterByType/
+│ │ │ │ │ ├── FilterByType.jsx
+│ │ │ │ │ └─ index.module.scss
+│ │ │ ├── CatalogProductList/
+│ │ │ │ ├── CatalogProductList.jsx
+│ │ │ │ └─ index.module.scss
+│ │ │ ├── CatalogTop/
+│ │ │ │ ├── CatalogTop.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── CatalogSorting/
+│ │ │ │ │ ├── CatalogSorting.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ └─ SortingButtons.jsx
+│ │ │ ├── FilterCategory/
+│ │ │ │ ├── FilterByCategory.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── CategoryCard/
+│ │ │ │ │ ├── CategoryCard/
+│ │ │ │ │ └─ index.module.scss
+
 │
 ├── router/ # Router and layouts
 │ ├── AppRouter.jsx # Application's main routing logic

@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.aside {
+.catalogFilters {
   @include flex(column, null, center);
   box-sizing: border-box;
   border: 1px solid #cccccc;

@@ -1,8 +1,8 @@
 import cl from './index.module.scss';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
+import ButtonAddToCart from '@components/UI/Button/ButtonAddToCart';
 
 const Slide = ({ slide, next, previous }) => {
   const { getTranslation } = useTranslationNamespace('mainBanner');
@@ -26,7 +26,7 @@ const Slide = ({ slide, next, previous }) => {
           <div className={cl.bottomWrapper}>
             <Heading type="h1">{getTranslation(slide.product.name)}</Heading>
             <div style={{ position: 'relative', zIndex: 1 }}>
-              <AddToCartButton variant="primary" card={slide.product} style={{ zIndex: 2 }} />
+              <ButtonAddToCart variant="primary" card={slide.product} style={{ zIndex: 2 }} />
             </div>
           </div>
         </section>

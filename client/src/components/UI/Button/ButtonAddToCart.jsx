@@ -3,7 +3,7 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { addItem, addItemWithQuantity } from '@redux/cart/cartSlice';
 import { useDispatch } from 'react-redux';
 
-const AddToCartButton = ({ card, variant = 'secondary', count }) => {
+const ButtonAddToCart = ({ card, variant = 'secondary', count }) => {
   const { getTranslation } = useTranslationNamespace('common');
   const dispatch = useDispatch();
 
@@ -26,4 +26,4 @@ const AddToCartButton = ({ card, variant = 'secondary', count }) => {
     </Button>
   );
 };
-export default AddToCartButton;
+export default ButtonAddToCart;
