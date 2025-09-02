@@ -1,12 +1,12 @@
-import CopyrightSection from '@components/Footer/CopyrightSection/CopyrightSection';
-import Header from '@components/Footer/Header/Header';
+import FooterCopyrightSection from '@components/Footer/FooterCopyrightSection/FooterCopyrightSection';
+import FooterTopSection from '@components/Footer/FooterTopSection/FooterTopSection';
 import cl from './index.module.scss';
 
 const Footer = () => {
   return (
     <footer className={cl.footer}>
-      <Header />
-      <CopyrightSection />
+      <FooterTopSection />
+      <FooterCopyrightSection />
     </footer>
   );
 };

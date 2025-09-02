@@ -2,9 +2,9 @@ import UncheckedCheckbox from '@assets/svg/Admin/UncheckedCheckbox/UncheckedChec
 import cl from './index.module.scss';
 import CheckedCheckbox from '@assets/svg/Admin/CheckedCheckbox/CheckedCheckbox';
 
-export default function AdminCheckBox({ labelText, name, register, ...rest }) {
+export default function ProductCheckbox({ labelText, name, register, ...rest }) {
   return (
-    <label htmlFor={name} className={`${cl.checkboxLabel}`}>
+    <label htmlFor={name} className={`${cl.productCheckbox}`}>
       <input id={name} type="checkbox" {...register(name)} {...rest} />
       <span className={cl.unchecked}>
         <UncheckedCheckbox />

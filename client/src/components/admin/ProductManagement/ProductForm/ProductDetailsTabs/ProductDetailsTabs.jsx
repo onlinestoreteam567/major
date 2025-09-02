@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'; // Import useEffect
-import { TextareaProduct } from '@components/form-components/Textarea/TextareaProduct/TextareaProduct.jsx';
+import { useState, useEffect } from 'react';
 import cl from './index.module.scss';
 import ArrowAccordion from '@assets/svg/Admin/ArrowAccordion/ArrowAccordion.jsx';
+import { ProductDetailsTextarea } from './ProductDetailsTextarea/ProductDetailsTextarea';
 
 const fields = [
   { name: 'description_uk', label: 'Опис (UA)', placeholder: 'Опис' },
@@ -11,7 +11,7 @@ const fields = [
   { name: 'ingredients', label: 'Склад', placeholder: 'Склад' },
 ];
 
-const ResponsiveTextareas = ({ register, errors, control }) => {
+const ProductDetailsTabs = ({ register, errors, control }) => {
   const [openItems, setOpenItems] = useState({});
   const [activeTab, setActiveTab] = useState(fields[0].name);
 
@@ -49,7 +49,7 @@ const ResponsiveTextareas = ({ register, errors, control }) => {
               </span>
             </button>
             {openItems[name] && (
-              <TextareaProduct
+              <ProductDetailsTextarea
                 labelText=""
                 name={name}
                 placeholder={placeholder}
@@ -91,7 +91,7 @@ const ResponsiveTextareas = ({ register, errors, control }) => {
           {fields.map(
             ({ name, placeholder }) =>
               activeTab === name && (
-                <TextareaProduct
+                <ProductDetailsTextarea
                   key={name}
                   labelText=""
                   name={name}
@@ -108,4 +108,4 @@ const ResponsiveTextareas = ({ register, errors, control }) => {
   );
 };
 
-export default ResponsiveTextareas;
+export default ProductDetailsTabs;

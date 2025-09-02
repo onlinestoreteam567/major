@@ -2,7 +2,7 @@ import { Controller } from 'react-hook-form';
 import cl from './index.module.scss';
 import { useRef } from 'react';
 
-export function InputDate({ labelText, placeholder, name, control, errors, disabled, ...rest }) {
+export function PromocodeInputDate({ labelText, placeholder, name, control, errors, disabled, ...rest }) {
   const hasError = errors?.[name];
   const inputRef = useRef(null);
 
@@ -24,7 +24,7 @@ export function InputDate({ labelText, placeholder, name, control, errors, disab
   };
 
   return (
-    <label htmlFor={name} className={cl.label}>
+    <label htmlFor={name} className={cl.promocodeInputDate}>
       {labelText}
       <Controller
         name={name}

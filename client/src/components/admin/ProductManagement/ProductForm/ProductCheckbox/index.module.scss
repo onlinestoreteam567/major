@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.checkboxLabel {
+.productCheckbox {
   @include flex(row, start);
   gap: 16px;
   cursor: pointer;

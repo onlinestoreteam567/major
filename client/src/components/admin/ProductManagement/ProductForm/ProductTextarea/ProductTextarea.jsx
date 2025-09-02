@@ -1,9 +1,9 @@
 import cl from './index.module.scss';
 import { Controller } from 'react-hook-form';
 
-export function TextareaAdmin({ control, name, labelText, errors, placeholder }) {
+export function ProductTextarea({ control, name, labelText, errors, placeholder }) {
   return (
-    <label htmlFor={name} className={cl.textareaAdmin}>
+    <label htmlFor={name} className={cl.productTextarea}>
       <span>{labelText}</span>
       <Controller
         name={name}

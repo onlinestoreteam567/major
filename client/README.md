@@ -161,6 +161,19 @@ src/
 │ │ ├── ProductForm
 │ │ │ ├── ProductForm.jsx
 │ │ │ ├── index.module.scss
+│ │ │ ├── ProductCheckbox
+│ │ │ │ ├── ProductCheckbox.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── ProductDetailsTabs
+│ │ │ │ ├── ProductDetailsTabs.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── ProductDetailsTextarea
+│ │ │ │ │ ├── ProductDetailsTextarea.jsx
+│ │ │ │ │ ├── index.module.scss
+
+│ │ │ ├── ProductTextArea
+│ │ │ │ ├── ProductTextArea.jsx
+│ │ │ │ ├── index.module.scss
 │ │ │ ├── CategorySelect
 │ │ │ │ ├── CategorySelect.jsx
 │ │ │ │ ├── index.module.scss
@@ -200,6 +213,9 @@ src/
 │ │ │ ├── PromocodeForm
 │ │ │ │ ├── PromocodeForm.jsx
 │ │ │ │ ├── index.module.scss
+│ │ │ │ ├── PromocodeInputDate
+│ │ │ │ │ ├── PromocodeInputDate.jsx
+│ │ │ │ │ ├── index.module.scss
 │ │ │ ├── PromocodeList
 │ │ │ │ ├── PromocodeList.jsx
 │ │ │ │ ├── index.module.scss
@@ -238,6 +254,65 @@ src/
 
 │ │ ├── ValidationErrorMessage
 │ │ │ ├── ValidationErrorMessage
+│ │ │ ├── index.module.scss
+
+│ ├── constants
+│ │ ├── settingSlider.js
+
+│ ├── Footer
+│ │ ├── Footer.jsx
+│ │ ├── index.module.scss
+│ │ ├── FooterCopyrightSection
+│ │ │ ├── FooterCopyrightSection.jsx
+│ │ │ ├── index.module.scss
+│ │ ├── FooterTopSection
+│ │ │ ├── FooterTopSection.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── FooterInfo
+│ │ │ │ ├── FooterInfo.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── FooterNavigation
+│ │ │ │ ├── FooterNavigation.jsx
+│ │ │ │ ├── index.module.scss
+
+│ ├── form-components
+│ │ ├── Checkbox
+│ │ │ ├── Checkbox.jsx
+│ │ │ ├── index.module.scss
+
+│ │ ├── Editor # Currently unused component, will be using for Blogs in the future
+│ │ │ ├── Editor.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── helpers
+│ │ │ │ ├── extensions.js
+│ │ │ ├── Formatting
+│ │ │ │ ├── Formatting.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── Toolbar
+│ │ │ │ ├── Toolbar.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── YouTubeLink.jsx
+│ │ │ │ ├── SearchAndReplace.jsx
+│ │ │ │ ├── hooks
+│ │ │ │ │ ├── useEditorCommands.jsx
+│ │ │ │ ├── UploadImagePopUp
+│ │ │ │ │ ├── UploadImagePopUp.jsx
+│ │ │ │ │ ├── index.module.scss
+
+│ │ ├── Input
+│ │ │ ├── Input.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── PhoneNumberInput
+│ │ │ │ ├── PhoneNumberInput.jsx
+│ │ │ │ ├── eventHandlers
+│ │ │ │ │ ├── handleInputChange.js
+│ │ │ │ │ ├── handleInputCursorPosition.js
+│ │ │ │ │ ├── handleInputDelete.js
+│ │ │ │ │ ├── handleKeyDown.js
+│ │ │ │ │ ├── index.js
+
+│ │ ├── Textarea
+│ │ │ ├── Textarea.jsx
 │ │ │ ├── index.module.scss
 
 │ ├── UI/ # UI components with modular styles

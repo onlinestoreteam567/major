@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.ulNavigation {
+.footerNavigation {
   @include flex(column, null, null);
   gap: 24px;
 

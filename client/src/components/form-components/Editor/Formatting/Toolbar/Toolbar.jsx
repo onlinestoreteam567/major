@@ -1,7 +1,7 @@
 import YouTubeLink from './YouTubeLink';
-import { useEditorCommands } from './useEditorCommands';
+import { useEditorCommands } from './hooks/useEditorCommands';
 import cl from './index.module.scss';
-import SearchAndReplace from './SearchAndReplace/SearchAndReplace';
+import SearchAndReplace from './SearchAndReplace';
 
 const Toolbar = ({ editor, setIsShowUploadImagePopUp }) => {
   const {

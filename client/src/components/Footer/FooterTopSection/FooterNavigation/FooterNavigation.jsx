@@ -2,10 +2,10 @@ import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import NavLink from '@UI/Texts/NavLink/NavLink';
 
-const Navigation = () => {
+const FooterNavigation = () => {
   const { getTranslation } = useTranslationNamespace('footer');
   return (
-    <div className={cl.ulNavigation}>
+    <div className={cl.footerNavigation}>
       <div className={cl.wrapList}>
         <ul className={cl.wrapLinks}>
           <NavLink type="footer" to="cooperation" ariaLabel={getTranslation('ariaLabelCooperation')}>
@@ -27,4 +27,4 @@ const Navigation = () => {
     </div>
   );
 };
-export default Navigation;
+export default FooterNavigation;

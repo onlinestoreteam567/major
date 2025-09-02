@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Controller } from 'react-hook-form';
 import cl from './index.module.scss';
 import Formatting from './Formatting/Formatting';
-import extensions from './extensions';
+import extensions from './helpers/extensions';
 
 const TipTap = ({ value, onChange, labelText, name, errors }) => {
   const editor = useEditor({
