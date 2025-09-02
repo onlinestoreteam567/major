@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.searchWrapper {
+.mobileSearch {
   @include absolute();
   @include flexGap(20px, column);
   z-index: $z-index-pop-up;

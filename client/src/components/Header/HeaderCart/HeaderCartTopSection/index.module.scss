@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.basketHeaderSection {
+.headerCartTopSection {
   @include flex(row, space-between, center);
   width: 100%;
   padding-bottom: 10px;

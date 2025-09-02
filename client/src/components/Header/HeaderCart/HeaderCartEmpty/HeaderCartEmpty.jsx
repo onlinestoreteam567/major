@@ -3,7 +3,7 @@ import cl from './index.module.scss';
 import Button from '@components/UI/Button/Button';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-const EmptyBasket = ({ onClick }) => {
+const HeaderCartEmpty = ({ onClick }) => {
   const { getTranslation } = useTranslationNamespace('basket');
 
   return (
@@ -19,4 +19,4 @@ const EmptyBasket = ({ onClick }) => {
     </>
   );
 };
-export default EmptyBasket;
+export default HeaderCartEmpty;

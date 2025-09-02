@@ -8,13 +8,13 @@ import useScreenSizes from '@hooks/useScreenSizes';
 import { useSelector } from 'react-redux';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
 
-const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) => {
+const HeaderRightControls = ({ handleShowInput, isScrolled, handleShowBasket }) => {
   const cartItemsAmount = useSelector((state) => state.cart.savedIds.length);
   const { deskmin, deskmax } = useScreenSizes();
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
 
   return (
-    <div className={cl.rightSection}>
+    <div className={cl.headerRightControls}>
       <ButtonAriaLabel al="openSearchInput" onClick={handleShowInput}>
         <SearchIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
       </ButtonAriaLabel>
@@ -35,4 +35,4 @@ const RightHeaderControls = ({ handleShowInput, isScrolled, handleShowBasket }) 
     </div>
   );
 };
-export default RightHeaderControls;
+export default HeaderRightControls;

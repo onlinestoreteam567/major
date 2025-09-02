@@ -1,18 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
 import cl from './index.module.scss';
-import Overlay from '@UI/Overlay/Overlay';
-import ProductResults from './ProductResults';
-import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import debouce from 'lodash.debounce';
 import { useDispatch } from 'react-redux';
 import { getSearch } from '@redux/products/service';
 import { clearSearchResults } from '@redux/products/searchSlice';
+import SearchResults from './SearchResults/SearchResults';
 
-function SearchInput({ setIsShowInput, isDesktop }) {
+function SearchInput({ isHiddenInputAnimation, handleCloseInput }) {
   const [isInputFocus, setIsInputFocus] = useState(false);
-  const [isHiddenInputAnimation, setIsHiddenInputAnimation] = useState(false);
   const inputRef = useRef();
   const [searchTerm, setSearchTerm] = useState('');
   const dispatch = useDispatch();
@@ -22,10 +19,10 @@ function SearchInput({ setIsShowInput, isDesktop }) {
   };
 
   const handleInputFocus = () => setIsInputFocus(true);
-  const handleCloseInput = () => handleCloseWithDelay(setIsHiddenInputAnimation, setIsShowInput);
+
   const handleClearInputValue = () => {
     setSearchTerm('');
-    dispatch(clearSearchResults()); // Clear search results when input is cleared
+    dispatch(clearSearchResults());
     inputRef.current.focus();
   };
 
@@ -49,8 +46,6 @@ function SearchInput({ setIsShowInput, isDesktop }) {
 
   return (
     <>
-      {isDesktop && <Overlay handleClose={handleCloseInput} />}
-
       <search className={`${cl.search} ${isHiddenInputAnimation ? cl.hiddenInput : ''}`}>
         <div className={searchTerm && cl.activeSearch}>
           <input
@@ -65,7 +60,7 @@ function SearchInput({ setIsShowInput, isDesktop }) {
 
           {searchTerm && <ButtonClose onClick={handleClearInputValue} ariaLabel="ariaLabelSearchInput" />}
 
-          {searchTerm && <ProductResults handleCloseInput={handleCloseInput} />}
+          {searchTerm && <SearchResults handleCloseInput={handleCloseInput} />}
         </div>
       </search>
     </>

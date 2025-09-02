@@ -1,16 +1,15 @@
 import cl from './index.module.scss';
 import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
-import Basket from '@components/Header/Basket/Basket';
-import Navigation from '@components/Header/Navigation/Navigation';
-import RightHeaderControls from './RightHeaderControls/RightSection';
+import HeaderNavigation from '@components/Header/HeaderNavigation/HeaderNavigation';
 import useScreenSizes from '@hooks/useScreenSizes';
 import { useState } from 'react';
 import { usePageState } from '@hooks/header/usePageState';
 import { useScrollState } from '@hooks/header/useScrollState';
 import BurgerIcon from '@assets/svg/Header/BurgerIcon';
 import NavDrawer from './NavDrawer/NavDrawer';
-import MobileSearchWrapper from './Search/MobileSearchWrapper';
-import SearchInput from './Search/SearchInput/SearchInput';
+import HeaderCart from '@components/Header/HeaderCart/HeaderCart';
+import HeaderRightControls from './HeaderRightControls/HeaderRightControls';
+import HeaderSearch from './HeaderSearch/HeaderSearch';
 
 const Header = ({ scrolled }) => {
   const { deskmin, deskmax } = useScreenSizes();
@@ -35,26 +34,19 @@ const Header = ({ scrolled }) => {
 
         <LogoIcon fillColor={isScrolled ? 'white' : 'black'} />
 
-        {(deskmin || deskmax) && <Navigation />}
+        {(deskmin || deskmax) && <HeaderNavigation />}
 
-        {(deskmin || deskmax) && isShowInput && (
-          <SearchInput setIsShowInput={setIsShowInput} isDesktop={deskmin || deskmax} />
-        )}
+        {isShowInput && <HeaderSearch setIsShowInput={setIsShowInput} />}
 
-        <RightHeaderControls
-          isShowInput={isShowInput}
+        <HeaderRightControls
           handleShowInput={handleShowInput}
           isScrolled={isScrolled}
           handleShowBasket={handleShowBasket}
         />
       </div>
 
-      {!deskmin && !deskmax && isShowInput && (
-        <MobileSearchWrapper setIsShowInput={setIsShowInput} isDesktop={deskmin} />
-      )}
-
       {isShowNavDrawer && <NavDrawer setIsShowNavDrawer={setIsShowNavDrawer} />}
-      {isShowBasket && <Basket setIsShowBasket={setIsShowBasket} />}
+      {isShowBasket && <HeaderCart setIsShowBasket={setIsShowBasket} />}
     </header>
   );
 };

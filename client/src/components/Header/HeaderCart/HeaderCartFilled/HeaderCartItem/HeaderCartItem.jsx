@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 const hryvnia = '\u20B4';
 const digitRegex = /^\d*$/;
 
-const BasketItem = ({ item, onClick }) => {
+const HeaderCartItem = ({ item, onClick }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(item.quantity);
 
@@ -55,7 +55,7 @@ const BasketItem = ({ item, onClick }) => {
 
   const { getTranslation } = useTranslationNamespace('common');
   return (
-    <li className={cl.basketItem}>
+    <li className={cl.headerCartItem}>
       <Link onClick={onClick} to={`/catalog/${item.id}`}>
         <img src={item.images[0].image} className={cl.basketItemImg} alt={item.name} />
       </Link>
@@ -90,4 +90,4 @@ const BasketItem = ({ item, onClick }) => {
     </li>
   );
 };
-export default BasketItem;
+export default HeaderCartItem;

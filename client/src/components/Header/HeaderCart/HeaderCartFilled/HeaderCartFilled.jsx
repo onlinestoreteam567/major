@@ -1,11 +1,11 @@
 import Heading from '@components/UI/Texts/Heading/Heading';
-import BasketItem from '../BasketItem/BasketItem';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@components/UI/Button/Button';
 import { Link } from 'react-router-dom';
+import HeaderCartItem from './HeaderCartItem/HeaderCartItem';
 
-const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
+const HeaderCartFilled = ({ cartItems, totalQuantity, onClick }) => {
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price_with_discount * item.quantity, 0);
   const { getTranslation } = useTranslationNamespace('basket');
   const hryvnia = '\u20B4';
@@ -14,7 +14,7 @@ const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
     <>
       <ul className={cl.basketItems}>
         {cartItems.map((item) => (
-          <BasketItem key={item.id} item={item} onClick={onClick} />
+          <HeaderCartItem key={item.id} item={item} onClick={onClick} />
         ))}
       </ul>
       <section className={cl.totalSection}>
@@ -46,4 +46,4 @@ const FilledBusket = ({ cartItems, totalQuantity, onClick }) => {
     </>
   );
 };
-export default FilledBusket;
+export default HeaderCartFilled;

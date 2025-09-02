@@ -276,6 +276,8 @@ src/
 │ │ │ │ ├── index.module.scss
 
 │ ├── form-components
+│ │ ├── index.js
+
 │ │ ├── Checkbox
 │ │ │ ├── Checkbox.jsx
 │ │ │ ├── index.module.scss
@@ -314,6 +316,54 @@ src/
 │ │ ├── Textarea
 │ │ │ ├── Textarea.jsx
 │ │ │ ├── index.module.scss
+
+│ ├── Header
+│ │ ├── Header.jsx
+│ │ ├── index.module.scss
+
+│ │ ├── HeaderCart
+│ │ │ ├── HeaderCart.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── HeaderCartEmpty
+│ │ │ │ ├── HeaderCartEmpty.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── HeaderCartFilled
+│ │ │ │ ├── HeaderCartFilled.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── HeaderCartItem
+│ │ │ │ │ ├── HeaderCartItem.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ ├── HeaderCartTopSection
+│ │ │ │ ├── HeaderCartTopSection.jsx
+│ │ │ │ ├── index.module.scss
+
+│ │ ├── HeaderRightControls
+│ │ │ ├── HeaderRightControls.jsx
+│ │ │ ├── index.module.scss
+
+│ │ ├── HeaderSearch
+│ │ │ ├── HeaderSearch.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── DesktopSearch.jsx
+│ │ │ ├── MobileSearch
+│ │ │ │ ├── MobileSearch.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ ├── SearchInput
+│ │ │ │ ├── SearchInput.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── SearchResults
+│ │ │ │ │ ├── SearchResults.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── SearchNotFound
+│ │ │ │ │ │ ├── SearchNotFound.jsx
+│ │ │ │ │ │ ├── index.module.scss
+
+│ │ ├── NavDrawer
+│ │ │ ├── NavDrawer.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── LangSwitcher
+│ │ │ │ ├── LangSwitcher.jsx
+│ │ │ │ ├── index.module.scss
 
 │ ├── UI/ # UI components with modular styles
 │ │ ├── Button/ # Button component with module SCSS

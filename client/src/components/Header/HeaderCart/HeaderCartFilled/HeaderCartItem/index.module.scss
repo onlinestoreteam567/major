@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.basketItem {
+.headerCartItem {
   @include flex(row, start, null);
   gap: 10px;
   list-style-type: none;

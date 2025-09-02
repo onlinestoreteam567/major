@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.rightSection {
+.headerRightControls {
   @include flexGap(8px);
 
   @include deskmin {

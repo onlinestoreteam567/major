@@ -7,7 +7,7 @@ import { resetFilter } from '@redux/filter/filterSlice';
 
 const links = ['catalog', 'about', 'cooperation', 'contact'];
 
-const Navigation = ({ onClick }) => {
+const HeaderNavigation = ({ onClick }) => {
   const { getTranslation } = useTranslationNamespace('header');
   const dispatch = useDispatch();
 
@@ -43,4 +43,4 @@ const Navigation = ({ onClick }) => {
   );
 };
 
-export default Navigation;
+export default HeaderNavigation;

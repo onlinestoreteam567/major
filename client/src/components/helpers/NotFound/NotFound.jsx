@@ -8,7 +8,7 @@ export default function NotFound() {
 
   return (
     <>
-      <Header scrolled={true}/>
+      <Header scrolled={true} />
 
       <div className={cl.wrap}>
         <img src="/images/404/404-background.webp" alt={getTranslation('imgAltBg')} />

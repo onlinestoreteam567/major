@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.basketWrapper {
+.headerCart {
   @include flex(column, null, center);
   width: 320px;
   height: $height-pop-up-header-mobile;

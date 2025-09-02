@@ -2,16 +2,16 @@ import Overlay from '@UI/Overlay/Overlay';
 import cl from './index.module.scss';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import EmptyBasket from './EmptyBasket/EmptyBasket';
-import Header from './Header/Header';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import { getProductsByCartIds } from '@redux/products/service';
 import { loadCart, selectCart, selectCartSavedIds } from '@redux/selectors';
 import Spinner from '@components/helpers/Spinner/Spinner';
-import FilledBusket from './FilledBasket/FilledBasket';
 import { useTranslation } from 'react-i18next';
+import HeaderCartTopSection from './HeaderCartTopSection/HeaderCartTopSection';
+import HeaderCartEmpty from './HeaderCartEmpty/HeaderCartEmpty';
+import HeaderCartFilled from './HeaderCartFilled/HeaderCartFilled';
 
-const Basket = ({ setIsShowBasket }) => {
+const HeaderCart = ({ setIsShowBasket }) => {
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
 
@@ -34,17 +34,17 @@ const Basket = ({ setIsShowBasket }) => {
     <>
       <Overlay handleClose={handleCloseBasket} />
 
-      <div className={`${cl.basketWrapper} ${hiddenBasket && cl.closeBasket} ${!isEmptyBasket && cl.emptyBasket}`}>
-        <Header onClick={handleCloseBasket} />
+      <div className={`${cl.headerCart} ${hiddenBasket && cl.closeBasket} ${!isEmptyBasket && cl.emptyBasket}`}>
+        <HeaderCartTopSection onClick={handleCloseBasket} />
 
         {isLoading ? (
           <Spinner />
         ) : (
           <>
             {isEmptyBasket ? (
-              <EmptyBasket onClick={handleCloseBasket} />
+              <HeaderCartEmpty onClick={handleCloseBasket} />
             ) : (
-              <FilledBusket cartItems={cartItems} totalQuantity={totalQuantity} onClick={handleCloseBasket} />
+              <HeaderCartFilled cartItems={cartItems} totalQuantity={totalQuantity} onClick={handleCloseBasket} />
             )}
           </>
         )}
@@ -53,4 +53,4 @@ const Basket = ({ setIsShowBasket }) => {
   );
 };
 
-export default Basket;
+export default HeaderCart;
