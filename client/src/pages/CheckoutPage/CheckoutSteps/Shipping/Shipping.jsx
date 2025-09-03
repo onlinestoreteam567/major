@@ -6,8 +6,8 @@ import { useState } from 'react';
 import cl from './index.module.scss';
 import NovaPost from './NovaPost/NovaPost';
 import { ShippingTextArea } from './ShippingTextArea/ShippingTextArea';
-import ShippingInfo from './ShippingInfo/ShippingInfo';
-import useShippingLogic from './helpers/useShippingLogic';
+import ShippingInfo from './ShippingInfo';
+import useShippingLogic from './hooks/useShippingLogic';
 import handleContinueClick from './helpers/handleContinueClick';
 
 const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigger, getValues, setValue }) => {

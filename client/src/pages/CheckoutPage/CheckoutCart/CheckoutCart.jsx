@@ -5,13 +5,13 @@ import { useEffect, useState } from 'react';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Arrow from '@assets/svg/Admin/Arrow/Arrow';
-import CheckoutCartItem from './CartItem/CartItem';
+import CheckoutCartItem from './CheckoutCartItem/CartItem';
 import Promocode from './Promocode/Promocode';
 import { getProductsByCartIds } from '@redux/products/service';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-const Cart = () => {
+const CheckoutCart = () => {
   const { i18n } = useTranslation();
   const dispatch = useDispatch();
   const { getTranslation } = useTranslationNamespace('checkoutPage');
@@ -85,4 +85,4 @@ const Cart = () => {
     </div>
   );
 };
-export default Cart;
+export default CheckoutCart;

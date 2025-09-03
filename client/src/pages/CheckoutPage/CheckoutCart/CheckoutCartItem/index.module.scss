@@ -1,6 +1,6 @@
 @import '@mixins';
 
-.cartItem {
+.checkoutCartItem {
   @include flexGap(8px);
   list-style-type: none;
   width: 288px;

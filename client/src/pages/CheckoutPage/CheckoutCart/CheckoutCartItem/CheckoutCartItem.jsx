@@ -14,7 +14,7 @@ const CheckoutCartItem = ({ product }) => {
   const handleRemoveItem = () => dispatch(removeItem(product.id));
 
   return (
-    <li className={cl.cartItem}>
+    <li className={cl.checkoutCartItem}>
       <img src={product.images[0].image} alt={product.name} />
 
       <section>

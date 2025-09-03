@@ -483,7 +483,55 @@ src/
 │ │ │ │ ├── CategoryCard/
 │ │ │ │ │ ├── CategoryCard/
 │ │ │ │ │ └─ index.module.scss
-
+│ │
+│ │ ├── CheckoutPage/
+│ │ │ ├── CheckoutPage.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── CheckoutBreadCrumbs/
+│ │ │ │ ├── CheckoutBreadCrumbs.jsx
+│ │ │ │ └── index.module.scss
+│ │ │ ├── CheckoutCart/
+│ │ │ │ ├── CheckoutCart.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── helpers/
+│ │ │ │ │ └── calculateDiscountedItems.js
+│ │ │ │ ├── CheckoutCartItem/
+│ │ │ │ │ ├── CheckoutCartItem.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── Promocode/
+│ │ │ │ │ ├── Promocode.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ ├── CheckoutSteps/
+│ │ │ │ ├── CheckoutSteps.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── ContactInformation/
+│ │ │ │ │ │ ├── ContactInformation.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ ├── ContactInformationInput/
+│ │ │ │ │ │ ├── ContactInformationInput.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ ├── Payment/
+│ │ │ │ │ │ ├── Payment.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ │ ├── PaymentCheckbox/
+│ │ │ │ │ │ │ ├── PaymentCheckbox.jsx
+│ │ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ ├── Shipping/
+│ │ │ │ │ │ ├── Shipping.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ │ ├── ShippingInfo.jsx
+│ │ │ │ │ │ ├── helpers/
+│ │ │ │ │ │ │ └── handleContinueClick.js
+│ │ │ │ │ │ ├── hooks/
+│ │ │ │ │ │ │ └── useShippingLogic.jsx
+│ │ │ │ │ │ ├── NovaPost/
+│ │ │ │ │ │ │ ├── NovaPost.jsx
+│ │ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ │ │ ├── Settlement.jsx
+│ │ │ │ │ │ │ └── Warehouses.jsx
+│ │ │ │ │ │ ├── ShippingTextArea/
+│ │ │ │ │ │ │ ├── ShippingTextArea.jsx
+│ │ │ │ │ │ │ └── index.module.scss
 │
 ├── router/ # Router and layouts
 │ ├── AppRouter.jsx # Application's main routing logic
