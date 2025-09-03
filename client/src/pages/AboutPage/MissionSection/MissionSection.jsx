@@ -11,7 +11,7 @@ const MissionSection = () => {
         <div></div>
         <div></div>
         <div></div>
-        <img src="/images/placeholder.webp" alt="" />
+        <img src="/images/about/missionSection.webp" alt="" />
       </div>
       <div>
         <Paragraph type="body1">

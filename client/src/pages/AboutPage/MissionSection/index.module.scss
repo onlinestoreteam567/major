@@ -4,7 +4,7 @@
   @include flex(column);
   gap: 12px;
 
-  div:first-of-type {
+  & > div:first-of-type {
     position: relative;
 
     div {
@@ -42,7 +42,7 @@
     }
   }
 
-  div:last-of-type {
+  & > div:last-of-type {
     @include flexGap(8px, column);
     width: 294px;
 
@@ -52,7 +52,7 @@
   }
 
   @include mobile {
-    div:first-of-type {
+    & > div:first-of-type {
       div {
         width: 207px;
         height: 192px;
@@ -81,7 +81,7 @@
       }
     }
 
-    div:last-of-type {
+    & > div:last-of-type {
       width: 356px;
     }
   }
@@ -97,7 +97,7 @@
       margin-right: 24px;
     }
 
-    div:first-of-type {
+    & > div:first-of-type {
       order: 3;
 
       div {
@@ -128,7 +128,7 @@
       }
     }
 
-    div:last-of-type {
+    & > div:last-of-type {
       gap: 24px;
       width: 324px;
     }
@@ -145,7 +145,7 @@
       grid-area: 2 / 2;
     }
 
-    div:first-of-type {
+    & > div:first-of-type {
       grid-area: 1 / 1 / 4;
       order: initial;
 
@@ -176,7 +176,7 @@
       }
     }
 
-    div:last-of-type {
+    & > div:last-of-type {
       grid-area: 3 / 2;
       margin-block: 48px 18px;
       width: 392px;
@@ -190,7 +190,7 @@
       width: 526px;
     }
 
-    div:first-of-type {
+    & > div:first-of-type {
       div {
         width: 425px;
         height: 393px;
@@ -203,7 +203,7 @@
       }
     }
 
-    div:last-of-type {
+    & > div:last-of-type {
       width: 526px;
       margin-bottom: 95px;
     }
