@@ -5,8 +5,9 @@ import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import { useState } from 'react';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 import ArrowRight from '@UI/icons/ArrowRight';
-
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const PaginatedBenefits = () => {
+  const { getTranslation } = useTranslationNamespace('aboutPage');
   const [currentOption, setCurrentOption] = useState('option2');
 
   const option1Indices = [0, 3, 4];
@@ -30,9 +31,9 @@ const PaginatedBenefits = () => {
 
           return (
             <div key={benefit.index} className={showParagraph ? cl.showParagraph : ''}>
-              <Heading type="h2">{benefit.title}</Heading>
+              <Heading type="h2">{getTranslation(benefit.title)}</Heading>
               {showParagraph ? (
-                <Paragraph type="body1">{benefit.description}</Paragraph>
+                <Paragraph type="body1">{getTranslation(benefit.description)}</Paragraph>
               ) : (
                 <ButtonAriaLabel al={'nextProducts'} onClick={toggleOption}>
                   <ArrowRight />
@@ -51,9 +52,9 @@ const PaginatedBenefits = () => {
 
           return (
             <div key={benefit.index} className={showParagraph ? cl.showParagraph : ''}>
-              <Heading type="h2">{benefit.title}</Heading>
+              <Heading type="h2">{getTranslation(benefit.title)}</Heading>
               {showParagraph ? (
-                <Paragraph type="body1">{benefit.description}</Paragraph>
+                <Paragraph type="body1">{getTranslation(benefit.description)}</Paragraph>
               ) : (
                 <ButtonAriaLabel al={'nextProducts'} onClick={toggleOption}>
                   <ArrowRight />

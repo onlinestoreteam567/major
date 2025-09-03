@@ -1,33 +1,32 @@
 const keyBenefits = [
   {
-    title: 'Миттєвий результат',
-    description:
-      'Під час консультації визначаємо потреби вашої шкіри та волосся, тому результат не змусить на себе чекати!',
+    title: 'keyBenefitsTitle1',
+    description: 'keyBenefitsDescription1',
     index: 0,
   },
   {
-    title: 'Мінімум засобів — максимум користі',
-    description: 'Замість десятків баночок — усе необхідне в кількох засобах. Простий догляд, який працює.',
+    title: 'keyBenefitsTitle2',
+    description: 'keyBenefitsDescription2',
     index: 1,
   },
   {
-    title: 'Здорова шкіра = здорове волосся',
-    description: 'Наші засоби усувають лупу, зменшують жирність та зуд, покращують ріст волосся та додають густоту.',
+    title: 'keyBenefitsTitle3',
+    description: 'keyBenefitsDescription3',
     index: 2,
   },
   {
-    title: 'Професійний склад',
-    description: 'Наші засоби усувають лупу, зменшують жирність та зуд, покращують ріст волосся та додають густоту.',
+    title: 'keyBenefitsTitle4',
+    description: 'keyBenefitsDescription4',
     index: 3,
   },
   {
-    title: 'Зручність використання',
-    description: 'Кожен засіб має зручний дозатор та інструкцію щодо використання на зворотному боці.',
+    title: 'keyBenefitsTitle5',
+    description: 'keyBenefitsDescription5',
     index: 4,
   },
   {
-    title: 'Ефект накопичення',
-    description: 'З кожним наступним миттям результат покращується, волосся відновлюється на очах!',
+    title: 'keyBenefitsTitle6',
+    description: 'keyBenefitsDescription6',
     index: 5,
   },
 ];

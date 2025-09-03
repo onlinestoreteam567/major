@@ -1,57 +1,57 @@
 import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const BrandValues = () => {
+  const { getTranslation } = useTranslationNamespace('aboutPage');
+
   return (
     <div className={cl.brandValues}>
-      <img src="/svg/logo.svg" alt="" />
-      <img src="/images/about/aboutBackground.webp" alt="" />
+      <img src="/svg/logo.svg" alt={getTranslation('brandValuesImgAlt')} />
+      <img src="/images/about/aboutBackground.webp" alt={getTranslation('brandValuesImgBgAlt')} />
       <section>
         <Heading type="h3">
-          <img src="/svg/about/pencilChat.svg" alt="" /> Миттєвий результат
+          <img src="/svg/about/pencilChat.svg" alt={getTranslation('brandValuesFirstHeadingImgAlt')} />{' '}
+          {getTranslation('brandValuesFirstHeading')}
         </Heading>
         <Paragraph type="body1">
-          MAJOR — це назва, що має значення. <br />
+          {getTranslation('brandValuesFirstParagraph1')} <br />
           <br />
-          Ми довго шукали одне-єдине слово, яке відчуємо серцем. Воно означає «головний» — саме такими ми бачимо наші
-          засоби у щоденному догляді.
+          {getTranslation('brandValuesFirstParagraph2')}
         </Paragraph>
       </section>
       <section>
         <Heading type="h3">
-          <img src="/svg/about/arm.svg" alt="" />
-          Сила всередині
+          <img src="/svg/about/arm.svg" alt={getTranslation('brandValuesSecondHeadingImgAlt')} />
+          {getTranslation('brandValuesSecondHeading')}
         </Heading>
         <Paragraph type="body1">
-          MAJOR — це про силу. <br />
+          {getTranslation('brandValuesSecondParagraph1')} <br />
           <br />
-          Жіночу силу, силу сім’ї, силу країни. Це не просто косметика, а прояв турботи, віри та внутрішнього стрижня
-          кожної з нас.
+          {getTranslation('brandValuesSecondParagraph2')}
         </Paragraph>
       </section>
       <section>
         <Heading type="h3">
-          <img src="/svg/about/romanceArrows.svg" alt="" />
-          Наше коріння
+          <img src="/svg/about/romanceArrows.svg" alt={getTranslation('brandValuesThirdHeadingImgAlt')} />
+          {getTranslation('brandValuesThirdHeading')}
         </Heading>
         <Paragraph type="body1">
-          MAJOR — це більше, ніж бізнес. <br />
+          {getTranslation('brandValuesThirdParagraph1')} <br />
           <br />
-          Це сімейна справа, створена з любові та турботи. У нас невелика, але згуртована команда, об&apos;єднана
-          спільною метою — допомогти кожній жінці легко піклуватися про себе.
+          {getTranslation('brandValuesThirdParagraph2')}
         </Paragraph>
       </section>
       <section>
         <Heading type="h3">
-          <img src="/svg/about/tryzub.svg" alt="" />
-          Українське з гордістю
+          <img src="/svg/about/tryzub.svg" alt={getTranslation('brandValuesFourthHeadingImgAlt')} />
+          {getTranslation('brandValuesFourthHeading')}
         </Heading>
         <Paragraph type="body1">
-          MAJOR — це вибір на користь України. <br />
+          {getTranslation('brandValuesFourthParagraph1')} <br />
           <br />
-          Ми виробляємо все в Україні, створюємо робочі місця, сплачуємо податки та підтримуємо ЗСУ. Кожна покупка — це
-          внесок у сильну, незалежну країну.
+          {getTranslation('brandValuesFourthParagraph2')}
         </Paragraph>
       </section>
     </div>

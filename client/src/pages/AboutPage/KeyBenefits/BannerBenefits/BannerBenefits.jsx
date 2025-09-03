@@ -8,11 +8,12 @@ import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import keyBenefitsArray from '../keyBenefitsArray';
 import ArrowLeft from '@UI/icons/ArrowLeft';
 import ArrowRight from '@UI/icons/ArrowRight';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const BannerBenefits = () => {
   let sliderRef = useRef(null);
   const [index, setIndex] = useState(2);
-
+  const { getTranslation } = useTranslationNamespace('aboutPage');
   const settings = {
     ...aboutUsSettings,
   };
@@ -53,8 +54,8 @@ const BannerBenefits = () => {
         {keyBenefitsArray.map((benefit, index) => (
           <div key={index}>
             <div className={cl.benefit}>
-              <Heading type="h2">{benefit.title}</Heading>
-              <Paragraph type="body1">{benefit.description}</Paragraph>
+              <Heading type="h2">{getTranslation(benefit.title)}</Heading>
+              <Paragraph type="body1">{getTranslation(benefit.description)}</Paragraph>
             </div>
           </div>
         ))}

@@ -2,10 +2,12 @@ import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { useTranslation } from 'react-i18next';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 let imgSrc;
 
 const Formula = () => {
+  const { getTranslation } = useTranslationNamespace('aboutPage');
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const isDesk = deskmin || deskmax;
   const { i18n } = useTranslation();
@@ -32,8 +34,8 @@ const Formula = () => {
   }
   return (
     <div className={cl.formula}>
-      <Heading type="h2">Кожен компонент — не випадковий. Він: </Heading>
-      <img src={imgSrc} alt="" />
+      <Heading type="h2">{getTranslation('formulaTitle')}</Heading>
+      <img src={imgSrc} alt={getTranslation('formulaImgAlt')} />
     </div>
   );
 };

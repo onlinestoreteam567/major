@@ -1,31 +1,29 @@
 import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const MissionSection = () => {
+  const { getTranslation } = useTranslationNamespace('aboutPage');
+
   return (
     <section className={cl.missionSection}>
-      <Heading type="h2">Major — це більше, ніж просто бізнес</Heading>
+      <Heading type="h2">{getTranslation('majorIsMoreThanJustABusiness')}</Heading>
       <div>
         <div></div>
         <div></div>
         <div></div>
         <div></div>
-        <img src="/images/about/missionSection.webp" alt="" />
+        <img src="/images/about/missionSection.webp" alt={getTranslation('missionImgAlt')} />
       </div>
       <div>
+        <Paragraph type="body1">{getTranslation('firstMissionParagraph')}</Paragraph>
+        <Paragraph type="body1">{getTranslation('secondMissionParagraph')}</Paragraph>
         <Paragraph type="body1">
-          Це сімейна справа, яка об’єднує всіх нас у спільному прагненні створювати дійсно дієві продукти.
-        </Paragraph>
-        <Paragraph type="body1">
-          У нас невелика але потужна команда, де кожен відповідає за свій процес: від створення формул і тестування до
-          пакування і консультації клієнтів.
-        </Paragraph>
-        <Paragraph type="body1">
-          Для нас українське — це не тренд і не гасло.
+          {getTranslation('thirdMissionParagraph1')}
           <br />
-          Це справа життя. Ми його створюємо власноруч. І водночас - захищаємо. <br />
-          Бо любов — це не лише слова, це дії.
+          {getTranslation('thirdMissionParagraph2')} <br />
+          {getTranslation('thirdMissionParagraph3')}
         </Paragraph>
       </div>
     </section>
