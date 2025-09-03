@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ReviewPopUp from './ProductPage/Card/ReviewPopUp/ReviewPopUp';
+import ReviewPopUp from './ProductPage/ProductPageCard/ReviewPopUp/ReviewPopUp';
 
 const AboutPage = () => {
   const [isShow, setIsShow] = useState(false);

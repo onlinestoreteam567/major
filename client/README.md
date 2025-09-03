@@ -379,6 +379,12 @@ src/
 │ │ │ ├── EmptyText.jsx
 │ │ │ └── index.module.scss
 │ │
+│ │ ├── Labels/
+│ │ │ ├── LabelHit.jsx
+│ │ │ ├── LabelNew.jsx
+│ │ │ ├── LabelSale.jsx
+│ │ │ └── index.module.scss
+│ │
 │ │ ├── Overlay/
 │ │ │ ├── Overlay.jsx
 │ │ │ └── index.module.scss
@@ -403,6 +409,14 @@ src/
 │ │ │ │ ├── ProductList.jsx
 │ │ │ │ └── index.module.scss
 │ │
+│ │ ├── ProductPrice/
+│ │ │ ├── ProductPrice.jsx
+│ │ │ └── index.module.scss
+│ │
+│ │ ├── ProductRating/
+│ │ │ ├── ProductRating.jsx
+│ │ │ └── index.module.scss
+
 │ │ ├── SliderBoxMain/
 │ │ │ ├── SliderBoxMain.jsx
 │ │ │ └── index.module.scss
@@ -587,7 +601,78 @@ src/
 │ │ │ │ │ ├── QuestionPopUp/
 │ │ │ │ │ │ ├── QuestionPopUp.jsx
 │ │ │ │ │ │ └── index.module.scss
-
+│ │
+│ │ ├── NotFoundPage/
+│ │ │ ├── NotFoundPage.jsx
+│ │ │ └── index.module.scss
+│ │
+│ │ ├── ProductPage/
+│ │ │ ├── ProductPage.jsx
+│ │ │ ├── index.module.scss
+│ │ │ ├── ProductPageCard/
+│ │ │ │ ├── ProductPageCard.jsx
+│ │ │ │ ├── index.module.scss
+│ │ │ │ ├── DesktopView.jsx
+│ │ │ │ ├── MobileView.jsx
+│ │ │ │ ├── ProductPageCardDetails/
+│ │ │ │ │ ├── ProductPageCardArticle/
+│ │ │ │ │ │ ├── ProductPageCardArticle.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ ├── ProductPageCardCounter/
+│ │ │ │ │ │ ├── ProductPageCardCounter.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ ├── ProductPageCardDescription/
+│ │ │ │ │ │ ├── ProductPageCardDescription.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ ├── ProductPageCardDescription/
+│ │ │ │ │ │ ├── ProductPageCardDescription.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ ├── ProductPageCardImage/
+│ │ │ │ │ │ ├── SliderImgs.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ │ ├── CardLabels.jsx
+│ │ │ │ │ │ ├── ImgDesk/
+│ │ │ │ │ │ │ ├── ImgDesk.jsx
+│ │ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ │ ├── ImgMobile/
+│ │ │ │ │ │ │ ├── ImgMobile.jsx
+│ │ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ ├── ProductPageCardPrice/
+│ │ │ │ │ │ ├── ProductPageCardPrice.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ ├── ProductPageCardTitle/
+│ │ │ │ │ │ ├── ProductPageCardTitle.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ ├── ProductVolume/
+│ │ │ │ │ │ ├── ProductVolume.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │
+│ │ │ │ ├── ReviewPopUp/
+│ │ │ │ │ ├── ReviewPopUp.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ └── StarsCheckbox.jsx
+│ │ │ │
+│ │ │ │ ├── Reviews/
+│ │ │ │ │ ├── Reviews.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ │ ├── LeaveReview/
+│ │ │ │ │ │ │ ├── LeaveReview.jsx
+│ │ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ │ ├── ReviewsCard/
+│ │ │ │ │ │ │ ├── ReviewsCard.jsx
+│ │ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ │ ├── ReviewsNotFound/
+│ │ │ │ │ │ │ ├── ReviewsNotFound.jsx
+│ │ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ │ ├── UserRating/
+│ │ │ │ │ │ │ ├── UserRating.jsx
+│ │ │ │ │ │ │ └── index.module.scss
+│ │ │
+│ │ │ ├── Sliders/
+│ │ │ │ ├── FitCategory.jsx
+│ │ │ │ ├── ProductSet.jsx
+│ │ │ │ ├── ProductLook.jsx
+│ │ │ │ └── index.module.scss
 │
 ├── router/ # Router and layouts
 │ ├── AppRouter.jsx # Application's main routing logic

@@ -1,0 +1,46 @@
+@import '@mixins';
+
+.imgMobile {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 300px;
+  height: 320px;
+  @include mobile {
+    width: 360px;
+    height: 380px;
+  }
+
+  .wrapImgMobCard {
+    position: relative;
+    @include flexGap(24px, column);
+    width: 100%;
+    padding: 0;
+
+    img {
+      width: 300px;
+      height: 300px;
+      background-color: rgb(248, 248, 249);
+      object-fit: cover;
+      transition: opacity 0.5s ease;
+      opacity: 1;
+      border-radius: 2px;
+      @include mobile {
+        width: 360px;
+        height: 360px;
+      }
+    }
+  }
+  .btnMore {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    @include flex(row, center, center);
+    width: 48px;
+    height: 48px;
+  }
+
+  @include tablet {
+    display: none;
+  }
+}

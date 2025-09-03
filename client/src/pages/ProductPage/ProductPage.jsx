@@ -11,9 +11,9 @@ import { getProductById } from '@redux/products/service';
 import { loadProductId, selectProductId } from '@redux/selectors';
 import useIdFromUrl from '@hooks/useIdFromUrl';
 import { useTranslation } from 'react-i18next';
-import Card from './Card/Card';
 import { addViewedProduct } from '@redux/products/viewedProductsSlice';
 import ProductLook from './Sliders/ProductLook';
+import ProductPageCard from './ProductPageCard/ProductPageCard';
 
 export default function ProductPage() {
   const dispatch = useDispatch();
@@ -40,7 +40,7 @@ export default function ProductPage() {
           <Spinner />
         ) : (
           <>
-            {isObject ? <Card card={card} /> : <EmptyText message="Нічого не знайдено" />}
+            {isObject ? <ProductPageCard card={card} /> : <EmptyText message="Нічого не знайдено" />}
             {isObject && <FitCategory categoryId={categoryId} />}
           </>
         )}

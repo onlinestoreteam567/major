@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ProductRating from '../../../pages/ProductPage/Card/ProductDetails/Rating/ProductRating';
+import ProductRating from '../ProductRating/ProductRating';
 import cl from './index.module.scss';
 import ProductCardPrice from './ProductCardPrice/ProductCardPrice';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';

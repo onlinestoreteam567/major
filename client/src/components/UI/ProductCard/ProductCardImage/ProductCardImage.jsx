@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import LabelHit from '../../../../pages/ProductPage/Card/ProductDetails/Labels/LabelHit';
-import LabelNew from '../../../../pages/ProductPage/Card/ProductDetails/Labels/LabelNew';
-import LabelSale from '../../../../pages/ProductPage/Card/ProductDetails/Labels/LabelSale';
+import LabelHit from '../../Labels/LabelHit';
+import LabelNew from '../../Labels/LabelNew';
+import LabelSale from '../../Labels/LabelSale';
 import cl from './index.module.scss';
 
 export default function ProductCardImage({ card }) {
