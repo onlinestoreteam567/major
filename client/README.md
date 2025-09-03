@@ -503,6 +503,41 @@ src/
 │ │ └── useTranslationNamespace.jsx
 │
 │ ├── pages/ # Pages tied to routes
+│ │ ├── AboutPage/
+│ │ │ ├── AboutPage.jsx
+│ │ │ ├── index.module.scss
+│ │ │ │ ├── AboutBanner/
+│ │ │ │ │ ├── AboutBanner.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── BrandValues/
+│ │ │ │ │ ├── BrandValues.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── Formula/
+│ │ │ │ │ ├── Formula.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── KeyBenefits/
+│ │ │ │ │ ├── KeyBenefits.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── keyBenefitsArray.js
+│ │ │ │ │ ├── BannerBenefits/
+│ │ │ │ │ │ ├── BannerBenefits
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── PaginatedBenefits/
+│ │ │ │ │ │ ├── PaginatedBenefits
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── MissionSection/
+│ │ │ │ │ ├── MissionSection.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── OriginStorySection/
+│ │ │ │ │ ├── OriginStorySection.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── OurProduction/
+│ │ │ │ │ ├── OurProduction.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── YourTimeIsPriceless/
+│ │ │ │ │ ├── YourTimeIsPriceless.jsx
+│ │ │ │ │ └── index.module.scss
+
 │ │ ├── CatalogPage/
 │ │ │ ├── CatalogPage.jsx
 │ │ │ ├── index.module.scss
