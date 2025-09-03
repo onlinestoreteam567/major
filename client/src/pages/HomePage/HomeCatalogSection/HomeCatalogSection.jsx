@@ -8,7 +8,7 @@ import { getProductsByCategory } from '@redux/products/service';
 import { Link } from 'react-router-dom';
 import Spinner from '@UI/Spinner/Spinner';
 
-const Catalog = () => {
+const HomeCatalogSection = () => {
   const { getTranslation } = useTranslationNamespace('common');
   const isLoading = useSelector(loadCategories);
   const items = useSelector(selectCategories);
@@ -21,7 +21,7 @@ const Catalog = () => {
   };
 
   return (
-    <section className={cl.catalogWrapper}>
+    <section className={cl.homeCatalogSection}>
       {isLoading ? (
         <Spinner />
       ) : (
@@ -50,4 +50,4 @@ const Catalog = () => {
   );
 };
 
-export default Catalog;
+export default HomeCatalogSection;

@@ -532,6 +532,62 @@ src/
 │ │ │ │ │ │ ├── ShippingTextArea/
 │ │ │ │ │ │ │ ├── ShippingTextArea.jsx
 │ │ │ │ │ │ │ └── index.module.scss
+│ │
+│ │ ├── ErrorPage/
+│ │ │ ├── ErrorPage.jsx
+│ │ │ └── index.module.scss
+│ │
+│ │ ├── HomePage/
+│ │ │ ├── HomePage.jsx
+│ │ │ ├── index.module.scss
+│ │ │ │ ├── Comments/
+│ │ │ │ │ ├── Comments.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── CommentCard/
+│ │ │ │ │ │ ├── CommentCard.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── HomeCatalogSection/
+│ │ │ │ │ ├── HomeCatalogSection.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── MainBanner/
+│ │ │ │ │ ├── MainBanner.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── Slide/
+│ │ │ │ │ │ ├── Slide.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── MainSliders/
+│ │ │ │ │ ├── BestSellers.jsx
+│ │ │ │ │ ├── Sets.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── MajorInfo/
+│ │ │ │ │ ├── MajorInfo.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── OurPartners/
+│ │ │ │ │ ├── OurPartners.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── Map/
+│ │ │ │ │ │ ├── Map.jsx
+│ │ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ │ ├── eventHandlers/
+│ │ │ │ │ │ │ ├── handleStart.js
+│ │ │ │ │ │ │ ├── handleEnd.js
+│ │ │ │ │ │ │ ├── handleMove.js
+│ │ │ │ │ │ │ ├── handleWheel.js
+│ │ │ │ │ │ │ ├── handleZoomIn.js
+│ │ │ │ │ │ │ └── handleZoomOut.js
+│ │ │ │ │ │ ├── PartnerInfo/
+│ │ │ │ │ │ │ ├── PartnerInfo.jsx
+│ │ │ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── WhyChooseUs/
+│ │ │ │ │ ├── WhyChooseUs.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── YellowButton/
+│ │ │ │ │ ├── YellowButton.jsx
+│ │ │ │ │ ├── index.module.scss
+│ │ │ │ │ ├── QuestionPopUp/
+│ │ │ │ │ │ ├── QuestionPopUp.jsx
+│ │ │ │ │ │ └── index.module.scss
+
 │
 ├── router/ # Router and layouts
 │ ├── AppRouter.jsx # Application's main routing logic

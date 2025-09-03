@@ -2,11 +2,11 @@ import Slider from 'react-slick';
 import { useRef, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import settings from './settings.js';
 import Slide from './Slide/Slide.jsx';
 import { useSelector } from 'react-redux';
 import { loadBanner, selectBanner } from '@redux/selectors.js';
 import Spinner from '@UI/Spinner/Spinner.jsx';
+import { mainBannerSettings } from '@components/constants/settingSlider.js';
 
 const MainBanner = () => {
   const sliderRef = useRef(null);
@@ -38,7 +38,7 @@ const MainBanner = () => {
     <Spinner />
   ) : (
     <div className="slider-container">
-      <Slider ref={sliderRef} {...settings}>
+      <Slider ref={sliderRef} {...mainBannerSettings}>
         {slideData.map((slide, index) => (
           <Slide key={index} slide={slide} next={next} previous={previous} />
         ))}

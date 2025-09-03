@@ -1,5 +1,5 @@
 import cl from './index.module.scss';
-import Catalog from './Catalog/Catalog';
+import HomeCatalogSection from './HomeCatalogSection/HomeCatalogSection';
 import Comments from './Comments/Comments';
 import MainBanner from './MainBanner/MainBanner';
 import MajorInfo from './MajorInfo/MajorInfo';
@@ -19,7 +19,7 @@ const HomePage = () => {
         <YellowButton />
         <BestSellers />
         <Sets />
-        <Catalog />
+        <HomeCatalogSection />
         <MajorInfo />
         <WhyChooseUs />
         <Comments />

@@ -8,7 +8,7 @@ import cl from './index.module.scss';
 import ZoomOut from '@assets/svg/ZoomOut';
 import ZoomIn from '@assets/svg/ZoomIn';
 import { useTranslation } from 'react-i18next';
-import PartnerInfo from '../PartnerInfo/PartnerInfo';
+import PartnerInfo from './PartnerInfo/PartnerInfo';
 import handleWheel from './eventHandlers/handleWheel';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
