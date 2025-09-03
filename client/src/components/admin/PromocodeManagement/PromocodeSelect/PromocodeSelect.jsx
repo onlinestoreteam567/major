@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
 import { useEffect, useState } from 'react';
-import Arrow from '@assets/svg/Admin/Arrow/Arrow';
+import Arrow from '@components/UI/icons/Admin/Arrow/Arrow';
 import PromocodeSelectOptions from './PromocodeSelectOptions/PromocodeSelectOptions';
 import { isFetchedAllPromocodes } from '@redux/selectors';
 import { useSelector } from 'react-redux';

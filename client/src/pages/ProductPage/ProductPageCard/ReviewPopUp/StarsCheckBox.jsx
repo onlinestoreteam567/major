@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import StarTrue from '@assets/svg/StarTrue';
-import StarFalse from '@assets/svg/StarFalse';
+import StarTrue from '@components/UI/icons/Stars/StarTrue';
+import StarFalse from '@components/UI/icons/Stars/StarFalse';
 
 export default function StarsCheskBox({ onChange, name, value }) {
   const [checkboxStates, setCheckboxStates] = useState([false, false, false, false, false]);

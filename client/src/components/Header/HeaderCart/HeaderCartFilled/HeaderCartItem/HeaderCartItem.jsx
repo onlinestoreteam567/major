@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
-import Plus from '@assets/svg/ButtonPlus';
-import Minus from '@assets/svg/ButtonMinus';
+import Plus from '@components/UI/icons/ButtonPlus';
+import Minus from '@components/UI/icons/ButtonMinus';
 import { useDispatch } from 'react-redux';
 import { removeItem, decrementItemQuantity, setItemQuantity } from '@redux/cart/cartSlice.js/';
 import Heading from '@UI/Texts/Heading/Heading';

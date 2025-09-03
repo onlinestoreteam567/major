@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import cl from './index.module.scss';
-import ArrowAccordion from '@assets/svg/Admin/ArrowAccordion/ArrowAccordion.jsx';
+import ArrowAccordion from '@svg/Admin/ArrowAccordion.jsx';
 import { ProductDetailsTextarea } from './ProductDetailsTextarea/ProductDetailsTextarea';
 
 const fields = [

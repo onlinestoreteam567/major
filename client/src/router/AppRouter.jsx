@@ -3,8 +3,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import MainLayout from './layouts/MainLayout/MainLayout';
 
-//test-components
-
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
 import NotFound from '@pages/NotFoundPage/NotFoundPage';

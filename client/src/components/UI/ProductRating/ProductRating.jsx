@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import cl from './index.module.scss';
-import StarTrue from '@assets/svg/StarTrue';
-import StarFalse from '@assets/svg/StarFalse';
+import StarTrue from '@components/UI/icons/Stars/StarTrue';
+import StarFalse from '@components/UI/icons/Stars/StarFalse';
 
 export default function ProductRating({ card }) {
   const [stars, setStars] = useState([]);

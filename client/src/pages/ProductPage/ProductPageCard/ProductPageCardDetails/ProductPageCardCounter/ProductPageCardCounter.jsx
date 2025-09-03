@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
-import ButtonMinus from '@assets/svg/ButtonMinus';
-import ButtonPlus from '@assets/svg/ButtonPlus';
+import ButtonMinus from '@components/UI/icons/ButtonMinus';
+import ButtonPlus from '@components/UI/icons/ButtonPlus';
 
 const digitRegex = /^\d*$/;
 

@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import deleteCroppedImage from '../helpers/deleteCroppedImage.js';
 import cl from './index.module.scss';
-import ArrowImages from '@assets/svg/Admin/Arrow/ArrowImages.jsx';
+import ArrowImages from '@components/UI/icons/Admin/Arrow/ArrowImages.jsx';
 import DeletePopUp from '@components/admin/DeletePopUp/DeletePopUp.jsx';
 import AdminMessage from '@components/admin/AdminMessage/AdminMessage.jsx';
 import useTimedMessage from '@hooks/admin/useTimedMessage';

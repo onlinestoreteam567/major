@@ -1,6 +1,6 @@
-import UncheckedCheckbox from '@assets/svg/Admin/UncheckedCheckbox/UncheckedCheckbox';
+import UncheckedCheckbox from '@components/UI/icons/Admin/UncheckedCheckbox/UncheckedCheckbox';
 import cl from './index.module.scss';
-import CheckedCheckbox from '@assets/svg/Admin/CheckedCheckbox/CheckedCheckbox';
+import CheckedCheckbox from '@components/UI/icons/Admin/CheckedCheckbox/CheckedCheckbox';
 
 export default function ProductCheckbox({ labelText, name, register, ...rest }) {
   return (

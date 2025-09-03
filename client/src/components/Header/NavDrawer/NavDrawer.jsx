@@ -1,4 +1,4 @@
-import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
+import LogoIcon from '@components/UI/icons/Header/LogoIcon/LogoIcon';
 import LangSwitcher from './LangSwitcher/LangSwitcher';
 import cl from './index.module.scss';
 import SocialLinks from '@UI/SocialLinks/SocialLinks';

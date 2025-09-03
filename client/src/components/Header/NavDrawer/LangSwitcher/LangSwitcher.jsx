@@ -1,7 +1,7 @@
-import UaIcon from '@assets/svg/Header/UaIcon';
+import UaIcon from '@components/UI/icons/Header/UaIcon';
 import cl from './index.module.scss';
-import EnIcon from '@assets/svg/Header/EnIcon';
-import LineSeparator from '@assets/svg/LineSeparator';
+import EnIcon from '@components/UI/icons/Header/EnIcon';
+import LineSeparator from '@components/UI/icons/LineSeparator';
 import { useState } from 'react';
 
 const LangSwitcher = () => {

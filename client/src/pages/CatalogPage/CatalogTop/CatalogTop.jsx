@@ -1,13 +1,13 @@
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Button from '@components/UI/Button/Button';
-import Filters from '@assets/svg/CatalogPage/Filters';
+import Filters from '@components/UI/icons/CatalogPage/Filters';
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import MobileSorting from './CatalogSorting/CatalogSorting';
 import { useState } from 'react';
 import TopLink from '@components/UI/TopLink/TopLink';
 import FilterByCategory from '../FilterCategory/FilterByCategory';
-import Sorting from '@assets/svg/CatalogPage/Sorting';
+import Sorting from '@components/UI/icons/CatalogPage/Sorting';
 
 const CatalogTop = ({ setIsShowCatalogFilters }) => {
   const [isShowMobileSorting, setIsShowMobileSorting] = useState(false);

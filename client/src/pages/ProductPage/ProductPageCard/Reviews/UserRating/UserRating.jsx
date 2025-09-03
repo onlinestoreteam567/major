@@ -1,6 +1,6 @@
 import cl from './index.module.scss';
-import StarFalse from '@assets/svg/StarFalse';
-import StarTrue from '@assets/svg/StarTrue';
+import StarFalse from '@components/UI/icons/Stars/StarFalse';
+import StarTrue from '@components/UI/icons/Stars/StarTrue';
 
 export default function UserRating({ review }) {
   return (

@@ -1,4 +1,4 @@
-import Arrow from '@assets/svg/Admin/Arrow/Arrow';
+import Arrow from '@components/UI/icons/Admin/Arrow/Arrow';
 import cl from './index.module.scss';
 
 const CustomSelectDisplay = ({ isOpen, setIsOpen, placeholder, errors, name }) => {

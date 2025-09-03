@@ -1,7 +1,7 @@
-import CheckedCheckbox from '@assets/svg/Admin/CheckedCheckbox/CheckedCheckbox';
+import CheckedCheckbox from '@components/UI/icons/Admin/CheckedCheckbox/CheckedCheckbox';
 import handleToggleOption from '../helpers/handleToggleOption';
 import cl from './index.module.scss';
-import UncheckedCheckbox from '@assets/svg/Admin/UncheckedCheckbox/UncheckedCheckbox';
+import UncheckedCheckbox from '@components/UI/icons/Admin/UncheckedCheckbox/UncheckedCheckbox';
 
 const OptionsList = ({ name, items, errors, selectedValues, onChange, onBlur }) => {
   return (

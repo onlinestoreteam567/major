@@ -4,7 +4,7 @@ import { selectCart, selectCartSavedIds, selectPromocode } from '@redux/selector
 import { useEffect, useState } from 'react';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import Arrow from '@assets/svg/Admin/Arrow/Arrow';
+import Arrow from '@components/UI/icons/Admin/Arrow/Arrow';
 import CheckoutCartItem from './CheckoutCartItem/CartItem';
 import Promocode from './Promocode/Promocode';
 import { getProductsByCartIds } from '@redux/products/service';

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import cl from './index.module.scss';
-import SearchIcon from '@assets/svg/Header/SearchIcon';
-import UaIcon from '@assets/svg/Header/UaIcon';
-import BagIcon from '@assets/svg/Header/BagIcon';
-import EnIcon from '@assets/svg/Header/EnIcon';
+import SearchIcon from '@components/UI/icons/Header/SearchIcon';
+import UaIcon from '@components/UI/icons/Header/UaIcon';
+import BagIcon from '@components/UI/icons/Header/BagIcon';
+import EnIcon from '@components/UI/icons/Header/EnIcon';
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { useSelector } from 'react-redux';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';

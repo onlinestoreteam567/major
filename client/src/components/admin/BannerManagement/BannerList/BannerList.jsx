@@ -1,7 +1,6 @@
 import Spinner from '@UI/Spinner/Spinner';
-import { deleteBanner, fetchBanner } from '@redux/banner/service';
+import { fetchBanner } from '@redux/banner/service';
 import { loadBanner, loadBannerDelete, selectBanner, selectBannerDelete } from '@redux/selectors';
-import handleDeleteItem from '@utils/handleDeleteItem';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -18,7 +17,7 @@ const BannerList = () => {
     deleteResponse === 204 && dispatch(fetchBanner());
   }, [dispatch, deleteResponse]);
 
-  const handleDelete = (id) => handleDeleteItem(dispatch, deleteBanner, id);
+  const handleDelete = () => console.log('change it...');
 
   return (
     <>

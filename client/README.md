@@ -379,6 +379,52 @@ src/
 │ │ │ ├── EmptyText.jsx
 │ │ │ └── index.module.scss
 │ │
+│ │ ├── icons
+│ │ │ ├── Admin/
+│ │ │ │ ├── Arrow/
+│ │ │ │ │ ├── Arrow.jsx
+│ │ │ │ │ └── ArrowImages.jsx
+│ │ │ │ ├── CheckedCheckbox/
+│ │ │ │ │ ├── CheckedCheckbox.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── Radios/
+│ │ │ │ │ ├── CheckedRadio/
+│ │ │ │ │ │ ├── CheckedRadio.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ │ ├── UncheckedRadio/
+│ │ │ │ │ │ ├── UncheckedRadio.jsx
+│ │ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── UncheckedCheckbox/
+│ │ │ │ │ ├── UncheckedCheckbox.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ └── ArrowAcordion.jsx
+│ │ │ ├── ArrowLink/
+│ │ │ │ ├── ArrowLink.jsx
+│ │ │ │ └── index.module.scss
+│ │ │ ├── CatalogPage/
+│ │ │ │ ├── Filters.jsx
+│ │ │ │ └── Sorting.jsx
+│ │ │ ├── Header/
+│ │ │ │ ├── LogoIcon/
+│ │ │ │ │ ├── LogoIcon.jsx
+│ │ │ │ │ └── index.module.scss
+│ │ │ │ ├── BagIcon.jsx
+│ │ │ │ ├── BurgerIcon.jsx
+│ │ │ │ ├── EnIcon.jsx
+│ │ │ │ ├── SearchIcon.jsx
+│ │ │ │ └── UaIcon.jsx
+│ │ │ ├── Stars/
+│ │ │ │ ├── StarTrue.jsx
+│ │ │ │ ├── StarFalse.jsx
+│ │ │ │ └── index.module.scss
+│ │ │ ├── ArrowLeft.jsx
+│ │ │ ├── ArrowRight.jsx
+│ │ │ ├── ButtonMinus.jsx
+│ │ │ ├── ButtonPlus.jsx
+│ │ │ ├── LineSeparator.jsx
+│ │ │ ├── ZoomIn.jsx
+│ │ │ ├── ZoomOut.jsx
+│ │
 │ │ ├── Labels/
 │ │ │ ├── LabelHit.jsx
 │ │ │ ├── LabelNew.jsx
@@ -783,23 +829,37 @@ src/
 │ │ ├── ProtectedRoute.jsx
 │ │ ├── index.module.scss
 │ │ ├── AdminGlobalMessage.jsx
-
-├── services/ # Service functions and business logic (if needed on frontend)
-│ ├── paymentService.js # Payment logic (interacting with payment API)
-│ └── notificationService.js # Notifications (e.g., Toast messages)
 │
 ├── styles/ # Global styles and variables
-│ ├── variables.scss # SCSS variables
-│ ├── globals.scss # Global styles for the entire application
 │ └── mixins.scss # Mixins and utility classes
+│ └── variables.scss # SCSS variables
 │
 ├── utils/ # Utility functions and helper scripts
-│ ├── helpers.js # General helper functions
-│ ├── validators.js # Form validation
-│ └── constants.js # Application constants
+│ ├── appendFormData.js
+│ ├── changeLanguage.js
+│ ├── handleCloseWithDelay.js
+│ ├── handleImageUpload.js
+│ ├── localStorage.js
+│ └── setFormValue.js
 │
+│ ├── validations # yup form validations
+│ │ ├── admin/
+│ │ │ ├── bannerSchema.js
+│ │ │ ├── categorySchema.js
+│ │ │ ├── contactSchema.js
+│ │ │ ├── partnerSchema.js
+│ │ │ ├── productSchema.js
+│ │ │ ├── promocodeSchema.js
+│ │ │ └── typeSchema.js
+│ │ ├── catalogFilterSchema.js
+│ │ ├── checkoutSchema.js
+│ │ ├── discountCodeSchema.js
+│ │ ├── needHelpSchema.js
+│ │ ├── productSchema.js
+│ │ └── reviewSchema.js
+
 ├── App.jsx # Root component of the application
-├── index.jsx # Entry point for React
+├── main.jsx # Entry point for React
 └── index.scss # Base styles
 
 ## Detailed Descriptions

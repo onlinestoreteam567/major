@@ -1,11 +1,11 @@
 import cl from './index.module.scss';
-import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
+import LogoIcon from '@components/UI/icons/Header/LogoIcon/LogoIcon';
 import HeaderNavigation from '@components/Header/HeaderNavigation/HeaderNavigation';
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { useState } from 'react';
 import { usePageState } from './hooks/usePageState';
 import { useScrollState } from './hooks/useScrollState';
-import BurgerIcon from '@assets/svg/Header/BurgerIcon';
+import BurgerIcon from '@components/UI/icons/Header/BurgerIcon';
 import NavDrawer from './NavDrawer/NavDrawer';
 import HeaderCart from '@components/Header/HeaderCart/HeaderCart';
 import HeaderRightControls from './HeaderRightControls/HeaderRightControls';
