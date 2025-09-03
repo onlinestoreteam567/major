@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import MainLayout from './layouts/MainLayout/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
-import ProfilePage from '@pages/ProfilePage';
 
 //test-components
 import Redux from './testСomponents/Redux';
@@ -41,9 +40,8 @@ import ContactsManagement from '@components/admin/ContactsManagement/ContactsMan
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
 const Catalog = lazy(() => import('@pages/CatalogPage/CatalogPage'));
-const About = lazy(() => import('@pages/AboutPage'));
-const Blog = lazy(() => import('@pages/BlogPage'));
 const Contact = lazy(() => import('@pages/ContactPage'));
+const About = lazy(() => import('@pages/AboutPage'));
 const Cooperation = lazy(() => import('@pages/СooperationPage'));
 const ProductPage = lazy(() => import('@pages/ProductPage/ProductPage'));
 const CheckoutPage = lazy(() => import('@pages/CheckoutPage/CheckoutPage'));
@@ -59,14 +57,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'profile', element: <ProfilePage /> },
       { path: 'about', element: <About /> },
       { path: 'catalog', element: <Catalog /> },
       { path: 'catalog/:id', element: <ProductPage /> },
-      { path: 'blog', element: <Blog /> },
-      { path: 'contact', element: <Contact /> },
       { path: 'cooperation', element: <Cooperation /> },
       { path: 'checkout', element: <CheckoutPage /> },
+      { path: 'contact', element: <Contact /> },
     ],
   },
   {
