@@ -6,6 +6,7 @@ import AboutBanner from './AboutBanner/AboutBanner';
 import MissionSection from './MissionSection/MissionSection';
 import OriginStorySection from './OriginStorySection/OriginStorySection';
 import BrandValues from './BrandValues/BrandValues';
+import Formula from './Formula/Formula';
 
 const AboutPage = () => {
   return (
@@ -15,6 +16,7 @@ const AboutPage = () => {
       <OriginStorySection />
       <BrandValues />
       <KeyBenefits />
+      <Formula />
       <OurProduction />
       <YourTimeIsPriceless />
     </div>
