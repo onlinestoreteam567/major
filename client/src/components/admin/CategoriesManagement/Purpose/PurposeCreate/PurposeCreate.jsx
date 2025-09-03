@@ -1,11 +1,7 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPurposeCategory } from '@redux/admin/purpose/service';
-import {
-  errorCreatePurposeCategory,
-  loadCreatePurposeCategory,
-  responseCreatePurposeCategory,
-} from '@redux/admin/selectors';
+import { errorCreatePurposeCategory, loadCreatePurposeCategory, responseCreatePurposeCategory } from '@redux/selectors';
 import appendFormData from '@utils/appendFormData';
 import handleImageUpload from '@utils/handleImageUpload';
 import { categorySchema } from '@validations/admin/categorySchema';

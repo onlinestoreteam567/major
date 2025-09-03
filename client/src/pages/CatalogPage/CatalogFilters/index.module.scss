@@ -1,0 +1,79 @@
+@import '@mixins';
+
+.catalogFilters {
+  @include flex(column, null, center);
+  box-sizing: border-box;
+  border: 1px solid #cccccc;
+  border-radius: $border-radius-small;
+  padding: 10px 12px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  z-index: $z-index-pop-up;
+  background-color: #ffffff;
+  max-height: 690px;
+  height: 100vh;
+
+  @include showCloseAnimation('show', 100%);
+
+  @include mobile {
+    width: 380px;
+  }
+
+  @include tablet {
+    max-height: 600px;
+  }
+
+  @include deskmin {
+    width: 308px;
+    padding: 34px 32px;
+    position: static;
+    z-index: 1;
+    animation: none;
+    height: fit-content;
+    max-height: fit-content;
+  }
+
+  &.hiddenAnimation {
+    @include showCloseAnimation('close', -100%);
+  }
+
+  .topSection {
+    @include flex(row, space-between, end);
+    width: 296px;
+    max-width: 296px;
+    margin-bottom: 10px;
+
+    @include mobile {
+      width: 356px;
+      max-width: 356px;
+    }
+
+    @include deskmin {
+      width: auto;
+      max-width: none;
+    }
+
+    button {
+      font-family: $font-main;
+      font-weight: $font-weight-small;
+      font-size: $font-size-base;
+      line-height: 20.48px;
+      text-decoration: underline;
+      color: #22211f;
+    }
+  }
+
+  .overflowWrap {
+    min-height: 260px;
+    height: 70vh;
+    max-height: 630px;
+    overflow-y: auto;
+
+    @include deskmin {
+      height: fit-content;
+      max-height: fit-content;
+    }
+  }
+}

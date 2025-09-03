@@ -2,7 +2,7 @@ import ErrorText from '@components/admin/ErrorText/ErrorText';
 import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createBanner } from '@redux/banner/service';
-import { errorBannerCreate, loadBannerCreate, responseBannerCreate } from '@redux/selectors';
+import { errorBannerCreate, responseBannerCreate } from '@redux/selectors';
 import appendFormData from '@utils/appendFormData';
 import handleImageUpload from '@utils/handleImageUpload';
 import { bannerSchema } from '@validations/admin/bannerSchema';
@@ -24,7 +24,6 @@ const BannerCreate = () => {
     mode: 'onSubmit',
   });
 
-  const isLoading = useSelector(loadBannerCreate);
   const response = useSelector(responseBannerCreate);
   const errorPost = useSelector(errorBannerCreate);
 
@@ -40,7 +39,6 @@ const BannerCreate = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={cl.bannerCreate}>
       <BannerForm register={register} errors={errors} control={control} />
-      {/* <LoadingButton isLoading={isLoading} loadingText="Створення..." defaultText="Створити слайд" /> */}
       {errorPost && <ErrorText error={errorPost}></ErrorText>}
       {response && <SuccessMessage>Слайд успішно створено!</SuccessMessage>}
     </form>

@@ -3,8 +3,8 @@ import keyBenefitsArray from '../keyBenefitsArray';
 import cl from './index.module.scss';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import { useState } from 'react';
-import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
-import ArrowRight from '@assets/svg/ArrowRight';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
+import ArrowRight from '@UI/icons/ArrowRight';
 
 const PaginatedBenefits = () => {
   const [currentOption, setCurrentOption] = useState('option2');

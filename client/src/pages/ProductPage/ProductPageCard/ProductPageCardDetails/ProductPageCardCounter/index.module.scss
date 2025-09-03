@@ -1,0 +1,58 @@
+@import '@mixins';
+
+.productPageCardCounter {
+  @include flex(row, space-between, center);
+  width: 120px;
+  height: 32px;
+
+  button {
+    @include flex(row, center, center);
+    width: 24px;
+    height: 24px;
+    border-radius: $border-radius-small;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      box-shadow:
+        0px 4px 4px -4px rgba(12, 12, 13, 0.05),
+        0px 8px 32px -4px rgba(12, 12, 13, 0.1);
+      svg {
+        @include flex(row, center, center);
+        rect {
+          fill: rgb(34, 33, 31);
+          transition: fill 0.5s ease;
+        }
+        path {
+          stroke: #ffffff;
+          transition: stroke 0.5s ease;
+        }
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  input {
+    @include flex(row, center, center);
+    width: 48px;
+    height: 32px;
+    color: #000000;
+    font-family: $font-main;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    line-height: 1.22;
+    text-align: center;
+    border: none;
+    outline: none;
+    background: $background-color-light;
+    border-bottom: 2px solid #676767;
+    border-radius: $border-radius-base;
+  }
+}

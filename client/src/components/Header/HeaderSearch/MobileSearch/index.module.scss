@@ -1,0 +1,29 @@
+@import '@mixins';
+
+.mobileSearch {
+  @include absolute();
+  @include flexGap(20px, column);
+  z-index: $z-index-pop-up;
+  padding: 16px 4% 16px 5%;
+  background-color: #f8f8f9;
+  width: $width-pop-up-header-width;
+  height: 100vh;
+  max-height: 425px;
+  box-sizing: border-box;
+  overflow: auto;
+
+  @include tablet {
+    height: $height-pop-up-header-tablet;
+  }
+
+  @include showCloseAnimation('show', -100%);
+
+  &.closeAnimation {
+    @include showCloseAnimation('close', -100%);
+  }
+
+  .top {
+    @include flex(row, space-between, center);
+    color: black;
+  }
+}

@@ -1,5 +1,5 @@
 import { Input } from '@components/form-components';
-import { InputDate } from '@components/form-components/InputDate/InputDate';
+import { PromocodeInputDate } from '@components/admin/PromocodeManagement/PromocodeForm/PromocodeInputDate/PromocodeInputDate';
 import cl from './index.module.scss';
 import ValidationErrorMessage from '@components/admin/ValidationErrorMessage/ValidationErrorMessage';
 
@@ -15,14 +15,14 @@ const PromocodeForm = ({ register, errors, control }) => {
           errors={errors}
           variant="admin"
         />
-        <InputDate
+        <PromocodeInputDate
           placeholder="10.06.2024"
           labelText="Початок дії:"
           name="started_at"
           errors={errors}
           control={control}
         />
-        <InputDate
+        <PromocodeInputDate
           placeholder="10.06.2024"
           labelText="Кінець дії:"
           name="expires_at"

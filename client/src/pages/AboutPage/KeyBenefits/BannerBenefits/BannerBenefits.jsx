@@ -1,13 +1,13 @@
 import Slider from 'react-slick';
 import cl from './index.module.scss';
 import { useRef, useState } from 'react';
-import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
-import ArrowLeft from '@assets/svg/ArrowLeft';
-import ArrowRight from '@assets/svg/ArrowRight';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 import { aboutUsSettings } from '@components/constants/settingSlider';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import keyBenefitsArray from '../keyBenefitsArray';
+import ArrowLeft from '@UI/icons/ArrowLeft';
+import ArrowRight from '@UI/icons/ArrowRight';
 
 const BannerBenefits = () => {
   let sliderRef = useRef(null);

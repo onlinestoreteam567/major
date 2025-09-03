@@ -1,9 +1,3 @@
-export { Form } from './Form/Form.jsx';
-export { FormGroup } from './FormGroup/FormGroup.jsx';
 export { Input } from './Input/Input.jsx';
-export { Select } from './Select/Select.jsx';
-export { ErrorMessage } from './Error/ErrorMessage.jsx';
 export { PhoneNumberInput } from './Input/PhoneNumberInput/PhoneNumberInput.jsx';
 export { Textarea } from './Textarea/Textarea.jsx';
-export { TextareaProduct } from './Textarea/TextareaProduct/TextareaProduct.jsx';
-export { TextareaAdmin } from './Textarea/TextAreaAdmin/TextareaAdmin.jsx';

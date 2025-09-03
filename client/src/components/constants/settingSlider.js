@@ -27,41 +27,6 @@ export const commentsSettings = {
   ],
 };
 
-export const defaultSettings = {
-  accessibility: true,
-  dots: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  lazyLoad: true,
-  fade: true,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        infinite: true,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
-
 export const mainSettings = {
   accessibility: true,
   dots: false,
@@ -101,6 +66,23 @@ export const mainSettings = {
   ],
 };
 
+export const mainBannerSettings = {
+  autoplay: false,
+  autoplaySpeed: 5000,
+  pauseOnDotsHover: true,
+  pauseOnFocus: true,
+  pauseOnHover: true,
+  fade: true,
+  accessibility: true,
+  dots: true,
+  infinite: true,
+  speed: 750,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  lazyLoad: true,
+  swipe: true,
+};
+
 export const oneElement = {
   accessibility: true,
   dots: false,
@@ -113,6 +95,18 @@ export const oneElement = {
   lazyLoad: true,
   variableWidth: true,
   draggable: false,
+  swipe: true,
+};
+
+export const adminCropperSlider = {
+  autoplay: false,
+  fade: true,
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  lazyLoad: true,
   swipe: true,
 };
 

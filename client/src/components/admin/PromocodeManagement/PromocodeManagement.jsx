@@ -3,7 +3,7 @@ import cl from './index.module.scss';
 import List from './PromocodeList/PromocodeList.jsx';
 import PromocodeSelect from './PromocodeSelect/PromocodeSelect';
 import { useDispatch, useSelector } from 'react-redux';
-import { responsePromocodeList } from '@redux/admin/selectors';
+import { responsePromocodeList } from '@redux/selectors';
 import { useEffect } from 'react';
 import { fetchPromocode } from '@redux/promocode/service';
 

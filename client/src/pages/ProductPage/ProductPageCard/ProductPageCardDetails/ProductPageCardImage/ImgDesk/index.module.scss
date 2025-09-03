@@ -1,0 +1,109 @@
+@import '@mixins';
+
+.imgDesk {
+  @include mobile {
+    display: none;
+  }
+  @include tablet {
+    position: relative;
+    @include flexGap(12px, column);
+    width: 216px;
+    padding: 0;
+    .wrapImgCase {
+      position: relative;
+      width: 216px;
+      height: 230px;
+      background-color: rgb(248, 248, 249);
+      .imgBig {
+        width: 216px;
+        height: 230px;
+        object-fit: cover;
+        border-radius: 2px;
+      }
+    }
+    .wrapSmallImg {
+      @include flex(row, space-between, center);
+      width: 216px;
+      height: 40px;
+      list-style: none;
+      .wrapImg {
+        @include flex(row, center, center);
+        width: 40px;
+        height: 40px;
+        background-color: rgb(248, 248, 249);
+        object-fit: cover;
+        border-radius: $border-radius-small;
+        cursor: pointer;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 2px;
+        }
+      }
+
+      .selected {
+        border: 1px solid $second-background-color-black;
+        transition: box-shadow 200ms linear;
+        border-radius: 2px;
+      }
+    }
+    .btnMore {
+      position: absolute;
+      bottom: 60px;
+      right: 0;
+      @include flex(row, center, center);
+      width: 48px;
+      height: 48px;
+      @include deskmin {
+        bottom: 0;
+      }
+    }
+  }
+  @include deskmin {
+    @include flex(row-reverse, flex-start, center);
+    width: 376px;
+    height: 296px;
+    gap: 24px;
+    .wrapImgCase {
+      width: 296px;
+      height: 296px;
+      .imgBig {
+        width: 296px;
+        height: 296px;
+      }
+    }
+    .wrapSmallImg {
+      @include flexGap(0, column);
+      width: 56px;
+      height: 296px;
+      .wrapImg {
+        width: 56px;
+        height: 56px;
+      }
+    }
+  }
+  @include deskmax {
+    @include flex(row-reverse, flex-start, center);
+    width: 526px;
+    height: 416px;
+    gap: 24px;
+    .wrapImgCase {
+      width: 416px;
+      height: 416px;
+      .imgBig {
+        width: 416px;
+        height: 416px;
+      }
+    }
+    .wrapSmallImg {
+      @include flexGap(0, column);
+      width: 76px;
+      height: 416px;
+      .wrapImg {
+        width: 76px;
+        height: 76px;
+      }
+    }
+  }
+}

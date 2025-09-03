@@ -1,0 +1,136 @@
+@import '@mixins';
+
+.sliderImgs {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: fadeIn 0.3s ease forwards;
+  z-index: $z-index-pop-up;
+  @include flexGap(0, column);
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 280px;
+  height: auto;
+  padding: 10px 0 40px 0;
+  background-color: rgb(255, 255, 255);
+  @include mobile {
+    width: 340px;
+  }
+  @include tablet {
+    width: 640px;
+    height: auto;
+    padding: 0 10px 72px 10px;
+  }
+
+  @include deskmin {
+    width: 980px;
+  }
+  .wrapContent {
+    @include flexGap(20px, column);
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    @include tablet {
+      @include flexGap(36px, column);
+    }
+  }
+  .imgBox {
+    @include flexGap(20px, column);
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+
+    @include tablet {
+      @include flex(row-reverse, space-between, flex-start);
+      width: 400px;
+      height: 360px;
+    }
+
+    @include deskmin {
+      width: 480px;
+      height: 440px;
+    }
+  }
+  .wrapImgCase {
+    position: relative;
+
+    .imgBig {
+      width: 280px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 2px;
+
+      @include mobile {
+        width: 340px;
+        height: 360px;
+      }
+
+      @include tablet {
+        width: 300px;
+        height: 360px;
+      }
+
+      @include deskmin {
+        width: 360px;
+        height: 440px;
+      }
+    }
+  }
+
+  .wrapSmallImg {
+    @include flex(row, space-between, center);
+    width: 280px;
+    height: auto;
+    list-style: none;
+
+    @include mobile {
+      width: 340px;
+    }
+
+    @include tablet {
+      @include flexGap(0, column);
+      height: 360px;
+    }
+    @include deskmin {
+      height: 440px;
+    }
+    .wrapImg {
+      @include flex(row, center, center);
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: $border-radius-small;
+      cursor: pointer;
+
+      @include mobile {
+        width: 60px;
+        height: 60px;
+      }
+
+      @include deskmin {
+        width: 80px;
+        height: 80px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 2px;
+      }
+    }
+    .selected {
+      border: 1px solid $second-background-color-black;
+      transition: box-shadow 200ms linear;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

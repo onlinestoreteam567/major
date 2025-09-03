@@ -1,6 +1,6 @@
 import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
-import useScreenSizes from '@hooks/useScreenSizes';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import BannerBenefits from './BannerBenefits/BannerBenefits';
 import PaginatedBenefits from './PaginatedBenefits/PaginatedBenefits';

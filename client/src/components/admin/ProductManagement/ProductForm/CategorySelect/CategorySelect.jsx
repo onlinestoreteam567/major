@@ -1,9 +1,9 @@
 import cl from './index.module.scss';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import { loadCategories, selectCategories } from '@redux/selectors';
 import { Controller } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import CustomMultiSelect from '@components/admin/CustomMultiSelect/CustomMultiSelect';
+import CustomMultiSelect from '@components/admin/ProductManagement/ProductForm/CategorySelect/CustomMultiSelect/CustomMultiSelect';
 
 const CategorySelect = ({ control, errors }) => {
   const purposeCategories = useSelector(selectCategories);

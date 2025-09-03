@@ -1,11 +1,11 @@
 import cl from './index.module.scss';
 import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
+import SliderBoxMain from '@components/UI/SliderBoxMain/SliderBoxMain';
 import { useSelector } from 'react-redux';
-import EmptyPage from '@components/helpers/EmptyPage';
+import EmptyText from '@UI/EmptyText/EmptyText';
 import { loadBestSeller, selectBestSeller } from '@redux/selectors';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 
 const BestSellers = () => {
   const { getTranslation } = useTranslationNamespace('common');
@@ -24,7 +24,7 @@ const BestSellers = () => {
           {showArr ? (
             <SliderBoxMain total={total} slidesData={items} />
           ) : (
-            <EmptyPage message="Не передбачувана помилка" />
+            <EmptyText message="Не передбачувана помилка" />
           )}
         </>
       )}

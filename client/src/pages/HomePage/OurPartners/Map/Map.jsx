@@ -5,17 +5,17 @@ import handleEnd from './eventHandlers/handleEnd';
 import handleZoomIn from './eventHandlers/handleZoomIn';
 import handleZoomOut from './eventHandlers/handleZoomOut';
 import cl from './index.module.scss';
-import ZoomOut from '@assets/svg/ZoomOut';
-import ZoomIn from '@assets/svg/ZoomIn';
+import ZoomOut from '@components/UI/icons/ZoomOut';
+import ZoomIn from '@components/UI/icons/ZoomIn';
 import { useTranslation } from 'react-i18next';
-import PartnerInfo from '../PartnerInfo/PartnerInfo';
+import PartnerInfo from './PartnerInfo/PartnerInfo';
 import handleWheel from './eventHandlers/handleWheel';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
-import useScreenSizes from '@hooks/useScreenSizes';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { loadPartners, selectPartners } from '@redux/selectors';
 import { useSelector } from 'react-redux';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 
 const Map = () => {
   const [scale, setScale] = useState(1);

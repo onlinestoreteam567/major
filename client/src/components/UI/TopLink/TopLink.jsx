@@ -1,4 +1,4 @@
-import ArrowLink from '@assets/svg/ArrowLink/ArrowLink';
+import ArrowLink from '@components/UI/icons/ArrowLink/ArrowLink';
 import cl from './index.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';

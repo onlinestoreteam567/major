@@ -1,9 +1,9 @@
 import ImageUpload from '@components/admin/AdminCropperImage/AdminCropperImage';
 import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
 import ValidationErrorMessage from '@components/admin/ValidationErrorMessage/ValidationErrorMessage';
-import { Input, TextareaAdmin } from '@components/form-components';
-import AdminCheckBox from '@components/form-components/Checkbox/AdminCheckbox/Checkbox';
-import ResponsiveTextareas from '@components/form-components/ResponsiveTextareas/ResponsiveTextareas';
+import { Input } from '@components/form-components';
+import ProductCheckbox from '@components/admin/ProductManagement/ProductForm/ProductCheckbox/ProductCheckbox';
+import ProductDetailsTabs from '@components/admin/ProductManagement/ProductForm/ProductDetailsTabs/ProductDetailsTabs';
 import useTimedMessage from '@hooks/admin/useTimedMessage';
 import CategorySelect from './CategorySelect/CategorySelect';
 import cl from './index.module.scss';
@@ -11,6 +11,7 @@ import TypeSelect from './TypeSelect/TypeSelect';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCategories, fetchTypes } from '@redux/params/service';
+import { ProductTextarea } from './ProductTextarea/ProductTextarea';
 
 const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedImages, setValue, getValues }) => {
   const [messageText, showMessage] = useTimedMessage();
@@ -60,9 +61,9 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
         />
       </div>
       <div className={cl.checkboxes}>
-        <AdminCheckBox labelText="В наявності" name="available" register={register} />
-        <AdminCheckBox labelText="Новинка" name="is_new" register={register} />
-        <AdminCheckBox labelText="Хіт продажу" name="is_best_seller" register={register} />
+        <ProductCheckbox labelText="В наявності" name="available" register={register} />
+        <ProductCheckbox labelText="Новинка" name="is_new" register={register} />
+        <ProductCheckbox labelText="Хіт продажу" name="is_best_seller" register={register} />
       </div>
       <div className={cl.productNumericalInputs}>
         <Input
@@ -107,7 +108,7 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
         <CategorySelect control={control} errors={errors} />
         <TypeSelect control={control} errors={errors} />
       </div>
-      <ResponsiveTextareas register={register} errors={errors} control={control} />
+      <ProductDetailsTabs register={register} errors={errors} control={control} />
       <div className={cl.seoInputs}>
         <Input
           placeholder="example"
@@ -125,7 +126,7 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
           errors={errors}
           variant="admin"
         />
-        <TextareaAdmin
+        <ProductTextarea
           placeholder="example"
           labelText="Мета-тег Description (UA):"
           name="meta_tag_description_uk"
@@ -133,7 +134,7 @@ const ProductForm = ({ register, errors, control, resetImagesTrigger, uploadedIm
           control={control}
           variant="admin"
         />
-        <TextareaAdmin
+        <ProductTextarea
           placeholder="example"
           labelText="Мета-тег Description (ENG):"
           name="meta_tag_description_en"

@@ -3,7 +3,7 @@ import ReviewsSelect from './ReviewsSelect/ReviewsSelect';
 import cl from './index.module.scss';
 import { selectFilteredReviews } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import Search from './Search/Search';
+import ReviewsSearch from './ReviewsSearch/ReviewsSearch';
 import { useEffect } from 'react';
 import { reviewsGetAll } from '@redux/reviews/service';
 const ReviewsManagement = () => {
@@ -19,7 +19,7 @@ const ReviewsManagement = () => {
     <div className={cl.reviewsManamegent}>
       <div>
         <p>Відгуки ({reviews.length})</p>
-        <Search />
+        <ReviewsSearch />
         <ReviewsSelect />
       </div>
 

@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectAccessToken } from '../../../redux/admin/selectors';
+import { selectAccessToken } from '../../../redux/selectors';
 import AdminNavigation from '../../../components/admin/AdminNavigation/AdminNavigation';
 import cl from './index.module.scss';
 import AdminGlobalMessage from './AdminGlobalMessage';

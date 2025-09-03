@@ -1,11 +1,11 @@
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import { fetchPromocode } from '@redux/admin/promocode/service';
 import {
   loadPromocodeDelete,
   loadPromocodeList,
   responsePromocodeDelete,
   responsePromocodeList,
-} from '@redux/admin/selectors';
+} from '@redux/selectors';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import cl from './index.module.scss';
