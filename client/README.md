@@ -876,14 +876,6 @@ vite.config.js
 
 ## Detailed Descriptions
 
-### api/
-
-Contains files responsible for interacting with external APIs. Each file typically includes functions that perform specific API requests.
-
-### assets/
-
-Holds static assets like images, fonts, and icons used throughout the application.
-
 ### components/
 
 Contains reusable UI components that can be used across the application. Components are organized into subdirectories for better management.
@@ -891,10 +883,6 @@ Contains reusable UI components that can be used across the application. Compone
 ### config/
 
 Houses configuration files for API settings and Redux store management.
-
-### features/
-
-Organizes application features into modules. Each module contains components, Redux slices, and services related to specific features (e.g., cart, checkout).
 
 ### hooks/
 
@@ -904,13 +892,13 @@ Contains custom React hooks that encapsulate reusable logic for handling statefu
 
 Contains the main page components for routing within the application.
 
+### redux/
+
+Contains all redux slices.
+
 ### router/
 
 Includes routing logic and layout components that define how different pages are rendered.
-
-### services/
-
-Holds service functions that encapsulate business logic and API interactions.
 
 ### styles/
 
@@ -919,6 +907,10 @@ Contains global styles, SCSS variables, and mixins for consistent styling across
 ### utils/
 
 Includes utility functions and constants that can be reused throughout the application.
+
+### validations/
+
+Contains all validations for form validations using yup
 
 ## How to Contribute
 
