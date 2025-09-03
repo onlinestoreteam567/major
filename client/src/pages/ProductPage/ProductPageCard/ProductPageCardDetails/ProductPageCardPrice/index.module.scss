@@ -1,0 +1,8 @@
+@import '@mixins';
+
+.productPageCardPrice {
+  @include flex(row, flex-start, center);
+  width: auto;
+  height: 34px;
+  gap: 16px;
+}

@@ -102,6 +102,19 @@
           box-sizing: border-box;
           color: #3a3a3a;
           border: 1px solid #3a3a3a;
+          font-family: $font-main;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 140%;
+          letter-spacing: 8%;
+
+          @include tablet {
+            font-weight: 400;
+          }
+
+          @include deskmax {
+            font-size: 24px;
+          }
         }
       }
 

@@ -1,8 +1,8 @@
-import SliderBoxMain from '@components/UI/Sliders/SliderBoxMain';
+import SliderBoxMain from '@components/UI/SliderBoxMain/SliderBoxMain';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
 import { useSelector } from 'react-redux';
-import Spinner from '@components/helpers/Spinner/Spinner';
+import Spinner from '@UI/Spinner/Spinner';
 import { loadSets, selectSets } from '@redux/selectors';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 

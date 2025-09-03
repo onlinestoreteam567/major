@@ -1,7 +1,7 @@
 import cl from './index.module.scss';
 import { useEffect, useState } from 'react';
 import ReviewSelectOptions from './ReviewSelectOptions/ReviewSelectOptions';
-import Arrow from '@assets/svg/Admin/Arrow/Arrow';
+import Arrow from '@components/UI/icons/Admin/Arrow/Arrow';
 import { useSelector } from 'react-redux';
 import { isFetchedAllReviews } from '@redux/selectors';
 

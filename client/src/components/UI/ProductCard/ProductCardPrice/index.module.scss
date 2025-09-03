@@ -1,0 +1,25 @@
+@import '@mixins';
+
+.productCardPrice {
+  @include flex(row, space-between, center);
+
+  &.disabled {
+    .wrapPrice {
+      .price,
+      .oldPrice {
+        color: #999999;
+      }
+    }
+  }
+
+  .wrapVolume {
+    @include flex(row, center, center);
+    width: auto;
+    height: 40px;
+    color: #22211f;
+    font-family: $font-second;
+    font-size: $font-size-medium-plus;
+    font-weight: $font-weight-base;
+    line-height: 1.44;
+  }
+}

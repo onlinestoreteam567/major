@@ -1,9 +1,8 @@
 import cl from './index.module.scss';
 import Heading from '@UI/Texts/Heading/Heading';
-import AccentText from '@UI/Texts/AccentText/AccentText';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import AddToCartButton from '@pages/CatalogPage/Products/CardsContainer/Card/AddToCartButton/AddToCardButton';
-import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel/ButtonAriaLabel';
+import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
+import ButtonAddToCart from '@components/UI/Button/ButtonAddToCart';
 
 const Slide = ({ slide, next, previous }) => {
   const { getTranslation } = useTranslationNamespace('mainBanner');
@@ -23,14 +22,11 @@ const Slide = ({ slide, next, previous }) => {
       <div className={`${cl.slide} ${slide.left ? cl.right : ''}`}>
         {slide.left && <img src={slide.image_url} alt="" />}
         <section>
-          <div className={cl.label}>{labelText && <AccentText>{getTranslation(labelText)}</AccentText>}</div>
+          <div className={cl.label}>{labelText && <p>{getTranslation(labelText)}</p>}</div>
           <div className={cl.bottomWrapper}>
             <Heading type="h1">{getTranslation(slide.product.name)}</Heading>
             <div style={{ position: 'relative', zIndex: 1 }}>
-              {' '}
-              {/* Create local stacking context */}
-              <AddToCartButton variant="primary" card={slide.product} style={{ zIndex: 2 }} />
-              {/* Any other elements within this wrapper can have z-index values */}
+              <ButtonAddToCart variant="primary" card={slide.product} style={{ zIndex: 2 }} />
             </div>
           </div>
         </section>

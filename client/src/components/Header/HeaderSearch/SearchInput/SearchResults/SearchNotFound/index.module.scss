@@ -1,0 +1,36 @@
+@import '@mixins';
+
+.searchNotFound {
+  @include flex(column);
+  gap: 30px;
+  height: auto;
+  padding: 12px;
+  font-family: $font-main;
+  font-size: $font-size-small;
+  font-weight: $font-weight-small;
+  line-height: 16.24px;
+  $letter-spacing-small: 0.04em;
+  border-radius: $border-radius-base;
+  color: #a2a2a2;
+
+  p {
+    font-family: $font-second;
+    font-size: $font-size-base;
+    font-weight: $font-weight-base;
+    line-height: 23.04px;
+    text-align: center;
+  }
+
+  a {
+    display: block;
+    font-family: $font-second;
+    font-size: $font-size-base;
+    font-weight: $font-weight-base;
+    line-height: 23.04px;
+    text-align: center;
+
+    &:hover {
+      color: $text-color-black;
+    }
+  }
+}

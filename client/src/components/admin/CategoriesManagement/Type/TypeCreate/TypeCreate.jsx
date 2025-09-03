@@ -1,6 +1,6 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { errorCreateTypeCategory, loadCreateTypeCategory, responseCreateTypeCategory } from '@redux/admin/selectors';
+import { errorCreateTypeCategory, loadCreateTypeCategory, responseCreateTypeCategory } from '@redux/selectors';
 import { createTypeCategory } from '@redux/admin/type/service';
 import { typeSchema } from '@validations/admin/typeSchema';
 import { useForm } from 'react-hook-form';

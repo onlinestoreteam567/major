@@ -1,13 +1,12 @@
-import Spinner from '@components/helpers/Spinner/Spinner';
-import { deleteBanner, fetchBanner } from '@redux/banner/service';
+import Spinner from '@UI/Spinner/Spinner';
+import { fetchBanner } from '@redux/banner/service';
 import { loadBanner, loadBannerDelete, selectBanner, selectBannerDelete } from '@redux/selectors';
-import handleDeleteItem from '@utils/handleDeleteItem';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
 
-const List = () => {
+const BannerList = () => {
   const items = useSelector(selectBanner);
   const isLoading = useSelector(loadBanner);
   const dispatch = useDispatch();
@@ -18,14 +17,14 @@ const List = () => {
     deleteResponse === 204 && dispatch(fetchBanner());
   }, [dispatch, deleteResponse]);
 
-  const handleDelete = (id) => handleDeleteItem(dispatch, deleteBanner, id);
+  const handleDelete = () => console.log('change it...');
 
   return (
     <>
       {isLoading || isLoadingDelete ? (
         <Spinner />
       ) : (
-        <ul className={cl.list}>
+        <ul className={cl.bannerList}>
           {items.map((card) => (
             <li key={card.id}>
               <img src={card.image_url} />
@@ -42,4 +41,4 @@ const List = () => {
     </>
   );
 };
-export default List;
+export default BannerList;

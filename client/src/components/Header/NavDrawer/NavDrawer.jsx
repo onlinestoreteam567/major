@@ -1,10 +1,10 @@
-import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
+import LogoIcon from '@components/UI/icons/Header/LogoIcon/LogoIcon';
 import LangSwitcher from './LangSwitcher/LangSwitcher';
 import cl from './index.module.scss';
 import SocialLinks from '@UI/SocialLinks/SocialLinks';
 import { useState } from 'react';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
-import Navigation from '../Navigation/Navigation';
+import Navigation from '../HeaderNavigation/HeaderNavigation';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
 const NavDrawer = ({ setIsShowNavDrawer }) => {

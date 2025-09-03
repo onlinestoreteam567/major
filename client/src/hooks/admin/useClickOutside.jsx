@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react';
 
 function useClickOutside(callback) {
-  const wrapperRef = useRef(null); // Create a ref to attach to the wrapper element
+  const wrapperRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        callback(); // Call the provided callback when clicked outside
+        callback();
       }
     }
 
@@ -15,9 +15,9 @@ function useClickOutside(callback) {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [callback]); // Re-run if the callback changes
+  }, [callback]);
 
-  return wrapperRef; // Return the ref so the component can attach it
+  return wrapperRef;
 }
 
 export default useClickOutside;

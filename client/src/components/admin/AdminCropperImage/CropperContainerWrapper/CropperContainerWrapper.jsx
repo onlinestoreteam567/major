@@ -1,5 +1,5 @@
 import { Cropper } from 'react-cropper';
-import cl from '../index.module.scss';
+import cl from './index.module.scss';
 import { createRef } from 'react';
 import Button from '@components/UI/Button/Button';
 import handleCroppedImage from '../helpers/handleCroppedImage';

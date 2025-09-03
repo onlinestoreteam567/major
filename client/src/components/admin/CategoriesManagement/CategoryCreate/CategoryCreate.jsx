@@ -1,5 +1,5 @@
-import CheckedRadio from '@assets/svg/Admin/Radios/CheckedRadio/CheckedRadio';
-import UncheckedRadio from '@assets/svg/Admin/Radios/UncheckedRadio/UncheckedRadio';
+import CheckedRadio from '@components/UI/icons/Admin/Radios/CheckedRadio/CheckedRadio';
+import UncheckedRadio from '@components/UI/icons/Admin/Radios/UncheckedRadio/UncheckedRadio';
 import { useState } from 'react';
 import PurposeCreate from '../Purpose/PurposeCreate/PurposeCreate';
 import TypeCreate from '../Type/TypeCreate/TypeCreate';
