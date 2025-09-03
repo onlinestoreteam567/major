@@ -764,18 +764,26 @@ src/
 │ │ │ ├── reviewSlice.js
 │ │ │ └── service.js
 │
-│ ├── redux/ # redux slices
-
-│
 ├── router/ # Router and layouts
 │ ├── AppRouter.jsx # Application's main routing logic
-│ ├── test-components/ Components for testing logic (for example - is Redux working correct?)
-│ │ └─ Redux # Example test-component
+│ ├── AppLoader/
+│ │ ├── AppLoader.jsx
+│ │ └── index.module.scss
+│ ├── error/
+│ │ └── ErrorBoundary.jsx
 │ │
 │ └── layouts/ # Layout components
-│ ├── MainLayout.jsx # Main layout for the application
-│ └── AuthLayout.jsx # Layout for authentication pages
+│ ├── MainLayout/ # Main layout for the application
+│ │ ├── MainLayout.jsx
+│ │ ├── index.module.scss
+│ │ ├── hooks/
+│ │ │ └── useScrollToTop
 │
+│ ├── ProtectedRoute/
+│ │ ├── ProtectedRoute.jsx
+│ │ ├── index.module.scss
+│ │ ├── AdminGlobalMessage.jsx
+
 ├── services/ # Service functions and business logic (if needed on frontend)
 │ ├── paymentService.js # Payment logic (interacting with payment API)
 │ └── notificationService.js # Notifications (e.g., Toast messages)

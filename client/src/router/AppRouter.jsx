@@ -2,15 +2,11 @@ import { Suspense, lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import MainLayout from './layouts/MainLayout/MainLayout';
-import AuthLayout from './layouts/AuthLayout';
 
 //test-components
-import Redux from './testСomponents/Redux';
-import I18next from './testСomponents/I18next';
 
 // Error Boundary
 import ErrorBoundary from './error/ErrorBoundary'; // A component to handle errors
-import FormTest from './testСomponents/FormTest';
 import NotFound from '@pages/NotFoundPage/NotFoundPage';
 import ErrorPage from '@pages/ErrorPage/ErrorPage';
 import AppLoader from '@router/AppLoader/AppLoader';
@@ -97,15 +93,6 @@ const router = createBrowserRouter([
     ],
   },
   { path: '/admin/login', element: <AdminLoginPage /> },
-  {
-    element: <AuthLayout />,
-    errorElement: <ErrorBoundary />,
-    children: [
-      { path: 'redux', element: <Redux /> },
-      { path: 'i18next', element: <I18next /> },
-      { path: 'form', element: <FormTest /> },
-    ],
-  },
   {
     path: '*',
     element: <NotFound />,
