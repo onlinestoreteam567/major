@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import cl from './index.module.scss';
-import ArrowAccordion from '@svg/Admin/ArrowAccordion.jsx';
 import { ProductDetailsTextarea } from './ProductDetailsTextarea/ProductDetailsTextarea';
+import ArrowAccordion from '@UI/icons/Admin/ArrowAccordion';
 
 const fields = [
   { name: 'description_uk', label: 'Опис (UA)', placeholder: 'Опис' },

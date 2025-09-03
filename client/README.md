@@ -862,6 +862,18 @@ src/
 ├── main.jsx # Entry point for React
 └── index.scss # Base styles
 
+.gitignore
+.prettierrc
+eslint.config.js
+index.html
+jsconfig.json
+LICENSE
+package-lock.json
+package.json
+README.md
+vercel.json
+vite.config.js
+
 ## Detailed Descriptions
 
 ### api/
