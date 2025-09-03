@@ -1,7 +1,7 @@
 import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
 import Spinner from '@UI/Spinner/Spinner';
 import useTimedMessage from '@hooks/admin/useTimedMessage';
-import { loadPurposeDelete, responsePurposeDelete } from '@redux/admin/selectors';
+import { loadPurposeDelete, responsePurposeDelete } from '@redux/selectors';
 import { fetchCategories } from '@redux/params/service';
 import { loadCategories, selectCategories } from '@redux/selectors';
 import { useEffect } from 'react';

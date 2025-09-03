@@ -674,6 +674,99 @@ src/
 │ │ │ │ ├── ProductLook.jsx
 │ │ │ │ └── index.module.scss
 │
+│ ├── redux/ # redux slices
+│ │ ├── selectors.js
+│ │ ├── admin/
+│ │ │ ├── auth/
+│ │ │ │ ├── authSlice.js
+│ │ │ │ └── service.js
+│ │ │ ├── product/
+│ │ │ │ ├── createProductSlice.js
+│ │ │ │ ├── editProductSlice.js
+│ │ │ │ ├── productDeleteSlice.js
+│ │ │ │ └── service.js
+│ │ │ ├── product/
+│ │ │ │ ├── promocodeByIdSlice.js
+│ │ │ │ ├── promocodeCreateSlice.js
+│ │ │ │ ├── promocodeDeleteSlice.js
+│ │ │ │ ├── promocodeEditSlice.js
+│ │ │ │ ├── promocodeListSlice.js
+│ │ │ │ └── service.js
+│ │ │ ├── purpose/
+│ │ │ │ ├── createPurposeCategorySlice.js
+│ │ │ │ ├── purposeCategoryByIdSlice.js
+│ │ │ │ ├── purposeDeleteSlice.js
+│ │ │ │ ├── purposeEditSlice.js
+│ │ │ │ └── service.js
+│ │ │ ├── search/
+│ │ │ │ ├── adminProductSearchSlice.js
+│ │ │ │ └── adminReviewsSearchSlice.js
+│ │ │ ├── type/
+│ │ │ │ ├── createTypeCategorySlice.js
+│ │ │ │ ├── typeByIdSlice.js
+│ │ │ │ ├── typeDeleteSlice.js
+│ │ │ │ ├── typeEditSlice.js
+│ │ │ │ └── service.js
+│ │ │ └── adminMessageSlice.js
+│ │
+│ │ ├── banner/
+│ │ │ ├── bannerByIdSlice.js
+│ │ │ ├── bannerCreateSlice.js
+│ │ │ ├── bannerDeleteSlice.js
+│ │ │ ├── bannerEditSlice.js
+│ │ │ ├── bannerSlice.js
+│ │ │ └── service.js
+│ │
+│ │ ├── blogs/
+│ │ │ ├── uploadImageSlice.js
+│ │ │ └── service.js
+│ │
+│ │ ├── cart/
+│ │ │ └── cartSlice.js
+│ │
+│ │ ├── filter/
+│ │ │ └── FilterSlice.js
+│ │
+│ │ ├── novaPost/
+│ │ │ ├── settlementsSlice.js
+│ │ │ ├── warehousesSlice.js
+│ │ │ └── service.js
+│ │
+│ │ ├── params/
+│ │ │ ├── categorySlice.js
+│ │ │ ├── purposeSlice.js
+│ │ │ └── service.js
+│ │
+│ │ ├── partners/
+│ │ │ ├── partnerByIdSlice.js
+│ │ │ ├── partnerCreateSlice.js
+│ │ │ ├── partnerDeleteSlice.js
+│ │ │ ├── partnerEditSlice.js
+│ │ │ ├── partnerSlice.js
+│ │ │ └── service.js
+│ │
+│ │ ├── products/
+│ │ │ ├── bestSlice.js
+│ │ │ ├── cardSlice.js
+│ │ │ ├── fitCategorySlice.js
+│ │ │ ├── listSlice.js
+│ │ │ ├── searchSlice.js
+│ │ │ ├── setsSlice.js
+│ │ │ ├── viewedProductsSlice.js
+│ │ │ └── service.js
+│ │
+│ │ ├── promocode/
+│ │ │ ├── promocodeSlice.js
+│ │ │ └── service.js
+│ │
+│ │ ├── reviews/
+│ │ │ ├── addReviewSlice.js
+│ │ │ ├── reviewSlice.js
+│ │ │ └── service.js
+│
+│ ├── redux/ # redux slices
+
+│
 ├── router/ # Router and layouts
 │ ├── AppRouter.jsx # Application's main routing logic
 │ ├── test-components/ Components for testing logic (for example - is Redux working correct?)

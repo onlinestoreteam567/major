@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import cl from './index.module.scss';
 import { useState, useEffect } from 'react';
 import { reviewsGetAll } from '@redux/reviews/service';
-import { setSearch } from '@redux/admin/search/adminReviewsSearchSlice/adminReviewsSearchSlice';
-import { reviewsSearchValue } from '@redux/admin/selectors';
+import { setSearch } from '@redux/admin/search/adminReviewsSearchSlice';
+import { reviewsSearchValue } from '@redux/selectors';
 import { filterReviewByName } from '@redux/reviews/reviewsSlice';
 
 const ReviewsSearch = () => {

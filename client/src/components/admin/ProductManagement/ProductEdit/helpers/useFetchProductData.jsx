@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import useIdFromUrl from '@hooks/useIdFromUrl';
 import { getProductById } from '@redux/products/service';
 import { loadProductId, selectProductId } from '@redux/selectors';
-import { errorEditProduct, loadEditProduct, responseEditProduct } from '../../../../../redux/admin/selectors';
+import { errorEditProduct, loadEditProduct, responseEditProduct } from '@redux/selectors';
 
 export const useFetchProductData = () => {
   const dispatch = useDispatch();

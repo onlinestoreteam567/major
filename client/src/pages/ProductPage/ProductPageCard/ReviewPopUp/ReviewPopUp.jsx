@@ -12,7 +12,7 @@ import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { loadAddReview, responseAddReview } from '@redux/selectors';
-import { resetAddReviewState } from '@redux/reviews/addReviewReducer';
+import { resetAddReviewState } from '@redux/reviews/addReviewSlice';
 import { useEffect } from 'react';
 
 const ReviewPopUp = ({ card, closeModal }) => {

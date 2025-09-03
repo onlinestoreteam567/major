@@ -1,7 +1,7 @@
 import LogoIcon from '@assets/svg/Header/LogoIcon/LogoIcon';
 import { clearTokens } from '@redux/admin/auth/authSlice';
 import { fetchAuthToken } from '@redux/admin/auth/service';
-import { errorAuth, loadAuth, selectAccessToken } from '@redux/admin/selectors';
+import { errorAuth, loadAuth, selectAccessToken } from '@redux/selectors';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

@@ -2,7 +2,7 @@ import { createProduct } from '@redux/admin/product/service';
 import appendFormData from '@utils/appendFormData';
 import handleImageUpload from '@utils/handleImageUpload';
 import { useDispatch, useSelector } from 'react-redux';
-import { errorCreateProduct, loadCreateProduct, responseCreateProduct } from '@redux/admin/selectors';
+import { errorCreateProduct, loadCreateProduct, responseCreateProduct } from '@redux/selectors';
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import ProductForm from '../ProductForm/ProductForm';
 import cl from './index.module.scss';

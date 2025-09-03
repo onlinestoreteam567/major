@@ -3,7 +3,7 @@ import SuccessMessage from '@components/admin/SuccessMessage/SuccessMessage';
 import Spinner from '@UI/Spinner/Spinner';
 import { yupResolver } from '@hookform/resolvers/yup';
 import useIdFromUrl from '@hooks/useIdFromUrl';
-import { errorTypeById, loadTypeById, loadTypeEdit, responseTypeById, responseTypeEdit } from '@redux/admin/selectors';
+import { errorTypeById, loadTypeById, loadTypeEdit, responseTypeById, responseTypeEdit } from '@redux/selectors';
 import { editType, getTypeCategoryById } from '@redux/admin/type/service';
 import setFormValues from '@utils/setFormValue';
 import { typeSchema } from '@validations/admin/typeSchema';

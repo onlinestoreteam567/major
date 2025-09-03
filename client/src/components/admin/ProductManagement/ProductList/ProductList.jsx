@@ -1,7 +1,7 @@
 import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
 import Spinner from '@UI/Spinner/Spinner';
 import useTimedMessage from '@hooks/admin/useTimedMessage';
-import { loadProductDelete, responseProductDelete } from '@redux/admin/selectors';
+import { loadProductDelete, responseProductDelete } from '@redux/selectors';
 import { fetchProductsAll } from '@redux/products/service';
 import { loadProducts, selectFilteredProducts } from '@redux/selectors';
 import { useEffect } from 'react';

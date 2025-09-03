@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom';
 import cl from './index.module.scss';
 import { useDispatch } from 'react-redux';
 import { filterProductsByName } from '@redux/products/listSlice';
-import { clearSearch } from '@redux/admin/search/adminProductSearchSlice/adminProductSearchSlice';
-import { clearSearch as clearSearchReviews } from '@redux/admin/search/adminReviewsSearchSlice/adminReviewsSearchSlice';
+import { clearSearch } from '@redux/admin/search/adminProductSearchSlice';
+import { clearSearch as clearSearchReviews } from '@redux/admin/search/adminReviewsSearchSlice';
 import { reviewsGetAll } from '@redux/reviews/service';
 import { fetchPromocode } from '@redux/admin/promocode/service';
 

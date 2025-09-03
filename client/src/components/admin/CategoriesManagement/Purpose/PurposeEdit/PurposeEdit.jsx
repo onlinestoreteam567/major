@@ -10,7 +10,7 @@ import {
   loadPurposeEdit,
   responsePurposeById,
   responsePurposeEdit,
-} from '@redux/admin/selectors';
+} from '@redux/selectors';
 import appendFormData from '@utils/appendFormData';
 import handleImageUpload from '@utils/handleImageUpload';
 import setFormValues from '@utils/setFormValue';

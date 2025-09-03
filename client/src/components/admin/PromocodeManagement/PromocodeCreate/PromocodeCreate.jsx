@@ -1,7 +1,7 @@
 import ErrorText from '@components/admin/ErrorText/ErrorText';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { createPromocode } from '@redux/admin/promocode/service';
-import { errorPromocodeCreate, loadPromocodeCreate, responsePromocodeCreate } from '@redux/admin/selectors';
+import { errorPromocodeCreate, loadPromocodeCreate, responsePromocodeCreate } from '@redux/selectors';
 import { promocodeSchema } from '@validations/admin/promocodeSchema';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';

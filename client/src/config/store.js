@@ -43,9 +43,9 @@ import { reviewReducer } from '../redux/reviews/reviewsSlice';
 import { uploadImageReducer } from '@redux/blogs/uploadImageSlice';
 import { partnerByIdReducer } from '@redux/partners/partnerByIdSlice';
 import { partnerEditReducer } from '@redux/partners/partnerEditSlice';
-import { addReviewReducer } from '@redux/reviews/addReviewReducer';
-import { adminProductSearchReducer } from '@redux/admin/search/adminProductSearchSlice/adminProductSearchSlice';
-import { adminReviewsSearchReducer } from '@redux/admin/search/adminReviewsSearchSlice/adminReviewsSearchSlice';
+import { addReviewReducer } from '@redux/reviews/addReviewSlice';
+import { adminProductSearchReducer } from '@redux/admin/search/adminProductSearchSlice';
+import { adminReviewsSearchReducer } from '@redux/admin/search/adminReviewsSearchSlice';
 import { adminMessageSliceReducer } from '@redux/admin/adminMessageSlice';
 
 const preloadedState = {

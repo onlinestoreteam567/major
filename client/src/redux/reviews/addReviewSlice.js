@@ -10,7 +10,6 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-// Define the initial state outside the slice for easy re-use
 const initialState = {
   response: null,
   isLoading: false,
@@ -19,9 +18,8 @@ const initialState = {
 
 const addReviewSlice = createSlice({
   name: 'addReview',
-  initialState, // Use the defined initial state here
+  initialState,
   reducers: {
-    // Add a new reducer to reset the state
     resetAddReviewState: () => {
       return initialState;
     },

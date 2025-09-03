@@ -5,7 +5,7 @@ import {
   loadPromocodeList,
   responsePromocodeDelete,
   responsePromocodeList,
-} from '@redux/admin/selectors';
+} from '@redux/selectors';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import cl from './index.module.scss';
