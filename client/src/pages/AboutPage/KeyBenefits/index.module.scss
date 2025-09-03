@@ -1,0 +1,26 @@
+@import '@mixins';
+
+.keyBenefits {
+  @include flex(column);
+  gap: 36px;
+  padding: 24px 12px;
+  box-sizing: border-box;
+
+  & > p {
+    text-align: start;
+  }
+
+  @include tablet {
+    gap: 40px;
+
+    & > p {
+      text-align: center;
+    }
+  }
+
+  @include deskmin {
+    & > p {
+      width: 855px;
+    }
+  }
+}

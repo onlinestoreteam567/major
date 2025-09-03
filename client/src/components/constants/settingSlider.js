@@ -109,3 +109,18 @@ export const adminCropperSlider = {
   lazyLoad: true,
   swipe: true,
 };
+
+export const aboutUsSettings = {
+  accessibility: true,
+  dots: false,
+  infinite: false,
+  adaptiveHeight: true,
+  arrows: true,
+  speed: 300,
+  slidesToShow: 2,
+  slidesToScroll: 2,
+  lazyLoad: true,
+  variableWidth: true,
+  draggable: false,
+  swipe: true,
+};

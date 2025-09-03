@@ -1,0 +1,49 @@
+@import '@mixins';
+
+.formula {
+  @include flex(column);
+  gap: 20px;
+
+  h2 {
+    width: 296px;
+  }
+
+  img {
+    width: 288px;
+    height: 255px;
+  }
+
+  @include mobile {
+    h2 {
+      width: 356px;
+    }
+
+    img {
+      width: 351px;
+      height: 347px;
+    }
+  }
+
+  @include tablet {
+    gap: 40px;
+
+    h2 {
+      width: auto;
+    }
+
+    img {
+      width: 695.9998779296875px;
+      height: 490px;
+    }
+  }
+
+  @include deskmin {
+    img {
+      width: 981px;
+      height: 479px;
+    }
+  }
+  @include deskmax {
+    gap: 48px;
+  }
+}

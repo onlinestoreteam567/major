@@ -1,0 +1,90 @@
+@import '@mixins';
+
+.originStorySection {
+  @include flex(column);
+  gap: 12px;
+
+  img {
+    width: 296px;
+    height: 166.5px;
+  }
+
+  div {
+    @include flexGap(8px, column);
+    width: 294px;
+
+    p {
+      text-align: start;
+    }
+  }
+
+  @include mobile {
+    img {
+      width: 356px;
+      height: 200.25px;
+    }
+
+    div {
+      width: 356px;
+    }
+  }
+
+  @include tablet {
+    display: grid;
+    row-gap: 48px;
+    column-gap: 24px;
+    justify-items: center;
+
+    h2 {
+      width: 336px;
+    }
+
+    img {
+      grid-area: 1/2 / 3;
+      width: 336px;
+      height: 350px;
+    }
+
+    div {
+      gap: 24px;
+      width: 336px;
+    }
+  }
+
+  @include deskmin {
+    grid-template-rows: 11px 40px;
+    column-gap: 28px;
+    row-gap: 0;
+
+    h2 {
+      width: fit-content;
+      grid-area: 2/1;
+    }
+
+    img {
+      grid-area: 1 / 2 / 4;
+      width: 476px;
+      height: 326px;
+    }
+
+    div {
+      width: 476px;
+      grid-area: 3 / 1;
+      margin-block: 48px 11px;
+    }
+  }
+
+  @include deskmax {
+    grid-template-rows: 64.5px 45px;
+
+    img {
+      width: 635px;
+      height: 435px;
+    }
+
+    div {
+      width: 637px;
+      margin-bottom: 64.5px;
+    }
+  }
+}

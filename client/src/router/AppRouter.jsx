@@ -34,8 +34,8 @@ import ContactsManagement from '@components/admin/ContactsManagement/ContactsMan
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
 const Catalog = lazy(() => import('@pages/CatalogPage/CatalogPage'));
+const About = lazy(() => import('@pages/AboutPage/AboutPage'));
 const Contact = lazy(() => import('@pages/ContactPage'));
-const About = lazy(() => import('@pages/AboutPage'));
 const Cooperation = lazy(() => import('@pages/СooperationPage'));
 const ProductPage = lazy(() => import('@pages/ProductPage/ProductPage'));
 const CheckoutPage = lazy(() => import('@pages/CheckoutPage/CheckoutPage'));

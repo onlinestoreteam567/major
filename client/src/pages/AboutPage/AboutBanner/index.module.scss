@@ -1,0 +1,98 @@
+@import '@mixins';
+
+.aboutBanner {
+  position: relative;
+  overflow: hidden;
+  width: 320px;
+  height: 190px;
+
+  img {
+    width: 320px;
+    height: 190px;
+    object-fit: cover;
+    transform: rotateY(180deg);
+    object-position: 50% 33.5%;
+  }
+
+  figcaption {
+    @include absolute(88px, 113px);
+
+    h2 {
+      text-align: start;
+    }
+
+    br {
+      display: none;
+    }
+  }
+
+  @include mobile {
+    width: 380px;
+    height: 226px;
+
+    img {
+      width: 380px;
+      height: 226px;
+    }
+
+    figcaption {
+      width: 208px;
+      top: 115px;
+      left: 153px;
+    }
+  }
+
+  @include tablet {
+    width: 768px;
+    height: 462px;
+
+    img {
+      width: 768px;
+      height: 462px;
+      scale: 1.22;
+      object-position: 50% 41%;
+    }
+
+    figcaption {
+      width: auto;
+      top: 220px;
+      left: 283px;
+
+      br {
+        display: inline;
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 1024px;
+    height: 615px;
+
+    img {
+      width: 1024px;
+      height: 615px;
+    }
+
+    figcaption {
+      top: 295px;
+      left: 385px;
+    }
+  }
+
+  @include deskmax {
+    width: 1440px;
+    height: 662px;
+
+    img {
+      width: 1440px;
+      height: 662px;
+      object-position: 50% 44.5%;
+      scale: 1;
+    }
+
+    figcaption {
+      top: 310px;
+      left: 560px;
+    }
+  }
+}

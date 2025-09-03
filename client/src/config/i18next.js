@@ -20,6 +20,7 @@ i18n
       // Pages
       'catalogPage',
       'checkoutPage',
+      'aboutPage',
 
       // Components
       'yellowButton',
