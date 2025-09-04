@@ -3,9 +3,11 @@ import cl from './index.module.scss';
 import EnIcon from '@components/UI/icons/Header/EnIcon';
 import LineSeparator from '@components/UI/icons/LineSeparator';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const LangSwitcher = () => {
-  const [isLanguageDefault, setIsLanguageDefault] = useState(true);
+  const { i18n } = useTranslation();
+  const [isLanguageDefault, setIsLanguageDefault] = useState(i18n.language === 'ua');
 
   return (
     <section className={cl.langSwitcher}>
@@ -23,4 +25,5 @@ const LangSwitcher = () => {
     </section>
   );
 };
+
 export default LangSwitcher;

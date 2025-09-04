@@ -5,6 +5,18 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import SliderImgs from '../SliderImgs';
 import CardLabels from '../CardLabels';
+import { useImageError } from '@hooks/useImageError';
+
+const MobileCardImage = ({ src, alt, card }) => {
+  const [imageSrc, handleError] = useImageError(src);
+
+  return (
+    <div className={cl.wrapImgMobCard}>
+      <CardLabels card={card} />
+      <img src={imageSrc} alt={alt} onError={handleError} />
+    </div>
+  );
+};
 
 export default function ImgMobile({ card }) {
   const placeholderImage = '/images/placeholder.webp';
@@ -17,10 +29,6 @@ export default function ImgMobile({ card }) {
   const [isShow, setIsShow] = useState(false);
   const openModal = () => setIsShow(true);
   const closeModal = () => setIsShow(false);
-
-  const handleImageError = (e) => {
-    e.currentTarget.src = placeholderImage;
-  };
 
   let sliderRef = useRef(null);
 
@@ -49,10 +57,7 @@ export default function ImgMobile({ card }) {
         <>
           <Slider ref={sliderRef} {...oneElement}>
             {images.map((slide) => (
-              <div key={slide.id} className={cl.wrapImgMobCard}>
-                <CardLabels card={card} />
-                <img src={slide.image} alt={card.name || 'Image'} onError={handleImageError} />
-              </div>
+              <MobileCardImage key={slide.id} src={slide.image} alt={card.name || 'Image'} card={card} />
             ))}
           </Slider>
           <button type="button" onClick={openModal} className={cl.btnMore}>
@@ -61,12 +66,7 @@ export default function ImgMobile({ card }) {
         </>
       )}
 
-      {images.length === 1 && (
-        <div className={cl.wrapImgMobCard}>
-          <CardLabels card={card} />
-          <img src={images[0].image} alt={card.name || 'Image'} onError={handleImageError} />
-        </div>
-      )}
+      {images.length === 1 && <MobileCardImage src={images[0].image} alt={card.name || 'Image'} card={card} />}
 
       {!images.length && (
         <div className={cl.wrapImgMobCard}>

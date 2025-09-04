@@ -3,9 +3,24 @@ import Heading from '@UI/Texts/Heading/Heading';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 import ButtonAddToCart from '@components/UI/Button/ButtonAddToCart';
+import { useImageError } from '@hooks/useImageError';
+import { useState } from 'react';
+
+const SlideImage = ({ src, alt }) => {
+  const [imageSrc, handleError] = useImageError(src);
+
+  return <img src={imageSrc} alt={alt} onError={handleError} />;
+};
 
 const Slide = ({ slide, next, previous }) => {
   const { getTranslation } = useTranslationNamespace('mainBanner');
+  const [bgImageSrc] = useImageError(slide.background_image_url);
+  const [isBgError, setIsBgError] = useState(false);
+
+  const handleBgError = () => {
+    setIsBgError(true);
+  };
+
   const getLabelText = () => {
     if (slide.product.is_best_seller) return 'lableTextBestseller';
     if (slide.product.is_discount) return 'lableTextDiscount';
@@ -15,12 +30,14 @@ const Slide = ({ slide, next, previous }) => {
 
   const labelText = getLabelText();
 
+  const backgroundStyle = isBgError ? { backgroundColor: '#fff' } : { backgroundImage: `url(${bgImageSrc})` };
+
   return (
-    <div style={{ backgroundImage: `url(${slide.background_image_url})` }} className={cl.wrapBackground}>
+    <div style={backgroundStyle} className={cl.wrapBackground}>
       <ButtonAriaLabel al="previous" onClick={previous} cn />
 
       <div className={`${cl.slide} ${slide.left ? cl.right : ''}`}>
-        {slide.left && <img src={slide.image_url} alt="" />}
+        {slide.left && <SlideImage src={slide.image_url} alt="" />}
         <section>
           <div className={cl.label}>{labelText && <p>{getTranslation(labelText)}</p>}</div>
           <div className={cl.bottomWrapper}>
@@ -30,9 +47,11 @@ const Slide = ({ slide, next, previous }) => {
             </div>
           </div>
         </section>
-        {!slide.left && <img src={slide.image_url} alt="" />}
+        {!slide.left && <SlideImage src={slide.image_url} alt="" />}
       </div>
       <ButtonAriaLabel al="next" onClick={next} />
+
+      <img src={slide.background_image_url} onError={handleBgError} />
     </div>
   );
 };

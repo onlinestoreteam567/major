@@ -5,8 +5,8 @@ import { loadCategories, selectCategories } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategory } from '@redux/filter/filterSlice';
 import { getProductsByCategory } from '@redux/products/service';
-import { Link } from 'react-router-dom';
 import Spinner from '@UI/Spinner/Spinner';
+import CategoryItem from './CategoryItem';
 
 const HomeCatalogSection = () => {
   const { getTranslation } = useTranslationNamespace('common');
@@ -28,20 +28,8 @@ const HomeCatalogSection = () => {
         <>
           <Heading type="h2">{getTranslation('catalog')}</Heading>
           <ul>
-            {firstSixItems.map((item, index) => (
-              <li
-                key={index}
-                id={item.id}
-                onClick={(e) => getCategory(e.currentTarget.id)}
-                aria-label={`${getTranslation('catalogAriaLabel')}${item.name}`}
-              >
-                <Link to={`/catalog`}>
-                  <figure>
-                    <img src={item.image} alt="" />
-                    <figcaption>{item.name}</figcaption>
-                  </figure>
-                </Link>
-              </li>
+            {firstSixItems.map((item) => (
+              <CategoryItem key={item.id} item={item} getTranslation={getTranslation} getCategory={getCategory} />
             ))}
           </ul>
         </>

@@ -1,15 +1,13 @@
-import { useState } from 'react';
 import LabelHit from '../../Labels/LabelHit';
 import LabelNew from '../../Labels/LabelNew';
 import LabelSale from '../../Labels/LabelSale';
 import cl from './index.module.scss';
+import { useImageError } from '@hooks/useImageError';
 
 export default function ProductCardImage({ card }) {
-  const placeholderImage = '/images/placeholder.webp';
   const hasImages = card.images && card.images.length > 0;
-  const [imageSrc, setImageSrc] = useState(hasImages ? card.images[0].image : placeholderImage);
-
-  const handleError = () => setImageSrc(placeholderImage);
+  const initialImage = hasImages ? card.images[0].image : null;
+  const [imageSrc, handleError] = useImageError(initialImage);
 
   return (
     <div className={`${cl.productCardImage} ${!card.available ? cl['disabled-overlay'] : ''}`}>

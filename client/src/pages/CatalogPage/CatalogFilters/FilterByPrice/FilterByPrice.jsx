@@ -10,8 +10,11 @@ import { handleSliderMaxChange } from './helpers/handleSliderMaxChange';
 import { handleMinInputChange } from './helpers/handleMinInputChange';
 import { handleMaxInputChange } from './helpers/handleMaxInputChange';
 import { getByPrice } from './helpers/getByPrice';
+import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 
 const FilterByPrice = ({ handleCloseAside }) => {
+  const { deskmin, deskmax } = useScreenSizes();
+  const isShowCloseAsideAnimation = deskmin || deskmax;
   const { getTranslation } = useTranslationNamespace('common');
   const newPrice = useSelector(filterPrice);
   const products = useSelector(selectProducts);
@@ -108,7 +111,7 @@ const FilterByPrice = ({ handleCloseAside }) => {
               setMaxInputValue,
               dispatch
             );
-            handleCloseAside();
+            !isShowCloseAsideAnimation && handleCloseAside();
           }}
           disabled={
             minInputValue.trim() === '' ||
