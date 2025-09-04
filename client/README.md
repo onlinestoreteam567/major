@@ -504,6 +504,7 @@ src/
 │ │ │ ├── useScreenSizes.jsx
 │ │ │ └── useMediaQuery.jsx
 │ │ ├── useIdFromUrl.jsx
+│ │ ├── useImageError.jsx
 │ │ └── useTranslationNamespace.jsx
 │
 │ ├── pages/ # Pages tied to routes
