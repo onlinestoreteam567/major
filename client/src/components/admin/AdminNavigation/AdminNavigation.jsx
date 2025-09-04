@@ -9,8 +9,11 @@ import { clearSearch } from '@redux/admin/search/adminProductSearchSlice';
 import { clearSearch as clearSearchReviews } from '@redux/admin/search/adminReviewsSearchSlice';
 import { reviewsGetAll } from '@redux/reviews/service';
 import { fetchPromocode } from '@redux/admin/promocode/service';
+import useCategoryActive from './hooks/useCategoryActive';
+import handleExpand from './helpers/handleExpand';
 
 const AdminNavigation = () => {
+  const isCategoryActive = useCategoryActive();
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const [isShowBurgerButton, setIsShowBurgerButton] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -19,15 +22,6 @@ const AdminNavigation = () => {
   const isDisplayNavigation = !(tablet || deskmin || deskmax || isShowBurgerButton);
   const isMobileOverlay = !(tablet || deskmin || deskmax);
 
-  const handleExpand = (e) => {
-    const target = e.target;
-    if (target.closest('a') || target.closest('button')) return;
-    if (!isExpanded && tablet) setIsExpanded(true);
-    if (isExpanded && tablet) {
-      setIsExpanded(false);
-      setIsShowBurgerButton(false);
-    }
-  };
   const handleClose = () => setIsShowBurgerButton(false);
   const productsClearSearch = () => {
     dispatch(clearSearch());
@@ -48,7 +42,10 @@ const AdminNavigation = () => {
     <>
       {isMobileOverlay && <Overlay handleClose={handleClose} />}
 
-      <div className={`${cl.backgroundWrapper} ${isExpanded ? cl.expanded : ''}`} onClick={handleExpand}>
+      <div
+        className={`${cl.backgroundWrapper} ${isExpanded ? cl.expanded : ''}`}
+        onClick={(e) => handleExpand(e, isExpanded, setIsExpanded, tablet, setIsShowBurgerButton)}
+      >
         <nav>
           <NavLink to={`/admin/products`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
             <img src="/images/admin/navigation/Logo.png" alt="Company Logo" />
@@ -63,7 +60,7 @@ const AdminNavigation = () => {
               <img src="/images/admin/navigation/Goods icon.png" alt="Goods icon" />
               <span>Товари</span>
             </NavLink>
-            <NavLink to={`/admin/categories`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
+            <NavLink to="/admin/categories" className={isCategoryActive ? cl.active : undefined}>
               <img src="/images/admin/navigation/Catalog icons.png" alt="Catalog icon" />
               <span>Категорії</span>
             </NavLink>
