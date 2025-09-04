@@ -2,37 +2,29 @@ import cl from './index.module.scss';
 import { useState } from 'react';
 import SliderImgs from '../SliderImgs';
 import CardLabels from '../CardLabels';
+import { useImageError } from '@hooks/useImageError';
 
 export default function ImgDesk({ card }) {
   const placeholderImage = '/images/placeholder.webp';
   const images = card.images?.length ? card.images : [{ image: placeholderImage, id: 'placeholder' }];
 
   const [isShow, setIsShow] = useState(false);
-  const [bigImage, setBigImage] = useState(images[0].image || placeholderImage);
+  const [bigImage, setBigImage] = useState(images[0].image);
+  const [bigImageSrc, handleBigImageError] = useImageError(bigImage);
 
   const openModal = () => setIsShow(true);
   const closeModal = () => setIsShow(false);
-
-  // Fallback for the main big image
-  const handleBigImageError = () => setBigImage(placeholderImage);
 
   return (
     <div className={cl.imgDesk}>
       <div className={cl.wrapImgCase}>
         <CardLabels card={card} />
-        <img src={bigImage} alt={card.name || 'Placeholder'} className={cl.imgBig} onError={handleBigImageError} />
+        <img src={bigImageSrc} alt={card.name || 'Placeholder'} className={cl.imgBig} onError={handleBigImageError} />
       </div>
       <ul className={cl.wrapSmallImg}>
         {images.map((img, i) => (
           <li key={img.id} onClick={() => setBigImage(images[i].image)} className={cl.wrapImg}>
-            <img
-              src={img.image}
-              alt={card.name || 'Placeholder'}
-              onError={(e) => {
-                e.currentTarget.src = placeholderImage;
-              }}
-              className={bigImage === images[i].image ? cl.selected : ''}
-            />
+            <Img src={img.image} cardName={card.name} bigImage={bigImage} selectedImage={images[i].image} />
           </li>
         ))}
       </ul>
@@ -44,3 +36,15 @@ export default function ImgDesk({ card }) {
     </div>
   );
 }
+
+const Img = ({ src, cardName, bigImage, selectedImage }) => {
+  const [imageSrc, handleError] = useImageError(src);
+  return (
+    <img
+      src={imageSrc}
+      alt={cardName || 'Placeholder'}
+      onError={handleError}
+      className={bigImage === selectedImage ? cl.selected : ''}
+    />
+  );
+};

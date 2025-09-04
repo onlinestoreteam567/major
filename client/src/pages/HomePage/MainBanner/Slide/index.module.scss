@@ -28,6 +28,10 @@
     right: 0;
   }
 
+  & > img {
+    display: none;
+  }
+
   .slide {
     height: 620px;
     margin: 0 auto;

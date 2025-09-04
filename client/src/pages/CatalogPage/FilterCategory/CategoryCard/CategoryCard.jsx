@@ -3,10 +3,13 @@ import { fetchProductsAll, getProductsByCategory } from '@redux/products/service
 import { resetFilter, setCategory } from '@redux/filter/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterCategory } from '@redux/selectors';
+import { useImageError } from '@hooks/useImageError';
 
 const CategoryCard = ({ item }) => {
   const dispatch = useDispatch();
   const newCategory = useSelector(filterCategory);
+
+  const [imageSrc, handleError] = useImageError(item.image);
 
   const getCategory = (value) => {
     if (newCategory === value) {
@@ -22,7 +25,12 @@ const CategoryCard = ({ item }) => {
     <li className={cl.categoryCard} id={item.id}>
       <label>
         <figure>
-          <img src={item.image} alt={item.name} className={newCategory === item.id ? cl.active : ''} />
+          <img
+            src={imageSrc}
+            alt={item.name}
+            className={newCategory === item.id ? cl.active : ''}
+            onError={handleError}
+          />
           <figcaption>{item.name}</figcaption>
         </figure>
         <input
