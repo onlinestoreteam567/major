@@ -12,7 +12,7 @@ import { fetchPromocode } from '@redux/admin/promocode/service';
 import useCategoryActive from './hooks/useCategoryActive';
 import handleExpand from './helpers/handleExpand';
 import { selectRole } from '@redux/selectors';
-import LogOut from './Logout/Logout';
+import LogOut from './Logout';
 
 const AdminNavigation = () => {
   const isCategoryActive = useCategoryActive();
