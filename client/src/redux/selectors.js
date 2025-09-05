@@ -102,6 +102,7 @@ export const errorUploadImage = (state) => state.uploadImage.error;
 
 export const loadAuth = (state) => state.auth.isLoading;
 export const selectAccessToken = (state) => state.auth.accessToken;
+export const selectRole = (state) => state.auth.role;
 export const errorAuth = (state) => state.auth.error;
 
 export const adminMessage = (state) => state.adminMessage.message;

@@ -15,6 +15,7 @@ const authSlice = createSlice({
   initialState: {
     accessToken: null,
     refreshToken: null,
+    role: null,
     isLoading: false,
     error: null,
   },
@@ -33,6 +34,7 @@ const authSlice = createSlice({
       .addCase(fetchAuthToken.pending, handlePending)
       .addCase(fetchAuthToken.fulfilled, (state, action) => {
         state.accessToken = action.payload.access;
+        state.role = action.payload.role;
         if (!state.refreshToken) {
           state.refreshToken = action.payload.refresh;
         }
