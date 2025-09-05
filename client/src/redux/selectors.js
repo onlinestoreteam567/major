@@ -102,8 +102,13 @@ export const errorUploadImage = (state) => state.uploadImage.error;
 
 export const loadAuth = (state) => state.auth.isLoading;
 export const selectAccessToken = (state) => state.auth.accessToken;
+export const selectRefreshToken = (state) => state.auth.refreshToken;
 export const selectRole = (state) => state.auth.role;
 export const errorAuth = (state) => state.auth.error;
+
+export const selectVerifyToken = (state) => state.verifyToken.isVerified;
+export const loadVerifyToken = (state) => state.verifyToken.isLoading;
+export const errorVerifyToken = (state) => state.verifyToken.error;
 
 export const adminMessage = (state) => state.adminMessage.message;
 

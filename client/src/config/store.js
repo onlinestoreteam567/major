@@ -47,6 +47,7 @@ import { addReviewReducer } from '@redux/reviews/addReviewSlice';
 import { adminProductSearchReducer } from '@redux/admin/search/adminProductSearchSlice';
 import { adminReviewsSearchReducer } from '@redux/admin/search/adminReviewsSearchSlice';
 import { adminMessageSliceReducer } from '@redux/admin/adminMessageSlice';
+import { verifyTokenReducer } from '@redux/admin/auth/verifyTokenSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -87,6 +88,7 @@ const rootReducer = combineReducers({
   partnerCreate: partnerCreateReducer,
 
   auth: authReducer,
+  verifyToken: verifyTokenReducer,
   adminMessage: adminMessageSliceReducer,
   createProduct: createProductReducer,
   editProduct: editProductReducer,
