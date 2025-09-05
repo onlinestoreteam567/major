@@ -37,7 +37,7 @@
       width: 71px;
     }
 
-    div {
+    & > div {
       @include flex(column, space-between, center);
       gap: 8px;
 
@@ -99,7 +99,7 @@
         width: 98px;
       }
 
-      div {
+      & > div {
         a:first-of-type {
           width: fit-content;
           img {
@@ -137,13 +137,15 @@
         }
 
         & > div:last-of-type {
+          width: 281px;
+
           span {
             display: block;
             font-size: 24px;
           }
         }
 
-        div {
+        & > div {
           align-items: start;
 
           a:first-of-type {
@@ -217,12 +219,16 @@
           }
         }
 
-        div {
+        & > div {
           align-items: start;
           a,
           button {
             gap: 8px;
           }
+        }
+
+        & > div:last-of-type {
+          width: 222px;
         }
       }
     }
@@ -243,7 +249,7 @@
         width: 154px;
       }
 
-      div {
+      & > div {
         align-items: start;
 
         a:first-of-type {
@@ -274,6 +280,8 @@
       }
 
       & > div:last-of-type {
+        width: 222px;
+
         span {
           font-size: 20px;
           font-weight: 600;
@@ -296,7 +304,7 @@
           }
         }
 
-        div {
+        & > div {
           align-items: start;
 
           a,
@@ -321,6 +329,8 @@
         }
 
         & > div:last-of-type {
+          width: 273px;
+
           span {
             font-size: 24px;
             font-weight: 400;
@@ -347,13 +357,15 @@
       }
 
       & > div:last-of-type {
+        width: 273px;
+
         span {
           font-size: 24px;
           font-weight: 400;
         }
       }
 
-      div {
+      & > div {
         a:first-of-type {
           img {
             height: 40px;

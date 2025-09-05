@@ -3,7 +3,7 @@ import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import cl from './index.module.scss';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { filterProductsByName } from '@redux/products/listSlice';
 import { clearSearch } from '@redux/admin/search/adminProductSearchSlice';
 import { clearSearch as clearSearchReviews } from '@redux/admin/search/adminReviewsSearchSlice';
@@ -11,6 +11,8 @@ import { reviewsGetAll } from '@redux/reviews/service';
 import { fetchPromocode } from '@redux/admin/promocode/service';
 import useCategoryActive from './hooks/useCategoryActive';
 import handleExpand from './helpers/handleExpand';
+import { selectRole } from '@redux/selectors';
+import LogOut from './Logout';
 
 const AdminNavigation = () => {
   const isCategoryActive = useCategoryActive();
@@ -18,6 +20,9 @@ const AdminNavigation = () => {
   const [isShowBurgerButton, setIsShowBurgerButton] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const dispatch = useDispatch();
+
+  const role = useSelector(selectRole);
+  const isShowAdminSections = role === 1;
 
   const isDisplayNavigation = !(tablet || deskmin || deskmax || isShowBurgerButton);
   const isMobileOverlay = !(tablet || deskmin || deskmax);
@@ -72,14 +77,18 @@ const AdminNavigation = () => {
               <img src="/images/admin/navigation/Promo icons.png" alt="Promocodes icon" />
               <span>Промокоди</span>
             </NavLink>
-            <NavLink to={`/admin/partners`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
-              <img src="/images/admin/navigation/Map.png" alt="Partners icon" />
-              <span>Мапа</span>
-            </NavLink>
-            <NavLink to={`/admin/banners`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
-              <img src="/images/admin/navigation/Banners icons.png" alt="Banners icon" />
-              <span>Банери</span>
-            </NavLink>
+            {isShowAdminSections && (
+              <NavLink to={`/admin/partners`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
+                <img src="/images/admin/navigation/Map.png" alt="Partners icon" />
+                <span>Мапа</span>
+              </NavLink>
+            )}
+            {isShowAdminSections && (
+              <NavLink to={`/admin/banners`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
+                <img src="/images/admin/navigation/Banners icons.png" alt="Banners icon" />
+                <span>Банери</span>
+              </NavLink>
+            )}
             <NavLink
               to={`/admin/reviews`}
               className={({ isActive }) => (isActive ? cl.active : undefined)}
@@ -88,21 +97,24 @@ const AdminNavigation = () => {
               <img src="/images/admin/navigation/Rewievs icons.png" alt="Reviews icon" />
               <span>Відгуки</span>
             </NavLink>
-            <NavLink to={`/admin/contacts`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
-              <img src="/images/admin/navigation/Contact icon.png" alt="Contact icon" />
-              <span>Контакти</span>
-            </NavLink>
+
+            {isShowAdminSections && (
+              <NavLink to={`/admin/contacts`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
+                <img src="/images/admin/navigation/Contact icon.png" alt="Contact icon" />
+                <span>Контакти</span>
+              </NavLink>
+            )}
           </div>
 
           <div>
-            <button>
-              <img src="/images/admin/navigation/Setting icons.png" alt="Settings icon" />
-              <span>Налаштування</span>
-            </button>
-            <button>
-              <img src="/images/admin/navigation/Exit icons.png" alt="Exit icon" />
-              <span>Вихід</span>
-            </button>
+            {isShowAdminSections && (
+              <button>
+                <img src="/images/admin/navigation/Setting icons.png" alt="Settings icon" />
+                <span>Налаштування</span>
+              </button>
+            )}
+
+            <LogOut />
           </div>
         </nav>
       </div>

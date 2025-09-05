@@ -47,6 +47,7 @@ src/
 │ │ ├── AdminNavigation/
 │ │ │ ├── AdminNavigation.jsx
 │ │ │ ├── index.module.scss
+│ │ │ ├── Logout.jsx
 │ │ │ ├── helpers
 │ │ │ │ └── handleExpand.js
 │ │ │ ├── hooks
@@ -492,7 +493,15 @@ src/
 │ │ │ │ └── index.module.scss
 │
 │ ├── config/ # Configuration files
-│ │ ├── apiClient.js # API configuration
+│ │ ├── api/ # API configuration
+│ │ │ ├── apiClient.js
+│ │ │ ├── interceptors/
+│ │ │ │ ├── request/
+│ │ │ │ │ ├── auth.js
+│ │ │ │ │ └── language.js
+│ │ │ │ ├── response/
+│ │ │ │ │ ├── auth.js
+│ │ │ │ │ └── errorLogger.js
 │ │ ├── i18next.js
 │ │ └── store.js # Redux store configuration
 │
@@ -557,32 +566,32 @@ src/
 │ │ │ │ │ │ ├── handleMaxInputChange.js
 │ │ │ │ │ │ ├── handleMinInputChange.js
 │ │ │ │ │ │ ├── handleSliderMaxChange.js
-│ │ │ │ │ │ └─ handleSliderMinChange.js
+│ │ │ │ │ │ └── handleSliderMinChange.js
 │ │ │ │ │ ├── RangeSlider/
 │ │ │ │ │ │ ├── RangeSlider.jsx
-│ │ │ │ │ │ └─ index.module.scss
+│ │ │ │ │ │ └── index.module.scss
 │ │ │ │ ├── FilterByStatus/
 │ │ │ │ │ ├── FilterByStatus.jsx
-│ │ │ │ │ └─ index.module.scss
+│ │ │ │ │ └── index.module.scss
 │ │ │ │ ├── FilterByType/
 │ │ │ │ │ ├── FilterByType.jsx
-│ │ │ │ │ └─ index.module.scss
+│ │ │ │ │ └── index.module.scss
 │ │ │ ├── CatalogProductList/
 │ │ │ │ ├── CatalogProductList.jsx
-│ │ │ │ └─ index.module.scss
+│ │ │ │ └── index.module.scss
 │ │ │ ├── CatalogTop/
 │ │ │ │ ├── CatalogTop.jsx
 │ │ │ │ ├── index.module.scss
 │ │ │ │ ├── CatalogSorting/
 │ │ │ │ │ ├── CatalogSorting.jsx
 │ │ │ │ │ ├── index.module.scss
-│ │ │ │ │ └─ SortingButtons.jsx
+│ │ │ │ │ └── SortingButtons.jsx
 │ │ │ ├── FilterCategory/
 │ │ │ │ ├── FilterByCategory.jsx
 │ │ │ │ ├── index.module.scss
 │ │ │ │ ├── CategoryCard/
 │ │ │ │ │ ├── CategoryCard/
-│ │ │ │ │ └─ index.module.scss
+│ │ │ │ │ └── index.module.scss
 │ │
 │ │ ├── CheckoutPage/
 │ │ │ ├── CheckoutPage.jsx
@@ -765,6 +774,7 @@ src/
 │ │ ├── admin/
 │ │ │ ├── auth/
 │ │ │ │ ├── authSlice.js
+│ │ │ │ ├── verifyTokenSlice.js
 │ │ │ │ └── service.js
 │ │ │ ├── product/
 │ │ │ │ ├── createProductSlice.js
@@ -852,6 +862,7 @@ src/
 │
 ├── router/ # Router and layouts
 │ ├── AppRouter.jsx # Application's main routing logic
+│ ├── RoleBasedRoute.jsx
 │ ├── AppLoader/
 │ │ ├── AppLoader.jsx
 │ │ └── index.module.scss

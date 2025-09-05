@@ -1,4 +1,4 @@
-import apiClient from '@config/apiClient';
+import apiClient from '@config/api/apiClient';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const BLOGS_ENDPOINT = import.meta.env.VITE_BLOGS_ENDPOINT;
