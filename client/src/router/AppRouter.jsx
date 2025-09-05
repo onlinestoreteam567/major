@@ -30,6 +30,7 @@ import PartnerCreate from '@components/admin/PartnersManagement/PartnerCreate/Pa
 import PartnerEdit from '@components/admin/PartnersManagement/PartnerEdit/PartnerEdit';
 import ReviewsManagement from '@components/admin/ReviewsManagement/ReviewsManagement';
 import ContactsManagement from '@components/admin/ContactsManagement/ContactsManagement';
+import RoleBasedRoute from './RoleBasedRoute';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -78,16 +79,20 @@ const router = createBrowserRouter([
       { path: 'promocodes/create', element: <PromocodeCreate /> },
       { path: 'promocodes/:id', element: <PromocodeEdit /> },
 
-      { path: 'banners', element: <BannerManagement /> },
-      { path: 'banners/create', element: <BannerCreate /> },
-      { path: 'banners/:id', element: <BannerEdit /> },
-
-      { path: 'partners', element: <PartnersManagement /> },
-      { path: 'partners/create', element: <PartnerCreate /> },
-      { path: 'partners/:id', element: <PartnerEdit /> },
-
       { path: 'reviews', element: <ReviewsManagement /> },
-      { path: 'contacts', element: <ContactsManagement /> },
+
+      {
+        element: <RoleBasedRoute allowedRoles={[1]} />,
+        children: [
+          { path: 'banners', element: <BannerManagement /> },
+          { path: 'banners/create', element: <BannerCreate /> },
+          { path: 'banners/:id', element: <BannerEdit /> },
+          { path: 'partners', element: <PartnersManagement /> },
+          { path: 'partners/create', element: <PartnerCreate /> },
+          { path: 'partners/:id', element: <PartnerEdit /> },
+          { path: 'contacts', element: <ContactsManagement /> },
+        ],
+      },
     ],
   },
   { path: '/admin/login', element: <AdminLoginPage /> },
