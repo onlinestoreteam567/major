@@ -137,6 +137,8 @@
         }
 
         & > div:last-of-type {
+          width: 281px;
+
           span {
             display: block;
             font-size: 24px;
@@ -224,6 +226,10 @@
             gap: 8px;
           }
         }
+
+        div:last-of-type {
+          width: 222px;
+        }
       }
     }
 
@@ -274,6 +280,8 @@
       }
 
       & > div:last-of-type {
+        width: 222px;
+
         span {
           font-size: 20px;
           font-weight: 600;
@@ -321,6 +329,8 @@
         }
 
         & > div:last-of-type {
+          width: 273px;
+
           span {
             font-size: 24px;
             font-weight: 400;
@@ -347,6 +357,8 @@
       }
 
       & > div:last-of-type {
+        width: 273px;
+
         span {
           font-size: 24px;
           font-weight: 400;

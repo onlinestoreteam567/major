@@ -106,7 +106,7 @@ const AdminNavigation = () => {
           </div>
 
           <div>
-            {NavLink && (
+            {isShowAdminSections && (
               <button>
                 <img src="/images/admin/navigation/Setting icons.png" alt="Settings icon" />
                 <span>Налаштування</span>
