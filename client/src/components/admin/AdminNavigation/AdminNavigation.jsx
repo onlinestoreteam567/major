@@ -12,6 +12,7 @@ import { fetchPromocode } from '@redux/admin/promocode/service';
 import useCategoryActive from './hooks/useCategoryActive';
 import handleExpand from './helpers/handleExpand';
 import { selectRole } from '@redux/selectors';
+import LogOut from './Logout/Logout';
 
 const AdminNavigation = () => {
   const isCategoryActive = useCategoryActive();
@@ -113,10 +114,7 @@ const AdminNavigation = () => {
               </button>
             )}
 
-            <button>
-              <img src="/images/admin/navigation/Exit icons.png" alt="Exit icon" />
-              <span>Вихід</span>
-            </button>
+            <LogOut />
           </div>
         </nav>
       </div>

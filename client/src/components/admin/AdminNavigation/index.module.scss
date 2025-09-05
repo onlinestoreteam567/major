@@ -37,7 +37,7 @@
       width: 71px;
     }
 
-    div {
+    & > div {
       @include flex(column, space-between, center);
       gap: 8px;
 
@@ -99,7 +99,7 @@
         width: 98px;
       }
 
-      div {
+      & > div {
         a:first-of-type {
           width: fit-content;
           img {
@@ -145,7 +145,7 @@
           }
         }
 
-        div {
+        & > div {
           align-items: start;
 
           a:first-of-type {
@@ -219,7 +219,7 @@
           }
         }
 
-        div {
+        & > div {
           align-items: start;
           a,
           button {
@@ -227,7 +227,7 @@
           }
         }
 
-        div:last-of-type {
+        & > div:last-of-type {
           width: 222px;
         }
       }
@@ -249,7 +249,7 @@
         width: 154px;
       }
 
-      div {
+      & > div {
         align-items: start;
 
         a:first-of-type {
@@ -304,7 +304,7 @@
           }
         }
 
-        div {
+        & > div {
           align-items: start;
 
           a,
@@ -365,7 +365,7 @@
         }
       }
 
-      div {
+      & > div {
         a:first-of-type {
           img {
             height: 40px;

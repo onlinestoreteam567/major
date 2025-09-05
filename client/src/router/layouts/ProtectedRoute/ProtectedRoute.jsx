@@ -44,15 +44,13 @@ const ProtectedRoute = () => {
   }
 
   return verify && auth && !errorVerify ? (
-    <div className={cl.adminLayout}>
+    <div className={cl.adminLayout} id="protectedRoute">
       <AdminNavigation />
       <Outlet />
       <AdminGlobalMessage />
     </div>
   ) : (
-    <>
-      <Navigate to="/admin/login" replace />
-    </>
+    <Navigate to="/admin/login" replace />
   );
 };
 
