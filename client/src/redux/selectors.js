@@ -182,3 +182,7 @@ export const reviewsSearchValue = (state) => state.adminReviewsSearch.value;
 
 export const selectContacts = (state) => state.contacts.contacts;
 export const loadContacts = (state) => state.contacts.isLoading;
+
+export const selectContactsEdit = (state) => state.contactsEdit.response;
+export const loadContactsEdit = (state) => state.contactsEdit.isLoading;
+export const errorContactsEdit = (state) => state.contactsEdit.error;
