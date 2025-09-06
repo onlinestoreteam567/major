@@ -80,6 +80,10 @@ const ContactsManagement = () => {
         <ContactsForm register={register} errors={errors} />
         {errorEdit && <ErrorText error={errorEdit} />}
 
+        <button type="button" onClick={() => console.log(getValues())}>
+          awdawdadwdwdawadw
+        </button>
+
         <AdminFormActions
           to="/admin/promocodes"
           errors={errors}
