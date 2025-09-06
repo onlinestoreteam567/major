@@ -179,3 +179,6 @@ export const errorPromocodeDelete = (state) => state.promocodeDelete.error;
 
 export const productSearchValue = (state) => state.adminProductSearch.value;
 export const reviewsSearchValue = (state) => state.adminReviewsSearch.value;
+
+export const selectContacts = (state) => state.contacts.contacts;
+export const loadContacts = (state) => state.contacts.isLoading;

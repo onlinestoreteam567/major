@@ -48,6 +48,8 @@ import { adminProductSearchReducer } from '@redux/admin/search/adminProductSearc
 import { adminReviewsSearchReducer } from '@redux/admin/search/adminReviewsSearchSlice';
 import { adminMessageSliceReducer } from '@redux/admin/adminMessageSlice';
 import { verifyTokenReducer } from '@redux/admin/auth/verifyTokenSlice';
+import { contactsEditReducer } from '@redux/admin/contacts/contactsEditSlice';
+import { contactsReducer } from '@redux/contacts/contactsSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -108,6 +110,8 @@ const rootReducer = combineReducers({
   promocodeDelete: promocodeDeleteReducer,
   reviews: reviewReducer,
   addReview: addReviewReducer,
+  contacts: contactsReducer,
+  contactsEdit: contactsEditReducer,
   adminProductSearch: adminProductSearchReducer,
   adminReviewsSearch: adminReviewsSearchReducer,
 });
