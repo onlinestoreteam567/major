@@ -69,9 +69,10 @@ const ContactsManagement = () => {
     contactsGet && setFormValues(setValue, contactsGet[0], formValues);
   }, [contactsGet, setValue]);
 
-  const id = getValues().id;
-  console.log('id outside is ' + id);
-  const onSubmit = (formData) => dispatch(contactsEdit({ formData, id }));
+  const onSubmit = (formData) => {
+    const id = getValues().id;
+    dispatch(contactsEdit({ formData, id }));
+  };
   return isLoadingGet || isLoadingEdit ? (
     <Spinner />
   ) : (
