@@ -70,6 +70,7 @@ const ContactsManagement = () => {
   }, [contactsGet, setValue]);
 
   const id = getValues().id;
+  console.log('id outside is ' + id);
   const onSubmit = (formData) => dispatch(contactsEdit({ formData, id }));
   return isLoadingGet || isLoadingEdit ? (
     <Spinner />
