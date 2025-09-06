@@ -54,6 +54,7 @@ const preloadedState = {
   auth: {
     accessToken: loadFromStorage('accessToken') || null,
     refreshToken: loadFromStorage('refreshToken') || null,
+    role: loadFromStorage('role') || null,
   },
   viewedProducts: {
     viewedProducts: loadFromStorage('viewedProducts') || [],
@@ -124,5 +125,6 @@ store.subscribe(() => {
   saveToStorage('cart', cart);
   saveToStorage('accessToken', auth.accessToken);
   saveToStorage('refreshToken', auth.refreshToken);
+  saveToStorage('role', auth.role);
   saveToStorage('viewedProducts', viewedProducts.viewedProducts);
 });
