@@ -25,7 +25,9 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.accessToken = null;
       state.refreshToken = null;
+      state.role = null;
       localStorage.removeItem('accessToken');
+      localStorage.removeItem('role');
       localStorage.removeItem('refreshToken');
     },
   },
@@ -34,7 +36,10 @@ const authSlice = createSlice({
       .addCase(fetchAuthToken.pending, handlePending)
       .addCase(fetchAuthToken.fulfilled, (state, action) => {
         state.accessToken = action.payload.access;
-        state.role = action.payload.role;
+
+        if (!state.role) {
+          state.role = action.payload.role;
+        }
         if (!state.refreshToken) {
           state.refreshToken = action.payload.refresh;
         }

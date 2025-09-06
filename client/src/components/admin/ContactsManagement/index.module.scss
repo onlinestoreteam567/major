@@ -40,11 +40,21 @@
         font-size: 32px;
       }
     }
+    & > div:nth-of-type(2) {
+      label {
+        gap: 0;
+
+        input {
+          width: 266px;
+        }
+      }
+    }
     label {
       flex-direction: row;
       align-items: center;
       font-size: 24px;
       font-weight: 400;
+      gap: 0;
       input[type='text'] {
         width: 357px;
       }

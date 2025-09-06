@@ -32,7 +32,7 @@ export const contactSchema = yup.object({
     .required('Основний номер обов’язкове поле для заповнення!')
     .matches(/^\+[\d\s()]+$/, 'Номер телефону має починатися з + і містити лише цифри, пробіли та дужки'),
 
-  secondary_phone_number: yup
+  additional_phone_number: yup
     .string()
     .trim()
     .notRequired()
@@ -43,9 +43,9 @@ export const contactSchema = yup.object({
     ),
 
   work_schedule_weekdays: yup.string().required('Графік роботи в будні дні обов’язковий'),
-  work_schedule_weekend: yup.string().required('Графік роботи у вихідні дні обов’язковий'),
-  copyright: yup.string().required('Рік сайту обов’язковий'),
-  offer_agreement: yup
+  work_schedule_weekends: yup.string().required('Графік роботи у вихідні дні обов’язковий'),
+  current_year: yup.string().required('Рік сайту обов’язковий'),
+  offer_agreement_policy: yup
     .string()
     .required('Посилання на Політику конфіденційності обов’язкове')
     .test(
@@ -53,7 +53,7 @@ export const contactSchema = yup.object({
       'Посилання на Політику конфіденційності має містити http або https',
       (value) => typeof value === 'string' && /^(http|https):\/\//.test(value)
     ),
-  exchange_and_return: yup
+  exchange_and_return_policy: yup
     .string()
     .required('Посилання на Політику конфіденційності обов’язкове')
     .test(
@@ -61,7 +61,7 @@ export const contactSchema = yup.object({
       'Посилання на Політику конфіденційності має містити http або https',
       (value) => typeof value === 'string' && /^(http|https):\/\//.test(value)
     ),
-  payment_and_delivery: yup
+  paymant_and_delivery_policy: yup
     .string()
     .required('Посилання на Політику конфіденційності обов’язкове')
     .test(

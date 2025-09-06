@@ -44,7 +44,7 @@ const ContactsForm = ({ register, errors }) => {
         />
         <Input
           labelText="Додатковий номер:"
-          name="secondary_phone_number"
+          name="additional_phone_number"
           register={register}
           errors={errors}
           variant="admin"
@@ -63,7 +63,7 @@ const ContactsForm = ({ register, errors }) => {
         />
         <Input
           labelText="Сб-Нд:"
-          name="work_schedule_weekend"
+          name="work_schedule_weekends"
           register={register}
           errors={errors}
           variant="admin"
@@ -74,7 +74,7 @@ const ContactsForm = ({ register, errors }) => {
         <h2>Посилання на документи</h2>
         <Input
           labelText="Договір оферти:"
-          name="offer_agreement"
+          name="offer_agreement_policy"
           register={register}
           errors={errors}
           variant="admin"
@@ -82,7 +82,7 @@ const ContactsForm = ({ register, errors }) => {
         />
         <Input
           labelText="Обмін та повернення:"
-          name="exchange_and_return"
+          name="exchange_and_return_policy"
           register={register}
           errors={errors}
           variant="admin"
@@ -90,7 +90,7 @@ const ContactsForm = ({ register, errors }) => {
         />
         <Input
           labelText="Оплата та доставка:"
-          name="payment_and_delivery"
+          name="paymant_and_delivery_policy"
           register={register}
           errors={errors}
           variant="admin"
@@ -99,7 +99,7 @@ const ContactsForm = ({ register, errors }) => {
       </div>
       <Input
         labelText="Рік сайту:"
-        name="copyright"
+        name="current_year"
         register={register}
         errors={errors}
         variant="admin"
