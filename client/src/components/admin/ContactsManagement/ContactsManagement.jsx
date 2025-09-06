@@ -23,6 +23,7 @@ import AdminMessage from '../AdminMessage/AdminMessage';
 import ErrorText from '../ErrorText/ErrorText';
 
 const formValues = [
+  'id',
   'telegram',
   'instagram',
   'email',
@@ -61,14 +62,15 @@ const ContactsManagement = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (responseEdit) showSuccessEditMessage('Категорія успішно відредагована');
+    if (responseEdit) showSuccessEditMessage('Контакти успішно відредаговані');
   }, [responseEdit]);
 
   useEffect(() => {
     contactsGet && setFormValues(setValue, contactsGet[0], formValues);
   }, [contactsGet, setValue]);
 
-  const onSubmit = (formData) => dispatch(contactsEdit({ formData }));
+  const id = getValues().id;
+  const onSubmit = (formData) => dispatch(contactsEdit({ formData, id }));
   return isLoadingGet || isLoadingEdit ? (
     <Spinner />
   ) : (
@@ -76,10 +78,6 @@ const ContactsManagement = () => {
       <form onSubmit={handleSubmit(onSubmit)} className={cl.contactsEdit}>
         <ContactsForm register={register} errors={errors} />
         {errorEdit && <ErrorText error={errorEdit} />}
-
-        <button type="button" onClick={() => console.log(getValues())}>
-          awdddddddddddddddd
-        </button>
 
         <AdminFormActions
           to="/admin/promocodes"
