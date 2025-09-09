@@ -7,9 +7,11 @@ import EnIcon from '@components/UI/icons/Header/EnIcon';
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { useSelector } from 'react-redux';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
+import { selectCartSavedIds } from '@redux/selectors';
 
 const HeaderRightControls = ({ handleShowInput, isScrolled, handleShowBasket }) => {
-  const cartItemsAmount = useSelector((state) => state.cart.savedIds.length);
+  const savedIds = useSelector(selectCartSavedIds);
+  const totalQuantity = savedIds.reduce((sum, item) => sum + item.quantity, 0);
   const { deskmin, deskmax } = useScreenSizes();
   const [isLanguageDefault, setIsLanguageDefault] = useState(true);
 
@@ -30,7 +32,7 @@ const HeaderRightControls = ({ handleShowInput, isScrolled, handleShowBasket }) 
 
       <ButtonAriaLabel al="openBasket" onClick={handleShowBasket}>
         <BagIcon fillColor={isScrolled ? '#FFFFFF' : '#292D32'} />
-        <span>{cartItemsAmount}</span>
+        <span>{totalQuantity}</span>
       </ButtonAriaLabel>
     </div>
   );
