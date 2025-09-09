@@ -23,7 +23,13 @@ export default function ImgDesk({ card }) {
       </div>
       <ul className={cl.wrapSmallImg}>
         {images.map((img, i) => (
-          <li key={img.id} onClick={() => setBigImage(images[i].image)} className={cl.wrapImg}>
+          <li
+            key={img.id}
+            onClick={() => {
+              setBigImage(images[i].image);
+            }}
+            className={cl.wrapImg}
+          >
             <Img src={img.image} cardName={card.name} bigImage={bigImage} selectedImage={images[i].image} />
           </li>
         ))}
