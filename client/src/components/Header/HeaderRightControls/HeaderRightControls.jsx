@@ -8,12 +8,14 @@ import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import { useSelector } from 'react-redux';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 import { selectCartSavedIds } from '@redux/selectors';
+import { useTranslation } from 'react-i18next';
 
 const HeaderRightControls = ({ handleShowInput, isScrolled, handleShowBasket }) => {
   const savedIds = useSelector(selectCartSavedIds);
   const totalQuantity = savedIds.reduce((sum, item) => sum + item.quantity, 0);
   const { deskmin, deskmax } = useScreenSizes();
-  const [isLanguageDefault, setIsLanguageDefault] = useState(true);
+  const { i18n } = useTranslation();
+  const [isLanguageDefault, setIsLanguageDefault] = useState(i18n.language === 'ua');
 
   return (
     <div className={cl.headerRightControls}>
