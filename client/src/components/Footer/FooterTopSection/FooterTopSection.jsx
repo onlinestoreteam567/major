@@ -4,7 +4,7 @@ import FooterNavigation from './FooterNavigation/FooterNavigation';
 import FooterInfo from './FooterInfo/FooterInfo';
 import SocialLinks from '@UI/SocialLinks/SocialLinks';
 
-const FooterTopSection = () => {
+const FooterTopSection = ({ contacts }) => {
   const { tablet, deskmin, deskmax } = useScreenSizes();
   return (
     <section className={cl.footerTopSection}>
@@ -14,8 +14,8 @@ const FooterTopSection = () => {
         </div>
       )}
       <div className={cl.wrapper}>
-        <FooterNavigation />
-        <FooterInfo />
+        <FooterNavigation contacts={contacts} />
+        <FooterInfo contacts={contacts} />
       </div>
       {!tablet && !deskmin && !deskmax && <SocialLinks />}
     </section>
