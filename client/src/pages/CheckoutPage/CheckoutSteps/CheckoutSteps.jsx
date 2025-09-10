@@ -15,13 +15,14 @@ const CheckoutSteps = () => {
     getValues,
     control,
     trigger,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(checkoutSchema),
     mode: 'onSubmit',
   });
 
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(3);
 
   return (
     <form onSubmit={handleSubmit} className={cl.checkoutSteps}>
@@ -50,6 +51,8 @@ const CheckoutSteps = () => {
         register={register}
         errors={errors}
         trigger={trigger}
+        getValues={getValues}
+        watch={watch}
       />
       {activeStep === 4 && <p style={{ color: 'limeGreen', fontSize: '30px' }}>Всьо, форма пройдена, давай гроші</p>}
 

@@ -17,9 +17,27 @@
   div:nth-of-type(3) {
     @include flexGap(12px, column);
 
-    & > div {
+    & > label {
       @include flexGap(4px);
       align-items: center;
+      position: relative;
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 4px 8px;
+      border: 1px solid;
+
+      &.error {
+        border: 1px solid #e31a1a;
+      }
+
+      &:has(input:checked) {
+        background-color: #ededed;
+      }
+
+      input {
+        position: absolute;
+        opacity: 0;
+      }
 
       div {
         @include flexGap(4px, column);
@@ -29,6 +47,10 @@
         height: 52px;
         width: 52px;
       }
+    }
+
+    & > p {
+      color: #e31a1a;
     }
   }
 
@@ -41,8 +63,10 @@
     div:nth-of-type(3) {
       gap: 24px;
 
-      & > div {
+      & > label {
         gap: 12px;
+        width: auto;
+        padding: 6px 12px;
 
         div {
           gap: 12px;
@@ -70,8 +94,9 @@
     }
 
     div:nth-of-type(3) {
-      & > div {
+      & > label {
         gap: 30px;
+        padding: 12px 24px;
 
         img {
           height: 56px;
