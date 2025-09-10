@@ -40,6 +40,24 @@
 
     ul {
       @include flexGap(24px, column);
+
+      a {
+        font-family: $font-main;
+        font-size: $font-size-base;
+        font-weight: $font-weight-medium;
+        letter-spacing: $letter-spacing-small;
+        line-height: 21.76px;
+
+        @include tablet {
+          text-wrap: nowrap;
+        }
+
+        @include deskmin {
+          font-family: $font-main;
+          font-size: $font-size-medium;
+          line-height: $line-height-base;
+        }
+      }
     }
   }
 }
