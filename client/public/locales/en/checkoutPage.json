@@ -53,6 +53,7 @@
   "firstOptionAlt": "First payment option",
   "secondOptionAlt": "Second payment option",
   "pay": "Pay",
+  "selectPaymentOption": "Select a payment option",
 
   "required": "Required field to fill in!",
   "enterFullNumber": "Enter a valid phone number",

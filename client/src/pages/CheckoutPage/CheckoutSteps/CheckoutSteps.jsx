@@ -15,6 +15,7 @@ const CheckoutSteps = () => {
     getValues,
     control,
     trigger,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(checkoutSchema),
@@ -50,6 +51,8 @@ const CheckoutSteps = () => {
         register={register}
         errors={errors}
         trigger={trigger}
+        getValues={getValues}
+        watch={watch}
       />
       {activeStep === 4 && <p style={{ color: 'limeGreen', fontSize: '30px' }}>Всьо, форма пройдена, давай гроші</p>}
 

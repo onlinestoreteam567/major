@@ -18,5 +18,6 @@ export const checkoutSchema = yup.object({
   settlement: yup.string().required('required'),
   warehouse: yup.string().required('required'),
   comment: yup.string().max(500, 'maximum500Characters'),
+  paymentOption: yup.string().oneOf(['partial', 'full'], 'selectPaymentOption').required('selectPaymentOption'),
   checkbox: yup.boolean().default(false).oneOf([true], 'youMustAgreeToTheProcessingOfPersonalData').default(true),
 });

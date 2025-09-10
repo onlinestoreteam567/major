@@ -53,6 +53,7 @@
   "firstOptionAlt": "Перший варіант оплати",
   "secondOptionAlt": "Другий варіант оплати",
   "pay": "Оплата",
+  "selectPaymentOption": "Оберіть спосіб оплати",
 
   "required": "Обов'язкове поле для заповнення!",
   "enterFullNumber": "Введіть дійсний номер телефону",
