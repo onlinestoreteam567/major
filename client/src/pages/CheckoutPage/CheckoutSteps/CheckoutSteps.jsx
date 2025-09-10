@@ -22,7 +22,7 @@ const CheckoutSteps = () => {
     mode: 'onSubmit',
   });
 
-  const [activeStep, setActiveStep] = useState(3);
+  const [activeStep, setActiveStep] = useState(1);
 
   return (
     <form onSubmit={handleSubmit} className={cl.checkoutSteps}>
