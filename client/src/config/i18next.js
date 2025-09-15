@@ -3,7 +3,10 @@ import { initReactI18next } from 'react-i18next';
 import HttpApi from 'i18next-http-backend';
 let savedLanguage = localStorage.getItem('language');
 
-if (savedLanguage !== 'ua' || savedLanguage !== 'en') savedLanguage = 'ua';
+if (savedLanguage !== 'ua' && savedLanguage !== 'en') {
+  savedLanguage = 'ua';
+  localStorage.setItem('language', 'ua');
+}
 
 i18n
   .use(HttpApi)
