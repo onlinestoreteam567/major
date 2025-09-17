@@ -24,6 +24,13 @@
   background-color: #323232;
   width: 100px;
 
+  &.manager {
+    nav {
+      div:first-of-type {
+        margin-block: 55px auto;
+      }
+    }
+  }
   nav {
     @include flex(column, space-between, center);
     height: 628px;
@@ -87,6 +94,14 @@
   @include tablet {
     width: 168px;
     z-index: $z-index-header;
+
+    &.manager {
+      nav {
+        div:first-of-type {
+          margin-top: 80px;
+        }
+      }
+    }
 
     nav {
       padding: 64px 0;
@@ -176,30 +191,13 @@
     position: static;
     height: auto;
 
-    //   nav {
-    //     div {
-    //       align-items: start;
-
-    //       a:first-of-type {
-    //         padding-left: 22px;
-    //       }
-
-    //       a,
-    //       button {
-    //         justify-content: start;
-    //         padding: 16px;
-    //         gap: 22px;
-
-    //         span {
-    //           font-family: Mulish;
-    //           font-weight: 400;
-    //           line-height: 136%;
-    //           color: #f8f8f9;
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
+    &.manager {
+      nav {
+        div:first-of-type {
+          margin-top: 40px;
+        }
+      }
+    }
 
     &:hover {
       width: 270px;
@@ -320,6 +318,13 @@
     min-width: 358px;
     width: 358px;
 
+    &.manager {
+      nav {
+        div:first-of-type {
+          margin-top: 95px;
+        }
+      }
+    }
     &:hover {
       nav {
         & > div:first-of-type {

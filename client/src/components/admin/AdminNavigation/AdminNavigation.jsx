@@ -48,7 +48,7 @@ const AdminNavigation = () => {
       {isMobileOverlay && <Overlay handleClose={handleClose} />}
 
       <div
-        className={`${cl.backgroundWrapper} ${isExpanded ? cl.expanded : ''}`}
+        className={`${cl.backgroundWrapper} ${isExpanded ? cl.expanded : ''} ${!isShowAdminSections ? cl.manager : ''}`}
         onClick={(e) => handleExpand(e, isExpanded, setIsExpanded, tablet, setIsShowBurgerButton)}
       >
         <nav>
