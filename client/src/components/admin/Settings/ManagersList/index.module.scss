@@ -1,0 +1,7 @@
+@import '@mixins';
+
+.managersList {
+  @include flexGap(24px, column);
+  color: black;
+  margin-top: 50px;
+}

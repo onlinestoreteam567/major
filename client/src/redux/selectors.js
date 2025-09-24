@@ -186,3 +186,7 @@ export const loadContacts = (state) => state.contacts.isLoading;
 export const selectContactsEdit = (state) => state.contactsEdit.response;
 export const loadContactsEdit = (state) => state.contactsEdit.isLoading;
 export const errorContactsEdit = (state) => state.contactsEdit.error;
+
+export const selectUsers = (state) => state.usersList.response;
+export const loadUsers = (state) => state.usersList.isLoading;
+export const errorUsers = (state) => state.usersList.error;

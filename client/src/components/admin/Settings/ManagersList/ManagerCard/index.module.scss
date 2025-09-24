@@ -1,0 +1,54 @@
+@import '@mixins';
+
+.managerCard {
+  @include flex(row, space-between);
+  gap: 8px;
+  border-bottom: 1px solid #676767;
+  padding-bottom: 24px;
+  color: #000000;
+
+  p {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 136%;
+    width: 180px;
+    word-break: break-word;
+  }
+
+  div {
+    @include flexGap(8px);
+  }
+
+  @include mobile {
+    p {
+      width: 200px;
+    }
+
+    div {
+      @include flexGap(24px);
+    }
+  }
+
+  @include tablet {
+    padding-bottom: 28px;
+
+    p {
+      width: 355px;
+      font-size: 20px;
+      line-height: 160%;
+    }
+  }
+
+  @include deskmin {
+    p {
+      width: 515px;
+    }
+  }
+
+  @include deskmax {
+    p {
+      width: 820px;
+    }
+  }
+}

@@ -31,6 +31,7 @@ import PartnerEdit from '@components/admin/PartnersManagement/PartnerEdit/Partne
 import ReviewsManagement from '@components/admin/ReviewsManagement/ReviewsManagement';
 import ContactsManagement from '@components/admin/ContactsManagement/ContactsManagement';
 import RoleBasedRoute from './RoleBasedRoute';
+import Settings from '@components/admin/Settings/Settings';
 
 // Lazy loading
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -91,6 +92,7 @@ const router = createBrowserRouter([
           { path: 'partners/create', element: <PartnerCreate /> },
           { path: 'partners/:id', element: <PartnerEdit /> },
           { path: 'contacts', element: <ContactsManagement /> },
+          { path: 'settings', element: <Settings /> },
         ],
       },
     ],
