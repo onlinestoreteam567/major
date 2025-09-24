@@ -190,3 +190,6 @@ export const errorContactsEdit = (state) => state.contactsEdit.error;
 export const selectUsers = (state) => state.usersList.response;
 export const loadUsers = (state) => state.usersList.isLoading;
 export const errorUsers = (state) => state.usersList.error;
+
+export const selectUserDelete = (state) => state.userDelete.response;
+export const loadUserDelete = (state) => state.userDelete.isLoading;

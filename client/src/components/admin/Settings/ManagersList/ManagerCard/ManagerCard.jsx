@@ -2,16 +2,16 @@ import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
 import { useState } from 'react';
 import DeletePopUp from '@components/admin/DeletePopUp/DeletePopUp';
-import { deletePartner } from '@redux/partners/service';
 import { useDispatch } from 'react-redux';
+import { deleteUser } from '@redux/admin/settings/service';
 
-const ManagerCard = ({ card, showDeletedMessage }) => {
+const ManagerCard = ({ manager, showDeletedMessage }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
-    dispatch(deletePartner(id));
-    showDeletedMessage(`Партнера “${card.name}” видалено`);
+    dispatch(deleteUser(id));
+    showDeletedMessage(`Менеджера “${manager?.email}” видалено`);
     toggleDeletePopUp();
   };
 
@@ -20,9 +20,9 @@ const ManagerCard = ({ card, showDeletedMessage }) => {
   return (
     <>
       <li className={cl.managerCard}>
-        <p>{card.email}</p>
+        <p>{manager.email}</p>
         <div>
-          <Link to={`/admin/partners/${card.id}`}>
+          <Link to={`/admin/settings/${manager?.id}`}>
             <img src="/svg/admin/edit.svg" />
           </Link>
           <button onClick={() => toggleDeletePopUp()}>
@@ -31,8 +31,8 @@ const ManagerCard = ({ card, showDeletedMessage }) => {
         </div>
       </li>
       {isShowDeletePopUp && (
-        <DeletePopUp closeDeletePopUp={toggleDeletePopUp} handleDelete={() => handleDelete(card.id)}>
-          Ви впевнені, що хочете видалити цього партнера
+        <DeletePopUp closeDeletePopUp={toggleDeletePopUp} handleDelete={() => handleDelete(manager.id)}>
+          Ви впевнені, що хочете видалити менеджера “{manager?.email}”?
         </DeletePopUp>
       )}
     </>

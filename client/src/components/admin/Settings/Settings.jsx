@@ -20,7 +20,7 @@ const Settings = () => {
     <div className={cl.settings}>
       <div>
         <p>Менеджери ({managers?.length})</p>
-        <Link to={`/admin/partners/create`}>
+        <Link to={`/admin/settings/create`}>
           <Button>Додати менеджера</Button>
         </Link>
       </div>

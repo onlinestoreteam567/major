@@ -11,3 +11,13 @@ export const fetchUsers = createAsyncThunk('users/getAll', async (_, thunkAPI) =
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const deleteUser = createAsyncThunk('users/delete', async (id, thunkAPI) => {
+  try {
+    const response = await apiClient.delete(`${USERS_ENDPOINT}${id}/`);
+    return response.data;
+  } catch (error) {
+    console.error('Error in deleting partner:', error);
+    return thunkAPI.rejectWithValue(error.response?.data || error.message);
+  }
+});

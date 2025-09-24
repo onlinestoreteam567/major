@@ -51,6 +51,7 @@ import { verifyTokenReducer } from '@redux/admin/auth/verifyTokenSlice';
 import { contactsEditReducer } from '@redux/admin/contacts/contactsEditSlice';
 import { contactsReducer } from '@redux/contacts/contactsSlice';
 import { usersListReducer } from '@redux/admin/settings/userList';
+import { userDeleteReducer } from '@redux/admin/settings/userDelete';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -117,6 +118,7 @@ const rootReducer = combineReducers({
   adminProductSearch: adminProductSearchReducer,
   adminReviewsSearch: adminReviewsSearchReducer,
   usersList: usersListReducer,
+  userDelete: userDeleteReducer,
 });
 
 export const store = configureStore({
