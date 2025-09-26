@@ -108,10 +108,10 @@ const AdminNavigation = () => {
 
           <div>
             {isShowAdminSections && (
-              <button>
+              <NavLink to={`/admin/settings`} className={({ isActive }) => (isActive ? cl.active : undefined)}>
                 <img src="/images/admin/navigation/Setting icons.png" alt="Settings icon" />
                 <span>Налаштування</span>
-              </button>
+              </NavLink>
             )}
 
             <LogOut />

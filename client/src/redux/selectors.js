@@ -186,3 +186,21 @@ export const loadContacts = (state) => state.contacts.isLoading;
 export const selectContactsEdit = (state) => state.contactsEdit.response;
 export const loadContactsEdit = (state) => state.contactsEdit.isLoading;
 export const errorContactsEdit = (state) => state.contactsEdit.error;
+
+export const selectUsers = (state) => state.usersList.response;
+export const loadUsers = (state) => state.usersList.isLoading;
+export const errorUsers = (state) => state.usersList.error;
+
+export const selectUserDelete = (state) => state.userDelete.response;
+export const loadUserDelete = (state) => state.userDelete.isLoading;
+
+export const selectUserCreate = (state) => state.userCreate.response;
+export const loadUserCreate = (state) => state.userCreate.isLoading;
+export const errorUserCreate = (state) => state.userCreate.error;
+
+export const selectUserEdit = (state) => state.userEdit.response;
+export const loadUserEdit = (state) => state.userEdit.isLoading;
+export const errorUserEdit = (state) => state.userEdit.error;
+
+export const loadUserById = (state) => state.userById.isLoading;
+export const responseUserById = (state) => state.userById.userById;

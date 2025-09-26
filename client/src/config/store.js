@@ -50,6 +50,11 @@ import { adminMessageSliceReducer } from '@redux/admin/adminMessageSlice';
 import { verifyTokenReducer } from '@redux/admin/auth/verifyTokenSlice';
 import { contactsEditReducer } from '@redux/admin/contacts/contactsEditSlice';
 import { contactsReducer } from '@redux/contacts/contactsSlice';
+import { usersListReducer } from '@redux/admin/settings/userList';
+import { userDeleteReducer } from '@redux/admin/settings/userDelete';
+import { userCreateReducer } from '@redux/admin/settings/userCreate';
+import { userEditReducer } from '@redux/admin/settings/userEdit';
+import { userByIdReducer } from '@redux/admin/settings/userById';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -115,6 +120,11 @@ const rootReducer = combineReducers({
   contactsEdit: contactsEditReducer,
   adminProductSearch: adminProductSearchReducer,
   adminReviewsSearch: adminReviewsSearchReducer,
+  usersList: usersListReducer,
+  userDelete: userDeleteReducer,
+  userCreate: userCreateReducer,
+  userEdit: userEditReducer,
+  userById: userByIdReducer,
 });
 
 export const store = configureStore({
