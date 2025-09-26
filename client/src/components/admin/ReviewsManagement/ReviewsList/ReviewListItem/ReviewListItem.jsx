@@ -5,7 +5,7 @@ import Button from '@components/UI/Button/Button';
 import { useState } from 'react';
 import DeletePopUp from '@components/admin/DeletePopUp/DeletePopUp';
 
-const ReviewListItem = ({ review, showMessage }) => {
+const ReviewListItem = ({ review, showMessage, isShowAdminSections }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const [isShowApprovePopUp, setIsShowApprovePopUp] = useState(false);
   const dispatch = useDispatch();
@@ -49,15 +49,19 @@ const ReviewListItem = ({ review, showMessage }) => {
           Ім`я користувача: <span>{review.user_name}</span>
         </p>
         {review.is_approved ? (
-          <button onClick={() => toggleDeletePopUp()}>
-            <img src="/svg/admin/delete.svg" alt="More options" />
-          </button>
+          isShowAdminSections && (
+            <button onClick={() => toggleDeletePopUp()}>
+              <img src="/svg/admin/delete.svg" alt="More options" />
+            </button>
+          )
         ) : (
           <div className={cl.approveButtonsWrap}>
             <Button onClick={() => toggleApprovePopUp()}>Опублікувати</Button>
-            <button onClick={() => toggleDeletePopUp()}>
-              <img src="/svg/admin/delete.svg" />
-            </button>
+            {isShowAdminSections && (
+              <button onClick={() => toggleDeletePopUp()}>
+                <img src="/svg/admin/delete.svg" alt="More options" />
+              </button>
+            )}
           </div>
         )}
       </li>

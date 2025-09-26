@@ -1,7 +1,7 @@
 import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
 import Spinner from '@UI/Spinner/Spinner';
 import useTimedMessage from '@hooks/admin/useTimedMessage';
-import { loadProductDelete, responseProductDelete } from '@redux/selectors';
+import { loadProductDelete, responseProductDelete, selectRole } from '@redux/selectors';
 import { fetchProductsAll } from '@redux/products/service';
 import { loadProducts, selectFilteredProducts } from '@redux/selectors';
 import { useEffect } from 'react';
@@ -21,6 +21,9 @@ const ProductList = () => {
     if (deleteResponse === 204) dispatch(fetchProductsAll());
   }, [dispatch, deleteResponse]);
 
+  const role = useSelector(selectRole);
+  const isShowAdminSections = role === 1;
+
   return (
     <>
       {isLoading || isLoadingDelete ? (
@@ -39,7 +42,12 @@ const ProductList = () => {
 
               <ul>
                 {items.map((card) => (
-                  <ProductListItem card={card} key={card.id} showDeletedMessage={showDeletedMessage} />
+                  <ProductListItem
+                    isShowAdminSections={isShowAdminSections}
+                    card={card}
+                    key={card.id}
+                    showDeletedMessage={showDeletedMessage}
+                  />
                 ))}
               </ul>
             </div>

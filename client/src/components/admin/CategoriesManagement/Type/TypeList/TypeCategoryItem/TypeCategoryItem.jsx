@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
 
-const TypeCategoryItem = ({ category, showDeletedMessage }) => {
+const TypeCategoryItem = ({ category, showDeletedMessage, isShowAdminSections }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const isSmallScreen = !(tablet || deskmin || deskmax);
@@ -33,9 +33,11 @@ const TypeCategoryItem = ({ category, showDeletedMessage }) => {
         {isSmallScreen ? (
           <>
             <Link to={`/admin/type/${category.id}`}>{categoryContent}</Link>
-            <button type="button" onClick={() => toggleDeletePopUp()}>
-              <img src="/svg/admin/delete.svg" />
-            </button>
+            {isShowAdminSections && (
+              <button type="button" onClick={() => toggleDeletePopUp()}>
+                <img src="/svg/admin/delete.svg" />
+              </button>
+            )}
           </>
         ) : (
           <>
@@ -44,9 +46,11 @@ const TypeCategoryItem = ({ category, showDeletedMessage }) => {
               <Link to={`/admin/type/${category.id}`}>
                 <img src="/svg/admin/edit.svg" />
               </Link>
-              <button type="button" onClick={() => toggleDeletePopUp()}>
-                <img src="/svg/admin/delete.svg" />
-              </button>
+              {isShowAdminSections && (
+                <button type="button" onClick={() => toggleDeletePopUp()}>
+                  <img src="/svg/admin/delete.svg" />
+                </button>
+              )}
             </div>
           </>
         )}
