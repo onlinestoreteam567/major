@@ -44,7 +44,6 @@ export const contactSchema = yup.object({
 
   work_schedule_weekdays: yup.string().required('Графік роботи в будні дні обов’язковий'),
   work_schedule_weekends: yup.string().required('Графік роботи у вихідні дні обов’язковий'),
-  current_year: yup.string().required('Рік сайту обов’язковий'),
   offer_agreement_policy: yup
     .string()
     .required('Посилання на Політику конфіденційності обов’язкове')

@@ -5,7 +5,7 @@ import { deletePromocode } from '@redux/admin/promocode/service';
 import { useState } from 'react';
 import DeletePopUp from '@components/admin/DeletePopUp/DeletePopUp';
 
-const PromocodeListItem = ({ promocode, showDeletedMessage }) => {
+const PromocodeListItem = ({ promocode, showDeletedMessage, isShowAdminSections }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const dispatch = useDispatch();
 
@@ -29,9 +29,11 @@ const PromocodeListItem = ({ promocode, showDeletedMessage }) => {
           <Link to={`/admin/promocodes/${promocode.id}`}>
             <img src="/svg/admin/edit.svg" />
           </Link>
-          <button onClick={() => toggleDeletePopUp()}>
-            <img src="/svg/admin/delete.svg" alt="More options" />
-          </button>
+          {isShowAdminSections && (
+            <button onClick={() => toggleDeletePopUp()}>
+              <img src="/svg/admin/delete.svg" alt="More options" />
+            </button>
+          )}
         </div>
       </li>
       {isShowDeletePopUp && (

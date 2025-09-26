@@ -1,5 +1,5 @@
 import Spinner from '@UI/Spinner/Spinner';
-import { loadReviews, selectFilteredReviews } from '@redux/selectors';
+import { loadReviews, selectFilteredReviews, selectRole } from '@redux/selectors';
 import { useSelector } from 'react-redux';
 import cl from './index.module.scss';
 import ReviewListItem from './ReviewListItem/ReviewListItem';
@@ -11,13 +11,21 @@ const ReviewsList = () => {
   const isLoading = useSelector(loadReviews);
   const [message, showMessage] = useTimedMessage();
 
+  const role = useSelector(selectRole);
+  const isShowAdminSections = role === 1;
+
   return isLoading ? (
     <Spinner />
   ) : reviews.length > 0 ? (
     <>
       <ul className={cl.reviewsList}>
         {reviews.map((review) => (
-          <ReviewListItem review={review} key={review.id} showMessage={showMessage} />
+          <ReviewListItem
+            review={review}
+            key={review.id}
+            showMessage={showMessage}
+            isShowAdminSections={isShowAdminSections}
+          />
         ))}
       </ul>
       {message && <AdminMessage>{message}</AdminMessage>}

@@ -97,14 +97,6 @@ const ContactsForm = ({ register, errors }) => {
           placeholder="link"
         />
       </div>
-      <Input
-        labelText="Рік сайту:"
-        name="current_year"
-        register={register}
-        errors={errors}
-        variant="admin"
-        placeholder="example"
-      />
 
       {Object.keys(errors).length > 0 && (
         <div className={cl.errors}>

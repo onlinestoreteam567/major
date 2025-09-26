@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
 
-const ProductListItem = ({ card, showDeletedMessage }) => {
+const ProductListItem = ({ card, showDeletedMessage, isShowAdminSections }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const isSmallScreen = !(tablet || deskmin || deskmax);
@@ -48,9 +48,11 @@ const ProductListItem = ({ card, showDeletedMessage }) => {
         ) : (
           <>
             {cardContent}
-            <button onClick={() => toggleDeletePopUp()}>
-              <img src="/svg/admin/delete.svg" alt="More options" />
-            </button>
+            {isShowAdminSections && (
+              <button onClick={() => toggleDeletePopUp()}>
+                <img src="/svg/admin/delete.svg" alt="More options" />
+              </button>
+            )}
             <Link to={`/admin/products/${card.id}`} className={cl.fullCardLink}>
               <img src="/svg/admin/edit.svg" />
             </Link>

@@ -5,6 +5,7 @@ import {
   loadPromocodeList,
   responsePromocodeDelete,
   responsePromocodeList,
+  selectRole,
 } from '@redux/selectors';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -25,6 +26,9 @@ const List = () => {
     deleteResponse === 204 && dispatch(fetchPromocode());
   }, [dispatch, deleteResponse]);
 
+  const role = useSelector(selectRole);
+  const isShowAdminSections = role === 1;
+
   return (
     <>
       {isLoading || isLoadingDelete ? (
@@ -34,7 +38,12 @@ const List = () => {
           <ul className={cl.list}>
             {items !== null &&
               items.map((promocode) => (
-                <PromocodeListItem key={promocode.id} promocode={promocode} showDeletedMessage={showDeletedMessage} />
+                <PromocodeListItem
+                  key={promocode.id}
+                  promocode={promocode}
+                  showDeletedMessage={showDeletedMessage}
+                  isShowAdminSections={isShowAdminSections}
+                />
               ))}
           </ul>
           {deletedMessage && <AdminMessage>{deletedMessage}</AdminMessage>}

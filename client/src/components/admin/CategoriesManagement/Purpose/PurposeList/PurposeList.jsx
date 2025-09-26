@@ -1,7 +1,7 @@
 import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
 import Spinner from '@UI/Spinner/Spinner';
 import useTimedMessage from '@hooks/admin/useTimedMessage';
-import { loadPurposeDelete, responsePurposeDelete } from '@redux/selectors';
+import { loadPurposeDelete, responsePurposeDelete, selectRole } from '@redux/selectors';
 import { fetchCategories } from '@redux/params/service';
 import { loadCategories, selectCategories } from '@redux/selectors';
 import { useEffect } from 'react';
@@ -21,6 +21,9 @@ const PurposeList = () => {
     deleteResponse === 204 && dispatch(fetchCategories());
   }, [dispatch, deleteResponse]);
 
+  const role = useSelector(selectRole);
+  const isShowAdminSections = role === 1;
+
   return (
     <>
       {isLoading || isLoadingDelete ? (
@@ -34,7 +37,12 @@ const PurposeList = () => {
           </div>
 
           {items.map((category) => (
-            <PurposeCategoryItem key={category.id} category={category} showDeletedMessage={showDeletedMessage} />
+            <PurposeCategoryItem
+              key={category.id}
+              category={category}
+              showDeletedMessage={showDeletedMessage}
+              isShowAdminSections={isShowAdminSections}
+            />
           ))}
         </ul>
       )}

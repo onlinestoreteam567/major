@@ -1,7 +1,7 @@
 import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
 import Spinner from '@UI/Spinner/Spinner';
 import useTimedMessage from '@hooks/admin/useTimedMessage';
-import { loadTypeDelete, responseTypeDelete } from '@redux/selectors';
+import { loadTypeDelete, responseTypeDelete, selectRole } from '@redux/selectors';
 import { fetchTypes } from '@redux/params/service';
 import { loadTypes, selectTypes } from '@redux/selectors';
 import { useEffect } from 'react';
@@ -20,6 +20,10 @@ const TypeList = () => {
   useEffect(() => {
     deleteResponse === 204 && dispatch(fetchTypes());
   }, [dispatch, deleteResponse]);
+
+  const role = useSelector(selectRole);
+  const isShowAdminSections = role === 1;
+
   return (
     <>
       {isLoading || isLoadingDelete ? (
@@ -32,7 +36,12 @@ const TypeList = () => {
           </div>
 
           {items.map((category) => (
-            <TypeCategoryItem key={category.id} category={category} showDeletedMessage={showDeletedMessage} />
+            <TypeCategoryItem
+              key={category.id}
+              category={category}
+              showDeletedMessage={showDeletedMessage}
+              isShowAdminSections={isShowAdminSections}
+            />
           ))}
         </ul>
       )}
