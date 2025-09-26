@@ -193,3 +193,14 @@ export const errorUsers = (state) => state.usersList.error;
 
 export const selectUserDelete = (state) => state.userDelete.response;
 export const loadUserDelete = (state) => state.userDelete.isLoading;
+
+export const selectUserCreate = (state) => state.userDelete.response;
+export const loadUserCreate = (state) => state.userDelete.isLoading;
+export const errorUserCreate = (state) => state.userDelete.error;
+
+export const selectUserEdit = (state) => state.userEdit.response;
+export const loadUserEdit = (state) => state.userEdit.isLoading;
+export const errorUserEdit = (state) => state.userEdit.error;
+
+export const loadUserById = (state) => state.userById.isLoading;
+export const responseUserById = (state) => state.userById.userById;

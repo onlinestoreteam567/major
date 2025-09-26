@@ -1,0 +1,22 @@
+@import '@mixins';
+
+.managerEdit {
+  @include flex(column, null, null);
+  color: black;
+  margin-top: 52px;
+
+  @include tablet {
+    margin: 36px 40px 0 208px;
+    width: 524px;
+  }
+
+  @include deskmin {
+    margin: 36px auto;
+    width: 686px;
+  }
+
+  @include deskmax {
+    margin: 90px auto;
+    width: 986px;
+  }
+}

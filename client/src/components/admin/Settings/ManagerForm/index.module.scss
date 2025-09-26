@@ -1,0 +1,41 @@
+@import '@mixins';
+
+.managerForm {
+  @include flexGap(48px, column);
+
+  label {
+    font-size: 24px;
+    flex-direction: column;
+    gap: 16px;
+
+    input {
+      width: 280px;
+    }
+  }
+
+  @include mobile {
+    gap: 64px;
+  }
+
+  @include tablet {
+    label {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      input[type='text'] {
+        width: 390px;
+      }
+    }
+  }
+
+  @include deskmin {
+    label {
+      width: 100%;
+
+      input[type='text'] {
+        width: 570px;
+      }
+    }
+  }
+}
