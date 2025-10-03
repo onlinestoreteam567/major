@@ -17,7 +17,6 @@ import { fetchProductsAll } from '@redux/products/service';
 import { setAdminMessage } from '@redux/admin/adminMessageSlice';
 import { clearBannerEditState } from '@redux/banner/bannerEditSlice';
 import { useNavigate } from 'react-router-dom';
-import { clearBannerByIdState } from '@redux/banner/bannerByIdSlice';
 
 const BannerEdit = () => {
   const {
@@ -49,7 +48,7 @@ const BannerEdit = () => {
       setValue('left', responseGet.left);
       setValue('product_id', responseGet.product?.id);
       setValue('image', responseGet.image_url || '/images/placeholder.webp');
-      setValue('background_image', responseGet.background_image_url);
+      setValue('background_image', responseGet.background_image_url || '/images/placeholder.webp');
     }
   }, [responseGet, setValue]);
 
@@ -58,10 +57,7 @@ const BannerEdit = () => {
       dispatch(
         setAdminMessage({
           message: 'Банер успішно відредагований',
-          onClear: () => {
-            dispatch(clearBannerEditState());
-            dispatch(clearBannerByIdState());
-          },
+          onClear: () => dispatch(clearBannerEditState()),
         })
       );
       navigate('/admin/banners');
