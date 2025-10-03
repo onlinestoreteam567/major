@@ -1,0 +1,52 @@
+@import '@mixins';
+
+.bannerListItem {
+  @include flex(row, space-between);
+  color: black;
+  gap: 8px;
+  border-bottom: 1px solid #676767;
+  padding-bottom: 24px;
+
+  & > img {
+    width: 68px;
+    height: 48px;
+    border-radius: 8px;
+  }
+
+  p {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 136%;
+    width: 100%;
+    word-break: break-word;
+  }
+
+  div {
+    @include flexGap(8px);
+  }
+
+  @include mobile {
+    div {
+      @include flexGap(24px);
+    }
+  }
+
+  @include tablet {
+    gap: 24px;
+
+    & > img {
+      width: 91px;
+      height: 64px;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 160%;
+    }
+  }
+
+  @include deskmin {
+    gap: 64px;
+  }
+}

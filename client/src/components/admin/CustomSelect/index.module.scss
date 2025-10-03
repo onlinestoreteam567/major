@@ -14,6 +14,7 @@
   background-color: #ffffff;
   cursor: pointer;
   @include flex(row, space-between, center);
+  overflow: hidden;
   user-select: none;
 
   &:hover,
@@ -43,6 +44,9 @@
     font-size: 16px;
     line-height: 136%;
     color: #a2a2a2;
+    max-width: 85%;
+    overflow: hidden;
+    text-wrap: nowrap;
   }
 
   & > span:last-of-type {

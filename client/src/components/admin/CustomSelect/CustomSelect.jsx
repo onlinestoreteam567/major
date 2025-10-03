@@ -4,7 +4,7 @@ import getSelectedItemName from './helpers/getSelectedItemName';
 import Arrow from '@components/UI/icons/Admin/Arrow/Arrow';
 import useClickOutside from '@hooks/admin/useClickOutside';
 
-const CustomSelect = ({ onChange, value, items, onBlur, name, errors }) => {
+const CustomSelect = ({ onChange, value, items, onBlur, name, errors, customFunction }) => {
   const [isOpen, setIsOpen] = useState(false);
   const displayRef = useRef(null);
   const wrapperRef = useClickOutside(() => setIsOpen(false));
@@ -32,6 +32,7 @@ const CustomSelect = ({ onChange, value, items, onBlur, name, errors }) => {
                 onChange(String(item.id));
                 setIsOpen(false);
                 onBlur();
+                if (customFunction) customFunction(item.name);
               }}
             >
               {item.name}

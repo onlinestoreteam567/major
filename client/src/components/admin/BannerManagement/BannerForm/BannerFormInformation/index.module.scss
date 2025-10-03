@@ -1,0 +1,61 @@
+@import '@mixins';
+
+.bannerFormInformation {
+  @include flex(row, end);
+  position: relative;
+
+  button {
+    height: 32px;
+    width: 32px;
+
+    img {
+      height: 32px;
+      width: 32px;
+    }
+  }
+
+  div {
+    @include flex();
+    width: 237px;
+    height: 192px;
+    border-radius: 24px;
+    background-color: #4c9a4e;
+    padding: 25px 14px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 32px;
+    right: 0;
+
+    p {
+      font-family: Mulish;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 136%;
+      color: #ffffff;
+      text-align: center;
+    }
+  }
+
+  @include tablet {
+    button {
+      height: 44px;
+      width: 44px;
+
+      img {
+        height: 44px;
+        width: 44px;
+      }
+    }
+
+    div {
+      height: 239px;
+      width: 278px;
+      padding: 32px 22px;
+      top: 44px;
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+}

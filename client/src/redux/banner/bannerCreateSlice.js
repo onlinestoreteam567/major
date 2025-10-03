@@ -20,6 +20,13 @@ const bannerCreateSlice = createSlice({
     isLoading: false,
     error: null,
   },
+  reducers: {
+    clearCreateBannerState: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
+    },
+  },
   extraReducers: (builder) =>
     builder
       .addCase(createBanner.pending, handlePending)
@@ -31,4 +38,5 @@ const bannerCreateSlice = createSlice({
       .addCase(createBanner.rejected, handleRejected),
 });
 
+export const { clearCreateBannerState } = bannerCreateSlice.actions;
 export const bannerCreateReducer = bannerCreateSlice.reducer;

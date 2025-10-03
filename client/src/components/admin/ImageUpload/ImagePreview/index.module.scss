@@ -13,6 +13,7 @@
     width: 280px;
     height: 140px;
     border-radius: 8px;
+    box-sizing: border-box;
 
     @include mobile {
       width: 340px;

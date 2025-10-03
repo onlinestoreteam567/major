@@ -1,3 +1,90 @@
+@import '@mixins';
+
 .bannerManagement {
-  color: black;
+  width: 280px;
+  margin-inline: auto;
+  margin-top: 45px;
+
+  & > div:first-of-type {
+    @include flexGap(16px, column);
+    align-items: end;
+
+    p {
+      font-family: Mulish;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 136%;
+      color: #4c9a4e;
+    }
+
+    a {
+      width: 280px;
+      height: 56px;
+
+      button {
+        font-family: Mulish;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 136%;
+      }
+    }
+  }
+
+  @include mobile {
+    width: 340px;
+
+    & > div:first-of-type {
+      gap: 24px;
+
+      a {
+        width: 340px;
+      }
+    }
+  }
+
+  @include tablet {
+    width: 524px;
+    margin: 36px 36px 0 208px;
+
+    & > div:first-of-type {
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+
+      p {
+        font-size: 32px;
+      }
+
+      a {
+        width: 256px;
+        button {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 686px;
+    margin: 36px auto;
+
+    & > div:first-of-type {
+      flex-direction: row;
+      align-items: center;
+
+      a {
+        height: 65px;
+        width: 354px;
+
+        button {
+          width: 354px;
+          height: 65px;
+        }
+      }
+    }
+  }
+
+  @include deskmax {
+    width: 993px;
+  }
 }
