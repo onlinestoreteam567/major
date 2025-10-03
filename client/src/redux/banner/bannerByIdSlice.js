@@ -4,11 +4,11 @@ import { getBannerById } from './service';
 const handlePending = (state) => {
   state.isLoading = true;
   state.error = null;
-  state.response = null;
+  state.slide = null;
 };
 
 const handleRejected = (state, action) => {
-  state.response = null;
+  state.slide = null;
   state.isLoading = false;
   state.error = action.payload;
 };
@@ -16,9 +16,16 @@ const handleRejected = (state, action) => {
 const bannerByIdSlice = createSlice({
   name: 'bannerById',
   initialState: {
-    slide: {},
+    slide: null,
     isLoading: false,
     error: null,
+  },
+  reducers: {
+    clearBannerByIdState: (state) => {
+      state.slide = null;
+      state.isLoading = false;
+      state.error = null;
+    },
   },
   extraReducers: (builder) =>
     builder
@@ -31,4 +38,5 @@ const bannerByIdSlice = createSlice({
       .addCase(getBannerById.rejected, handleRejected),
 });
 
+export const { clearBannerByIdState } = bannerByIdSlice.actions;
 export const bannerByIdReducer = bannerByIdSlice.reducer;

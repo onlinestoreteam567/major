@@ -1,0 +1,157 @@
+@import '@mixins';
+
+.bannerForm {
+  @include flexGap(24px, column);
+
+  .imageUploadContainer {
+    @include flexGap(8px, column);
+
+    & > div {
+      margin-top: 0;
+    }
+  }
+
+  & > div:first-of-type {
+    & > div:last-of-type {
+      div {
+        img {
+          width: 280px;
+          height: 203px;
+        }
+      }
+    }
+  }
+
+  & > div:last-of-type {
+    & > div:last-of-type {
+      div {
+        img {
+          width: 280px;
+          height: 157px;
+        }
+      }
+    }
+  }
+
+  .bannerSettingsWrapper {
+    @include flexGap(56px, column);
+  }
+
+  @include mobile {
+    & > div:first-of-type {
+      & > div:last-of-type {
+        div {
+          img {
+            width: 340px;
+          }
+        }
+      }
+    }
+
+    & > div:last-of-type {
+      & > div:last-of-type {
+        div {
+          img {
+            width: 340px;
+          }
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    & > div:first-of-type {
+      & > div:last-of-type {
+        div {
+          img {
+            width: 524px;
+            height: 280px;
+          }
+        }
+      }
+    }
+
+    & > div:last-of-type {
+      & > div:last-of-type {
+        div {
+          img {
+            width: 524px;
+            height: 210px;
+          }
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    & > div:first-of-type {
+      width: 340px;
+
+      & > div:last-of-type {
+        div {
+          img {
+            width: 340px;
+            height: 203px;
+          }
+        }
+
+        label {
+          width: 340px;
+        }
+      }
+    }
+
+    & > div:last-of-type {
+      & > div:last-of-type {
+        div {
+          img {
+            width: 686px;
+          }
+        }
+      }
+    }
+  }
+
+  @include deskmax {
+    & > div:first-of-type {
+      width: 538px;
+
+      & > div:last-of-type {
+        div {
+          img {
+            width: 538px;
+            height: 280px;
+          }
+        }
+
+        label {
+          width: 538px;
+        }
+      }
+    }
+
+    & > div:last-of-type {
+      & > div:last-of-type {
+        div {
+          img {
+            width: 986px;
+            height: 280px;
+          }
+        }
+
+        label {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .bannerSettingsWrapper {
+    @include flexGap(70px, column);
+  }
+}

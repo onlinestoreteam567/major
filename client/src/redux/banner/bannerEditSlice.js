@@ -20,6 +20,15 @@ const bannerEdit = createSlice({
     isLoading: false,
     error: null,
   },
+
+  reducers: {
+    clearBannerEditState: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
+    },
+  },
+
   extraReducers: (builder) =>
     builder
       .addCase(editBanner.pending, handlePending)
@@ -31,4 +40,5 @@ const bannerEdit = createSlice({
       .addCase(editBanner.rejected, handleRejected),
 });
 
+export const { clearBannerEditState } = bannerEdit.actions;
 export const bannerEditReducer = bannerEdit.reducer;

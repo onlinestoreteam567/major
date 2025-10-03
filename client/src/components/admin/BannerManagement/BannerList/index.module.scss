@@ -1,15 +1,11 @@
 @import '@mixins';
 
 .bannerList {
-  @include flexGap(20px, column);
+  @include flexGap(24px, column);
   color: black;
+  margin-top: 32px;
 
-  li {
-    @include flexGap(20px);
-  }
-
-  img {
-    width: 100px;
-    height: 100px;
+  @include mobile {
+    margin-top: 50px;
   }
 }

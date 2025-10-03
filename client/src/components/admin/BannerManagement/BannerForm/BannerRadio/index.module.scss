@@ -1,0 +1,81 @@
+@import '@mixins';
+
+.bannerRadio {
+  @include flex(row, start);
+  gap: 16px;
+  cursor: pointer;
+  font-family: Mulish;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 136%;
+  user-select: none;
+  color: black;
+
+  &.error {
+    span {
+      svg {
+        circle {
+          stroke: #e31a1a;
+        }
+      }
+    }
+  }
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  span {
+    height: 32px;
+    width: 32px;
+  }
+
+  .checked {
+    display: none;
+  }
+
+  input:checked ~ .checked {
+    display: inline;
+  }
+
+  input:checked ~ .unchecked {
+    display: none;
+  }
+
+  @include deskmax {
+    font-weight: 400;
+    font-size: 24px;
+  }
+}
+
+.radioGroup {
+  @include flexGap(36px, column);
+
+  h2 {
+    font-family: Mulish;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 136%;
+    color: black;
+  }
+
+  div {
+    @include flexGap(20px, column);
+  }
+
+  @include deskmax {
+    width: 355px;
+
+    h2 {
+      font-size: 32px;
+    }
+
+    div {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
