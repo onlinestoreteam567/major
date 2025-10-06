@@ -17,6 +17,7 @@ import { loadPartners, selectPartners } from '@redux/selectors';
 import { useSelector } from 'react-redux';
 import Spinner from '@UI/Spinner/Spinner';
 
+let mapImage;
 const Map = () => {
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -28,11 +29,31 @@ const Map = () => {
   const animationFrameRef = useRef(null);
   const { i18n } = useTranslation();
   const { getTranslation } = useTranslationNamespace('ourPartners');
-  const { mobile, tablet, deskmin, deskmax } = useScreenSizes();
+  const { smallMobile, mobile, tablet, deskmin, deskmax } = useScreenSizes();
   const points = useSelector(selectPartners);
   const isLoading = useSelector(loadPartners);
 
-  const mapImage = i18n.language === 'en' ? '/images/ourPartners/mapEn.webp' : '/images/ourPartners/mapUa.webp';
+  const setMapImage = () => {
+    switch (true) {
+      case mobile || smallMobile: {
+        if (i18n.language === 'en') {
+          mapImage = '/images/ourPartners/mapEnMobile.webp';
+        } else {
+          mapImage = '/images/ourPartners/mapUaMobile.webp';
+        }
+        break;
+      }
+      default: {
+        if (i18n.language === 'en') {
+          mapImage = '/images/ourPartners/mapEn.webp';
+        } else {
+          mapImage = '/images/ourPartners/mapUa.webp';
+        }
+        break;
+      }
+    }
+  };
+  setMapImage();
 
   const getMarkerOffsets = () => {
     let topPostitionCorrection = 9.5;
