@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import cl from './index.module.scss';
 import BannerListItem from './BannerListItem/BannerListItem';
+import useTimedMessage from '@hooks/admin/useTimedMessage';
+import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
 
 const BannerList = () => {
   const items = useSelector(selectBanner);
@@ -12,6 +14,7 @@ const BannerList = () => {
   const dispatch = useDispatch();
   const isLoadingDelete = useSelector(loadBannerDelete);
   const deleteResponse = useSelector(selectBannerDelete);
+  const [deletedMessage, showDeletedMessage] = useTimedMessage();
 
   useEffect(() => {
     deleteResponse === 204 && dispatch(fetchBanner());
@@ -24,10 +27,11 @@ const BannerList = () => {
       ) : (
         <ul className={cl.bannerList}>
           {items.map((banner, i) => (
-            <BannerListItem key={i} banner={banner} />
+            <BannerListItem key={i} banner={banner} showDeletedMessage={showDeletedMessage} />
           ))}
         </ul>
       )}
+      {deletedMessage && <AdminMessage>{deletedMessage}</AdminMessage>}
     </>
   );
 };

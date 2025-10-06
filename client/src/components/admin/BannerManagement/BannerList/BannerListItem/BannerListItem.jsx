@@ -13,7 +13,7 @@ const BannerListItem = ({ banner, showDeletedMessage }) => {
 
   const handleDelete = (id) => {
     dispatch(deleteBanner(id));
-    showDeletedMessage(`Банер “${banner.name}” видалено`);
+    showDeletedMessage(`Банер “${banner.product.name}” видалено`);
     toggleDeletePopUp();
   };
 
