@@ -43,7 +43,7 @@ const Map = () => {
         }
         break;
       }
-      default: {
+      case tablet || deskmin || deskmax: {
         if (i18n.language === 'en') {
           mapImage = '/images/ourPartners/mapEn.webp';
         } else {
