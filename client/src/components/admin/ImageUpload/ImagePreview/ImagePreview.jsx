@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import cl from './index.module.scss';
+import { useImageError } from '@hooks/useImageError';
 
 const ImagePreview = ({ file, uploadedImage, errors, name }) => {
   const [previewUrl, setPreviewUrl] = useState('/images/admin/categoryPlaceholder.webp');
+  const [imageSrc, handleError] = useImageError(previewUrl);
 
   useEffect(() => {
     if (file instanceof File) {
@@ -22,7 +24,7 @@ const ImagePreview = ({ file, uploadedImage, errors, name }) => {
 
   return (
     <div className={`${cl.previewImage} ${errors && errors[name] && cl.error}`}>
-      <img src={previewUrl} alt="Image Preview" />
+      <img src={imageSrc} alt="Image Preview" onError={handleError} />
     </div>
   );
 };

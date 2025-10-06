@@ -5,12 +5,14 @@ import { deletePurpose } from '@redux/admin/purpose/service';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import DeletePopUp from '@components/admin/DeletePopUp/DeletePopUp';
+import { useImageError } from '@hooks/useImageError';
 
 const PurposeCategoryItem = ({ category, showDeletedMessage, isShowAdminSections }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const isSmallScreen = !(tablet || deskmin || deskmax);
   const dispatch = useDispatch();
+  const [imageSrc, handleError] = useImageError(category.image);
 
   const toggleDeletePopUp = () => setIsShowDeletePopUp(!isShowDeletePopUp);
 
@@ -23,7 +25,7 @@ const PurposeCategoryItem = ({ category, showDeletedMessage, isShowAdminSections
   const categoryContent = (
     <div>
       <span>
-        <img src={category.image} />
+        <img src={imageSrc} onError={handleError} />
       </span>
       <p>{category.category_name_uk}</p>
       <p>{category.category_name_en}</p>

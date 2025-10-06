@@ -5,11 +5,13 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cl from './index.module.scss';
+import { useImageError } from '@hooks/useImageError';
 
 const ProductListItem = ({ card, showDeletedMessage, isShowAdminSections }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const isSmallScreen = !(tablet || deskmin || deskmax);
+  const [imageSrc, handleError] = useImageError(card.images[0].image);
 
   const toggleDeletePopUp = () => setIsShowDeletePopUp(!isShowDeletePopUp);
 
@@ -25,7 +27,7 @@ const ProductListItem = ({ card, showDeletedMessage, isShowAdminSections }) => {
     <>
       <p>{card.available ? <img src="/svg/admin/available.svg" /> : <img src="/svg/admin/notAvailable.svg" />}</p>
       <span>
-        <img src={card.images[0].image} alt={card.name} />
+        <img src={imageSrc} alt={card.name} onError={handleError} />
       </span>
       <h3>{card.name}</h3>
       <p>{card.article}</p>
