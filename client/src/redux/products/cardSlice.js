@@ -12,10 +12,19 @@ const handleRejected = (state, action) => {
 
 const productIdSlice = createSlice({
   name: 'productId',
+
   initialState: {
     productId: {},
     isLoading: false,
     error: null,
+  },
+
+  reducers: {
+    clearProductIdState: (state) => {
+      state.productId = null;
+      state.isLoading = false;
+      state.error = null;
+    },
   },
 
   extraReducers: (builder) =>
@@ -29,4 +38,5 @@ const productIdSlice = createSlice({
       .addCase(getProductById.rejected, handleRejected),
 });
 
+export const { clearProductIdState } = productIdSlice.actions;
 export const productIdReducer = productIdSlice.reducer;

@@ -8,6 +8,7 @@ import { selectBanner } from '@redux/selectors';
 import Button from '@components/UI/Button/Button';
 import { fetchProductsAll } from '@redux/products/service';
 import { clearBannerByIdState } from '@redux/banner/bannerByIdSlice';
+import { clearProductIdState } from '@redux/products/cardSlice';
 
 const BannerManagement = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const BannerManagement = () => {
     dispatch(fetchBanner());
     dispatch(fetchProductsAll());
     dispatch(clearBannerByIdState());
+    dispatch(clearProductIdState());
   }, [dispatch]);
 
   return (

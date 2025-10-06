@@ -22,15 +22,11 @@ const BannerProductSelect = ({ control, errors, watch }) => {
   if (watch) productId = watch(name);
 
   useEffect(() => {
-    if (productId) {
-      dispatch(getProductById(productId));
-    }
+    if (productId) dispatch(getProductById(productId));
   }, [dispatch, productId]);
 
   useEffect(() => {
-    if (responseGetProduct && responseGetProduct.name) {
-      setInputValue(responseGetProduct.name);
-    }
+    if (responseGetProduct && responseGetProduct.name) setInputValue(responseGetProduct.name);
   }, [responseGetProduct]);
 
   useEffect(() => {
