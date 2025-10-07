@@ -15,7 +15,7 @@ export default function ProductPageCard({ card }) {
   return (
     <div className={cl.cardContainer}>
       <Helmet>
-        <title>{card.name} - динамічна назва, змінюється в залежності від товару</title>
+        <title>{card.name}</title>
         <meta name="description" content={card.description} />
         <meta property="og:title" content={card.name} />
         <meta property="og:description" content={card.description} />

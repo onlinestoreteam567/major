@@ -9,7 +9,7 @@ import { useState } from 'react';
 const SlideImage = ({ src, alt }) => {
   const [imageSrc, handleError] = useImageError(src);
 
-  return <img fetchPriority="high" src={imageSrc} alt={alt} onError={handleError} />;
+  return <img fetchpriority="high" src={imageSrc} alt={alt} onError={handleError} />;
 };
 
 const Slide = ({ slide, next, previous }) => {
