@@ -18,7 +18,7 @@ const HomePage = () => {
   return (
     <div className={cl.homePage}>
       <Helmet>
-        <title>{siteName}</title>
+        <title>Site name</title>
         <meta name="description" content={siteDescription} />
         <meta property="og:title" content="Site name" />
         <meta property="og:description" content="site desc" />
