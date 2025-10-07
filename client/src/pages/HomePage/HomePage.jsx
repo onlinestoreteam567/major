@@ -22,13 +22,13 @@ const HomePage = () => {
         <meta name="description" content={siteDescription} />
         <meta property="og:title" content={siteName} />
         <meta property="og:description" content={siteDescription} />
-        <meta property="og:image" content={siteImage} />
+        <meta property="og:image" content="https://major-gamma.vercel.app/svg/favicon.svg" />
         <meta property="og:url" content={window.location.href} />
         <meta property="og:type" content="website" />
-        <meta name="twitter:card" content={siteImage} />
+        <meta name="twitter:card" content="https://major-gamma.vercel.app/svg/favicon.svg" />
         <meta name="twitter:title" content={siteName} />
         <meta name="twitter:description" content={siteDescription} />
-        <meta name="twitter:image" content={siteImage} />
+        <meta name="twitter:image" content="https://major-gamma.vercel.app/svg/favicon.svg" />
       </Helmet>
       <div className={cl.banner}>
         <MainBanner />
