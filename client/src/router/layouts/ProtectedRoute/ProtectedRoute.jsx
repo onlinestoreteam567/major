@@ -13,6 +13,7 @@ import AdminGlobalMessage from './AdminGlobalMessage';
 import { useEffect } from 'react';
 import { verifyAuthToken } from '@redux/admin/auth/service';
 import AppLoader from '@router/AppLoader/AppLoader';
+import { Helmet } from 'react-helmet-async';
 
 const ProtectedRoute = () => {
   const auth = useSelector(selectAccessToken);
@@ -45,6 +46,11 @@ const ProtectedRoute = () => {
 
   return verify && auth && !errorVerify ? (
     <div className={cl.adminLayout} id="protectedRoute">
+      <Helmet>
+        <meta name="robots" content="noindex" />
+        <link rel="canonical" href="https://major-gamma.vercel.app/" />
+      </Helmet>
+
       <AdminNavigation />
       <Outlet />
       <AdminGlobalMessage />
