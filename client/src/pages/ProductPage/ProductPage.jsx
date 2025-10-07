@@ -14,8 +14,11 @@ import { useTranslation } from 'react-i18next';
 import { addViewedProduct } from '@redux/products/viewedProductsSlice';
 import ProductLook from './Sliders/ProductLook';
 import ProductPageCard from './ProductPageCard/ProductPageCard';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
+import { Helmet } from 'react-helmet-async';
 
 export default function ProductPage() {
+  const { getTranslation } = useTranslationNamespace('card');
   const dispatch = useDispatch();
   const id = useIdFromUrl();
   const { i18n } = useTranslation();
@@ -31,8 +34,18 @@ export default function ProductPage() {
   }, [dispatch, id, i18n.language]);
 
   const categoryId = card.purpose_category || null;
+
+  const metaTitle = card?.name ? `${card.name} ${getTranslation('metaTitle')}` : getTranslation('metaTitleFallback');
+  const metaDescription = getTranslation('metaDescription1') + card.name + getTranslation('metaDescription2');
   return (
     <div className={cl.cardPage}>
+      {isObject && (
+        <Helmet>
+          <title>{metaTitle}</title>
+          <meta name="description" content={metaDescription} />
+        </Helmet>
+      )}
+
       <div className={cl.topCase}>
         <TopLink card={card} />
 

@@ -2,5 +2,6 @@
   "text": "Page not found",
   "button": "To the main page",
   "imgAltBg": "404 background image",
-  "imgAltLabel": "Image 404"
+  "imgAltLabel": "Image 404",
+  "metaDescription": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
 }

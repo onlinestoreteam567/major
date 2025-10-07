@@ -6,11 +6,18 @@ import CheckoutSteps from './CheckoutSteps/CheckoutSteps';
 import { useSelector } from 'react-redux';
 import { selectCart } from '@redux/selectors';
 import CheckoutCart from './CheckoutCart/CheckoutCart';
+import { Helmet } from 'react-helmet-async';
+
 const CheckoutPage = () => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
   const cartItems = useSelector(selectCart);
   return (
     <div className={cl.checkoutPage}>
+      <Helmet>
+        <title>{getTranslation('metaTitle')}</title>
+        <meta name="description" content={getTranslation('metaDescription')} />
+      </Helmet>
+
       <CheckoutBreadCrumbs />
       <Heading type="h2">{getTranslation('checkout')}</Heading>
       <CheckoutCart />

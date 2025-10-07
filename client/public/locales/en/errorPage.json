@@ -1,5 +1,6 @@
 {
   "errorText": "Oops... Something went wrong",
   "button": "To the main page",
-  "imgAltBg": "Background image"
+  "imgAltBg": "Background image",
+  "metaDescription": "We encountered an unexpected error. Please try again later or return to the homepage"
 }

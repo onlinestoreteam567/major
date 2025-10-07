@@ -8,10 +8,19 @@ import YellowButton from './YellowButton/YellowButton';
 import BestSellers from './MainSliders/BestSellers';
 import Sets from './MainSliders/Sets';
 import OurPartners from './OurPartners/OurPartners';
+import { Helmet } from 'react-helmet-async';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const HomePage = () => {
+  const { getTranslation } = useTranslationNamespace('common');
+
   return (
     <div className={cl.homePage}>
+      <Helmet>
+        <title>{getTranslation('metaTitle')}</title>
+        <meta name="description" content={getTranslation('metaDescription')} />
+      </Helmet>
+
       <div className={cl.banner}>
         <MainBanner />
       </div>

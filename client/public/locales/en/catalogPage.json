@@ -1,4 +1,7 @@
 {
+  "metaTitle": "Major Catalog - Professional hair care cosmetics",
+  "metaDescription": "Browse our catalog of Major professional hair care products. Find shampoos, conditioners, masks, and other products designed to improve the health and beauty of your hair.",
+
   "filters": "Filters",
   "sorting": "Sorting",
   "asc": "cheaper first",
@@ -27,5 +30,4 @@
   "notFoundImageAlt": "Image: no results found for the selected filters",
   "continueSearching": "Continue searching",
   "notFoundParagraph": "Try changing your filter settings"
-
- }
+}
