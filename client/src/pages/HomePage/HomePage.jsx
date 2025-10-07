@@ -17,9 +17,8 @@ const siteImage = 'https://major-gamma.vercel.app/svg/favicon.svg';
 const HomePage = () => {
   return (
     <div className={cl.homePage}>
-      <Helmet>
+      {/* <Helmet>
         <title>Site name</title>
-        <meta name="description" content={siteDescription} />
         <meta property="og:title" content="Site name" />
         <meta property="og:description" content="site desc" />
         <meta property="og:image" content="https://major-gamma.vercel.app/svg/favicon.svg" />
@@ -29,7 +28,7 @@ const HomePage = () => {
         <meta name="twitter:title" content={siteName} />
         <meta name="twitter:description" content={siteDescription} />
         <meta name="twitter:image" content="https://major-gamma.vercel.app/svg/favicon.svg" />
-      </Helmet>
+      </Helmet> */}
       <div className={cl.banner}>
         <MainBanner />
       </div>
