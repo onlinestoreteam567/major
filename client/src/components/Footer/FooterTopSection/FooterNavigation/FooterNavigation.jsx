@@ -13,11 +13,18 @@ const FooterNavigation = ({ contacts }) => {
           <NavLink type="footer" to="cooperation" ariaLabel={getTranslation('ariaLabelCooperation')}>
             {getTranslation('cooperation')}
           </NavLink>
-          <a href={contacts[0].offer_agreement_policy}>{getTranslation('publicOffer')}</a>
+          <li>
+            <a href={contacts[0].offer_agreement_policy}>{getTranslation('publicOffer')}</a>
+          </li>
         </ul>
         <ul className={cl.wrapLinks}>
-          <a href={contacts[0].exchange_and_return_policy}>{getTranslation('exchangeAndReturn')}</a>
-          <a href={contacts[0].paymant_and_delivery_policy}>{getTranslation('paymentAndDelivery')}</a>
+          <li>
+            <a href={contacts[0].exchange_and_return_policy}>{getTranslation('exchangeAndReturn')}</a>
+          </li>
+
+          <li>
+            <a href={contacts[0].paymant_and_delivery_policy}>{getTranslation('paymentAndDelivery')}</a>
+          </li>
         </ul>
       </div>
     </div>
