@@ -20,10 +20,10 @@ const HomePage = () => {
       <Helmet>
         <title>{siteName}</title>
         <meta name="description" content={siteDescription} />
-        <meta property="og:title" content={siteName} />
-        <meta property="og:description" content={siteDescription} />
+        <meta property="og:title" content="Site name" />
+        <meta property="og:description" content="site desc" />
         <meta property="og:image" content="https://major-gamma.vercel.app/svg/favicon.svg" />
-        <meta property="og:url" content={window.location.href} />
+        <meta property="og:url" content="https://major-gamma.vercel.app/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="https://major-gamma.vercel.app/svg/favicon.svg" />
         <meta name="twitter:title" content={siteName} />
