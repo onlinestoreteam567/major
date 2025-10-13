@@ -1,20 +1,16 @@
-import { loadContacts, selectContacts } from '@redux/selectors';
+import { selectContacts } from '@redux/selectors';
 import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { useSelector } from 'react-redux';
-import Spinner from '../Spinner/Spinner';
 
 const SocialLinks = ({ black }) => {
   const { getTranslation } = useTranslationNamespace('footer');
   const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(loadContacts);
 
   if (!contacts) return;
   const email = `mailto:${contacts[0].email}`;
 
-  return isLoading ? (
-    <Spinner />
-  ) : (
+  return (
     <section className={cl.socialLinks}>
       <h3 className={black ? cl.black : ''}>{getTranslation('socials')}</h3>
       <ul>
