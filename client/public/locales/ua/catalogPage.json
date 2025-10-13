@@ -13,6 +13,13 @@
   "is_best_seller": "Хіт продажу",
   "is_discount": "Знижки",
 
+  "newIconAlt": "Іконка новинки",
+  "fireIconAlt": "Іконка вогню",
+  "discountIconAlt": "Іконка знижки",
+
+  "checkedAlt": "Іконка вибрано",
+  "uncheckedAlt": "Іконка не вибрано",
+
   "assignmentTitle": "Призначення",
 
   "category": "Категорія",

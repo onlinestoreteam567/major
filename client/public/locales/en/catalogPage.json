@@ -13,6 +13,13 @@
   "is_best_seller": "Best Sellers",
   "is_discount": "Discounts",
 
+  "newIconAlt": "Icon of new",
+  "fireIconAlt": "Icon of fire",
+  "discountIconAlt": "Icon of discount",
+
+  "checkedAlt": "Icon checked",
+  "uncheckedAlt": "Icon unchecked",
+
   "assignmentTitle": "Assignment",
 
   "category": "Category",
