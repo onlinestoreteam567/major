@@ -4,6 +4,7 @@
   @include flexGap(8px, column);
   user-select: none;
   width: 100%;
+
   ul {
     li {
       @include flex(row, start);
@@ -20,11 +21,15 @@
           font-family: $font-second;
           font-size: $font-size-base;
           font-weight: $font-weight-base;
-          span{
-            color: #676767
+          span {
+            color: #676767;
           }
         }
       }
     }
+  }
+
+  @include deskmin {
+    min-height: 150px;
   }
 }
