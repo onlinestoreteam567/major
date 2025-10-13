@@ -41,6 +41,10 @@
     min-height: 264px;
     gap: 48px;
     padding: 48px 32px;
+
+    div {
+      justify-content: space-around;
+    }
   }
 
   @include tablet {
@@ -53,6 +57,8 @@
     }
 
     div {
+      justify-content: space-between;
+
       button {
         width: 154px;
       }
