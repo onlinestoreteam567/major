@@ -1,3 +1,5 @@
+const MAX_FILE_SIZE_BYTES = 1048576; // 1MB
+
 const handleImageUpload = (event, setImage, setOriginalFile, images, showMessageText) => {
   const files = Array.from(event.target.files);
   if (files.length > 0) {
@@ -6,6 +8,11 @@ const handleImageUpload = (event, setImage, setOriginalFile, images, showMessage
 
     if (images.length === 5) {
       showMessageText('Упс — можна завантажити лише до 5 фото');
+      return;
+    }
+
+    if (file.size > MAX_FILE_SIZE_BYTES) {
+      showMessageText('Розмір файлу перевищує 1MB');
       return;
     }
 

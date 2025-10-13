@@ -4,6 +4,8 @@ import { Controller } from 'react-hook-form';
 import ImagePreview from './ImagePreview/ImagePreview';
 import cl from './index.module.scss';
 
+const MAX_FILE_SIZE_BYTES = 1048576;
+
 const ImageUpload = ({ name, labelText, control, errors }) => {
   const [messageText, showMessageText] = useTimedMessage();
 
@@ -25,8 +27,18 @@ const ImageUpload = ({ name, labelText, control, errors }) => {
                 onChange={(event) => {
                   const files = Array.from(event.target.files);
                   const fileToSet = files.length > 0 ? files[0] : null;
-                  onChange(fileToSet);
-                  showMessageText('Фото успішно додано');
+
+                  if (fileToSet) {
+                    if (fileToSet.size > MAX_FILE_SIZE_BYTES) {
+                      showMessageText('Розмір файлу перевищує 1MB');
+                      return;
+                    }
+
+                    onChange(fileToSet);
+                    showMessageText('Фото успішно додано');
+                  } else {
+                    onChange(null);
+                  }
                 }}
               />
             </label>
