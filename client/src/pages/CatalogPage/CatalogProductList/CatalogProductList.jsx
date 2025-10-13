@@ -29,9 +29,9 @@ const CatalogProductList = () => {
         <>
           {showArr ? (
             <ul className={cl.container}>
-              {items.map((card) => (
+              {items.map((card, index) => (
                 <li key={card.id}>
-                  <ProductCard card={card} />
+                  <ProductCard card={card} index={index} />
                 </li>
               ))}
             </ul>
