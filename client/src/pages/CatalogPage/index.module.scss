@@ -19,6 +19,7 @@
 
   .mainWrapper {
     @include flexGap(24px);
+    min-height: 1818px;
 
     @include deskmin {
       width: 980px;
