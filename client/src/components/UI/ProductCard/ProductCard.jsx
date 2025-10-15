@@ -7,7 +7,7 @@ import ButtonAddToCart from '@components/UI/Button/ButtonAddToCart';
 import ProductCardImage from './ProductCardImage/ProductCardImage';
 import ProductCardTitle from './ProductCardTitle/ProductCardTitle';
 
-export default function ProductCard({ card }) {
+export default function ProductCard({ card, index }) {
   const { getTranslation } = useTranslationNamespace('card');
   const id = card.id;
   const translation = `${getTranslation('ariaLabelCard')} ${card.name}`;
@@ -15,7 +15,7 @@ export default function ProductCard({ card }) {
   return (
     <div className={cl.wrapCardCatalog}>
       <Link to={`/catalog/${id}`} aria-label={translation}>
-        <ProductCardImage card={card} />
+        <ProductCardImage card={card} index={index} />
       </Link>
       <div className={cl.wrapInfo}>
         <Link to={`/catalog/${id}`} aria-label={translation}>

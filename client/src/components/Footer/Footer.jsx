@@ -15,11 +15,10 @@ const Footer = () => {
   }, [dispatch]);
 
   const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(loadContacts);
+  // const isLoading = useSelector(loadContacts);
+  const isLoading = true;
 
-  return isLoading ? (
-    <Spinner />
-  ) : (
+  return (
     <footer className={cl.footer}>
       <FooterTopSection contacts={contacts} />
       <FooterCopyrightSection contacts={contacts} />

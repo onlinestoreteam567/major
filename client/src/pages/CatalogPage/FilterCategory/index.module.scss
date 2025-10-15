@@ -3,10 +3,19 @@
 .wrap {
   @include tablet {
     margin-left: -16px;
+    width: 640px;
+    height: 185px;
   }
 
   @include deskmin {
     margin-left: -12px;
+    width: 980px;
+    height: 185px;
+  }
+
+  @include deskmax {
+    width: 1296px;
+    height: 208px;
   }
 
   ul {
@@ -20,6 +29,14 @@
 
     @include tablet {
       width: 640px;
+    }
+
+    @include deskmin {
+      width: 980px;
+    }
+
+    @include deskmax {
+      width: 1296px;
     }
   }
 }

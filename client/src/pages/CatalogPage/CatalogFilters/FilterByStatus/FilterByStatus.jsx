@@ -7,9 +7,9 @@ import { getProductsByStatus, fetchProductsAll } from '@redux/products/service';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const statusItems = [
-  { icon: '/svg/catalogPage/new.svg', label: 'is_new' },
-  { icon: '/svg/catalogPage/fire.svg', label: 'is_best_seller' },
-  { icon: '/svg/catalogPage/discount.svg', label: 'is_discount' },
+  { icon: '/svg/catalogPage/new.svg', label: 'is_new', alt: 'newIconAlt' },
+  { icon: '/svg/catalogPage/fire.svg', label: 'is_best_seller', alt: 'fireIconAlt' },
+  { icon: '/svg/catalogPage/discount.svg', label: 'is_discount', alt: 'discountIconAlt' },
 ];
 
 const checkedImg = '/svg/catalogPage/check.svg';
@@ -36,7 +36,7 @@ export default function FilterByStatus() {
         <li key={item.label}>
           <div>
             <div>
-              <img src={item.icon} />
+              <img src={item.icon} alt={getTranslation(item.alt)} />
             </div>
             <Heading type="h4">{getTranslation(item.label)}</Heading>
           </div>
@@ -51,7 +51,7 @@ export default function FilterByStatus() {
             <span>
               <img
                 src={newStatus === item.label ? checkedImg : uncheckedImg}
-                alt={newStatus === item.label ? 'Checked' : 'Unchecked'}
+                alt={newStatus === item.label ? getTranslation('checkedAlt') : getTranslation('uncheckedAlt')}
               />
             </span>
           </label>
