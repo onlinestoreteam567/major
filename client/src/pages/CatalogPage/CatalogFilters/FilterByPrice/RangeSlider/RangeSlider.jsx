@@ -1,6 +1,9 @@
 import cl from './index.module.scss';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const RangeSlider = ({ minPrice, setMinPrice, maxPrice, setMaxPrice, maxLimit, priceGap }) => {
+  const { getTranslation } = useTranslationNamespace('catalogPage');
+
   const handleRangeMinChange = (e) => {
     const value = parseInt(e.target.value);
     if (maxPrice - value >= priceGap) {
@@ -18,6 +21,7 @@ const RangeSlider = ({ minPrice, setMinPrice, maxPrice, setMaxPrice, maxLimit, p
   return (
     <div className={cl.rangeInput}>
       <input
+        aria-label={getTranslation('rangeMinAriaLabel')}
         type="range"
         className={cl.rangeMin}
         min="0"
@@ -27,6 +31,7 @@ const RangeSlider = ({ minPrice, setMinPrice, maxPrice, setMaxPrice, maxLimit, p
         onChange={handleRangeMinChange}
       />
       <input
+        aria-label={getTranslation('rangeMaxAriaLabel')}
         type="range"
         className={cl.rangeMax}
         min="0"

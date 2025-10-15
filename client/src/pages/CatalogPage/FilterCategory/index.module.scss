@@ -18,7 +18,7 @@
     height: 208px;
   }
 
-  ul {
+  & > div {
     @include flexGap(10px, row);
     flex-wrap: wrap;
     width: 296px;

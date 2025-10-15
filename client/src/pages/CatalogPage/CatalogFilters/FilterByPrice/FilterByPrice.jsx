@@ -85,6 +85,7 @@ const FilterByPrice = ({ handleCloseAside }) => {
       <div className={cl.priceInput}>
         <div className={cl.field}>
           <input
+            aria-label={getTranslation('inputMinAriaLabel')}
             type="text"
             value={minInputValue}
             onChange={(e) => handleMinInputChange(e, setMinInputValue, setMinPrice)}
@@ -93,6 +94,7 @@ const FilterByPrice = ({ handleCloseAside }) => {
         </div>
         <div className={cl.field}>
           <input
+            aria-label={getTranslation('inputMaxAriaLabel')}
             type="text"
             value={maxInputValue}
             onChange={(e) => handleMaxInputChange(e, setMaxInputValue, setMaxPrice)}

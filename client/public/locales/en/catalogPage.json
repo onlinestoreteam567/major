@@ -36,5 +36,10 @@
 
   "notFoundImageAlt": "Image: no results found for the selected filters",
   "continueSearching": "Continue searching",
-  "notFoundParagraph": "Try changing your filter settings"
+  "notFoundParagraph": "Try changing your filter settings",
+
+  "rangeMinAriaLabel": "Minimum Price Slider",
+  "rangeMaxAriaLabel": "Maximum Price Slider",
+  "inputMinAriaLabel": "Minimum Price field input",
+  "inputMaxAriaLabel": "Maximum Price field input"
 }

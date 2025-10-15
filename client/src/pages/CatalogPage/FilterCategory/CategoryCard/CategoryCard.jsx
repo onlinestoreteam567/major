@@ -4,10 +4,12 @@ import { resetFilter, setCategory } from '@redux/filter/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterCategory } from '@redux/selectors';
 import { useImageError } from '@hooks/useImageError';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const CategoryCard = ({ item }) => {
   const dispatch = useDispatch();
   const newCategory = useSelector(filterCategory);
+  const { getTranslation } = useTranslationNamespace('common');
 
   const [imageSrc, handleError] = useImageError(item.image);
 
@@ -21,13 +23,14 @@ const CategoryCard = ({ item }) => {
     }
   };
 
+  const imageAlt = `${getTranslation('image')}: ${item.name}`;
   return (
     <li className={cl.categoryCard} id={item.id}>
       <label>
         <figure>
           <img
             src={imageSrc}
-            alt={item.name}
+            alt={imageAlt}
             className={newCategory === item.id ? cl.active : ''}
             onError={handleError}
           />
