@@ -3,11 +3,11 @@ import cl from './index.module.scss';
 
 const ProductList = ({ products }) => {
   return (
-    <ul className={cl.productList}>
+    <div className={cl.productList}>
       {products.map((product) => (
         <Card key={product.id} card={product} />
       ))}
-    </ul>
+    </div>
   );
 };
 export default ProductList;
