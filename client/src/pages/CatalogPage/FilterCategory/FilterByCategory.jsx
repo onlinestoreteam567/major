@@ -20,7 +20,7 @@ export default function FilterByCategory() {
       {isLoading ? (
         <Spinner />
       ) : (
-        <ul>
+        <div>
           {showArr ? (
             isSliderMode ? (
               <SliderBoxMain slidesData={items} total={items.length} isCatalog={true} />
@@ -30,7 +30,7 @@ export default function FilterByCategory() {
           ) : (
             <EmptyText message="Не знайдено" />
           )}
-        </ul>
+        </div>
       )}
     </div>
   );

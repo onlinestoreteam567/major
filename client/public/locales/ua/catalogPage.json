@@ -36,5 +36,10 @@
 
   "notFoundImageAlt": "Зображення: немає результатів за заданими фільтрами",
   "continueSearching": "Продовжити пошук",
-  "notFoundParagraph": "Спробуйте змінити налаштування фільтрів"
+  "notFoundParagraph": "Спробуйте змінити налаштування фільтрів",
+
+  "rangeMinAriaLabel": "Повзунок мінімальної ціни",
+  "rangeMaxAriaLabel": "Повзунок максимальної ціни",
+  "inputMinAriaLabel": "Поле введення мінімальної ціни",
+  "inputMaxAriaLabel": "Поле введення максимальної ціни"
 }

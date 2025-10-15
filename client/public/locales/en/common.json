@@ -10,6 +10,8 @@
     "network": "Network error. Check your connection."
   },
 
+  "image": "Image",
+
   "catalog": "Catalog",
   "catalogAriaLabel": "Go to catalog page, with active filter: ",
 
