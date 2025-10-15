@@ -13,7 +13,7 @@ const MobileCardImage = ({ src, alt, card }) => {
   return (
     <div className={cl.wrapImgMobCard}>
       <CardLabels card={card} />
-      <img src={imageSrc} alt={alt} onError={handleError} />
+      <img fetchpriority="high" src={imageSrc} alt={alt} onError={handleError} />
     </div>
   );
 };

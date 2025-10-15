@@ -12,5 +12,7 @@
   "removeItem": "Remove product from basket",
   "openHelpInfo": "Learn more about free consultation",
   "openTelegram": "Go to Telegram and open chatbot",
-  "openMessageForm": "Open form for callback"
+  "openMessageForm": "Open form for callback",
+  "increment": "Increase quantity of product by one",
+  "decrement": "Decrease quantity of product by one"
 }
