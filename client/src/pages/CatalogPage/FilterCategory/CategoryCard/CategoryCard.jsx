@@ -25,7 +25,7 @@ const CategoryCard = ({ item }) => {
 
   const imageAlt = `${getTranslation('image')}: ${item.name}`;
   return (
-    <li className={cl.categoryCard} id={item.id}>
+    <div className={cl.categoryCard} id={item.id}>
       <label>
         <figure>
           <img
@@ -43,7 +43,7 @@ const CategoryCard = ({ item }) => {
           onChange={() => getCategory(item.id)}
         />
       </label>
-    </li>
+    </div>
   );
 };
 export default CategoryCard;
