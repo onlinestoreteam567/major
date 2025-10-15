@@ -38,17 +38,25 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  min-height: 1825px;
+
+  @include mobile {
+    min-height: 1885px;
+  }
 
   @include tablet {
     align-items: center;
     gap: 32px;
+    min-height: 1535px;
   }
 
   @include deskmin {
     gap: 48px;
+    min-height: 1510px;
   }
 
   @include deskmax {
     gap: 72px;
+    min-height: 1740px;
   }
 }
