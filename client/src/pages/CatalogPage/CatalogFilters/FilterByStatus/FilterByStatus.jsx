@@ -36,7 +36,7 @@ export default function FilterByStatus() {
         <li key={item.label}>
           <div>
             <div>
-              <img src={item.icon} alt={getTranslation(item.alt)} />
+              <img className={cl.icon} src={item.icon} alt={getTranslation(item.alt)} />
             </div>
             <Heading type="h4">{getTranslation(item.label)}</Heading>
           </div>
