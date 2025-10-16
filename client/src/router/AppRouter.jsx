@@ -2,14 +2,7 @@ import { Suspense, lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import MainLayout from './layouts/MainLayout/MainLayout';
-
-import ErrorBoundary from './error/ErrorBoundary';
-import NotFound from '@pages/NotFoundPage/NotFoundPage';
-import ErrorPage from '@pages/ErrorPage/ErrorPage';
 import AppLoader from '@router/AppLoader/AppLoader';
-
-import ProtectedRoute from './layouts/ProtectedRoute/ProtectedRoute';
-import RoleBasedRoute from './RoleBasedRoute';
 
 // --- PUBLIC PAGES  ---
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
@@ -19,8 +12,12 @@ const Contact = lazy(() => import('@pages/ContactPage'));
 const Cooperation = lazy(() => import('@pages/СooperationPage'));
 const ProductPage = lazy(() => import('@pages/ProductPage/ProductPage'));
 const CheckoutPage = lazy(() => import('@pages/CheckoutPage/CheckoutPage'));
+const NotFound = lazy(() => import('@pages/NotFoundPage/NotFoundPage'));
+const ErrorPage = lazy(() => import('@pages/ErrorPage/ErrorPage'));
 
 // --- ADMIN PAGES ---
+const ProtectedRoute = lazy(() => import('./layouts/ProtectedRoute/ProtectedRoute'));
+const RoleBasedRoute = lazy(() => import('./RoleBasedRoute'));
 const AdminLoginPage = lazy(() => import('@components/admin/AdminLoginPage/AdminLoginPage'));
 
 const ProductManagement = lazy(() => import('@components/admin/ProductManagement/ProductManagement'));
@@ -55,7 +52,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
-    errorElement: <ErrorBoundary />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
       { path: 'about', element: <About /> },
