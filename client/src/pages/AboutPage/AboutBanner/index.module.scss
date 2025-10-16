@@ -10,8 +10,6 @@
     width: 320px;
     height: 190px;
     object-fit: cover;
-    transform: rotateY(180deg);
-    object-position: 50% 33.5%;
   }
 
   figcaption {
@@ -49,8 +47,6 @@
     img {
       width: 768px;
       height: 462px;
-      scale: 1.22;
-      object-position: 50% 41%;
     }
 
     figcaption {
@@ -86,8 +82,6 @@
     img {
       width: 1440px;
       height: 662px;
-      object-position: 50% 44.5%;
-      scale: 1;
     }
 
     figcaption {

@@ -6,6 +6,10 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const MissionSection = () => {
   const { getTranslation } = useTranslationNamespace('aboutPage');
 
+  const mobileImagePath = '/images/about/missionSectionMobile.webp';
+  const deskminImagePath = '/images/about/missionSectionDeskmin.webp';
+  const deskmaxImagePath = '/images/about/missionSectionDeskmax.webp';
+
   return (
     <section className={cl.missionSection}>
       <Heading type="h2">{getTranslation('majorIsMoreThanJustABusiness')}</Heading>
@@ -14,7 +18,11 @@ const MissionSection = () => {
         <div></div>
         <div></div>
         <div></div>
-        <img src="/images/about/missionSection.webp" alt={getTranslation('missionImgAlt')} />
+        <picture>
+          <source srcSet={deskmaxImagePath} media="(min-width: 1440px)" />
+          <source srcSet={deskminImagePath} media="(min-width: 768px)" />
+          <img src={mobileImagePath} alt={getTranslation('missionImgAlt')} />
+        </picture>
       </div>
       <div>
         <Paragraph type="body1">{getTranslation('firstMissionParagraph')}</Paragraph>

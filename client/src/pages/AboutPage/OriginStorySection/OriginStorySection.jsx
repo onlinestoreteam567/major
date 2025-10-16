@@ -16,7 +16,7 @@ const OriginStorySection = () => {
       <picture>
         <source srcSet={tabletImagePath} media="(min-width: 768px)" />
         <source srcSet={desktopImagePath} media="(min-width: 1024px)" />
-        <img src={mobileImagePath} alt={getTranslation('imgAlt')} />
+        <img src={mobileImagePath} alt={getTranslation('originStorySectionImgAlt')} />
       </picture>
       <div>
         <Paragraph type="body1">{getTranslation('originStorySectionFirstParagraph')}</Paragraph>
