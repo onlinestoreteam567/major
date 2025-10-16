@@ -39,10 +39,15 @@
       width: 336px;
     }
 
-    img {
+    picture {
       grid-area: 1/2 / 3;
       width: 336px;
       height: 350px;
+
+      img {
+        width: 336px;
+        height: 350px;
+      }
     }
 
     div {
@@ -61,10 +66,15 @@
       grid-area: 2/1;
     }
 
-    img {
-      grid-area: 1 / 2 / 4;
+    picture {
       width: 476px;
       height: 326px;
+      grid-area: 1 / 2 / 4;
+
+      img {
+        width: 476px;
+        height: 326px;
+      }
     }
 
     div {
@@ -77,9 +87,14 @@
   @include deskmax {
     grid-template-rows: 64.5px 45px;
 
-    img {
+    picture {
       width: 635px;
       height: 435px;
+
+      img {
+        width: 635px;
+        height: 435px;
+      }
     }
 
     div {

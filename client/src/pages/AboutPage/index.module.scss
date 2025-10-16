@@ -6,6 +6,7 @@
   padding-bottom: 24px;
   margin-inline: auto;
   width: 320px;
+  margin-top: 75px;
 
   @include mobile {
     width: 380px;
@@ -21,6 +22,7 @@
     width: 1024px;
     gap: 80px;
     padding-bottom: 80px;
+    margin-top: 96px;
   }
 
   @include deskmax {

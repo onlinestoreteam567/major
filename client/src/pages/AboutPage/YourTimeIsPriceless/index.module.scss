@@ -69,10 +69,15 @@
       grid-area: 2 / 2;
     }
 
-    img {
+    picture {
       width: 336px;
       height: 367px;
       grid-area: 1 / 1 / 6;
+
+      img {
+        width: 336px;
+        height: 367px;
+      }
     }
 
     div {
@@ -97,9 +102,14 @@
       grid-area: 2 / 2;
     }
 
-    img {
+    picture {
       width: 476px;
       height: 519px;
+
+      img {
+        width: 476px;
+        height: 519px;
+      }
     }
 
     div {
@@ -119,9 +129,14 @@
       width: 526px;
     }
 
-    img {
+    picture {
       width: 636px;
       height: 694px;
+
+      img {
+        width: 636px;
+        height: 694px;
+      }
     }
 
     div {
