@@ -7,10 +7,20 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 const YourTimeIsPriceless = () => {
   const { getTranslation } = useTranslationNamespace('aboutPage');
 
+  const mobileImagePath = '/images/about/yourTimeIsPricelessMobile.webp';
+  const deskminImagePath = '/images/about/yourTimeIsPricelessDeskmin.webp';
+  const deskmaxImagePath = '/images/about/yourTimeIsPricelessDeskmax.webp';
+
   return (
     <section className={cl.yourTimeIsPriceless}>
       <Heading type="h2">{getTranslation('yourTimeIsPricelessTitle')}</Heading>
-      <img src="/images/about/yourTimeIsPriceless.webp" alt={getTranslation('yourTimeIsPricelessImgAlt')} />
+
+      <picture>
+        <source srcSet={deskmaxImagePath} media="(min-width: 1440px)" />
+        <source srcSet={deskminImagePath} media="(min-width: 1024px)" />
+        <img src={mobileImagePath} alt={getTranslation('yourTimeIsPricelessImgAlt')} />
+      </picture>
+
       <div>
         <Paragraph type="body1">
           {getTranslation('yourTimeIsPricelessFirstParagraph1')}

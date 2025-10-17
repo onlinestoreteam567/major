@@ -10,15 +10,19 @@ import {
 import AdminNavigation from '../../../components/admin/AdminNavigation/AdminNavigation';
 import cl from './index.module.scss';
 import AdminGlobalMessage from './AdminGlobalMessage';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { verifyAuthToken } from '@redux/admin/auth/service';
 import AppLoader from '@router/AppLoader/AppLoader';
 import { Helmet } from 'react-helmet-async';
+import { injectReducers } from './../../../config/store';
+import { adminReducers } from './adminReducers';
 
 const FONT_URL = 'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap';
 const FONT_ID = 'mulish-admin-font';
 
 const ProtectedRoute = () => {
+  const [reducersLoaded, setReducersLoaded] = useState(false);
+
   const auth = useSelector(selectAccessToken);
   const refresh = useSelector(selectRefreshToken);
   const navigate = useNavigate();
@@ -28,6 +32,29 @@ const ProtectedRoute = () => {
   const verify = useSelector(selectVerifyToken);
   const loadVerify = useSelector(loadVerifyToken);
   const errorVerify = useSelector(errorVerifyToken);
+
+  useEffect(() => {
+    // 1. Inject Reducers immediately since they are statically imported
+    injectReducers(adminReducers);
+
+    // Set loaded state to true immediately
+    setReducersLoaded(true);
+
+    // 2. Dynamic Font Loading (Your existing font logic)
+    if (!document.getElementById(FONT_ID)) {
+      const link = document.createElement('link');
+      // ... (font link setup)
+      document.head.appendChild(link);
+    }
+
+    // ... (Your font cleanup)
+    return () => {
+      const existingLink = document.getElementById(FONT_ID);
+      if (existingLink) {
+        existingLink.remove();
+      }
+    };
+  }, []); // Runs once on mount
 
   useEffect(() => {
     // 1. Check if the font is already loaded to prevent duplicates
@@ -71,7 +98,7 @@ const ProtectedRoute = () => {
     return;
   }
 
-  if (loadVerify) {
+  if (loadVerify || !reducersLoaded) {
     return <AppLoader />;
   }
 
