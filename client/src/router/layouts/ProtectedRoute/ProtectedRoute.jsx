@@ -34,27 +34,9 @@ const ProtectedRoute = () => {
   const errorVerify = useSelector(errorVerifyToken);
 
   useEffect(() => {
-    // 1. Inject Reducers immediately since they are statically imported
     injectReducers(adminReducers);
-
-    // Set loaded state to true immediately
     setReducersLoaded(true);
-
-    // 2. Dynamic Font Loading (Your existing font logic)
-    if (!document.getElementById(FONT_ID)) {
-      const link = document.createElement('link');
-      // ... (font link setup)
-      document.head.appendChild(link);
-    }
-
-    // ... (Your font cleanup)
-    return () => {
-      const existingLink = document.getElementById(FONT_ID);
-      if (existingLink) {
-        existingLink.remove();
-      }
-    };
-  }, []); // Runs once on mount
+  }, []);
 
   useEffect(() => {
     // 1. Check if the font is already loaded to prevent duplicates

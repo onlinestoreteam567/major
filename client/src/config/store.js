@@ -1,6 +1,5 @@
-// store.js
-
-// Static Reducer Imports (These are bundled with the main application)
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { loadFromStorage, saveToStorage } from '@utils/localStorage';
 import { cartReducer } from '@redux/cart/cartSlice';
 import { setsReducer } from '@redux/products/setsSlice';
 import { productsReducer } from '@redux/products/listSlice';
@@ -22,11 +21,6 @@ import { verifyTokenReducer } from '@redux/admin/auth/verifyTokenSlice';
 import { contactsReducer } from '@redux/contacts/contactsSlice';
 import { reviewReducer } from '@redux/reviews/reviewsSlice';
 
-// Core Redux Toolkit and Utilities
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { loadFromStorage, saveToStorage } from '@utils/localStorage';
-
-// Initial state loaded from local storage
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
   auth: {
@@ -82,10 +76,6 @@ export const store = configureStore({
 // Attach async reducers dictionary to the store instance
 store.asyncReducers = {};
 
-/**
- * Injects multiple reducers at once and replaces the store's root reducer.
- * @param {Object} reducersMap An object where keys are the state path and values are the reducer functions.
- */
 export const injectReducers = (reducersMap) => {
   let newReducersInjected = false;
 
