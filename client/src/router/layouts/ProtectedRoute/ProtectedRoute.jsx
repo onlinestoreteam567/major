@@ -15,7 +15,7 @@ import { verifyAuthToken } from '@redux/admin/auth/service';
 import AppLoader from '@router/AppLoader/AppLoader';
 import { Helmet } from 'react-helmet-async';
 import { injectReducers } from './../../../config/store';
-const ADMIN_REDUCER_PATH = './adminReducers.js';
+const ADMIN_REDUCER_PATH = '@router/layouts/ProtectedRoute/adminReducers';
 
 const FONT_URL = 'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap';
 const FONT_ID = 'mulish-admin-font';
