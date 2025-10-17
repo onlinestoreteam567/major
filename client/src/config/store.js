@@ -68,7 +68,7 @@ const preloadedState = {
   },
 };
 
-const rootReducer = combineReducers({
+const staticReducers = {
   cart: cartReducer,
   sets: setsReducer,
   products: productsReducer,
@@ -81,22 +81,25 @@ const rootReducer = combineReducers({
   search: searchReducer,
   promocode: promocodeReducer,
   banner: bannerReducer,
+  viewedProducts: viewedProductsReducer,
+  settlements: settlementsReducer,
+  warehouses: warehousesReducer,
+  partners: partnersReducer,
+  auth: authReducer,
+  verifyToken: verifyTokenReducer,
+  contacts: contactsReducer,
+};
+
+const rootReducer = combineReducers({
+  uploadImage: uploadImageReducer,
+  partnerById: partnerByIdReducer,
+  partnerEdit: partnerEditReducer,
+  partnerDelete: partnerDeleteReducer,
+  partnerCreate: partnerCreateReducer,
   bannerDelete: bannerDeleteReducer,
   bannerCreate: bannerCreateReducer,
   bannerById: bannerByIdReducer,
   bannerEdit: bannerEditReducer,
-  viewedProducts: viewedProductsReducer,
-  settlements: settlementsReducer,
-  warehouses: warehousesReducer,
-  uploadImage: uploadImageReducer,
-  partnerById: partnerByIdReducer,
-  partnerEdit: partnerEditReducer,
-  partners: partnersReducer,
-  partnerDelete: partnerDeleteReducer,
-  partnerCreate: partnerCreateReducer,
-
-  auth: authReducer,
-  verifyToken: verifyTokenReducer,
   adminMessage: adminMessageSliceReducer,
   createProduct: createProductReducer,
   editProduct: editProductReducer,
@@ -116,7 +119,6 @@ const rootReducer = combineReducers({
   promocodeDelete: promocodeDeleteReducer,
   reviews: reviewReducer,
   addReview: addReviewReducer,
-  contacts: contactsReducer,
   contactsEdit: contactsEditReducer,
   adminProductSearch: adminProductSearchReducer,
   adminReviewsSearch: adminReviewsSearchReducer,
