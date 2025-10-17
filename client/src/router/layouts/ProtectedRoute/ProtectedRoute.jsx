@@ -15,7 +15,7 @@ import { verifyAuthToken } from '@redux/admin/auth/service';
 import AppLoader from '@router/AppLoader/AppLoader';
 import { Helmet } from 'react-helmet-async';
 import { injectReducers } from './../../../config/store';
-const ADMIN_REDUCER_PATH = '@router/layouts/ProtectedRoute/adminReducers';
+import { adminReducers } from './adminReducers';
 
 const FONT_URL = 'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap';
 const FONT_ID = 'mulish-admin-font';
@@ -34,35 +34,25 @@ const ProtectedRoute = () => {
   const errorVerify = useSelector(errorVerifyToken);
 
   useEffect(() => {
-    let isMounted = true;
+    // 1. Inject Reducers immediately since they are statically imported
+    injectReducers(adminReducers);
 
-    // 1. Dynamic Import for Code Splitting
-    console.log(ADMIN_REDUCER_PATH);
-    import(ADMIN_REDUCER_PATH)
-      .then((module) => {
-        if (isMounted) {
-          // 2. Inject Reducers into the store
-          injectReducers(module.adminReducers);
-          setReducersLoaded(true);
-        }
-      })
-      .catch((error) => {
-        console.error('Failed to load and inject admin reducers:', error);
-        // Handle loading failure (e.g., redirect to an error page)
-      });
+    // Set loaded state to true immediately
+    setReducersLoaded(true);
 
-    // 3. Dynamic Font Loading
+    // 2. Dynamic Font Loading (Your existing font logic)
     if (!document.getElementById(FONT_ID)) {
       const link = document.createElement('link');
-      link.id = FONT_ID;
-      link.rel = 'stylesheet';
-      link.href = FONT_URL;
+      // ... (font link setup)
       document.head.appendChild(link);
     }
 
-    // Cleanup function for when the component unmounts
+    // ... (Your font cleanup)
     return () => {
-      isMounted = false;
+      const existingLink = document.getElementById(FONT_ID);
+      if (existingLink) {
+        existingLink.remove();
+      }
     };
   }, []); // Runs once on mount
 
