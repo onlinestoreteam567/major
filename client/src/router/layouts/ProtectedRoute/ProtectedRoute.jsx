@@ -37,6 +37,7 @@ const ProtectedRoute = () => {
     let isMounted = true;
 
     // 1. Dynamic Import for Code Splitting
+    console.log(ADMIN_REDUCER_PATH);
     import(ADMIN_REDUCER_PATH)
       .then((module) => {
         if (isMounted) {
