@@ -2,38 +2,173 @@
 
 .partnerInfo {
   @include flex(column, space-between, start);
-  gap: 16px;
-  padding: 20px 50px;
-  height: 68vh;
-  width: 318px;
+  gap: 0;
+  padding: 37px 33px;
+  height: 393px;
+  width: 320px;
   box-sizing: border-box;
   background: #000000cc;
   position: absolute;
-  top: 100px;
+  top: calc(100% + 12px);
   right: 0;
+  z-index: 9;
   @include showCloseAnimation();
 
+  h2 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 124%;
+    margin-bottom: 19px;
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 136%;
+    margin-bottom: 19px;
+  }
+
+  h4 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 136%;
+  }
+
+  .googleMapLink {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+
+    h3{
+      margin: 0;
+    }
+  }
+
+  .workScheduleSection {
+    @include flex(column, start, start);
+    gap: 0;
+    margin-bottom: 19px;
+
+    h4:first-of-type {
+      margin-bottom: 16px;
+
+      @include mobile {
+        margin-bottom: 8px;
+      }
+
+      @include tablet {
+        margin-bottom: 8px;
+      }
+
+      @include deskmin {
+        margin-bottom: 8px;
+      }
+
+      @include deskmax {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  @include mobile {
+    height: 349px;
+    width: 342px;
+    padding: 26px 40px;
+
+    h2 {
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 124%;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 18px;
+      line-height: 122%;
+      margin-bottom: 19px;
+    }
+
+    .workScheduleSection {
+      margin-bottom: 19px;
+    }
+  }
+
   @include tablet {
-    top: 105px;
+    height: 411px;
+    width: 318px;
+    padding: 27px 32px;
+    top: calc(100% + 14px);
+
+    h2 {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 124%;
+      margin-bottom: 44px;
+    }
+
+    h3 {
+      font-size: 18px;
+      line-height: 122%;
+      margin-bottom: 14px;
+    }
+
+    .workScheduleSection {
+      margin-bottom: 18px;
+    }
   }
 
   @include deskmin {
-    width: 388px;
-    padding: 10vh 50px 10vh 40px;
-    gap: 32px;
-    top: 110px;
+    height: 466px;
+    width: 342px;
+    padding: 50px 40px;
+    top: calc(100% + 16px);
+
+    h2 {
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 124%;
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      font-size: 18px;
+      line-height: 122%;
+      margin-bottom: 17px;
+    }
+
+    .workScheduleSection {
+      margin-bottom: 32px;
+    }
   }
 
   @include deskmax {
-    top: 115px;
+    height: 590px;
+    width: 388px;
+    padding: 107px 40px;
+    top: calc(100% + 18px);
+
+    h2 {
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 124%;
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      font-size: 20px;
+      line-height: 122%;
+      margin-bottom: 12px;
+    }
+
+    .workScheduleSection {
+      margin-bottom: 32px;
+    }
   }
 
   &.hiddenAnimation {
     @include showCloseAnimation('close');
-  }
-
-  .workScheduleSection {
-    @include flexGap(8px, column);
   }
 
   h2,

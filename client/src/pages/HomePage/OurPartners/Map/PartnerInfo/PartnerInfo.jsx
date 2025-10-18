@@ -12,16 +12,15 @@ const PartnerInfo = ({ informationAboutPartner, setInformationAboutPartner }) =>
     <aside className={`${cl.partnerInfo} ${isHiddenAnimation ? cl.hiddenAnimation : ''}`} onMouseLeave={handleClose}>
       <Heading type="h2">{informationAboutPartner.name}</Heading>
       <section className={cl.workScheduleSection}>
-        <Heading type="h3">{getTranslation('workingHours')}</Heading>
-        <Heading type="h4">{informationAboutPartner.work_schedule_weekdays}</Heading>
-        <Heading type="h4">{informationAboutPartner.work_schedule_weekends}</Heading>
+        <Heading type="h3">{getTranslation('workingHours')}:</Heading>
+        <Heading type="h4">Пн - Пт: {informationAboutPartner.work_schedule_weekdays}</Heading>
+        <Heading type="h4">Сб - Нд: {informationAboutPartner.work_schedule_weekends}</Heading>
       </section>
       <section>
-        <Heading type="h3">{getTranslation('address')}</Heading>
-        <br />
+        <Heading type="h3">{getTranslation('address')}:</Heading>
         <Heading type="h4">{informationAboutPartner.addres}</Heading>
       </section>
-      <a
+      <a className={cl.googleMapLink}
         href={informationAboutPartner.google_maps_link}
         rel="nofollow"
         target="_blank"

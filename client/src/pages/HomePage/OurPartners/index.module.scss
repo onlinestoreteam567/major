@@ -2,6 +2,14 @@
 
 .ourPartners {
   @include flexGap(35px, column);
+   position: relative;
+
+   .headingWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   .buttonWrapper {
     @include flex();
