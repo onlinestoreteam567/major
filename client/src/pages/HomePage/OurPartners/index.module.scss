@@ -2,13 +2,17 @@
 
 .ourPartners {
   @include flexGap(35px, column);
-   position: relative;
+  position: relative;
 
-   .headingWrapper {
+  .headingWrapper {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    h2 {
+      align-self: center;
+    }
   }
 
   .buttonWrapper {
