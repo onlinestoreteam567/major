@@ -3,6 +3,7 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@UI/Texts/Heading/Heading';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import { useState } from 'react';
+
 const PartnerInfo = ({ informationAboutPartner, setInformationAboutPartner }) => {
   const [isHiddenAnimation, setIsHiddenAnimation] = useState();
   const { getTranslation } = useTranslationNamespace('ourPartners');
@@ -16,11 +17,12 @@ const PartnerInfo = ({ informationAboutPartner, setInformationAboutPartner }) =>
         <Heading type="h4">Пн - Пт: {informationAboutPartner.work_schedule_weekdays}</Heading>
         <Heading type="h4">Сб - Нд: {informationAboutPartner.work_schedule_weekends}</Heading>
       </section>
-      <section>
+      <section className={cl.addressSection}>
         <Heading type="h3">{getTranslation('address')}:</Heading>
         <Heading type="h4">{informationAboutPartner.addres}</Heading>
       </section>
-      <a className={cl.googleMapLink}
+      <a
+        className={cl.googleMapLink}
         href={informationAboutPartner.google_maps_link}
         rel="nofollow"
         target="_blank"

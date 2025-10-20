@@ -10,7 +10,9 @@
   background: #000000cc;
   position: absolute;
   top: calc(100% + 12px);
-  right: 0;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
   z-index: 9;
   @include showCloseAnimation();
 
@@ -35,13 +37,10 @@
   }
 
   .googleMapLink {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
+    @include flex(row, center, center);
     margin-top: auto;
 
-    h3{
+    h3 {
       margin: 0;
     }
   }
@@ -53,27 +52,25 @@
 
     h4:first-of-type {
       margin-bottom: 16px;
-
-      @include mobile {
-        margin-bottom: 8px;
-      }
-
-      @include tablet {
-        margin-bottom: 8px;
-      }
-
-      @include deskmin {
-        margin-bottom: 8px;
-      }
-
-      @include deskmax {
-        margin-bottom: 8px;
-      }
     }
   }
 
+  .addressSection {
+    h3 {
+      margin-bottom: 8px;
+    }
+  }
+
+  section:last-of-type h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
   @include mobile {
-    height: 349px;
+    min-height: 349px;
     width: 342px;
     padding: 26px 40px;
 
@@ -100,6 +97,9 @@
     width: 318px;
     padding: 27px 32px;
     top: calc(100% + 14px);
+    right: 0;
+    left: auto;
+    transform: none;
 
     h2 {
       font-weight: 700;
