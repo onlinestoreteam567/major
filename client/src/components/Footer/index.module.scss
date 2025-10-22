@@ -5,8 +5,14 @@
   padding: 62px 15px 0 15px;
   box-sizing: border-box;
   background-color: $second-background-color-black;
+  height: 488px;
+
+  @include mobile {
+    height: 355px;
+  }
 
   @include tablet {
+    height: 349px;
     padding: 48px 64px 0 64px;
     overflow: hidden;
   }

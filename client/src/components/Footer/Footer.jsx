@@ -4,7 +4,8 @@ import cl from './index.module.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from '@redux/contacts/service';
-import { selectContacts } from '@redux/selectors';
+import { loadContacts, selectContacts } from '@redux/selectors';
+import Spinner from '@components/UI/Spinner/Spinner';
 
 const Footer = () => {
   const dispatch = useDispatch();
@@ -13,13 +14,19 @@ const Footer = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  const isLoading = useSelector(loadContacts);
   const contacts = useSelector(selectContacts);
 
   return (
     <footer className={cl.footer}>
-      <FooterTopSection contacts={contacts} />
-      {/* <FooterCopyrightSection /> */}
-      <FooterCopyrightSection contacts={contacts} />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          <FooterTopSection contacts={contacts} />
+          <FooterCopyrightSection contacts={contacts} />
+        </>
+      )}
     </footer>
   );
 };
