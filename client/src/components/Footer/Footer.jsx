@@ -18,6 +18,7 @@ const Footer = () => {
   return (
     <footer className={cl.footer}>
       <FooterTopSection contacts={contacts} />
+      {/* <FooterCopyrightSection /> */}
       <FooterCopyrightSection contacts={contacts} />
     </footer>
   );

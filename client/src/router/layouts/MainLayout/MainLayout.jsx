@@ -30,10 +30,10 @@ const MainLayout = () => {
 
   return (
     <div className={cl.mainLayout}>
-      <Header />
-      <main>
+      {/* <Header /> */}
+      {/* <main>
         <Outlet />
-      </main>
+      </main> */}
       <Footer />
     </div>
   );

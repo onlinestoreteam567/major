@@ -2,6 +2,21 @@
 
 .socialLinks {
   @include flex(column);
+  width: 100%;
+  height: 83px;
+
+  @include tablet {
+    width: 173px;
+    height: 83px;
+  }
+
+  @include deskmin {
+    height: 85px;
+  }
+
+  @include deskmax {
+    width: 169px;
+  }
 
   h3 {
     font-family: $font-main;
