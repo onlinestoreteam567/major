@@ -30,4 +30,4 @@ const categorySlice = createSlice({
   },
 });
 
-export const categotyReducer = categorySlice.reducer;
+export const categoryReducer = categorySlice.reducer;

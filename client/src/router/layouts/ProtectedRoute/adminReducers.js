@@ -36,27 +36,40 @@ import { userDeleteReducer } from '@redux/admin/settings/userDelete';
 import { userCreateReducer } from '@redux/admin/settings/userCreate';
 import { userEditReducer } from '@redux/admin/settings/userEdit';
 import { userByIdReducer } from '@redux/admin/settings/userById';
+import { productsReducer } from '@redux/products/listSlice';
+import { productIdReducer } from '@redux/products/cardSlice';
+import { categoryReducer } from '@redux/params/categorySlice';
+import { typesReducer } from '@redux/params/purposeSlice';
+import { bannerReducer } from '@redux/banner/bannerSlice';
+import { partnersReducer } from '@redux/partners/partnerSlice';
+import { reviewReducer } from '@redux/reviews/reviewsSlice';
 
 // Export an object containing all the reducers
 export const adminReducers = {
   uploadImage: uploadImageReducer,
+  partners: partnersReducer,
   partnerById: partnerByIdReducer,
   partnerEdit: partnerEditReducer,
   partnerDelete: partnerDeleteReducer,
   partnerCreate: partnerCreateReducer,
+  banner: bannerReducer,
   bannerDelete: bannerDeleteReducer,
   bannerCreate: bannerCreateReducer,
   bannerById: bannerByIdReducer,
   bannerEdit: bannerEditReducer,
   adminMessage: adminMessageSliceReducer,
+  productId: productIdReducer,
+  products: productsReducer,
   createProduct: createProductReducer,
   editProduct: editProductReducer,
   productDelete: productDeleteReducer,
+  category: categoryReducer,
   createPurposeCategory: createPurposeCategoryReducer,
   createTypeCategory: createTypeCategoryReducer,
   purposeCategoryById: purposeCategoryByIdReducer,
   purposeEdit: purposeEditReducer,
   purposeDelete: purposeDeleteReducer,
+  types: typesReducer,
   typeById: typeByIdReducer,
   typeEdit: typeEditReducer,
   typeDelete: typeDeleteReducer,
@@ -65,6 +78,7 @@ export const adminReducers = {
   promocodeById: promocodeByIdReducer,
   promocodeEdit: promocodeEditReducer,
   promocodeDelete: promocodeDeleteReducer,
+  reviews: reviewReducer,
   addReview: addReviewReducer,
   contactsEdit: contactsEditReducer,
   adminProductSearch: adminProductSearchReducer,

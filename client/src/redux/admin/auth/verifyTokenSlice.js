@@ -11,7 +11,7 @@ const handleRejected = (state, action) => {
 };
 
 const verifyTokenSlice = createSlice({
-  name: 'auth',
+  name: 'verifyToken',
   initialState: {
     isVerified: null,
     isLoading: null,

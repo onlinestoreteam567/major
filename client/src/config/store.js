@@ -1,25 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { loadFromStorage, saveToStorage } from '@utils/localStorage';
 import { cartReducer } from '@redux/cart/cartSlice';
-import { setsReducer } from '@redux/products/setsSlice';
-import { productsReducer } from '@redux/products/listSlice';
-import { productIdReducer } from '@redux/products/cardSlice';
-import { bestSellerReducer } from '@redux/products/bestSlice';
-import { categotyReducer } from '@redux/params/categorySlice';
-import { typesReducer } from '@redux/params/purposeSlice';
-import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
-import { filterReducer } from '@redux/filter/filterSlice';
-import { searchReducer } from '@redux/products/searchSlice';
-import { promocodeReducer } from '@redux/promocode/promocodeSlice';
-import { bannerReducer } from '@redux/banner/bannerSlice';
-import { viewedProductsReducer } from '@redux/products/viewedProductsSlice';
-import { settlementsReducer } from '@redux/novaPost/settlementsSlice';
-import { warehousesReducer } from '@redux/novaPost/warehousesSlice';
-import { partnersReducer } from '@redux/partners/partnerSlice';
 import { authReducer } from '@redux/admin/auth/authSlice';
 import { verifyTokenReducer } from '@redux/admin/auth/verifyTokenSlice';
 import { contactsReducer } from '@redux/contacts/contactsSlice';
-import { reviewReducer } from '@redux/reviews/reviewsSlice';
+import { viewedProductsReducer } from '@redux/products/viewedProductsSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -33,28 +18,13 @@ const preloadedState = {
   },
 };
 
-// Define the reducers that will always be present
+// Reducers that will always be present
 const staticReducers = {
   cart: cartReducer,
-  sets: setsReducer,
-  products: productsReducer,
-  productId: productIdReducer,
-  bests: bestSellerReducer,
-  category: categotyReducer,
-  types: typesReducer,
-  fitCategory: fitCategoryReducer,
-  filter: filterReducer,
-  search: searchReducer,
-  promocode: promocodeReducer,
-  banner: bannerReducer,
   viewedProducts: viewedProductsReducer,
-  settlements: settlementsReducer,
-  warehouses: warehousesReducer,
-  partners: partnersReducer,
   auth: authReducer,
   verifyToken: verifyTokenReducer,
   contacts: contactsReducer,
-  reviews: reviewReducer,
 };
 
 // Function to create the combined reducer
