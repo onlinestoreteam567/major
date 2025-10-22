@@ -4,6 +4,8 @@
   @include flex(column, space-around, null);
   margin-bottom: 32px;
   text-wrap: nowrap;
+  height: 135px;
+  width: 109px;
 
   @include tablet {
     flex-direction: column;
@@ -11,7 +13,7 @@
     justify-content: unset;
     margin-bottom: 0;
     margin-left: 75px;
-    width: max-content;
+    height: 140px;
   }
 
   @include deskmin {
@@ -19,9 +21,12 @@
     width: 50%;
     flex-direction: row;
     justify-content: space-between;
+    width: 412px;
+    height: 57px;
   }
 
   @include deskmax {
+    width: 564px;
     gap: 0px;
     align-items: center;
   }

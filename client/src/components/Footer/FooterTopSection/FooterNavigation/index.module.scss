@@ -3,6 +3,13 @@
 .footerNavigation {
   @include flex(column, null, null);
   gap: 24px;
+  width: 296px;
+  height: 73px;
+
+  @include mobile {
+    width: 145px;
+    height: 167px;
+  }
 
   @include tablet {
     flex-direction: column;
@@ -24,10 +31,12 @@
     text-wrap: nowrap;
     @include flex(row, space-between, null);
     width: 296px;
+    height: 73px;
 
     @include mobile {
       @include flexGap(24px, column);
-      width: auto;
+      width: 145px;
+      height: 167px;
     }
 
     @include deskmax {
