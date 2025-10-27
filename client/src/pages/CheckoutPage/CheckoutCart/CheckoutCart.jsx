@@ -43,6 +43,7 @@ const CheckoutCart = () => {
       </div>
       {isExpanded && !isEmpty && (
         <ul>
+          {console.log(cartItems)}
           {cartItems.map((product) => (
             <CheckoutCartItem key={product.id} product={product} />
           ))}

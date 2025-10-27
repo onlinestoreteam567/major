@@ -36,7 +36,10 @@ const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigge
           <div>
             <button
               className={shippingMethod === 'novaPost' ? cl.active : ''}
-              onClick={() => setShippingMethod('novaPost')}
+              onClick={() => {
+                setShippingMethod('novaPost');
+                setValue('delivery_method', 'nova_poshta');
+              }}
               type="button"
             >
               <Heading type="h4">{getTranslation('novaPost')}</Heading>
@@ -44,7 +47,10 @@ const Shipping = ({ control, activeStep, setActiveStep, register, errors, trigge
             <button
               type="button"
               className={shippingMethod === 'selfPickup' ? cl.active : ''}
-              onClick={() => setShippingMethod('selfPickup')}
+              onClick={() => {
+                setShippingMethod('selfPickup');
+                setValue('delivery_method', 'pickup');
+              }}
             >
               <Heading type="h4">{getTranslation('selfPickup')}</Heading>
             </button>

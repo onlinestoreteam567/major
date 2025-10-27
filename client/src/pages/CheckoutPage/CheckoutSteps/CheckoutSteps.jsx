@@ -20,9 +20,40 @@ const CheckoutSteps = () => {
   } = useForm({
     resolver: yupResolver(checkoutSchema),
     mode: 'onSubmit',
+    defaultValues: { delivery_method: 'nova_poshta' },
   });
 
   const [activeStep, setActiveStep] = useState(1);
+
+  const getFormValues = () => {
+    let formValues = getValues();
+    delete formValues.checkbox;
+
+    if (formValues.comment === '') {
+      delete formValues.comment;
+    }
+
+    if (formValues.telegram_name === '') {
+      delete formValues.telegram_name;
+    } else if (!formValues.telegram_name.trim().startsWith('@')) {
+      formValues = { ...formValues, telegram_name: '@' + formValues.telegram_name.trim() };
+    }
+
+    if (!formValues.settlement) {
+      delete formValues.settlement;
+    }
+
+    if (formValues.warehouse === '') {
+      delete formValues.warehouse;
+    }
+
+    if (formValues.delivery_method === 'self_pickup') {
+      delete formValues.warehouse;
+      delete formValues.settlement;
+    }
+
+    console.log(formValues);
+  };
 
   return (
     <form onSubmit={handleSubmit} className={cl.checkoutSteps}>
@@ -56,7 +87,7 @@ const CheckoutSteps = () => {
       />
       {activeStep === 4 && <p style={{ color: 'limeGreen', fontSize: '30px' }}>Всьо, форма пройдена, давай гроші</p>}
 
-      <button type="button" onClick={() => console.log(getValues())}>
+      <button type="button" onClick={() => getFormValues()}>
         Клік: Вивести в консоль браузеру значення форми
       </button>
     </form>

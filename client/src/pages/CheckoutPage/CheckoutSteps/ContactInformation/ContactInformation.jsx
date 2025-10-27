@@ -46,7 +46,7 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
             />
             <div>
               <ContactInformationInput
-                name="telegram"
+                name="telegram_name"
                 register={register}
                 labelText={getTranslation('telegram')}
                 placeholder="@user_name"
@@ -57,7 +57,7 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
           </div>
           <Button
             onClick={async () => {
-              const isStepValid = await trigger(['name', 'surname', 'phone', 'telegram']);
+              const isStepValid = await trigger(['name', 'surname', 'phone', 'telegram_name']);
               if (isStepValid) {
                 setActiveStep(2);
               }
@@ -70,9 +70,9 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
         <div>
           <Paragraph type="body2">
             {getValues().name} {getValues().surname} <br />
-            {getValues().telegram && (
+            {getValues().telegram_name && (
               <>
-                {getValues().telegram} <br />
+                {getValues().telegram_name} <br />
               </>
             )}
             {getValues().phone}

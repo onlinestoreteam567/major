@@ -9,12 +9,13 @@ export const checkoutSchema = yup.object({
     .notOneOf(['+38 (0__)  __ __ ___'], 'required')
     .required('required')
     .test('no-dash', 'enterFullNumber', (value) => !value?.includes('_')),
-  telegram: yup
+  telegram_name: yup
     .string()
     .nullable()
     .notRequired()
     .test('is-valid-telegram', 'telegramError', (value) => !value || value.startsWith('@')),
 
+  delivery_method: yup.string().oneOf(['nova_poshta', 'pickup'], 'selectDeliveryMethod').default('nova_poshta'),
   settlement: yup.string().required('required'),
   warehouse: yup.string().required('required'),
   comment: yup.string().max(500, 'maximum500Characters'),
