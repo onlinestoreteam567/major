@@ -2,7 +2,6 @@
 
 .partnerInfo {
   @include flex(column, space-between, start);
-  gap: 0;
   padding: 37px 33px;
   height: 393px;
   width: 320px;
@@ -17,23 +16,11 @@
   @include showCloseAnimation();
 
   h2 {
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 124%;
-    margin-bottom: 19px;
+       margin-bottom: 19px;
   }
 
   h3 {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 136%;
     margin-bottom: 19px;
-  }
-
-  h4 {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 136%;
   }
 
   .googleMapLink {
@@ -47,7 +34,6 @@
 
   .workScheduleSection {
     @include flex(column, start, start);
-    gap: 0;
     margin-bottom: 19px;
 
     h4:first-of-type {
@@ -75,15 +61,10 @@
     padding: 26px 40px;
 
     h2 {
-      font-weight: 500;
-      font-size: 32px;
-      line-height: 124%;
       margin-bottom: 16px;
     }
 
     h3 {
-      font-size: 18px;
-      line-height: 122%;
       margin-bottom: 19px;
     }
 
@@ -102,15 +83,10 @@
     transform: none;
 
     h2 {
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 124%;
       margin-bottom: 44px;
     }
 
     h3 {
-      font-size: 18px;
-      line-height: 122%;
       margin-bottom: 14px;
     }
 
@@ -126,15 +102,10 @@
     top: calc(100% + 16px);
 
     h2 {
-      font-weight: 500;
-      font-size: 32px;
-      line-height: 124%;
       margin-bottom: 32px;
     }
 
     h3 {
-      font-size: 18px;
-      line-height: 122%;
       margin-bottom: 17px;
     }
 
@@ -150,15 +121,10 @@
     top: calc(100% + 18px);
 
     h2 {
-      font-weight: 700;
-      font-size: 36px;
-      line-height: 124%;
       margin-bottom: 32px;
     }
 
     h3 {
-      font-size: 20px;
-      line-height: 122%;
       margin-bottom: 12px;
     }
 
