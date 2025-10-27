@@ -14,8 +14,8 @@ const PartnerInfo = ({ informationAboutPartner, setInformationAboutPartner }) =>
       <Heading type="h2">{informationAboutPartner.name}</Heading>
       <section className={cl.workScheduleSection}>
         <Heading type="h3">{getTranslation('workingHours')}:</Heading>
-        <Heading type="h4">Пн - Пт: {informationAboutPartner.work_schedule_weekdays}</Heading>
-        <Heading type="h4">Сб - Нд: {informationAboutPartner.work_schedule_weekends}</Heading>
+        <Heading type="h4">{getTranslation('workDays')}: {informationAboutPartner.work_schedule_weekdays}</Heading>
+        <Heading type="h4">{getTranslation('weekendDays')}: {informationAboutPartner.work_schedule_weekends}</Heading>
       </section>
       <section className={cl.addressSection}>
         <Heading type="h3">{getTranslation('address')}:</Heading>
