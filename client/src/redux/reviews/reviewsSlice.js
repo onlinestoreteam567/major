@@ -67,6 +67,7 @@ const ReviewsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.reviews = action.payload;
+        state.filteredReviews = action.payload;
       })
       .addCase(reviewsGetByStatus.rejected, handleRejected)
 
