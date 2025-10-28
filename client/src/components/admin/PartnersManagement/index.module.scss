@@ -19,6 +19,12 @@
     a {
       width: 280px;
       height: 54px;
+
+      button {
+        font-family: Mulish;
+        font-weight: 700;
+        font-size: 18px;
+      }
     }
   }
 
@@ -47,6 +53,11 @@
       a {
         height: 65px;
         width: 256px;
+
+        button {
+          height: 65px;
+          font-size: 24px;
+        }
       }
     }
   }
