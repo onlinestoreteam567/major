@@ -9,10 +9,10 @@ import { useEffect, useState } from 'react';
 const Payment = ({ activeStep, setActiveStep, register, errors, trigger, watch }) => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
   const [isError, setIsError] = useState(false);
-  const paymentOptionValue = watch('paymentOption');
+  const paymentOptionValue = watch('payment_option');
 
   useEffect(() => {
-    if (!paymentOptionValue && errors?.paymentOption) {
+    if (!paymentOptionValue && errors?.payment_option) {
       console.log('true');
       setIsError(true);
     } else {
@@ -37,9 +37,9 @@ const Payment = ({ activeStep, setActiveStep, register, errors, trigger, watch }
               <input
                 type="radio"
                 id="partialPayment"
-                name="paymentOption"
+                name="payment_option"
                 value="partial"
-                {...register('paymentOption', { required: 'You must select a payment option' })}
+                {...register('payment_option', { required: 'You must select a payment option' })}
               />
               <img src="/images/checkout/firstOption.webp" alt={getTranslation('firstOptionAlt')} />
               <div>
@@ -51,9 +51,9 @@ const Payment = ({ activeStep, setActiveStep, register, errors, trigger, watch }
               <input
                 type="radio"
                 id="fullPayment"
-                name="paymentOption"
+                name="payment_option"
                 value="full"
-                {...register('paymentOption', { required: 'You must select a payment option' })}
+                {...register('payment_option', { required: 'You must select a payment option' })}
               />
               <img src="/images/checkout/secondOption.webp" alt={getTranslation('secondOptionAlt')} />
               <div>
@@ -62,12 +62,12 @@ const Payment = ({ activeStep, setActiveStep, register, errors, trigger, watch }
               </div>
             </label>
 
-            {isError && <Paragraph type="caption">{getTranslation(errors?.paymentOption?.message)}</Paragraph>}
+            {isError && <Paragraph type="caption">{getTranslation(errors?.payment_option?.message)}</Paragraph>}
           </div>
           <PaymentCheckbox name="checkbox" register={register} errors={errors} />
           <Button
             onClick={async () => {
-              const isStepValid = await trigger(['checkbox', 'paymentOption']);
+              const isStepValid = await trigger(['checkbox', 'payment_option']);
               if (isStepValid) setActiveStep(4);
             }}
           >

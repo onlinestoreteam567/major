@@ -13,16 +13,19 @@ import { injectReducers } from '@config/store';
 import Spinner from '@components/UI/Spinner/Spinner';
 import { settlementsReducer } from '@redux/novaPost/settlementsSlice';
 import { warehousesReducer } from '@redux/novaPost/warehousesSlice';
+import { createInvoiceReducer } from '@redux/checkout/createInvoiceSlice';
 
 const CheckoutPage = () => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
   const cartItems = useSelector(selectCart);
   const [isReducerLoaded, setIsReducerLoaded] = useState(false);
+  const [totalToPaid, setTotalToPaid] = useState(0);
 
   const checkoutPageReducers = {
     promocode: promocodeReducer,
     settlements: settlementsReducer,
     warehouses: warehousesReducer,
+    createInvoice: createInvoiceReducer,
   };
 
   useEffect(() => {
@@ -41,8 +44,8 @@ const CheckoutPage = () => {
 
       <CheckoutBreadCrumbs />
       <Heading type="h2">{getTranslation('checkout')}</Heading>
-      <CheckoutCart />
-      {cartItems.length !== 0 && <CheckoutSteps />}
+      <CheckoutCart setTotalToPaid={setTotalToPaid} />
+      {cartItems.length !== 0 && <CheckoutSteps totalToPaid={totalToPaid} />}
     </div>
   );
 };
