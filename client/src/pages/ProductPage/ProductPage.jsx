@@ -39,7 +39,7 @@ export default function ProductPage() {
     if (error) {
       navigate('/404');
     }
-  }, [location]);
+  }, [error]);
 
   const categoryId = card.purpose_category || null;
 
