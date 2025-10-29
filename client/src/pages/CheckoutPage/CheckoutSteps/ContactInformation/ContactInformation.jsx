@@ -27,7 +27,7 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
               errors={errors}
             />
             <ContactInformationInput
-              name="surname"
+              name="last_name"
               register={register}
               placeholder={getTranslation('surname')}
               labelText={`${getTranslation('surname')}*`}

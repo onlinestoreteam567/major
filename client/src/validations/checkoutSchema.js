@@ -2,7 +2,7 @@ import * as yup from 'yup';
 
 export const checkoutSchema = yup.object({
   name: yup.string().required('required'),
-  surname: yup.string().required('required'),
+  last_name: yup.string().required('required'),
   phone: yup
     .string()
     .trim()

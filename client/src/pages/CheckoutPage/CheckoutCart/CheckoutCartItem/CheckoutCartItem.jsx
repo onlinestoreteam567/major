@@ -28,14 +28,14 @@ const CheckoutCartItem = ({ product }) => {
         <div>
           <Heading type="h4">
             <span>{getTranslation('price')}</span>
-            {product.price_with_discount || product.price} {hryvnia}
+            {product.price} {hryvnia}
           </Heading>
           <Heading type="h4">
             <span>{getTranslation('amount')}</span>х {product.quantity}
           </Heading>
           <Heading type="h4">
             <span>{getTranslation('total')}</span>
-            {product.price_with_discount || product.price * product.quantity} {hryvnia}
+            {product.price * product.quantity} {hryvnia}
           </Heading>
         </div>
       </section>
