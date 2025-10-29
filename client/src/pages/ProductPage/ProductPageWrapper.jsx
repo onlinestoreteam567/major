@@ -5,6 +5,7 @@ import { setsReducer } from '@redux/products/setsSlice';
 import Spinner from '@components/UI/Spinner/Spinner';
 import { productIdReducer } from '@redux/products/cardSlice';
 import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
+import { addReviewReducer } from '@redux/reviews/addReviewSlice';
 
 const ProductPageWrapper = () => {
   const [isReducerLoaded, setIsReducerLoaded] = useState(false);
@@ -13,6 +14,7 @@ const ProductPageWrapper = () => {
     productId: productIdReducer,
     sets: setsReducer,
     fitCategory: fitCategoryReducer,
+    addReview: addReviewReducer,
   };
 
   useEffect(() => {

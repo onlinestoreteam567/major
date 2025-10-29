@@ -5,7 +5,7 @@ import PromocodeSelect from './PromocodeSelect/PromocodeSelect';
 import { useDispatch, useSelector } from 'react-redux';
 import { responsePromocodeList } from '@redux/selectors';
 import { useEffect } from 'react';
-import { fetchPromocode } from '@redux/promocode/service';
+import { fetchPromocode } from '@redux/admin/promocode/service';
 
 const PromocodeManagement = () => {
   const items = useSelector(responsePromocodeList);

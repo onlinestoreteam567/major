@@ -3,9 +3,17 @@ import cl from './index.module.scss';
 import Header from '@components/Header/Header';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { Helmet } from 'react-helmet-async';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchContacts } from '@redux/contacts/service';
 
 export default function ErrorPage() {
   const { getTranslation } = useTranslationNamespace('errorPage');
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <>

@@ -7,7 +7,6 @@ import Spinner from '../Spinner/Spinner';
 const SocialLinks = ({ black }) => {
   const { getTranslation } = useTranslationNamespace('footer');
   const contacts = useSelector(selectContacts);
-  // const contacts = false;
 
   return (
     <section className={cl.socialLinks}>

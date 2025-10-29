@@ -9,12 +9,14 @@ import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 import { useEffect, useState } from 'react';
 import { incrementItemQuantity } from '@redux/cart/cartSlice';
 import { Link } from 'react-router-dom';
+import { useImageError } from '@hooks/useImageError';
 const hryvnia = '\u20B4';
 const digitRegex = /^\d*$/;
 
 const HeaderCartItem = ({ item, onClick }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(item.quantity);
+  const [imageSrc, handleError] = useImageError(item.images[0].image);
 
   const handleAddToCart = () => dispatch(incrementItemQuantity(item.id));
   const handleRemoveItem = () => dispatch(removeItem(item.id));
@@ -56,7 +58,7 @@ const HeaderCartItem = ({ item, onClick }) => {
   return (
     <li className={cl.headerCartItem}>
       <Link onClick={onClick} to={`/catalog/${item.id}`}>
-        <img src={item.images[0].image} className={cl.basketItemImg} alt={item.name} />
+        <img src={imageSrc} onError={handleError} className={cl.basketItemImg} alt={item.name} />
       </Link>
       <section>
         <Heading type="h4">{item.name}</Heading>

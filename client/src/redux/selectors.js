@@ -19,6 +19,7 @@ export const loadFitCategory = (state) => state.fitCategory.isLoading;
 
 export const loadProductId = (state) => state.productId.isLoading;
 export const selectProductId = (state) => state.productId.productId;
+export const errorProductId = (state) => state.productId.error;
 
 export const filterCategory = (state) => state.filter.category;
 export const filterType = (state) => state.filter.type;
