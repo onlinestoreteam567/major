@@ -13,6 +13,7 @@ import { injectReducers } from '@config/store';
 import Spinner from '@components/UI/Spinner/Spinner';
 import { settlementsReducer } from '@redux/novaPost/settlementsSlice';
 import { warehousesReducer } from '@redux/novaPost/warehousesSlice';
+import { createInvoiceReducer } from '@redux/checkout/createInvoiceSlice';
 
 const CheckoutPage = () => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
@@ -24,6 +25,7 @@ const CheckoutPage = () => {
     promocode: promocodeReducer,
     settlements: settlementsReducer,
     warehouses: warehousesReducer,
+    createInvoice: createInvoiceReducer,
   };
 
   useEffect(() => {

@@ -6,6 +6,8 @@ import { checkoutSchema } from '@validations/checkoutSchema';
 import Shipping from './Shipping/Shipping';
 import Payment from './Payment/Payment';
 import { useState } from 'react';
+import { createInvoice } from '@redux/checkout/service';
+import { useDispatch } from 'react-redux';
 
 const CheckoutSteps = ({ totalToPaid }) => {
   const {
@@ -23,6 +25,7 @@ const CheckoutSteps = ({ totalToPaid }) => {
     defaultValues: { delivery_method: 'nova_poshta' },
   });
 
+  const dispatch = useDispatch();
   const [activeStep, setActiveStep] = useState(1);
 
   const getFormValues = () => {
@@ -60,6 +63,7 @@ const CheckoutSteps = ({ totalToPaid }) => {
       formValues = { ...formValues, amount: totalToPaid };
     }
 
+    dispatch(createInvoice(formValues));
     console.log(formValues);
   };
 
