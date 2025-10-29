@@ -7,7 +7,7 @@ import Shipping from './Shipping/Shipping';
 import Payment from './Payment/Payment';
 import { useState } from 'react';
 
-const CheckoutSteps = () => {
+const CheckoutSteps = ({ totalToPaid }) => {
   const {
     register,
     handleSubmit,
@@ -50,6 +50,14 @@ const CheckoutSteps = () => {
     if (formValues.delivery_method === 'self_pickup') {
       delete formValues.warehouse;
       delete formValues.settlement;
+    }
+
+    formValues = { ...formValues, full_amount: totalToPaid };
+
+    if (formValues.paymentOption === 'partial') {
+      formValues = { ...formValues, amount: 100 };
+    } else if (formValues.paymentOption === 'full') {
+      formValues = { ...formValues, amount: totalToPaid };
     }
 
     console.log(formValues);

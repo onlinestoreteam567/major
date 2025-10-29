@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import CheckoutCartItem from './CheckoutCartItem/CheckoutCartItem';
 
-const CheckoutCart = () => {
+const CheckoutCart = ({ setTotalToPaid }) => {
   const { i18n } = useTranslation();
   const dispatch = useDispatch();
   const { getTranslation } = useTranslationNamespace('checkoutPage');
@@ -38,6 +38,7 @@ const CheckoutCart = () => {
 
     const originalTotalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
+    setTotalToPaid(finalSum);
     return {
       totalToBePaid: finalSum,
       totalInitialPrice: initialSum,

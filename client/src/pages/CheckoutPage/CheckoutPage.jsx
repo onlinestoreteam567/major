@@ -18,6 +18,7 @@ const CheckoutPage = () => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
   const cartItems = useSelector(selectCart);
   const [isReducerLoaded, setIsReducerLoaded] = useState(false);
+  const [totalToPaid, setTotalToPaid] = useState(0);
 
   const checkoutPageReducers = {
     promocode: promocodeReducer,
@@ -41,8 +42,8 @@ const CheckoutPage = () => {
 
       <CheckoutBreadCrumbs />
       <Heading type="h2">{getTranslation('checkout')}</Heading>
-      <CheckoutCart />
-      {cartItems.length !== 0 && <CheckoutSteps />}
+      <CheckoutCart setTotalToPaid={setTotalToPaid} />
+      {cartItems.length !== 0 && <CheckoutSteps totalToPaid={totalToPaid} />}
     </div>
   );
 };
