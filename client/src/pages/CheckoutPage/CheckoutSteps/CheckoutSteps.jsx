@@ -57,9 +57,9 @@ const CheckoutSteps = ({ totalToPaid }) => {
 
     formValues = { ...formValues, full_amount: totalToPaid };
 
-    if (formValues.paymentOption === 'partial') {
+    if (formValues.payment_option === 'partial') {
       formValues = { ...formValues, amount: 100 };
-    } else if (formValues.paymentOption === 'full') {
+    } else if (formValues.payment_option === 'full') {
       formValues = { ...formValues, amount: totalToPaid };
     }
 
