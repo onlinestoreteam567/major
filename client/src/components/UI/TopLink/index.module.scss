@@ -31,19 +31,24 @@
   }
   .wrapLink:last-child {
     max-width: 240px;
+
     .link {
-      display: block;
       color: $text-color-black;
       font-weight: $font-weight-base;
-      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      width: 100%;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
     }
   }
 
   @include tablet {
     .wrapLink:last-child {
       width: auto;
+      max-width: none;
     }
   }
 }

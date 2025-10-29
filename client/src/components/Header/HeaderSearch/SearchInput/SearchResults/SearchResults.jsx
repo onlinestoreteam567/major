@@ -8,6 +8,7 @@ import { resetFilter } from '@redux/filter/filterSlice';
 import { setProducts } from '@redux/products/listSlice';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { useEffect, useRef } from 'react';
+import SearchResultItem from './SearchResultItem/SearchResultItem';
 
 const SearchResults = ({ handleCloseInput }) => {
   const isLoading = useSelector(loadSearch);
@@ -46,22 +47,7 @@ const SearchResults = ({ handleCloseInput }) => {
       ) : (
         <ul>
           {showOnlyFirstThree.map((product) => (
-            <li key={product.id} className={cl.searchResultItem}>
-              <Link
-                to={`/catalog/${product.id}`}
-                aria-label={`${getTranslation('ariaLabelProduct')} ${product.name}`}
-                onClick={handleCloseInput}
-              >
-                <img src={product.images[0].image} alt={product.name} />
-
-                <section className={cl.searchResultInfo}>
-                  <p className={cl.productName}>{product.name}</p>
-                  <p className={cl.productPrice}>
-                    {product.price} <img src="/svg/hryvnia.svg" alt="Hryvnia symbol" className={cl.hryvniaSymbol} />
-                  </p>
-                </section>
-              </Link>
-            </li>
+            <SearchResultItem key={product.id} product={product} handleCloseInput={handleCloseInput} />
           ))}
         </ul>
       )}
