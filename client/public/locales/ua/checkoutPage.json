@@ -44,6 +44,8 @@
   "district": "р-н",
   "warehouseNumber": "Відділення №",
   "deliveryMethod": "Спосіб доставки:",
+  "selectSettlement": "Оберіть населений пункт",
+  "selectWarehouse": "Оберіть відділення",
 
   "payment": "Оплата",
   "paymentFirstTitle": "Як оплатити замовлення?",

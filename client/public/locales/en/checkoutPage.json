@@ -43,6 +43,8 @@
   "district": "district",
   "warehouseNumber": "Branch No.",
   "deliveryMethod": "Delivery method:",
+  "selectSettlement": "Choose a settlement",
+  "selectWarehouse": "Choose a branch",
 
   "payment": "Payment",
   "commentToOrder": "Comment to order",

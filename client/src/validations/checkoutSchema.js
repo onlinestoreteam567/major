@@ -16,8 +16,16 @@ export const checkoutSchema = yup.object({
     .test('is-valid-telegram', 'telegramError', (value) => !value || value.startsWith('@')),
 
   delivery_method: yup.string().oneOf(['nova_poshta', 'pickup'], 'selectDeliveryMethod').default('nova_poshta'),
-  settlement: yup.string().required('required'),
-  warehouse: yup.string().required('required'),
+  settlement: yup.string().when('delivery_method', {
+    is: 'nova_poshta',
+    then: (schema) => schema.required('selectSettlement'),
+    otherwise: (schema) => schema,
+  }),
+  warehouse: yup.string().when('delivery_method', {
+    is: 'nova_poshta',
+    then: (schema) => schema.required('selectWarehouse'),
+    otherwise: (schema) => schema,
+  }),
   comment: yup.string().max(500, 'maximum500Characters'),
   payment_option: yup.string().oneOf(['partial', 'full'], 'selectPaymentOption').required('selectPaymentOption'),
   checkbox: yup.boolean().default(false).oneOf([true], 'youMustAgreeToTheProcessingOfPersonalData').default(true),

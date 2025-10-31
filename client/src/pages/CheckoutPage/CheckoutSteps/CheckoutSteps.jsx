@@ -24,15 +24,17 @@ const CheckoutSteps = ({ totalToPaid }) => {
     defaultValues: { delivery_method: 'nova_poshta' },
   });
 
-  const processFormValues = useFormValuesProcessor();
-  const getFormValues = () => {
-    processFormValues({ getValues, totalToPaid });
-  };
-
   const [activeStep, setActiveStep] = useState(1);
 
+  console.log('Помилки:');
+  console.log(errors);
+  const processFormValues = useFormValuesProcessor();
+  const onSubmit = (data) => {
+    processFormValues({ data, totalToPaid });
+  };
+
   return (
-    <form onSubmit={handleSubmit} className={cl.checkoutSteps}>
+    <form onSubmit={handleSubmit(onSubmit)} className={cl.checkoutSteps}>
       <ContactInformation
         activeStep={activeStep}
         setActiveStep={setActiveStep}
@@ -62,10 +64,6 @@ const CheckoutSteps = ({ totalToPaid }) => {
         watch={watch}
       />
       {activeStep === 4 && <p style={{ color: 'limeGreen', fontSize: '30px' }}>Всьо, форма пройдена, давай гроші</p>}
-
-      <button type="button" onClick={() => getFormValues()}>
-        Клік: Вивести в консоль браузеру значення форми
-      </button>
     </form>
   );
 };

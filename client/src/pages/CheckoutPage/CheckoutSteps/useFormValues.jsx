@@ -9,8 +9,9 @@ function hasTwoDecimals(num) {
 const useFormValuesProcessor = () => {
   const dispatch = useDispatch();
 
-  const processAndLogValues = ({ getValues, totalToPaid }) => {
-    let formValues = getValues();
+  const processAndLogValues = ({ data, totalToPaid }) => {
+    let formValues = data;
+
     delete formValues.checkbox;
 
     if (formValues.comment === '') {
@@ -19,7 +20,7 @@ const useFormValuesProcessor = () => {
 
     if (formValues.telegram_name === '') {
       delete formValues.telegram_name;
-    } else if (!formValues.telegram_name.trim().startsWith('@')) {
+    } else if (formValues.telegramName && !formValues.telegram_name.trim().startsWith('@')) {
       formValues = { ...formValues, telegram_name: '@' + formValues.telegram_name.trim() };
     }
 
@@ -31,7 +32,7 @@ const useFormValuesProcessor = () => {
       delete formValues.warehouse;
     }
 
-    if (formValues.delivery_method === 'self_pickup') {
+    if (formValues.delivery_method === 'pickup') {
       delete formValues.warehouse;
       delete formValues.settlement;
     }
@@ -62,9 +63,7 @@ const useFormValuesProcessor = () => {
       }
     }
 
-    console.log(typeof formValues.amount);
     dispatch(createInvoice(formValues));
-    console.log(formValues);
   };
 
   return processAndLogValues;
