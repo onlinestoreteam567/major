@@ -6,8 +6,7 @@ import { checkoutSchema } from '@validations/checkoutSchema';
 import Shipping from './Shipping/Shipping';
 import Payment from './Payment/Payment';
 import { useState } from 'react';
-import { createInvoice } from '@redux/checkout/service';
-import { useDispatch } from 'react-redux';
+import useFormValuesProcessor from './useFormValues';
 
 const CheckoutSteps = ({ totalToPaid }) => {
   const {
@@ -25,47 +24,12 @@ const CheckoutSteps = ({ totalToPaid }) => {
     defaultValues: { delivery_method: 'nova_poshta' },
   });
 
-  const dispatch = useDispatch();
-  const [activeStep, setActiveStep] = useState(1);
-
+  const processFormValues = useFormValuesProcessor();
   const getFormValues = () => {
-    let formValues = getValues();
-    delete formValues.checkbox;
-
-    if (formValues.comment === '') {
-      delete formValues.comment;
-    }
-
-    if (formValues.telegram_name === '') {
-      delete formValues.telegram_name;
-    } else if (!formValues.telegram_name.trim().startsWith('@')) {
-      formValues = { ...formValues, telegram_name: '@' + formValues.telegram_name.trim() };
-    }
-
-    if (!formValues.settlement) {
-      delete formValues.settlement;
-    }
-
-    if (formValues.warehouse === '') {
-      delete formValues.warehouse;
-    }
-
-    if (formValues.delivery_method === 'self_pickup') {
-      delete formValues.warehouse;
-      delete formValues.settlement;
-    }
-
-    formValues = { ...formValues, full_amount: `${totalToPaid}00` };
-
-    if (formValues.payment_option === 'partial') {
-      formValues = { ...formValues, amount: 10000 };
-    } else if (formValues.payment_option === 'full') {
-      formValues = { ...formValues, amount: `${totalToPaid}00` };
-    }
-
-    dispatch(createInvoice(formValues));
-    console.log(formValues);
+    processFormValues({ getValues, totalToPaid });
   };
+
+  const [activeStep, setActiveStep] = useState(1);
 
   return (
     <form onSubmit={handleSubmit} className={cl.checkoutSteps}>
