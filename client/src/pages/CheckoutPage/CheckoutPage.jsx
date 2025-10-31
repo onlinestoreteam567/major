@@ -4,7 +4,7 @@ import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import CheckoutSteps from './CheckoutSteps/CheckoutSteps';
 import { useSelector } from 'react-redux';
-import { selectCart } from '@redux/selectors';
+import { responseCreateInvoice, selectCart } from '@redux/selectors';
 import CheckoutCart from './CheckoutCart/CheckoutCart';
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
@@ -18,6 +18,7 @@ import { createInvoiceReducer } from '@redux/checkout/createInvoiceSlice';
 const CheckoutPage = () => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
   const cartItems = useSelector(selectCart);
+  // const responseInvoice = useSelector(responseCreateInvoice);
   const [isReducerLoaded, setIsReducerLoaded] = useState(false);
   const [totalToPaid, setTotalToPaid] = useState(0);
 
@@ -32,6 +33,17 @@ const CheckoutPage = () => {
     injectReducers(checkoutPageReducers);
     setIsReducerLoaded(true);
   }, []);
+
+  // useEffect(() => {
+  //   if (responseInvoice && responseInvoice.page_url) {
+  //     console.log(responseInvoice);
+  //     const bankRedirectUrl = responseInvoice.page_url;
+
+  //     window.location.href = bankRedirectUrl;
+
+  //     // window.open(bankRedirectUrl, '_blank');
+  //   }
+  // }, [responseInvoice]);
 
   return !isReducerLoaded ? (
     <Spinner />
