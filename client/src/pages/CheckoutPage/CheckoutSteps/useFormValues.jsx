@@ -41,10 +41,10 @@ const useFormValuesProcessor = () => {
     }
 
     if (Number.isInteger(totalToPaid)) {
-      formValues = { ...formValues, full_amount: `${totalToPaid}00` };
+      formValues = { ...formValues, full_amount: Number(`${totalToPaid}00`) };
 
       if (formValues.payment_option === 'full') {
-        formValues = { ...formValues, amount: `${totalToPaid}00` };
+        formValues = { ...formValues, amount: Number(`${totalToPaid}00`) };
       }
     } else {
       if (hasTwoDecimals(totalToPaid)) {
@@ -62,6 +62,7 @@ const useFormValuesProcessor = () => {
       }
     }
 
+    console.log(typeof formValues.amount);
     dispatch(createInvoice(formValues));
     console.log(formValues);
   };
