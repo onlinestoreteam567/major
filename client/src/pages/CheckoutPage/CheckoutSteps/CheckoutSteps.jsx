@@ -55,12 +55,12 @@ const CheckoutSteps = ({ totalToPaid }) => {
       delete formValues.settlement;
     }
 
-    formValues = { ...formValues, full_amount: totalToPaid };
+    formValues = { ...formValues, full_amount: `${totalToPaid}00` };
 
     if (formValues.payment_option === 'partial') {
-      formValues = { ...formValues, amount: 100 };
+      formValues = { ...formValues, amount: 10000 };
     } else if (formValues.payment_option === 'full') {
-      formValues = { ...formValues, amount: totalToPaid };
+      formValues = { ...formValues, amount: `${totalToPaid}00` };
     }
 
     dispatch(createInvoice(formValues));
