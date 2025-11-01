@@ -8,7 +8,6 @@ import cl from './index.module.scss';
 import ZoomOut from '@components/UI/icons/ZoomOut';
 import ZoomIn from '@components/UI/icons/ZoomIn';
 import { useTranslation } from 'react-i18next';
-import PartnerInfo from './PartnerInfo/PartnerInfo';
 import handleWheel from './eventHandlers/handleWheel';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
@@ -18,12 +17,11 @@ import { useSelector } from 'react-redux';
 import Spinner from '@UI/Spinner/Spinner';
 
 let mapImage;
-const Map = () => {
+const Map = ({ onPartnerClick }) => {
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
-  const [informationAboutPartner, setInformationAboutPartner] = useState(null);
   const containerRef = useRef(null);
   const imageRef = useRef(null);
   const animationFrameRef = useRef(null);
@@ -140,7 +138,7 @@ const Map = () => {
                 left: `${point.longitude - leftPostitionCorrection}%`,
               }}
               title={point.label}
-              onClick={() => setInformationAboutPartner(point)}
+              onClick={() => onPartnerClick(point)}
               type="button"
               aria-label={getTranslation('ariaLabelPoint')}
             >
@@ -149,12 +147,6 @@ const Map = () => {
           ))
         )}
       </div>
-      {informationAboutPartner && (
-        <PartnerInfo
-          informationAboutPartner={informationAboutPartner}
-          setInformationAboutPartner={setInformationAboutPartner}
-        />
-      )}
     </div>
   );
 };

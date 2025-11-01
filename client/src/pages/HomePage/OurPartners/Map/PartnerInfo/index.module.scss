@@ -2,38 +2,153 @@
 
 .partnerInfo {
   @include flex(column, space-between, start);
-  gap: 16px;
-  padding: 20px 50px;
-  height: 68vh;
-  width: 318px;
+  padding: 37px 33px;
+  height: 393px;
+  width: 320px;
   box-sizing: border-box;
   background: #000000cc;
-  position: absolute;
-  top: 100px;
-  right: 0;
-  @include showCloseAnimation();
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(100%);
+  opacity: 0;
+  z-index: 999;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
 
-  @include tablet {
-    top: 105px;
-  }
-
-  @include deskmin {
-    width: 388px;
-    padding: 10vh 50px 10vh 40px;
-    gap: 32px;
-    top: 110px;
-  }
-
-  @include deskmax {
-    top: 115px;
+  &.visible {
+    transform: translate(-50%, -50%) translateX(0);
+    opacity: 1;
   }
 
   &.hiddenAnimation {
-    @include showCloseAnimation('close');
+    transform: translate(-50%, -50%) translateX(100%);
+    opacity: 0;
+  }
+
+  h2 {
+    margin-bottom: 19px;
+    align-self: flex-start !important;
+  }
+
+  h3 {
+    margin-bottom: 19px;
+  }
+
+  .googleMapLink {
+    @include flex(row, center, center);
+    margin-top: auto;
+
+    h3 {
+      margin: 0;
+    }
   }
 
   .workScheduleSection {
-    @include flexGap(8px, column);
+    @include flex(column, start, start);
+    margin-bottom: 19px;
+
+    h4:first-of-type {
+      margin-bottom: 16px;
+    }
+  }
+
+  .addressSection {
+    h3 {
+      margin-bottom: 8px;
+    }
+  }
+
+  section:last-of-type h4 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  @include mobile {
+    min-height: 349px;
+    width: 342px;
+    padding: 26px 40px;
+
+    h2 {
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      margin-bottom: 19px;
+    }
+
+    .workScheduleSection {
+      margin-bottom: 19px;
+    }
+  }
+
+  @include tablet {
+    height: 411px;
+    width: 318px;
+    padding: 27px 32px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateX(100%);
+  }
+
+  @include deskmin {
+    position: absolute;
+    top: calc(100% + 16px);
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+    opacity: 0;
+    width: 342px;
+    height: 466px;
+    padding: 50px 40px;
+    transition:
+      transform 0.5s ease,
+      opacity 0.5s ease;
+
+    &.visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    &.hiddenAnimation {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    h2 {
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      margin-bottom: 17px;
+    }
+
+    .workScheduleSection {
+      margin-bottom: 32px;
+    }
+  }
+
+  @include deskmax {
+    height: 590px;
+    width: 388px;
+    padding: 107px 40px;
+    top: calc(100% + 18px);
+
+    h2 {
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+    }
+
+    .workScheduleSection {
+      margin-bottom: 32px;
+    }
   }
 
   h2,

@@ -11,5 +11,7 @@
   "ariaLabelPoint": "Show partner location",
   "ariaLableZoomIn": "Zoom in map",
   "ariaLableZoomOut": "Zoom out map",
-  "ariaLabelOpenGoogleMap": "Open Google Map with partner location"
+  "ariaLabelOpenGoogleMap": "Open Google Map with partner location",
+  "workDays": "Mon - Fri",
+  "weekendDays": "Sat - Sun"
 }

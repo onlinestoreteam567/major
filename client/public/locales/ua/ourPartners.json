@@ -11,5 +11,7 @@
   "ariaLabelPoint": "Показати місцезнаходження партнера",
   "ariaLableZoomIn": "Приблизити мапу",
   "ariaLableZoomOut": "Віддалати мапу",
-  "ariaLabelOpenGoogleMap": "Відкрити Google Map з розсташуванням партнера"
+  "ariaLabelOpenGoogleMap": "Відкрити Google Map з розсташуванням партнера",
+  "workDays": "Пн - Пт",
+  "weekendDays": "Сб - Нд"
 }
