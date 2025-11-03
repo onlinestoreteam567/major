@@ -8,46 +8,23 @@ import { responseCreateInvoice, selectCart } from '@redux/selectors';
 import CheckoutCart from './CheckoutCart/CheckoutCart';
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
-import { promocodeReducer } from '@redux/promocode/promocodeSlice';
-import { injectReducers } from '@config/store';
-import Spinner from '@components/UI/Spinner/Spinner';
-import { settlementsReducer } from '@redux/novaPost/settlementsSlice';
-import { warehousesReducer } from '@redux/novaPost/warehousesSlice';
-import { createInvoiceReducer } from '@redux/checkout/createInvoiceSlice';
 
 const CheckoutPage = () => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
   const cartItems = useSelector(selectCart);
-  // const responseInvoice = useSelector(responseCreateInvoice);
-  const [isReducerLoaded, setIsReducerLoaded] = useState(false);
+  const responseInvoice = useSelector(responseCreateInvoice);
   const [totalToPaid, setTotalToPaid] = useState(0);
 
-  const checkoutPageReducers = {
-    promocode: promocodeReducer,
-    settlements: settlementsReducer,
-    warehouses: warehousesReducer,
-    createInvoice: createInvoiceReducer,
-  };
-
   useEffect(() => {
-    injectReducers(checkoutPageReducers);
-    setIsReducerLoaded(true);
-  }, []);
+    if (responseInvoice && responseInvoice.page_url) {
+      console.log(responseInvoice);
+      const bankRedirectUrl = responseInvoice.page_url;
 
-  // useEffect(() => {
-  //   if (responseInvoice && responseInvoice.page_url) {
-  //     console.log(responseInvoice);
-  //     const bankRedirectUrl = responseInvoice.page_url;
+      window.location.href = bankRedirectUrl;
+    }
+  }, [responseInvoice]);
 
-  //     window.location.href = bankRedirectUrl;
-
-  //     // window.open(bankRedirectUrl, '_blank');
-  //   }
-  // }, [responseInvoice]);
-
-  return !isReducerLoaded ? (
-    <Spinner />
-  ) : (
+  return (
     <div className={cl.checkoutPage}>
       <Helmet>
         <title>{getTranslation('metaTitle')}</title>
