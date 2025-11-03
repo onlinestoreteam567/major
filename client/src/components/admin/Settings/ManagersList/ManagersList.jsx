@@ -5,8 +5,8 @@ import cl from './index.module.scss';
 import ManagerCard from './ManagerCard/ManagerCard';
 import useTimedMessage from '@hooks/admin/useTimedMessage';
 import { useEffect } from 'react';
-import { fetchPartners } from '@redux/partners/service';
 import AdminMessage from '@components/admin/AdminMessage/AdminMessage';
+import { fetchUsers } from '@redux/admin/settings/service';
 
 const ManagersList = ({ managers }) => {
   const isLoading = useSelector(loadUsers);
@@ -15,8 +15,9 @@ const ManagersList = ({ managers }) => {
   const dispatch = useDispatch();
   const [deletedMessage, showDeletedMessage] = useTimedMessage();
 
+  console.log(deleteResponse);
   useEffect(() => {
-    deleteResponse === 204 && dispatch(fetchPartners());
+    deleteResponse === 204 && dispatch(fetchUsers());
   }, [dispatch, deleteResponse]);
 
   return (
