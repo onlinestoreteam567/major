@@ -69,7 +69,7 @@ const BannerProductSelect = ({ control, errors, watch }) => {
 
       <search className={errors && errors[name] && cl.error}>
         <input type="text" placeholder="пошук" onChange={handleChange} value={inputValue} />
-        <button>
+        <button type="button">
           <img src="/svg/admin/search.svg" alt="search" />
         </button>
       </search>
