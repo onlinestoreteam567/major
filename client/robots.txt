@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/
 Disallow: /checkout/ 
 
-Sitemap: https://www.yourwebsite.com/sitemap.xml
+Sitemap: https://major-gamma.vercel.app/sitemap.xml
