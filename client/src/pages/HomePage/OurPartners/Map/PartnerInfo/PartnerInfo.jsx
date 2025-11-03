@@ -5,17 +5,24 @@ import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import { useState } from 'react';
 
 const PartnerInfo = ({ informationAboutPartner, setInformationAboutPartner }) => {
-  const [isHiddenAnimation, setIsHiddenAnimation] = useState();
+  const [isHiddenAnimation, setIsHiddenAnimation] = useState(false);
   const { getTranslation } = useTranslationNamespace('ourPartners');
   const handleClose = () => handleCloseWithDelay(setIsHiddenAnimation, setInformationAboutPartner);
 
   return (
-    <aside className={`${cl.partnerInfo} ${isHiddenAnimation ? cl.hiddenAnimation : ''}`} onMouseLeave={handleClose}>
+    <aside
+      className={`${cl.partnerInfo} ${isHiddenAnimation ? cl.hiddenAnimation : cl.visible}`}
+      onMouseLeave={handleClose}
+    >
       <Heading type="h2">{informationAboutPartner.name}</Heading>
       <section className={cl.workScheduleSection}>
         <Heading type="h3">{getTranslation('workingHours')}:</Heading>
-        <Heading type="h4">{getTranslation('workDays')}: {informationAboutPartner.work_schedule_weekdays}</Heading>
-        <Heading type="h4">{getTranslation('weekendDays')}: {informationAboutPartner.work_schedule_weekends}</Heading>
+        <Heading type="h4">
+          {getTranslation('workDays')}: {informationAboutPartner.work_schedule_weekdays}
+        </Heading>
+        <Heading type="h4">
+          {getTranslation('weekendDays')}: {informationAboutPartner.work_schedule_weekends}
+        </Heading>
       </section>
       <section className={cl.addressSection}>
         <Heading type="h3">{getTranslation('address')}:</Heading>
