@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /checkout/ 
+
+Sitemap: https://major-gamma.vercel.app/sitemap.xml
