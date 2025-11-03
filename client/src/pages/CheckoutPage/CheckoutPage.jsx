@@ -8,6 +8,7 @@ import { responseCreateInvoice, selectCart } from '@redux/selectors';
 import CheckoutCart from './CheckoutCart/CheckoutCart';
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
+import { saveToStorage } from '@utils/localStorage';
 
 const CheckoutPage = () => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
@@ -17,7 +18,7 @@ const CheckoutPage = () => {
 
   useEffect(() => {
     if (responseInvoice && responseInvoice.page_url) {
-      console.log(responseInvoice);
+      saveToStorage('invoice_id', responseInvoice.invoice_id);
       const bankRedirectUrl = responseInvoice.page_url;
 
       window.location.href = bankRedirectUrl;
