@@ -4,7 +4,7 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import Button from '@components/UI/Button/Button';
 import Map from './Map/Map';
-import PartnerInfo from '@/pages/HomePage/OurPartners/Map/PartnerInfo/PartnerInfo';
+import PartnerInfo from './Map/PartnerInfo/PartnerInfo';
 
 const OurPartners = () => {
   const { getTranslation } = useTranslationNamespace('ourPartners');
@@ -18,7 +18,7 @@ const OurPartners = () => {
           <PartnerInfo informationAboutPartner={selectedPartner} setInformationAboutPartner={setSelectedPartner} />
         )}
       </div>
-      <Map onPartnerClick={setSelectedPartner}/>
+      <Map onPartnerClick={setSelectedPartner} />
       <div className={cl.buttonWrapper}>
         <Button ariaLabel={getTranslation('becomePartner')}>{getTranslation('becomePartner')}</Button>
       </div>
