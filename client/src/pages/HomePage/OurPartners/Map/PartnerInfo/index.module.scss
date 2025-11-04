@@ -9,15 +9,13 @@
   background: #000000cc;
   position: absolute;
   top: calc(100% + 12px);
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%);
-  z-index: 9;
+  left: -7px;
+  z-index: $z-index-local-2;
   @include showCloseAnimation();
 
   h2 {
-       margin-bottom: 19px;
-       align-self: flex-start !important;
+    margin-bottom: 19px;
+    align-self: flex-start !important;
   }
 
   h3 {
@@ -60,6 +58,7 @@
     min-height: 349px;
     width: 342px;
     padding: 26px 40px;
+    left: 7px;
 
     h2 {
       margin-bottom: 16px;
@@ -80,8 +79,7 @@
     padding: 27px 32px;
     top: calc(100% + 14px);
     right: 0;
-    left: auto;
-    transform: none;
+    left: initial;
 
     h2 {
       margin-bottom: 44px;
