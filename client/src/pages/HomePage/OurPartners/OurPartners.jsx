@@ -6,7 +6,7 @@ import Button from '@components/UI/Button/Button';
 import Map from './Map/Map';
 import PartnerInfo from './Map/PartnerInfo/PartnerInfo';
 
-const OurPartners = () => {
+const OurPartners = ({ isShowButton }) => {
   const { getTranslation } = useTranslationNamespace('ourPartners');
   const [selectedPartner, setSelectedPartner] = useState(null);
 
@@ -19,9 +19,11 @@ const OurPartners = () => {
         )}
       </div>
       <Map onPartnerClick={setSelectedPartner} />
-      <div className={cl.buttonWrapper}>
-        <Button ariaLabel={getTranslation('becomePartner')}>{getTranslation('becomePartner')}</Button>
-      </div>
+      {isShowButton && (
+        <div className={cl.buttonWrapper}>
+          <Button ariaLabel={getTranslation('becomePartner')}>{getTranslation('becomePartner')}</Button>
+        </div>
+      )}
     </section>
   );
 };
