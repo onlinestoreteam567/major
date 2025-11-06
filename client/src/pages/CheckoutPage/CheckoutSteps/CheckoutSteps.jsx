@@ -26,8 +26,6 @@ const CheckoutSteps = ({ totalToPaid }) => {
 
   const [activeStep, setActiveStep] = useState(1);
 
-  console.log('Помилки:');
-  console.log(errors);
   const processFormValues = useFormValuesProcessor();
   const onSubmit = (data) => {
     processFormValues({ data, totalToPaid });

@@ -6,6 +6,7 @@ import { warehousesReducer } from '@redux/novaPost/warehousesSlice';
 import { createInvoiceReducer } from '@redux/checkout/createInvoiceSlice';
 import CheckoutPage from './CheckoutPage';
 import Spinner from '@components/UI/Spinner/Spinner';
+import { checkInvoiceStatusReducer } from '@redux/checkout/checkInvoiceStatusSlice';
 
 const CheckoutPageWrapper = () => {
   const [isReducerLoaded, setIsReducerLoaded] = useState(false);
@@ -15,6 +16,7 @@ const CheckoutPageWrapper = () => {
     settlements: settlementsReducer,
     warehouses: warehousesReducer,
     createInvoice: createInvoiceReducer,
+    checkInvoiceStatus: checkInvoiceStatusReducer,
   };
 
   useEffect(() => {

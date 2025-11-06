@@ -209,3 +209,7 @@ export const responseUserById = (state) => state.userById.userById;
 export const loadCreateInvoice = (state) => state.createInvoice.isLoading;
 export const responseCreateInvoice = (state) => state.createInvoice.response;
 export const errorCreateInvoice = (state) => state.createInvoice.error;
+
+export const loadCheckInvoiceStatus = (state) => state.checkInvoiceStatus.isLoading;
+export const responseCheckInvoiceStatus = (state) => state.checkInvoiceStatus.response;
+export const errorCheckInvoiceStatus = (state) => state.checkInvoiceStatus.error;

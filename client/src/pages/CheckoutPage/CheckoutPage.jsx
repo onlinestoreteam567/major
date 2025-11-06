@@ -9,12 +9,14 @@ import CheckoutCart from './CheckoutCart/CheckoutCart';
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
 import { saveToStorage } from '@utils/localStorage';
+import PaymentStatus from './PaymentStatus/PaymentStatus';
 
 const CheckoutPage = () => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
   const cartItems = useSelector(selectCart);
   const responseInvoice = useSelector(responseCreateInvoice);
   const [totalToPaid, setTotalToPaid] = useState(0);
+  const [isShowPaymentStatus, setIsShowPaymentStatus] = useState(false);
 
   useEffect(() => {
     if (responseInvoice && responseInvoice.page_url) {
@@ -24,6 +26,14 @@ const CheckoutPage = () => {
       window.location.href = bankRedirectUrl;
     }
   }, [responseInvoice]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get('fromBank') === 'true' || params.get('fromBank') === 'true/') {
+      setIsShowPaymentStatus(true);
+    }
+  }, []);
 
   return (
     <div className={cl.checkoutPage}>
@@ -36,6 +46,7 @@ const CheckoutPage = () => {
       <Heading type="h2">{getTranslation('checkout')}</Heading>
       <CheckoutCart setTotalToPaid={setTotalToPaid} />
       {cartItems.length !== 0 && <CheckoutSteps totalToPaid={totalToPaid} />}
+      {isShowPaymentStatus && <PaymentStatus />}
     </div>
   );
 };

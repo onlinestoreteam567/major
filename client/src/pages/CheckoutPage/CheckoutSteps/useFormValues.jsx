@@ -42,8 +42,6 @@ const useFormValuesProcessor = () => {
   const cartItems = useSelector(selectCart);
   const dispatch = useDispatch();
 
-  console.log(cartItems);
-
   const processAndLogValues = ({ data, totalToPaid }) => {
     let formValues = data;
 
