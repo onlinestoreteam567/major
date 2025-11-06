@@ -1,0 +1,85 @@
+@import '@mixins';
+
+.cooperationInviteSection {
+  @include flexGap(12px, column);
+
+  h2 {
+    text-align: start;
+  }
+
+  p {
+    text-align: start;
+  }
+
+  div {
+    @include flexGap(12px, column);
+
+    ul {
+      @include flexGap(4px, column);
+
+      li {
+        margin-left: 22px;
+        color: #22211f;
+        list-style-type: disc;
+      }
+    }
+  }
+
+  @include tablet {
+    div {
+      flex-direction: row;
+      gap: 28px;
+
+      & > p {
+        width: 305px;
+      }
+
+      ul {
+        p {
+          width: 283px;
+        }
+      }
+    }
+  }
+
+  @include deskmin {
+    gap: 8px;
+
+    div {
+      gap: 28px;
+      align-items: end;
+
+      & > p {
+        width: 476px;
+      }
+
+      ul {
+        gap: 8px;
+
+        p {
+          width: 454px;
+        }
+      }
+    }
+  }
+
+  @include deskmax {
+    gap: 24px;
+
+    div {
+      gap: 24px;
+
+      & > p {
+        width: 636px;
+      }
+
+      ul {
+        gap: 12px;
+
+        p {
+          width: 614px;
+        }
+      }
+    }
+  }
+}
