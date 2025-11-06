@@ -1,0 +1,87 @@
+@import '@mixins';
+
+.cooperationPopUp {
+  @include flex(column, null, center);
+  gap: 12px;
+  width: 296px;
+  padding: 50px 12px;
+  height: 100vh;
+  max-height: 408px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $background-color-light;
+  color: #000000;
+  z-index: $z-index-pop-up;
+  box-sizing: border-box;
+  border-radius: $border-radius-medium;
+  animation: fadeIn 300ms ease-out;
+
+  p {
+    text-align: center;
+  }
+
+  & > button {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+  }
+
+  p {
+    color: #000000;
+  }
+
+  form {
+    @include flexGap(12px, column);
+    width: 100%;
+
+    label {
+      @include flexGap(8px, column);
+
+      input {
+        height: 48px;
+        border: 1px solid #676767;
+        border-radius: 4px;
+        padding-left: 10px;
+      }
+    }
+
+    button {
+      margin-top: 12px;
+      height: 48px;
+    }
+  }
+
+  @include mobile {
+    width: 356px;
+  }
+
+  @include deskmin {
+    width: 457px;
+    max-height: 412px;
+    gap: 24px;
+
+    p {
+      width: 357px;
+    }
+
+    form {
+      width: 306px;
+    }
+  }
+
+  @include deskmax {
+    width: 624px;
+    max-height: 422px;
+
+    & > button {
+      height: 25px;
+      width: 25px;
+    }
+
+    p {
+      width: 524px;
+    }
+  }
+}

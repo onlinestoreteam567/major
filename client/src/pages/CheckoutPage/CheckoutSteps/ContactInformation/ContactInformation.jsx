@@ -43,6 +43,7 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
               errors={errors}
               getValues={getValues}
               nameSpace="checkoutPage"
+              isShowError={true}
             />
             <div>
               <ContactInformationInput

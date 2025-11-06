@@ -1,0 +1,116 @@
+@import '@mixins';
+
+.coopertaionOfferCard {
+  @include flexGap(20px, column);
+  height: 828px;
+  border: 1px solid #676767;
+  border-radius: 4px;
+  position: relative;
+  padding-block: 355px 36px;
+  box-sizing: border-box;
+  animation: fadeIn 300ms ease-out;
+
+  picture {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+  }
+
+  img {
+    width: 297px;
+    height: 335px;
+    border-radius: 4px;
+  }
+
+  p {
+    text-align: start;
+  }
+
+  ul {
+    @include flexGap(10px, column);
+    padding-inline: 12px;
+
+    li {
+      position: relative;
+
+      &::before {
+        content: '';
+        background-image: url('/svg/cooperation/checkCircle.svg');
+        width: 24px;
+        height: 24px;
+        position: absolute;
+      }
+
+      p {
+        margin-left: 35px;
+      }
+    }
+  }
+
+  & > button {
+    margin-top: auto;
+    height: 48px;
+  }
+
+  div {
+    @include flexGap(12px, row);
+    justify-content: center;
+  }
+
+  @include mobile {
+    img {
+      width: 356px;
+    }
+  }
+
+  @include tablet {
+    padding-top: 359px;
+    gap: 24px;
+    width: 306px;
+    height: 819px;
+
+    img {
+      width: 307px;
+    }
+
+    ul {
+      gap: 12px;
+    }
+
+    div {
+      display: none;
+    }
+  }
+
+  @include deskmin {
+    width: 476px;
+    height: 747px;
+
+    img {
+      width: 477px;
+    }
+
+    button {
+      width: 306px;
+      margin-inline: auto;
+    }
+  }
+
+  @include deskmax {
+    width: 526px;
+    height: 776px;
+
+    img {
+      width: 527px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

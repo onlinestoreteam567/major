@@ -14,6 +14,15 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+
+    &.error {
+      border-color: #e31a1a;
+      color: #e31a1a;
+
+      &::placeholder {
+        color: #e31a1a;
+      }
+    }
   }
 }
 
