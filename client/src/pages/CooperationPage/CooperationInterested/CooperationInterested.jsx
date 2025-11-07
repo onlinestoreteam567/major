@@ -9,7 +9,7 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import BtnSubmit from '@components/UI/Button/BtnSubmit';
 
 const CooperationInterested = () => {
-  const { getTranslation } = useTranslationNamespace('cooperation');
+  const { getTranslation } = useTranslationNamespace('cooperationPage');
   const {
     setValue,
     register,
@@ -24,12 +24,12 @@ const CooperationInterested = () => {
   const onSubmit = (data) => console.log(data);
   return (
     <div className={cl.cooperationInterested}>
-      <Heading type="h2">Зацікавлені?</Heading>
-      <Paragraph type="body1">Залишіть свої контакти і ми з вами зв’яжемось для обговорення умов.</Paragraph>
+      <Heading type="h2">{getTranslation('cooperationInterestedTitle')}</Heading>
+      <Paragraph type="body1">{getTranslation('cooperationOfferPopUpTitle')}</Paragraph>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
-          labelText={'Ім’я:'}
-          placeholder="Ім’я"
+          labelText={getTranslation('cooperationOfferPopUpInputName')}
+          placeholder={getTranslation('cooperationOfferPopUpInputName')}
           name="fullName"
           variant="popUp"
           register={register}
@@ -40,12 +40,12 @@ const CooperationInterested = () => {
           variant="popUp"
           register={'phone'}
           name="phone"
-          labelText={'Телефон:'}
+          labelText={getTranslation('cooperationOfferPopUpInputPhone')}
           placeholder={'+38 (097) 123 45 67'}
           errors={errors}
           getValues={getValues}
         />
-        <BtnSubmit>{getTranslation('Стати партнером')}</BtnSubmit>
+        <BtnSubmit>{getTranslation('cooperationInterestedButton')}</BtnSubmit>
       </form>
     </div>
   );

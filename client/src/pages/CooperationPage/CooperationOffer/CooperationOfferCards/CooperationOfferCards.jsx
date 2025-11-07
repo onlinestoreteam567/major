@@ -8,11 +8,10 @@ import Circle from './Circle';
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 
 const CoopertaionOfferCards = ({ setIsShowCooperationPopUp }) => {
+  const { getTranslation } = useTranslationNamespace('cooperationPage');
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const [mobileCardIndex, setMobileCardIndex] = useState(1);
   const isLargeScreen = tablet || deskmin || deskmax;
-
-  const { getTranslation } = useTranslationNamespace('');
 
   const firstMobileMinImagePath = '/images/cooperation/cooperationOfferFirstMobileMin.webp';
   const firstMobileMaxImagePath = '/images/cooperation/cooperationOfferFirstMobileMax.webp';
@@ -32,30 +31,38 @@ const CoopertaionOfferCards = ({ setIsShowCooperationPopUp }) => {
             <source srcSet={firstDeskImagePath} media="(min-width: 1024px)" />
             <source srcSet={firstTabletImagePath} media="(min-width: 768px)" />
             <source srcSet={firstMobileMaxImagePath} media="(min-width: 380px)" />
-            <img src={firstMobileMinImagePath} alt={getTranslation('imgAlt')} />
+            <img src={firstMobileMinImagePath} alt={getTranslation('cooperationOfferFirstImageAlt')} />
           </picture>
-          <Heading type="h2">Дропшипінг</Heading>
+          <Heading type="h2">{getTranslation('cooperationOfferFirstCardTitle')}</Heading>
           <ul>
             <li>
-              <Paragraph type="body1">Мінімальні початкові інвестиції: без потреби закупівлі запасів</Paragraph>
+              <Paragraph type="body1">{getTranslation('cooperationOfferFirstCardListItem1')}</Paragraph>
             </li>
             <li>
-              <Paragraph type="body1">
-                Широкий асортимент товарів: Можна продавати товари з різних категорій без необхідності їх зберігання
-              </Paragraph>
+              <Paragraph type="body1">{getTranslation('cooperationOfferFirstCardListItem2')}</Paragraph>
             </li>
             <li>
-              <Paragraph type="body1">Гнучкість: Можна працювати з будь-якого місця, де є доступ до інтернет</Paragraph>
+              <Paragraph type="body1">{getTranslation('cooperationOfferFirstCardListItem3')}</Paragraph>
             </li>
           </ul>
-          <Button onClick={() => setIsShowCooperationPopUp(true)}>Подати заявку</Button>
-
+          <Button
+            ariaLabel={getTranslation('cooperationOfferCardButtonText')}
+            onClick={() => setIsShowCooperationPopUp(true)}
+          >
+            {getTranslation('cooperationOfferCardButtonText')}
+          </Button>
           {!isLargeScreen && (
             <div>
-              <button onClick={() => setMobileCardIndex(1)}>
+              <button
+                aria-label={getTranslation('cooperationOfferCardButton2AriaLabel')}
+                onClick={() => setMobileCardIndex(1)}
+              >
                 <Circle fillColor="#22211F" />
               </button>
-              <button onClick={() => setMobileCardIndex(2)}>
+              <button
+                aria-label={getTranslation('cooperationOfferCardButton1AriaLabel')}
+                onClick={() => setMobileCardIndex(2)}
+              >
                 <Circle fillColor="#A2A2A2" />
               </button>
             </div>
@@ -69,33 +76,39 @@ const CoopertaionOfferCards = ({ setIsShowCooperationPopUp }) => {
             <source srcSet={secondDeskImagePath} media="(min-width: 1024px)" />
             <source srcSet={secondTabletImagePath} media="(min-width: 768px)" />
             <source srcSet={secondMobileMaxImagePath} media="(min-width: 380px)" />
-            <img src={secondMobileMinImagePath} alt={getTranslation('imgAlt')} />
+            <img src={secondMobileMinImagePath} alt={getTranslation('cooperationOfferSecondImageAlt')} />
           </picture>
-          <Heading type="h2">Гурт для майстрів</Heading>
+          <Heading type="h2">{getTranslation('cooperationOfferSecondCardTitle')}</Heading>
           <ul>
             <li>
-              <Paragraph type="body1">
-                Спеціальні бізнес-ціни: оптимальні обсяги замовлення для кожного формату — від навчальних курсів до
-                салонної мережі
-              </Paragraph>
+              <Paragraph type="body1">{getTranslation('cooperationOfferSecondCardListItem1')}</Paragraph>
             </li>
             <li>
-              <Paragraph type="body1">Гнучка логістика: пріоритетна обробка замовлень, регулярні поставки </Paragraph>
+              <Paragraph type="body1">{getTranslation('cooperationOfferSecondCardListItem2')}</Paragraph>
             </li>
             <li>
-              <Paragraph type="body1">
-                Програма лояльності та знижки: накопичувальні бонуси за обсяги та ранній доступ до новинок.
-              </Paragraph>
+              <Paragraph type="body1">{getTranslation('cooperationOfferSecondCardListItem3')}</Paragraph>
             </li>
           </ul>
-          <Button onClick={() => setIsShowCooperationPopUp(true)}>Подати заявку</Button>
+          <Button
+            ariaLabel={getTranslation('cooperationOfferCardButtonText')}
+            onClick={() => setIsShowCooperationPopUp(true)}
+          >
+            {getTranslation('cooperationOfferCardButtonText')}
+          </Button>
 
           {!isLargeScreen && (
             <div>
-              <button onClick={() => setMobileCardIndex(1)}>
+              <button
+                aria-label={getTranslation('cooperationOfferCardButton2AriaLabel')}
+                onClick={() => setMobileCardIndex(1)}
+              >
                 <Circle fillColor="#A2A2A2" />
               </button>
-              <button onClick={() => setMobileCardIndex(2)}>
+              <button
+                aria-label={getTranslation('cooperationOfferCardButton1AriaLabel')}
+                onClick={() => setMobileCardIndex(2)}
+              >
                 <Circle fillColor="#22211F" />
               </button>
             </div>

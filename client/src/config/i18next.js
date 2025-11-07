@@ -27,6 +27,7 @@ i18n
       'catalogPage',
       'checkoutPage',
       'aboutPage',
+      'cooperationPage',
 
       // Components
       'yellowButton',

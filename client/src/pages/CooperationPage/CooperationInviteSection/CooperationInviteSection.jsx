@@ -1,25 +1,25 @@
 import cl from './index.module.scss';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const CooperationInviteSection = () => {
+  const { getTranslation } = useTranslationNamespace('cooperationPage');
+
   return (
     <section className={cl.cooperationInviteSection}>
-      <Heading type="h2">Запрошуємо до співпраці</Heading>
+      <Heading type="h2">{getTranslation('cooperationInviteTitle')}</Heading>
       <div>
-        <Paragraph type="body1">
-          майстрів-перукарів, салони краси, школи перукарського мистецтва, магазини професійної косметики та
-          б’юті-маркети домашнього догляду до вигідної співпраці:
-        </Paragraph>
+        <Paragraph type="body1">{getTranslation('cooperationInviteParagraph1')}</Paragraph>
         <ul>
           <li>
-            <Paragraph type="body1">прямі вигоди — ціни від виробника, оперативна доставка;</Paragraph>
+            <Paragraph type="body1">{getTranslation('cooperationInviteListItem1')}</Paragraph>
           </li>
           <li>
-            <Paragraph type="body1">підтримка у просуванні і навчанні персоналу;</Paragraph>
+            <Paragraph type="body1">{getTranslation('cooperationInviteListItem2')}</Paragraph>
           </li>
           <li>
-            <Paragraph type="body1">регулярний фідбек та оновлення новинок.</Paragraph>
+            <Paragraph type="body1">{getTranslation('cooperationInviteListItem3')}</Paragraph>
           </li>
         </ul>
       </div>

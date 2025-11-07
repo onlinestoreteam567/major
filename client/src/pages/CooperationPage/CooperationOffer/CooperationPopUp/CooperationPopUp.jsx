@@ -10,7 +10,7 @@ import Overlay from '@components/UI/Overlay/Overlay';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
 const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
-  const { getTranslation } = useTranslationNamespace('cooperation');
+  const { getTranslation } = useTranslationNamespace('cooperationPage');
   const {
     setValue,
     register,
@@ -28,14 +28,14 @@ const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
     <>
       <Overlay handleClose={() => setIsShowCooperationPopUp(false)} />
       <div className={cl.cooperationPopUp}>
-        <ButtonClose onClick={() => setIsShowCooperationPopUp(false)} />
+        <ButtonClose ariaLabel="ariaLabelMainPopUp" onClick={() => setIsShowCooperationPopUp(false)} />
 
-        <Paragraph type="body1">Залишіть свої контакти і ми з вами зв’яжемось для обговорення умов.</Paragraph>
+        <Paragraph type="body1">{getTranslation('cooperationOfferPopUpTitle')}</Paragraph>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input
-            labelText={'Ім’я:'}
-            placeholder="Ім’я"
+            labelText={getTranslation('cooperationOfferPopUpInputName')}
+            placeholder={getTranslation('cooperationOfferPopUpInputName')}
             name="fullName"
             variant="popUp"
             register={register}
@@ -46,12 +46,12 @@ const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
             variant="popUp"
             register={'phone'}
             name="phone"
-            labelText={'Телефон:'}
+            labelText={getTranslation('cooperationOfferPopUpInputPhone')}
             placeholder={'+38 (097) 123 45 67'}
             errors={errors}
             getValues={getValues}
           />
-          <BtnSubmit>{getTranslation('Подати заявку')}</BtnSubmit>
+          <BtnSubmit>{getTranslation('cooperationOfferCardButtonText')}</BtnSubmit>
         </form>
       </div>
     </>
