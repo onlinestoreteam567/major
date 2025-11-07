@@ -18,7 +18,6 @@ const CheckoutCart = ({ setTotalToPaid }) => {
   const savedIds = useSelector(selectCartSavedIds);
   const cartItems = useSelector(selectCart);
   const promocodeDiscount = useSelector(selectPromocode);
-  console.log(promocodeDiscount.discount_percent);
   const [isExpanded, setIsExpanded] = useState(true);
   const hryvnia = '\u20B4';
 
