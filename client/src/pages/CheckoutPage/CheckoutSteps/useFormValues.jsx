@@ -1,5 +1,5 @@
 import { createInvoice } from '@redux/checkout/service';
-import { selectCart } from '@redux/selectors';
+import { selectCart, selectPromocode } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 
 function hasTwoDecimals(num) {
@@ -19,16 +19,22 @@ const convertCurrencyToMinorUnit = (amount) => {
       return Number(amountStr.replace('.', ''));
     } else {
       // e.g., 100.5 -> 100.50 -> 10050
-      // We append a '0' before removing the dot to account for single decimal places.
       return Number(`${amount}0`.replace('.', ''));
     }
   }
 };
 
-const prepareInvoiceProducts = (cartItems) => {
-  return cartItems.map((item) => {
-    const convertedPrice = convertCurrencyToMinorUnit(item.price_with_discount);
+const prepareInvoiceProducts = (cartItems, promocodeDiscountPercent) => {
+  const globalDiscount = promocodeDiscountPercent?.discount_percent || 0;
 
+  return cartItems.map((item) => {
+    const itemDiscount = Number(item.discount) || 0;
+    const maxDiscountPercent = Math.max(itemDiscount, globalDiscount);
+    const originalPrice = item.price;
+    const finalPrice = originalPrice * (1 - maxDiscountPercent / 100);
+    const convertedPrice = convertCurrencyToMinorUnit(finalPrice);
+
+    console.log(cartItems);
     return {
       name: item.name,
       article: item.article,
@@ -39,6 +45,7 @@ const prepareInvoiceProducts = (cartItems) => {
 };
 
 const useFormValuesProcessor = () => {
+  const promocodeDiscount = useSelector(selectPromocode);
   const cartItems = useSelector(selectCart);
   const dispatch = useDispatch();
 
@@ -51,36 +58,36 @@ const useFormValuesProcessor = () => {
       delete formValues.comment;
     }
 
-    const products = prepareInvoiceProducts(cartItems);
+    if (promocodeDiscount) {
+      formValues = { ...formValues, promo: `-${promocodeDiscount}%` };
+    }
+
+    const products = prepareInvoiceProducts(cartItems, promocodeDiscount);
     formValues = { ...formValues, products: products };
 
     if (formValues.telegram_name === '') {
       delete formValues.telegram_name;
-    } else if (formValues.telegramName && !formValues.telegram_name.trim().startsWith('@')) {
+    } else if (formValues.telegram_name && !formValues.telegram_name.trim().startsWith('@')) {
       formValues = { ...formValues, telegram_name: '@' + formValues.telegram_name.trim() };
     }
 
     if (!formValues.settlement) {
       delete formValues.settlement;
     }
-
     if (formValues.warehouse === '') {
       delete formValues.warehouse;
     }
-
     if (formValues.delivery_method === 'pickup') {
       delete formValues.warehouse;
       delete formValues.settlement;
     }
 
-    if (formValues.payment_option === 'partial') {
-      formValues = { ...formValues, amount: 10000 };
-    }
-
     const convertedTotal = convertCurrencyToMinorUnit(totalToPaid);
     formValues = { ...formValues, full_amount: convertedTotal };
 
-    if (formValues.payment_option === 'full') {
+    if (formValues.payment_option === 'partial') {
+      formValues = { ...formValues, amount: 10000 };
+    } else if (formValues.payment_option === 'full') {
       formValues = { ...formValues, amount: convertedTotal };
     }
 
