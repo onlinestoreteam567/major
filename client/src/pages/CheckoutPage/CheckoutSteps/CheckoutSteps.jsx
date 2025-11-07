@@ -6,8 +6,7 @@ import { checkoutSchema } from '@validations/checkoutSchema';
 import Shipping from './Shipping/Shipping';
 import Payment from './Payment/Payment';
 import { useState } from 'react';
-import { createInvoice } from '@redux/checkout/service';
-import { useDispatch } from 'react-redux';
+import useFormValuesProcessor from './useFormValues';
 
 const CheckoutSteps = ({ totalToPaid }) => {
   const {
@@ -25,50 +24,15 @@ const CheckoutSteps = ({ totalToPaid }) => {
     defaultValues: { delivery_method: 'nova_poshta' },
   });
 
-  const dispatch = useDispatch();
   const [activeStep, setActiveStep] = useState(1);
 
-  const getFormValues = () => {
-    let formValues = getValues();
-    delete formValues.checkbox;
-
-    if (formValues.comment === '') {
-      delete formValues.comment;
-    }
-
-    if (formValues.telegram_name === '') {
-      delete formValues.telegram_name;
-    } else if (!formValues.telegram_name.trim().startsWith('@')) {
-      formValues = { ...formValues, telegram_name: '@' + formValues.telegram_name.trim() };
-    }
-
-    if (!formValues.settlement) {
-      delete formValues.settlement;
-    }
-
-    if (formValues.warehouse === '') {
-      delete formValues.warehouse;
-    }
-
-    if (formValues.delivery_method === 'self_pickup') {
-      delete formValues.warehouse;
-      delete formValues.settlement;
-    }
-
-    formValues = { ...formValues, full_amount: totalToPaid };
-
-    if (formValues.payment_option === 'partial') {
-      formValues = { ...formValues, amount: 100 };
-    } else if (formValues.payment_option === 'full') {
-      formValues = { ...formValues, amount: totalToPaid };
-    }
-
-    dispatch(createInvoice(formValues));
-    console.log(formValues);
+  const processFormValues = useFormValuesProcessor();
+  const onSubmit = (data) => {
+    processFormValues({ data, totalToPaid });
   };
 
   return (
-    <form onSubmit={handleSubmit} className={cl.checkoutSteps}>
+    <form onSubmit={handleSubmit(onSubmit)} className={cl.checkoutSteps}>
       <ContactInformation
         activeStep={activeStep}
         setActiveStep={setActiveStep}
@@ -98,10 +62,6 @@ const CheckoutSteps = ({ totalToPaid }) => {
         watch={watch}
       />
       {activeStep === 4 && <p style={{ color: 'limeGreen', fontSize: '30px' }}>Всьо, форма пройдена, давай гроші</p>}
-
-      <button type="button" onClick={() => getFormValues()}>
-        Клік: Вивести в консоль браузеру значення форми
-      </button>
     </form>
   );
 };

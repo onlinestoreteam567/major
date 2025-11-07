@@ -4,38 +4,40 @@ import cl from './index.module.scss';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import CheckoutSteps from './CheckoutSteps/CheckoutSteps';
 import { useSelector } from 'react-redux';
-import { selectCart } from '@redux/selectors';
+import { responseCreateInvoice, selectCart } from '@redux/selectors';
 import CheckoutCart from './CheckoutCart/CheckoutCart';
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
-import { promocodeReducer } from '@redux/promocode/promocodeSlice';
-import { injectReducers } from '@config/store';
-import Spinner from '@components/UI/Spinner/Spinner';
-import { settlementsReducer } from '@redux/novaPost/settlementsSlice';
-import { warehousesReducer } from '@redux/novaPost/warehousesSlice';
-import { createInvoiceReducer } from '@redux/checkout/createInvoiceSlice';
+import { loadFromStorage, saveToStorage } from '@utils/localStorage';
+import PaymentStatus from './PaymentStatus/PaymentStatus';
 
 const CheckoutPage = () => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
   const cartItems = useSelector(selectCart);
-  const [isReducerLoaded, setIsReducerLoaded] = useState(false);
+  const responseInvoice = useSelector(responseCreateInvoice);
   const [totalToPaid, setTotalToPaid] = useState(0);
-
-  const checkoutPageReducers = {
-    promocode: promocodeReducer,
-    settlements: settlementsReducer,
-    warehouses: warehousesReducer,
-    createInvoice: createInvoiceReducer,
-  };
+  const [isShowPaymentStatus, setIsShowPaymentStatus] = useState(false);
+  const invoiceId = loadFromStorage('invoice_id');
 
   useEffect(() => {
-    injectReducers(checkoutPageReducers);
-    setIsReducerLoaded(true);
+    if (responseInvoice && responseInvoice.page_url) {
+      saveToStorage('invoice_id', responseInvoice.invoice_id);
+      const bankRedirectUrl = responseInvoice.page_url;
+
+      window.location.href = bankRedirectUrl;
+    }
+  }, [responseInvoice]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    console.log(invoiceId);
+
+    if (invoiceId && (params.get('fromBank') === 'true' || params.get('fromBank') === 'true/')) {
+      setIsShowPaymentStatus(true);
+    }
   }, []);
 
-  return !isReducerLoaded ? (
-    <Spinner />
-  ) : (
+  return (
     <div className={cl.checkoutPage}>
       <Helmet>
         <title>{getTranslation('metaTitle')}</title>
@@ -46,6 +48,7 @@ const CheckoutPage = () => {
       <Heading type="h2">{getTranslation('checkout')}</Heading>
       <CheckoutCart setTotalToPaid={setTotalToPaid} />
       {cartItems.length !== 0 && <CheckoutSteps totalToPaid={totalToPaid} />}
+      {isShowPaymentStatus && <PaymentStatus setIsShowPaymentStatus={setIsShowPaymentStatus} />}
     </div>
   );
 };

@@ -11,7 +11,7 @@ const About = lazy(() => import('@pages/AboutPage/AboutPage'));
 const Contact = lazy(() => import('@pages/ContactPage'));
 const Cooperation = lazy(() => import('@pages/CooperationPage/СooperationPage'));
 const ProductPageWrapper = lazy(() => import('@pages/ProductPage/ProductPageWrapper'));
-const CheckoutPage = lazy(() => import('@pages/CheckoutPage/CheckoutPage'));
+const CheckoutPageWrapper = lazy(() => import('@pages/CheckoutPage/CheckoutPageWrapper'));
 const NotFound = lazy(() => import('@pages/NotFoundPage/NotFoundPage'));
 const ErrorPage = lazy(() => import('@pages/ErrorPage/ErrorPage'));
 
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       { path: 'catalog', element: <Catalog /> },
       { path: 'catalog/:id', element: <ProductPageWrapper /> },
       { path: 'cooperation', element: <Cooperation /> },
-      { path: 'checkout', element: <CheckoutPage /> },
+      { path: 'checkout', element: <CheckoutPageWrapper /> },
       { path: 'contact', element: <Contact /> },
     ],
   },

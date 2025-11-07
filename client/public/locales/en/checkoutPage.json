@@ -2,6 +2,13 @@
   "metaTitle": "Ordering Major - Professional hair care cosmetics",
   "metaDescription": "Place an order for Major professional hair care cosmetics. Select the products, enter your details, choose the delivery and payment method to receive high-quality products for the health of your hair.",
 
+  "order1": "Order",
+  "order2": "has been placed",
+  "paragraph1": "Our cosmetics are already whispering among themselves about who will be the first to visit you.",
+  "paragraph2": "As soon as we see the payment, we will contact you during business hours from 10:00 a.m. to 7:00 p.m.",
+  "paragraph3": "If it takes a little longer, please know that we haven't disappeared, we're just somewhere deep in boxes and bubble wrap.",
+  "toCatalog": "To catalog",
+
   "continueShopping": "Continue shopping",
   "checkout": "Checkout",
   "NumberOfItemsInTheCart": "Number of items in the cart:",
@@ -43,6 +50,8 @@
   "district": "district",
   "warehouseNumber": "Branch No.",
   "deliveryMethod": "Delivery method:",
+  "selectSettlement": "Choose a settlement",
+  "selectWarehouse": "Choose a branch",
 
   "payment": "Payment",
   "commentToOrder": "Comment to order",

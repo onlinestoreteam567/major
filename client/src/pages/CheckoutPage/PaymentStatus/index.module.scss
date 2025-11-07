@@ -1,0 +1,117 @@
+@import '@mixins';
+
+.paymentStatusWrapper {
+  @include flex(column, null);
+  width: 320px;
+  height: fit-content;
+  padding-block: 24px;
+  background-color: #ffffff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: $z-index-pop-up;
+  animation: fadeIn 300ms ease-out;
+  box-sizing: border-box;
+
+  & > div {
+    @include flex(column, center, center);
+    gap: 8px;
+    width: 272px;
+    border: 1px solid #676767;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 12px;
+
+    div {
+      @include flexGap(16px, column);
+
+      p {
+        text-align: start;
+      }
+
+      p:nth-of-type(3) {
+        color: #676767;
+      }
+    }
+
+    button {
+      height: 48px;
+    }
+
+    a {
+      @include flex();
+      text-align: center;
+      background-color: $second-background-color-black;
+      color: white;
+      border: 2px solid $second-background-color-black;
+      width: 100%;
+      height: 48px;
+      font-size: $font-size-medium;
+      font-family: $font-main;
+      font-weight: $font-weight-medium;
+      line-height: $line-height-base;
+      box-sizing: border-box;
+      cursor: pointer;
+      overflow: hidden;
+      padding: 0;
+      border-radius: $border-radius-medium;
+      transition:
+        background-color 300ms ease-out,
+        color 300ms ease-out;
+
+      &:hover {
+        background-color: transparent;
+        color: $text-color-black;
+      }
+    }
+  }
+
+  @include mobile {
+    width: 380px;
+    padding-block: 36px;
+
+    & > div {
+      width: 308px;
+      gap: 20px;
+      padding: 24px;
+    }
+  }
+
+  @include tablet {
+    width: 768px;
+    padding-block: 96px;
+
+    & > div {
+      width: 535px;
+      height: 448px;
+      gap: 40px;
+      padding: 60px;
+
+      h2 {
+        text-wrap: nowrap;
+      }
+
+      div {
+        width: 415px;
+      }
+
+      a,
+      button {
+        min-height: 48px;
+        width: 306px;
+      }
+    }
+  }
+
+  @include deskmin {
+    width: 892px;
+    padding-block: 120px;
+
+    & > div {
+      width: 652px;
+      height: 513px;
+      padding: 80px;
+    }
+  }
+}
