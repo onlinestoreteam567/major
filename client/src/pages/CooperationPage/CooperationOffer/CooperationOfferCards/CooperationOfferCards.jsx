@@ -26,7 +26,7 @@ const CoopertaionOfferCards = ({ setIsShowCooperationPopUp }) => {
   return (
     <>
       {(mobileCardIndex === 1 || isLargeScreen) && (
-        <li className={cl.coopertaionOfferCard}>
+        <div className={cl.coopertaionOfferCard}>
           <picture>
             <source srcSet={firstDeskImagePath} media="(min-width: 1024px)" />
             <source srcSet={firstTabletImagePath} media="(min-width: 768px)" />
@@ -67,11 +67,11 @@ const CoopertaionOfferCards = ({ setIsShowCooperationPopUp }) => {
               </button>
             </div>
           )}
-        </li>
+        </div>
       )}
 
       {(mobileCardIndex === 2 || isLargeScreen) && (
-        <li className={cl.coopertaionOfferCard}>
+        <div className={cl.coopertaionOfferCard}>
           <picture>
             <source srcSet={secondDeskImagePath} media="(min-width: 1024px)" />
             <source srcSet={secondTabletImagePath} media="(min-width: 768px)" />
@@ -113,7 +113,7 @@ const CoopertaionOfferCards = ({ setIsShowCooperationPopUp }) => {
               </button>
             </div>
           )}
-        </li>
+        </div>
       )}
     </>
   );
