@@ -1,5 +1,5 @@
-import Heading from '@components/UI/Texts/Heading/Heading';
 import cl from './index.module.scss';
+import Heading from '@components/UI/Texts/Heading/Heading';
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import CoopertaionOfferCards from './CooperationOfferCards/CooperationOfferCards';
 import { useState } from 'react';

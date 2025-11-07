@@ -1,0 +1,117 @@
+@import '@mixins';
+
+.cooperationInterested {
+  @include flex(column, null, center);
+  gap: 8px;
+  width: 100%;
+  padding: 40px 12px;
+  box-sizing: border-box;
+  color: #000000;
+  margin-inline: auto;
+  background-color: #f8f8f9;
+
+  p {
+    text-align: center;
+  }
+
+  & > button {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+  }
+
+  p {
+    color: #000000;
+  }
+
+  form {
+    @include flexGap(8px, column);
+    width: 100%;
+    margin-top: 12px;
+
+    label {
+      @include flexGap(8px, column);
+
+      input {
+        height: 48px;
+        border: 1px solid #676767;
+        border-radius: 4px;
+        padding-left: 10px;
+      }
+    }
+
+    button {
+      margin-top: 12px;
+      height: 48px;
+    }
+  }
+
+  @include mobile {
+    p {
+      width: 384px;
+    }
+  }
+
+  @include tablet {
+    width: 100%;
+
+    form {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 528px;
+      gap: 28px;
+      margin-top: 16px;
+
+      label {
+        h4 {
+          height: 24px;
+        }
+
+        input {
+          width: 250px;
+          height: 48px;
+          box-sizing: border-box;
+        }
+      }
+
+      button {
+        margin-top: 0;
+        width: 306px;
+        margin-inline: auto;
+      }
+    }
+  }
+
+  @include deskmin {
+    p {
+      width: 811px;
+    }
+
+    form {
+      width: 811px;
+
+      label {
+        input {
+          width: 391px;
+        }
+      }
+    }
+  }
+
+  @include deskmax {
+    & > button {
+      height: 25px;
+      width: 25px;
+    }
+
+    form {
+      width: 860px;
+
+      label {
+        input {
+          width: 416px;
+        }
+      }
+    }
+  }
+}
