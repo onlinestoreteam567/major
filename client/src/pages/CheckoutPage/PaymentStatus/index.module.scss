@@ -12,15 +12,16 @@
   transform: translate(-50%, -50%);
   z-index: $z-index-pop-up;
   animation: fadeIn 300ms ease-out;
+  box-sizing: border-box;
 
   & > div {
-    @include flex(column, null, center);
+    @include flex(column, center, center);
     gap: 8px;
     width: 272px;
     border: 1px solid #676767;
     border-radius: 4px;
-    padding: 12px;
     box-sizing: border-box;
+    padding: 12px;
 
     div {
       @include flexGap(16px, column);
@@ -97,6 +98,7 @@
 
       a,
       button {
+        min-height: 48px;
         width: 306px;
       }
     }

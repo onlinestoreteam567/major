@@ -8,7 +8,7 @@ import Heading from '@components/UI/Texts/Heading/Heading';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Overlay from '@components/UI/Overlay/Overlay';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '@components/UI/Button/Button';
 
 const PaymentStatus = () => {
@@ -17,6 +17,7 @@ const PaymentStatus = () => {
   const invoceId = loadFromStorage('invoice_id');
   const invoiceSuccess = useSelector(responseCheckInvoiceStatus);
   const invoiceError = useSelector(errorCheckInvoiceStatus);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(checkInvoiceStatus(invoceId));
@@ -28,7 +29,7 @@ const PaymentStatus = () => {
 
   return (
     <>
-      <Overlay />
+      <Overlay handleClose={() => navigate('/catalog')} />
       <div className={cl.paymentStatusWrapper}>
         {invoiceSuccess && (
           <div>
