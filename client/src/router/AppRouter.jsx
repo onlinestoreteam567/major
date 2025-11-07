@@ -9,7 +9,7 @@ const Home = lazy(() => import('@pages/HomePage/HomePage'));
 const Catalog = lazy(() => import('@pages/CatalogPage/CatalogPage'));
 const About = lazy(() => import('@pages/AboutPage/AboutPage'));
 const Contact = lazy(() => import('@pages/ContactPage'));
-const Cooperation = lazy(() => import('@pages/СooperationPage'));
+const Cooperation = lazy(() => import('@pages/CooperationPage/СooperationPage'));
 const ProductPageWrapper = lazy(() => import('@pages/ProductPage/ProductPageWrapper'));
 const CheckoutPage = lazy(() => import('@pages/CheckoutPage/CheckoutPage'));
 const NotFound = lazy(() => import('@pages/NotFoundPage/NotFoundPage'));

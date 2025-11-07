@@ -62,7 +62,7 @@ const HomePage = () => {
             <MajorInfo />
             <WhyChooseUs />
             <Comments />
-            <OurPartners />
+            <OurPartners isShowButton={true} />
           </div>
         </>
       )}

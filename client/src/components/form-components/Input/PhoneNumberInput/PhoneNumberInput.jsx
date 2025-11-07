@@ -6,7 +6,7 @@ import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 export const PhoneNumberInput = forwardRef(
-  ({ name, labelText, setValue, variant, errors, placeholder, getValues, nameSpace, ...props }, ref) => {
+  ({ name, labelText, setValue, variant, errors, placeholder, getValues, nameSpace, isShowError, ...props }, ref) => {
     const [inputsValue, setInputsValue] = useState(getValues(name) || '');
     const inputRef = useRef(null);
     const [isFocused, setIsFocused] = useState(false);
@@ -62,7 +62,9 @@ export const PhoneNumberInput = forwardRef(
             className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]} ${errors && errors[name] ? cl.error : ''}`}
             placeholder={placeholder}
           />
-          {errors && errors[name] && <Paragraph type="caption">{getTranslation(errors[name].message)}</Paragraph>}
+          {isShowError && errors && errors[name] && (
+            <Paragraph type="caption">{getTranslation(errors[name].message)}</Paragraph>
+          )}
         </label>
       </>
     );

@@ -1,0 +1,29 @@
+@import '@mixins';
+
+.cooperationOffer {
+  @include flexGap(12px, column);
+  padding-inline: 12px;
+
+  @include tablet {
+    padding-inline: 64px;
+    gap: 24px;
+
+    & > div:first-of-type {
+      @include flex(row, space-between);
+    }
+  }
+
+  @include deskmin {
+    padding-inline: 22px;
+    gap: 48px;
+  }
+
+  @include deskmax {
+    padding-inline: 72px;
+
+    & > div:first-of-type {
+      width: 1076px;
+      margin-inline: auto;
+    }
+  }
+}
