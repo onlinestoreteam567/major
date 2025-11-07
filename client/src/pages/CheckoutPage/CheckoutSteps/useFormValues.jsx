@@ -1,5 +1,5 @@
 import { createInvoice } from '@redux/checkout/service';
-import { selectCart } from '@redux/selectors';
+import { selectCart, selectPromocode } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 
 function hasTwoDecimals(num) {
@@ -39,6 +39,7 @@ const prepareInvoiceProducts = (cartItems) => {
 };
 
 const useFormValuesProcessor = () => {
+  const promocodeDiscount = useSelector(selectPromocode);
   const cartItems = useSelector(selectCart);
   const dispatch = useDispatch();
 
@@ -49,6 +50,10 @@ const useFormValuesProcessor = () => {
 
     if (formValues.comment === '') {
       delete formValues.comment;
+    }
+
+    if (promocodeDiscount) {
+      formValues = { ...formValues, promo: `-${promocodeDiscount.discount_percent}%` };
     }
 
     const products = prepareInvoiceProducts(cartItems);
