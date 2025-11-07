@@ -7,8 +7,11 @@ import { useEffect, useState } from 'react';
 import { injectReducers } from '@config/store';
 import Spinner from '@components/UI/Spinner/Spinner';
 import CooperationInterested from './CooperationInterested/CooperationInterested';
+import { Helmet } from 'react-helmet-async';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
 const CooperationPage = () => {
+  const { getTranslation } = useTranslationNamespace('cooperationPage');
   const [isReducerLoaded, setIsReducerLoaded] = useState(false);
 
   const cooperationPageReducers = {
@@ -24,6 +27,11 @@ const CooperationPage = () => {
     <Spinner />
   ) : (
     <div className={cl.cooperationPage}>
+      <Helmet>
+        <title>{getTranslation('metaTitle')}</title>
+        <meta name="description" content={getTranslation('metaDescription')} />
+      </Helmet>
+
       <CooperationInviteSection />
       <CooperationOffer />
       <OurPartners />
