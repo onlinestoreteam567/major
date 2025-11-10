@@ -14,6 +14,12 @@
   animation: fadeIn 300ms ease-out;
   box-sizing: border-box;
 
+  & > button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+
   & > div {
     @include flex(column, center, center);
     gap: 8px;
@@ -71,6 +77,12 @@
     width: 380px;
     padding-block: 36px;
 
+    & > button {
+      position: absolute;
+      top: 17px;
+      right: 17px;
+    }
+
     & > div {
       width: 308px;
       gap: 20px;
@@ -81,6 +93,12 @@
   @include tablet {
     width: 768px;
     padding-block: 96px;
+
+    & > button {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+    }
 
     & > div {
       width: 535px;

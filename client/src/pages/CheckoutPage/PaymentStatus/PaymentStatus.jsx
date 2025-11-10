@@ -10,6 +10,7 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import Overlay from '@components/UI/Overlay/Overlay';
 import { Link, useNavigate } from 'react-router-dom';
 import { clearCart } from '@redux/cart/cartSlice';
+import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
 const PaymentStatus = ({ setIsShowPaymentStatus }) => {
   const dispatch = useDispatch();
@@ -41,8 +42,11 @@ const PaymentStatus = ({ setIsShowPaymentStatus }) => {
   return (
     <>
       {invoiceSuccess && <Overlay handleClose={() => closeOnSuccess()} />}
-      {invoiceSuccess && <Overlay handleClose={() => closeOnError()} />}
+      {invoiceError && <Overlay handleClose={() => closeOnError()} />}
       <div className={cl.paymentStatusWrapper}>
+        {invoiceSuccess && <ButtonClose onClick={() => closeOnSuccess()} />}
+        {invoiceError && <ButtonClose onClick={() => closeOnError()} />}
+
         {invoiceSuccess && (
           <div>
             <Heading type="h2">
