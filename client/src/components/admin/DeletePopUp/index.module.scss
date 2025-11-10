@@ -5,6 +5,8 @@
   background-color: #ffffff;
   width: 280px;
   min-height: 241px;
+  max-height: 100vh;
+  overflow: auto;
   border-radius: 8px;
   padding: 32px;
   font-family: Mulish;
