@@ -7,7 +7,7 @@ import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import Navigation from '../HeaderNavigation/HeaderNavigation';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 
-const NavDrawer = ({ setIsShowNavDrawer }) => {
+const NavDrawer = ({ setIsShowNavDrawer, scrollToFooter }) => {
   const [hiddenNavDrawer, setHiddenNavDrawer] = useState(false);
 
   const handleCloseNavDrawer = () => handleCloseWithDelay(setHiddenNavDrawer, setIsShowNavDrawer);
@@ -21,7 +21,7 @@ const NavDrawer = ({ setIsShowNavDrawer }) => {
           <ButtonClose onClick={handleCloseNavDrawer} ariaLabel="ariaLabelCloseNavDrawer" />
         </div>
       </div>
-      <Navigation onClick={handleCloseNavDrawer} />
+      <Navigation scrollToFooter={scrollToFooter} onClick={handleCloseNavDrawer} />
       <SocialLinks black={true} />
     </div>
   );

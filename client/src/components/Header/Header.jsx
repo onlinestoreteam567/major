@@ -11,7 +11,7 @@ import HeaderCart from '@components/Header/HeaderCart/HeaderCart';
 import HeaderRightControls from './HeaderRightControls/HeaderRightControls';
 import HeaderSearch from './HeaderSearch/HeaderSearch';
 
-const Header = ({ scrolled }) => {
+const Header = ({ scrolled, scrollToFooter }) => {
   const { deskmin, deskmax } = useScreenSizes();
   const isMainPage = usePageState();
   const isScrolled = useScrollState(isMainPage || scrolled);
@@ -34,7 +34,7 @@ const Header = ({ scrolled }) => {
 
         <LogoIcon fillColor={isScrolled ? 'white' : 'black'} />
 
-        {(deskmin || deskmax) && <HeaderNavigation />}
+        {(deskmin || deskmax) && <HeaderNavigation scrollToFooter={scrollToFooter} />}
 
         {isShowInput && <HeaderSearch setIsShowInput={setIsShowInput} />}
 
@@ -45,7 +45,7 @@ const Header = ({ scrolled }) => {
         />
       </div>
 
-      {isShowNavDrawer && <NavDrawer setIsShowNavDrawer={setIsShowNavDrawer} />}
+      {isShowNavDrawer && <NavDrawer scrollToFooter={scrollToFooter} setIsShowNavDrawer={setIsShowNavDrawer} />}
       {isShowBasket && <HeaderCart setIsShowBasket={setIsShowBasket} />}
     </header>
   );

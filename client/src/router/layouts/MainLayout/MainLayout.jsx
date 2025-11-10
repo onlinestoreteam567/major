@@ -3,7 +3,7 @@ import Header from '@components/Header/Header';
 import Footer from '@components/Footer/Footer';
 import useScrollToTop from './hooks/useScrollToTop';
 import cl from './index.module.scss';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { fetchBestSellers, fetchProductsAll, fetchSets } from '@redux/products/service';
@@ -13,6 +13,7 @@ import { fetchPartners } from '@redux/partners/service';
 
 const MainLayout = () => {
   useScrollToTop();
+  const footerRef = useRef(null);
 
   const { i18n } = useTranslation();
   const dispatch = useDispatch();
@@ -28,13 +29,22 @@ const MainLayout = () => {
     dispatch(fetchPartners());
   }, [i18n.language, dispatch]);
 
+  const scrollToFooter = () => {
+    if (footerRef.current) {
+      footerRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
     <div className={cl.mainLayout}>
-      <Header />
+      <Header scrollToFooter={scrollToFooter} />
       <main>
         <Outlet />
       </main>
-      <Footer />
+      <Footer footerRef={footerRef} />
     </div>
   );
 };

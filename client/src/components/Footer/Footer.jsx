@@ -7,7 +7,7 @@ import { fetchContacts } from '@redux/contacts/service';
 import { loadContacts, selectContacts } from '@redux/selectors';
 import Spinner from '@components/UI/Spinner/Spinner';
 
-const Footer = () => {
+const Footer = ({ footerRef }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Footer = () => {
   const contacts = useSelector(selectContacts);
 
   return (
-    <footer className={cl.footer}>
+    <footer ref={footerRef} className={cl.footer}>
       {isLoading ? (
         <Spinner />
       ) : (

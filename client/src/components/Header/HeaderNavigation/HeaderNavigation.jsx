@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 import { fetchProductsAll } from '@redux/products/service';
 import { resetFilter } from '@redux/filter/filterSlice';
 
-const links = ['catalog', 'about', 'cooperation', 'contact'];
+const links = ['catalog', 'about', 'cooperation'];
 
-const HeaderNavigation = ({ onClick }) => {
+const HeaderNavigation = ({ onClick, scrollToFooter }) => {
   const { getTranslation } = useTranslationNamespace('header');
   const dispatch = useDispatch();
 
@@ -39,6 +39,16 @@ const HeaderNavigation = ({ onClick }) => {
           </NavLink>
         );
       })}
+      <NavLink
+        to={'#footer'}
+        onClick={() => {
+          scrollToFooter();
+          onClick();
+        }}
+        aria-label={getTranslation(`ariaLabel${'contact'}`)}
+      >
+        {getTranslation('contact')}
+      </NavLink>
     </nav>
   );
 };
