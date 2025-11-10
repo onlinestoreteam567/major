@@ -4,7 +4,7 @@ import { Controller } from 'react-hook-form';
 import cl from './index.module.scss';
 import Formatting from './Formatting/Formatting';
 import extensions from './helpers/extensions';
-
+// To use the component (or relate to tiptap other components) you should install all tiptap dependencies (npm install @tiptap...)
 const TipTap = ({ value, onChange, labelText, name, errors }) => {
   const editor = useEditor({
     extensions,
