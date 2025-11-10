@@ -9,6 +9,11 @@
   "paragraph3": "If it takes a little longer, please know that we haven't disappeared, we're just somewhere deep in boxes and bubble wrap.",
   "toCatalog": "To catalog",
 
+  "paymentErrorHeading": "Payment failed",
+  "paymentErrorParagraph1": "It seems that something went wrong during the payment.",
+  "paymentErrorParagraph2": "Don't worry — your order hasn't disappeared. Try paying again or check your card details.",
+  "paymentErrorButton": "Try again",
+
   "continueShopping": "Continue shopping",
   "checkout": "Checkout",
   "NumberOfItemsInTheCart": "Number of items in the cart:",

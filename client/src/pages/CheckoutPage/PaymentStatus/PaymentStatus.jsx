@@ -64,16 +64,13 @@ const PaymentStatus = ({ setIsShowPaymentStatus }) => {
         )}
         {invoiceError && (
           <div>
-            <Heading type="h2">Оплата не пройшла</Heading>
+            <Heading type="h2">{getTranslation('paymentErrorHeading')}</Heading>
             <div>
-              <Paragraph type="body1">Схоже, щось пішло не так під час платежу.</Paragraph>
-              <Paragraph type="body1">
-                Схоже, щось пішло не так під час платежу. Не хвилюйтеся — ваше замовлення нікуди не зникло. Спробуйте
-                оплатити ще раз або перевірте дані картки.
-              </Paragraph>
+              <Paragraph type="body1">{getTranslation('paymentErrorParagraph1')}</Paragraph>
+              <Paragraph type="body1">{getTranslation('paymentErrorParagraph2')}</Paragraph>
             </div>
             <Link to={'/checkout'} onClick={() => closeOnError()}>
-              Спробувати ще раз
+              {getTranslation('paymentErrorButton')}
             </Link>
           </div>
         )}
