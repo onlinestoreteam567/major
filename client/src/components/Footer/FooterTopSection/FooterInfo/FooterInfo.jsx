@@ -15,10 +15,16 @@ const FooterInfo = ({ contacts }) => {
             <ul className={cl.workingHours}>
               <li className={cl.liWithImg}>
                 <img src="/svg/footer/calendar.svg" alt={getTranslation('calendarAlt')} />
-                <h3>{contacts[0].work_schedule_weekdays}</h3>
+                <h3>
+                  {getTranslation('monFri')}
+                  {contacts[0].work_schedule_weekdays}
+                </h3>
               </li>
               <li>
-                <h3>{contacts[0].work_schedule_weekends}</h3>
+                <h3>
+                  {getTranslation('satSun')}
+                  {contacts[0].work_schedule_weekends}
+                </h3>
               </li>
             </ul>
           </div>

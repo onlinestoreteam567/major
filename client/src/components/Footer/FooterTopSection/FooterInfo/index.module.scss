@@ -5,7 +5,11 @@
   margin-bottom: 32px;
   text-wrap: nowrap;
   height: 135px;
-  width: 109px;
+  width: 100%;
+
+  @include mobile {
+    width: 150px;
+  }
 
   @include tablet {
     flex-direction: column;
@@ -64,6 +68,7 @@
 
   .wrapper {
     @include flexGap(16px, column);
+    align-items: center;
 
     @include tablet {
       margin-top: unset;
