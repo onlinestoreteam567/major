@@ -38,13 +38,16 @@ const CheckoutCart = ({ setTotalToPaid }) => {
 
     const originalTotalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-    setTotalToPaid(finalSum);
     return {
       totalToBePaid: finalSum,
       totalInitialPrice: initialSum,
       totalDiscountAmount: originalTotalPrice - finalSum,
     };
   }, [cartItems, promocodeDiscount]);
+
+  useEffect(() => {
+    setTotalToPaid(totalToBePaid);
+  }, [totalToBePaid, setTotalToPaid]);
 
   const isEmpty = cartItems.length === 0;
 
