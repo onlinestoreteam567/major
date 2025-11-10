@@ -61,7 +61,6 @@ const CheckoutSteps = ({ totalToPaid }) => {
         getValues={getValues}
         watch={watch}
       />
-      {activeStep === 4 && <p style={{ color: 'limeGreen', fontSize: '30px' }}>Всьо, форма пройдена, давай гроші</p>}
     </form>
   );
 };
