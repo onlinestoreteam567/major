@@ -30,7 +30,6 @@ const CheckoutPage = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    console.log(invoiceId);
 
     if (invoiceId && (params.get('fromBank') === 'true' || params.get('fromBank') === 'true/')) {
       setIsShowPaymentStatus(true);
