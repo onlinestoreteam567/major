@@ -24,6 +24,10 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=(), payment=(), fullscreen=(self), autoplay=(), accelerometer=(), gyroscope=(), magnetometer=(), usb=(), serial=(), web-share=(), interest-cohort=()"
         }
       ]
     }
