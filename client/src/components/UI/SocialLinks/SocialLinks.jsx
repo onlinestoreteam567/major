@@ -24,7 +24,7 @@ const SocialLinks = ({ black }) => {
             <li>
               <a
                 href={contacts[0].instagram}
-                rel="nofollow"
+                rel="nofollow noopener noreferrer"
                 target="_blank"
                 aria-label={getTranslation('instagramAlt')}
               >

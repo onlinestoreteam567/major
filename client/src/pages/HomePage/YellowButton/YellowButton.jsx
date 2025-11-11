@@ -37,7 +37,7 @@ const YellowButton = () => {
               <a
                 href="https://t.me/UA_National_Police"
                 rel="nofollow"
-                target="_blank"
+                target="nofollow noopener noreferrer"
                 aria-label={getTranslation('openTelegram')}
               >
                 <img src="/svg/yellowCircle/telegram.svg" alt="Telegram icon" />

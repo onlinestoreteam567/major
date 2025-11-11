@@ -31,7 +31,7 @@ const PartnerInfo = ({ informationAboutPartner, setInformationAboutPartner }) =>
       <a
         className={cl.googleMapLink}
         href={informationAboutPartner.google_maps_link}
-        rel="nofollow"
+        rel="nofollow noopener noreferrer"
         target="_blank"
         aria-label={getTranslation('ariaLabelOpenGoogleMap')}
       >
