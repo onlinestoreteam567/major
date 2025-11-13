@@ -5,6 +5,23 @@ import { authReducer } from '@redux/admin/auth/authSlice';
 import { verifyTokenReducer } from '@redux/admin/auth/verifyTokenSlice';
 import { contactsReducer } from '@redux/contacts/contactsSlice';
 import { viewedProductsReducer } from '@redux/products/viewedProductsSlice';
+import { productIdReducer } from '@redux/products/cardSlice';
+import { setsReducer } from '@redux/products/setsSlice';
+import { fitCategoryReducer } from '@redux/products/fitCategorySlice';
+import { addReviewReducer } from '@redux/reviews/addReviewSlice';
+import { bestSellerReducer } from '@redux/products/bestSlice';
+import { categoryReducer } from '@redux/params/categorySlice';
+import { filterReducer } from '@redux/filter/filterSlice';
+import { bannerReducer } from '@redux/banner/bannerSlice';
+import { partnersReducer } from '@redux/partners/partnerSlice';
+import { reviewReducer } from '@redux/reviews/reviewsSlice';
+import { typesReducer } from '@redux/params/purposeSlice';
+import { productsReducer } from '@redux/products/listSlice';
+import { promocodeReducer } from '@redux/promocode/promocodeSlice';
+import { settlementsReducer } from '@redux/novaPost/settlementsSlice';
+import { warehousesReducer } from '@redux/novaPost/warehousesSlice';
+import { createInvoiceReducer } from '@redux/checkout/createInvoiceSlice';
+import { checkInvoiceStatusReducer } from '@redux/checkout/checkInvoiceStatusSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -20,11 +37,37 @@ const preloadedState = {
 
 // Reducers that will always be present
 const staticReducers = {
+  // product reducers
+  productId: productIdReducer,
+  sets: setsReducer,
+  fitCategory: fitCategoryReducer,
+  addReview: addReviewReducer,
+
+  // default reducers
   cart: cartReducer,
   viewedProducts: viewedProductsReducer,
   auth: authReducer,
   verifyToken: verifyTokenReducer,
   contacts: contactsReducer,
+
+  // Home page slices
+  bests: bestSellerReducer,
+  category: categoryReducer,
+  filter: filterReducer,
+  banner: bannerReducer,
+  partners: partnersReducer,
+  reviews: reviewReducer,
+
+  // catalog
+  types: typesReducer,
+  products: productsReducer,
+
+  // checkoutPage
+  promocode: promocodeReducer,
+  settlements: settlementsReducer,
+  warehouses: warehousesReducer,
+  createInvoice: createInvoiceReducer,
+  checkInvoiceStatus: checkInvoiceStatusReducer,
 };
 
 // Function to create the combined reducer
