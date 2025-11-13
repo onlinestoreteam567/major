@@ -8,7 +8,6 @@ import AppLoader from '@router/AppLoader/AppLoader';
 const Home = lazy(() => import('@pages/HomePage/HomePage'));
 const Catalog = lazy(() => import('@pages/CatalogPage/CatalogPage'));
 const About = lazy(() => import('@pages/AboutPage/AboutPage'));
-const Contact = lazy(() => import('@pages/ContactPage'));
 const Cooperation = lazy(() => import('@pages/CooperationPage/СooperationPage'));
 const ProductPage = lazy(() => import('@pages/ProductPage/ProductPage'));
 const CheckoutPage = lazy(() => import('@pages/CheckoutPage/CheckoutPage'));
@@ -60,7 +59,6 @@ const router = createBrowserRouter([
       { path: 'catalog/:id', element: <ProductPage /> },
       { path: 'cooperation', element: <Cooperation /> },
       { path: 'checkout', element: <CheckoutPage /> },
-      { path: 'contact', element: <Contact /> },
     ],
   },
   {
