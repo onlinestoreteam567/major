@@ -25,20 +25,22 @@ const HomePage = () => {
   const { getTranslation } = useTranslationNamespace('common');
   const [isReducerLoaded, setIsReducerLoaded] = useState(false);
 
-  const homePageReducers = {
-    bests: bestSellerReducer,
-    sets: setsReducer,
-    category: categoryReducer,
-    filter: filterReducer,
-    banner: bannerReducer,
-    partners: partnersReducer,
-    reviews: reviewReducer,
-  };
-
   useEffect(() => {
-    injectReducers(homePageReducers);
-    setIsReducerLoaded(true);
-  }, []);
+    if (!isReducerLoaded) {
+      const homePageReducers = {
+        bests: bestSellerReducer,
+        sets: setsReducer,
+        category: categoryReducer,
+        filter: filterReducer,
+        banner: bannerReducer,
+        partners: partnersReducer,
+        reviews: reviewReducer,
+      };
+
+      injectReducers(homePageReducers);
+      setIsReducerLoaded(true);
+    }
+  }, [isReducerLoaded]);
 
   return (
     <div className={cl.homePage}>

@@ -19,17 +19,19 @@ const CatalogPage = () => {
   const [isShowCatalogFilters, setIsShowCatalogFilters] = useState(deskmin || deskmax);
   const [isReducerLoaded, setIsReducerLoaded] = useState(false);
 
-  const catalogReducers = {
-    category: categoryReducer,
-    types: typesReducer,
-    products: productsReducer,
-    filter: filterReducer,
-  };
-
   useEffect(() => {
-    injectReducers(catalogReducers);
-    setIsReducerLoaded(true);
-  }, []);
+    if (!isReducerLoaded) {
+      const catalogReducers = {
+        category: categoryReducer,
+        types: typesReducer,
+        products: productsReducer,
+        filter: filterReducer,
+      };
+
+      injectReducers(catalogReducers);
+      setIsReducerLoaded(true);
+    }
+  }, [isReducerLoaded]);
 
   return !isReducerLoaded ? (
     <Spinner />
