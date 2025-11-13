@@ -1,41 +1,18 @@
 import cl from './index.module.scss';
 import Products from './CatalogProductList/CatalogProductList';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import CatalogFilters from './CatalogFilters/CatalogFilters';
 import CatalogTop from './CatalogTop/CatalogTop';
 import { Helmet } from 'react-helmet-async';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import { injectReducers } from '@config/store';
-import { productsReducer } from '@redux/products/listSlice';
-import Spinner from '@components/UI/Spinner/Spinner';
-import { categoryReducer } from '@redux/params/categorySlice';
-import { typesReducer } from '@redux/params/purposeSlice';
-import { filterReducer } from '@redux/filter/filterSlice';
 
 const CatalogPage = () => {
   const { getTranslation } = useTranslationNamespace('catalogPage');
   const { deskmin, deskmax } = useScreenSizes();
   const [isShowCatalogFilters, setIsShowCatalogFilters] = useState(deskmin || deskmax);
-  const [isReducerLoaded, setIsReducerLoaded] = useState(false);
 
-  useEffect(() => {
-    if (!isReducerLoaded) {
-      const catalogReducers = {
-        category: categoryReducer,
-        types: typesReducer,
-        products: productsReducer,
-        filter: filterReducer,
-      };
-
-      injectReducers(catalogReducers);
-      setIsReducerLoaded(true);
-    }
-  }, [isReducerLoaded]);
-
-  return !isReducerLoaded ? (
-    <Spinner />
-  ) : (
+  return (
     <div className={cl.catalogWrapper}>
       <Helmet>
         <title>{getTranslation('metaTitle')}</title>
