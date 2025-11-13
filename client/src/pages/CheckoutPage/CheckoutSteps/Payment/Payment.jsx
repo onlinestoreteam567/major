@@ -5,11 +5,15 @@ import PaymentCheckbox from './PaymentCheckbox/PaymentCheckbox';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import { useEffect, useState } from 'react';
 import BtnSubmit from '@components/UI/Button/BtnSubmit';
+import { useSelector } from 'react-redux';
+import { loadBestSeller } from '@redux/selectors';
+import Spinner from '@components/UI/Spinner/Spinner';
 
-const Payment = ({ activeStep, setActiveStep, register, errors, trigger, watch }) => {
+const Payment = ({ activeStep, register, errors, watch }) => {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
   const [isError, setIsError] = useState(false);
   const paymentOptionValue = watch('payment_option');
+  const isLoading = useSelector(loadBestSeller);
 
   useEffect(() => {
     if (!paymentOptionValue && errors?.payment_option) {
@@ -63,14 +67,13 @@ const Payment = ({ activeStep, setActiveStep, register, errors, trigger, watch }
             {isError && <Paragraph type="caption">{getTranslation(errors?.payment_option?.message)}</Paragraph>}
           </div>
           <PaymentCheckbox name="checkbox" register={register} errors={errors} />
-          <BtnSubmit
-            onClick={async () => {
-              const isStepValid = await trigger(['checkbox', 'payment_option']);
-              if (isStepValid) setActiveStep(4);
-            }}
-          >
-            {getTranslation('pay')}
-          </BtnSubmit>
+          {isLoading ? (
+            <div className={cl.spinnerWrapper}>
+              <Spinner />
+            </div>
+          ) : (
+            <BtnSubmit>{getTranslation('pay')}</BtnSubmit>
+          )}
         </>
       )}
     </div>

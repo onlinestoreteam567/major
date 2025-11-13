@@ -10,11 +10,11 @@
     padding-block: 16px;
   }
 
-  div:nth-of-type(2) {
+  & > div:nth-of-type(2) {
     @include flexGap(12px, column);
   }
 
-  div:nth-of-type(3) {
+  & > div:nth-of-type(3) {
     @include flexGap(12px, column);
 
     & > label {
@@ -54,13 +54,14 @@
     }
   }
 
-  button {
+  button,
+  .spinnerWrapper {
     margin-top: 8px;
     height: 46px;
   }
 
   @include tablet {
-    div:nth-of-type(3) {
+    & > div:nth-of-type(3) {
       gap: 24px;
 
       & > label {
@@ -74,14 +75,15 @@
       }
     }
 
-    button {
+    button,
+    .spinnerWrapper {
       width: 306px;
       height: 56px;
     }
   }
 
   @include deskmin {
-    div:first-of-type {
+    & > div:first-of-type {
       width: 412px;
     }
   }
@@ -89,11 +91,11 @@
   @include deskmax {
     gap: 24px;
 
-    div:first-of-type {
+    & > div:first-of-type {
       width: 637px;
     }
 
-    div:nth-of-type(3) {
+    & > div:nth-of-type(3) {
       & > label {
         gap: 30px;
         padding: 12px 24px;

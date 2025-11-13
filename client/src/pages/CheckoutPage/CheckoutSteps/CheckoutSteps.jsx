@@ -52,15 +52,7 @@ const CheckoutSteps = ({ totalToPaid }) => {
         getValues={getValues}
         setValue={setValue}
       />
-      <Payment
-        activeStep={activeStep}
-        setActiveStep={setActiveStep}
-        register={register}
-        errors={errors}
-        trigger={trigger}
-        getValues={getValues}
-        watch={watch}
-      />
+      <Payment activeStep={activeStep} register={register} errors={errors} watch={watch} />
     </form>
   );
 };
