@@ -16,7 +16,8 @@ const PaymentStatus = ({ setIsShowPaymentStatus }) => {
   const dispatch = useDispatch();
   const { getTranslation } = useTranslationNamespace('checkoutPage');
   const invoiceId = loadFromStorage('invoice_id');
-  const invoiceIdForever = loadFromStorage('invoice_id_forever');
+  const reference = loadFromStorage('reference');
+  const referenceForever = loadFromStorage('reference_forever');
   const invoiceSuccess = useSelector(responseCheckInvoiceStatus);
   const invoiceError = useSelector(errorCheckInvoiceStatus);
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const PaymentStatus = ({ setIsShowPaymentStatus }) => {
     setIsShowPaymentStatus(false);
     navigate('/catalog');
     dispatch(clearCart());
-    saveToStorage('invoice_id_forever', { ...invoiceIdForever, invoiceId });
+    saveToStorage('reference_forever', { ...referenceForever, reference });
     removeFromStorage('invoice_id');
   };
 
@@ -50,7 +51,7 @@ const PaymentStatus = ({ setIsShowPaymentStatus }) => {
         {invoiceSuccess && (
           <div>
             <Heading type="h2">
-              {getTranslation('order1')} №{invoiceSuccess.invoice_id} {getTranslation('order2')}
+              {getTranslation('order1')} №{reference} {getTranslation('order2')}
             </Heading>
             <div>
               <Paragraph type="body1">{getTranslation('paragraph1')}</Paragraph>
