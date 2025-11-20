@@ -22,6 +22,7 @@ const CheckoutPage = () => {
   useEffect(() => {
     if (responseInvoice && responseInvoice.page_url) {
       saveToStorage('invoice_id', responseInvoice.invoice_id);
+      saveToStorage('reference', responseInvoice.reference);
       const bankRedirectUrl = responseInvoice.page_url;
 
       window.location.href = bankRedirectUrl;
