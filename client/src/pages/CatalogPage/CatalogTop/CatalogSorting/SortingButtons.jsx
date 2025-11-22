@@ -6,13 +6,16 @@ import { setProducts } from '@redux/products/listSlice';
 import Heading from '@components/UI/Texts/Heading/Heading';
 import { useState } from 'react';
 
-const SortingButtons = ({ handleSelect }) => {
+const SortingButtons = ({ handleSelect, handleCloseMobileSorting }) => {
   const [activeSorting, setActiveSorting] = useState();
   const { getTranslation } = useTranslationNamespace('catalogPage');
   const items = useSelector(selectProducts);
   const dispatch = useDispatch();
 
   const handleSorting = (type) => {
+    if (handleCloseMobileSorting) {
+      handleCloseMobileSorting();
+    }
     if (handleSelect) {
       handleSelect(type);
     }

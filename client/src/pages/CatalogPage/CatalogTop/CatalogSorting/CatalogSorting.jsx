@@ -38,7 +38,10 @@ const CatalogSorting = ({ setIsShowMobileSorting }) => {
     <>
       <Overlay handleClose={handleCloseMobileSorting} />
       <ul className={`${cl.mobileSorting} ${isHiddenMobileSorting ? cl.hiddenAnimation : ''}`}>
-        <SortingButtons />
+        <SortingButtons
+          handleSelect={() => handleCloseMobileSorting}
+          handleCloseMobileSorting={handleCloseMobileSorting}
+        />
       </ul>
     </>
   ) : (
