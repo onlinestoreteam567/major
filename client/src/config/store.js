@@ -23,6 +23,7 @@ import { warehousesReducer } from '@redux/novaPost/warehousesSlice';
 import { createInvoiceReducer } from '@redux/checkout/createInvoiceSlice';
 import { checkInvoiceStatusReducer } from '@redux/checkout/checkInvoiceStatusSlice';
 import { createCooperationRequestReducer } from '@redux/popUp/createCooperationRequestSlice';
+import { createSupportRequestReducer } from '@redux/popUp/createSupportRequestSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -59,6 +60,7 @@ const staticReducers = {
   partners: partnersReducer,
   reviews: reviewReducer,
   createCooperationRequest: createCooperationRequestReducer,
+  createSupportRequest: createSupportRequestReducer,
 
   // catalog
   types: typesReducer,

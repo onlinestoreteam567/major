@@ -39,7 +39,7 @@ const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
           <Input
             labelText={getTranslation('cooperationOfferPopUpInputName')}
             placeholder={getTranslation('cooperationOfferPopUpInputName')}
-            name="fullName"
+            name="name"
             variant="popUp"
             register={register}
             errors={errors}
