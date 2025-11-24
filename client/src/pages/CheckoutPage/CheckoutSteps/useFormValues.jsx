@@ -59,7 +59,7 @@ const useFormValuesProcessor = () => {
     }
 
     if (promocodeDiscount) {
-      formValues = { ...formValues, promo: `-${promocodeDiscount}%` };
+      formValues = { ...formValues, promocode: `-${promocodeDiscount.discount_percent}%` };
     }
 
     const products = prepareInvoiceProducts(cartItems, promocodeDiscount);
