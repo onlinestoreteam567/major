@@ -22,6 +22,7 @@ import { settlementsReducer } from '@redux/novaPost/settlementsSlice';
 import { warehousesReducer } from '@redux/novaPost/warehousesSlice';
 import { createInvoiceReducer } from '@redux/checkout/createInvoiceSlice';
 import { checkInvoiceStatusReducer } from '@redux/checkout/checkInvoiceStatusSlice';
+import { createCooperationRequestReducer } from '@redux/popUp/createCooperationRequestSlice';
 
 const preloadedState = {
   cart: loadFromStorage('cart') || undefined,
@@ -57,6 +58,7 @@ const staticReducers = {
   banner: bannerReducer,
   partners: partnersReducer,
   reviews: reviewReducer,
+  createCooperationRequest: createCooperationRequestReducer,
 
   // catalog
   types: typesReducer,
