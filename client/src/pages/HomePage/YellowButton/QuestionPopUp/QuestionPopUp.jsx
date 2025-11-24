@@ -1,7 +1,6 @@
 import cl from './index.module.scss';
 import Overlay from '@UI/Overlay/Overlay';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
-import Button from '@UI/Button/Button';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { needHelpSchema } from '@validations/needHelpSchema';
@@ -9,8 +8,12 @@ import { Input, PhoneNumberInput, Textarea } from '@components/form-components';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import Heading from '@components/UI/Texts/Heading/Heading';
+import { useDispatch } from 'react-redux';
+import { postSupportRequest } from '@redux/popUp/service';
+import BtnSubmit from '@components/UI/Button/BtnSubmit';
 
 const QuestionPopUp = ({ setShowMessagePopUp }) => {
+  const dispatch = useDispatch();
   const { getTranslation } = useTranslationNamespace('yellowButton');
   const {
     setValue,
@@ -24,7 +27,13 @@ const QuestionPopUp = ({ setShowMessagePopUp }) => {
   });
 
   const handleCloseMessagePopUp = () => setShowMessagePopUp(false);
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(postSupportRequest(data));
+  };
+
+  console.log('errors + ');
+  console.log(errors);
 
   return (
     <>
@@ -42,7 +51,7 @@ const QuestionPopUp = ({ setShowMessagePopUp }) => {
             <div>
               <Input
                 labelText={getTranslation('yourName')}
-                name="fullName"
+                name="name"
                 variant="popUp"
                 register={register}
                 errors={errors}
@@ -68,7 +77,7 @@ const QuestionPopUp = ({ setShowMessagePopUp }) => {
                 errors={errors}
               />
 
-              <Button submit={true}>{getTranslation('send', 'common')}</Button>
+              <BtnSubmit>{getTranslation('send', 'common')}</BtnSubmit>
             </div>
           </form>
         </div>

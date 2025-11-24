@@ -7,8 +7,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { cooperationSchema } from '@validations/cooperationSchema';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import BtnSubmit from '@components/UI/Button/BtnSubmit';
+import { useDispatch } from 'react-redux';
+import { postCooperationRequest } from '@redux/popUp/service';
 
 const CooperationInterested = () => {
+  const dispatch = useDispatch();
   const { getTranslation } = useTranslationNamespace('cooperationPage');
   const {
     setValue,
@@ -21,7 +24,7 @@ const CooperationInterested = () => {
     resolver: yupResolver(cooperationSchema),
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => dispatch(postCooperationRequest(data));
   return (
     <div className={cl.cooperationInterested}>
       <Heading type="h2">{getTranslation('cooperationInterestedTitle')}</Heading>
@@ -30,7 +33,7 @@ const CooperationInterested = () => {
         <Input
           labelText={getTranslation('cooperationOfferPopUpInputName')}
           placeholder={getTranslation('cooperationOfferPopUpInputName')}
-          name="fullName"
+          name="name"
           variant="popUp"
           register={register}
           errors={errors}

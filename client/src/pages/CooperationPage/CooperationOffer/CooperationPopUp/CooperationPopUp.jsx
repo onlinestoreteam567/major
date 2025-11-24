@@ -8,8 +8,11 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import BtnSubmit from '@components/UI/Button/BtnSubmit';
 import Overlay from '@components/UI/Overlay/Overlay';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
+import { useDispatch } from 'react-redux';
+import { postCooperationRequest } from '@redux/popUp/service';
 
 const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
+  const dispatch = useDispatch();
   const { getTranslation } = useTranslationNamespace('cooperationPage');
   const {
     setValue,
@@ -22,7 +25,7 @@ const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
     resolver: yupResolver(cooperationSchema),
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => dispatch(postCooperationRequest(data));
 
   return (
     <>
@@ -36,7 +39,7 @@ const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
           <Input
             labelText={getTranslation('cooperationOfferPopUpInputName')}
             placeholder={getTranslation('cooperationOfferPopUpInputName')}
-            name="fullName"
+            name="name"
             variant="popUp"
             register={register}
             errors={errors}

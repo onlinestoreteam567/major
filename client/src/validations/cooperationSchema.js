@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 export const cooperationSchema = yup.object().shape({
-  fullName: yup.string().trim().required('Full name is required'),
+  name: yup.string().trim().required('Full name is required'),
 
   phone: yup
     .string()
