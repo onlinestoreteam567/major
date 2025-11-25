@@ -1,4 +1,12 @@
-export function handleInputCursorPosition(e, isFocused, ref) {
+export function handleInputCursorPosition(e, isFocused, ref, inputsValue) {
+  if (!inputsValue) {
+    const firstUnderscoreIndex = ref.current.value.indexOf('_');
+    if (firstUnderscoreIndex !== -1) {
+      // Set the cursor position to one character after the first underscore
+      ref.current.setSelectionRange(firstUnderscoreIndex + 1, firstUnderscoreIndex + 1);
+    }
+  }
+
   // Prevent user selection when input is not focused
   if (!isFocused) {
     e.preventDefault();

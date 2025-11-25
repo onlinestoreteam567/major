@@ -23,6 +23,7 @@ export const PhoneNumberInput = forwardRef(
         if (!inputsValue) {
           setInputsValue('+38 (0__)  __ __ ___');
         }
+
         const firstUnderscoreIndex = inputRef.current.value.indexOf('_');
         if (firstUnderscoreIndex !== -1) {
           // Set the cursor position to one character after the first underscore
@@ -49,14 +50,14 @@ export const PhoneNumberInput = forwardRef(
             {...props}
             id={name}
             value={inputsValue}
-            autoComplete="tel"
+            autoComplete="off"
             ref={inputRef}
             onChange={(e) => handleInputChange(e, setInputsValue)}
             onFocus={handleInputFocus}
             onBlur={handleInputBlur}
             onKeyDown={(e) => {
               handleInputDelete(e, inputsValue, setInputsValue);
-              handleKeyDown(e);
+              handleKeyDown(e, inputRef, inputsValue);
             }}
             onMouseDown={(e) => handleInputCursorPosition(e, isFocused, inputRef)}
             className={`${cl.input} ${cl.phoneNumberInput} ${cl[variant]} ${errors && errors[name] ? cl.error : ''}`}
