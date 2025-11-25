@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { handleCloseWithDelay } from '@utils/handleCloseWithDelay';
 import Navigation from '../HeaderNavigation/HeaderNavigation';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
+import Overlay from '@components/UI/Overlay/Overlay';
 
 const NavDrawer = ({ setIsShowNavDrawer, scrollToFooter }) => {
   const [hiddenNavDrawer, setHiddenNavDrawer] = useState(false);
@@ -13,17 +14,20 @@ const NavDrawer = ({ setIsShowNavDrawer, scrollToFooter }) => {
   const handleCloseNavDrawer = () => handleCloseWithDelay(setHiddenNavDrawer, setIsShowNavDrawer);
 
   return (
-    <div className={`${cl.navDrawer} ${hiddenNavDrawer ? cl.closeAnimation : ''}`}>
-      <div className={cl.top}>
-        <LangSwitcher />
-        <LogoIcon fillColor={'black'} />
-        <div>
-          <ButtonClose onClick={handleCloseNavDrawer} ariaLabel="ariaLabelCloseNavDrawer" />
+    <>
+      <Overlay handleClose={handleCloseNavDrawer} />
+      <div className={`${cl.navDrawer} ${hiddenNavDrawer ? cl.closeAnimation : ''}`}>
+        <div className={cl.top}>
+          <LangSwitcher />
+          <LogoIcon fillColor={'black'} />
+          <div>
+            <ButtonClose onClick={handleCloseNavDrawer} ariaLabel="ariaLabelCloseNavDrawer" />
+          </div>
         </div>
+        <Navigation scrollToFooter={scrollToFooter} onClick={handleCloseNavDrawer} />
+        <SocialLinks black={true} />
       </div>
-      <Navigation scrollToFooter={scrollToFooter} onClick={handleCloseNavDrawer} />
-      <SocialLinks black={true} />
-    </div>
+    </>
   );
 };
 export default NavDrawer;
