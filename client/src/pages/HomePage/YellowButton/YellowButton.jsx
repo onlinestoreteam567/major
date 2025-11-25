@@ -35,7 +35,7 @@ const YellowButton = () => {
             <div className={cl.buttonsWrapper}>
               <Heading type="h3">{getTranslation('title')}</Heading>
               <a
-                href="https://t.me/UA_National_Police"
+                href="https://t.me/test_major_support_bot"
                 rel="nofollow"
                 target="nofollow noopener noreferrer"
                 aria-label={getTranslation('openTelegram')}
