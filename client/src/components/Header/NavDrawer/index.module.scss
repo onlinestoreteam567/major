@@ -15,6 +15,10 @@
     height: $height-pop-up-header-tablet;
     max-height: 100vh;
     overflow: scroll;
+
+    & > section {
+      margin-inline: auto;
+    }
   }
 
   @include showCloseAnimation('show', -100%);
