@@ -25,6 +25,7 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
               placeholder={getTranslation('name')}
               labelText={`${getTranslation('name')}*`}
               errors={errors}
+              autocomplete="given-name"
             />
             <ContactInformationInput
               name="last_name"
@@ -32,6 +33,7 @@ const ContactInformation = ({ activeStep, setActiveStep, register, setValue, err
               placeholder={getTranslation('surname')}
               labelText={`${getTranslation('surname')}*`}
               errors={errors}
+              autocomplete="family-name"
             />
             <PhoneNumberInput
               setValue={setValue}

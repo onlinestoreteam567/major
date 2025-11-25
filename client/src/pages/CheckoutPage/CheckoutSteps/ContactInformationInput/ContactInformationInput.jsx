@@ -3,7 +3,16 @@ import cl from './index.module.scss';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import useTranslationNamespace from '@hooks/useTranslationNamespace';
 
-export function ContactInformationInput({ labelText, placeholder, name, register, errors, disabled, ...rest }) {
+export function ContactInformationInput({
+  labelText,
+  placeholder,
+  name,
+  register,
+  errors,
+  disabled,
+  autocomplete,
+  ...rest
+}) {
   const { getTranslation } = useTranslationNamespace('checkoutPage');
 
   return (
@@ -18,6 +27,7 @@ export function ContactInformationInput({ labelText, placeholder, name, register
         placeholder={placeholder}
         className={errors && errors[name] && cl.error}
         disabled={disabled}
+        autoComplete={autocomplete}
       />
       {errors && errors[name] && <Paragraph type="caption">{getTranslation(errors[name].message)}</Paragraph>}
     </label>
