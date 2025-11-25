@@ -5,10 +5,12 @@ import Heading from '@components/UI/Texts/Heading/Heading';
 import Button from '@components/UI/Button/Button';
 import Map from './Map/Map';
 import PartnerInfo from './Map/PartnerInfo/PartnerInfo';
+import CooperationPopUp from '@pages/CooperationPage/CooperationOffer/CooperationPopUp/CooperationPopUp';
 
 const OurPartners = ({ isShowButton }) => {
   const { getTranslation } = useTranslationNamespace('ourPartners');
   const [selectedPartner, setSelectedPartner] = useState(null);
+  const [isShowCooperationPopUp, setIsShowCooperationPopUp] = useState();
 
   return (
     <section className={cl.ourPartners}>
@@ -21,9 +23,13 @@ const OurPartners = ({ isShowButton }) => {
       <Map onPartnerClick={setSelectedPartner} />
       {isShowButton && (
         <div className={cl.buttonWrapper}>
-          <Button ariaLabel={getTranslation('becomePartner')}>{getTranslation('becomePartner')}</Button>
+          <Button onClick={() => setIsShowCooperationPopUp(true)} ariaLabel={getTranslation('becomePartner')}>
+            {getTranslation('becomePartner')}
+          </Button>
         </div>
       )}
+
+      {isShowCooperationPopUp && <CooperationPopUp setIsShowCooperationPopUp={setIsShowCooperationPopUp} />}
     </section>
   );
 };
