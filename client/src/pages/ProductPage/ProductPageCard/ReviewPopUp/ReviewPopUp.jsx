@@ -11,7 +11,7 @@ import Overlay from '@components/UI/Overlay/Overlay';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { loadAddReview, responseAddReview } from '@redux/selectors';
+import { errorAddReview, loadAddReview, responseAddReview } from '@redux/selectors';
 import { resetAddReviewState } from '@redux/reviews/addReviewSlice';
 import { useEffect } from 'react';
 
@@ -25,6 +25,7 @@ const ReviewPopUp = ({ card, closeModal }) => {
   const { getTranslation } = useTranslationNamespace('reviewPopUp');
   const response = useSelector(responseAddReview);
   const isLoading = useSelector(loadAddReview);
+  const error = useSelector(errorAddReview);
 
   const {
     register,
@@ -62,7 +63,14 @@ const ReviewPopUp = ({ card, closeModal }) => {
       <div className={cl.reviewPopUp} onClick={(e) => e.stopPropagation()}>
         <ButtonClose onClick={closeModal} ariaLabel="ariaLabelMainPopUp" />
 
-        {!response ? (
+        {response || error ? (
+          <div className={cl.successMessage}>
+            <Heading type="h2">
+              {response && getTranslation('thankYouForYourReview')}
+              {error && getTranslation('errorReview')}
+            </Heading>
+          </div>
+        ) : (
           <div className={cl.overflowWrap}>
             <Heading type="h3">{getTranslation('leaveAReviewTitle')}</Heading>
             <form onSubmit={handleSubmit(onSubmit)} className={cl.form}>
@@ -92,10 +100,6 @@ const ReviewPopUp = ({ card, closeModal }) => {
               />
               <BtnSubmit disabled={isLoading || !isValid}>{getTranslation('send', 'common')}</BtnSubmit>
             </form>
-          </div>
-        ) : (
-          <div className={cl.successMessage}>
-            <Heading type="h2">{getTranslation('thankYouForYourReview')}</Heading>
           </div>
         )}
       </div>

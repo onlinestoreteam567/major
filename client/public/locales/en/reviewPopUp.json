@@ -4,5 +4,6 @@
   "writeShortReviewPlaceholder": "Product review",
   "rateTheProduct": "Rate the product*",
   "yourName": "Your name",
-  "thankYouForYourReview": "Thank you for your review!"
+  "thankYouForYourReview": "Thank you for your review!",
+  "errorReview": "Oops, something went wrong. Please try again."
 }
