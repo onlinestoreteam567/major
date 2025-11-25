@@ -5,5 +5,7 @@
   "phoneNumber": "Phone number*",
   "textAreaTitle": "Message*",
   "crossAlt": "Close",
-  "yourName": "Your name*"
+  "yourName": "Your name*",
+  "requestCreated": "Thanks! We will be in touch with you soon.",
+  "errorRequestCreation": "An error occurred while creating the request. Please try again or try other ways to contact us."
 }
