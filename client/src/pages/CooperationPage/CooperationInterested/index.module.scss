@@ -9,6 +9,7 @@
   color: #000000;
   margin-inline: auto;
   background-color: #f8f8f9;
+  height: 415px;
 
   p {
     text-align: center;
@@ -46,6 +47,10 @@
     }
   }
 
+  .successMessage {
+    margin: auto;
+  }
+
   @include mobile {
     p {
       width: 374px;
@@ -53,6 +58,7 @@
   }
 
   @include tablet {
+    height: 355px;
     width: 100%;
 
     form {
@@ -99,6 +105,8 @@
   }
 
   @include deskmax {
+    height: 340px;
+
     & > button {
       height: 25px;
       width: 25px;

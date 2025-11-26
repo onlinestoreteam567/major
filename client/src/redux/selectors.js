@@ -217,3 +217,7 @@ export const errorCheckInvoiceStatus = (state) => state.checkInvoiceStatus.error
 export const loadCreateSupportRequest = (state) => state.createSupportRequest.isLoading;
 export const responseCreateSupportRequest = (state) => state.createSupportRequest.response;
 export const errorCreateSupportRequest = (state) => state.createSupportRequest.error;
+
+export const loadCreateCooperationRequest = (state) => state.createCooperationRequest.isLoading;
+export const responseCreateCooperationRequest = (state) => state.createCooperationRequest.response;
+export const errorCreateCooperationRequest = (state) => state.createCooperationRequest.error;
