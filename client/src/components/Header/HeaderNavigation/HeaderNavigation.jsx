@@ -46,6 +46,7 @@ const HeaderNavigation = ({ onClick, scrollToFooter }) => {
           onClick();
         }}
         aria-label={getTranslation(`ariaLabel${'contact'}`)}
+        className={window.location.hash === '#footer' ? cl.activeLink : ''}
       >
         {getTranslation('contact')}
       </NavLink>
