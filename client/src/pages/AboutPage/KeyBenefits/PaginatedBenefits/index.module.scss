@@ -5,6 +5,7 @@
   justify-content: center;
   flex-wrap: wrap;
   width: 768px;
+  animation: fadeIn 1000ms ease-out;
 
   & > div {
     @include flexGap(24px, column);
@@ -99,5 +100,14 @@
         width: 416px;
       }
     }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

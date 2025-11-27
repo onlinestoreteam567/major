@@ -21,7 +21,7 @@ const PaginatedBenefits = () => {
   const secondColumn = [keyBenefitsArray[1], keyBenefitsArray[3], keyBenefitsArray[5]];
 
   return (
-    <div className={cl.paginatedBenefits}>
+    <div className={cl.paginatedBenefits} key={currentOption}>
       <div>
         {firstColumn.map((benefit) => {
           const showParagraph =
@@ -64,24 +64,6 @@ const PaginatedBenefits = () => {
           );
         })}
       </div>
-
-      {/* {keyBenefitsArray.map((benefit, index) => {
-        const showParagraph =
-          currentOption === 'option1' ? option1Indices.includes(index) : option2Indices.includes(index);
-
-        return (
-          <div key={index} className={showParagraph ? cl.showParagraph : ''}>
-            <Heading type="h2">{benefit.title}</Heading>
-            {showParagraph ? (
-              <Paragraph type="body1">{benefit.description}</Paragraph>
-            ) : (
-              <ButtonAriaLabel al={'nextProducts'} onClick={toggleOption}>
-                <ArrowRight />
-              </ButtonAriaLabel>
-            )}
-          </div>
-        );
-      })} */}
     </div>
   );
 };
