@@ -54,6 +54,7 @@
   }
 
   .successMessage {
+    @include flexGap(30px, column);
     margin: auto;
   }
 
@@ -72,6 +73,13 @@
 
     form {
       width: 306px;
+    }
+
+    .successMessage {
+      button {
+        width: 306px;
+        margin: auto;
+      }
     }
   }
 

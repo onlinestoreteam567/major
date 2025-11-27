@@ -14,6 +14,7 @@ import BtnSubmit from '@components/UI/Button/BtnSubmit';
 import { errorCreateSupportRequest, loadCreateSupportRequest, responseCreateSupportRequest } from '@redux/selectors';
 import { clearCreateSupportRequest } from '@redux/popUp/createSupportRequestSlice';
 import { useEffect } from 'react';
+import Button from '@components/UI/Button/Button';
 
 const QuestionPopUp = ({ setShowMessagePopUp }) => {
   const { getTranslation } = useTranslationNamespace('yellowButton');
@@ -31,13 +32,18 @@ const QuestionPopUp = ({ setShowMessagePopUp }) => {
   const requestCreated = useSelector(responseCreateSupportRequest);
   const loadRequestCreation = useSelector(loadCreateSupportRequest);
   const errorRequestCreation = useSelector(errorCreateSupportRequest);
+  console.log(errorRequestCreation);
 
   const handleCloseMessagePopUp = () => setShowMessagePopUp(false);
   const onSubmit = (data) => dispatch(postSupportRequest(data));
 
   useEffect(() => {
-    dispatch(clearCreateSupportRequest());
-  }, []);
+    if (requestCreated) {
+      return () => {
+        dispatch(clearCreateSupportRequest());
+      };
+    }
+  });
 
   return (
     <>
@@ -52,6 +58,10 @@ const QuestionPopUp = ({ setShowMessagePopUp }) => {
               {requestCreated && getTranslation('requestCreated')}
               {errorRequestCreation && getTranslation('errorRequestCreation')}
             </Heading>
+
+            {errorRequestCreation && (
+              <Button onClick={() => dispatch(clearCreateSupportRequest())}>{getTranslation('tryAgain')}</Button>
+            )}
           </div>
         ) : (
           <div className={cl.overflowWrap}>

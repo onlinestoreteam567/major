@@ -18,6 +18,7 @@ import {
 } from '@redux/selectors';
 import { clearCreateCooperationRequest } from '@redux/popUp/createCooperationRequestSlice';
 import Heading from '@components/UI/Texts/Heading/Heading';
+import Button from '@components/UI/Button/Button';
 
 const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
   const dispatch = useDispatch();
@@ -40,8 +41,12 @@ const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
   const onSubmit = (data) => dispatch(postCooperationRequest(data));
 
   useEffect(() => {
-    dispatch(clearCreateCooperationRequest());
-  }, []);
+    if (requestCreated) {
+      return () => {
+        dispatch(clearCreateCooperationRequest());
+      };
+    }
+  });
 
   return (
     <>
@@ -55,6 +60,9 @@ const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
               {requestCreated && getTranslation('cooperationOfferPopUpRequestCreated')}
               {errorRequestCreation && getTranslation('cooperationOfferPopUpErrorRequestCreation')}
             </Heading>
+            {errorRequestCreation && (
+              <Button onClick={() => dispatch(clearCreateCooperationRequest())}>{getTranslation('tryAgain')}</Button>
+            )}
           </div>
         ) : (
           <>

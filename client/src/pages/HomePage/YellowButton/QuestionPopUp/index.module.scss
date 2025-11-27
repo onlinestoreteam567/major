@@ -63,6 +63,7 @@
   }
 
   .successMessage {
+    @include flexGap(30px, column);
     margin: auto;
   }
 
@@ -176,6 +177,12 @@
             align-self: end;
           }
         }
+      }
+    }
+
+    .successMessage {
+      button {
+        width: 210px;
       }
     }
   }
