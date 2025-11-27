@@ -8,8 +8,17 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import BtnSubmit from '@components/UI/Button/BtnSubmit';
 import Overlay from '@components/UI/Overlay/Overlay';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { postCooperationRequest } from '@redux/popUp/service';
+import { useEffect } from 'react';
+import {
+  errorCreateCooperationRequest,
+  loadCreateCooperationRequest,
+  responseCreateCooperationRequest,
+} from '@redux/selectors';
+import { clearCreateCooperationRequest } from '@redux/popUp/createCooperationRequestSlice';
+import Heading from '@components/UI/Texts/Heading/Heading';
+import Button from '@components/UI/Button/Button';
 
 const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
   const dispatch = useDispatch();
@@ -25,7 +34,19 @@ const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
     resolver: yupResolver(cooperationSchema),
   });
 
+  const requestCreated = useSelector(responseCreateCooperationRequest);
+  const loadRequestCreation = useSelector(loadCreateCooperationRequest);
+  const errorRequestCreation = useSelector(errorCreateCooperationRequest);
+
   const onSubmit = (data) => dispatch(postCooperationRequest(data));
+
+  useEffect(() => {
+    if (requestCreated) {
+      return () => {
+        dispatch(clearCreateCooperationRequest());
+      };
+    }
+  });
 
   return (
     <>
@@ -33,29 +54,42 @@ const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
       <div className={cl.cooperationPopUp}>
         <ButtonClose ariaLabel="ariaLabelMainPopUp" onClick={() => setIsShowCooperationPopUp(false)} />
 
-        <Paragraph type="body1">{getTranslation('cooperationOfferPopUpTitle')}</Paragraph>
-
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Input
-            labelText={getTranslation('cooperationOfferPopUpInputName')}
-            placeholder={getTranslation('cooperationOfferPopUpInputName')}
-            name="name"
-            variant="popUp"
-            register={register}
-            errors={errors}
-          />
-          <PhoneNumberInput
-            setValue={setValue}
-            variant="popUp"
-            register={'phone'}
-            name="phone"
-            labelText={getTranslation('cooperationOfferPopUpInputPhone')}
-            placeholder={'+38 (097) 123 45 67'}
-            errors={errors}
-            getValues={getValues}
-          />
-          <BtnSubmit>{getTranslation('cooperationOfferCardButtonText')}</BtnSubmit>
-        </form>
+        {requestCreated || errorRequestCreation ? (
+          <div className={cl.successMessage}>
+            <Heading type="h2">
+              {requestCreated && getTranslation('cooperationOfferPopUpRequestCreated')}
+              {errorRequestCreation && getTranslation('cooperationOfferPopUpErrorRequestCreation')}
+            </Heading>
+            {errorRequestCreation && (
+              <Button onClick={() => dispatch(clearCreateCooperationRequest())}>{getTranslation('tryAgain')}</Button>
+            )}
+          </div>
+        ) : (
+          <>
+            <Paragraph type="body1">{getTranslation('cooperationOfferPopUpTitle')}</Paragraph>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Input
+                labelText={getTranslation('cooperationOfferPopUpInputName')}
+                placeholder={getTranslation('cooperationOfferPopUpInputName')}
+                name="name"
+                variant="popUp"
+                register={register}
+                errors={errors}
+              />
+              <PhoneNumberInput
+                setValue={setValue}
+                variant="popUp"
+                register={'phone'}
+                name="phone"
+                labelText={getTranslation('cooperationOfferPopUpInputPhone')}
+                placeholder={'+38 (097) 123 45 67'}
+                errors={errors}
+                getValues={getValues}
+              />
+              <BtnSubmit disabled={loadRequestCreation}>{getTranslation('cooperationOfferCardButtonText')}</BtnSubmit>
+            </form>
+          </>
+        )}
       </div>
     </>
   );

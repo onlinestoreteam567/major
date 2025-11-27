@@ -53,6 +53,11 @@
     }
   }
 
+  .successMessage {
+    @include flexGap(30px, column);
+    margin: auto;
+  }
+
   @include mobile {
     width: 356px;
   }
@@ -68,6 +73,13 @@
 
     form {
       width: 306px;
+    }
+
+    .successMessage {
+      button {
+        width: 306px;
+        margin: auto;
+      }
     }
   }
 

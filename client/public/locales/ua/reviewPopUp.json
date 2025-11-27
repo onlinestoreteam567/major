@@ -4,5 +4,7 @@
   "writeShortReviewPlaceholder": "Відгук про товар",
   "rateTheProduct": "Оцініть товар*",
   "yourName": "Ваше ім'я",
-  "thankYouForYourReview": "Дякуємо за ваш відгук!"
+  "thankYouForYourReview": "Дякуємо за ваш відгук!",
+  "errorReview": "Упс, щось пішло не так.",
+  "tryAgain": "Спробувати ще раз"
 }

@@ -20,8 +20,10 @@ const addReviewSlice = createSlice({
   name: 'addReview',
   initialState,
   reducers: {
-    resetAddReviewState: () => {
-      return initialState;
+    resetAddReviewState: (state) => {
+      state.response = null;
+      state.isLoading = false;
+      state.error = null;
     },
   },
   extraReducers: (builder) =>

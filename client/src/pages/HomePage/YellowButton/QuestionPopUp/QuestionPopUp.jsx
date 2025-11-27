@@ -8,12 +8,15 @@ import { Input, PhoneNumberInput, Textarea } from '@components/form-components';
 import ButtonClose from '@components/UI/Button/ButtonClose/ButtonClose';
 import Paragraph from '@components/UI/Texts/Paragraph/Paragraph';
 import Heading from '@components/UI/Texts/Heading/Heading';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { postSupportRequest } from '@redux/popUp/service';
 import BtnSubmit from '@components/UI/Button/BtnSubmit';
+import { errorCreateSupportRequest, loadCreateSupportRequest, responseCreateSupportRequest } from '@redux/selectors';
+import { clearCreateSupportRequest } from '@redux/popUp/createSupportRequestSlice';
+import { useEffect } from 'react';
+import Button from '@components/UI/Button/Button';
 
 const QuestionPopUp = ({ setShowMessagePopUp }) => {
-  const dispatch = useDispatch();
   const { getTranslation } = useTranslationNamespace('yellowButton');
   const {
     setValue,
@@ -25,15 +28,22 @@ const QuestionPopUp = ({ setShowMessagePopUp }) => {
     mode: 'onSubmit',
     resolver: yupResolver(needHelpSchema),
   });
+  const dispatch = useDispatch();
+  const requestCreated = useSelector(responseCreateSupportRequest);
+  const loadRequestCreation = useSelector(loadCreateSupportRequest);
+  const errorRequestCreation = useSelector(errorCreateSupportRequest);
+  console.log(errorRequestCreation);
 
   const handleCloseMessagePopUp = () => setShowMessagePopUp(false);
-  const onSubmit = (data) => {
-    console.log(data);
-    dispatch(postSupportRequest(data));
-  };
+  const onSubmit = (data) => dispatch(postSupportRequest(data));
 
-  console.log('errors + ');
-  console.log(errors);
+  useEffect(() => {
+    if (requestCreated) {
+      return () => {
+        dispatch(clearCreateSupportRequest());
+      };
+    }
+  });
 
   return (
     <>
@@ -42,45 +52,58 @@ const QuestionPopUp = ({ setShowMessagePopUp }) => {
       <div className={cl.questionPopUp}>
         <ButtonClose onClick={handleCloseMessagePopUp} ariaLabel="ariaLabelMainPopUp" />
 
-        <div className={cl.overflowWrap}>
-          <div>
-            <Heading type="h2">{getTranslation('subtitle')}</Heading>
-            <Paragraph type="body2">{getTranslation('heading')}</Paragraph>
+        {requestCreated || errorRequestCreation ? (
+          <div className={cl.successMessage}>
+            <Heading type="h2">
+              {requestCreated && getTranslation('requestCreated')}
+              {errorRequestCreation && getTranslation('errorRequestCreation')}
+            </Heading>
+
+            {errorRequestCreation && (
+              <Button onClick={() => dispatch(clearCreateSupportRequest())}>{getTranslation('tryAgain')}</Button>
+            )}
           </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
+        ) : (
+          <div className={cl.overflowWrap}>
             <div>
-              <Input
-                labelText={getTranslation('yourName')}
-                name="name"
-                variant="popUp"
-                register={register}
-                errors={errors}
-              />
-
-              <PhoneNumberInput
-                setValue={setValue}
-                variant="popUp"
-                register={'phone'}
-                name="phone"
-                labelText={getTranslation('phoneNumber')}
-                errors={errors}
-                getValues={getValues}
-              />
+              <Heading type="h2">{getTranslation('subtitle')}</Heading>
+              <Paragraph type="body2">{getTranslation('heading')}</Paragraph>
             </div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div>
+                <Input
+                  labelText={getTranslation('yourName')}
+                  name="name"
+                  variant="popUp"
+                  register={register}
+                  errors={errors}
+                />
 
-            <div>
-              <Textarea
-                labelText={getTranslation('textAreaTitle')}
-                name="question"
-                register={register}
-                variant={'popUp'}
-                errors={errors}
-              />
+                <PhoneNumberInput
+                  setValue={setValue}
+                  variant="popUp"
+                  register={'phone'}
+                  name="phone"
+                  labelText={getTranslation('phoneNumber')}
+                  errors={errors}
+                  getValues={getValues}
+                />
+              </div>
 
-              <BtnSubmit>{getTranslation('send', 'common')}</BtnSubmit>
-            </div>
-          </form>
-        </div>
+              <div>
+                <Textarea
+                  labelText={getTranslation('textAreaTitle')}
+                  name="question"
+                  register={register}
+                  variant={'popUp'}
+                  errors={errors}
+                />
+
+                <BtnSubmit disabled={loadRequestCreation}>{getTranslation('send', 'common')}</BtnSubmit>
+              </div>
+            </form>
+          </div>
+        )}
       </div>
     </>
   );

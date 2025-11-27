@@ -25,6 +25,9 @@
   "cooperationOfferPopUpTitle": "Leave your contact details and we will contact you to discuss the terms and conditions.",
   "cooperationOfferPopUpInputName": "Name:",
   "cooperationOfferPopUpInputPhone": "Phone:",
+  "cooperationOfferPopUpRequestCreated": "Thanks! We will be in touch with you soon.",
+  "cooperationOfferPopUpErrorRequestCreation": "An error occurred while creating the request. Please try again or try other ways to contact us.",
+  "tryAgain": "Try again",
 
   "cooperationInterestedTitle": "Interested?",
   "cooperationInterestedButton": "Become a partner"
