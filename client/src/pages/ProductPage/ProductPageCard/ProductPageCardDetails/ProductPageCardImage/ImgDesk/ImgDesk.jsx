@@ -38,7 +38,6 @@ export default function ImgDesk({ card }) {
         <img src="/svg/more.svg" alt="Open gallery" />
       </button>
       {isShow && <SliderImgs closeModal={closeModal} card={card} />}
-      SliderImgs ?
     </div>
   );
 }
