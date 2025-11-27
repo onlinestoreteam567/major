@@ -5,5 +5,6 @@
   "rateTheProduct": "Оцініть товар*",
   "yourName": "Ваше ім'я",
   "thankYouForYourReview": "Дякуємо за ваш відгук!",
-  "errorReview": "Упс, щось пішло не так. Спробуйте, будь ласка, ще раз."
+  "errorReview": "Упс, щось пішло не так.",
+  "tryAgain": "Спробувати ще раз"
 }

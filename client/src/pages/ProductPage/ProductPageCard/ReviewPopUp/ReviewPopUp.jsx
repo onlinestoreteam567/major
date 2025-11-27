@@ -14,6 +14,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { errorAddReview, loadAddReview, responseAddReview } from '@redux/selectors';
 import { resetAddReviewState } from '@redux/reviews/addReviewSlice';
 import { useEffect } from 'react';
+import Button from '@components/UI/Button/Button';
 
 const ReviewPopUp = ({ card, closeModal }) => {
   const schema = yup.object({
@@ -69,6 +70,8 @@ const ReviewPopUp = ({ card, closeModal }) => {
               {response && getTranslation('thankYouForYourReview')}
               {error && getTranslation('errorReview')}
             </Heading>
+
+            {error && <Button onClick={() => dispatch(resetAddReviewState())}>{getTranslation('tryAgain')}</Button>}
           </div>
         ) : (
           <div className={cl.overflowWrap}>
