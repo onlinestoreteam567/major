@@ -4,12 +4,32 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ButtonAriaLabel from '@components/UI/Button/ButtonAriaLabel';
 import ButtonAddToCart from '@components/UI/Button/ButtonAddToCart';
 import { useImageError } from '@hooks/useImageError';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const SlideImage = ({ src, alt }) => {
-  const [imageSrc, handleError] = useImageError(src);
+  const [imageSrc, handleError] = useImageError(src, '/images/placeholderBanner.webp');
+  const [isErrorStyling, setIsErrorStyling] = useState(false);
 
-  return <img fetchpriority="high" src={imageSrc} alt={alt} onError={handleError} />;
+  const imageError = () => {
+    handleError();
+    setIsErrorStyling(true);
+  };
+
+  useEffect(() => {
+    if (!src) {
+      imageError();
+    }
+  });
+
+  return (
+    <img
+      fetchpriority="high"
+      className={isErrorStyling ? cl.errorImage : ''}
+      src={imageSrc}
+      alt={alt}
+      onError={() => imageError()}
+    />
+  );
 };
 
 const Slide = ({ slide, next, previous }) => {

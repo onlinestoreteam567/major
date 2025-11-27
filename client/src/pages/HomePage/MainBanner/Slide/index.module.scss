@@ -85,6 +85,16 @@
         height: 562px;
         top: 24px;
       }
+
+      &.errorImage {
+        width: 145px;
+        height: 88px;
+        top: 260px;
+
+        @include tablet {
+          top: 0;
+        }
+      }
     }
 
     section {
