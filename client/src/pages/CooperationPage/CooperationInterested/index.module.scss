@@ -48,6 +48,7 @@
   }
 
   .successMessage {
+    @include flexGap(30px, column);
     margin: auto;
   }
 
@@ -86,6 +87,13 @@
         margin-inline: auto;
       }
     }
+
+    .successMessage {
+      button {
+        width: 306px;
+        margin: auto;
+      }
+    }
   }
 
   @include deskmin {
@@ -120,6 +128,12 @@
           width: 416px;
         }
       }
+    }
+  }
+
+  .successMessage {
+    h2 {
+      width: 900px;
     }
   }
 }

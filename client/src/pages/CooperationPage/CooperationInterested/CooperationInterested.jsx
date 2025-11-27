@@ -16,6 +16,7 @@ import {
   loadCreateCooperationRequest,
   responseCreateCooperationRequest,
 } from '@redux/selectors';
+import Button from '@components/UI/Button/Button';
 
 const CooperationInterested = () => {
   const dispatch = useDispatch();
@@ -36,8 +37,12 @@ const CooperationInterested = () => {
   const errorRequestCreation = useSelector(errorCreateCooperationRequest);
 
   useEffect(() => {
-    dispatch(clearCreateCooperationRequest());
-  }, []);
+    if (requestCreated) {
+      return () => {
+        dispatch(clearCreateCooperationRequest());
+      };
+    }
+  });
 
   const onSubmit = (data) => dispatch(postCooperationRequest(data));
   return (
@@ -48,6 +53,9 @@ const CooperationInterested = () => {
             {requestCreated && getTranslation('cooperationOfferPopUpRequestCreated')}
             {errorRequestCreation && getTranslation('cooperationOfferPopUpErrorRequestCreation')}
           </Heading>
+          {errorRequestCreation && (
+            <Button onClick={() => dispatch(clearCreateCooperationRequest())}>{getTranslation('tryAgain')}</Button>
+          )}
         </div>
       ) : (
         <>
