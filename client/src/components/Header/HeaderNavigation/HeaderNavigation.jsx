@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchProductsAll } from '@redux/products/service';
 import { resetFilter } from '@redux/filter/filterSlice';
+import ContactsLink from './ContactsLink';
 
 const links = ['catalog', 'about', 'cooperation'];
 
@@ -39,17 +40,7 @@ const HeaderNavigation = ({ onClick, scrollToFooter }) => {
           </NavLink>
         );
       })}
-      <NavLink
-        to={'#footer'}
-        onClick={() => {
-          scrollToFooter();
-          onClick();
-        }}
-        aria-label={getTranslation(`ariaLabel${'contact'}`)}
-        className={window.location.hash === '#footer' ? cl.activeLink : ''}
-      >
-        {getTranslation('contact')}
-      </NavLink>
+      <ContactsLink scrollToFooter={scrollToFooter} onClick={onClick} />
     </nav>
   );
 };

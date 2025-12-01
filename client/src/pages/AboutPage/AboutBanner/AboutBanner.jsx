@@ -12,7 +12,12 @@ const AboutBanner = () => {
 
   return (
     <figure className={cl.aboutBanner}>
-      <picture>
+      <picture      <picture>
+        <source srcSet={deskmaxImagePath} media="(min-width: 1440px)" />
+        <source srcSet={deskminImagePath} media="(min-width: 1024px)" />
+        <source srcSet={tabletImagePath} media="(min-width: 768px)" />
+        <img fetchpriority="high" src={mobileImagePath} alt={getTranslation('bannerImgAlt')} />
+      </picture>>
         <source srcSet={deskmaxImagePath} media="(min-width: 1440px)" />
         <source srcSet={deskminImagePath} media="(min-width: 1024px)" />
         <source srcSet={tabletImagePath} media="(min-width: 768px)" />
