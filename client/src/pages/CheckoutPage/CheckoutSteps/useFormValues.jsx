@@ -2,25 +2,12 @@ import { createInvoice } from '@redux/checkout/service';
 import { selectCart, selectPromocode } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 
-function hasTwoDecimals(num) {
-  let numStr = num.toString();
-  return /^\d+\.\d{2}$/.test(numStr);
-}
-
 const convertCurrencyToMinorUnit = (amount) => {
   if (Number.isInteger(amount)) {
     // e.g., 100 -> 10000
     return Number(`${amount}00`);
   } else {
-    const amountStr = amount.toString();
-
-    if (hasTwoDecimals(amount)) {
-      // e.g., 100.50 -> 10050
-      return Number(amountStr.replace('.', ''));
-    } else {
-      // e.g., 100.5 -> 100.50 -> 10050
-      return Number(`${amount}0`.replace('.', ''));
-    }
+    return Number(`${amount.ceil()}00`);
   }
 };
 

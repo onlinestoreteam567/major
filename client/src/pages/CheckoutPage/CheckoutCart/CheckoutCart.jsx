@@ -58,7 +58,11 @@ const CheckoutCart = ({ setTotalToPaid }) => {
   }, [i18n.language, savedIds, dispatch]);
 
   const toggleExpanded = () => setIsExpanded(!isExpanded);
-  const formatPrice = (price) => price.toFixed(2);
+  const formatPrice = (price) => {
+    const roundedPrice = Math.ceil(price);
+
+    return roundedPrice;
+  };
 
   return (
     <div className={`${cl.checkoutCart} ${isEmpty ? cl.empty : ''}`}>
@@ -87,7 +91,7 @@ const CheckoutCart = ({ setTotalToPaid }) => {
           </span>
         </Heading>
 
-        {totalDiscountAmount > 0 && (
+        {totalDiscountAmount >= 1 && (
           <Heading type="h4">
             {getTranslation('discount')}
             <span>
