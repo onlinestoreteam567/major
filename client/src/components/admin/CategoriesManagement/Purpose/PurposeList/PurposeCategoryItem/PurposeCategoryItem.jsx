@@ -12,7 +12,7 @@ const PurposeCategoryItem = ({ category, showDeletedMessage, isShowAdminSections
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const isSmallScreen = !(tablet || deskmin || deskmax);
   const dispatch = useDispatch();
-  const [imageSrc, handleError] = useImageError(category.image);
+  const [imageSrc, handleError] = useImageError(category?.image);
 
   const toggleDeletePopUp = () => setIsShowDeletePopUp(!isShowDeletePopUp);
 

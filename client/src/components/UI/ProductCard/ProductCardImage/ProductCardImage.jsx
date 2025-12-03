@@ -37,7 +37,7 @@ export default function ProductCardImage({ card, index }) {
   }
 
   const hasImages = card.images && card.images.length > 0;
-  const initialImage = hasImages ? card.images[0].image : null;
+  const initialImage = hasImages ? card?.images[0]?.image : null;
   const [imageSrc, handleError] = useImageError(initialImage);
 
   return (

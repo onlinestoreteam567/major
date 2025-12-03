@@ -8,7 +8,7 @@ import { useImageError } from '@hooks/useImageError';
 
 const BannerListItem = ({ banner, showDeletedMessage }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
-  const [imageSrc, handleError] = useImageError(banner.background_image_url);
+  const [imageSrc, handleError] = useImageError(banner?.background_image_url);
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {

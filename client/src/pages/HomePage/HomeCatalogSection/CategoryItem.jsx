@@ -2,7 +2,7 @@ import { useImageError } from '@hooks/useImageError';
 import { Link } from 'react-router-dom';
 
 const CategoryItem = ({ item, getTranslation, getCategory }) => {
-  const [imageSrc, handleError] = useImageError(item.image);
+  const [imageSrc, handleError] = useImageError(item?.image);
 
   return (
     <li

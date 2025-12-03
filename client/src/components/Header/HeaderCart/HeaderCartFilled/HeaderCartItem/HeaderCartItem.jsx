@@ -16,7 +16,7 @@ const digitRegex = /^\d*$/;
 const HeaderCartItem = ({ item, onClick }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(item.quantity);
-  const [imageSrc, handleError] = useImageError(item.images[0].image);
+  const [imageSrc, handleError] = useImageError(item?.images[0]?.image);
 
   const handleAddToCart = () => dispatch(incrementItemQuantity(item.id));
   const handleRemoveItem = () => dispatch(removeItem(item.id));

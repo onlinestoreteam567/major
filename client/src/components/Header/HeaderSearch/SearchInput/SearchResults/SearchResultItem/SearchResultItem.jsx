@@ -5,7 +5,7 @@ import { useImageError } from '@hooks/useImageError';
 
 const SearchResultItem = ({ product, handleCloseInput }) => {
   const { getTranslation } = useTranslationNamespace('search');
-  const [imageSrc, handleError] = useImageError(product.images[0].image);
+  const [imageSrc, handleError] = useImageError(product?.images[0]?.image);
 
   return (
     <li key={product.id} className={cl.searchResultItem}>

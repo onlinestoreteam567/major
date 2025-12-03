@@ -11,7 +11,7 @@ const CheckoutCartItem = ({ product }) => {
   const dispatch = useDispatch();
   const hryvnia = '\u20B4';
   const { getTranslation } = useTranslationNamespace('checkoutPage');
-  const [imageSrc, handleError] = useImageError(product.images[0].image);
+  const [imageSrc, handleError] = useImageError(product?.images[0]?.image);
 
   const handleRemoveItem = () => dispatch(removeItem(product.id));
 

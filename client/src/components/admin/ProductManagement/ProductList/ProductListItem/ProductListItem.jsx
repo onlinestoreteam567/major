@@ -11,7 +11,7 @@ const ProductListItem = ({ card, showDeletedMessage, isShowAdminSections }) => {
   const [isShowDeletePopUp, setIsShowDeletePopUp] = useState(false);
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const isSmallScreen = !(tablet || deskmin || deskmax);
-  const [imageSrc, handleError] = useImageError(card.images[0].image);
+  const [imageSrc, handleError] = useImageError(card?.images[0]?.image);
 
   const toggleDeletePopUp = () => setIsShowDeletePopUp(!isShowDeletePopUp);
 

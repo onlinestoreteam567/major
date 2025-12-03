@@ -11,7 +11,7 @@ const CategoryCard = ({ item }) => {
   const newCategory = useSelector(filterCategory);
   const { getTranslation } = useTranslationNamespace('common');
 
-  const [imageSrc, handleError] = useImageError(item.image);
+  const [imageSrc, handleError] = useImageError(item?.image);
 
   const getCategory = (value) => {
     if (newCategory === value) {
