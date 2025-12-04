@@ -3,11 +3,15 @@ import { selectCart, selectPromocode } from '@redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 
 const convertCurrencyToMinorUnit = (amount) => {
+  if (typeof amount !== 'number' || isNaN(amount)) {
+    console.error('Invalid amount provided.');
+    return null;
+  }
+
   if (Number.isInteger(amount)) {
-    // e.g., 100 -> 10000
-    return Number(`${amount}00`);
+    return amount * 100;
   } else {
-    return Number(`${amount.ceil()}00`);
+    return Math.ceil(amount) * 100;
   }
 };
 
