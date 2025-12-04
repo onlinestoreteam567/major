@@ -5,14 +5,18 @@ import 'slick-carousel/slick/slick-theme.css';
 import cl from './index.module.scss';
 import ArrowLeft from '@components/UI/icons/ArrowLeft';
 import ArrowRight from '@components/UI/icons/ArrowRight';
-import { mainSettings } from '@components/constants/settingSlider';
+import { aboutUsSettings, mainSettings } from '@components/constants/settingSlider';
 import useScreenSizes from '@hooks/useScreenSizes/useScreenSizes';
 import CategoryCard from '@pages/CatalogPage/FilterCategory/CategoryCard/CategoryCard';
 import ButtonAriaLabel from '../Button/ButtonAriaLabel';
+import useTranslationNamespace from '@hooks/useTranslationNamespace';
 import ProductCard from '../ProductCard/ProductCard';
+import Heading from '../Texts/Heading/Heading';
+import Paragraph from '../Texts/Paragraph/Paragraph';
 let screenSizeTotal;
 
-const SliderBoxMain = ({ slidesData, total, isCatalog }) => {
+const SliderBoxMain = ({ slidesData, total, isCatalog, isKeyBenefits }) => {
+  const { getTranslation } = useTranslationNamespace('aboutPage');
   const { tablet, deskmin, deskmax } = useScreenSizes();
   const [index, setIndex] = useState(1);
   let sliderRef = useRef(null);
@@ -32,9 +36,7 @@ const SliderBoxMain = ({ slidesData, total, isCatalog }) => {
       break;
   }
 
-  const settings = {
-    ...mainSettings,
-  };
+  const settings = isKeyBenefits ? { ...aboutUsSettings } : { ...mainSettings };
 
   const [clickDelay, setClickDelay] = useState(false);
   const timer = useRef(null);
@@ -72,17 +74,30 @@ const SliderBoxMain = ({ slidesData, total, isCatalog }) => {
       </div>
 
       <Slider ref={sliderRef} {...settings}>
-        {!isCatalog
-          ? slidesData.map((slide, index) => (
+        {/* Determine which data structure to map and render */}
+        {isKeyBenefits
+          ? // Case 1: isKeyBenefits is true
+            slidesData.map((slide, index) => (
               <div key={index} className={cl.slider}>
-                <ProductCard key={index} card={slide} />
+                <div className={cl.benefit}>
+                  <Heading type="h2">{getTranslation(slide.title)}</Heading>
+                  <Paragraph type="body1">{getTranslation(slide.description)}</Paragraph>
+                </div>
               </div>
             ))
-          : slidesData.map((slide, index) => (
-              <div key={index} className={cl.slider}>
-                <CategoryCard item={slide} key={index} />
-              </div>
-            ))}
+          : isCatalog
+            ? // Case 2: isKeyBenefits is false, isCatalog is true
+              slidesData.map((slide, index) => (
+                <div key={index} className={cl.slider}>
+                  <CategoryCard item={slide} key={index} />
+                </div>
+              ))
+            : // Case 3: isKeyBenefits is false, isCatalog is false
+              slidesData.map((slide, index) => (
+                <div key={index} className={cl.slider}>
+                  <ProductCard key={index} card={slide} />
+                </div>
+              ))}
       </Slider>
     </div>
   );

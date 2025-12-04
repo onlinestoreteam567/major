@@ -44,20 +44,35 @@
   }
 
   .benefit {
-    @include flex(column, start);
-    gap: 8px;
-    width: 136px;
-    height: 360px;
-    border-radius: 32px;
-    padding: 8px;
-    background-color: #f8f8f9;
-    box-sizing: border-box;
-    margin-right: 12px;
+    @include flexGap(20px, column);
+    padding: 0;
+    width: 296px;
+    height: 570px;
+    position: relative;
+    color: black;
 
-    p,
-    h2 {
-      text-align: start;
+    @include mobile {
+      width: 356px;
     }
+
+    @include tablet {
+      width: 306px;
+      height: 518px;
+    }
+    // @include flex(column, start);
+    // gap: 8px;
+    // width: 136px;
+    // height: 360px;
+    // border-radius: 32px;
+    // padding: 8px;
+    // background-color: #f8f8f9;
+    // box-sizing: border-box;
+    // margin-right: 12px;
+
+    // p,
+    // h2 {
+    //   text-align: start;
+    // }
   }
 
   @include mobile {

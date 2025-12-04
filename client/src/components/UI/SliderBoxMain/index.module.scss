@@ -1,5 +1,30 @@
 @import '@mixins';
 
+.benefit {
+  @include flexGap(8px, column);
+  padding: 0;
+  width: 150px;
+  height: 360px;
+  position: relative;
+  color: black;
+  padding: 12px;
+  box-sizing: border-box;
+
+  @include mobile {
+    width: 356px;
+  }
+
+  @include tablet {
+    width: 306px;
+    height: 518px;
+  }
+
+  p,
+  h2 {
+    text-align: start;
+  }
+}
+
 // *** SliderBoxMain ***
 .wrapSlider {
   position: relative;

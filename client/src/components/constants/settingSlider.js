@@ -118,7 +118,7 @@ export const aboutUsSettings = {
   arrows: true,
   speed: 300,
   slidesToShow: 2,
-  slidesToScroll: 2,
+  slidesToScroll: 1,
   lazyLoad: true,
   variableWidth: true,
   draggable: false,
