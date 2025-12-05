@@ -30,7 +30,7 @@ const setFormValues = (setValue, responseGet) => {
 
   if (price && discount) {
     const discounted = price - (price * discount) / 100;
-    setValue('discounted_price', Math.round(discounted));
+    setValue('discounted_price', Math.ceil(discounted));
   } else if (price) {
     setValue('discounted_price', price);
   } else {
