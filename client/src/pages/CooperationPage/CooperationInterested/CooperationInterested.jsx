@@ -42,7 +42,7 @@ const CooperationInterested = () => {
         dispatch(clearCreateCooperationRequest());
       };
     }
-  });
+  }, []);
 
   const onSubmit = (data) => dispatch(postCooperationRequest(data));
   return (

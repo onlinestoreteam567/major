@@ -46,7 +46,7 @@ const CooperationPopUp = ({ setIsShowCooperationPopUp }) => {
         dispatch(clearCreateCooperationRequest());
       };
     }
-  });
+  }, []);
 
   return (
     <>
