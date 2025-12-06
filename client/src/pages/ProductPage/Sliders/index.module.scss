@@ -3,12 +3,15 @@
 .slider {
   @include flex(column, flex-start, center);
   box-sizing: border-box;
-  width: 100%;
-  height: auto;
+  width: 296px;
 
   & > h3 {
     width: 100%;
   }
+  @include mobile {
+    width: 356px;
+  }
+
   @include tablet {
     width: 640px;
   }

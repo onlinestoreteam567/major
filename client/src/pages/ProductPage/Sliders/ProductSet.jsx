@@ -9,12 +9,14 @@ import useTranslationNamespace from '@hooks/useTranslationNamespace';
 export default function ProductSet() {
   const isLoading = useSelector(loadSets);
   const sets = useSelector(selectSets);
+  const total = sets.length || 0;
+
   const { getTranslation } = useTranslationNamespace('common');
 
   return (
     <div className={cl.slider}>
       <Heading type="h3">{getTranslation('cheaperTogether')}</Heading>
-      {isLoading ? <Spinner /> : <SliderBoxMain slidesData={sets} />}
+      {isLoading ? <Spinner /> : <SliderBoxMain slidesData={sets} total={total} />}
     </div>
   );
 }
