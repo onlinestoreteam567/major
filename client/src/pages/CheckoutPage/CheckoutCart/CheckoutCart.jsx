@@ -37,11 +37,13 @@ const CheckoutCart = ({ setTotalToPaid }) => {
     });
 
     const originalTotalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const awdad = originalTotalPrice - finalSum;
+    const roundedPrice = Math.ceil(awdad);
 
     return {
-      totalToBePaid: finalSum,
+      totalToBePaid: initialSum - roundedPrice,
       totalInitialPrice: initialSum,
-      totalDiscountAmount: originalTotalPrice - finalSum,
+      totalDiscountAmount: roundedPrice,
     };
   }, [cartItems, promocodeDiscount]);
 
@@ -60,7 +62,6 @@ const CheckoutCart = ({ setTotalToPaid }) => {
   const toggleExpanded = () => setIsExpanded(!isExpanded);
   const formatPrice = (price) => {
     const roundedPrice = Math.ceil(price);
-
     return roundedPrice;
   };
 
@@ -87,6 +88,7 @@ const CheckoutCart = ({ setTotalToPaid }) => {
         <Heading type="h4">
           {getTranslation('totalSum')}
           <span>
+            {console.log(totalInitialPrice)}
             {formatPrice(totalInitialPrice)} <span>{hryvnia}</span>
           </span>
         </Heading>
@@ -95,7 +97,7 @@ const CheckoutCart = ({ setTotalToPaid }) => {
           <Heading type="h4">
             {getTranslation('discount')}
             <span>
-              - {formatPrice(totalDiscountAmount)}
+              {console.log(totalDiscountAmount)}- {formatPrice(totalDiscountAmount)}
               <span>{hryvnia}</span>
             </span>
           </Heading>
@@ -104,6 +106,7 @@ const CheckoutCart = ({ setTotalToPaid }) => {
         <Heading type="h3">
           {getTranslation('toBePaid')}
           <span>
+            {console.log(totalToBePaid)}
             {formatPrice(totalToBePaid)}
             <span>{hryvnia}</span>
           </span>
