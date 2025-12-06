@@ -11,12 +11,7 @@
   box-sizing: border-box;
 
   @include mobile {
-    width: 356px;
-  }
-
-  @include tablet {
-    width: 306px;
-    height: 518px;
+    width: 166px;
   }
 
   p,
