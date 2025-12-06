@@ -17,7 +17,6 @@ const BannerList = () => {
   const [deletedMessage, showDeletedMessage] = useTimedMessage();
 
   useEffect(() => {
-    console.log(deleteResponse);
     deleteResponse === 204 && dispatch(fetchBanner());
   }, [dispatch, deleteResponse]);
 

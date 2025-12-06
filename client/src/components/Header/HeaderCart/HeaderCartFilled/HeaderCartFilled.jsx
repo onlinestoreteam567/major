@@ -10,9 +10,6 @@ const HeaderCartFilled = ({ cartItems, totalQuantity, onClick }) => {
   const { getTranslation } = useTranslationNamespace('basket');
   const hryvnia = '\u20B4';
 
-  console.log(cartItems);
-  console.log(totalPrice);
-
   return (
     <>
       <ul className={cl.basketItems}>

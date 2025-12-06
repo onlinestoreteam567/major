@@ -107,7 +107,6 @@ export const injectReducers = (reducersMap) => {
   if (newReducersInjected) {
     // Replace the reducer once after all new reducers are added
     store.replaceReducer(createReducer(store.asyncReducers));
-    console.log(`Injected ${Object.keys(reducersMap).length} async reducers.`);
   }
 };
 

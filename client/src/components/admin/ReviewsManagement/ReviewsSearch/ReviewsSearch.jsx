@@ -21,7 +21,6 @@ const ReviewsSearch = () => {
     const value = e.target.value;
     setIsSelected(false);
     dispatch(setSearch(value));
-    console.log(value);
     dispatch(filterReviewByName(value));
   };
 

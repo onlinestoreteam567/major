@@ -32,7 +32,6 @@ const QuestionPopUp = ({ setShowMessagePopUp }) => {
   const requestCreated = useSelector(responseCreateSupportRequest);
   const loadRequestCreation = useSelector(loadCreateSupportRequest);
   const errorRequestCreation = useSelector(errorCreateSupportRequest);
-  console.log(errorRequestCreation);
 
   const handleCloseMessagePopUp = () => setShowMessagePopUp(false);
   const onSubmit = (data) => dispatch(postSupportRequest(data));

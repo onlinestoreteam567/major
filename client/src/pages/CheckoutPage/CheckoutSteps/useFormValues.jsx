@@ -25,7 +25,6 @@ const prepareInvoiceProducts = (cartItems, promocodeDiscountPercent) => {
     const finalPrice = originalPrice * (1 - maxDiscountPercent / 100);
     const convertedPrice = convertCurrencyToMinorUnit(finalPrice);
 
-    console.log(cartItems);
     return {
       name: item.name,
       article: item.article,

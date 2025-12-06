@@ -15,7 +15,6 @@ const ManagersList = ({ managers }) => {
   const dispatch = useDispatch();
   const [deletedMessage, showDeletedMessage] = useTimedMessage();
 
-  console.log(deleteResponse);
   useEffect(() => {
     deleteResponse === 204 && dispatch(fetchUsers());
   }, [dispatch, deleteResponse]);

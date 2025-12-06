@@ -18,7 +18,6 @@ const AdminLoginPage = () => {
   useEffect(() => {
     if (authToken) {
       navigate('/admin/products');
-      console.log(123);
     }
   }, [authToken, navigate]);
 

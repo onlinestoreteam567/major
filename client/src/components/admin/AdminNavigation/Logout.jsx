@@ -9,8 +9,7 @@ const LogOut = () => {
   const [isShowLogOutPopUp, setIsShowLogOutPopUp] = useState(false);
   const toggleDeletePopUp = () => {
     setIsShowLogOutPopUp(!isShowLogOutPopUp);
-    console.log('Clicked');
-  };
+  ;
 
   return (
     <>

@@ -11,7 +11,6 @@ const ProductSearch = () => {
   const handleChange = (event) => {
     const searchTerm = event.target.value;
     dispatch(setSearch(searchTerm));
-    console.log(searchTerm);
     dispatch(filterProductsByName(searchTerm));
   };
 
