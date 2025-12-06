@@ -7,9 +7,7 @@ import { useDispatch } from 'react-redux';
 const LogOut = () => {
   const dispatch = useDispatch();
   const [isShowLogOutPopUp, setIsShowLogOutPopUp] = useState(false);
-  const toggleDeletePopUp = () => {
-    setIsShowLogOutPopUp(!isShowLogOutPopUp);
-  ;
+  const toggleDeletePopUp = () => setIsShowLogOutPopUp(!isShowLogOutPopUp);
 
   return (
     <>
