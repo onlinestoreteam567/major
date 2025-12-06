@@ -31,12 +31,13 @@ const CheckoutCart = ({ setTotalToPaid }) => {
       const basePrice = item.price;
       const productDiscountPercent = item.discount || 0;
       const effectiveDiscountPercent = Math.max(productDiscountPercent, promoPercent);
-      const effectivePrice = basePrice * (1 - effectiveDiscountPercent / 100);
+      const effectivePrice = Math.ceil(basePrice * (1 - effectiveDiscountPercent / 100));
       finalSum += effectivePrice * item.quantity;
       initialSum += item.price * item.quantity;
     });
 
     const originalTotalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
     const awdad = originalTotalPrice - finalSum;
     const roundedPrice = Math.ceil(awdad);
 
@@ -60,10 +61,6 @@ const CheckoutCart = ({ setTotalToPaid }) => {
   }, [i18n.language, savedIds, dispatch]);
 
   const toggleExpanded = () => setIsExpanded(!isExpanded);
-  const formatPrice = (price) => {
-    const roundedPrice = Math.ceil(price);
-    return roundedPrice;
-  };
 
   return (
     <div className={`${cl.checkoutCart} ${isEmpty ? cl.empty : ''}`}>
@@ -88,8 +85,8 @@ const CheckoutCart = ({ setTotalToPaid }) => {
         <Heading type="h4">
           {getTranslation('totalSum')}
           <span>
-            {console.log(totalInitialPrice)}
-            {formatPrice(totalInitialPrice)} <span>{hryvnia}</span>
+            {totalInitialPrice}
+            <span>{hryvnia}</span>
           </span>
         </Heading>
 
@@ -97,7 +94,7 @@ const CheckoutCart = ({ setTotalToPaid }) => {
           <Heading type="h4">
             {getTranslation('discount')}
             <span>
-              {console.log(totalDiscountAmount)}- {formatPrice(totalDiscountAmount)}
+              - {totalDiscountAmount}
               <span>{hryvnia}</span>
             </span>
           </Heading>
@@ -106,8 +103,7 @@ const CheckoutCart = ({ setTotalToPaid }) => {
         <Heading type="h3">
           {getTranslation('toBePaid')}
           <span>
-            {console.log(totalToBePaid)}
-            {formatPrice(totalToBePaid)}
+            {totalToBePaid}
             <span>{hryvnia}</span>
           </span>
         </Heading>
