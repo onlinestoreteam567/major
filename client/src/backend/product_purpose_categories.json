@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/tose87begn8mds4zrtkr",
+    "name": "Для тонкого волосся"
+  },
+  {
+    "id": 2,
+    "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/thrgyec1z4dsqdhsbv5t",
+    "name": "Для фарбованого волосся"
+  },
+  {
+    "id": 3,
+    "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ticjgreljtbtazlps6lk",
+    "name": "Для пошкодженого волосся"
+  },
+  {
+    "id": 4,
+    "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/kujoyamke2cgnb8s3r9b",
+    "name": "Глибоке очищення"
+  },
+  {
+    "id": 5,
+    "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/f3nci36ybqpkvgb8wvds",
+    "name": "Для росту волосся"
+  },
+  {
+    "id": 6,
+    "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/cm8bdawu20mjcbosq7em",
+    "name": "Універсальний догляд"
+  },
+  {
+    "id": 7,
+    "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/hsvquobkbyyqgwh2rurb",
+    "name": "Процедури для волосся"
+  }
+]

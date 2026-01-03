@@ -1,0 +1,1321 @@
+[
+  {
+    "id": 8,
+    "article": "mj011",
+    "available": true,
+    "price": 375,
+    "discount": 48,
+    "is_discount": true,
+    "price_with_discount": 195,
+    "volume_ml": 250,
+    "images": [
+      {
+        "id": 335,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/vsiyr9gyk4oovprotepd",
+        "order": 0
+      },
+      {
+        "id": 336,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/dujkgl2yqj38g80kim9o",
+        "order": 0
+      },
+      {
+        "id": 337,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/px2jkiqmzozmhth6zace",
+        "order": 0
+      },
+      {
+        "id": 338,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ruxws311l2ex0gxu8sij",
+        "order": 0
+      },
+      {
+        "id": 339,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/mass0wiwx0zimjini4db",
+        "order": 0
+      }
+    ],
+    "purpose_category": [2],
+    "type_category": 6,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Cetearyl Alcohol, Behentrimonium Chloride, CocoCaprylate, Glyceryl Stearate, Cyclopentasiloxane, Dimethiconol, Helianthus Annuus Seed Oil, Lycium Barbarum Fruit Extract, Silicone Quaternium-18, Quaternium-80, Saccharomyces/ Zinc Ferment, Saccharomyces/Copper Ferment, Saccharomyces/Magnesium Ferment, Saccharomyces/Iron Ferment, Saccharomyces/Silicon Ferment, Hydrolyzed Keratin, Linoleic Acid, Linolenic Acid, Tocopherol Acetate, Parfum, Trideceth-6, Trideceth-12, Lactic Acid, Benzyl Alcohol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Крем-сироватка",
+    "description": "Крем-сироватка дбайливо доглядає за фарбованим волоссям. Містить масло годжі\r\nта полімери, які надають яскравий блиск і подовжують насиченість фарбованого\r\nволосся. Комплекс спеціальних емульсій, вітаміни Е і F створюють на поверхні волосся\r\nзахисну мікроплівку, яка захищає від негативного впливу нагрівального перукарського\r\nприладдя. Кератин та мікроелементи згладжують та зміцнюють поверхню волосся.",
+    "application": "Нанести крем-сироватку на чисте вологе волосся. Залишити на 2-3\r\nхвилини, змити водою. Ідеальний у поєднанні з іншими засобами лінійки Multi Protect.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 3,
+    "article": "mj016",
+    "available": true,
+    "price": 375,
+    "discount": 19,
+    "is_discount": true,
+    "price_with_discount": 304,
+    "volume_ml": 250,
+    "images": [
+      {
+        "id": 340,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/gnueyswkoglswp2uwepk",
+        "order": 0
+      },
+      {
+        "id": 341,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/pffhdo9nk5dy7grfehv9",
+        "order": 0
+      },
+      {
+        "id": 342,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/wtbxc5i5kdq2kypygi2i",
+        "order": 0
+      },
+      {
+        "id": 343,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/irsase6hjhgwtjgpho3s",
+        "order": 0
+      },
+      {
+        "id": 344,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/clu7dftpz37fbkgs0waj",
+        "order": 0
+      }
+    ],
+    "purpose_category": [1],
+    "type_category": 3,
+    "is_new": false,
+    "is_best_seller": true,
+    "ingredients": "Aqua, Sodium Coco Sulfatе, Sodium Laureth Sulfate, Coco Glucoside, Cocamidopropyl Betaine, Sodium Cocoyl Isethionate, Sodium Chloride, Sodium Lauroyl Lactylate, Butylene Glycol, Piper Nigrum (Pepper) Fruit Extract, Inga Alba Bark Extract, Stearamidopropyl Dimethylamine, Silk Amino Acids, Trehalose, Hydrolyzed Keratin, PEG-7 Glyceryl Cocoate, Parfum, Citric Acid, Benzyl Alcohol, Ethylhexylglycerin",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Шампунь для тонкого волосся",
+    "description": "Інноваційна формула ефективно очищає та чудово підходить для догляду за\r\nтонким волоссям із підвищеною жирністю. Містить активний комплекс Sanicapyl, який\r\nрегулює роботу сальних залоз та зменшує відчуття дискомфорту. Протеїни шовку\r\nущільнюють та зміцнюють тонку структуру волосся без обтяження, утримують вологу\r\nта надають еластичність. Кератин і пептиди амінокислот усувають пористість та\r\nпопереджають ламкість волосся.",
+    "application": "Нанести шампунь на вологе волосся, масувати його до утворення піни\r\nта промити теплою водою. Ідеальний у поєднанні з іншими засобами лінійки Silky\r\nTherapy.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 12,
+    "article": "mj014",
+    "available": true,
+    "price": 375,
+    "discount": 19,
+    "is_discount": true,
+    "price_with_discount": 304,
+    "volume_ml": 250,
+    "images": [
+      {
+        "id": 345,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/tsgoqmlfgerd0sjfjel6",
+        "order": 0
+      },
+      {
+        "id": 346,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ir5jppo6sfjmmpx770qq",
+        "order": 0
+      },
+      {
+        "id": 347,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/h6ha23kx259dzjapakvs",
+        "order": 0
+      },
+      {
+        "id": 348,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/n8cebbpsciygesosc00r",
+        "order": 0
+      },
+      {
+        "id": 349,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/mf9hu66flljgujwcli29",
+        "order": 0
+      }
+    ],
+    "purpose_category": [3],
+    "type_category": 3,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Sodium Coco Sulfatе,Sodium Cocoyl Isethionate, Coco Glucoside, Cocamidopropyl Betaine, Sodium Laureth Sulfate, Sodium Chloride, Wheat Germ Oil Glycereth-8 Esters, Sodium PCA, Creatine, Phospholipids, Sphingolipids, Mel, Urea, Glucose, Hydrolyzed Keratin, Fructose, Pentylene Glycol, Citric Acid, Glycine, Hydrolyzed Gag, Lysine Hydrochloride, Hydrolyzed Collagen, Propylene Glycol, PEG-7 Glyceryl Cocoate, Guar Hydroxypropyltrimonium Chloride, Parfum, Citric Acid, Benzyl Alcohol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Шампунь-реконструктор",
+    "description": "М’яка формула шампуню містить амінокислоти та кератин, які комплексно\r\nвідновлюють пошкоджену структуру волосся, усувають ламкість та посіченість.\r\nМасло зародків пшениці та колаген створюють на поверхні захисну мікроплівку,яка\r\nзахищає від згубної дії навколишнього середовища. Зволожуючий комплекс підтримує\r\nприродний баланс вологи волосся і шкіри голови. В результаті волосся м’яке,\r\nшовковисте та блискуче.",
+    "application": "Нанести шампунь на вологе волосся, масувати його до утворення\r\nпіни та промити теплою водою. Ідеальний у поєднанні з іншими засобами лінійки Secret Repair.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 18,
+    "article": "mj010",
+    "available": true,
+    "price": 375,
+    "discount": 15,
+    "is_discount": true,
+    "price_with_discount": 319,
+    "volume_ml": 250,
+    "images": [
+      {
+        "id": 350,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/zbzioy2nw0gor64q4xpj",
+        "order": 0
+      },
+      {
+        "id": 351,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/cqmjsue9snijxkr5t30y",
+        "order": 0
+      },
+      {
+        "id": 352,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/r6neos5dhgwada9vmyzh",
+        "order": 0
+      },
+      {
+        "id": 353,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/q9trsvtk1uqd8zrlbpd0",
+        "order": 0
+      },
+      {
+        "id": 354,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ebzesf1ir2qgyznsssoe",
+        "order": 0
+      }
+    ],
+    "purpose_category": [6],
+    "type_category": 4,
+    "is_new": false,
+    "is_best_seller": true,
+    "ingredients": "Aqua, Cetearyl Alcohol, Behentrimonium Chloride, Amodimethicone, Glyceryl Stearate, Hydrolyzed Keratin, Babassu Oil, Quaternium-80, CocoCaprylate, Hydrolyzed Wheat Protein, Trehalose, Parfum, Trideceth-12, Cetrimonium Chloride, Tocopherol Acetate, Sodium Hyaluronate, Lactic Acid, Benzyl Alcohol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Бальзам-догляд",
+    "description": "Забезпечує ефективний щоденний догляд за нормальним та схильним до сухості\r\nволоссям. Зволожуючий комплекс - гіалуронова кислота, масло бабасу та протеїни\r\nпшениці - створює на поверхні волосся невагому плівку, яка інтенсивно живить та\r\nутримує вологу в структурі волосся. Чудово кондиціонує, надає гладкості та блиску.\r\nМістить велику кількість кератину, який подовжує ефективність доглядових процедур\r\nна більш тривалий термін.",
+    "application": "Нанести бальзам на чисте вологе волосся, залишити на 2-3 хвилини,\r\nзмити водою. Ідеальний у поєднанні з іншими засобами лінійки Secret Repair.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 20,
+    "article": "mj019",
+    "available": true,
+    "price": 375,
+    "discount": 15,
+    "is_discount": true,
+    "price_with_discount": 319,
+    "volume_ml": 250,
+    "images": [
+      {
+        "id": 355,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/c91pymddvxw4b6qdzhvn",
+        "order": 0
+      },
+      {
+        "id": 356,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/gqmawolhijaxwhvs9k7q",
+        "order": 0
+      },
+      {
+        "id": 357,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ha3vf9mvdeneoyipy88n",
+        "order": 0
+      },
+      {
+        "id": 358,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/pwql7wvdetybeziaaib9",
+        "order": 0
+      },
+      {
+        "id": 359,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/zifjgfxo4leqxo81qif2",
+        "order": 0
+      }
+    ],
+    "purpose_category": [6],
+    "type_category": 3,
+    "is_new": true,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Sodium Cocoyl Isethionate, Coco Glucoside, Cocamidopropyl Betaine, Cocamide DEA, Sodium Chloride, Hydrolyzed Keratin, Babassu Oil Glycereth-8 Esters, Hydrolyzed Wheat Protein, Trehalose, Niacinamide, PEG-7 Glyceryl Cocoate, Allantoin, Sodium Hyaluronate, Guar Hydroxypropyltrimonium Chloride, Parfum, Citric Acid, Benzyl Alcohol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Шампунь-догляд",
+    "description": "М'яка безсульфатна формула для щоденного догляду всіх типів волосся і чутливої\r\nшкіри голови. Містить гіалуронову кислоту, масло бабасу та протеїни пшениці, які\r\nінтенсивно живлять, глибоко зволожують та надають чудову гладкість. Аллантоїн та\r\nніацінамід забезпечують дбайливий догляд за сухою та чутливою шкірою голови,\r\nусувають подразнення та дискомфорт.\r\nМаксимальний вміст кератину підтримує оптимальний кератиновий баланс, який\r\nпродовжує збереження ефекту після процедури відновлення волосся.",
+    "application": "Нанести шампунь на вологе волосся, масувати його до утворення піни\r\nта промити теплою водою. Ідеальний у поєднанні з бальзам-догляд лінійки Universal\r\nLine.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 14,
+    "article": "mj015",
+    "available": true,
+    "price": 375,
+    "discount": 5,
+    "is_discount": true,
+    "price_with_discount": 357,
+    "volume_ml": 250,
+    "images": [
+      {
+        "id": 360,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/wwrwxufl5j5mnr9blu0k",
+        "order": 0
+      },
+      {
+        "id": 361,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/oamezviq4b6clb03nslo",
+        "order": 0
+      },
+      {
+        "id": 362,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ejrf2acmyqdijkbt68ix",
+        "order": 0
+      },
+      {
+        "id": 363,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/n3h9tzsyusbbkq1xtfes",
+        "order": 0
+      },
+      {
+        "id": 364,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ffnr7sxhgbinq05uvevd",
+        "order": 0
+      }
+    ],
+    "purpose_category": [4],
+    "type_category": 3,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Sodium Laureth Sulfate, Sodium Coco Sulfatе, Cocamide DEA, Sodium Chloride, Cocamidopropyl Betaine, Coco Glucoside, PEG-7 Glyceryl Cocoate, Hydrolyzed Wheat Protein, Pyridoxine HCl , Niacinamide, Glycerin ,Panthenol, Hydrolyzed Yeast Protein, Threonine ,Allantoin, Biotin, Parfum, Guar Hydroxypropyltrimonium Chloride, Citric Acid, Benzyl Alcohol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Шампунь Глибокого очищення",
+    "description": "Шампунь швидко та ефективно очищує волосся і шкіру голови. Ефективна формула\r\nз спеціальними компонентами позбавляє від накопичених засобів для догляду та\r\nукладання. Видаляє з шкіри голови надлишки себуму та змертвілі клітини, посилює\r\nпроцес регенерації шкіри та усуває подразнення. Підготовлює до наступних процедур\r\nдогляду і сприяє кращому проникненню активних речовин.",
+    "application": "Невелику кількість шампуню нанести на вологе волосся, спінити та\r\nретельно змити. Не рекомендується для щоденного використання!",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 4,
+    "article": "mj009",
+    "available": true,
+    "price": 375,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 375,
+    "volume_ml": 250,
+    "images": [
+      {
+        "id": 365,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/e0amushykk4i3sujfjhp",
+        "order": 0
+      },
+      {
+        "id": 366,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/x3o8a2sa0idno6tmaswn",
+        "order": 0
+      },
+      {
+        "id": 367,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/u2eetranuigqibk6bxcr",
+        "order": 0
+      },
+      {
+        "id": 368,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ecdjjiknoyarbvpyhmru",
+        "order": 0
+      },
+      {
+        "id": 369,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/aertwgnyjiybitdjksic",
+        "order": 0
+      }
+    ],
+    "purpose_category": [1],
+    "type_category": 4,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Cetearyl Alcohol, Behentrimonium Chloride, Stearamidopropyl Dimethylamine, Coco-Caprylate, Glyceryl Stearate, Amodimethicone, Hydroxyethylcellulose, Silk Amino Acids, Trehalose, Hydrolyzed Keratin, Glycerin, Crambe Abyssinica Seed Oil, Phytosterols, Tocopherol Acetate, Parfum, Cetrimonium Chloride, Trideceth-12, Lactic Acid, Benzyl Alcohol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Бальзам-шовк",
+    "description": "Легкий бальзам забезпечує інтенсивний щоденний догляд за тонким, схильного до\r\nжирності, волоссям. Комплекс протеїнів та амінокислот заповнюють структуру волосся,\r\nущільнюю та інтенсивно живлять її. Шовкова текстура засобу забезпечує\r\nкондиціонування без обтяження волосся, сприяє легкому розчісуванню. Масло крамбе\r\nта кератин надають чудову м’якість та створюють ефект шовку.",
+    "application": "Нанести бальзам на чисте вологе волосся, залишити на 2-3 хвилини,\r\nзмити водою. Ідеальний у поєднанні з іншими засобами лінійки Silky Therapy.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 7,
+    "article": "mj017",
+    "available": true,
+    "price": 375,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 375,
+    "volume_ml": 250,
+    "images": [
+      {
+        "id": 370,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/dnq53o6rpyviksxkjiqa",
+        "order": 0
+      },
+      {
+        "id": 371,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/bwjycpojy3kgctrfrca9",
+        "order": 0
+      },
+      {
+        "id": 372,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/r0mcnqonadcgkc7sdabl",
+        "order": 0
+      },
+      {
+        "id": 373,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/sjsr4mxpiohrd9vwgjwb",
+        "order": 0
+      },
+      {
+        "id": 374,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/gnevbaqdpwb1d08taann",
+        "order": 0
+      }
+    ],
+    "purpose_category": [2],
+    "type_category": 3,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Sodium Cocoyl Isethionate, Coco Glucoside, Cocamidopropyl Betaine, Cocamide DEA, Sodium Chloride, Wheat Germ Oil Glycereth-8 Esters , Saccharomyces/Zinc Ferment, Saccharomyces/Copper Ferment, Saccharomyces/Magnesium Ferment, Saccharomyces/Iron Ferment, Saccharomyces/Silicon Ferment, Hydrolyzed Keratin, PEG-7 Glyceryl Cocoate, Guar Hydroxypropyltrimonium Сhloride, Allantoin, Parfum, Citric Acid, Benzyl Alcohol, Ethylhexylglycerin.",
+    "reviews": [
+      {
+        "id": 7,
+        "rating": 5,
+        "product_name": "Міцелярний шампунь",
+        "review_text": "Коли вперше спробувала цей шампунь, була приємно вражена. Моя шкіра голови досить чутлива, і багато шампунів або пересушують її, або викликають дискомфорт. Але міцелярний шампунь чудово очищає волосся, не порушуючи природного балансу. Піна утворюється м’яко, і для ретельного очищення достатньо невеликої кількості. Відчуття чистоти та свіжості зберігається до трьох днів, а волосся після миття виглядає блискучим і об'ємним. Особливо сподобалося, що шампунь легко змивається, не залишаючи липкості. Це саме те, що потрібно для якісного догляду за волоссям.",
+        "user_name": "Анонім",
+        "date": "2024-12-01",
+        "is_approved": true,
+        "product_id": 7,
+        "stars": [true, true, true, true, true]
+      }
+    ],
+    "average_rating": 3.67,
+    "name": "Міцелярний шампунь",
+    "description": "Безсульфатна формула шампуню з маслом зародків пшениці має понижений\r\nрівень кислотності. Саме теке поєднання сприяє делікатному очищенню та\r\nпередчасному вимиванню пігменту з волосся. Кератин та мікроелементи наповнюють\r\nструктуру, згладжують та зміцнюють поверхню волосся. Заспокоює подразнену шкіру\r\nголови.",
+    "application": "Нанести шампунь на вологе волосся, масувати його до утворення піни\r\nта промити теплою водою. Ідеальний у поєднанні з іншими засобами лінійки Multi Protect",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 13,
+    "article": "mj012",
+    "available": true,
+    "price": 375,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 375,
+    "volume_ml": 250,
+    "images": [
+      {
+        "id": 375,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/mi2oor4lhc33vp92exg0",
+        "order": 0
+      },
+      {
+        "id": 376,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/yp111d1uzs8zlm9c2dcx",
+        "order": 0
+      },
+      {
+        "id": 377,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ygbi2zpvfo5sfsjwsogu",
+        "order": 0
+      },
+      {
+        "id": 378,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/fscfe7vkmxbx10nfq6mx",
+        "order": 0
+      }
+    ],
+    "purpose_category": [3],
+    "type_category": 5,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Cetearyl Alcohol, Behentrimonium Chloride, CocoCaprylate, Amodimethicone, Dipropylene Glycol, Polysilicone-29, Glyceryl Stearate, Camellia Oleifera Seed Oil, Squalane, Quaternium-80, Phospholipids, Sphingolipids, Sodium PCA, Mel, Urea, Glucose, Fructose, Pentylene Glycol, Glycine, Hydrolyzed Gag, Lysine Hydrochloride, Hydrolyzed Collagen, Propylene Glycol, Hydrolyzed Keratin, Creatine, Parfum, Trideceth-12, Cetrimonium Chloride, Tocopherol Acetate, Lactic Acid, Benzyl Alcohol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Маска-концентрат",
+    "description": "Ефективна концентрована формула збагачена церамідами, коллагеном,\r\nамінокислотами та кератином, які забезпечують інтенсивну реконструкцію\r\nпошкодженого волосся, усувають пористість та ламкість. Масло камелії, сквалан і\r\nзволожуючий комплекс глибоко живлять та зволожують, відновлюють еластичність та\r\nблиск. Спеціальні емульсії огортають поверхню волосся легкою мікроплівкою,\r\nзахищаючи від термічної та механічної дії. Забезпечує легке розчісування та надає\r\nчудовий антистатичний ефект.\r\nшовковисте та блискуче.",
+    "application": "Нанести бальзам на чисте вологе волосся, залишити на 2-3 хвилини,\r\nзмити водою. Ідеальний у поєднанні з іншими засобами лінійки Secret Repair.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 19,
+    "article": "mj018",
+    "available": true,
+    "price": 375,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 375,
+    "volume_ml": 250,
+    "images": [
+      {
+        "id": 379,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/yyealxsz7iqmibmlx0im",
+        "order": 0
+      },
+      {
+        "id": 380,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/awhxi9gjvjfvqajq3ytg",
+        "order": 0
+      },
+      {
+        "id": 381,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/f5v7mhlehvvntm7zkgmg",
+        "order": 0
+      },
+      {
+        "id": 382,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/cxe9ju4scbrvdrglxrsx",
+        "order": 0
+      },
+      {
+        "id": 383,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ecwcaxvxcyzw6v1f2d4y",
+        "order": 0
+      }
+    ],
+    "purpose_category": [6],
+    "type_category": 3,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Sodium Laureth Sulfate, Sodium Coco Sulfat, Coco Glucoside, Cocamidopropyl Betaine, Sodium Cocoyl Isethionate, Sodium Chloride, Babassu Oil Glycereth-8 Esters, Piroctone Olamine, Sodium Lauroyl Lactylate, Butylene Glycol, Piper Nigrum (Pepper) Fruit Extract, Inga Alba Bark Extract, Allantoin, Guar Hydroxypropyltrimonium Chloride, PEG-7 Glyceryl Cocoate, Parfum, Citric Acid, Benzyl Alcohol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Шампунь проти лупи",
+    "description": "Глибоке очищення для всіх типів волосся схильного до лупи. Відмінно очищає\r\nволосся від різного роду забруднень, надлишків себума та шкірних лусочок. Містить\r\nкомплекс активних компонентів - Sanicapyl, Piroctone Olamine та Allantoin, який надає\r\nсильну антибактеріальну і протигрибкову дію, ефективно усуває лупу та причину її\r\nутворення, запобігає появі нової. Заспокоює подразнену шкіру голови, зменшує\r\nлущення та свербіж. Регулює роботу сальних залоз, відновлює гідро-ліпідний баланс\r\nшкіри голови.",
+    "application": "Нанести шампунь на вологе волосся, масувати до утворення піни та\r\nзмити через 2-3 хвилин. Для щоденного застосування.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 1,
+    "article": "mj002",
+    "available": true,
+    "price": 395,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 395,
+    "volume_ml": 50,
+    "images": [
+      {
+        "id": 384,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/zkspvyvn6mph4dluwmdp",
+        "order": 0
+      },
+      {
+        "id": 385,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/iqdceqojf8hmgzy29udw",
+        "order": 0
+      },
+      {
+        "id": 386,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/gdzhyet1wnswayzdnl27",
+        "order": 0
+      },
+      {
+        "id": 387,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/jbw6c7lr8qs7dreokfzp",
+        "order": 0
+      },
+      {
+        "id": 388,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/xlequxnr5ceg6j3kmtjy",
+        "order": 0
+      }
+    ],
+    "purpose_category": [1],
+    "type_category": 1,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Cyclopentasiloxane, Dimethiconol, Amodimethicone, Crambe Abyssinica Seed Oil, Phytosterols, Tocopherol Acetate, Parfum, CI 60725.",
+    "reviews": [
+      {
+        "id": 1,
+        "rating": 5,
+        "product_name": "Флюїд-Шовк",
+        "review_text": "Флюїд-Шовк став моїм незамінним продуктом у догляді за волоссям! У мене дуже тонке волосся, яке постійно плутається, і знайти засіб, який не обтяжує, було справжнім викликом. Але цей флюїд перевершив усі мої очікування. Легка текстура, яка миттєво поглинається, робить волосся шовковистим, блискучим і надзвичайно м’яким. Після кількох тижнів використання помітила, що кінчики стали виглядати більш доглянутими, а структура волосся стала щільнішою. Окремий плюс — це приємний, ненав’язливий аромат, який залишається протягом дня.",
+        "user_name": "Катя",
+        "date": "2024-12-01",
+        "is_approved": true,
+        "product_id": 1,
+        "stars": [true, true, true, true, true]
+      },
+      {
+        "id": 2,
+        "rating": 4,
+        "product_name": "Флюїд-Шовк",
+        "review_text": "Це просто знахідка для мого тонкого волосся! Флюїд робить його гладеньким і шовковистим, не обтяжуючи. Ідеально для щоденного догляду.\"",
+        "user_name": "Анонім",
+        "date": "2024-12-01",
+        "is_approved": true,
+        "product_id": 1,
+        "stars": [true, true, true, true, false]
+      },
+      {
+        "id": 3,
+        "rating": 4,
+        "product_name": "Флюїд-Шовк",
+        "review_text": "Дуже сподобався легкий аромат і текстура. Волосся виглядає здоровим і блискучим після кожного використання.",
+        "user_name": "Надія Кондратенко",
+        "date": "2024-12-01",
+        "is_approved": true,
+        "product_id": 1,
+        "stars": [true, true, true, true, false]
+      },
+      {
+        "id": 4,
+        "rating": 4,
+        "product_name": "Флюїд-Шовк",
+        "review_text": "Мені вистачає всього кілька крапель, щоб позбутися сухості на кінчиках. Ідеальний продукт для літнього сезону!",
+        "user_name": "Oleksandra",
+        "date": "2024-12-01",
+        "is_approved": true,
+        "product_id": 1,
+        "stars": [true, true, true, true, false]
+      }
+    ],
+    "average_rating": 4.25,
+    "name": "Флюїд-Шовк",
+    "description": "Збагачений маслом крамбе та вітаміном Е, які живлять та ущільнюють структуру\r\nтонкого волосся. Легка текстура засобу забезпечує миттєве відчуття комфорту, надає\r\nм’якість та шовковистість без обтяження волосся.",
+    "application": "Використовувати на вологе чисте волосся. 2-3 краплі засобу розподілити на долонях і нанести від середини до кінчиків волосся. Не змивати!",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 5,
+    "article": "mj007",
+    "available": true,
+    "price": 395,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 395,
+    "volume_ml": 50,
+    "images": [
+      {
+        "id": 389,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/mvsbifxghx8fdrgw81ko",
+        "order": 0
+      },
+      {
+        "id": 390,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/iadp8jovk1rk2sgg44ds",
+        "order": 0
+      },
+      {
+        "id": 391,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/zz5tvrifvkbmlf52vc5g",
+        "order": 0
+      },
+      {
+        "id": 392,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/tg38fretro5jle4y7v7w",
+        "order": 0
+      },
+      {
+        "id": 393,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/wgvewshvqfnx02r3y3jm",
+        "order": 0
+      }
+    ],
+    "purpose_category": [2],
+    "type_category": 1,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Cyclopentasiloxane, Dimethiconol, Amodimethicone, Helianthus annuus seed oil, Lycium barbarum fruit extract, Tocopherol Acetate, Linoleic acid, Linolenic acid, Parfum.",
+    "reviews": [],
+    "average_rating": 5,
+    "name": "Рідкі кристали",
+    "description": "Професійна формула збагачена маслом годжі та вітаміном F. Захищає волосся від\r\nвпливу високих температур перукарського приладдя і УФ-променів. Спеціальні полімери\r\nсприяють збереженню кольору та вологи в структурі волосся.",
+    "application": "Використовувати на вологе чисте волосся. 2-3 краплі засобу розподілити на долонях і нанести від середини до кінчиків волосся. Не змивати!",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 9,
+    "article": "mj006",
+    "available": true,
+    "price": 395,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 395,
+    "volume_ml": 50,
+    "images": [
+      {
+        "id": 394,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/nqs3v0xwmm3f9gajnpja",
+        "order": 0
+      },
+      {
+        "id": 395,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/kfos6mny9l4nknyyuhtn",
+        "order": 0
+      },
+      {
+        "id": 396,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/niehncicdcq0yyxjcyjd",
+        "order": 0
+      },
+      {
+        "id": 397,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/mmyzcvbexgtqhqqxjqsm",
+        "order": 0
+      },
+      {
+        "id": 398,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/jqc17pulzw48zwnn8uwf",
+        "order": 0
+      }
+    ],
+    "purpose_category": [3],
+    "type_category": 1,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Cyclopentasiloxane, Dimethiconol, Amodimethicone, Camellia Olefeira Seed Oil, Squalane, Tocopherol Acetate, Parfum.",
+    "reviews": [
+      {
+        "id": 8,
+        "rating": 5,
+        "product_name": "Сироватка-Відновлення",
+        "review_text": "Ця сироватка — справжній подарунок для пошкодженого волосся! Після регулярного використання фена та праски моє волосся виглядало неживим і дуже сухим, але ця олійка просто творить дива. Вона легка, не залишає жирного блиску і не обтяжує волосся. Після нанесення волосся миттєво стає м’яким, гладеньким і сяючим. Я використовую її після кожного миття, і вже за місяць помітила, що кінчики стали менш ламкими, а структура волосся — більш щільною. Особливо зручно, що продукт підходить для щоденного застосування, а аромат додає відчуття спа-процедури.",
+        "user_name": "Таїсія",
+        "date": "2024-12-01",
+        "is_approved": true,
+        "product_id": 9,
+        "stars": [true, true, true, true, true]
+      }
+    ],
+    "average_rating": 5,
+    "name": "Сироватка-Відновлення",
+    "description": "Засіб збагачений маслом камелії та скваланом, які комплексно сприяють відновленню пошкодженого волосся. Компоненти глибоко проникають в структуру волосся,\r\nусувають ламкість та посіченність, надають здоровий блиск.",
+    "application": "Використовувати на вологе чисте волосся. 2-3 краплі засобу розподілити на долонях і нанести від середини до кінчиків волосся. Не змивати!вологе волосся. Залишити на 2-3\r\nхвилини, змити водою. Ідеальний у поєднанні з іншими засобами лінійки Multi Protect.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 16,
+    "article": "mj013",
+    "available": true,
+    "price": 399,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 399,
+    "volume_ml": 250,
+    "images": [
+      {
+        "id": 399,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/zqj7suu3rb2iskeiix6e",
+        "order": 0
+      },
+      {
+        "id": 400,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/uvh9sxfwndxeakytc6zd",
+        "order": 0
+      },
+      {
+        "id": 401,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/hkw0kgvfvadk5eafw09s",
+        "order": 0
+      },
+      {
+        "id": 402,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/kxm4w5aqpmg56rccnmuk",
+        "order": 0
+      },
+      {
+        "id": 403,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/dzv091opfbiwrbz68jrc",
+        "order": 0
+      }
+    ],
+    "purpose_category": [5],
+    "type_category": 3,
+    "is_new": false,
+    "is_best_seller": true,
+    "ingredients": "Aqua, Sodium Cocoyl Isethionate, Coco Glucoside, Cocamidopropyl Betaine, Cocamide DEA, Sodium Chloride, Glycerin, Niacinamide, Sodium Metabisulfite, Glycine, Larix Europaea Wood Extract, Zinc Chloride, Camellia Sinensis Leaf Extract, Wheat Germ Oil Glycereth-8 Esters, Hydrolyzed Wheat Protein, Saccharomyces/ Zinc Ferment, Saccharomyces/Copper Ferment, Saccharomyces/Magnesium Ferment, Saccharomyces/Iron Ferment, Saccharomyces/Silicon Ferment, PEG-7 Glyceryl Cocoate, Guar Hydroxypropyltrimonium Chloride, Parfum, Citric Acid, Benzyl Alcohol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Мінеральний шампунь проти випадіння",
+    "description": "Безсульфатна формула м’яко очищає і глибоко живить шкіру голови та волосся.\r\nМістить інноваційний комплекс Redensyl, який стимулює та активує ріст волосся,\r\nзапобігає його випадінню та подовжує тривалість життя волосин. Комплекс мінералів\r\nта ніацинамід підсилюють захист шкіри голови, відновлюють функції волосяних\r\nфолікул та забезпечують нормальний рівень зволоженості. Протеїни пшениці глибоко\r\nживлять та покращують структуру волосся, запобігають ламкості.",
+    "application": "Нанести шампунь на вологе волосся, легко масувати, залишити на 2-3\r\nхвилини, змити водою.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 10,
+    "article": "mj003",
+    "available": true,
+    "price": 429,
+    "discount": 5,
+    "is_discount": true,
+    "price_with_discount": 408,
+    "volume_ml": 200,
+    "images": [
+      {
+        "id": 404,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ebs1pqyozabqgmmkoq8t",
+        "order": 0
+      },
+      {
+        "id": 405,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/zszbritxs6zp8ejhwsnm",
+        "order": 0
+      },
+      {
+        "id": 406,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/upapgfaymslatelpypab",
+        "order": 0
+      },
+      {
+        "id": 407,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ynbeclllibrm2iy4qane",
+        "order": 0
+      }
+    ],
+    "purpose_category": [3],
+    "type_category": 2,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Cyclopentasiloxane, Dimethiconol, Amodimethicone, PEG-40 Hydrogenated Castor Oil, PEG-7 Glyceryl Cocoate, Sodium PCA, Mel, Urea, Glucose, Fructose, Pentylene Glycol, Glycine, Hydrolyzed Gag, Lysine Hydrochloride, Hydrolyzed Collagen, Propylene Glycol, Quaternium-80, Hydrolyzed Keratin, Camellia Oleifera Seed Oil, Polyquaternium-16, Cetrimonium Chloride, Parfum, Lactic Acid, Benzyl Alcohol, Phenoxyethanol, Ethylhexylglycerin, CI 42090.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Двофазний кондиціонер для пошкодженого волосся",
+    "description": "Спрей- кондиціонер для легкого розчісування пошкодженого волосся. Засіб ефективно усуває ламкість та статичний ефект. Містить амінокислоти та кератин, які інтенсивно\r\nвідновлюють пошкоджену структуру волосся та посічені кінчики. Зволожуючий комплекс та колаген створюють на поверхні захисну плівку, яка утримує вологу в структурі\r\nволосся. Масло камелії надає природній блиск, м’якість та шовковистість.",
+    "application": "Збовтати флакон для змішування двох фаз. Розпилити на чисте вологе\r\nабо сухе волосся, відступаючи на 2-3 см від коренів. Розподілити пальцями та розчесати.\r\nНе змивати!",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 2,
+    "article": "mj004",
+    "available": true,
+    "price": 429,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 429,
+    "volume_ml": 200,
+    "images": [
+      {
+        "id": 408,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/kzpqofmg7uukbekvq8en",
+        "order": 0
+      },
+      {
+        "id": 409,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/qcp8sfczrcuyfixt40ow",
+        "order": 0
+      },
+      {
+        "id": 410,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/sisqt76ltg5to50cjlaj",
+        "order": 0
+      },
+      {
+        "id": 411,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/bs67dhukroksyrkhgdmr",
+        "order": 0
+      },
+      {
+        "id": 412,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/sz6se0ucih5xog3pt67k",
+        "order": 0
+      }
+    ],
+    "purpose_category": [1],
+    "type_category": 2,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Alcohol Denat., Dimethicone, PEG-7 Glyceryl Cocoate, Stearamidopropyl Dimethylamine, Silk Amino Acids, Trehalose, Hydrolyzed Keratin, Glycerin, Crambe Abyssinica Seed Oil, Phytosterols, Parfum, Lactic Acid, CI 60725.",
+    "reviews": [
+      {
+        "id": 5,
+        "rating": 5,
+        "product_name": "Двофазний спрей-філлер для тонкого волосся",
+        "review_text": "Цей спрей став справжнім порятунком для мого волосся після фарбування! Моє волосся зазвичай дуже сухе й ламке, але після кількох використань цього двофазного кондиціонера воно стало більш зволоженим і слухняним. Що мені особливо подобається, це те, що засіб не залишає жирного блиску і підходить для щоденного застосування. Розпилювач дуже зручний, а текстура легка — ідеально розподіляється по волоссю. Зникли вузлики, і тепер я витрачаю набагато менше часу на розчісування. Навіть друзі помітили, що волосся виглядає більш доглянутим і здоровим. Однозначно рекомендую всім, хто шукає ефективний і простий у використанні кондиціонер.",
+        "user_name": "Руслана",
+        "date": "2024-12-01",
+        "is_approved": true,
+        "product_id": 2,
+        "stars": [true, true, true, true, true]
+      },
+      {
+        "id": 6,
+        "rating": 1,
+        "product_name": "Двофазний спрей-філлер для тонкого волосся",
+        "review_text": "Не сподобалось",
+        "user_name": "Анонім",
+        "date": "2024-12-01",
+        "is_approved": true,
+        "product_id": 2,
+        "stars": [true, false, false, false, false]
+      }
+    ],
+    "average_rating": 3,
+    "name": "Двофазний спрей-філлер для тонкого волосся",
+    "description": "Ідеальний для догляду за тонким волоссям. Засіб миттєво поглинається, залишаючи легку шовковистість та гладкість. Катіонний полімер сприяє легкому розчісуванню\r\nволосся, надає антистатичний ефект та підтримує об’єм. Кератин та пептиди шовку\r\nзаповнюють та ущільнюють пошкоджені ділянки структури волосся, зміцнюють його\r\nзсередини. Збагачений маслом крамбе, миттєво живить та надає еластичність.",
+    "application": "Збовтати флакон для змішування двох фаз. Розпилити на чисте вологе\r\nабо сухе волосся, відступаючи на 2-3 см від коренів. Розподілити пальцями та\r\nрозчесати. Не змивати!",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 6,
+    "article": "mj001",
+    "available": true,
+    "price": 429,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 429,
+    "volume_ml": 200,
+    "images": [
+      {
+        "id": 413,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/nwnr3mkrebfnckani3sw",
+        "order": 0
+      },
+      {
+        "id": 414,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/rxvincnpftrj39siz5mv",
+        "order": 0
+      },
+      {
+        "id": 415,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/wc5v72xnd2elenp1ddro",
+        "order": 0
+      },
+      {
+        "id": 416,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/pt6wuuv0zz5ymtzipapn",
+        "order": 0
+      },
+      {
+        "id": 417,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/uyi7pyu5ucpkkrxax4ed",
+        "order": 0
+      }
+    ],
+    "purpose_category": [2],
+    "type_category": 2,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Cyclopentasiloxane, Dimethiconol, Amodimethicone, PEG-40 Hydrogenated Castor Oil, PEG-7 Glyceryl Cocoate, Saccharomyces/Zinc Ferment, Saccharomyces/Copper Ferment, Saccharomyces/Magnesium Ferment, Saccharomyces/ Iron Ferment, Saccharomyces/Silicon Ferment, Helianthus Annuus Seed Oil, Lycium Barbarum Fruit Extract, Quaternium-80, Hydrolyzed Keratin, Silicone Quaternium-18, Linoleic Acid, Linolenic Acid, Polyquaternium-16, Cetrimonium Chloride, Parfum, Lactic Acid, Trideceth-6, Trideceth-12, Benzyl Alcohol, Phenoxyethanol, Ethylhexylglycerin, CI 42090,",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Двофазний кондиціонер для фарбованого волосся",
+    "description": "Спрей-кондиціонер сприяє легкому розчісуванню фарбованого та ослабленого\r\nволосся. Активні полімери та вітамін F створюють на поверхні мікроплівку, яка збільшує\r\nстійкість до агресивних умов при вкладанні, утримує вологу та надає антистатичний\r\nефект. Забезпечує яскравість та тривалість кольору фарбованого волосся. Мікроелементи, кератин та масло годжі наповнюють структуру, згладжують та зміцнюють поверхню\r\nволосся.",
+    "application": "Збовтати флакон для змішування двох фаз. Розпилити на чисте вологе\r\nабо сухе волосся, відступаючи на 2-3 см від коренів. Розподілити пальцями та розчесати.\r\nНе змивати!",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 22,
+    "article": "mj005",
+    "available": true,
+    "price": 489,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 489,
+    "volume_ml": 150,
+    "images": [
+      {
+        "id": 418,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/jrqudzolqdaea0pvl3et",
+        "order": 0
+      },
+      {
+        "id": 419,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/axsi4udnmojmro14plhj",
+        "order": 0
+      },
+      {
+        "id": 420,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/iefazknmhqnylesk5mqy",
+        "order": 0
+      },
+      {
+        "id": 421,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/gjbjqis4of5r2ajdifnr",
+        "order": 0
+      },
+      {
+        "id": 422,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/fvn2tfch0fgtiytom2v1",
+        "order": 0
+      }
+    ],
+    "purpose_category": [6],
+    "type_category": 6,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Cyclopentasiloxane, Dimethiconol, Amodimethicone, Sodium Polyacrylate, Hydrogenated Polydecene, Dipropylene Glycol, Polysilicone-29, Silicone Quaternium-18, Dimethicone, Saccharomyces/Zinc Ferment, Saccharomyces/Copper Ferment, Saccharomyces/Magnesium Ferment, Saccharomyces/Iron Ferment, Saccharomyces/Silicon Ferment, Linoleic Acid, Linolenic Acid, Glycerin, Crambe Abyssinica Seed Oil, Phytosterols, Hydrolyzed Keratin, Trideceth-6, Trideceth-12, PEG/PPG 18/18 Dimethicone, Tocopherol Acetate, Parfum, Benzyl Alcohol, Phenoxyethanol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Крем для випрямлення",
+    "description": "Ідеальний для випрямлення кучерявого і неслухняного волосся. Дисциплінує, усуває пухнастість та захищає від дії високих температур фена та випрямляча. Унікальні\r\nполімери ламінують поверхню волосся, надають чудову гладкість та блиск. Невагома\r\nтекстура засобу містить комплекс олігоелементів та кератин, які ущільнюють та розгладжують кутикулу волосся.",
+    "application": "Нанести крем на чисте, злегка вологе волосся. Рівномірно розподілити по всій довжині,відступиши від коренів на 2-3 см. Не змивати! Розчесати та вкласти\r\nволосся феном або випрямлячем.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 11,
+    "article": "mj008",
+    "available": true,
+    "price": 525,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 525,
+    "volume_ml": 150,
+    "images": [
+      {
+        "id": 423,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/b9fgdm2ku70bzhczxp17",
+        "order": 0
+      },
+      {
+        "id": 424,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/n96fisjeyliedpk7ippv",
+        "order": 0
+      },
+      {
+        "id": 425,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/eosdixzrp78h0kp9fyg2",
+        "order": 0
+      },
+      {
+        "id": 426,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/zbkqrcvd1lx4b7xzkure",
+        "order": 0
+      },
+      {
+        "id": 427,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/bfo42fhucy0nvhtivjjd",
+        "order": 0
+      }
+    ],
+    "purpose_category": [3],
+    "type_category": 5,
+    "is_new": false,
+    "is_best_seller": true,
+    "ingredients": "Aqua, Cyclopentasiloxane, Dimethiconol, Amodimethicone, Silicone Quaternium-18, Cetearyl Alcohol, Stearamidopropyl Dymethylamine, Dipropylene Glycol, Quaternium-80, Polysilicone-29, Ceteareth-20, Linoleic acid, Linolenic acid, Crambe Abyssinica Seed Oil, Phytosterols, Squalane, Silk Amino Acids, Saccharomyces/Zinc Ferment, Saccharomyces/Copper Ferment, Saccharomyces/Magnesium Ferment, Saccharomyces/Iron Ferment, Saccharomyces/Silicon Ferment, Trehalose, Hydrolyzed Keratin, Tocopherol Acetate, Parfum, Citric Acid, Trideceth-12, Cetrimonium Chloride, Trideceth-6, Benzyl Alcohol, Phenoxyethanol, Ethylhexylglycerin, Benzyl Salicylate, D-Limonene, Linalool.",
+    "reviews": [
+      {
+        "id": 9,
+        "rating": 5,
+        "product_name": "Маска-спрей (15 ефектів)",
+        "review_text": "Це щось неймовірне! Маска-спрей вирішує відразу всі проблеми з волоссям. У мене сухе й неслухняне волосся, яке постійно пушиться, але після нанесення цього спрею воно стає гладеньким, блискучим і дуже м’яким на дотик. Засіб чудово зволожує, полегшує розчісування та навіть захищає від гарячого повітря під час укладки. Особливо мені сподобалося, що він дуже легкий у використанні: кілька розпилень — і волосся виглядає доглянутим, як після салонного догляду. Я навіть помітила, що ефект триває до наступного миття, і волосся залишається шовковистим навіть у дощову погоду.",
+        "user_name": "Марія Іванівна",
+        "date": "2024-12-01",
+        "is_approved": true,
+        "product_id": 11,
+        "stars": [true, true, true, true, true]
+      }
+    ],
+    "average_rating": 5,
+    "name": "Маска-спрей (15 ефектів)",
+    "description": "Мультифункціональний засіб для всіх типів пошкодженого волосся. Унікальна формула містить компоненти, які діють миттєво та забезпечують 15 ефектів одночасно:\r\n1. Відновлює пошкоджене волосся;\r\n2. Глибоко живить структуру;\r\n3. Інтенсивно зволожує;\r\n4. Сприяє легкому розчісуванню;\r\n5. Запобігає ламкості;\r\n6. Згладжує кутикулу;\r\n7. Антистатичний ефект;\r\n8. Надає природній блиск;\r\n9. Захист від УФ-променів;\r\n10. М’якість та шовковистість;\r\n11. Термозахист від впливу нагрівальних\r\nприладів;\r\n12. Ущільнює пористу структуру;\r\n13. Захист кольору фарбованого волосся;\r\n14. Слухняність та керованість;\r\n15. Пролонгована дія.",
+    "application": "Рівномірно розпилити на вологе або сухе волосся, відступаючи на 2-3\r\nсм від коренів. Розподілити пальцями та розчесати. Не змивати!",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 15,
+    "article": "mj021",
+    "available": true,
+    "price": 625,
+    "discount": 13,
+    "is_discount": true,
+    "price_with_discount": 544,
+    "volume_ml": 100,
+    "images": [
+      {
+        "id": 428,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/hfskoi3tr2jj17zwkpes",
+        "order": 0
+      },
+      {
+        "id": 429,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/bei4nooqxygf9anje0ai",
+        "order": 0
+      },
+      {
+        "id": 430,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/sncwy0cjwtyc2flhy4ev",
+        "order": 0
+      },
+      {
+        "id": 431,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/aof5f0xaart1ceak0klm",
+        "order": 0
+      }
+    ],
+    "purpose_category": [4],
+    "type_category": 6,
+    "is_new": false,
+    "is_best_seller": true,
+    "ingredients": "Aqua, Glycolic Acid, Propylene Glycol, Malic Acid, Lactic Acid, Tartaric Acid, Kaolin, Cetostearyl Alcohol, Glycerin, Papain, Citric Acid, Coco-Glucoside, Sodium Cocoyl Isethionate, Hexylene Glycol, Fructose, Glucose, Sucrose, Urea, Dextrin, Alanine, Glutamic Acid, Aspartic Acid, Hexyl Nicotinate, Salicylic Acid, Betaine, Trehalose, Stearamidopropyl Dymethylamine, Ceteareth-20, PEG-7 Glyceryl Cocoate, Xanthan Gum, Guar Hydroxypropyltrimonium Chloride, Parfum, Benzyl Alcohol, Menthol, Phenoxyethanol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 4,
+    "name": "Крем пілінг",
+    "description": "Містить ензими, саліцилову та АНА-кислоти для делікатного відлущення ороговілого\r\nшару епідермісу. Біла глина-детокс поглинає накопичені забруднення, шкірний жир та\r\nтоксини з волосся та шкіри голови. Амінокислоти відновлюють захисний бар’єр та\r\nгідроліпідний баланс скальпу. Засіб ефективно нормалізує роботу сальних залоз, усуває\r\nзайву жирність та лущення, попереджає появу лупи.",
+    "application": "Прокрутити носик аплікатора до появи отвору та нанести засіб на суху\r\nшкіру голови. Втерти легкими масажними рухами. Лишити діяти 3-5 хвилини. Ретельно\r\nзмити водою та вимити шампунем глибокого очищення.Не використовувати відразу\r\nпісля фарбування.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 25,
+    "article": "set3",
+    "available": false,
+    "price": 625,
+    "discount": 10,
+    "is_discount": true,
+    "price_with_discount": 563,
+    "volume_ml": 300,
+    "images": [
+      {
+        "id": 440,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/lc5ou3j1rdpcwjvnbawm",
+        "order": 0
+      }
+    ],
+    "purpose_category": [3],
+    "type_category": 8,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Cyclopentasiloxane, Dimethiconol, Amodimethicone, PEG-40 Hydrogenated Castor Oil, PEG-7 Glyceryl Cocoate, Saccharomyces/Zinc Ferment, Saccharomyces/Copper Ferment, Saccharomyces/Magnesium Ferment, Saccharomyces/ Iron Ferment, Saccharomyces/Silicon Ferment, Helianthus Annuus Seed Oil, Lycium Barbarum Fruit Extract, Quaternium-80, Hydrolyzed Keratin, Silicone Quaternium-18, Linoleic Acid, Linolenic Acid, Polyquaternium-16, Cetrimonium Chloride, Parfum, Lactic Acid, Trideceth-6, Trideceth-12, Benzyl Alcohol, Phenoxyethanol, Ethylhexylglycerin, CI 42090,",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Набір3",
+    "description": "Набір3",
+    "application": "Набір3",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 26,
+    "article": "set4",
+    "available": false,
+    "price": 625,
+    "discount": 10,
+    "is_discount": true,
+    "price_with_discount": 563,
+    "volume_ml": 300,
+    "images": [
+      {
+        "id": 441,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/tgaoemogmicitjp9ykbk",
+        "order": 0
+      }
+    ],
+    "purpose_category": [4],
+    "type_category": 8,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Cyclopentasiloxane, Dimethiconol, Amodimethicone, PEG-40 Hydrogenated Castor Oil, PEG-7 Glyceryl Cocoate, Saccharomyces/Zinc Ferment, Saccharomyces/Copper Ferment, Saccharomyces/Magnesium Ferment, Saccharomyces/ Iron Ferment, Saccharomyces/Silicon Ferment, Helianthus Annuus Seed Oil, Lycium Barbarum Fruit Extract, Quaternium-80, Hydrolyzed Keratin, Silicone Quaternium-18, Linoleic Acid, Linolenic Acid, Polyquaternium-16, Cetrimonium Chloride, Parfum, Lactic Acid, Trideceth-6, Trideceth-12, Benzyl Alcohol, Phenoxyethanol, Ethylhexylglycerin, CI 42090,",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Набір4",
+    "description": "Набір4",
+    "application": "Набір4",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 27,
+    "article": "set5",
+    "available": false,
+    "price": 625,
+    "discount": 10,
+    "is_discount": true,
+    "price_with_discount": 563,
+    "volume_ml": 300,
+    "images": [],
+    "purpose_category": [6],
+    "type_category": 8,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Cyclopentasiloxane, Dimethiconol, Amodimethicone, PEG-40 Hydrogenated Castor Oil, PEG-7 Glyceryl Cocoate, Saccharomyces/Zinc Ferment, Saccharomyces/Copper Ferment, Saccharomyces/Magnesium Ferment, Saccharomyces/ Iron Ferment, Saccharomyces/Silicon Ferment, Helianthus Annuus Seed Oil, Lycium Barbarum Fruit Extract, Quaternium-80, Hydrolyzed Keratin, Silicone Quaternium-18, Linoleic Acid, Linolenic Acid, Polyquaternium-16, Cetrimonium Chloride, Parfum, Lactic Acid, Trideceth-6, Trideceth-12, Benzyl Alcohol, Phenoxyethanol, Ethylhexylglycerin, CI 42090,",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Набір5",
+    "description": "Набір5",
+    "application": "Набір5",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 21,
+    "article": "mj020",
+    "available": true,
+    "price": 625,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 625,
+    "volume_ml": 100,
+    "images": [
+      {
+        "id": 432,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/xtzlkwd8ryuk9svu97le",
+        "order": 0
+      },
+      {
+        "id": 433,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ndskbbppflf1ohfblfil",
+        "order": 0
+      },
+      {
+        "id": 434,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/nubb3mns43oub1tjiq9s",
+        "order": 0
+      },
+      {
+        "id": 435,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/gbbse6vnnb5w7ojzoeeq",
+        "order": 0
+      }
+    ],
+    "purpose_category": [6],
+    "type_category": 3,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Oriza Sativa (Rice) Starch, Zea Mays Starch, Tapioca Starch, Silica, Niacinamide, Butylene Glycol, Sodium Lauroyl Lactylate , Sodium Caprilyl lactylate, Piper Nigrum Fruit Extract, Inga Alba Bark Extract, Ammonium Acryloyl Dimethyltaurate/Carboxyethyl Acrylate Crosspolymer, PEG-40 Hydrogenated Castor Oil, Parfum, Benzyl Alcohol, Phenoxyethanol, Ethylhexylglycerin.",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Сухий шампунь спрей для жирного волосся",
+    "description": "Для миттєвого очищення волосся без використання води. Містить спеціальні\r\nадсорбенти, які поглинають жир з шкіри голови та волосся, позбавляють жирного\r\nблиску та не залишають білих слідів. Активний комплекс Sanicapyl і Niacinamide\r\nрегулюють роботу сальних залоз, підтримують здоров’я шкіри голови та волосся.\r\nІнноваційний засіб забезпечує чистоту, об’єм та комфорт волосся між основним\r\nмиттям.",
+    "application": "Розпилити на корені жирного волосся, масувати. Не змивати. Дати\r\nвисохнути самостійно або застосувати фен. Не використовуйте засіб вдруге протягом\r\nдня. Для повторної активації засобу потрібно волосся розчесати і скуйовдити руками.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 17,
+    "article": "mj022",
+    "available": true,
+    "price": 999,
+    "discount": 0,
+    "is_discount": false,
+    "price_with_discount": 999,
+    "volume_ml": 100,
+    "images": [
+      {
+        "id": 436,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/vo3fdgkd1uftsozct6dx",
+        "order": 0
+      },
+      {
+        "id": 437,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/ew2trpisxfgvrrxus76c",
+        "order": 0
+      },
+      {
+        "id": 438,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/nfi2o4tsirdyrufdts7j",
+        "order": 0
+      },
+      {
+        "id": 439,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/cht74ccdkrihgwr9faxb",
+        "order": 0
+      }
+    ],
+    "purpose_category": [5],
+    "type_category": 7,
+    "is_new": false,
+    "is_best_seller": true,
+    "ingredients": "Aqua, Niacinamide, Glycerin, Sodium Metabisulfite, Glycine, Larix Europaea Wood Extract, Zinc Chloride, Camellia Sinensis Leaf Extract, Sodium PCA, Sodium Lactate, Arginine, Aspartic Acid, PCA, Glycine, Alanine, Serine, Valine, Proline, Threonine, Isoleucine, Histidine, Phenylalanine, PEG-7 Glyceryl Cocoate, Ammonium Acryloyl Dimethyltaurate/Carboxyethyl Acrylate Crosspolymer, Parfum, Lactic Acid, Benzyl Alcohol, Phenoxyethanol, Ethylhexylglycerin.",
+    "reviews": [
+      {
+        "id": 10,
+        "rating": 5,
+        "product_name": "Сироватка проти випадіння та для росту волосся",
+        "review_text": "Ця сироватка дійсно працює! У мене була проблема з випадінням волосся, і я перепробувала багато засобів, але саме цей став справжнім відкриттям. Сироватка легко наноситься, не залишає липкості і має приємний запах. Після місяця використання я помітила значне зменшення кількості волосся, що випадає, а також з’явилися нові волосинки. Ще однією перевагою є те, що волосся стало виглядати густішим і сильнішим. Я також застосовую масаж голови під час нанесення, що, мабуть, підсилює ефект. Абсолютно задоволена результатом і буду продовжувати використовувати.",
+        "user_name": "Юлія",
+        "date": "2024-12-01",
+        "is_approved": true,
+        "product_id": 17,
+        "stars": [true, true, true, true, true]
+      },
+      {
+        "id": 11,
+        "rating": 1,
+        "product_name": "Сироватка проти випадіння та для росту волосся",
+        "review_text": "не допомогло, а навпаки волося почало випадати ще сильніше",
+        "user_name": "Анонім",
+        "date": "2024-12-01",
+        "is_approved": true,
+        "product_id": 17,
+        "stars": [true, false, false, false, false]
+      }
+    ],
+    "average_rating": 3,
+    "name": "Сироватка проти випадіння та для росту волосся",
+    "description": "Містить інноваційний комплекс Redensyl, який запобігає випадіння волосся та\r\nстимулює його ріст. Аміно кислоти і ніацинамід покращують кровообіг шкіри голови,\r\nзміцнюють коріння волосся та забезпечують необхідне зволоження. Засіб інтенсивно\r\nживить та відновлює функції волосяних цибулин, подовжує їх життєвий цикл.",
+    "application": "Прокрутити носик аплікатора до появи отвору, нанести сироватку на\r\nсуху або злегка вологу шкіру голови. Втерти легкими масажними рухами. Не змивати!\r\nНаносити щодня протягом трьох місяців. Для профілактики – один раз на тиждень.",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 23,
+    "article": "set1",
+    "available": false,
+    "price": 1574,
+    "discount": 10,
+    "is_discount": true,
+    "price_with_discount": 1417,
+    "volume_ml": 300,
+    "images": [
+      {
+        "id": 442,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/sgyvpy0rft7uscbpimg0",
+        "order": 0
+      }
+    ],
+    "purpose_category": [1],
+    "type_category": 8,
+    "is_new": true,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Cyclopentasiloxane, Dimethiconol, Amodimethicone, PEG-40 Hydrogenated Castor Oil, PEG-7 Glyceryl Cocoate, Saccharomyces/Zinc Ferment, Saccharomyces/Copper Ferment, Saccharomyces/Magnesium Ferment, Saccharomyces/ Iron Ferment, Saccharomyces/Silicon Ferment, Helianthus Annuus Seed Oil, Lycium Barbarum Fruit Extract, Quaternium-80, Hydrolyzed Keratin, Silicone Quaternium-18, Linoleic Acid, Linolenic Acid, Polyquaternium-16, Cetrimonium Chloride, Parfum, Lactic Acid, Trideceth-6, Trideceth-12, Benzyl Alcohol, Phenoxyethanol, Ethylhexylglycerin, CI 42090,",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Набір1",
+    "description": "Набір1",
+    "application": "Набір1",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  },
+  {
+    "id": 24,
+    "article": "set2",
+    "available": false,
+    "price": 1574,
+    "discount": 10,
+    "is_discount": true,
+    "price_with_discount": 1417,
+    "volume_ml": 300,
+    "images": [
+      {
+        "id": 443,
+        "image": "https://res.cloudinary.com/ds0ib7qvu/image/upload/jf26msbn5wzhli8dkbpj",
+        "order": 0
+      }
+    ],
+    "purpose_category": [2],
+    "type_category": 8,
+    "is_new": false,
+    "is_best_seller": false,
+    "ingredients": "Aqua, Cyclopentasiloxane, Dimethiconol, Amodimethicone, PEG-40 Hydrogenated Castor Oil, PEG-7 Glyceryl Cocoate, Saccharomyces/Zinc Ferment, Saccharomyces/Copper Ferment, Saccharomyces/Magnesium Ferment, Saccharomyces/ Iron Ferment, Saccharomyces/Silicon Ferment, Helianthus Annuus Seed Oil, Lycium Barbarum Fruit Extract, Quaternium-80, Hydrolyzed Keratin, Silicone Quaternium-18, Linoleic Acid, Linolenic Acid, Polyquaternium-16, Cetrimonium Chloride, Parfum, Lactic Acid, Trideceth-6, Trideceth-12, Benzyl Alcohol, Phenoxyethanol, Ethylhexylglycerin, CI 42090,",
+    "reviews": [],
+    "average_rating": 0,
+    "name": "Набір2",
+    "description": "Набір2",
+    "application": "Набір2",
+    "meta_tag_title": "Meta tag UK",
+    "meta_tag_description": "Meta tag description UK"
+  }
+]

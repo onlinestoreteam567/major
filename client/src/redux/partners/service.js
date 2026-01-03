@@ -1,12 +1,14 @@
 import apiClient from '@config/api/apiClient';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import partnersList from '@backend/partners.json';
 
 const PARTNERS_ENDPOINT = import.meta.env.VITE_PARTNERS_ENDPOINT;
 
 export const fetchPartners = createAsyncThunk('partners/getPartners', async (_, thunkAPI) => {
   try {
-    const { data } = await apiClient.get(PARTNERS_ENDPOINT);
-    return data;
+    return partnersList;
+    // const { data } = await apiClient.get(PARTNERS_ENDPOINT);
+    // return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }

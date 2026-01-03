@@ -1,12 +1,14 @@
 import apiClient from '@config/api/apiClient';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import bannerList from '@backend/banner_products.json';
 
 const BANNER_ENDPOINT = import.meta.env.VITE_BANNER_ENDPOINT;
 
 export const fetchBanner = createAsyncThunk('banner/getBanner', async (id, thunkAPI) => {
   try {
-    const { data } = await apiClient.get(BANNER_ENDPOINT);
-    return data;
+    return bannerList;
+    // const { data } = await apiClient.get(BANNER_ENDPOINT);
+    // return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }

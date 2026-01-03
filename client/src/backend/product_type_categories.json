@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "product_count": 3,
+    "name": "Олійка"
+  },
+  {
+    "id": 2,
+    "product_count": 3,
+    "name": "Кондиціонер"
+  },
+  {
+    "id": 3,
+    "product_count": 8,
+    "name": "Шампунь"
+  },
+  {
+    "id": 4,
+    "product_count": 2,
+    "name": "Бальзам"
+  },
+  {
+    "id": 5,
+    "product_count": 2,
+    "name": "Маска"
+  },
+  {
+    "id": 6,
+    "product_count": 3,
+    "name": "Крем"
+  },
+  {
+    "id": 7,
+    "product_count": 1,
+    "name": "Сироватка"
+  },
+  {
+    "id": 8,
+    "product_count": 5,
+    "name": "Набори"
+  }
+]

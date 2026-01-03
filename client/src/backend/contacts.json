@@ -1,0 +1,16 @@
+[
+  {
+    "id": 4,
+    "telegram": "@major",
+    "instagram": "major",
+    "email": "major@example.com",
+    "main_phone_number": "+380975247856",
+    "additional_phone_number": "+380632487541",
+    "work_schedule_weekdays": "08:00-20:00",
+    "work_schedule_weekends": "10:00-15-00",
+    "offer_agreement_policy": "https://major.in.ua/",
+    "exchange_and_return_policy": "https://major.in.ua/",
+    "paymant_and_delivery_policy": "https://major.in.ua/",
+    "current_year": 2026
+  }
+]

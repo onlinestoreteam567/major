@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "work_schedule_weekdays": "09 - 21",
+    "work_schedule_weekends": "10 - 15",
+    "google_maps_link": "https://www.google.com/maps/place/95-001+%D0%92%D0%BE%D0%BB%D0%B8%D0%BD%D1%8C/@51.892819,19.4633494,15z/data=!3m1!4b1!4m6!3m5!1s0x471bb62ca70bd983:0x1181e70c23211f0b!8m2!3d51.8928199!4d19.4736491!16s%2Fm%2F04jmm8j?entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D",
+    "longitude": "51.86",
+    "latitude": "19.46",
+    "name": "Тест",
+    "addres": "Бандери 17"
+  }
+]
