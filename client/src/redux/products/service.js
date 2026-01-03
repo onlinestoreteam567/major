@@ -46,13 +46,11 @@ export const fetchProductsAll = createAsyncThunk('products/getAll', async (_, th
 
 export const getProductsByTypes = createAsyncThunk('products/getByTypes', async (ids, thunkAPI) => {
   try {
-    const typeParam = Array.isArray(ids) && ids.length > 1 ? ids.map((id) => `type=${id}`).join('&') : `type=${ids}`;
-    const productByType = productList.filter((product) => product.type_category === typeParam);
-    return productByType;
-
-    // const { data } = await apiClient.get(`${PRODUCT_LIST_ENDPOINT}/?${typeParam}`);
-    // return data;
+    const typeIds = Array.isArray(ids) ? ids.map(Number) : [Number(ids)];
+    const productsByTypes = productList.filter((product) => typeIds.includes(product.type_category));
+    return productsByTypes;
   } catch (error) {
+    console.error('Помилка при фільтрації за типами:', error);
     return thunkAPI.rejectWithValue(error.message);
   }
 });
